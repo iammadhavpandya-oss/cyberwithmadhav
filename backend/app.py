@@ -23,7 +23,8 @@ ALLOWED_ORIGINS = {
     o.strip().rstrip("/")
     for o in os.environ.get(
         "CWM_ALLOWED_ORIGINS",
-        "http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500",
+        "http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500,"
+        "https://iammadhavpandya-oss.github.io",
     ).split(",")
     if o.strip()
 }
@@ -32,6 +33,7 @@ RATE_WINDOW = int(os.environ.get("CWM_RATE_WINDOW", "600"))      # ... per N sec
 TRUST_PROXY = os.environ.get("CWM_TRUST_PROXY", "0") == "1"      # set to 1 only behind a reverse proxy
 
 EMAIL_RE = re.compile(r"^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$")
+URL_RE = re.compile(r"(?:https?://|www\.)", re.IGNORECASE)
 CTRL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 
 app = Flask(__name__)
@@ -84,19 +86,36 @@ def init_db() -> None:
 # ---------------------------------------------------------------- rate limiting (in-memory, single process)
 _hits: dict[tuple[str, str], deque] = defaultdict(deque)
 _lock = threading.Lock()
+_last_sweep = 0.0
+MAX_BUCKETS = 10_000  # hard cap so a flood of spoofed IPs cannot grow memory without bound
 
 
-def rate_limited(key: str) -> bool:
+def _sweep(now: float) -> None:
+    """Drop buckets whose newest hit is outside the window (called under _lock)."""
+    global _last_sweep
+    if now - _last_sweep < 60 and len(_hits) < MAX_BUCKETS:
+        return
+    _last_sweep = now
+    for k in [k for k, q in _hits.items() if not q or now - q[-1] > RATE_WINDOW]:
+        del _hits[k]
+    if len(_hits) >= MAX_BUCKETS:  # still full: drop the oldest half
+        for k in sorted(_hits, key=lambda k: _hits[k][-1])[: len(_hits) // 2]:
+            del _hits[k]
+
+
+def rate_limited(key: str) -> int:
+    """Return 0 if allowed, else the number of seconds until the next request is allowed."""
     now = time.monotonic()
     bucket_key = (request.remote_addr or "unknown", key)
     with _lock:
+        _sweep(now)
         q = _hits[bucket_key]
         while q and now - q[0] > RATE_WINDOW:
             q.popleft()
         if len(q) >= RATE_LIMIT:
-            return True
+            return max(1, int(RATE_WINDOW - (now - q[0])) + 1)
         q.append(now)
-        return False
+        return 0
 
 
 # ---------------------------------------------------------------- CORS + headers
@@ -113,11 +132,24 @@ def add_headers(resp):
     resp.headers["X-Frame-Options"] = "DENY"
     resp.headers["Referrer-Policy"] = "no-referrer"
     resp.headers["Cache-Control"] = "no-store"
+    resp.headers["Content-Security-Policy"] = "default-src 'none'; frame-ancestors 'none'"
+    resp.headers["Permissions-Policy"] = "interest-cohort=()"
+    resp.headers["Cross-Origin-Resource-Policy"] = "same-site"
     return resp
 
 
-def error(msg: str, code: int = 400):
-    return jsonify(ok=False, error=msg), code
+def error(msg: str, code: int = 400, field: str | None = None):
+    body = {"ok": False, "error": msg}
+    if field:
+        body["field"] = field  # lets the frontend highlight the right input
+    return jsonify(body), code
+
+
+def too_many(retry_after: int):
+    resp = jsonify(ok=False, error="Too many requests. Please try again later.")
+    resp.status_code = 429
+    resp.headers["Retry-After"] = str(retry_after)
+    return resp
 
 
 @app.errorhandler(413)
@@ -154,7 +186,10 @@ def clean(value, max_len: int) -> str:
 
 
 def valid_email(email: str) -> bool:
-    return 3 <= len(email) <= 254 and bool(EMAIL_RE.match(email))
+    if not (3 <= len(email) <= 254) or not EMAIL_RE.match(email):
+        return False
+    local = email.rsplit("@", 1)[0]
+    return len(local) <= 64 and ".." not in email and not local.startswith(".") and not local.endswith(".")
 
 
 # ---------------------------------------------------------------- routes
@@ -170,14 +205,15 @@ def subscribe():
     data, err = read_json()
     if err:
         return err
-    if rate_limited("subscribe"):
-        return error("Too many requests. Please try again later.", 429)
+    wait = rate_limited("subscribe")
+    if wait:
+        return too_many(wait)
     # Honeypot: humans never see the 'website' field. Pretend success, store nothing.
     if clean(data.get("website"), 200):
         return jsonify(ok=True, message="Thanks for subscribing!"), 200
     email = clean(data.get("email"), 254).lower()
     if not valid_email(email):
-        return error("Please enter a valid email address.")
+        return error("Please enter a valid email address.", field="email")
     db = get_db()
     try:
         db.execute("INSERT INTO subscribers (email, ip) VALUES (?, ?)", (email, request.remote_addr))
@@ -195,19 +231,24 @@ def contact():
     data, err = read_json()
     if err:
         return err
-    if rate_limited("contact"):
-        return error("Too many requests. Please try again later.", 429)
+    wait = rate_limited("contact")
+    if wait:
+        return too_many(wait)
     if clean(data.get("website"), 200):
         return jsonify(ok=True, message="Thanks! Your message has been received."), 200
     name = clean(data.get("name"), 80)
     email = clean(data.get("email"), 254).lower()
     message = clean(data.get("message"), 2000)
     if not (1 <= len(name) <= 80):
-        return error("Name is required (max 80 characters).")
+        return error("Name is required (max 80 characters).", field="name")
+    if URL_RE.search(name):
+        return error("Please enter just your name, without links.", field="name")
     if not valid_email(email):
-        return error("Please enter a valid email address.")
+        return error("Please enter a valid email address.", field="email")
     if not (10 <= len(message) <= 2000):
-        return error("Message must be 10–2000 characters.")
+        return error("Message must be 10 to 2000 characters.", field="message")
+    if len(URL_RE.findall(message)) > 3:
+        return error("Please include at most 3 links.", field="message")
     db = get_db()
     db.execute("INSERT INTO messages (name, email, message, ip) VALUES (?, ?, ?, ?)",
                (name, email, message, request.remote_addr))

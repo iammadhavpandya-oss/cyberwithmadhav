@@ -7,6 +7,7 @@
   <meta name="description" content="CyberWithMadhav by Madhav Pandya: cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets, browser-only security tools and scam alerts, made for India.">
   <meta name="author" content="Madhav Pandya">
   <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
   <!-- TODO: replace https://cyberwithmadhav.example with the real domain after deploying -->
   <link rel="canonical" href="https://cyberwithmadhav.example/">
   <meta property="og:type" content="website">
@@ -19,20 +20,26 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CyberWithMadhav">
   <meta name="twitter:description" content="Cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets and scam alerts, made for India.">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
   <link rel="stylesheet" href="assets/css/style.css">
-  <script>
-    (function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t)document.documentElement.setAttribute('data-theme',t);if(sessionStorage.getItem('cwm-banner')==='hidden')document.documentElement.classList.add('no-banner');}catch(e){}})();
-  </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Madhav Pandya","jobTitle":"IT Support Engineer","description":"IT engineer who studies law, explaining cybersecurity in Hinglish.","address":{"@type":"PostalAddress","addressLocality":"Vasai","addressRegion":"Maharashtra","addressCountry":"IN"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/madhav-pandya-55b809364"]}
   </script>
 </head>
-<body>
+<body class="v3">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
   <a class="skip" href="#main">Skip to content</a>
   <div class="alert-bar" id="alert-bar" role="region" aria-label="Cyber fraud helpline">
     <div class="wrap alert-inner">
@@ -60,7 +67,15 @@
         <a href="#awareness">Stay safe</a>
         <a href="#about">About</a>
         <button class="pal-btn" type="button" id="palette-open" title="Search everything (Ctrl+K)"><span aria-hidden="true">⌘K</span><span class="sr-only">Open command palette (Ctrl+K)</span></button>
-        <button class="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -334,6 +349,10 @@
     </div>
   </footer>
 
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <p class="sr-only" id="sr-live" aria-live="polite"></p>
   <dialog class="palette" id="palette" aria-label="Command palette">
@@ -344,6 +363,7 @@
     <ul id="pal-list" role="listbox" aria-label="Results"></ul>
     <p class="pal-foot mono">↑↓ move · Enter open · Esc close</p>
   </dialog>
+  <script src="assets/js/space.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

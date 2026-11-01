@@ -14,6 +14,7 @@ async function stubGitHub(p) {
   });
 }
 const page = await browser.newPage();
+await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
 await stubGitHub(page);
 await browser.defaultBrowserContext().overridePermissions(new globalThis.URL(URL).origin, ['clipboard-read','clipboard-write','clipboard-sanitized-write']);
 page.on('console', m => { if (['error','warning'].includes(m.type())) errors.push(`${m.type()}: ${m.text()}`); });
@@ -236,9 +237,39 @@ ok('newsletter client validation', (await page.$eval('#newsletter-form .form-sta
 await page.$eval('#nl-email', el => el.value = ''); await page.$$eval('.form-status', s => s.forEach(x => { x.textContent=''; x.className='form-status small'; }));
 
 // theme toggle
-await page.click('.theme-toggle');
+await page.click('.theme-toggle'); await sleep(800);
 ok('theme toggle → light', await page.evaluate(() => document.documentElement.dataset.theme) === 'light');
-await page.click('.theme-toggle');
+const lightC = await page.evaluate(() => {
+  const rgb = (c) => c.match(/\d+(\.\d+)?/g).slice(0, 3).map(Number);
+  const L = (c) => { const v = rgb(c).map(x => { x /= 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
+  const cr = (a, b) => { const [x, y] = [L(a), L(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+  const bg = getComputedStyle(document.documentElement).backgroundColor;
+  const pick = s => getComputedStyle(document.querySelector(s)).color;
+  return Object.fromEntries(['.lead', '.kicker', '.cmd code', '.tag', '#nav-links a', '.job .sum', '.more', '#vars-reset'].map(s => [s, +cr(pick(s), bg).toFixed(2)]));
+});
+ok('v3 light theme: text passes WCAG AA (>= 4.5:1)', Object.values(lightC).every(v => v >= 4.5), JSON.stringify(lightC));
+ok('v3 theme saved to localStorage', await page.evaluate(() => localStorage.getItem('cwm-theme')) === 'light');
+await page.reload({ waitUntil: 'networkidle0' }); await page.waitForSelector('.sheet');
+ok('v3 saved theme survives reload (no flash: set before CSS paints)', await page.evaluate(() => document.documentElement.dataset.theme) === 'light');
+await page.evaluate(() => document.querySelectorAll('.reveal').forEach(e => e.classList.add('in')));
+await sleep(600); await page.evaluate(() => { document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 0); }); await sleep(900);
+await page.evaluate(() => window.scrollTo(0, 0)); await sleep(400);
+await page.screenshot({ path: `${OUT}/v3-light.png` });
+await page.click('.theme-toggle'); await sleep(800);
+ok('theme toggle → back to dark', await page.evaluate(() => document.documentElement.dataset.theme) === 'dark');
+// v3 space + glass checks
+const v3 = await page.evaluate(() => ({ canvas: !!document.querySelector('#starfield') && document.querySelector('#starfield').width > 0,
+  glass: getComputedStyle(document.querySelector('.card')).backdropFilter, navGlass: getComputedStyle(document.querySelector('.nav')).backdropFilter,
+  marker: document.querySelector('meta[name="cwm-version"]').content }));
+ok('v3 starfield canvas + frosted glass cards/nav', v3.canvas && /blur/.test(v3.glass) && /blur/.test(v3.navGlass) && v3.marker === '3', JSON.stringify(v3));
+await page.evaluate(() => { window.scrollTo(0, 3000); }); await sleep(500);
+ok('v3 back-to-top appears after scrolling + glass nav state', await page.evaluate(() => !document.querySelector('#to-top').hidden && document.querySelector('.nav').classList.contains('scrolled')));
+await page.click('#to-top'); await sleep(1500);
+ok('v3 back-to-top returns to top', await page.evaluate(() => window.scrollY) < 5);
+await page.click('#nav-links a[href="#careers"]'); await sleep(1500);
+const warp = await page.evaluate(() => ({ y: document.querySelector('#careers').getBoundingClientRect().top, hash: location.hash, active: document.querySelector('#nav-links a.active')?.getAttribute('href') }));
+ok('v3 nav warp jump lands on section, updates hash + active link', Math.abs(warp.y) < 90 && warp.hash === '#careers' && warp.active === '#careers', JSON.stringify(warp));
+await page.evaluate(() => { history.replaceState(null, '', location.pathname); window.scrollTo(0, 0); });
 
 // meta
 const meta = await page.evaluate(() => ({ og: !!document.querySelector('meta[property="og:title"]'), desc: !!document.querySelector('meta[name="description"]'), h1: document.querySelectorAll('h1').length, icon: document.querySelector('link[rel=icon]').href, lang: document.documentElement.lang }));
@@ -251,6 +282,7 @@ await page.evaluate(() => document.querySelectorAll('.project .stars').forEach(s
 await page.evaluate(() => document.querySelectorAll('.reveal').forEach(e => e.classList.add('in')));
 await page.evaluate(() => { document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 0); }); await new Promise(r => setTimeout(r, 700));
 await page.screenshot({ path: `${OUT}/desktop.png`, fullPage: true });
+await page.screenshot({ path: `${OUT}/v3-dark.png` });
 async function crop(sel, file, maxH = 1400) {
   const el = await page.$(sel); const b = await el.boundingBox();
   const y = b.y + (await page.evaluate(() => window.scrollY));
@@ -260,6 +292,7 @@ await crop('.hero', 'hero.png'); await crop('#cheatsheets', 'cheatsheets.png', 1
 await crop('#tools', 'tools.png', 1500);
 
 const m = await browser.newPage();
+await m.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
 await stubGitHub(m);
 const mErr = [];
 m.on('console', x => { if (['error','warning'].includes(x.type())) mErr.push(x.text()); }); m.on('pageerror', e => mErr.push(e.message));
@@ -283,6 +316,7 @@ ok('banner dismisses for this visit', await m.$eval('#alert-bar', b => getComput
 await m.reload({ waitUntil: 'networkidle0' });
 ok('banner stays hidden after reload in same session', await m.$eval('#alert-bar', b => getComputedStyle(b).display === 'none'));
 const ms = await browser.newPage();
+await ms.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
 await stubGitHub(ms);
 await ms.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
 await ms.goto(URL, { waitUntil: 'networkidle0' }); await ms.waitForSelector('.sheet');
@@ -290,11 +324,15 @@ await ms.evaluate(() => document.querySelectorAll('.reveal').forEach(e => e.clas
 await new Promise(r => setTimeout(r, 800));
 await ms.screenshot({ path: `${OUT}/mobile-hero.png` });
 await ms.screenshot({ path: `${OUT}/mobile.png`, fullPage: true });
+await ms.screenshot({ path: `${OUT}/v3-mobile.png` });
+await ms.click('.nav-toggle'); await sleep(500);
+await ms.screenshot({ path: `${OUT}/v3-mobile-menu.png` });
+ok('v3 mobile: Esc closes menu', await (async () => { await ms.keyboard.press('Escape'); await sleep(300); return !(await ms.$eval('#nav-links', n => n.classList.contains('open'))); })());
 ok('mobile: no console errors', mErr.length === 0, mErr.join(' | '));
 
 // reduced motion
 const rm = await browser.newPage();
-await rm.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+await rm.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }, { name: 'prefers-color-scheme', value: 'dark' }]);
 await stubGitHub(rm);
 await rm.goto(URL, { waitUntil: 'networkidle0' }); await rm.waitForSelector('.sheet');
 ok('reduced motion: content visible without animation', await rm.$eval('#jobs .job', e => getComputedStyle(e).opacity === '1'));

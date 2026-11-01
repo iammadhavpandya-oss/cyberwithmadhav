@@ -15,7 +15,14 @@
   let io = null;
   if (!reduced && 'IntersectionObserver' in window) {
     io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      // v3: stagger items that enter together so grids cascade in.
+      let n = 0;
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.style.setProperty('--rd', Math.min(n++, 6) * 70 + 'ms');
+        e.target.classList.add('in'); io.unobserve(e.target);
+        const t = e.target; setTimeout(() => t.style.removeProperty('--rd'), 1300);
+      });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
   }
   function observe(root = document) {
@@ -80,13 +87,7 @@
     links.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
   }
 
-  $('.theme-toggle').addEventListener('click', () => {
-    const cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', cur);
-    try { localStorage.setItem('cwm-theme', cur); } catch (e) {}
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = cur === 'light' ? '#FAF9FD' : '#0D0B14';
-  });
+  // Theme toggle, starfield, warp jumps and back-to-top live in space.js (v3).
   $('#year').textContent = new Date().getFullYear();
 
   /* ---------- data loading ---------- */
@@ -684,6 +685,7 @@
   let palRes = [], palIdx = 0;
   const scrollTo = (sel, focusSel) => () => {
     const el = $(sel); if (!el) return;
+    if (window.cwmSpace) window.cwmSpace.warp(el);
     el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
     if (focusSel) setTimeout(() => { const f = $(focusSel); if (f) f.focus({ preventScroll: true }); }, reduced ? 0 : 400);
   };
@@ -767,7 +769,13 @@
       try {
         const r = await fetch(API + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
         const j = await r.json().catch(() => ({}));
-        if (!r.ok) throw new Error(j.error || `Request failed (${r.status})`);
+        if (!r.ok) {
+          // v3: the backend names the bad field; mark it for assistive tech and focus it.
+          const bad = j.field && form.elements[j.field];
+          if (bad) { bad.setAttribute('aria-invalid', 'true'); bad.focus(); bad.addEventListener('input', () => bad.removeAttribute('aria-invalid'), { once: true }); }
+          if (r.status === 429 && r.headers.get('Retry-After')) throw new Error(`Too many tries. Please wait about ${Math.ceil(Number(r.headers.get('Retry-After')) / 60)} min and try again.`);
+          throw new Error(j.error || `Request failed (${r.status})`);
+        }
         status.textContent = j.message || 'Done!'; status.classList.add('ok'); form.reset();
       } catch (ex) {
         status.textContent = ex.message === 'Failed to fetch' ? 'Could not reach the server. Please try again later or email madhavpandya@zoho.in.' : ex.message;
