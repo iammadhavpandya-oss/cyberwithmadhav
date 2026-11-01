@@ -1,0 +1,139 @@
+/* CyberWithMadhav Terminal Wargame. Green on black terminal in a glass frame, with a day mode. */
+.wg-page{
+  --term-bg:#05080a; --term-fg:#4ADE80; --term-dim:#5f8f72; --term-hi:#B79CFF; --term-err:#F87171; --term-ok:#86efac;
+  --term-ps:#22C55E; --term-caret:#4ADE80; --term-glow:0 0 6px rgba(74,222,128,.35);
+}
+[data-theme="light"] .wg-page,[data-theme="light"].wg-page,[data-theme="light"] body.wg-page{
+  --term-bg:#f4fbf3; --term-fg:#14532d; --term-dim:#4b6b57; --term-hi:#6D28D9; --term-err:#b91c1c; --term-ok:#15803d;
+  --term-ps:#15803d; --term-caret:#15803d; --term-glow:none;
+}
+.wg-page .glass{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);
+  backdrop-filter:blur(var(--blur)) saturate(140%);-webkit-backdrop-filter:blur(var(--blur)) saturate(140%);box-shadow:var(--shadow),inset 0 1px 0 var(--glass-hi)}
+
+/* hero */
+.wg-hero{padding:clamp(40px,7vw,84px) 0 clamp(14px,2vw,24px);position:relative}
+.wg-hero h1{font:700 clamp(2.1rem,5.4vw,3.4rem)/1.08 var(--font-head);margin:0 0 6px;letter-spacing:-.02em;
+  background:linear-gradient(100deg,var(--text) 10%,var(--green-2) 60%,var(--purple-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wg-hero .lead{margin:14px 0 8px;max-width:68ch}
+
+/* layout */
+.wg-app{display:grid;grid-template-columns:270px minmax(0,1fr);gap:20px;align-items:start;padding-bottom:28px;position:relative}
+.wg-main{display:grid;gap:16px;min-width:0}
+
+/* sidebar */
+.wg-side{padding:16px;position:sticky;top:84px;max-height:calc(100vh - 100px);display:flex;flex-direction:column}
+.wg-side-head{display:flex;justify-content:space-between;align-items:center}
+.wg-side-head h2{margin:0}
+.wg-progress{height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden;margin:10px 0 8px}
+.wg-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--purple));transition:width .6s var(--ease)}
+.wg-scoreline{margin:0 0 10px}
+.wg-scoreline b{color:var(--green-2)}
+.wg-levels{list-style:none;margin:0;padding:0 4px 0 0;overflow:auto;flex:1;display:grid;gap:4px;scrollbar-width:thin}
+.wg-lvl{width:100%;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;text-align:left;padding:7px 10px;border-radius:10px;
+  background:transparent;border:1px solid transparent;color:var(--text);font:500 .88rem var(--font);cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s var(--ease)}
+.wg-lvl:hover:not(:disabled){background:var(--glass-soft);border-color:var(--glass-border);transform:translateX(2px)}
+.wg-lvl:focus-visible{outline:2px solid var(--purple-2);outline-offset:1px}
+.wg-lvl[aria-current="true"]{background:color-mix(in srgb,var(--purple) 20%,transparent);border-color:color-mix(in srgb,var(--purple) 55%,transparent)}
+.wg-lvl:disabled{opacity:.45;cursor:not-allowed}
+.wg-lvl-n{font-size:.78rem;color:var(--muted);background:var(--surface-2);border-radius:6px;padding:1px 6px}
+.wg-lvl-t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wg-lvl-s{font-size:.8rem;color:var(--muted)}
+.wg-lvl[data-state="done"] .wg-lvl-s,.wg-lvl[data-state="done"] .wg-lvl-n{color:var(--green-2)}
+.wg-side-foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+/* level brief */
+.wg-brief{padding:18px 20px}
+.wg-brief .kicker{margin-bottom:4px}
+.wg-lvl-title{font-size:clamp(1.3rem,2.6vw,1.7rem);margin:0 0 8px}
+.wg-goal{margin:0 0 8px;font-size:1.02rem}
+.wg-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.wg-actions a.chip{text-decoration:none;display:inline-flex;align-items:center}
+.wg-hint{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1px dashed color-mix(in srgb,var(--amber) 55%,transparent);background:color-mix(in srgb,var(--amber) 8%,transparent)}
+.wg-hint::before{content:"Hint: ";font-weight:600;color:var(--amber)}
+
+/* terminal */
+.wg-term{border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);background:var(--glass-strong);
+  box-shadow:var(--shadow),0 0 0 1px rgba(74,222,128,.05),0 24px 60px -30px var(--glow-g);backdrop-filter:blur(var(--blur));-webkit-backdrop-filter:blur(var(--blur))}
+.wg-bar{display:flex;align-items:center;gap:12px;padding:9px 14px;border-bottom:1px solid var(--glass-border);background:var(--glass-soft)}
+.wg-dots{display:flex;gap:6px}
+.wg-dots i{width:11px;height:11px;border-radius:50%;background:#F87171}
+.wg-dots i:nth-child(2){background:#FBBF24}.wg-dots i:nth-child(3){background:#22C55E}
+.wg-title{flex:1;text-align:center;font-size:.8rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wg-day{background:transparent;border:1px solid var(--glass-border);color:var(--muted);border-radius:8px;width:30px;height:26px;display:grid;place-items:center;cursor:pointer}
+.wg-day:hover{color:var(--text)}
+.wg-screen{background:var(--term-bg);color:var(--term-fg);font:400 14px/1.55 var(--mono);padding:14px 16px 18px;height:clamp(340px,52vh,560px);overflow:auto;cursor:text;
+  text-shadow:var(--term-glow);scrollbar-width:thin;scrollbar-color:var(--term-dim) transparent;position:relative}
+.wg-screen::after{content:"";position:sticky;display:block;bottom:-18px;height:0;pointer-events:none}
+html:not([data-theme="light"]) .wg-screen{background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px),radial-gradient(120% 90% at 50% 0%,rgba(34,197,94,.07),transparent 60%)}
+.wg-output{margin:0;font:inherit;white-space:pre-wrap;word-break:break-word;color:inherit;background:none}
+.wg-ps{color:var(--term-ps);font-weight:500;white-space:nowrap}
+.wg-dim{color:var(--term-dim)}
+.wg-hi{color:var(--term-hi);font-weight:500}
+.wg-err{color:var(--term-err)}
+.wg-ok{color:var(--term-ok);font-weight:500}
+.wg-inputline{display:flex;gap:.6ch;align-items:baseline}
+.wg-page [hidden]{display:none!important}
+.wg-screen .wg-input,.wg-screen .wg-input:focus{border:0;border-radius:0;box-shadow:none;background:transparent;width:auto}
+.wg-input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--term-fg);font:inherit;padding:0;caret-color:var(--term-caret);text-shadow:inherit;caret-shape:block}
+.wg-keys{display:none;gap:6px;padding:8px 10px;overflow-x:auto;background:var(--glass-soft);border-top:1px solid var(--glass-border);scrollbar-width:none}
+.wg-keys button{flex:none;min-width:40px;height:36px;padding:0 10px;border-radius:8px;border:1px solid var(--glass-border);background:var(--surface-2);color:var(--text);font:500 .9rem var(--mono);cursor:pointer}
+.wg-keys button:active{transform:scale(.94)}
+.wg-keys .wg-enter{background:var(--green);color:#04120a;border-color:transparent;font-weight:600}
+
+/* password form */
+.wg-pass{padding:14px 18px}
+.wg-pass label{font-weight:600;display:block;margin-bottom:8px}
+.wg-pass-row{display:flex;gap:10px}
+.wg-pass input{flex:1;min-width:0;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.95rem}
+.wg-pass input:focus{outline:2px solid var(--green);outline-offset:1px}
+.wg-pass-msg{margin:8px 0 0;min-height:1.4em}
+.wg-pass-msg.bad{color:var(--danger)}
+.wg-pass-msg.good{color:var(--green-2)}
+.wg-pass.shake{animation:wg-shake .4s}
+@keyframes wg-shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+
+/* about */
+.wg-about{padding-top:12px}
+.wg-how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;list-style:none;padding:0;margin:0 0 12px}
+.wg-how li{padding:14px 16px;border-radius:12px;border:1px solid var(--glass-border);background:var(--glass-soft);font-size:.92rem}
+.wg-how b{display:block;color:var(--green-2);margin-bottom:2px}
+
+/* toast */
+.wg-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,24px);opacity:0;z-index:90;max-width:min(92vw,520px);
+  padding:12px 18px 12px 44px;border-radius:14px;background:var(--glass-strong);border:1px solid color-mix(in srgb,var(--green) 55%,transparent);
+  color:var(--text);box-shadow:var(--shadow),0 0 30px -8px var(--glow-g);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:opacity .3s,transform .35s var(--ease);font-weight:500}
+.wg-toast::before{content:"\2713";position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:var(--green);color:#04120a;display:grid;place-items:center;font-size:.75rem;font-weight:700}
+.wg-toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* completion */
+.wg-done{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:20px;background:rgba(5,4,10,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.wg-done[hidden]{display:none}
+.wg-done-card{width:min(560px,100%);max-height:90vh;overflow:auto;padding:26px;text-align:center;background:var(--glass-strong)}
+.wg-done-card h2{font-size:clamp(1.7rem,4vw,2.3rem);margin:4px 0 6px;color:var(--green-2)}
+.wg-done-rank{color:var(--muted)}
+.wg-done-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.wg-done-stats div{padding:12px;border-radius:12px;background:var(--glass-soft);border:1px solid var(--glass-border)}
+.wg-done-stats dt{font-size:.78rem;color:var(--muted)}
+.wg-done-stats dd{margin:2px 0 0;font-size:1.25rem;font-weight:600}
+.wg-done-concepts{text-align:left;margin:0 0 18px}
+.wg-done-concepts summary{cursor:pointer;font-weight:600}
+.wg-done-concepts ol{font-size:.9rem;padding-left:22px}
+.wg-done .wg-actions{justify-content:center}
+
+/* phones and tablets */
+@media (max-width:900px){
+  .wg-app{grid-template-columns:minmax(0,1fr);gap:14px}
+  .wg-side,.wg-main{min-width:0}
+  .wg-side{position:static;max-height:none;padding:12px}
+  .wg-levels{grid-auto-flow:column;grid-auto-columns:minmax(150px,auto);overflow-x:auto;padding:2px 0 6px}
+  .wg-lvl{white-space:nowrap}
+  .wg-keys{display:flex}
+}
+@media (max-width:560px){
+  .wg-screen{font-size:13px;height:58vh;padding:10px 12px 14px}
+  .wg-brief,.wg-pass{padding:14px}
+  .wg-pass-row{flex-direction:column}
+  .wg-done-stats{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .wg-input{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){.wg-toast,.wg-lvl,.wg-progress span{transition:none}.wg-pass.shake{animation:none}}
