@@ -4,7 +4,7 @@ const OUT = '/workspace/cwm-site/docs';
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 
 // Consent gate: pre-accept for these suites (the gate itself is covered by test_consent.mjs).
-{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 1, at: 'test' })); } catch (e) {} }); return p; }; }
+{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 2, at: 'test' })); } catch (e) {} }); return p; }; }
 const results = []; const ok = (name, cond, extra='') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  | ' + extra : ''}`); };
 const errors = [];
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -227,17 +227,17 @@ ok('law callout: IT Act, DPDP 2023, GRC', /IT Act/.test(ab.law) && /DPDP\)? Act,
 ok('Instagram/YouTube hidden until URL set', !ab.links.some(t => /Instagram|YouTube/.test(t)) && ab.links.some(t => /GitHub/.test(t)), ab.links.join(','));
 ok('projects: building notes + stars only when > 0', ab.building === 2 && ab.stars[0] === '★ 3' && ab.stars[1] === '-', JSON.stringify(ab.stars));
 
-// forms against local backend
-await page.type('#nl-email', 'reader@example.com'); await page.click('#newsletter-form button[type=submit]');
-await page.waitForFunction(() => document.querySelector('#newsletter-form .form-status').textContent.length > 0, { timeout: 5000 });
-ok('newsletter form → backend', (await page.$eval('#newsletter-form .form-status', e => e.className + ' ' + e.textContent)).includes('ok'), await page.$eval('#newsletter-form .form-status', e => e.textContent));
-await page.type('#c-name', 'Test User'); await page.type('#c-email', 'test@example.com'); await page.type('#c-msg', 'Hello from the headless test!');
+// contact form composes a mailto: link (no backend on GitHub Pages); no newsletter form
+ok('no newsletter form', !(await page.$('#newsletter-form')));
 await page.click('#contact-form button[type=submit]');
-await page.waitForFunction(() => document.querySelector('#contact-form .form-status').textContent.length > 0, { timeout: 5000 });
-ok('contact form → backend', (await page.$eval('#contact-form .form-status', e => e.className)).includes('ok'), await page.$eval('#contact-form .form-status', e => e.textContent));
-await page.$eval('#nl-email', el => el.value = 'bad'); await page.click('#newsletter-form button[type=submit]');
-ok('newsletter client validation', (await page.$eval('#newsletter-form .form-status', e => e.textContent)).includes('valid'));
-await page.$eval('#nl-email', el => el.value = ''); await page.$$eval('.form-status', s => s.forEach(x => { x.textContent=''; x.className='form-status small'; }));
+ok('contact form client validation', (await page.$eval('#contact-form .form-status', e => e.className + ' ' + e.textContent)).includes('err'));
+await page.type('#c-name', 'Test User'); await page.type('#c-subject', 'Hi'); await page.type('#c-msg', 'Hello from the headless test!');
+await page.click('#contact-form button[type=submit]');
+{ const m = await page.$eval('#contact-form', f => f.dataset.mailto || '');
+  ok('contact form → mailto with subject and body', m.startsWith('mailto:madhavpandya@zoho.in?subject=Hi&body=') && m.includes('Test%20User'), m.slice(0, 80)); }
+ok('follow card: Instagram and YouTube coming soon, no fake URLs', await page.$$eval('#follow-links li', li => li.length === 2 && li.every(x => /coming soon/.test(x.textContent) && !x.querySelector('a'))));
+ok('initials avatar, no TODO', await page.evaluate(() => !!document.querySelector('.photo.avatar .av-initials') && !/TODO/.test(document.body.innerHTML)));
+await page.$$eval('.form-status', s => s.forEach(x => { x.textContent=''; x.className='form-status small'; }));
 
 // theme toggle
 await page.click('.theme-toggle'); await sleep(800);

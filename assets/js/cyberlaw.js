@@ -259,6 +259,7 @@
     gloss.sort((a, b) => a.term.localeCompare(b.term));
     document.querySelectorAll('.lang .chip').forEach(c => c.addEventListener('click', () => setLang(c.dataset.lang)));
     $('#gl-search').addEventListener('input', renderGloss);
+    { const q0 = new URLSearchParams(location.search).get('q'); if (q0) $('#gl-search').value = q0.slice(0, 120); }
     setLang(lang);
     P.reveal();
     await downloads(d.downloads || []);

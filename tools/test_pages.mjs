@@ -10,7 +10,7 @@ const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 
 // Consent gate: pre-accept for these suites (the gate itself is covered by test_consent.mjs).
-{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 1, at: 'test' })); } catch (e) {} }); return p; }; }
+{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 2, at: 'test' })); } catch (e) {} }); return p; }; }
 await browser.defaultBrowserContext().overridePermissions(new globalThis.URL(BASE).origin, ['clipboard-read', 'clipboard-write', 'clipboard-sanitized-write']);
 
 async function open(path, { width = 1440, height = 900, scheme = 'dark', mobile = false, reduce = false, wait = 'networkidle0' } = {}) {

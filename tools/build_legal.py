@@ -85,9 +85,10 @@ TERMS = [
    "Do not sell, resell, rent or bundle the PDFs, or include them in paid courses or products, without our written permission.",
    "Do not remove or change the notices, or present the PDFs as your own work."],
   "The PDFs carry the same educational purpose and accuracy limits as the rest of the site."]),
- ("ip", "Intellectual property", [
-  "Unless stated otherwise, the text, explanations, cheat sheets, puzzles, prompt sheets, illustrations, page design, layout and code of the site are created by Madhav Pandya for CyberWithMadhav, and all rights in them are reserved.",
-  "You may quote short extracts with a clear credit and a link back to the site. Any other copying, reproduction or reuse needs our written permission.",
+ ("ip", "Intellectual property and licences", [
+  "<strong>Code.</strong> The source code of the site (HTML, CSS, JavaScript and build scripts) is released under the MIT License. You may reuse it under that licence, which is in the <a href=\"https://github.com/iammadhavpandya-oss/cyberwithmadhav/blob/main/LICENSE\" target=\"_blank\" rel=\"noopener\">LICENSE file</a> of the public repository.",
+  "<strong>Content.</strong> The MIT License covers code only. The written content of the site, including explanations, cheat sheets, command references, scam guides, CTF puzzles, prompt sheets, PDFs, illustrations and the CyberWithMadhav name and logo, is created by Madhav Pandya for CyberWithMadhav, and all rights in it are reserved unless a page says otherwise.",
+  "You may quote short extracts of the content with a clear credit and a link back to the site, and share links to any page. Any other copying, reproduction or reuse of the content needs our written permission.",
   "Names, logos and trademarks of other organisations, tools and platforms mentioned on the site belong to their owners. Mentioning them does not mean they endorse us or that we endorse them. Laws, judgments and official documents we refer to remain the works of their respective authorities."]),
  ("third-party", "Third party links", [
   "The site links to other websites, such as government portals, courts, learning platforms and tool vendors, because they are useful sources. We do not control those sites and are not responsible for their content, availability, security or privacy practices.",
@@ -119,6 +120,7 @@ STORAGE = [
  ("cwm-ctf-practice-v2, cwm-ctf-prefs, cwm-ctf-ui, cwm-ctf-quotes", "Local storage", "Your CTF practice progress and best scores, your CTF settings (such as sound and motion), and which quotes you have already seen."),
  ("cwm-ctf-session", "Local storage", "Only if a CTF leaderboard backend is connected and you create a nickname: your nickname and sign in token."),
  ("cwm-prompt-favs", "Local storage", "The prompts you marked as favourites."),
+ ("cwm-offline", "Cache storage", "Copies of the site's own pages, styles, scripts and data, kept by the service worker so pages load faster and work offline. Nothing you type is cached."),
  ("cwm-vars", "Local storage", "Lab values you type into the cheat sheets, such as a target IP for your own lab."),
  ("cwm-banner, cwm-stars:*", "Session storage", "Whether you closed the alert banner, and a short cache of public GitHub star counts. Cleared when you close the tab."),
 ]
@@ -137,9 +139,10 @@ PRIVACY = [
    "<strong>Google Fonts</strong> serves the fonts used on the pages, so your browser requests font files from Google's servers. See the <a href=\"https://developers.google.com/fonts/faq/privacy\" target=\"_blank\" rel=\"noopener\">Google Fonts privacy FAQ</a>.",
    "<strong>GitHub API</strong>: on the home page, when you scroll near the About section, your browser may fetch public star counts for the listed projects from api.github.com."],
   "We do not receive any personal information from these services."]),
- ("optional", "Optional forms and leaderboard", [
-  "The newsletter form, the contact form and the CTF leaderboard work only when an optional backend is connected. At the time of writing, no backend is connected on the live site, so these forms show an email fallback and CTF progress stays in your browser.",
-  "If a backend is connected in future, it will store only what you submit: your email address for the newsletter, your name, email and message for the contact form, or your chosen nickname and scores for the leaderboard, along with basic technical data such as an IP address or a hashed IP address used to prevent abuse. It will be used only to reply to you, send the newsletter you asked for, or run the leaderboard, and never sold. We will update this policy before that happens."]),
+ ("optional", "Contact and optional leaderboard", [
+  "The site has no newsletter. The contact form on the home page does not send anything to a server: it opens your own email app with your message filled in, and you decide whether to send it. If you email us, we receive what you write and your email address, and use them only to reply to you.",
+  "The CTF leaderboard works only when an optional backend is connected. At the time of writing, no backend is connected on the live site, so CTF progress stays in your browser.",
+  "If a leaderboard backend is connected in future, it will store only your chosen nickname and scores, along with basic technical data such as a hashed IP address used to prevent abuse. It will be used only to run the leaderboard, and never sold. We will update this policy before that happens."]),
  ("rights", "Your choices and rights", [
   "You can use the site without giving us any personal information. You can clear browser storage at any time. If you have sent us information by email or a form, you can ask us to access, correct or delete it by writing to <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL)]),
  ("children", "Children", [
@@ -230,7 +233,7 @@ def page(fname, title, h1, kicker, desc, lead, sections, other):
         <p class="kicker mono">{kicker}</p>
         <h1 id="legal-title">{escape(h1)}</h1>
         <p class="lead">{lead}</p>
-        <p class="legal-meta small muted">Last updated: <time datetime="{UPDATED_ISO}">{UPDATED}</time> · Version 1 · <a href="{other[0]}">{other[1]}</a></p>
+        <p class="legal-meta small muted">Last updated: <time datetime="{UPDATED_ISO}">{UPDATED}</time> · Version 2 · <a href="{other[0]}">{other[1]}</a></p>
       </div>
     </section>
 

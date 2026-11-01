@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500&display=block">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;overflow:hidden;background:#0D0B14;color:#F4F1FA;font-family:Inter,sans-serif;position:relative}
+.glow1{position:absolute;width:760px;height:760px;left:-220px;top:-300px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.55),transparent 65%)}
+.glow2{position:absolute;width:700px;height:700px;right:-240px;bottom:-330px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,.38),transparent 65%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(183,156,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(183,156,255,.07) 1px,transparent 1px);background-size:48px 48px}
+.card{position:absolute;inset:56px 64px;border-radius:32px;border:1.5px solid rgba(183,156,255,.35);background:linear-gradient(140deg,rgba(30,24,41,.78),rgba(22,18,31,.55));padding:56px 64px;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:18px;font:700 40px 'Space Grotesk';letter-spacing:-.02em}
+.brand b{color:#B79CFF}
+.brand img{width:64px;height:64px}
+h1{margin-top:44px;font:700 70px/1.04 'Space Grotesk';letter-spacing:-.03em;max-width:900px}
+h1 span{color:#4ADE80}
+p{margin-top:22px;font:500 28px/1.35 Inter;color:#CFC6E6;max-width:900px}
+.row{margin-top:auto;display:flex;gap:14px;align-items:center}
+.chip{white-space:nowrap;font:500 21px 'JetBrains Mono';padding:9px 18px;border-radius:999px;border:1.5px solid rgba(183,156,255,.45);color:#E6DEFF;background:rgba(139,92,246,.16)}
+.chip.g{border-color:rgba(74,222,128,.55);color:#BBF7D0;background:rgba(34,197,94,.14)}
+.url{margin-left:auto;font:500 20px 'JetBrains Mono';color:#A99EC4}
+</style></head><body>
+<div class="glow1"></div><div class="glow2"></div><div class="grid"></div>
+<div class="card">
+  <div class="brand"><img src="../../favicon.svg" alt=""><span>Cyber<b>With</b>Madhav</span><span class="url">free · made in India</span></div>
+  <h1>Cybersecurity in plain English <span>and Hinglish.</span></h1>
+  <p>Free roadmap, cheat sheets, CTF practice and scam alerts.</p>
+  <div class="row"><span class="chip">CTF Arena</span><span class="chip">Cheat sheets</span><span class="chip g">Scam alerts · 1930</span><span class="chip">Cyber law</span></div>
+</div>
+</body></html>

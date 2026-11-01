@@ -322,6 +322,7 @@
     $('#vars-panel').addEventListener('submit', e => e.preventDefault());
     $('#vars-reset').addEventListener('click', () => { varDefs.forEach(v => vars[v.key] = v.default); renderVarFields(); onVarsChanged(); });
     varListeners.push(renderSheets);
+    { const q0 = new URLSearchParams(location.search).get('q'); if (q0) setTimeout(() => jumpToCommand(q0.slice(0, 120)), 0); } // deep link from site search: index.html?q=cmd#cheatsheets
     window.addEventListener('beforeprint', () => { document.body.classList.add('printing'); $$('#cs-list details').forEach(d => d.open = true); sheets.forEach(s => expanded.add(s.id)); renderSheets(); $$('#cs-list details').forEach(d => d.open = true); });
     window.addEventListener('afterprint', () => { document.body.classList.remove('printing'); expanded.clear(); renderSheets(); });
     $('#cs-print').addEventListener('click', () => window.print());
@@ -380,6 +381,10 @@
     if (d.headline) $('#about-title').textContent = d.headline;
     $('#about-bio').textContent = d.bio;
     // Links without a URL (e.g. Instagram/YouTube not set yet) are simply not shown.
+    const fl = $('#follow-links');
+    if (fl) fl.innerHTML = d.links.filter(l => /^(Instagram|YouTube)$/.test(l.label)).map(l => /^https:\/\//.test(l.url)
+      ? `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span>Follow on ${esc(l.label)}</span><span class="muted small">↗</span></a></li>`
+      : `<li><span class="soon"><span>${esc(l.label)}</span><span class="muted small">coming soon</span></span></li>`).join('');
     $('#about-links').innerHTML = d.links.filter(l => l.url).map(l =>
       `<li><a href="${esc(l.url)}" ${l.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}><span>${esc(l.label)}</span><span class="muted small">${esc(l.display || '↗')}</span></a></li>`).join('');
     $('#timeline').innerHTML = d.timeline.map(t => `
@@ -705,7 +710,7 @@
     const q = palInput.value.trim().toLowerCase(), words = q.split(/\s+/).filter(Boolean);
     const scored = [];
     palItems.forEach(it => {
-      const lab = labelOf(it), hay = (lab + ' ' + (it.sub || '') + ' ' + it.kind).toLowerCase();
+      const lab = labelOf(it), hay = (lab + ' ' + (it.sub || '') + ' ' + it.kind + ' ' + (it.x || '')).toLowerCase();
       if (words.every(w => hay.includes(w))) {
         const ll = lab.toLowerCase();
         scored.push([it, lab, !q ? (it.kind === 'Command' ? 9 : 0) : ll.startsWith(q) ? 0 : ll.includes(q) ? 1 : 2]);
@@ -741,6 +746,11 @@
   palList.addEventListener('click', e => { const li = e.target.closest('[data-i]'); if (li) palRun(Number(li.dataset.i)); });
   pal.addEventListener('click', e => { if (e.target === pal) closePalette(); });
   $('#palette-open').addEventListener('click', openPalette);
+  // Site wide results (CTF, prompts, cyber law, commands, scams, legal) from the build time index data/search.json.
+  fetch('data/search.json').then(r => r.ok ? r.json() : []).then(list => {
+    addPalette(list.filter(it => !/^index\.html/.test(it.u)).map(it => ({ kind: it.k, label: it.t, sub: it.s, x: it.x, run: () => { location.href = it.u; } })));
+    if (pal.open) palSearch();
+  }).catch(() => {});
 
   /* ---------- keyboard shortcuts ---------- */
   document.addEventListener('keydown', e => {
@@ -755,42 +765,23 @@
   });
 
   /* ---------- forms ---------- */
-  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  function wireForm(form, path, collect, validate) {
+  // Contact: no backend on GitHub Pages, so compose a mailto: link the visitor sends from their own email app.
+  (function wireMailto(form) {
+    if (!form) return;
     const status = $('.form-status', form);
-    form.addEventListener('submit', async e => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      const data = collect(form);
-      const problem = validate(data);
-      status.className = 'form-status small';
-      if (problem) { status.textContent = problem; status.classList.add('err'); return; }
-      if (!API) { status.textContent = 'Signup backend is not connected yet. Please email madhavpandya@zoho.in.'; status.classList.add('err'); return; }
-      const btn = $('button[type="submit"]', form); btn.disabled = true;
-      try {
-        const r = await fetch(API + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-        const j = await r.json().catch(() => ({}));
-        if (!r.ok) {
-          // v3: the backend names the bad field; mark it for assistive tech and focus it.
-          const bad = j.field && form.elements[j.field];
-          if (bad) { bad.setAttribute('aria-invalid', 'true'); bad.focus(); bad.addEventListener('input', () => bad.removeAttribute('aria-invalid'), { once: true }); }
-          if (r.status === 429 && r.headers.get('Retry-After')) throw new Error(`Too many tries. Please wait about ${Math.ceil(Number(r.headers.get('Retry-After')) / 60)} min and try again.`);
-          throw new Error(j.error || `Request failed (${r.status})`);
-        }
-        status.textContent = j.message || 'Done!'; status.classList.add('ok'); form.reset();
-      } catch (ex) {
-        status.textContent = ex.message === 'Failed to fetch' ? 'Could not reach the server. Please try again later or email madhavpandya@zoho.in.' : ex.message;
-        status.classList.add('err');
-      } finally { btn.disabled = false; }
+      status.className = 'form-status small'; status.textContent = '';
+      $$('[aria-invalid]', form).forEach(x => x.removeAttribute('aria-invalid'));
+      const name = form.name.value.trim(), subject = form.subject.value.trim(), msg = form.message.value.trim();
+      const bad = !name ? ['name', 'Please enter your name.'] : msg.length < 10 ? ['message', 'Message should be at least 10 characters.'] : null;
+      if (bad) { status.textContent = bad[1]; status.classList.add('err'); const f = form.elements[bad[0]]; f.setAttribute('aria-invalid', 'true'); f.focus(); return; }
+      const href = 'mailto:madhavpandya@zoho.in?subject=' + encodeURIComponent(subject || 'Hello from CyberWithMadhav') + '&body=' + encodeURIComponent(msg + '\n\n' + name);
+      form.dataset.mailto = href;
+      status.textContent = 'Opening your email app. If nothing opens, email madhavpandya@zoho.in directly.'; status.classList.add('ok');
+      if (!navigator.webdriver) location.href = href;
     });
-  }
-  wireForm($('#newsletter-form'), '/api/subscribe',
-    f => ({ email: f.email.value.trim(), website: f.website.value }),
-    d => EMAIL_RE.test(d.email) ? '' : 'Please enter a valid email address.');
-  wireForm($('#contact-form'), '/api/contact',
-    f => ({ name: f.name.value.trim(), email: f.email.value.trim(), message: f.message.value.trim(), website: f.website.value }),
-    d => !d.name ? 'Please enter your name.' : !EMAIL_RE.test(d.email) ? 'Please enter a valid email address.'
-      : d.message.length < 10 ? 'Message should be at least 10 characters.' : '');
-
+  })($('#contact-form'));
   /* ---------- boot ---------- */
   observe();
   const jobs = [

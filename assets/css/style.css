@@ -682,3 +682,17 @@ html.consent-pending body::after{content:"";position:fixed;inset:0;z-index:9998;
 @media (min-width:821px){#nav-links a.nav-legal{font-size:.8rem;color:var(--muted)}#nav-links a.nav-legal[aria-current="page"]{color:var(--text)}}
 /* mid widths: Terms and Privacy stay in the footer and the mobile menu so the top nav keeps to one row */
 @media (min-width:821px) and (max-width:1279px){#nav-links a.nav-legal:not([aria-current="page"]){display:none}}
+
+/* ---------- initials avatar (replaces the photo placeholder) ---------- */
+.photo.avatar{position:relative;border:0;border-radius:50%;width:min(220px,70%);margin:4px auto 18px;overflow:visible;
+  background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--purple) 55%,var(--surface)),color-mix(in srgb,var(--purple) 18%,var(--surface)) 70%)}
+.photo.avatar .av-ring{position:absolute;inset:-6px;border-radius:50%;padding:3px;
+  background:conic-gradient(from 210deg,var(--purple),var(--green),var(--purple-2),var(--purple));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.photo.avatar .av-initials{font-family:var(--mono);font-size:clamp(2.6rem,7vw,3.6rem);font-weight:600;letter-spacing:.04em;color:var(--text)}
+@media (prefers-reduced-motion:no-preference){.photo.avatar .av-ring{animation:av-spin 14s linear infinite}}
+@keyframes av-spin{to{transform:rotate(1turn)}}
+
+/* ---------- follow card ---------- */
+.follow-links .soon{display:flex;justify-content:space-between;padding:10px 12px;border:1px dashed var(--glass-border,var(--border));border-radius:10px;color:var(--text);font-size:.92rem}
+.follow p.small{margin-top:14px}

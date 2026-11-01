@@ -53,25 +53,26 @@ for (const page of ['index.html', 'ctf.html', 'prompts.html', 'cyberlaw.html']) 
   await p.focus('#cg-agree'); await p.keyboard.press('Space'); await sleep(50);
   g = await gate(p);
   ok(`${page}: Space ticks the box and enables Enter`, g.checked && g.disabled === false);
-  const pos = () => p.evaluate(() => { const r = n => { const b = document.querySelector(n).getBoundingClientRect(); return [Math.round(b.left), Math.round(b.top), Math.round(b.width)].join(','); }; return [r('.nav'), r('h1'), innerWidth - document.documentElement.clientWidth].join('|'); });
+  const pos = () => p.evaluate(() => { const r = n => { const b = document.querySelector(n).getBoundingClientRect(); return [Math.round(b.left), Math.round(b.top), Math.round(b.width)].join(','); }; const l = n => { let e = document.querySelector(n), x = 0, y = 0; const w = e.offsetWidth; while (e) { x += e.offsetLeft; y += e.offsetTop; e = e.offsetParent; } return [x, y, w].join(','); }; return [r('.nav'), l('h1'), innerWidth - document.documentElement.clientWidth].join('|'); });
   const card1 = await p.$eval('.cg-card', c => { const b = c.getBoundingClientRect(); return [b.left, b.top, b.width, b.height].map(Math.round).join(','); });
   await sleep(400);
   const card2 = await p.$eval('.cg-card', c => { const b = c.getBoundingClientRect(); return [b.left, b.top, b.width, b.height].map(Math.round).join(','); });
+  await p.evaluate(() => document.fonts.ready.then(() => 0)); await sleep(150); // web fonts load async and change the 15ch headline width; that is not the gate
   const before = await pos();
   await p.focus('#cg-enter'); await p.keyboard.press('Enter'); await sleep(150);
   const after = await pos();
   g = await gate(p);
   const st = JSON.parse(g.stored || 'null');
-  ok(`${page}: Enter site closes the gate, stores versioned consent, restores the page`, !g.shown && !g.pending && st && st.v === 1 && !!st.at && await p.evaluate(() => ![...document.body.children].some(n => n.inert)), JSON.stringify(g));
+  ok(`${page}: Enter site closes the gate, stores versioned consent, restores the page`, !g.shown && !g.pending && st && st.v === 2 && !!st.at && await p.evaluate(() => ![...document.body.children].some(n => n.inert)), JSON.stringify(g));
   ok(`${page}: no CSP or script errors; gate card is stable and closing it moves nothing on the page`, p.errors.length === 0 && card1 === card2 && near(before, after), JSON.stringify({ e: p.errors, card1, card2, before, after }));
   await p.reload({ waitUntil: 'load' }); await sleep(400);
   ok(`${page}: no gate on the next visit`, !(await gate(p)).shown);
   await p.ctx.close();
 }
 
-{ const p = await open('index.html', { consent: JSON.stringify({ v: 0, at: '2026-01-01T00:00:00Z' }) });
+{ const p = await open('index.html', { consent: JSON.stringify({ v: 1, at: '2026-01-01T00:00:00Z' }) });
   ok('older consent version re-prompts', (await gate(p)).shown); await p.ctx.close(); }
-{ const p = await open('index.html', { consent: JSON.stringify({ v: 1, at: '2026-11-01T00:00:00Z' }) });
+{ const p = await open('index.html', { consent: JSON.stringify({ v: 2, at: '2026-11-01T00:00:00Z' }) });
   ok('current consent version skips the gate', !(await gate(p)).shown); await p.ctx.close(); }
 { const p = await open('prompts.html');
   await p.keyboard.down('Control'); await p.keyboard.press('k'); await p.keyboard.up('Control');

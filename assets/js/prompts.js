@@ -138,6 +138,7 @@
     if (data.meta && data.meta.banner) $('#ethics span').textContent = data.meta.banner;
     const params = new URLSearchParams(location.search);
     if (params.get('cat') && data.categories.some(c => c.id === params.get('cat'))) cat = params.get('cat');
+    if (params.get('q')) { q = params.get('q').slice(0, 120).trim().toLowerCase(); $('#p-search').value = params.get('q').slice(0, 120); }
     chips(); updateFavCount(); render();
     let t; $('#p-search').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { q = e.target.value.trim().toLowerCase(); render(); }, 120); });
     const fb = $('#p-favs');

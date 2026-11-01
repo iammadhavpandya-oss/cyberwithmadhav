@@ -322,3 +322,14 @@ table.law tr.struck td.sec{text-decoration:line-through}
 [data-theme="light"] .file-card .fn{color:#166534}
 @media (max-width:640px){.file-body dl{grid-template-columns:1fr;gap:4px}.file-body dd{margin-bottom:8px}}
 @media (prefers-reduced-motion:reduce){.file-card summary::after{transition:none}}
+
+/* ---------- 404 ---------- */
+.nf{min-height:calc(100vh - 240px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;padding-top:110px;padding-bottom:60px;max-width:760px}
+.nf h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;margin:0}
+.nf .lead{font-size:1.08rem;max-width:56ch;margin:0}
+.nf-term{padding:16px 18px;font-size:.92rem;width:min(100%,460px)}
+.nf-term p{margin:2px 0;overflow-wrap:anywhere}
+.nf-term .g{color:var(--green)}
+.nf-term .r{color:var(--danger)}
+.nf-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.nf-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin:6px 0 0;padding:0;list-style:none}

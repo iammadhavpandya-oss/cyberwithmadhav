@@ -14,11 +14,16 @@
   <meta property="og:title" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish">
   <meta property="og:description" content="Free roadmap, cheat sheets and scam alerts, made for India.">
   <meta property="og:url" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/">
-  <meta property="og:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
   <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CyberWithMadhav">
   <meta name="twitter:description" content="Cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets and scam alerts, made for India.">
+  <meta name="twitter:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
+  <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
   <meta name="color-scheme" content="dark light">
   <script>
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
@@ -26,6 +31,8 @@
   </script>
   <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -288,10 +295,9 @@
         </header>
         <div class="about-grid">
           <aside class="about-card card reveal">
-            <!-- TODO: replace placeholder with real photo at assets/img/madhav.jpg (square, ~480px) -->
-            <div class="photo" role="img" aria-label="Photo placeholder for Madhav Pandya">
-              <span class="mono">MP</span>
-              <small class="mono">TODO: photo</small>
+            <div class="photo avatar" role="img" aria-label="Madhav Pandya">
+              <span class="av-ring" aria-hidden="true"></span>
+              <span class="av-initials" aria-hidden="true">MP</span>
             </div>
             <p class="about-loc muted">📍 Vasai, Mumbai</p>
             <p id="about-bio"></p>
@@ -307,35 +313,36 @@
       </div>
     </section>
 
-    <!-- NEWSLETTER / CONTACT -->
+    <!-- CONTACT / FOLLOW -->
     <section id="contact" class="section alt" aria-labelledby="contact-title">
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">08 / connect</p>
-          <h2 id="contact-title">Stay in the loop</h2>
-          <p class="muted">Get new cheat sheets and scam alerts, or send a message. Forms work when the optional backend is running; otherwise email <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>.</p>
+          <h2 id="contact-title">Say hello</h2>
+          <p class="muted">Questions, corrections or a scam you want explained? Write to <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>. This site has no mailing list and stores nothing you type here.</p>
         </header>
         <div class="grid two">
-          <form class="card form reveal" id="newsletter-form" novalidate>
-            <h3>Newsletter</h3>
-            <label for="nl-email">Email</label>
-            <input id="nl-email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
-            <div class="hp" aria-hidden="true"><label for="nl-website">Website</label><input id="nl-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-            <button class="btn btn-primary" type="submit">Subscribe</button>
-            <p class="form-status small" role="status"></p>
-          </form>
-          <form class="card form reveal" id="contact-form" novalidate>
-            <h3>Contact</h3>
-            <label for="c-name">Name</label>
+          <form class="card form reveal" id="contact-form" action="mailto:madhavpandya@zoho.in" method="post" enctype="text/plain" novalidate>
+            <h3>Email Madhav</h3>
+            <label for="c-name">Your name</label>
             <input id="c-name" name="name" type="text" required maxlength="80" autocomplete="name">
-            <label for="c-email">Email</label>
-            <input id="c-email" name="email" type="email" required maxlength="254" autocomplete="email">
+            <label for="c-subject">Subject</label>
+            <input id="c-subject" name="subject" type="text" maxlength="120" placeholder="Question about a cheat sheet">
             <label for="c-msg">Message</label>
             <textarea id="c-msg" name="message" rows="4" required minlength="10" maxlength="2000"></textarea>
-            <div class="hp" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-            <button class="btn btn-primary" type="submit">Send</button>
+            <button class="btn btn-primary" type="submit">Open in my email app</button>
+            <p class="small muted">Opens your own email app with the message filled in. You review it and press send there.</p>
             <p class="form-status small" role="status"></p>
           </form>
+          <div class="card follow reveal" id="follow">
+            <h3>Follow</h3>
+            <p class="muted">New cheat sheets, scam alerts and CTF levels will be shared on these channels.</p>
+            <ul class="links follow-links" id="follow-links">
+              <li><span class="soon"><span>Instagram</span><span class="muted small">coming soon</span></span></li>
+              <li><span class="soon"><span>YouTube</span><span class="muted small">coming soon</span></span></li>
+            </ul>
+            <p class="small muted">Prefer a reader app? Subscribe to the <a href="feed.xml">RSS feed</a>.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -371,5 +378,6 @@
   </dialog>
   <script src="assets/js/space.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
 </body>
 </html>
