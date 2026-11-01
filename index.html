@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CyberWithMadhav — Cybersecurity in plain English and Hinglish</title>
+  <title>CyberWithMadhav: Cybersecurity in plain English and Hinglish</title>
   <meta name="description" content="CyberWithMadhav by Madhav Pandya: cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets, browser-only security tools and scam alerts, made for India.">
   <meta name="author" content="Madhav Pandya">
   <meta name="theme-color" content="#0D0B14">
@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://iammadhavpandya-oss.github.io/cyberwithmadhav/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CyberWithMadhav">
-  <meta property="og:title" content="CyberWithMadhav — Cybersecurity in plain English and Hinglish">
+  <meta property="og:title" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish">
   <meta property="og:description" content="Free roadmap, cheat sheets and scam alerts, made for India.">
   <meta property="og:url" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/">
   <meta property="og:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
@@ -24,6 +24,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +69,8 @@
         <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
         <a href="prompts.html">Prompts</a>
         <a href="cyberlaw.html">Cyber Law</a>
+        <a href="terms.html" class="nav-legal">Terms</a>
+        <a href="privacy.html" class="nav-legal">Privacy</a>
         <button class="pal-btn" type="button" id="palette-open" title="Search everything (Ctrl+K)"><span aria-hidden="true">⌘K</span><span class="sr-only">Open command palette (Ctrl+K)</span></button>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
@@ -128,7 +131,7 @@
         <header class="section-head reveal">
           <p class="kicker mono">01 / roadmap</p>
           <h2 id="roadmap-title">Learning roadmap</h2>
-          <p class="muted">Go in order. Each stage lists what to learn, free resources, and projects that prove you can do it. Timelines vary from person to person — consistency beats speed.</p>
+          <p class="muted">Go in order. Each stage lists what to learn, free resources, and projects that prove you can do it. Timelines vary from person to person. Consistency beats speed.</p>
         </header>
         <div class="stage-tabs reveal" role="tablist" aria-label="Roadmap stage"></div>
         <div id="roadmap-panels"></div>
@@ -262,13 +265,13 @@
         <header class="section-head reveal">
           <p class="kicker mono">06 / stay safe</p>
           <h2 id="aw-title">Cyber awareness for everyone</h2>
-          <p class="muted">Share this with your family. Most scams work by creating panic or greed — slow down and verify.</p>
+          <p class="muted">Share this with your family. Most scams work by creating panic or greed, so slow down and verify.</p>
         </header>
         <div class="helpline reveal" role="note">
           <div>
             <p class="mono small kicker">Been scammed? Act fast.</p>
             <p class="helpline-big">Call <a href="tel:1930">1930</a></p>
-            <p class="muted">National Cyber Crime Helpline. Report online at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>. Reporting quickly — ideally within hours — improves the chance of freezing money in transit.</p>
+            <p class="muted">National Cyber Crime Helpline. Report online at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>. Reporting quickly, ideally within hours, improves the chance of freezing money in transit.</p>
           </div>
         </div>
         <div class="grid scams" id="scams"></div>
@@ -344,6 +347,7 @@
         <h2 class="h4">⚖️ Ethics &amp; legal</h2>
         <p>Everything here is for <strong>learning and defence</strong>. Only test systems you own or have explicit written authorisation to test. Unauthorised access, data theft or damage to computer systems is an offence in India under the <strong>Information Technology Act, 2000</strong> (e.g. Sections 43 and 66) and can lead to fines and imprisonment. Use labs like TryHackMe, Hack The Box and PortSwigger Academy to practise legally.</p>
       </div>
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is.</p>
         <p class="small"><a href="#top">Back to top ↑</a></p>

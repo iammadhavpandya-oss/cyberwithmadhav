@@ -2,7 +2,10 @@ import puppeteer from 'puppeteer-core';
 const URL = process.env.URL || 'http://127.0.0.1:8000/';
 const OUT = '/workspace/cwm-site/docs';
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
-const results = []; const ok = (name, cond, extra='') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  — ' + extra : ''}`); };
+
+// Consent gate: pre-accept for these suites (the gate itself is covered by test_consent.mjs).
+{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 1, at: 'test' })); } catch (e) {} }); return p; }; }
+const results = []; const ok = (name, cond, extra='') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  | ' + extra : ''}`); };
 const errors = [];
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 async function stubGitHub(p) {
@@ -68,7 +71,7 @@ ok('subnet /13', sc.b['Network']==='10.16.0.0' && sc.b['Broadcast']==='10.23.255
 ok('subnet /30', sc.c['First host']==='172.16.5.5' && sc.c['Last host']==='172.16.5.6' && sc.c['Usable hosts']==='2');
 ok('subnet /32 public', sc.d['Usable hosts']==='1' && sc.d['Type']==='Public');
 ok('subnet /31 (RFC 3021)', sc.e['Usable hosts']==='2');
-ok('subnet rejects bad octet', /0–255/.test(sc.err1)); ok('subnet rejects /33', /prefix/i.test(sc.err2));
+ok('subnet rejects bad octet', /0 to 255/.test(sc.err1)); ok('subnet rejects /33', /prefix/i.test(sc.err2));
 // UI path
 await page.$eval('#subnet-input', el => el.value = '');
 await page.type('#subnet-input', '10.0.0.77/26');

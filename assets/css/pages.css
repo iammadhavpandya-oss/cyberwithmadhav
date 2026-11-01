@@ -322,19 +322,3 @@ table.law tr.struck td.sec{text-decoration:line-through}
 [data-theme="light"] .file-card .fn{color:#166534}
 @media (max-width:640px){.file-body dl{grid-template-columns:1fr;gap:4px}.file-body dd{margin-bottom:8px}}
 @media (prefers-reduced-motion:reduce){.file-card summary::after{transition:none}}
-
-/* disclaimer box (glass card), top of page and in the footer */
-.disc-box{display:flex;gap:14px;align-items:flex-start;margin:22px 0;padding:18px 20px;border-radius:18px;
-  border:1px solid color-mix(in srgb,var(--amber) 50%,var(--glass-border));
-  background:linear-gradient(120deg,color-mix(in srgb,var(--amber) 12%,transparent),transparent 65%),var(--glass);
-  -webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
-  box-shadow:0 14px 34px -22px rgba(0,0,0,.6);color:var(--text)}
-.disc-box svg{flex:none;color:var(--amber);margin-top:2px}
-.disc-box p{margin:0;font-size:.95rem;line-height:1.6;color:var(--text)}
-.disc-box strong{color:var(--amber)}
-.disc-box a{color:var(--purple-2);text-decoration:underline;text-underline-offset:2px}
-.disc-top .disc-box{margin:0 0 6px}
-.footer .disc-box{margin:0 0 18px}
-[data-theme="light"] .disc-box{background:linear-gradient(120deg,rgba(217,119,6,.10),transparent 65%),rgba(255,255,255,.78);border-color:rgba(180,83,9,.4)}
-[data-theme="light"] .disc-box strong,[data-theme="light"] .disc-box svg{color:#92400E}
-[data-theme="light"] .disc-box a{color:#5B21B6}

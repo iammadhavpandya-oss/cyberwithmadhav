@@ -20,7 +20,7 @@ The `backend/`, `tools/` and `docs/` folders are harmless to publish, but you ca
 After deploying, update canonical / `og:url` in `index.html` to the real domain.
 
 ## Backend (optional)
-Without it, the forms show an "email me" fallback — fine to launch without.
+Without it, the forms show an "email me" fallback, which is fine to launch without.
 
 Any host that runs Python works (Render, Railway, Fly.io, PythonAnywhere, a small VPS):
 ```bash

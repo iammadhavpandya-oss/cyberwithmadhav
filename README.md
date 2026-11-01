@@ -1,4 +1,4 @@
-# CyberWithMadhav — website
+# CyberWithMadhav website
 
 Minimal dark purple + green site for **CyberWithMadhav**, a cybersecurity awareness & learning brand by Madhav Pandya (Vasai, Mumbai).
 
@@ -92,7 +92,7 @@ On `localhost`/`127.0.0.1` the forms talk to `http://127.0.0.1:5000` automatical
 Export stored data: `python export.py subscribers > subs.csv` or `python export.py messages > msgs.csv`.
 
 ## Editing content
-Everything is in `data/*.json` — no build step. Text is HTML-escaped when rendered, so plain text only. Cheat-sheet entries are `{ "cmd": "...", "desc": "..." }` (or `type: "text"` sheets with `items`). Keep facts accurate; don't add unsourced stats or salary numbers.
+Everything is in `data/*.json`, with no build step. Text is HTML-escaped when rendered, so plain text only. Cheat-sheet entries are `{ "cmd": "...", "desc": "..." }` (or `type: "text"` sheets with `items`). Keep facts accurate; don't add unsourced stats or salary numbers.
 
 ## Tests
 With both servers running:
@@ -109,7 +109,7 @@ Runs 83 checks in headless Chrome (hero, quiz, contrast + colour roles, cheat-sh
 - Parameterized SQLite queries, security headers, no secrets in code (all config via env)
 
 ## Deploy
-See [docs/DEPLOY.md](docs/DEPLOY.md) — GitHub Pages / Netlify / Cloudflare Pages for the static site (free), and optional backend hosting.
+See [docs/DEPLOY.md](docs/DEPLOY.md): GitHub Pages / Netlify / Cloudflare Pages for the static site (free), and optional backend hosting.
 
 ## TODO
 - [ ] Instagram and YouTube URLs → `data/about.json` (`links[].url`; rows stay hidden while empty), plus `sameAs` in the JSON-LD in `index.html`

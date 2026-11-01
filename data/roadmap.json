@@ -14,15 +14,15 @@
         "Cyber hygiene: passwords, phishing, updates, backups"
       ],
       "resources": [
-        {"name": "TryHackMe — Pre Security & Cyber Security 101 paths", "url": "https://tryhackme.com", "note": "Guided browser-based labs; many rooms are free"},
-        {"name": "OverTheWire — Bandit", "url": "https://overthewire.org/wargames/bandit/", "note": "Learn Linux through a free SSH wargame"},
-        {"name": "Professor Messer — CompTIA Network+ & Security+ videos", "url": "https://www.professormesser.com", "note": "Free full-length video courses"},
+        {"name": "TryHackMe: Pre Security & Cyber Security 101 paths", "url": "https://tryhackme.com", "note": "Guided browser-based labs; many rooms are free"},
+        {"name": "OverTheWire: Bandit", "url": "https://overthewire.org/wargames/bandit/", "note": "Learn Linux through a free SSH wargame"},
+        {"name": "Professor Messer: CompTIA Network+ & Security+ videos", "url": "https://www.professormesser.com", "note": "Free full-length video courses"},
         {"name": "Cisco Networking Academy", "url": "https://www.netacad.com", "note": "Free intro courses on networking and cybersecurity"},
         {"name": "Linux Journey", "url": "https://linuxjourney.com", "note": "Free bite-sized Linux lessons"}
       ],
       "projects": [
         "Install a Linux VM (Ubuntu or Kali) in VirtualBox and document your setup",
-        "Finish Bandit levels 0–15 and write short notes for each",
+        "Finish Bandit levels 0 to 15 and write short notes for each",
         "Map your home network: list devices, IPs, and open ports on your own router",
         "Write a Bash script that backs up a folder with a timestamp"
       ]
@@ -42,16 +42,16 @@
       ],
       "resources": [
         {"name": "PortSwigger Web Security Academy", "url": "https://portswigger.net/web-security", "note": "Free, high-quality web security labs"},
-        {"name": "TryHackMe — SOC Level 1 / Jr Penetration Tester paths", "url": "https://tryhackme.com", "note": "Role-based learning paths (some content is paid)"},
+        {"name": "TryHackMe: SOC Level 1 / Jr Penetration Tester paths", "url": "https://tryhackme.com", "note": "Role-based learning paths (some content is paid)"},
         {"name": "Blue Team Labs Online / LetsDefend", "url": "https://blueteamlabs.online", "note": "Defensive investigations and SOC-style challenges"},
-        {"name": "OverTheWire — Natas", "url": "https://overthewire.org/wargames/natas/", "note": "Server-side web security wargame"},
+        {"name": "OverTheWire: Natas", "url": "https://overthewire.org/wargames/natas/", "note": "Server-side web security wargame"},
         {"name": "OWASP Top 10", "url": "https://owasp.org/Top10/", "note": "The standard list of web app risk categories"}
       ],
       "projects": [
         "Home lab: pfSense/OPNsense firewall + Windows Server AD + a Linux host + Wazuh SIEM",
         "Capture your own traffic in Wireshark and write up a DNS and a TLS handshake",
         "Solve 20+ PortSwigger labs and blog the methodology (not just answers)",
-        "Build a small Python tool — e.g. a port scanner or log parser — and publish it on GitHub"
+        "Build a small Python tool (e.g. a port scanner or log parser) and publish it on GitHub"
       ]
     },
     {
@@ -72,7 +72,7 @@
         {"name": "MITRE ATT&CK", "url": "https://attack.mitre.org", "note": "Knowledge base of adversary techniques"},
         {"name": "SANS Reading Room & DFIR posters", "url": "https://www.sans.org/white-papers/", "note": "Free research papers and cheat posters"},
         {"name": "flAWS / flAWS2 (AWS)", "url": "http://flaws.cloud", "note": "Free cloud misconfiguration challenges"},
-        {"name": "Detection Engineering resources — SigmaHQ", "url": "https://github.com/SigmaHQ/sigma", "note": "Open detection rules to read and write"}
+        {"name": "Detection Engineering resources: SigmaHQ", "url": "https://github.com/SigmaHQ/sigma", "note": "Open detection rules to read and write"}
       ],
       "projects": [
         "Build a vulnerable AD lab, attack it, then write detections for each step",

@@ -26,6 +26,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -200,6 +201,8 @@
         <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
         <a href="prompts.html">Prompts</a>
         <a href="cyberlaw.html" class="active" aria-current="page">Cyber Law</a>
+        <a href="terms.html" class="nav-legal">Terms</a>
+        <a href="privacy.html" class="nav-legal">Privacy</a>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -226,6 +229,7 @@
           <p class="lead law-sub" id="hero-sub">Under Section 43 of the IT Act, accessing a computer, phone, network or data without the owner's permission makes you liable to pay compensation, even with no bad intent: it is a civil wrong. Do the same act dishonestly or fraudulently and it becomes a crime under Section 66, punishable with up to 3 years in jail, a fine of up to ₹5 lakh, or both.</p>
           <div class="law-cards" id="hero-cards"></div>
           <p class="law-note" id="hero-note"></p>
+          <p class="notice-slim" role="note"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg><span>Educational only, not legal advice. See <a href="terms.html">Terms</a>.</span></p>
           <nav class="jump chips" aria-label="On this page">
             <a class="chip" href="#timeline">Timeline</a><a class="chip" href="#itact">IT Act table</a><a class="chip" href="#bns">BNS map</a><a class="chip" href="#dpdp">DPDP penalties</a><a class="chip" href="#procedure">Procedure</a><a class="chip" href="#where-to-file">Where to file</a><a class="chip" href="#cases">Cases</a><a class="chip" href="#faq">FAQ</a><a class="chip" href="#glossary">Glossary</a><a class="chip" href="#downloads">Cheat sheets</a>
           </nav>
@@ -264,9 +268,6 @@
       </div>
     </section>
 
-    <div class="wrap disc-top">
-      <aside class="disc-box" role="note" aria-label="Disclaimer" data-disc="top"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg><p><strong>Disclaimer:</strong> This page is for educational and awareness purposes only and is not legal advice. Laws, rules and their interpretation change, and some points here may be outdated or incorrect. Items marked 'being verified' are pending confirmation. Always check the official text on indiacode.nic.in, the Gazette or the relevant court judgment, and consult a qualified advocate before acting. CyberWithMadhav and Madhav Pandya accept no liability for actions taken based on this content. Found an error? <a href="index.html#contact">Tell us</a> so we can fix it.</p></aside>
-    </div>
 
     <section class="section" id="timeline" aria-labelledby="timeline-h">
       <div class="wrap">
@@ -399,7 +400,7 @@
 
   <footer class="footer">
     <div class="wrap">
-      <aside class="disc-box" role="note" aria-label="Disclaimer" data-disc="footer"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg><p><strong>Disclaimer:</strong> This page is for educational and awareness purposes only and is not legal advice. Laws, rules and their interpretation change, and some points here may be outdated or incorrect. Items marked 'being verified' are pending confirmation. Always check the official text on indiacode.nic.in, the Gazette or the relevant court judgment, and consult a qualified advocate before acting. CyberWithMadhav and Madhav Pandya accept no liability for actions taken based on this content. Found an error? <a href="index.html#contact">Tell us</a> so we can fix it.</p></aside>
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational, not legal advice. Laws change: check the current bare act before relying on anything here.</p>
         <p class="small"><a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>

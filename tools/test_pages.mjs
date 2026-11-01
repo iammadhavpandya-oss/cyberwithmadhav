@@ -8,6 +8,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const results = [];
 const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  : ' + extra : ''}`); };
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+
+// Consent gate: pre-accept for these suites (the gate itself is covered by test_consent.mjs).
+{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 1, at: 'test' })); } catch (e) {} }); return p; }; }
 await browser.defaultBrowserContext().overridePermissions(new globalThis.URL(BASE).origin, ['clipboard-read', 'clipboard-write', 'clipboard-sanitized-write']);
 
 async function open(path, { width = 1440, height = 900, scheme = 'dark', mobile = false, reduce = false, wait = 'networkidle0' } = {}) {
@@ -27,7 +30,7 @@ const textCheck = p => p.evaluate(() => {
   const t = document.body.innerText;
   return { em: (t.match(/\u2014/g) || []).length, overflow: document.documentElement.scrollWidth - window.innerWidth };
 });
-const discCheck = (p, start) => p.evaluate(start => { const b = [...document.querySelectorAll('.disc-box')]; return { n: b.length, where: b.map(x => x.dataset.disc).join(','), same: b.length === 2 && b[0].textContent === b[1].textContent, starts: b.every(x => x.textContent.trim().startsWith(start)), dash: b.some(x => /[\u2010-\u2015-]/.test(x.textContent)), inFooter: !!document.querySelector('footer .disc-box'), topY: b[0] ? b[0].getBoundingClientRect().top + scrollY : 1e9, fs: b[0] ? parseFloat(getComputedStyle(b[0].querySelector('p')).fontSize) : 0, bg: b[0] ? getComputedStyle(b[0]).backdropFilter : '' }; }, start);
+const slimCheck = p => p.evaluate(() => { const n = [...document.querySelectorAll('.notice-slim')]; const a = n[0] && n[0].querySelector('a'); return { boxes: document.querySelectorAll('.disc-box').length, n: n.length, text: n[0] ? n[0].textContent.trim() : '', href: a ? a.getAttribute('href') : '', h: n[0] ? n[0].getBoundingClientRect().height : 0, dash: n.some(x => /[\u2013\u2014]/.test(x.textContent)), legal: [...document.querySelectorAll('footer .foot-legal a')].map(x => x.getAttribute('href')).join(',') }; });
 async function revealAll(p) {
   await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 600) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 40)); } window.scrollTo(0, 0); });
   await sleep(400);
@@ -57,8 +60,8 @@ let r = await p.evaluate(() => ({
   ok('prompts SEO: ItemList JSON-LD lists exactly the 19 rendered categories incl. Defensive Analysis', ld && ld.numberOfItems === 19 && names.length === r.chipNames.length && JSON.stringify(names) === JSON.stringify(cats) && names.includes('Defensive Analysis prompts'), names.length + '');
   ok('prompts SEO: meta says 90 prompts / 19 categories, keywords, real canonical + og:url', /^90 free defensive AI prompts in 19 categories/.test(r.desc) && /Defensive Analysis/.test(r.desc) && r.kw.length > 20
     && r.canon === 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/prompts.html' && r.ogUrl === r.canon, r.desc); }
-{ const dc = await discCheck(p, 'Disclaimer: These prompts are for education, authorised testing and defensive security only.');
-  ok('prompts: glass disclaimer box near the top and repeated in the footer, no dashes', dc.n === 2 && dc.where === 'top,footer' && dc.same && dc.starts && !dc.dash && dc.inFooter && dc.topY < 900 && dc.fs >= 15 && /blur/.test(dc.bg), JSON.stringify(dc)); }
+{ const sc = await slimCheck(p);
+  ok('prompts: big disclaimer boxes gone, one slim notice links to Terms, footer legal links', sc.boxes === 0 && sc.n === 1 && /Authorised and defensive use only/.test(sc.text) && /^terms\.html/.test(sc.href) && sc.h < 60 && !sc.dash && sc.legal === 'terms.html,privacy.html', JSON.stringify(sc)); }
 ok('prompts: ethics banner', r.banner === 'Use only on systems and data you own or are authorised to test.', r.banner);
 ok('prompts: 90 cards, each with title/use/template/copy/tip/model', r.cards === 90 && r.everyCard, String(r.cards));
 ok('prompts: 19 categories + All chip, incl. Defensive Analysis', r.chips === 20 && /Defensive Analysis/.test(r.da), r.chips + ' ' + r.da);
@@ -140,10 +143,8 @@ r = await p.evaluate(() => ({
 ok('law: hero headline', r.h1 === "Entering someone's device without permission is illegal in India" && r.h1o === '1', r.h1);
 ok('law: subline Sec 43 civil, Sec 66 dishonest/fraudulent, 3 yrs / 5 lakh', /Section 43/.test(r.sub) && /civil/.test(r.sub) && /dishonestly or fraudulently/.test(r.sub) && /3 years/.test(r.sub) && /5 lakh/.test(r.sub));
 ok('law: disclaimer', r.disc);
-{ const dc = await discCheck(p, "Disclaimer: This page is for educational and awareness purposes only and is not legal advice.");
-  const t = await p.$eval('.disc-box', b => b.textContent);
-  ok('law: glass disclaimer box near the top and repeated in the footer, no dashes, links to contact', dc.n === 2 && dc.where === 'top,footer' && dc.same && dc.starts && !dc.dash && dc.inFooter && dc.topY < 1400 && dc.fs >= 15 && /blur/.test(dc.bg)
-    && /Items marked 'being verified' are pending confirmation/.test(t) && /Found an error\? Tell us so we can fix it\./.test(t) && await p.$eval('.disc-box a', a => a.getAttribute('href')) === 'index.html#contact', JSON.stringify(dc)); }
+{ const sc = await slimCheck(p);
+  ok('law: big disclaimer boxes gone, one slim notice links to Terms, footer legal links', sc.boxes === 0 && sc.n === 1 && sc.text === 'Educational only, not legal advice. See Terms.' && sc.href === 'terms.html' && sc.h < 60 && !sc.dash && sc.legal === 'terms.html,privacy.html', JSON.stringify(sc)); }
 ok('law: counts timeline 26, IT Act 28, BNS 17, DPDP 7, steps 7', r.tl === 26 && r.it === 28 && r.bns === 17 && r.dp === 7 && r.st === 7, [r.tl, r.it, r.bns, r.dp, r.st].join(','));
 ok('law: "History of Indian Cyber Law" timeline from data/cyberlaw_timeline.json, why-it-matters on each entry', r.tlHist && r.tlHead === 'History of Indian Cyber Law' && r.tlWhy === 26, r.tlHead + ' ' + r.tlWhy);
 ok('law: fact-check "being verified" tags in IT table, DPDP, steps, FAQ, glossary and timeline', r.pendIn.length === 6 && r.pendingTags >= 15, r.pendingTags + ' ' + r.pendIn.join(','));
@@ -241,7 +242,7 @@ await p.close();
 /* index + ctf nav carry the new links and still fit on one line at 900px */
 for (const page of ['index.html', 'ctf.html']) {
   const q = await open(page, { width: 1000, height: 800, wait: 'load' }); await sleep(800);
-  const n = await q.evaluate(() => { const nl = document.querySelector('#nav-links'); const links = [...nl.querySelectorAll('a')].map(a => a.getAttribute('href')); const tops = new Set([...nl.children].map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2))); return { links, rows: tops.size, over: document.documentElement.scrollWidth - innerWidth }; });
+  const n = await q.evaluate(() => { const nl = document.querySelector('#nav-links'); const links = [...nl.querySelectorAll('a')].map(a => a.getAttribute('href')); const tops = new Set([...nl.children].filter(c => c.getClientRects().length).map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2))); return { links, rows: tops.size, over: document.documentElement.scrollWidth - innerWidth }; });
   if (page === 'ctf.html') { const m = await q.evaluate(async () => ({ t: (await (await fetch(location.href)).text()).match(/<title>([^<]*)/)[1], ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => { try { return JSON.parse(s.textContent)['@type']; } catch (e) { return 'bad'; } }), c: document.querySelector('link[rel=canonical]').href }));
     ok('ctf SEO: title, LearningResource JSON-LD, real canonical', m.t === 'CTF Arena: Free Cyber Security Practice | CyberWithMadhav' && m.ld.join() === 'LearningResource' && m.c === 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/ctf.html', JSON.stringify(m)); }
   ok(`${page}: nav links to prompts.html and cyberlaw.html, one row at 1000px`, n.links.includes('prompts.html') && n.links.includes('cyberlaw.html') && n.rows === 1 && n.over <= 0, JSON.stringify({ rows: n.rows, over: n.over }));

@@ -26,6 +26,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -370,6 +371,8 @@
         <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
         <a href="prompts.html" class="active" aria-current="page">Prompts</a>
         <a href="cyberlaw.html">Cyber Law</a>
+        <a href="terms.html" class="nav-legal">Terms</a>
+        <a href="privacy.html" class="nav-legal">Privacy</a>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -390,7 +393,7 @@
         <p class="kicker mono"><span class="prompt">$</span> ./prompts --defensive</p>
         <h1 id="p-title">CyberPrompts</h1>
         <p class="lead">Copy-ready AI prompt sheets for blue team, GRC and authorised testing work. Fill the <code>[placeholders]</code>, paste into the AI tool your organisation allows, and always check the answer yourself.</p>
-        <aside class="disc-box" role="note" aria-label="Disclaimer" data-disc="top"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg><p><strong>Disclaimer:</strong> These prompts are for education, authorised testing and defensive security only. Use them only on systems, accounts and data you own or have written permission to test. Unauthorised access is an offence under the IT Act 2000 and the BNS. AI outputs can be wrong or incomplete, so verify every result before relying on it, and never paste passwords, OTPs, client data or personal information into an AI tool. CyberWithMadhav and Madhav Pandya accept no liability for misuse.</p></aside>
+        <p class="notice-slim" role="note"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg><span>Authorised and defensive use only. Never paste secrets into AI tools. See <a href="terms.html#ai-prompts">Terms</a>.</span></p>
       </div>
     </section>
 
@@ -427,7 +430,7 @@
 
   <footer class="footer">
     <div class="wrap">
-      <aside class="disc-box" role="note" aria-label="Disclaimer" data-disc="footer"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg><p><strong>Disclaimer:</strong> These prompts are for education, authorised testing and defensive security only. Use them only on systems, accounts and data you own or have written permission to test. Unauthorised access is an offence under the IT Act 2000 and the BNS. AI outputs can be wrong or incomplete, so verify every result before relying on it, and never paste passwords, OTPs, client data or personal information into an AI tool. CyberWithMadhav and Madhav Pandya accept no liability for misuse.</p></aside>
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Prompts are for learning and defensive or authorised work only. Check every AI answer yourself.</p>
         <p class="small"><a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>

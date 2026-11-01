@@ -9,23 +9,23 @@
     {"n": 1, "name": "Physical", "ex": "Cables, Wi-Fi radio"}
   ],
   "tcpip": [
-    {"name": "Application", "ex": "OSI 5–7 · HTTP, DNS, SSH"},
+    {"name": "Application", "ex": "OSI 5 to 7 · HTTP, DNS, SSH"},
     {"name": "Transport", "ex": "OSI 4 · TCP, UDP"},
     {"name": "Internet", "ex": "OSI 3 · IP, ICMP"},
-    {"name": "Network Access", "ex": "OSI 1–2 · Ethernet, Wi-Fi"}
+    {"name": "Network Access", "ex": "OSI 1 to 2 · Ethernet, Wi-Fi"}
   ],
   "note": "* Some protocols don't fit neatly into one layer; TLS and ARP are commonly placed as shown.",
   "cards": [
-    {"title": "IP addressing", "tag": "L3", "body": "An IPv4 address is 32 bits written as four octets (e.g. 192.168.1.10). Private ranges — 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 — are not routed on the internet. IPv6 uses 128-bit addresses.", "ex": "ip a   |   ipconfig /all"},
+    {"title": "IP addressing", "tag": "L3", "body": "An IPv4 address is 32 bits written as four octets (e.g. 192.168.1.10). Private ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) are not routed on the internet. IPv6 uses 128-bit addresses.", "ex": "ip a   |   ipconfig /all"},
     {"title": "Subnetting", "tag": "L3", "body": "The CIDR prefix (/24) says how many bits identify the network. The rest identify hosts. A /24 has 256 addresses; usable hosts = 2^(32−prefix) − 2 (network and broadcast are reserved).", "ex": "/24 → 255.255.255.0 → 254 hosts"},
-    {"title": "TCP vs UDP", "tag": "L4", "body": "TCP is connection-oriented: 3-way handshake (SYN, SYN-ACK, ACK), ordered and reliable delivery. UDP is connectionless and faster with no delivery guarantee — used for DNS queries, VoIP, streaming.", "ex": "SYN → SYN/ACK → ACK"},
+    {"title": "TCP vs UDP", "tag": "L4", "body": "TCP is connection-oriented: 3-way handshake (SYN, SYN-ACK, ACK), ordered and reliable delivery. UDP is connectionless and faster with no delivery guarantee, so it is used for DNS queries, VoIP, streaming.", "ex": "SYN → SYN/ACK → ACK"},
     {"title": "DNS", "tag": "L7", "body": "Translates names to IP addresses. Records: A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), TXT (SPF/DKIM/verification), NS (name servers). Usually UDP/53; TCP/53 for large responses and zone transfers.", "ex": "dig example.com A +short"},
     {"title": "HTTP / HTTPS / TLS", "tag": "L7", "body": "HTTP is the web's request/response protocol (methods: GET, POST…; status codes: 200, 301, 403, 404, 500). HTTPS is HTTP over TLS, which encrypts traffic and authenticates the server using certificates.", "ex": "curl -I https://example.com"},
     {"title": "ARP", "tag": "L2", "body": "Maps an IP address to a MAC address on the local network. Because ARP has no authentication, attackers can poison ARP caches to intercept traffic (man-in-the-middle). Defences: Dynamic ARP Inspection, static entries for critical hosts.", "ex": "ip neigh   |   arp -a"},
-    {"title": "DHCP", "tag": "L7", "body": "Automatically gives devices an IP, subnet mask, gateway and DNS server. The DORA process: Discover, Offer, Request, Acknowledge. Rogue DHCP servers can redirect traffic — switches use DHCP snooping to block them.", "ex": "UDP 67 (server) / 68 (client)"},
+    {"title": "DHCP", "tag": "L7", "body": "Automatically gives devices an IP, subnet mask, gateway and DNS server. The DORA process: Discover, Offer, Request, Acknowledge. Rogue DHCP servers can redirect traffic, so switches use DHCP snooping to block them.", "ex": "UDP 67 (server) / 68 (client)"},
     {"title": "NAT", "tag": "L3", "body": "Network Address Translation lets many private devices share one public IP by rewriting addresses at the router. It hides internal addressing but is not a firewall by itself.", "ex": "192.168.1.5:51000 → 203.0.113.7:40001"},
-    {"title": "VPN", "tag": "L3/L4", "body": "Creates an encrypted tunnel between your device and another network. Used for secure remote access to company networks. Common protocols: IPsec, OpenVPN, WireGuard. A VPN changes who can see your traffic — it does not make you anonymous.", "ex": "WireGuard: UDP 51820 (default)"},
-    {"title": "Firewalls", "tag": "L3–L7", "body": "Allow or block traffic based on rules. Stateless filters check each packet; stateful firewalls track connections; next-gen firewalls (NGFW) inspect applications. Best practice: default-deny, allow only what's needed.", "ex": "sudo ufw default deny incoming"}
+    {"title": "VPN", "tag": "L3/L4", "body": "Creates an encrypted tunnel between your device and another network. Used for secure remote access to company networks. Common protocols: IPsec, OpenVPN, WireGuard. A VPN changes who can see your traffic, but it does not make you anonymous.", "ex": "WireGuard: UDP 51820 (default)"},
+    {"title": "Firewalls", "tag": "L3 to L7", "body": "Allow or block traffic based on rules. Stateless filters check each packet; stateful firewalls track connections; next-gen firewalls (NGFW) inspect applications. Best practice: default-deny, allow only what's needed.", "ex": "sudo ufw default deny incoming"}
   ],
   "ports": [
     ["20/21", "FTP"], ["22", "SSH"], ["23", "Telnet (insecure)"], ["25", "SMTP"], ["53", "DNS"],

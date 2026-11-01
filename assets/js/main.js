@@ -1,4 +1,4 @@
-/* CyberWithMadhav — vanilla JS. Content lives in /data/*.json */
+/* CyberWithMadhav: vanilla JS. Content lives in /data/*.json */
 (function () {
   'use strict';
   const $ = (s, el = document) => el.querySelector(s);
@@ -153,7 +153,7 @@
     if (!m) throw new Error('Use the format a.b.c.d/prefix, e.g. 10.0.0.5/16');
     const oct = m.slice(1, 5).map(Number);
     if (oct.some(o => o > 255) || m.slice(1, 5).some(o => o.length > 1 && o[0] === '0'))
-      throw new Error('Each octet must be 0–255 without leading zeros.');
+      throw new Error('Each octet must be 0 to 255 without leading zeros.');
     const prefix = m[5] === undefined ? 32 : Number(m[5]);
     if (prefix > 32) throw new Error('Prefix must be between /0 and /32.');
     return { ip: ipToInt(oct), prefix, first: oct[0] };
@@ -764,7 +764,7 @@
       const problem = validate(data);
       status.className = 'form-status small';
       if (problem) { status.textContent = problem; status.classList.add('err'); return; }
-      if (!API) { status.textContent = 'Signup backend is not connected yet — please email madhavpandya@zoho.in.'; status.classList.add('err'); return; }
+      if (!API) { status.textContent = 'Signup backend is not connected yet. Please email madhavpandya@zoho.in.'; status.classList.add('err'); return; }
       const btn = $('button[type="submit"]', form); btn.disabled = true;
       try {
         const r = await fetch(API + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });

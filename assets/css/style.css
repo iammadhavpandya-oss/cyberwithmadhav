@@ -237,7 +237,7 @@ mark{background:color-mix(in srgb,var(--purple) 40%,transparent);color:inherit;b
 .toast[hidden]{display:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
-/* ===== v2: colour roles — purple = actions, green = code & live states ===== */
+/* ===== v2: colour roles: purple = actions, green = code & live states ===== */
 .live{display:inline-flex;align-items:center;gap:5px;font:500 .7rem var(--mono);color:var(--green-2);text-transform:lowercase}
 .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 25%,transparent)}
 .link-btn{background:none;border:0;padding:6px 0;color:var(--purple-2);font:600 .9rem var(--font);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
@@ -641,3 +641,44 @@ section[tabindex="-1"]:focus{outline:none;box-shadow:none}
 @media (min-width:821px) and (max-width:960px){
   .nav .brand span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 }
+
+/* ===== consent gate (assets/js/consent.js) ===== */
+/* gutter is always reserved so locking scroll behind the gate never moves the page */
+html{scrollbar-gutter:stable}
+html.consent-pending{overflow:hidden}
+html.consent-pending body::after{content:"";position:fixed;inset:0;z-index:9998;background:rgba(8,6,14,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+[data-theme="light"].consent-pending body::after{background:rgba(40,28,70,.32)}
+.cg{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;overflow-y:auto}
+.cg-card{width:min(520px,100%);padding:30px 28px 26px;border-radius:22px;border:1px solid var(--glass-border);
+  background:linear-gradient(150deg,color-mix(in srgb,var(--purple) 16%,transparent),transparent 55%),var(--glass-strong);
+  -webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.75),inset 0 1px 0 var(--glass-hi);color:var(--text);animation:cgIn .35s var(--ease) both}
+@keyframes cgIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.cg-logo{display:block;margin:0 0 12px}
+.cg-card h2{font:700 1.5rem/1.2 var(--font-head);margin:0 0 10px}
+.cg-sum p{margin:0 0 10px;color:var(--text)}
+.cg-sum ul{margin:0 0 18px;padding-left:20px;color:var(--muted);font-size:.93rem;line-height:1.55}
+.cg-sum li{margin:4px 0}
+.cg-check{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;border:1px solid var(--glass-border);background:var(--glass-soft);cursor:pointer;line-height:1.5}
+.cg-check input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--purple);cursor:pointer}
+.cg-check a{color:var(--purple-2);text-decoration:underline;text-underline-offset:2px}
+.cg-check:focus-within{outline:2px solid var(--purple-2);outline-offset:2px}
+.cg-hint{margin:10px 0 16px}
+.cg-enter{width:100%;justify-content:center}
+.cg-enter[disabled]{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.cg :focus-visible{outline:2px solid var(--purple-2);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.cg-card{animation:none}}
+@media print{.cg,html.consent-pending body::after{display:none}html.consent-pending{overflow:visible}}
+
+/* ===== legal links and slim notice (all pages) ===== */
+.foot-legal{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 12px;font-size:.9rem}
+.foot-legal a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.foot-legal a:hover{color:var(--text)}
+.notice-slim{display:flex;gap:8px;align-items:center;margin:18px 0 0;padding:8px 14px;width:fit-content;max-width:100%;border-radius:999px;font-size:.88rem;line-height:1.4;
+  border:1px solid color-mix(in srgb,var(--amber) 45%,var(--glass-border));background:var(--glass);color:var(--text);
+  -webkit-backdrop-filter:blur(var(--blur));backdrop-filter:blur(var(--blur))}
+.notice-slim svg{flex:none;color:var(--amber)}
+.notice-slim a{color:var(--purple-2);text-decoration:underline;text-underline-offset:2px}
+@media (min-width:821px){#nav-links a.nav-legal{font-size:.8rem;color:var(--muted)}#nav-links a.nav-legal[aria-current="page"]{color:var(--text)}}
+/* mid widths: Terms and Privacy stay in the footer and the mobile menu so the top nav keeps to one row */
+@media (min-width:821px) and (max-width:1279px){#nav-links a.nav-legal:not([aria-current="page"]){display:none}}

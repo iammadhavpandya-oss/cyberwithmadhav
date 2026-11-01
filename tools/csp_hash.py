@@ -4,7 +4,7 @@ Run after editing the theme pre-paint script:  python3 tools/csp_hash.py"""
 import base64, hashlib, re
 from pathlib import Path
 
-for name in ("ctf.html", "prompts.html", "cyberlaw.html"):
+for name in ("ctf.html", "prompts.html", "cyberlaw.html", "terms.html", "privacy.html"):
   p = Path(__file__).resolve().parent.parent / name
   html = p.read_text(encoding="utf-8")
   hashes = ["'sha256-%s'" % base64.b64encode(hashlib.sha256(m.encode()).digest()).decode()

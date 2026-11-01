@@ -140,23 +140,23 @@
    "items": [
     {
      "cmd": "21",
-     "what": "FTP — file transfer (plaintext)"
+     "what": "FTP: file transfer (plaintext)"
     },
     {
      "cmd": "22",
-     "what": "SSH / SFTP — secure remote shell"
+     "what": "SSH / SFTP: secure remote shell"
     },
     {
      "cmd": "23",
-     "what": "Telnet — plaintext remote shell, avoid"
+     "what": "Telnet: plaintext remote shell, avoid"
     },
     {
      "cmd": "25 / 587",
-     "what": "SMTP / SMTP submission — sending mail"
+     "what": "SMTP / SMTP submission: sending mail"
     },
     {
      "cmd": "53",
-     "what": "DNS — UDP queries, TCP for large responses/zone transfers"
+     "what": "DNS: UDP queries, TCP for large responses/zone transfers"
     },
     {
      "cmd": "67 / 68",
@@ -176,7 +176,7 @@
     },
     {
      "cmd": "123",
-     "what": "NTP — time sync (UDP)"
+     "what": "NTP: time sync (UDP)"
     },
     {
      "cmd": "161 / 162",
@@ -192,11 +192,11 @@
     },
     {
      "cmd": "445",
-     "what": "SMB — Windows file sharing"
+     "what": "SMB: Windows file sharing"
     },
     {
      "cmd": "3389",
-     "what": "RDP — Windows Remote Desktop"
+     "what": "RDP: Windows Remote Desktop"
     },
     {
      "cmd": "3306 / 5432 / 1433",
@@ -256,7 +256,7 @@
     },
     {
      "cmd": "tcp.analysis.retransmission",
-     "what": "Retransmissions — network trouble"
+     "what": "Retransmissions: network trouble"
     },
     {
      "cmd": "arp",
@@ -320,7 +320,7 @@
     },
     {
      "cmd": "echo \".env\" >> .gitignore",
-     "what": "Never commit secrets — ignore them"
+     "what": "Never commit secrets: ignore them"
     }
    ]
   },
@@ -333,7 +333,7 @@
    "items": [
     {
      "cmd": "A01 Broken Access Control",
-     "what": "Users act outside their permissions, e.g. IDOR — changing an ID in the URL to view someone else's data."
+     "what": "Users act outside their permissions, e.g. IDOR: changing an ID in the URL to view someone else's data."
     },
     {
      "cmd": "A02 Cryptographic Failures",
@@ -341,7 +341,7 @@
     },
     {
      "cmd": "A03 Injection",
-     "what": "Untrusted input interpreted as code — SQL injection, command injection, XSS. Use parameterised queries and output encoding."
+     "what": "Untrusted input interpreted as code: SQL injection, command injection, XSS. Use parameterised queries and output encoding."
     },
     {
      "cmd": "A04 Insecure Design",
@@ -483,7 +483,7 @@
     },
     {
      "cmd": "Long passphrases",
-     "what": "Length beats complexity: 4–5 random words is stronger and easier to remember than P@ssw0rd!"
+     "what": "Length beats complexity: 4 to 5 random words is stronger and easier to remember than P@ssw0rd!"
     },
     {
      "cmd": "Never reuse passwords",
@@ -507,7 +507,7 @@
     },
     {
      "cmd": "Secure your email first",
-     "what": "Your email resets every other account — give it the strongest protection."
+     "what": "Your email resets every other account, so give it the strongest protection."
     },
     {
      "cmd": "Update and lock devices",

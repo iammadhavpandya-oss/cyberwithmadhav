@@ -70,9 +70,9 @@
         "Demands for money with threats"
       ],
       "do": [
-        "Don't pay — payment usually leads to more demands",
+        "Don't pay: payment usually leads to more demands",
         "Stop contact, save evidence (screenshots, profile links), and report the account",
-        "Report at cybercrime.gov.in or call 1930. You are the victim — it's not your fault"
+        "Report at cybercrime.gov.in or call 1930. You are the victim. It's not your fault"
       ]
     },
     {
@@ -98,8 +98,8 @@
     "Install apps only from official app stores",
     "Lock your SIM with a PIN and your phone with a strong screen lock",
     "Back up important photos and documents",
-    "Review app permissions — does a torch app need your contacts?",
-    "Be careful about what you post publicly — location, ID cards, tickets"
+    "Review app permissions: does a torch app need your contacts?",
+    "Be careful about what you post publicly: location, ID cards, tickets"
   ],
   "quiz": [
     {

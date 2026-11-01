@@ -29,6 +29,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,6 +102,8 @@
         <a href="ctf.html" class="nav-ctf active" aria-current="page"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
         <a href="prompts.html">Prompts</a>
         <a href="cyberlaw.html">Cyber Law</a>
+        <a href="terms.html" class="nav-legal">Terms</a>
+        <a href="privacy.html" class="nav-legal">Privacy</a>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -397,6 +400,7 @@
 
   <footer class="footer">
     <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is. Puzzles are self-contained: no live targets.</p>
         <p class="small"><a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
