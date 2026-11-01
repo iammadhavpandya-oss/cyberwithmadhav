@@ -41,6 +41,21 @@ python3 tools/csp_hash.py               # only if the inline theme script in ctf
 ```
 Tests: `cd tools && node test_ctf.mjs` (45 browser checks, also run at the end of `test.mjs`; needs the private key file, set `SKIP_CTF=1` to skip) and `cd backend && python -m unittest test_ctf` (20 API checks).
 
+## CyberPrompts (`prompts.html`) and Cyber Law India (`cyberlaw.html`)
+
+- `prompts.html`: 90 defensive / authorised-use prompts in 19 categories (incl. the Defensive Analysis group), search, category filter, favourites in localStorage, 12 "How to use safely" scenario cards. Data: `data/prompts.json`, `data/cyberprompts_usecases.json`.
+- `cyberlaw.html`: hero (Sec 43 civil vs Sec 66 crime), History of Indian Cyber Law timeline (`data/cyberlaw_timeline.json`, 26 entries), IT Act table (28 rows), BNS to IPC map (17 rows), DPDP penalties, procedure (7 steps), Where to File (`data/cyberlaw_reporting.json`, 9 forums, NCRP and 1930 first), 12 case files, FAQ in English and Hinglish (15), glossary (40), PDF downloads (`assets/pdf/`). Educational, not legal advice.
+- Tags: `verify` (solid) = open question; `being verified` (dashed) = fact-check item still being confirmed against the linked primary source.
+
+Build order (content lives in `/workspace/cwm-content`, outside the repo):
+
+```bash
+python3 tools/build_pages_data.py   # writes data/*.json, applies tools/content/factcheck.py (fact-check corrections override raw content), copies the reporting guide forums, then tools/content/seo.py (titles, meta, og, keywords, JSON-LD for prompts, cyberlaw, ctf)
+python3 tools/csp_hash.py           # only if an inline script changed
+```
+
+Tests: `cd tools && node test_pages.mjs` (prompts + cyberlaw + SEO, screenshots in `docs/`), or `node test.mjs` for everything (`SKIP_CTF=1` / `SKIP_PAGES=1` to skip parts). `sitemap.xml` and `robots.txt` list the real URLs.
+
 ## File tree
 ```
 cwm-site/
@@ -100,7 +115,7 @@ See [docs/DEPLOY.md](docs/DEPLOY.md) — GitHub Pages / Netlify / Cloudflare Pag
 - [ ] Instagram and YouTube URLs → `data/about.json` (`links[].url`; rows stay hidden while empty), plus `sameAs` in the JSON-LD in `index.html`
 - [ ] Real numbers only if available → `data/about.json` `timeline[].metric` (empty = hidden)
 - [ ] Photo → `assets/img/madhav.jpg`, then swap the "MP" placeholder in `index.html`
-- [ ] Real domain → `<link rel="canonical">`, `og:url`, JSON-LD `url` (currently `cyberwithmadhav.example`; live site is https://iammadhavpandya-oss.github.io/cyberwithmadhav/)
+- [x] Real domain: `<link rel="canonical">`, `og:url`, `og:image` and `sitemap.xml` point to https://iammadhavpandya-oss.github.io/cyberwithmadhav/
 - [ ] Social preview image → `assets/img/og-image.png` (1200×630)
 - [ ] CTF API is not deployed yet: see the CTF section of docs/DEPLOY.md, then set `cwm-api` in `ctf.html`
 - [ ] If the backend is deployed: set `<meta name="cwm-api" content="https://api.your-domain">` and `CWM_ALLOWED_ORIGINS`

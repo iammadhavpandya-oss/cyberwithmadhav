@@ -353,3 +353,5 @@ await browser.close();
 
 // CTF page checks (needs the answer key in backend/ctf_answers.private.json; set SKIP_CTF=1 to skip)
 if (!process.env.SKIP_CTF) await import('./test_ctf.mjs');
+// prompts.html + cyberlaw.html checks and screenshots (set SKIP_PAGES=1 to skip)
+if (!process.env.SKIP_PAGES) await import('./test_pages.mjs');

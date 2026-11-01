@@ -629,3 +629,15 @@ section[tabindex="-1"]:focus{outline:none;box-shadow:none}
 .nav-ctf-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 color-mix(in srgb,var(--green) 60%,transparent);animation:ctfPing 2.2s infinite}
 @keyframes ctfPing{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--green) 55%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
 @media (prefers-reduced-motion:reduce){.nav-ctf-dot{animation:none}}
+
+/* nav: two more links (Prompts, Cyber Law); keep it on one row above the 820px hamburger */
+@media (min-width:821px){
+  #nav-links{gap:0}
+  #nav-links a{white-space:nowrap;padding:7px 9px;font-size:.86rem}
+}
+@media (min-width:821px) and (max-width:1080px){
+  #nav-links a{padding:6px 6px;font-size:.8rem}
+}
+@media (min-width:821px) and (max-width:960px){
+  .nav .brand span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+}

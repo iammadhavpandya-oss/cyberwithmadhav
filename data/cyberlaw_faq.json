@@ -1,0 +1,305 @@
+[
+ {
+  "q": "Is opening my partner's phone without permission illegal?",
+  "a_en": "Accessing someone else's phone, accounts or data without their permission can be an offence under the IT Act, even between spouses or partners, and the Supreme Court has recognised privacy as a fundamental right (Puttaswamy, 2017). Unauthorised access can attract civil compensation under Section 43 and becomes a criminal offence under Section 66 if done dishonestly or fraudulently. Capturing or sharing private images can bring in Section 66E of the IT Act and voyeurism under BNS Section 77. Every situation depends on its facts, so speak to a lawyer before acting or using such data as evidence.",
+  "a_hinglish": "Bina permission partner ka phone ya account kholna IT Act ke under offence ho sakta hai, shaadi ho ya relationship. Agar private photos ya chats nikaal ke share kiye, toh aur serious sections lag sakte hain. Apne case ke liye kisi lawyer se baat karein.",
+  "refs": [
+   "IT Act s.43",
+   "IT Act s.66",
+   "IT Act s.66E",
+   "BNS s.77 (old IPC 354C)"
+  ],
+  "sources": [
+   {
+    "label": "IT Act (India Code)",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
+   },
+   {
+    "label": "BNS (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+   }
+  ]
+ },
+ {
+  "q": "What do I do in the first hour after UPI fraud?",
+  "a_en": "Call the 1930 cyber fraud helpline immediately, because quick reporting gives the best chance of the money being put on hold before it moves further. Then inform your bank in writing, block your UPI or card if needed, and file or complete your complaint on cybercrime.gov.in with the transaction IDs (UTR numbers), screenshots and the fraudster's number or UPI ID. Under the RBI's customer liability rules (first issued in July 2017 and now in the RBI Responsible Business Conduct Directions, 2025, paras 67 to 72), you bear zero loss for a third-party fraud reported within 3 working days; reporting within 4 to 7 working days caps your loss at ₹5,000, ₹10,000 or ₹25,000 depending on the account; after that the bank's Board-approved policy applies (being verified). Never share OTP, PIN or screen-sharing access with anyone who calls offering to 'help recover' the money.",
+  "a_hinglish": "Turant 1930 pe call karein, kyunki jitni jaldi report karoge utna chance hai paisa hold hone ka. Phir bank ko likhit mein batao aur cybercrime.gov.in pe UTR number, screenshots ke saath complaint daalo. 'Refund dila denge' bolne waale ko kabhi OTP ya PIN mat do. RBI rules ke hisaab se 3 working days ke andar report kiya toh third-party fraud mein aapki liability zero ho sakti hai.",
+  "refs": [
+   "RBI (Commercial Banks - Responsible Business Conduct) Directions 2025, paras 67-72 (carries over the July 2017 circular) (being verified)",
+   "IT Act s.66D",
+   "BNS s.318 (old IPC 420)"
+  ],
+  "sources": [
+   {
+    "label": "RBI master direction page",
+    "url": "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=13140"
+   },
+   {
+    "label": "Directions text (mirror)",
+    "url": "https://www.caalley.com/rbi_mc_md_25/md/170MD.pdf"
+   },
+   {
+    "label": "2017 circular (withdrawn)",
+    "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040&Mode=0"
+   }
+  ]
+ },
+ {
+  "q": "Is a WhatsApp chat valid evidence in court?",
+  "a_en": "WhatsApp chats, screenshots and other electronic records can be used as evidence in India, but courts generally expect them to be properly proved. Under the Bharatiya Sakshya Adhiniyam 2023, Section 63 (which replaced Section 65B of the old Evidence Act) requires a certificate in the prescribed Schedule format, including details of the device and a hash value. Keep the original phone and chats intact, do not edit or crop screenshots, and export chats where possible. A lawyer can advise how to present the evidence in your specific case.",
+  "a_hinglish": "Haan, WhatsApp chat evidence ban sakti hai, lekin court mein usse sahi tarike se prove karna padta hai. BSA Section 63 ke under certificate lagta hai (pehle Evidence Act 65B tha). Original phone aur chats delete mat karo, aur lawyer se guidance lo.",
+  "refs": [
+   "BSA 2023 s.63 (old Evidence Act s.65B)",
+   "BSA 2023 s.61",
+   "BSA 2023 Schedule (certificate)"
+  ],
+  "sources": [
+   {
+    "label": "BSA (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/250882.pdf"
+   }
+  ]
+ },
+ {
+  "q": "What is the difference between IT Act Section 43 and Section 66?",
+  "a_en": "Section 43 lists acts like accessing a computer without permission, downloading data, introducing viruses or damaging a system, and makes the person liable to pay compensation, so it is mainly a civil remedy. Section 66 makes the same acts a criminal offence when they are done dishonestly or fraudulently. In simple terms, Section 43 is about compensation and Section 66 is about punishment, and the two can apply together. Claims under Section 43 of up to ₹5 crore are decided by the adjudicating officer under Section 46; larger claims go to the competent court. Check the process with a lawyer.",
+  "a_hinglish": "Section 43 mein bina permission computer access, data chori ya damage pe compensation dena padta hai, yeh civil side hai. Wahi kaam agar dishonestly ya fraudulently kiya gaya ho toh Section 66 ke under criminal offence ban jaata hai. Simple bhasha mein, 43 matlab compensation aur 66 matlab saza.",
+  "refs": [
+   "IT Act s.43",
+   "IT Act s.66",
+   "IT Act s.46"
+  ],
+  "sources": [
+   {
+    "label": "IT Act (India Code)",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
+   }
+  ]
+ },
+ {
+  "q": "Can I be arrested for forwarding a message?",
+  "a_en": "Forwarding can be an offence if the content itself is unlawful, for example content promoting enmity between groups, false statements likely to cause public mischief, defamatory content or obscene material. Section 66A of the IT Act, which was often misused for 'offensive' posts, was struck down by the Supreme Court in Shreya Singhal (2015) and formally omitted by the Jan Vishwas Act from 30 November 2023, so it cannot be applied. For offences punishable with up to seven years, the BNSS generally requires police to issue a notice of appearance instead of arresting straight away, with arrest as an exception. If you receive a notice or complaint, consult a lawyer before responding.",
+  "a_hinglish": "Agar forward kiya gaya content khud illegal hai (jaise nafrat failana, fake news se public mein dar, defamation ya obscene material), toh case ban sakta hai. IT Act 66A ab exist nahi karta, Supreme Court ne 2015 mein strike down kar diya tha. Police notice aaye toh pehle lawyer se baat karo.",
+  "refs": [
+   "BNS s.196 (old IPC 153A)",
+   "BNS s.353 (old IPC 505)",
+   "BNS s.356 (old IPC 499/500)",
+   "IT Act s.67",
+   "IT Act s.66A (struck down 2015; omitted 30 Nov 2023)",
+   "BNSS s.35(3) (old CrPC 41A)"
+  ],
+  "sources": [
+   {
+    "label": "BNSS (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/250884.pdf"
+   },
+   {
+    "label": "Jan Vishwas Act",
+    "url": "https://egazette.gov.in/WriteReadData/2023/248047.pdf"
+   }
+  ]
+ },
+ {
+  "q": "Who handles complaints under the DPDP Act?",
+  "a_en": "Under the Digital Personal Data Protection Act 2023, you must first use the grievance redressal mechanism of the company (Data Fiduciary) or Consent Manager, which must reply within a reasonable period not exceeding 90 days (DPDP Rules r.14(3)). Only then can you complain to the Data Protection Board of India, and the Board's orders can be appealed to the Appellate Tribunal (TDSAT) within 60 days (s.29(2)). But these grievance, complaint, appeal and penalty provisions take effect only 18 months after 13 November 2025, around 13 May 2027 (being verified). Until then, claim compensation under IT Act Section 43A before the adjudicating officer (Section 46) or in a civil court; the SPDI Rules 2011 still apply. For financial loss or a crime, also report to 1930 and cybercrime.gov.in.",
+  "a_hinglish": "DPDP Act mein pehle company ke grievance officer ko complaint karni hoti hai (jawab 90 din ke andar), phir Data Protection Board, aur Board ke order ke khilaaf 60 din mein TDSAT appeal. Lekin yeh provisions lagbhag 13 May 2027 se lagu honge. Tab tak IT Act Section 43A aur Section 46 (adjudicating officer) ya civil court ka raasta hai. Fraud ya paisa gaya hai toh 1930 aur cybercrime.gov.in pe bhi report karo.",
+  "refs": [
+   "DPDP Act 2023 s.13(3)",
+   "DPDP Act 2023 s.27",
+   "DPDP Act 2023 s.29(2)",
+   "DPDP Rules 2025 r.14(3)",
+   "IT Act s.43A, s.46",
+   "DPDP commencement, G.S.R. 843(E) (being verified)"
+  ],
+  "sources": [
+   {
+    "label": "DPDP Act",
+    "url": "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf"
+   },
+   {
+    "label": "DPDP Rules 2025",
+    "url": "https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf"
+   },
+   {
+    "label": "Commencement notification",
+    "url": "https://egazette.gov.in/WriteReadData/2025/267647.pdf"
+   }
+  ]
+ },
+ {
+  "q": "Someone is threatening to leak my private or morphed photos (sextortion). What do I do?",
+  "a_en": "Do not pay and do not send more images, because payment usually leads to more demands. Preserve evidence (chats, profile links, numbers, payment requests), block the person, report the account to the platform, and file a complaint on cybercrime.gov.in, which has a category for crimes against women and children, or call 1930. Such threats can attract IT Act provisions on privacy and obscene or sexually explicit material, and BNS provisions on extortion and criminal intimidation. You are not at fault, and a lawyer or a trusted person can help you through the process.",
+  "a_hinglish": "Paise mat do aur koi aur photo mat bhejo, warna demand badhti jaayegi. Screenshots aur profile link save karo, block karo, aur cybercrime.gov.in pe ya 1930 pe report karo. Galti aapki nahi hai, kisi trusted insaan ya lawyer ki madad lo.",
+  "refs": [
+   "IT Act s.66E",
+   "IT Act s.67",
+   "IT Act s.67A",
+   "BNS s.308 (old IPC 383/384)",
+   "BNS s.351 (old IPC 503/506)",
+   "BNS s.77 (old IPC 354C)"
+  ]
+ },
+ {
+  "q": "Someone made a fake profile pretending to be me. Is that a crime?",
+  "a_en": "Creating a fake profile using your name or photos to deceive others can be identity theft or cheating by personation under the IT Act, and cheating by personation under the BNS. If the profile posts content that harms your reputation, defamation provisions may also apply. Report the profile to the platform using its impersonation form, warn your contacts, save screenshots with the profile URL, and file a complaint on cybercrime.gov.in. A lawyer can help if you want to pursue the matter further.",
+  "a_hinglish": "Aapke naam ya photo se fake profile banana IT Act aur BNS ke under identity theft ya personation ho sakta hai. Pehle platform pe 'impersonation' report karo, contacts ko alert karo, aur URL ke saath screenshot leke cybercrime.gov.in pe complaint karo.",
+  "refs": [
+   "IT Act s.66C",
+   "IT Act s.66D",
+   "BNS s.319 (old IPC 416/419)",
+   "BNS s.356 (old IPC 499/500)"
+  ]
+ },
+ {
+  "q": "Is posting false and insulting things about someone online defamation?",
+  "a_en": "Online posts, reviews, videos or messages that harm someone's reputation with false statements can amount to defamation, which is a criminal offence under BNS Section 356 and can also lead to a civil suit for damages. Truth and fair comment in the public interest can be defences, but whether they apply depends on the facts. If you are targeted, save evidence and ask the platform to remove the content; if you are accused, avoid deleting or reposting until you have spoken to a lawyer. When talking about ongoing cases, words like 'allegedly' and avoiding names of accused persons reduce risk. Under the IT Rules as amended in 2026, the platform must acknowledge your complaint within 24 hours and resolve it within 7 days, and intimate or morphed images must be taken down within 2 hours (being verified).",
+  "a_hinglish": "Kisi ke baare mein jhooth bolkar reputation kharab karna online bhi defamation hai, BNS Section 356 ke under. Sach aur public interest mein fair comment defence ho sakte hain, par yeh facts pe depend karta hai. Case ho toh lawyer se zaroor baat karo. IT Rules 2026 ke hisaab se platform ko complaint 24 ghante mein acknowledge karke 7 din mein resolve karni hoti hai, aur intimate ya morphed photos 2 ghante mein hatani hoti hain.",
+  "refs": [
+   "BNS s.356 (old IPC 499/500)",
+   "IT Rules 2021 r.3, as amended by G.S.R. 120(E), 2026 (being verified)"
+  ],
+  "sources": [
+   {
+    "label": "G.S.R. 120(E), 2026",
+    "url": "https://www.meity.gov.in/static/uploads/2026/02/f55fe52418b03f58b0669f6a8bc03b6d.pdf"
+   },
+   {
+    "label": "IT Rules consolidated",
+    "url": "https://www.meity.gov.in/static/uploads/2026/03/0b576f2071694b52e4cd6bb1b6dfab1e.pdf"
+   }
+  ]
+ },
+ {
+  "q": "My child is being cyberbullied online. What can we do?",
+  "a_en": "Talk to your child calmly, save the evidence, and report and block the bully on the platform; also inform the school if classmates are involved. Depending on the content, laws on stalking, criminal intimidation, sexual harassment of children (POCSO) or sexually explicit material involving children may apply. You can report on cybercrime.gov.in, which has a section for crimes against women and children, or call 1930, and the child's identity should be kept confidential. For serious cases, consult a lawyer or a child protection officer.",
+  "a_hinglish": "Bachche ko daantne ki jagah calmly baat karo, evidence save karo aur platform pe report aur block karo. School ko bhi batao agar classmates involved hain. Serious case mein cybercrime.gov.in pe report karo, bachche ki identity confidential rehni chahiye.",
+  "refs": [
+   "BNS s.78 (old IPC 354D)",
+   "BNS s.351 (old IPC 503/506)",
+   "IT Act s.67B",
+   "POCSO Act 2012 s.11 (being verified)",
+   "POCSO Act 2012 s.15 (as substituted in 2019)"
+  ],
+  "sources": [
+   {
+    "label": "POCSO (India Code)",
+    "url": "https://www.indiacode.nic.in/indiacode/bitstream/123456789/2079/1/AA2012-32.pdf"
+   },
+   {
+    "label": "POCSO Amendment 2019 (WCD)",
+    "url": "https://www.wcd.gov.in/documents/uploaded/1709101352.pdf"
+   },
+   {
+    "label": "POCSO text (mirror)",
+    "url": "https://www.legitquest.com/act/protection-of-children-from-sexual-offences-act-2012-amended-upto-2019/2816"
+   }
+  ]
+ },
+ {
+  "q": "How do I file a complaint on cybercrime.gov.in or through 1930?",
+  "a_en": "For money lost to online fraud, call 1930 first, then register on cybercrime.gov.in (the National Cyber Crime Reporting Portal) and file under financial fraud with transaction details, screenshots and suspect identifiers. For other cybercrimes, choose the relevant category; crimes against women and children have a separate reporting option. Note your acknowledgement number and follow up with your local cyber cell or police station. Information given electronically must be signed by the complainant within three days to be taken on record as an FIR (BNSS s.173(1)(ii)).",
+  "a_hinglish": "Paisa gaya hai toh pehle 1930 pe call karo, phir cybercrime.gov.in pe 'financial fraud' mein UTR aur screenshots ke saath complaint daalo. Acknowledgement number sambhal ke rakho aur local cyber cell se follow up karo.",
+  "refs": [
+   "BNSS s.173(1) (old CrPC 154)"
+  ],
+  "sources": [
+   {
+    "label": "BNSS (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/250884.pdf"
+   }
+  ]
+ },
+ {
+  "q": "Can the police refuse to register an FIR for a cybercrime?",
+  "a_en": "For a cognizable offence, the police are generally required to register an FIR, and under BNSS Section 173 a 'Zero FIR' can be filed at any police station regardless of where the offence happened. For offences punishable with 3 years or more but less than 7 years, police may first hold a preliminary enquiry, within 14 days, with permission from an officer of DSP rank. If the police refuse, you can send the complaint to the Superintendent of Police under Section 173(4), and then approach a Magistrate under Section 175(3). A lawyer can help draft these applications.",
+  "a_hinglish": "Cognizable offence mein police ko FIR register karni padti hai, aur Zero FIR kisi bhi police station mein ho sakti hai. Mana karein toh Superintendent of Police (SP) ko likhit complaint do, phir Magistrate ke paas ja sakte ho. Isme lawyer madad kar sakta hai.",
+  "refs": [
+   "BNSS s.173(1) (old CrPC 154)",
+   "BNSS s.173(3)",
+   "BNSS s.173(4) (old CrPC 154(3))",
+   "BNSS s.175(3) (old CrPC 156(3))"
+  ],
+  "sources": [
+   {
+    "label": "BNSS (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/250884.pdf"
+   }
+  ]
+ },
+ {
+  "q": "Is my bank liable if money is taken from my account without my authorisation?",
+  "a_en": "Under the RBI's customer liability rules, first issued in the July 2017 circular and now carried into the RBI (Commercial Banks - Responsible Business Conduct) Directions, 2025 (paras 67 to 72), you have zero liability where the bank was negligent, or where a third-party breach occurred and you reported it within 3 working days. Reporting within 4 to 7 working days caps your liability at ₹5,000, ₹10,000 or ₹25,000 depending on the account, and beyond 7 working days the bank's Board-approved policy applies (being verified). If the loss happened because you shared credentials such as OTP or PIN, you may bear the loss until you report it. The bank must credit the amount to your account (shadow credit) within 10 working days of your report and resolve the complaint within 90 days. If the bank does not reply within 30 days or you are not satisfied, complain at cms.rbi.org.in under the Reserve Bank - Integrated Ombudsman Scheme, 2026 (in force 1 July 2026): file within 90 days; the Ombudsman can award up to ₹30 lakh + ₹3 lakh, and an appeal lies within 30 days (being verified). Complaints received before 1 July 2026 stay under the 2021 scheme. A lawyer or consumer forum advisor can help.",
+  "a_hinglish": "RBI rules (pehle 2017 circular, ab RBI Responsible Business Conduct Directions 2025) ke hisaab se, galti bank ki ho ya third-party fraud ho aur aapne 3 working days mein report kiya, toh liability zero. 4 se 7 working days mein report kiya toh loss ₹5,000 se ₹25,000 tak capped. OTP ya PIN khud share kiya toh loss aapka ho sakta hai jab tak report na karo. Bank ko 10 working days mein shadow credit dena hota hai. Bank 30 din mein jawab na de toh 90 din ke andar cms.rbi.org.in pe RBI Ombudsman (RB-IOS 2026) ko complaint karo.",
+  "refs": [
+   "RBI (Commercial Banks - Responsible Business Conduct) Directions 2025, paras 67-72 (being verified)",
+   "Reserve Bank - Integrated Ombudsman Scheme 2026, in force 1 Jul 2026 (being verified)",
+   "RB-IOS 2021 limits, historical (being verified)"
+  ],
+  "sources": [
+   {
+    "label": "RBC Directions (RBI)",
+    "url": "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=13140"
+   },
+   {
+    "label": "RB-IOS 2026 press release",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=62052"
+   },
+   {
+    "label": "RB-IOS 2026 FAQ",
+    "url": "https://rbi.org.in/SCRIPTS/FAQDisplay.aspx?Id=153"
+   },
+   {
+    "label": "RBI complaint portal",
+    "url": "https://cms.rbi.org.in/"
+   },
+   {
+    "label": "RB-IOS 2021 FAQ (mirror)",
+    "url": "https://www.banklaw.in/manage/images/services/301552251RBI-FAQs-IntegratedOmbudsmanScheme2021-19.12.2024.pdf"
+   }
+  ]
+ },
+ {
+  "q": "Someone made a deepfake video or voice clone of me. What law applies?",
+  "a_en": "There is no single 'deepfake' section, but depending on the content, IT Act provisions on identity theft, cheating by personation, privacy violation and obscene or sexually explicit material can apply, along with BNS provisions on defamation, cheating by personation and forgery. The IT Rules were amended in 2026 to cover 'synthetically generated information', requiring platforms to label such content and act against unlawful deepfakes. Report the content to the platform, save the links and copies, and file on cybercrime.gov.in or call 1930 if money is involved. A lawyer can advise on takedown and further action.",
+  "a_hinglish": "Deepfake ke liye alag section nahi hai, par content ke hisaab se IT Act aur BNS ke sections lagte hain. 2026 ke IT Rules amendment mein platforms ko AI se bane content ko label aur unlawful deepfake hatana padta hai. Platform pe report karo aur cybercrime.gov.in pe complaint karo.",
+  "refs": [
+   "IT Act s.66C",
+   "IT Act s.66D",
+   "IT Act s.66E",
+   "IT Act s.67",
+   "IT Act s.67A",
+   "BNS s.356",
+   "BNS s.319",
+   "BNS s.336 (old IPC 463/465)",
+   "IT Rules Amendment 2026, G.S.R. 120(E), in force 20 Feb 2026"
+  ],
+  "sources": [
+   {
+    "label": "G.S.R. 120(E), 2026",
+    "url": "https://www.meity.gov.in/static/uploads/2026/02/f55fe52418b03f58b0669f6a8bc03b6d.pdf"
+   },
+   {
+    "label": "SGI FAQ (MeitY)",
+    "url": "https://www.meity.gov.in/static/uploads/2026/02/49d4c4b42fc2d3dce00e0fdcf7ed1389.pdf"
+   }
+  ]
+ },
+ {
+  "q": "I got a 'digital arrest' call from someone claiming to be police, CBI or customs. Is it real?",
+  "a_en": "There is no procedure in Indian law called 'digital arrest', and genuine police or investigating agencies do not keep people on video calls or demand money transfers to 'verify' accounts. These calls are a scam where fraudsters pose as officials to frighten victims into paying. Disconnect the call, do not transfer money or share documents, and report it on cybercrime.gov.in, the Chakshu facility on sancharsaathi.gov.in for the number, or call 1930 if you have paid. Impersonating a public servant, extortion and cheating are offences under the BNS and IT Act.",
+  "a_hinglish": "'Digital arrest' naam ki koi cheez law mein nahi hai, asli police video call pe arrest nahi karti aur paisa transfer nahi karwati. Yeh scam hai, call kaato aur kuch bhi transfer mat karo. Paisa chala gaya ho toh turant 1930 pe call karo aur cybercrime.gov.in pe report karo.",
+  "refs": [
+   "BNS s.204",
+   "BNS s.308 (old IPC 383/384)",
+   "BNS s.318 (old IPC 420)",
+   "BNS s.319 (old IPC 416/419)",
+   "IT Act s.66D"
+  ],
+  "sources": [
+   {
+    "label": "BNS (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+   }
+  ]
+ }
+]

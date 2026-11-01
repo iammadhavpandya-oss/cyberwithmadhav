@@ -1,0 +1,276 @@
+[
+ {
+  "term": "Electronic record",
+  "meaning_en": "Any data, record, image or sound that is generated, stored, received or sent in electronic form, such as emails, chats, CCTV footage or server logs.",
+  "meaning_hinglish": "Koi bhi data, chat, photo, video ya log jo electronic form mein bana, store ya bheja gaya ho, woh electronic record hai.",
+  "ref": "IT Act 2000 s.2(1)(t)"
+ },
+ {
+  "term": "Intermediary",
+  "meaning_en": "A person or platform that receives, stores or transmits electronic records on behalf of others, such as telecom companies, ISPs, social media platforms, search engines and marketplaces.",
+  "meaning_hinglish": "Jo platform doosron ka data store ya forward karta hai, jaise WhatsApp, Instagram, ISP ya e-commerce site, woh intermediary hai.",
+  "ref": "IT Act 2000 s.2(1)(w)"
+ },
+ {
+  "term": "Safe harbour",
+  "meaning_en": "Protection from liability that an intermediary gets for third-party content it hosts, provided it follows due diligence and acts on lawful takedown orders or court directions.",
+  "meaning_hinglish": "Platform ko users ke content ke liye tab tak zimmedar nahi maana jaata jab tak woh rules follow kare aur lawful order pe content hataye.",
+  "ref": "IT Act 2000 s.79"
+ },
+ {
+  "term": "Data fiduciary",
+  "meaning_en": "A person or organisation that, alone or with others, decides the purpose and means of processing personal data, for example a bank, hospital, app or employer.",
+  "meaning_hinglish": "Jo company ya vyakti decide karta hai ki aapka personal data kyun aur kaise use hoga, woh data fiduciary hai.",
+  "ref": "DPDP Act 2023 s.2(i)"
+ },
+ {
+  "term": "Data principal",
+  "meaning_en": "The individual to whom the personal data relates; for a child or a person with a disability, this includes the parent or lawful guardian.",
+  "meaning_hinglish": "Jis insaan ka personal data hai, woh data principal hai, bachche ke case mein parent ya guardian bhi.",
+  "ref": "DPDP Act 2023 s.2(j)"
+ },
+ {
+  "term": "Consent manager",
+  "meaning_en": "A person registered with the Data Protection Board who acts as a single point of contact to help data principals give, manage, review and withdraw consent through an accessible platform.",
+  "meaning_hinglish": "Board mein registered ek platform jo aapko ek jagah se consent dene, dekhne aur wapas lene mein madad karta hai.",
+  "ref": "DPDP Act 2023 s.2(g)"
+ },
+ {
+  "term": "Hash value",
+  "meaning_en": "A fixed-length digital fingerprint (for example SHA-256) calculated from a file or disk; if even one bit changes, the hash changes, which helps prove evidence was not altered.",
+  "meaning_hinglish": "Hash value file ka digital fingerprint hota hai, file mein chhota sa bhi change ho toh hash badal jaata hai.",
+  "ref": "General term (also required in the BSA 2023 Schedule certificate under s.63(4)(c))"
+ },
+ {
+  "term": "Chain of custody",
+  "meaning_en": "A documented record of who collected, handled, transferred and stored a piece of evidence, and when, so that its integrity can be shown in court.",
+  "meaning_hinglish": "Evidence kisne, kab aur kaise collect aur handle kiya, iska poora likhit record chain of custody kehlaata hai.",
+  "ref": "General term"
+ },
+ {
+  "term": "Section 65B / BSA s.63 certificate",
+  "meaning_en": "A certificate that must accompany electronic evidence to make it admissible, identifying the record, the device and how it was produced; it was required under Section 65B of the old Evidence Act and now under BSA Section 63 with a Schedule format that includes hash values.",
+  "meaning_hinglish": "Electronic evidence court mein dene ke liye certificate lagta hai, pehle Evidence Act 65B ke under aur ab BSA Section 63 ke under.",
+  "ref": "BSA 2023 s.63 (old Indian Evidence Act 1872 s.65B)"
+ },
+ {
+  "term": "CERT-In",
+  "meaning_en": "The Indian Computer Emergency Response Team, the national agency for responding to cyber security incidents, issuing alerts and giving directions on incident reporting and security practices.",
+  "meaning_hinglish": "CERT-In India ki national agency hai jo cyber incidents handle karti hai aur security guidelines deti hai.",
+  "ref": "IT Act 2000 s.70B"
+ },
+ {
+  "term": "Blocking order",
+  "meaning_en": "A direction by the Central Government to an intermediary or government agency to block public access to specific online content on grounds such as sovereignty, security of the State or public order, following a prescribed procedure.",
+  "meaning_hinglish": "Sarkar ka order jisme kisi website ya post ko public ke liye block karne ko kaha jaata hai, specific grounds pe.",
+  "ref": "IT Act 2000 s.69A; IT (Procedure and Safeguards for Blocking for Access of Information by Public) Rules 2009 (verify)"
+ },
+ {
+  "term": "Adjudicating officer",
+  "meaning_en": "An officer appointed under the IT Act to decide claims for compensation and penalties for contraventions such as unauthorised access under Section 43, within the monetary limits set in the Act.",
+  "meaning_hinglish": "IT Act ke under appointed officer jo Section 43 jaise cases mein compensation ka faisla karta hai.",
+  "ref": "IT Act 2000 s.46"
+ },
+ {
+  "term": "Cognizable offence",
+  "meaning_en": "An offence for which police can arrest without a warrant and start investigating without a Magistrate's order; under the IT Act, offences carrying three years' imprisonment and above are cognizable. Offences of exactly three years are also bailable; for offences above three years s.77B is silent on bail (being verified).",
+  "meaning_hinglish": "Cognizable offence mein police bina warrant arrest kar sakti hai aur FIR darj karke investigation shuru kar sakti hai.",
+  "ref": "BNSS 2023 s.2(1)(g) (old CrPC s.2(c)); IT Act 2000 s.77B"
+ },
+ {
+  "term": "Compoundable offence",
+  "meaning_en": "An offence that can be settled between the parties, with or without the court's permission, leading to acquittal; the IT Act allows courts to compound certain offences with exceptions. IT Act s.77A(2) still refers to old CrPC plea-bargaining sections; reading them as BNSS ss.289-300 is an interpretation (being verified).",
+  "meaning_hinglish": "Compoundable offence mein dono parties aapas mein samjhauta kar sakti hain, kuch cases mein court ki permission se.",
+  "ref": "BNSS 2023 s.359 (old CrPC s.320); IT Act 2000 s.77A"
+ },
+ {
+  "term": "Phishing",
+  "meaning_en": "A fraud technique where messages, emails, calls or fake websites pretend to be a trusted source to trick people into revealing passwords, OTPs or financial details.",
+  "meaning_hinglish": "Fake email, SMS ya website se bank ya company ban kar aapka password ya OTP chura lene ki koshish phishing hai.",
+  "ref": "General term (offences may fall under IT Act 2000 s.66C, s.66D)"
+ },
+ {
+  "term": "Spoofing",
+  "meaning_en": "Faking the identity of a sender, such as a caller ID, email address, website or IP address, so that a message appears to come from someone trusted.",
+  "meaning_hinglish": "Caller ID, email ya website ko nakli bana kar asli jaisa dikhana spoofing hai.",
+  "ref": "General term"
+ },
+ {
+  "term": "SIM swap",
+  "meaning_en": "A fraud where a criminal gets a duplicate SIM for the victim's mobile number, often using fake documents or social engineering, to receive OTPs and take over bank or other accounts.",
+  "meaning_hinglish": "Fraudster aapke number ki duplicate SIM nikaal ke OTP le leta hai aur bank account khaali kar deta hai, isse SIM swap kehte hain.",
+  "ref": "General term (offences may fall under IT Act 2000 s.66C, s.66D)"
+ },
+ {
+  "term": "Digital signature",
+  "meaning_en": "Authentication of an electronic record using an asymmetric cryptosystem and hash function, backed by a Digital Signature Certificate issued by a licensed Certifying Authority.",
+  "meaning_hinglish": "Cryptography se electronic document ko sign karna digital signature hai, jaise DSC se GST ya MCA filing.",
+  "ref": "IT Act 2000 s.2(1)(p); s.3"
+ },
+ {
+  "term": "Electronic signature",
+  "meaning_en": "A broader, technology-neutral term for authenticating an electronic record by reliable techniques listed in the Second Schedule, including digital signatures and Aadhaar-based eSign.",
+  "meaning_hinglish": "Electronic record ko kisi bhi approved tarike se sign karna, jaise Aadhaar eSign, electronic signature kehlaata hai.",
+  "ref": "IT Act 2000 s.2(1)(ta); s.3A"
+ },
+ {
+  "term": "Certifying authority",
+  "meaning_en": "An entity licensed by the Controller of Certifying Authorities to issue electronic signature or Digital Signature Certificates.",
+  "meaning_hinglish": "Jo licensed agency digital signature certificate issue karti hai, woh certifying authority hai.",
+  "ref": "IT Act 2000 s.2(1)(g); s.17; s.24"
+ },
+ {
+  "term": "Significant data fiduciary",
+  "meaning_en": "A data fiduciary notified by the Central Government based on factors like volume and sensitivity of data and risk to rights, which must meet extra obligations such as appointing a Data Protection Officer and running audits and impact assessments.",
+  "meaning_hinglish": "Bade ya sensitive data wale data fiduciary ko sarkar significant declare karti hai, jinhe DPO aur audit jaisi extra zimmedariyan nibhani padti hain.",
+  "ref": "DPDP Act 2023 s.2(z); s.10"
+ },
+ {
+  "term": "Data Protection Board of India",
+  "meaning_en": "The body set up under the DPDP Act to inquire into personal data breaches and complaints against data fiduciaries and consent managers, and to impose penalties. The Board was set up from 13 November 2025, but its complaint and penalty powers apply only from around 13 May 2027 (being verified).",
+  "meaning_hinglish": "DPDP Act ke under bana Board jo data breach aur complaints ki inquiry karta hai aur penalty lagata hai.",
+  "ref": "DPDP Act 2023 s.2(c); s.18; s.27",
+  "sources": [
+   {
+    "label": "DPDP commencement",
+    "url": "https://egazette.gov.in/WriteReadData/2025/267647.pdf"
+   }
+  ]
+ },
+ {
+  "term": "Personal data breach",
+  "meaning_en": "Any unauthorised processing, accidental disclosure, acquisition, sharing, alteration, destruction or loss of access to personal data that compromises its confidentiality, integrity or availability; data fiduciaries must intimate such breaches to the Board and affected persons once that duty starts, around 13 May 2027.",
+  "meaning_hinglish": "Personal data ka galat access, leak, badlaav ya loss personal data breach hai, jiski jaankari Board aur affected logon ko deni padti hai.",
+  "ref": "DPDP Act 2023 s.2(u); s.8(6)"
+ },
+ {
+  "term": "Reasonable security practices",
+  "meaning_en": "Security practices and procedures a body corporate handling sensitive personal data must implement, such as a documented information security programme; the IT Act compensation provision on this stays in force until DPDP Act s.44(2) omits it, around 13 May 2027 (being verified).",
+  "meaning_hinglish": "Sensitive data rakhne wali companies ko proper security practices follow karni padti hain, warna compensation ka claim ban sakta hai.",
+  "ref": "IT Act 2000 s.43A; SPDI Rules 2011 r.8; DPDP Act 2023 s.44(2)(a)",
+  "sources": [
+   {
+    "label": "DPDP commencement",
+    "url": "https://egazette.gov.in/WriteReadData/2025/267647.pdf"
+   }
+  ]
+ },
+ {
+  "term": "Sensitive personal data or information",
+  "meaning_en": "Under the 2011 IT Rules, personal information such as passwords, financial details, health and medical records, sexual orientation and biometric information. These rules still apply until DPDP Act s.44(2) commences (around 13 May 2027).",
+  "meaning_hinglish": "Password, bank details, health records, biometrics jaisi jaankari ko sensitive personal data maana gaya hai.",
+  "ref": "SPDI Rules 2011 r.3"
+ },
+ {
+  "term": "Grievance officer",
+  "meaning_en": "An officer whom intermediaries and body corporates must designate and publish contact details for, to receive and resolve user complaints within the timelines set in the rules: for intermediaries, acknowledgement within 24 hours and resolution within 7 days under the 2026 amendment (being verified).",
+  "meaning_hinglish": "Har platform ko ek grievance officer rakhna padta hai jiske paas aap content ya data ki complaint kar sakte ho.",
+  "ref": "IT Rules 2021 r.3(2); SPDI Rules 2011 r.5(9)",
+  "sources": [
+   {
+    "label": "G.S.R. 120(E), 2026",
+    "url": "https://www.meity.gov.in/static/uploads/2026/02/f55fe52418b03f58b0669f6a8bc03b6d.pdf"
+   }
+  ]
+ },
+ {
+  "term": "Due diligence (intermediary)",
+  "meaning_en": "The obligations intermediaries must follow to keep safe harbour, such as publishing rules and privacy policies, acting on court or government orders and informing users not to share unlawful content.",
+  "meaning_hinglish": "Platform ko safe harbour bachane ke liye jo rules aur zimmedariyan follow karni padti hain, unhe due diligence kehte hain.",
+  "ref": "IT Act 2000 s.79(2)(c); IT Rules 2021 r.3(1)"
+ },
+ {
+  "term": "Forensic image",
+  "meaning_en": "A bit-by-bit copy of a storage device, including deleted and unallocated space, made so analysis can be done on the copy while the original stays untouched; its hash is recorded to prove it matches.",
+  "meaning_hinglish": "Phone ya hard disk ki exact bit-by-bit copy jisse original ko chhuye bina jaanch ho sake, forensic image kehlaati hai.",
+  "ref": "General term"
+ },
+ {
+  "term": "Write blocker",
+  "meaning_en": "A hardware or software tool that lets investigators read a storage device without writing any data to it, preserving the original evidence.",
+  "meaning_hinglish": "Write blocker ek tool hai jo device se data padhne deta hai lekin usme kuch bhi likhne nahi deta.",
+  "ref": "General term"
+ },
+ {
+  "term": "Metadata",
+  "meaning_en": "Data about data, such as a file's creation date, author, device model, GPS location in a photo or email header details, often crucial in establishing timelines.",
+  "meaning_hinglish": "File ke baare mein chhupi jaankari, jaise kab bani, kis phone se li gayi, photo ki location, metadata kehlaati hai.",
+  "ref": "General term"
+ },
+ {
+  "term": "IP address and log retention",
+  "meaning_en": "An IP address identifies a device or connection on a network, and logs record activity linked to it; intermediaries must preserve certain information, and CERT-In directions require covered entities to maintain ICT system logs for a set period (verify).",
+  "meaning_hinglish": "IP address se pata chalta hai ki activity kis connection se hui, aur companies ko logs kuch time tak sambhal ke rakhne padte hain.",
+  "ref": "IT Act 2000 s.67C; CERT-In Directions dated 28.04.2022 under IT Act s.70B(6)"
+ },
+ {
+  "term": "Digital arrest",
+  "meaning_en": "A scam, not a legal procedure, in which fraudsters pose as police, CBI, customs or other officials on video calls, falsely claim the victim is under 'arrest' and pressure them to transfer money.",
+  "meaning_hinglish": "'Digital arrest' koi kanooni process nahi hai, yeh fake police ban ke darakar paisa lene ka scam hai.",
+  "ref": "General term (offences may fall under BNS 2023 s.204, s.308, s.318, s.319; IT Act 2000 s.66D)"
+ },
+ {
+  "term": "Deepfake",
+  "meaning_en": "Audio, video or images created or altered with AI to realistically show a person saying or doing something they did not; the IT Rules now regulate this as 'synthetically generated information'.",
+  "meaning_hinglish": "AI se bana nakli video ya awaaz jo kisi asli insaan jaisa lagta hai, deepfake kehlaata hai.",
+  "ref": "IT Rules Amendment 2026, G.S.R. 120(E), r.2(1)(wa) and r.3(3) (being verified)",
+  "sources": [
+   {
+    "label": "G.S.R. 120(E), 2026",
+    "url": "https://www.meity.gov.in/static/uploads/2026/02/f55fe52418b03f58b0669f6a8bc03b6d.pdf"
+   },
+   {
+    "label": "SGI FAQ (MeitY)",
+    "url": "https://www.meity.gov.in/static/uploads/2026/02/49d4c4b42fc2d3dce00e0fdcf7ed1389.pdf"
+   }
+  ]
+ },
+ {
+  "term": "Identity theft",
+  "meaning_en": "Fraudulently or dishonestly using another person's electronic signature, password or other unique identification feature.",
+  "meaning_hinglish": "Kisi aur ka password, OTP ya digital identity chura ke use karna identity theft hai.",
+  "ref": "IT Act 2000 s.66C"
+ },
+ {
+  "term": "Cheating by personation",
+  "meaning_en": "Cheating someone by pretending to be another person, including by using a computer resource or communication device, such as fake customer care or fake profiles.",
+  "meaning_hinglish": "Kisi aur ban kar logon ko dhokha dena, jaise fake customer care ya fake profile, cheating by personation hai.",
+  "ref": "IT Act 2000 s.66D; BNS 2023 s.319 (old IPC s.416, s.419)"
+ },
+ {
+  "term": "Sextortion",
+  "meaning_en": "Threatening to publish intimate or morphed images or videos of a person unless they pay money or provide more content or favours.",
+  "meaning_hinglish": "Private ya morphed photos leak karne ki dhamki deke paise ya aur photos maangna sextortion hai.",
+  "ref": "General term (offences may fall under IT Act 2000 s.66E, s.67, s.67A; BNS 2023 s.308, s.351)"
+ },
+ {
+  "term": "Malware and ransomware",
+  "meaning_en": "Malware is any software designed to damage systems, steal data or gain unauthorised access, and ransomware is malware that encrypts or locks data and demands payment to restore it; the IT Act uses the terms 'computer contaminant' and 'computer virus'.",
+  "meaning_hinglish": "Malware nuksaan pahunchane wala software hai, aur ransomware aapka data lock karke paise maangta hai.",
+  "ref": "IT Act 2000 s.43 Explanation (computer contaminant, computer virus); s.43; s.66"
+ },
+ {
+  "term": "e-FIR and Zero FIR",
+  "meaning_en": "A Zero FIR can be lodged at any police station regardless of where the offence happened, and information can be given by electronic communication, which is taken on record once signed by the informant within three days.",
+  "meaning_hinglish": "Zero FIR kisi bhi police station mein ho sakti hai, aur online di gayi complaint sign hone ke baad FIR record mein aati hai.",
+  "ref": "BNSS 2023 s.173(1) (old CrPC s.154)",
+  "sources": [
+   {
+    "label": "BNSS (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/250884.pdf"
+   }
+  ]
+ },
+ {
+  "term": "Cyber Appellate Tribunal and TDSAT",
+  "meaning_en": "Appeals against IT Act adjudicating officer orders originally went to the Cyber Appellate Tribunal, which was merged into the Telecom Disputes Settlement and Appellate Tribunal (TDSAT) by the Finance Act 2017; TDSAT is also the appellate tribunal under the DPDP Act.",
+  "meaning_hinglish": "Pehle IT Act ki appeals Cyber Appellate Tribunal mein jaati thi, 2017 se woh kaam TDSAT karta hai, aur DPDP ki appeals bhi wahin jaati hain.",
+  "ref": "IT Act 2000 s.48 (as amended by Finance Act 2017 s.169); DPDP Act 2023 s.29; DPDP Act 2023 s.44(1)"
+ },
+ {
+  "term": "I4C and 1930 helpline",
+  "meaning_en": "The Indian Cyber Crime Coordination Centre is a Ministry of Home Affairs initiative that coordinates action against cybercrime and runs the National Cyber Crime Reporting Portal (cybercrime.gov.in) and the 1930 helpline for reporting financial cyber fraud.",
+  "meaning_hinglish": "I4C Home Ministry ka centre hai jo cybercrime.gov.in aur 1930 helpline chalata hai, online fraud hone pe turant 1930 dial karo.",
+  "ref": "General term (MHA initiative, no specific statute)"
+ }
+]
