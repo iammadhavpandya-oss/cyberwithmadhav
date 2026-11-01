@@ -1,169 +1,611 @@
 {
-  "sheets": [
+ "sheets": [
+  {
+   "id": "linux",
+   "title": "Linux essentials",
+   "category": "Linux",
+   "desc": "Everyday commands for navigating and managing a Linux system.",
+   "items": [
     {
-      "id": "linux", "title": "Linux essentials", "category": "Linux",
-      "desc": "Everyday commands for navigating and managing a Linux system.",
-      "items": [
-        {"cmd": "pwd && ls -la", "what": "Show current directory and list all files with details"},
-        {"cmd": "cd /var/log", "what": "Change directory"},
-        {"cmd": "cat file.txt | less", "what": "View a file page by page"},
-        {"cmd": "grep -rin \"error\" /var/log", "what": "Recursive, case-insensitive search with line numbers"},
-        {"cmd": "find / -name \"*.conf\" 2>/dev/null", "what": "Find files by name, hiding permission errors"},
-        {"cmd": "chmod 640 file && chown user:group file", "what": "Set permissions (rw-r-----) and owner"},
-        {"cmd": "sudo -l", "what": "List what the current user may run with sudo"},
-        {"cmd": "ps aux --sort=-%cpu | head", "what": "Top processes by CPU usage"},
-        {"cmd": "ss -tulpn", "what": "Listening TCP/UDP ports and owning processes"},
-        {"cmd": "ip a && ip r", "what": "Show interfaces/IPs and routing table"},
-        {"cmd": "sudo apt update && sudo apt upgrade", "what": "Update package lists and upgrade (Debian/Ubuntu/Kali)"},
-        {"cmd": "systemctl status ssh", "what": "Check a service's status"},
-        {"cmd": "journalctl -u ssh --since \"1 hour ago\"", "what": "Read a service's recent logs"},
-        {"cmd": "tail -f /var/log/auth.log", "what": "Follow authentication log live (Debian-based)"},
-        {"cmd": "sha256sum file.iso", "what": "Verify a download's checksum"},
-        {"cmd": "tar -czvf backup.tar.gz folder/", "what": "Create a compressed archive"}
-      ]
+     "cmd": "pwd && ls -la",
+     "what": "Show current directory and list all files with details"
     },
     {
-      "id": "nmap", "title": "Nmap", "category": "Tools",
-      "desc": "Network discovery and port scanning. Scan only hosts you own or are authorised to test.",
-      "items": [
-        {"cmd": "nmap -sn 192.168.1.0/24", "what": "Host discovery (ping sweep), no port scan"},
-        {"cmd": "nmap 192.168.1.10", "what": "Scan the top 1,000 TCP ports"},
-        {"cmd": "nmap -p- 192.168.1.10", "what": "Scan all 65,535 TCP ports"},
-        {"cmd": "nmap -p 22,80,443 192.168.1.10", "what": "Scan specific ports"},
-        {"cmd": "nmap -sV 192.168.1.10", "what": "Detect service versions"},
-        {"cmd": "nmap -sC -sV -oA scan 192.168.1.10", "what": "Default scripts + versions, save all output formats"},
-        {"cmd": "sudo nmap -sS 192.168.1.10", "what": "TCP SYN scan (needs root)"},
-        {"cmd": "sudo nmap -sU --top-ports 50 192.168.1.10", "what": "Scan top 50 UDP ports (slow)"},
-        {"cmd": "sudo nmap -O 192.168.1.10", "what": "OS detection"},
-        {"cmd": "nmap -Pn 192.168.1.10", "what": "Skip host discovery (treat host as up)"},
-        {"cmd": "nmap --script vuln 192.168.1.10", "what": "Run NSE scripts in the 'vuln' category"},
-        {"cmd": "nmap -T4 -F 192.168.1.0/24", "what": "Faster timing, top 100 ports"}
-      ]
+     "cmd": "cd /var/log",
+     "what": "Change directory"
     },
     {
-      "id": "ports", "title": "Common network ports", "category": "Networking",
-      "desc": "Default ports you'll see constantly in scans, firewalls and logs.",
-      "items": [
-        {"cmd": "21", "what": "FTP — file transfer (plaintext)"},
-        {"cmd": "22", "what": "SSH / SFTP — secure remote shell"},
-        {"cmd": "23", "what": "Telnet — plaintext remote shell, avoid"},
-        {"cmd": "25 / 587", "what": "SMTP / SMTP submission — sending mail"},
-        {"cmd": "53", "what": "DNS — UDP queries, TCP for large responses/zone transfers"},
-        {"cmd": "67 / 68", "what": "DHCP server / client (UDP)"},
-        {"cmd": "80 / 443", "what": "HTTP / HTTPS"},
-        {"cmd": "110 / 995", "what": "POP3 / POP3S"},
-        {"cmd": "143 / 993", "what": "IMAP / IMAPS"},
-        {"cmd": "123", "what": "NTP — time sync (UDP)"},
-        {"cmd": "161 / 162", "what": "SNMP / SNMP traps (UDP)"},
-        {"cmd": "389 / 636", "what": "LDAP / LDAPS"},
-        {"cmd": "88", "what": "Kerberos"},
-        {"cmd": "445", "what": "SMB — Windows file sharing"},
-        {"cmd": "3389", "what": "RDP — Windows Remote Desktop"},
-        {"cmd": "3306 / 5432 / 1433", "what": "MySQL / PostgreSQL / MS SQL Server"},
-        {"cmd": "5985 / 5986", "what": "WinRM HTTP / HTTPS"}
-      ]
+     "cmd": "cat file.txt | less",
+     "what": "View a file page by page"
     },
     {
-      "id": "wireshark", "title": "Wireshark display filters", "category": "Networking",
-      "desc": "Type these in the display filter bar to cut packet noise.",
-      "items": [
-        {"cmd": "ip.addr == 192.168.1.10", "what": "Traffic to or from a host"},
-        {"cmd": "ip.src == 10.0.0.0/8", "what": "Source in a subnet"},
-        {"cmd": "tcp.port == 443", "what": "TCP traffic on port 443 (either direction)"},
-        {"cmd": "dns", "what": "DNS traffic only"},
-        {"cmd": "http.request", "what": "HTTP requests"},
-        {"cmd": "http.request.method == \"POST\"", "what": "HTTP POST requests"},
-        {"cmd": "http.response.code >= 400", "what": "HTTP client/server errors"},
-        {"cmd": "tcp.flags.syn == 1 && tcp.flags.ack == 0", "what": "TCP SYNs (new connection attempts / scans)"},
-        {"cmd": "tls.handshake.type == 1", "what": "TLS Client Hello (see SNI hostnames)"},
-        {"cmd": "tcp.analysis.retransmission", "what": "Retransmissions — network trouble"},
-        {"cmd": "arp", "what": "ARP traffic (spot spoofing / duplicate IPs)"},
-        {"cmd": "frame contains \"password\"", "what": "Packets containing a string (plaintext protocols)"},
-        {"cmd": "!(arp || dns || icmp)", "what": "Hide common noise"}
-      ]
+     "cmd": "grep -rin \"error\" /var/log",
+     "what": "Recursive, case-insensitive search with line numbers"
     },
     {
-      "id": "git", "title": "Git basics", "category": "Tools",
-      "desc": "Version control for your scripts, notes and write-ups.",
-      "items": [
-        {"cmd": "git init", "what": "Start a new repository"},
-        {"cmd": "git clone https://github.com/user/repo.git", "what": "Copy a remote repository"},
-        {"cmd": "git status", "what": "See changed and staged files"},
-        {"cmd": "git add . && git commit -m \"message\"", "what": "Stage everything and commit"},
-        {"cmd": "git log --oneline --graph", "what": "Compact history"},
-        {"cmd": "git diff", "what": "Show unstaged changes"},
-        {"cmd": "git switch -c feature", "what": "Create and switch to a new branch"},
-        {"cmd": "git pull", "what": "Fetch and merge remote changes"},
-        {"cmd": "git push -u origin main", "what": "Push and set upstream"},
-        {"cmd": "git restore file.txt", "what": "Discard local changes to a file"},
-        {"cmd": "echo \".env\" >> .gitignore", "what": "Never commit secrets — ignore them"}
-      ]
+     "cmd": "find / -name \"*.conf\" 2>/dev/null",
+     "what": "Find files by name, hiding permission errors"
     },
     {
-      "id": "owasp", "title": "OWASP Top 10 (2021)", "category": "Web",
-      "desc": "The ten most critical web application security risk categories, 2021 edition.",
-      "type": "text",
-      "items": [
-        {"cmd": "A01 Broken Access Control", "what": "Users act outside their permissions, e.g. IDOR — changing an ID in the URL to view someone else's data."},
-        {"cmd": "A02 Cryptographic Failures", "what": "Sensitive data exposed through weak or missing encryption, e.g. plaintext passwords, old TLS."},
-        {"cmd": "A03 Injection", "what": "Untrusted input interpreted as code — SQL injection, command injection, XSS. Use parameterised queries and output encoding."},
-        {"cmd": "A04 Insecure Design", "what": "Flaws in the design itself; fix with threat modelling and secure design patterns."},
-        {"cmd": "A05 Security Misconfiguration", "what": "Default credentials, verbose errors, open cloud storage, unnecessary features enabled."},
-        {"cmd": "A06 Vulnerable and Outdated Components", "what": "Using libraries/frameworks with known vulnerabilities. Track and patch dependencies."},
-        {"cmd": "A07 Identification and Authentication Failures", "what": "Weak passwords allowed, no MFA, broken session handling, credential stuffing."},
-        {"cmd": "A08 Software and Data Integrity Failures", "what": "Untrusted updates, insecure CI/CD, insecure deserialisation."},
-        {"cmd": "A09 Security Logging and Monitoring Failures", "what": "Attacks go unnoticed because events aren't logged or alerted on."},
-        {"cmd": "A10 Server-Side Request Forgery (SSRF)", "what": "The server is tricked into fetching attacker-chosen URLs, e.g. internal cloud metadata."}
-      ]
+     "cmd": "chmod 640 file && chown user:group file",
+     "what": "Set permissions (rw-r-----) and owner"
     },
     {
-      "id": "ir", "title": "Incident response steps", "category": "Blue team",
-      "desc": "Based on the NIST SP 800-61 lifecycle. Document everything with timestamps.",
-      "type": "text",
-      "items": [
-        {"cmd": "1. Preparation", "what": "IR plan, contacts, roles, logging enabled, backups tested, tools ready before anything happens."},
-        {"cmd": "2. Detection & analysis", "what": "Validate the alert, determine scope and severity, collect evidence (logs, memory, disk) and preserve chain of custody."},
-        {"cmd": "3. Containment", "what": "Stop the spread: isolate hosts, disable compromised accounts, block malicious IPs/domains. Short-term then long-term."},
-        {"cmd": "4. Eradication", "what": "Remove the root cause: malware, persistence, backdoors; patch the exploited vulnerability; reset credentials."},
-        {"cmd": "5. Recovery", "what": "Restore from clean backups, bring systems back carefully, monitor closely for reinfection."},
-        {"cmd": "6. Post-incident activity", "what": "Lessons-learned meeting, update playbooks and detections, report to stakeholders/regulators as required (in India, CERT-In reporting rules may apply)."}
-      ]
+     "cmd": "sudo -l",
+     "what": "List what the current user may run with sudo"
     },
     {
-      "id": "windows", "title": "Windows / AD basics", "category": "Windows",
-      "desc": "Command Prompt and PowerShell for admins and defenders. AD cmdlets need the RSAT ActiveDirectory module.",
-      "items": [
-        {"cmd": "whoami /all", "what": "Current user, groups and privileges"},
-        {"cmd": "systeminfo", "what": "OS version, patches, domain"},
-        {"cmd": "ipconfig /all", "what": "Network config, DNS servers, MAC"},
-        {"cmd": "netstat -ano", "what": "Connections and listening ports with PIDs"},
-        {"cmd": "tasklist /svc", "what": "Running processes and their services"},
-        {"cmd": "net user", "what": "Local user accounts"},
-        {"cmd": "net localgroup administrators", "what": "Members of the local Administrators group"},
-        {"cmd": "gpresult /r", "what": "Applied Group Policy for user/computer"},
-        {"cmd": "nltest /dclist:corp.local", "what": "List domain controllers for a domain"},
-        {"cmd": "Get-ADUser -Filter * -Properties LastLogonDate", "what": "List domain users with last logon"},
-        {"cmd": "Get-ADGroupMember \"Domain Admins\"", "what": "Who has Domain Admin rights"},
-        {"cmd": "Get-WinEvent -LogName Security -MaxEvents 20", "what": "Latest Security log events"},
-        {"cmd": "Get-WinEvent -FilterHashtable @{LogName='Security';Id=4625}", "what": "Failed logons (Event ID 4625)"},
-        {"cmd": "Get-Service | Where-Object Status -eq 'Running'", "what": "Running services"}
-      ]
+     "cmd": "ps aux --sort=-%cpu | head",
+     "what": "Top processes by CPU usage"
     },
     {
-      "id": "hygiene", "title": "Password & 2FA hygiene", "category": "Personal safety",
-      "desc": "Simple habits that block most account takeovers.",
-      "type": "text",
-      "items": [
-        {"cmd": "Use a password manager", "what": "Bitwarden, KeePassXC, 1Password etc. One strong master password, unique passwords everywhere else."},
-        {"cmd": "Long passphrases", "what": "Length beats complexity: 4–5 random words is stronger and easier to remember than P@ssw0rd!"},
-        {"cmd": "Never reuse passwords", "what": "One leaked site shouldn't unlock your email, bank and Instagram."},
-        {"cmd": "Turn on 2FA everywhere", "what": "Prefer an authenticator app or passkey/security key over SMS OTP."},
-        {"cmd": "Save backup codes", "what": "Store 2FA recovery codes offline or in your password manager."},
-        {"cmd": "Never share OTPs", "what": "No bank, courier, or government official will ever need your OTP or PIN."},
-        {"cmd": "Check for breaches", "what": "Use haveibeenpwned.com and change any exposed passwords."},
-        {"cmd": "Secure your email first", "what": "Your email resets every other account — give it the strongest protection."},
-        {"cmd": "Update and lock devices", "what": "Auto-updates on, screen lock on, apps only from official stores."}
-      ]
+     "cmd": "ss -tulpn",
+     "what": "Listening TCP/UDP ports and owning processes"
+    },
+    {
+     "cmd": "ip a show {{IFACE}} && ip r",
+     "what": "Show one interface's addresses, then the routing table"
+    },
+    {
+     "cmd": "sudo apt update && sudo apt upgrade",
+     "what": "Update package lists and upgrade (Debian/Ubuntu/Kali)"
+    },
+    {
+     "cmd": "systemctl status ssh",
+     "what": "Check a service's status"
+    },
+    {
+     "cmd": "journalctl -u ssh --since \"1 hour ago\"",
+     "what": "Read a service's recent logs"
+    },
+    {
+     "cmd": "tail -f /var/log/auth.log",
+     "what": "Follow authentication log live (Debian-based)"
+    },
+    {
+     "cmd": "sha256sum file.iso",
+     "what": "Verify a download's checksum"
+    },
+    {
+     "cmd": "tar -czvf backup.tar.gz folder/",
+     "what": "Create a compressed archive"
     }
-  ]
+   ]
+  },
+  {
+   "id": "nmap",
+   "title": "Nmap",
+   "category": "Tools",
+   "desc": "Network discovery and port scanning. Scan only hosts you own or are authorised to test.",
+   "items": [
+    {
+     "cmd": "nmap -sn {{SUBNET}}",
+     "what": "Host discovery (ping sweep), no port scan"
+    },
+    {
+     "cmd": "nmap {{TARGET_IP}}",
+     "what": "Scan the top 1,000 TCP ports"
+    },
+    {
+     "cmd": "nmap -p- {{TARGET_IP}}",
+     "what": "Scan all 65,535 TCP ports"
+    },
+    {
+     "cmd": "nmap -p 22,80,443 {{TARGET_IP}}",
+     "what": "Scan specific ports"
+    },
+    {
+     "cmd": "nmap -sV {{TARGET_IP}}",
+     "what": "Detect service versions"
+    },
+    {
+     "cmd": "nmap -sC -sV -oA scan {{TARGET_IP}}",
+     "what": "Default scripts + versions, save all output formats"
+    },
+    {
+     "cmd": "sudo nmap -sS {{TARGET_IP}}",
+     "what": "TCP SYN scan (needs root)"
+    },
+    {
+     "cmd": "sudo nmap -sU --top-ports 50 {{TARGET_IP}}",
+     "what": "Scan top 50 UDP ports (slow)"
+    },
+    {
+     "cmd": "sudo nmap -O {{TARGET_IP}}",
+     "what": "OS detection"
+    },
+    {
+     "cmd": "nmap -Pn {{TARGET_IP}}",
+     "what": "Skip host discovery (treat host as up)"
+    },
+    {
+     "cmd": "nmap --script vuln {{TARGET_IP}}",
+     "what": "Run NSE scripts in the 'vuln' category"
+    },
+    {
+     "cmd": "nmap -T4 -F {{SUBNET}}",
+     "what": "Faster timing, top 100 ports"
+    },
+    {
+     "cmd": "nmap -e {{IFACE}} -sV {{TARGET_IP}}",
+     "what": "Scan out of a specific network interface"
+    }
+   ]
+  },
+  {
+   "id": "ports",
+   "title": "Common network ports",
+   "category": "Networking",
+   "desc": "Default ports you'll see constantly in scans, firewalls and logs.",
+   "items": [
+    {
+     "cmd": "21",
+     "what": "FTP — file transfer (plaintext)"
+    },
+    {
+     "cmd": "22",
+     "what": "SSH / SFTP — secure remote shell"
+    },
+    {
+     "cmd": "23",
+     "what": "Telnet — plaintext remote shell, avoid"
+    },
+    {
+     "cmd": "25 / 587",
+     "what": "SMTP / SMTP submission — sending mail"
+    },
+    {
+     "cmd": "53",
+     "what": "DNS — UDP queries, TCP for large responses/zone transfers"
+    },
+    {
+     "cmd": "67 / 68",
+     "what": "DHCP server / client (UDP)"
+    },
+    {
+     "cmd": "80 / 443",
+     "what": "HTTP / HTTPS"
+    },
+    {
+     "cmd": "110 / 995",
+     "what": "POP3 / POP3S"
+    },
+    {
+     "cmd": "143 / 993",
+     "what": "IMAP / IMAPS"
+    },
+    {
+     "cmd": "123",
+     "what": "NTP — time sync (UDP)"
+    },
+    {
+     "cmd": "161 / 162",
+     "what": "SNMP / SNMP traps (UDP)"
+    },
+    {
+     "cmd": "389 / 636",
+     "what": "LDAP / LDAPS"
+    },
+    {
+     "cmd": "88",
+     "what": "Kerberos"
+    },
+    {
+     "cmd": "445",
+     "what": "SMB — Windows file sharing"
+    },
+    {
+     "cmd": "3389",
+     "what": "RDP — Windows Remote Desktop"
+    },
+    {
+     "cmd": "3306 / 5432 / 1433",
+     "what": "MySQL / PostgreSQL / MS SQL Server"
+    },
+    {
+     "cmd": "5985 / 5986",
+     "what": "WinRM HTTP / HTTPS"
+    }
+   ]
+  },
+  {
+   "id": "wireshark",
+   "title": "Wireshark display filters",
+   "category": "Networking",
+   "desc": "Type these in the display filter bar to cut packet noise.",
+   "items": [
+    {
+     "cmd": "ip.addr == {{TARGET_IP}}",
+     "what": "Traffic to or from a host"
+    },
+    {
+     "cmd": "sudo tcpdump -i {{IFACE}} -nn host {{TARGET_IP}} -w capture.pcap",
+     "what": "Capture a host's traffic on the command line, then open the .pcap in Wireshark"
+    },
+    {
+     "cmd": "ip.src == 10.0.0.0/8",
+     "what": "Source in a subnet"
+    },
+    {
+     "cmd": "tcp.port == 443",
+     "what": "TCP traffic on port 443 (either direction)"
+    },
+    {
+     "cmd": "dns",
+     "what": "DNS traffic only"
+    },
+    {
+     "cmd": "http.request",
+     "what": "HTTP requests"
+    },
+    {
+     "cmd": "http.request.method == \"POST\"",
+     "what": "HTTP POST requests"
+    },
+    {
+     "cmd": "http.response.code >= 400",
+     "what": "HTTP client/server errors"
+    },
+    {
+     "cmd": "tcp.flags.syn == 1 && tcp.flags.ack == 0",
+     "what": "TCP SYNs (new connection attempts / scans)"
+    },
+    {
+     "cmd": "tls.handshake.type == 1",
+     "what": "TLS Client Hello (see SNI hostnames)"
+    },
+    {
+     "cmd": "tcp.analysis.retransmission",
+     "what": "Retransmissions — network trouble"
+    },
+    {
+     "cmd": "arp",
+     "what": "ARP traffic (spot spoofing / duplicate IPs)"
+    },
+    {
+     "cmd": "frame contains \"password\"",
+     "what": "Packets containing a string (plaintext protocols)"
+    },
+    {
+     "cmd": "!(arp || dns || icmp)",
+     "what": "Hide common noise"
+    }
+   ]
+  },
+  {
+   "id": "git",
+   "title": "Git basics",
+   "category": "Tools",
+   "desc": "Version control for your scripts, notes and write-ups.",
+   "items": [
+    {
+     "cmd": "git init",
+     "what": "Start a new repository"
+    },
+    {
+     "cmd": "git clone https://github.com/user/repo.git",
+     "what": "Copy a remote repository"
+    },
+    {
+     "cmd": "git status",
+     "what": "See changed and staged files"
+    },
+    {
+     "cmd": "git add . && git commit -m \"message\"",
+     "what": "Stage everything and commit"
+    },
+    {
+     "cmd": "git log --oneline --graph",
+     "what": "Compact history"
+    },
+    {
+     "cmd": "git diff",
+     "what": "Show unstaged changes"
+    },
+    {
+     "cmd": "git switch -c feature",
+     "what": "Create and switch to a new branch"
+    },
+    {
+     "cmd": "git pull",
+     "what": "Fetch and merge remote changes"
+    },
+    {
+     "cmd": "git push -u origin main",
+     "what": "Push and set upstream"
+    },
+    {
+     "cmd": "git restore file.txt",
+     "what": "Discard local changes to a file"
+    },
+    {
+     "cmd": "echo \".env\" >> .gitignore",
+     "what": "Never commit secrets — ignore them"
+    }
+   ]
+  },
+  {
+   "id": "owasp",
+   "title": "OWASP Top 10 (2021)",
+   "category": "Web",
+   "desc": "The ten most critical web application security risk categories, 2021 edition.",
+   "type": "text",
+   "items": [
+    {
+     "cmd": "A01 Broken Access Control",
+     "what": "Users act outside their permissions, e.g. IDOR — changing an ID in the URL to view someone else's data."
+    },
+    {
+     "cmd": "A02 Cryptographic Failures",
+     "what": "Sensitive data exposed through weak or missing encryption, e.g. plaintext passwords, old TLS."
+    },
+    {
+     "cmd": "A03 Injection",
+     "what": "Untrusted input interpreted as code — SQL injection, command injection, XSS. Use parameterised queries and output encoding."
+    },
+    {
+     "cmd": "A04 Insecure Design",
+     "what": "Flaws in the design itself; fix with threat modelling and secure design patterns."
+    },
+    {
+     "cmd": "A05 Security Misconfiguration",
+     "what": "Default credentials, verbose errors, open cloud storage, unnecessary features enabled."
+    },
+    {
+     "cmd": "A06 Vulnerable and Outdated Components",
+     "what": "Using libraries/frameworks with known vulnerabilities. Track and patch dependencies."
+    },
+    {
+     "cmd": "A07 Identification and Authentication Failures",
+     "what": "Weak passwords allowed, no MFA, broken session handling, credential stuffing."
+    },
+    {
+     "cmd": "A08 Software and Data Integrity Failures",
+     "what": "Untrusted updates, insecure CI/CD, insecure deserialisation."
+    },
+    {
+     "cmd": "A09 Security Logging and Monitoring Failures",
+     "what": "Attacks go unnoticed because events aren't logged or alerted on."
+    },
+    {
+     "cmd": "A10 Server-Side Request Forgery (SSRF)",
+     "what": "The server is tricked into fetching attacker-chosen URLs, e.g. internal cloud metadata."
+    }
+   ]
+  },
+  {
+   "id": "ir",
+   "title": "Incident response steps",
+   "category": "Blue team",
+   "desc": "Based on the NIST SP 800-61 lifecycle. Document everything with timestamps.",
+   "type": "text",
+   "items": [
+    {
+     "cmd": "1. Preparation",
+     "what": "IR plan, contacts, roles, logging enabled, backups tested, tools ready before anything happens."
+    },
+    {
+     "cmd": "2. Detection & analysis",
+     "what": "Validate the alert, determine scope and severity, collect evidence (logs, memory, disk) and preserve chain of custody."
+    },
+    {
+     "cmd": "3. Containment",
+     "what": "Stop the spread: isolate hosts, disable compromised accounts, block malicious IPs/domains. Short-term then long-term."
+    },
+    {
+     "cmd": "4. Eradication",
+     "what": "Remove the root cause: malware, persistence, backdoors; patch the exploited vulnerability; reset credentials."
+    },
+    {
+     "cmd": "5. Recovery",
+     "what": "Restore from clean backups, bring systems back carefully, monitor closely for reinfection."
+    },
+    {
+     "cmd": "6. Post-incident activity",
+     "what": "Lessons-learned meeting, update playbooks and detections, report to stakeholders/regulators as required (in India, CERT-In reporting rules may apply)."
+    }
+   ]
+  },
+  {
+   "id": "windows",
+   "title": "Windows / AD basics",
+   "category": "Windows",
+   "desc": "Command Prompt and PowerShell for admins and defenders. AD cmdlets need the RSAT ActiveDirectory module.",
+   "items": [
+    {
+     "cmd": "whoami /all",
+     "what": "Current user, groups and privileges"
+    },
+    {
+     "cmd": "systeminfo",
+     "what": "OS version, patches, domain"
+    },
+    {
+     "cmd": "ipconfig /all",
+     "what": "Network config, DNS servers, MAC"
+    },
+    {
+     "cmd": "netstat -ano",
+     "what": "Connections and listening ports with PIDs"
+    },
+    {
+     "cmd": "tasklist /svc",
+     "what": "Running processes and their services"
+    },
+    {
+     "cmd": "net user",
+     "what": "Local user accounts"
+    },
+    {
+     "cmd": "net localgroup administrators",
+     "what": "Members of the local Administrators group"
+    },
+    {
+     "cmd": "gpresult /r",
+     "what": "Applied Group Policy for user/computer"
+    },
+    {
+     "cmd": "nltest /dclist:{{DOMAIN}}",
+     "what": "List domain controllers for a domain"
+    },
+    {
+     "cmd": "Get-ADUser -Filter * -Properties LastLogonDate",
+     "what": "List domain users with last logon"
+    },
+    {
+     "cmd": "Get-ADGroupMember \"Domain Admins\"",
+     "what": "Who has Domain Admin rights"
+    },
+    {
+     "cmd": "Get-WinEvent -LogName Security -MaxEvents 20",
+     "what": "Latest Security log events"
+    },
+    {
+     "cmd": "Get-WinEvent -FilterHashtable @{LogName='Security';Id=4625}",
+     "what": "Failed logons (Event ID 4625)"
+    },
+    {
+     "cmd": "Get-Service | Where-Object Status -eq 'Running'",
+     "what": "Running services"
+    }
+   ]
+  },
+  {
+   "id": "hygiene",
+   "title": "Password & 2FA hygiene",
+   "category": "Personal safety",
+   "desc": "Simple habits that block most account takeovers.",
+   "type": "text",
+   "items": [
+    {
+     "cmd": "Use a password manager",
+     "what": "Bitwarden, KeePassXC, 1Password etc. One strong master password, unique passwords everywhere else."
+    },
+    {
+     "cmd": "Long passphrases",
+     "what": "Length beats complexity: 4–5 random words is stronger and easier to remember than P@ssw0rd!"
+    },
+    {
+     "cmd": "Never reuse passwords",
+     "what": "One leaked site shouldn't unlock your email, bank and Instagram."
+    },
+    {
+     "cmd": "Turn on 2FA everywhere",
+     "what": "Prefer an authenticator app or passkey/security key over SMS OTP."
+    },
+    {
+     "cmd": "Save backup codes",
+     "what": "Store 2FA recovery codes offline or in your password manager."
+    },
+    {
+     "cmd": "Never share OTPs",
+     "what": "No bank, courier, or government official will ever need your OTP or PIN."
+    },
+    {
+     "cmd": "Check for breaches",
+     "what": "Use haveibeenpwned.com and change any exposed passwords."
+    },
+    {
+     "cmd": "Secure your email first",
+     "what": "Your email resets every other account — give it the strongest protection."
+    },
+    {
+     "cmd": "Update and lock devices",
+     "what": "Auto-updates on, screen lock on, apps only from official stores."
+    }
+   ]
+  }
+ ],
+ "variables": [
+  {
+   "key": "TARGET_IP",
+   "label": "Target IP",
+   "default": "192.168.1.10",
+   "hint": "a lab host you own"
+  },
+  {
+   "key": "SUBNET",
+   "label": "Subnet",
+   "default": "192.168.1.0/24",
+   "hint": "your lab network"
+  },
+  {
+   "key": "IFACE",
+   "label": "Interface",
+   "default": "eth0",
+   "hint": "from ip a / ipconfig"
+  },
+  {
+   "key": "DOMAIN",
+   "label": "AD domain",
+   "default": "corp.local",
+   "hint": "your lab domain"
+  }
+ ],
+ "flags": {
+  "nmap": {
+   "-sn": "Ping sweep only: find live hosts, no port scan",
+   "-p-": "All 65,535 TCP ports",
+   "-p": "Ports to scan (list or range)",
+   "-sV": "Detect service versions",
+   "-sC": "Run default NSE scripts",
+   "-oA": "Save output in all formats (normal, XML, grepable)",
+   "-sS": "TCP SYN (half-open) scan; needs root",
+   "-sU": "UDP scan",
+   "--top-ports": "Scan the N most common ports",
+   "-O": "Guess the operating system",
+   "-Pn": "Skip host discovery; treat host as up",
+   "--script": "Run NSE scripts by name or category",
+   "-T4": "Faster timing template (0 = slowest, 5 = fastest)",
+   "-F": "Fast mode: top 100 ports",
+   "-e": "Use this network interface"
+  },
+  "linux": {
+   "-la": "l = long listing, a = include hidden files",
+   "-rin": "r = recursive, i = ignore case, n = show line numbers",
+   "-name": "Match file names (wildcards allowed)",
+   "2>/dev/null": "Throw away error messages (stderr)",
+   "-l": "List allowed sudo commands",
+   "aux": "a = all users, u = user-oriented format, x = include processes without a terminal",
+   "--sort=-%cpu": "Sort by CPU, highest first",
+   "-tulpn": "t = TCP, u = UDP, l = listening, p = process, n = numeric",
+   "-u": "Only this systemd unit",
+   "--since": "Only entries after this time",
+   "-f": "Follow: keep printing new lines",
+   "-czvf": "c = create, z = gzip, v = verbose, f = archive file name",
+   "&&": "Run the next command only if this one succeeds",
+   "|": "Pipe: send output to the next command"
+  },
+  "wireshark": {
+   "-i": "Capture on this interface",
+   "-nn": "Don't resolve host names or port names",
+   "-w": "Write raw packets to a file",
+   "==": "Equals",
+   "&&": "AND",
+   "||": "OR",
+   "!": "NOT",
+   "contains": "Field or frame contains this string"
+  },
+  "git": {
+   "-m": "Commit message inline",
+   "--oneline": "One line per commit",
+   "--graph": "Draw the branch graph",
+   "-c": "Create the branch, then switch to it",
+   "-u": "Remember this remote branch as upstream",
+   ">>": "Append to the file"
+  },
+  "windows": {
+   "/all": "Show everything (full details)",
+   "-ano": "a = all connections, n = numeric, o = owning process ID",
+   "/svc": "Show services hosted in each process",
+   "/r": "Summary report (RSoP)",
+   "/dclist:": "List domain controllers for the domain",
+   "-Filter": "AD filter (* = everything)",
+   "-Properties": "Extra attributes to return",
+   "-LogName": "Which event log to read",
+   "-MaxEvents": "Only the newest N events",
+   "-FilterHashtable": "Filter events by log name, ID, time…",
+   "-eq": "Equals"
+  }
+ }
 }

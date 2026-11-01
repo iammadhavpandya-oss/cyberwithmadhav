@@ -1,7 +1,7 @@
 {
   "name": "Madhav Pandya",
   "location": "Vasai, Mumbai",
-  "bio": "IT Support Engineer and founder of CyberWithMadhav. I make cybersecurity simple for beginners and help everyday people stay safe from online scams — in plain English and Hinglish.",
+  "bio": "I'm Madhav Pandya, an IT Support Engineer in Vasai who is also studying law. I started CyberWithMadhav to explain cybersecurity in plain English and Hinglish, so beginners can learn it and families can spot scams before they lose money.",
   "links": [
     {
       "label": "GitHub",
@@ -19,36 +19,41 @@
     {
       "label": "Instagram",
       "url": "",
-      "todo": "TODO: URL"
+      "note": "Hidden on the site until url is set"
     },
     {
       "label": "YouTube",
       "url": "",
-      "todo": "TODO: URL"
+      "note": "Hidden on the site until url is set"
     }
   ],
   "timeline": [
     {
       "when": "Now",
       "title": "Founder, CyberWithMadhav",
-      "body": "Creating cybersecurity awareness and learning content on Instagram and YouTube.",
+      "body": "Turning security basics and current scam patterns into short posts and videos in plain English and Hinglish, so people can act on them the same day.",
+      "metric": "",
       "now": true
     },
     {
       "when": "Jul 2025 – Present",
       "title": "IT Support Engineer, Jetking Vasai",
-      "body": "Supporting systems, networks and users day to day.",
+      "body": "Troubleshooting PCs, networks and user accounts hands-on. That day-to-day fixing is where the practical tips on this site come from.",
+      "metric": "",
       "now": true
     },
     {
       "when": "Ongoing",
-      "title": "BCA — Yenepoya",
-      "body": "Bachelor of Computer Applications."
+      "title": "BCA, Yenepoya",
+      "body": "Building the computer-science base (programming, databases, networking) behind the projects and cheat sheets here.",
+      "metric": ""
     },
     {
       "when": "Ongoing",
-      "title": "BA LLB — KES Patel",
-      "body": "Studying law alongside tech — useful for cyber law and GRC."
+      "title": "BA LLB, KES Patel",
+      "body": "Studying law alongside tech, which shapes the cyber-law and GRC side of my content.",
+      "metric": "",
+      "law": true
     }
   ],
   "projects": [
@@ -60,7 +65,9 @@
         "Python",
         "OSINT",
         "CLI + web UI"
-      ]
+      ],
+      "building": "Now building: tuning the India-specific clue tables on real photos.",
+      "repo": "iammadhavpandya-oss/geoimg-osint"
     },
     {
       "name": "homelab-toolkit",
@@ -70,7 +77,25 @@
         "Python",
         "Blue team",
         "Homelab"
-      ]
+      ],
+      "building": "Now building: more safe, local-only checks for a home lab.",
+      "repo": "iammadhavpandya-oss/homelab-toolkit"
     }
+  ],
+  "headline": "IT engineer who studies law, explaining cybersecurity in Hinglish.",
+  "lawCallout": {
+    "title": "Why law + tech",
+    "body": "Most security content explains how attacks work. Studying law means I also look at what the law says about them, and what organisations must do to comply.",
+    "points": [
+      "IT Act, 2000: offences like unauthorised access (s.43, s.66), identity theft (s.66C) and cheating by impersonation (s.66D)",
+      "Digital Personal Data Protection (DPDP) Act, 2023: consent, data-fiduciary duties and breach obligations",
+      "CERT-In directions: incident reporting for organisations",
+      "GRC: turning these rules into policies, risk registers and audits"
+    ]
+  },
+  "_todo": [
+    "Add real numbers only if Madhav provides them: set timeline[].metric (e.g. followers, videos published, users supported). Empty metric = hidden.",
+    "Instagram and YouTube: set links[].url to show those rows.",
+    "Photo: assets/img/madhav.jpg"
   ]
 }

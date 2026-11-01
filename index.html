@@ -3,36 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CyberWithMadhav — Learn Cybersecurity, Stay Safe Online</title>
-  <meta name="description" content="CyberWithMadhav by Madhav Pandya: a free beginner-to-advanced cybersecurity roadmap, networking concepts, searchable cheat sheets, job paths and cyber-safety tips for India.">
+  <title>CyberWithMadhav — Cybersecurity in plain English and Hinglish</title>
+  <meta name="description" content="CyberWithMadhav by Madhav Pandya: cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets, browser-only security tools and scam alerts, made for India.">
   <meta name="author" content="Madhav Pandya">
   <meta name="theme-color" content="#0D0B14">
   <!-- TODO: replace https://cyberwithmadhav.example with the real domain after deploying -->
   <link rel="canonical" href="https://cyberwithmadhav.example/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CyberWithMadhav">
-  <meta property="og:title" content="CyberWithMadhav — Learn Cybersecurity, Stay Safe Online">
-  <meta property="og:description" content="Free roadmap, cheat sheets, networking basics, job paths and cyber-safety tips — from beginner to advanced.">
+  <meta property="og:title" content="CyberWithMadhav — Cybersecurity in plain English and Hinglish">
+  <meta property="og:description" content="Free roadmap, cheat sheets and scam alerts, made for India.">
   <meta property="og:url" content="https://cyberwithmadhav.example/">
   <meta property="og:image" content="https://cyberwithmadhav.example/assets/img/og-image.png">
   <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CyberWithMadhav">
-  <meta name="twitter:description" content="Learn cybersecurity from beginner to advanced. Stay safe online.">
+  <meta name="twitter:description" content="Cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets and scam alerts, made for India.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
   <link rel="stylesheet" href="assets/css/style.css">
   <script>
-    (function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+    (function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t)document.documentElement.setAttribute('data-theme',t);if(sessionStorage.getItem('cwm-banner')==='hidden')document.documentElement.classList.add('no-banner');}catch(e){}})();
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Madhav Pandya","jobTitle":"IT Support Engineer","address":{"@type":"PostalAddress","addressLocality":"Vasai","addressRegion":"Maharashtra","addressCountry":"IN"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/madhav-pandya-55b809364"]}
+  {"@context":"https://schema.org","@type":"Person","name":"Madhav Pandya","jobTitle":"IT Support Engineer","description":"IT engineer who studies law, explaining cybersecurity in Hinglish.","address":{"@type":"PostalAddress","addressLocality":"Vasai","addressRegion":"Maharashtra","addressCountry":"IN"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/madhav-pandya-55b809364"]}
   </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="alert-bar" id="alert-bar" role="region" aria-label="Cyber fraud helpline">
+    <div class="wrap alert-inner">
+      <p><span class="alert-dot" aria-hidden="true"></span><strong>Scammed? Call <a href="tel:1930">1930</a></strong><span class="alert-extra"> · report at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a> · <a href="#awareness">what to do now</a></span></p>
+      <button type="button" class="alert-close" aria-label="Hide helpline banner for this visit">×</button>
+    </div>
+  </div>
   <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 
   <header class="nav" id="top">
@@ -48,9 +55,11 @@
         <a href="#roadmap">Roadmap</a>
         <a href="#networking">Networking</a>
         <a href="#cheatsheets">Cheat sheets</a>
+        <a href="#tools">Tools</a>
         <a href="#careers">Careers</a>
         <a href="#awareness">Stay safe</a>
         <a href="#about">About</a>
+        <button class="pal-btn" type="button" id="palette-open" title="Search everything (Ctrl+K)"><span aria-hidden="true">⌘K</span><span class="sr-only">Open command palette (Ctrl+K)</span></button>
         <button class="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
       </nav>
     </div>
@@ -59,17 +68,40 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <p class="eyebrow mono"><span class="prompt">$</span> whoami <span class="cursor" aria-hidden="true">_</span></p>
-        <h1 id="hero-title">Learn cybersecurity.<br><span class="grad">Stay safe online.</span></h1>
-        <p class="lead">Free, no-nonsense guides from <strong>CyberWithMadhav</strong> — a step-by-step roadmap from zero to advanced, networking made simple, copy-ready cheat sheets, career paths, and scam awareness for everyone in India.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#roadmap">Start the roadmap →</a>
-          <a class="btn btn-ghost" href="#cheatsheets">Open cheat sheets</a>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow mono" id="whoami"><span class="prompt">$</span> whoami <span class="who-out" id="who-out">madhav@cyberwithmadhav</span><span class="cursor" aria-hidden="true">_</span></p>
+          <h1 id="hero-title">Cybersecurity in <span class="grad">plain English and Hinglish.</span></h1>
+          <p class="lead">Free roadmap, cheat sheets and scam alerts, made for India.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#roadmap">Start the roadmap →</a>
+            <a class="btn btn-ghost" href="#cheatsheets">Open cheat sheets</a>
+          </div>
+          <p class="proof mono" id="proof"><a href="#cheatsheets"><b data-count="entries">110</b> commands &amp; refs</a> · <a href="#cheatsheets"><b data-count="sheets">9</b> sheets</a> · <a href="#tools"><b data-count="tools">4</b> tools</a> · free forever</p>
         </div>
-        <ul class="hero-tags mono" aria-label="Topics">
-          <li>#networking</li><li>#linux</li><li>#blue-team</li><li>#red-team</li><li>#osint</li><li>#cyber-awareness</li>
-        </ul>
+        <div class="term card" id="term" aria-label="Interactive demo terminal">
+          <div class="term-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div class="term-tabs" role="tablist" aria-label="Demo">
+              <button role="tab" id="tt-nmap" aria-selected="true" aria-controls="tp-nmap">nmap</button>
+              <button role="tab" id="tt-quiz" aria-selected="false" aria-controls="tp-quiz" tabindex="-1">scam or not?</button>
+            </div>
+          </div>
+          <div class="term-body mono" id="tp-nmap" role="tabpanel" aria-labelledby="tt-nmap">
+            <pre id="term-out" aria-live="off"></pre>
+            <p class="term-note">Demo output from a lab VM. Scan only what you own.</p>
+          </div>
+          <div class="term-body quiz" id="tp-quiz" role="tabpanel" aria-labelledby="tt-quiz" hidden>
+            <p class="quiz-n mono" id="quiz-n"></p>
+            <blockquote id="quiz-msg"></blockquote>
+            <div class="quiz-btns">
+              <button type="button" class="btn btn-primary small" data-answer="scam">Scam</button>
+              <button type="button" class="btn btn-ghost small" data-answer="legit">Looks legit</button>
+            </div>
+            <p class="quiz-why" id="quiz-why" aria-live="polite"></p>
+            <button type="button" class="link-btn" id="quiz-next" hidden>Next message →</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -97,9 +129,49 @@
 
         <div class="layers reveal" id="layers"></div>
 
-        <div class="subnet card reveal" id="subnet">
-          <div class="subnet-head">
-            <h3>Subnet calculator</h3>
+        <div class="grid cards" id="net-cards"></div>
+      </div>
+    </section>
+
+    <!-- CHEAT SHEETS -->
+    <section id="cheatsheets" class="section" aria-labelledby="cs-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">03 / cheat sheets</p>
+          <h2 id="cs-title">Cheat sheets</h2>
+          <p class="muted">Search, filter, copy, print. Tap any row to copy it, and hover or tap a <code>-flag</code> to see what it does. Only scan systems you own or have written permission to test.</p>
+        </header>
+        <div class="cs-controls" id="cs-controls">
+          <div class="cs-row">
+            <label for="cs-search" class="sr-only">Search cheat sheets</label>
+            <div class="search-wrap"><input id="cs-search" type="search" placeholder="Search commands…" autocomplete="off" aria-keyshortcuts="/"><kbd aria-hidden="true">/</kbd></div>
+            <button class="btn btn-ghost small" type="button" id="vars-toggle" aria-expanded="false" aria-controls="vars-panel">{ } <span class="lbl">Your values</span></button>
+            <button class="btn btn-ghost small" type="button" id="cs-print" aria-label="Print or save as PDF">⎙ <span class="lbl">Print</span></button>
+          </div>
+          <div class="chips" id="cs-filters" role="group" aria-label="Filter by category"></div>
+          <form class="vars-panel" id="vars-panel" aria-label="Your values" hidden autocomplete="off">
+            <p class="small muted">Type your lab values once. Every command updates and they're saved in this browser only.</p>
+            <div class="vars-grid" id="vars-fields"></div>
+            <button type="button" class="link-btn" id="vars-reset">Reset to defaults</button>
+          </form>
+        </div>
+        <p class="muted small" id="cs-count" aria-live="polite"></p>
+        <div id="cs-list" class="cs-list"></div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tools" class="section alt" aria-labelledby="tools-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">04 / tools</p>
+          <h2 id="tools-title">Tools</h2>
+          <p class="muted" id="tools-note">Educational tools. Everything runs in your browser: nothing you type is sent anywhere or saved.</p>
+        </header>
+        <div class="tools-grid">
+        <div class="tool card reveal" id="subnet">
+          <div class="tool-head">
+            <h3>Subnet calculator <span class="tag">network</span></h3>
             <p class="muted small">Enter an IPv4 address with CIDR prefix, e.g. <code>192.168.1.10/24</code>. Runs entirely in your browser.</p>
           </div>
           <form id="subnet-form" class="subnet-form" autocomplete="off">
@@ -111,34 +183,54 @@
           <dl id="subnet-out" class="subnet-out mono" aria-live="polite"></dl>
         </div>
 
-        <div class="grid cards" id="net-cards"></div>
-      </div>
-    </section>
 
-    <!-- CHEAT SHEETS -->
-    <section id="cheatsheets" class="section" aria-labelledby="cs-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <p class="kicker mono">03 / cheat sheets</p>
-          <h2 id="cs-title">Cheat sheets</h2>
-          <p class="muted">Search, filter, copy, print. Only run offensive tools against systems you own or have written permission to test.</p>
-        </header>
-        <div class="cs-controls reveal">
-          <label for="cs-search" class="sr-only">Search cheat sheets</label>
-          <input id="cs-search" type="search" placeholder="Search commands… (e.g. nmap -sV, chmod, dns)" autocomplete="off">
-          <div class="chips" id="cs-filters" role="group" aria-label="Filter by category"></div>
-          <button class="btn btn-ghost small" type="button" id="cs-print">Print / save PDF</button>
+          <div class="tool card reveal" id="pw-tool">
+            <div class="tool-head">
+              <h3>Password strength <span class="tag">offline</span></h3>
+              <p class="muted small">Estimates how long a guessing attack would take. Never sent, never stored. Better: test a password that's <em>similar</em> to yours, not the real one.</p>
+            </div>
+            <label for="pw-input" class="sr-only">Password to test</label>
+            <div class="pw-row">
+              <input id="pw-input" class="mono" type="password" autocomplete="off" spellcheck="false" data-lpignore="true" data-1p-ignore placeholder="Type a password to test" aria-describedby="pw-out">
+              <button type="button" class="btn btn-ghost small" id="pw-show" aria-pressed="false">Show</button>
+            </div>
+            <div class="meter" aria-hidden="true"><span id="pw-bar"></span></div>
+            <div id="pw-out" class="tool-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool card reveal" id="hash-tool">
+            <div class="tool-head">
+              <h3>Hash identifier <span class="tag">offline</span></h3>
+              <p class="muted small" id="hash-note">Paste a hash to guess its type from length, characters and prefix.</p>
+            </div>
+            <label for="hash-input" class="sr-only">Hash to identify</label>
+            <input id="hash-input" class="mono" type="text" spellcheck="false" autocomplete="off" placeholder="e.g. 5f4dcc3b5aa765d61d8327deb882cf99">
+            <div id="hash-out" class="tool-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool card reveal" id="link-tool">
+            <div class="tool-head">
+              <h3>Is this link suspicious? <span class="tag">offline</span></h3>
+              <p class="muted small">Paste a link from an SMS, WhatsApp or email. It is only read as text; it is <strong>never opened</strong>. A clean result doesn't mean safe, so still check the checklist.</p>
+            </div>
+            <label for="link-input" class="sr-only">Link to check</label>
+            <input id="link-input" class="mono" type="text" inputmode="url" spellcheck="false" autocomplete="off" placeholder="e.g. http://sbi-kyc-update.top/verify">
+            <div id="link-out" class="tool-out" aria-live="polite"></div>
+            <fieldset class="checklist">
+              <legend>Manual checklist: tick what's true</legend>
+              <div id="link-checklist"></div>
+              <p id="checklist-out" class="small" aria-live="polite"></p>
+            </fieldset>
+          </div>
         </div>
-        <p class="muted small" id="cs-count" aria-live="polite"></p>
-        <div id="cs-list" class="cs-list"></div>
       </div>
     </section>
 
     <!-- CAREERS -->
-    <section id="careers" class="section alt" aria-labelledby="careers-title">
+    <section id="careers" class="section" aria-labelledby="careers-title">
       <div class="wrap">
         <header class="section-head reveal">
-          <p class="kicker mono">04 / careers</p>
+          <p class="kicker mono">05 / careers</p>
           <h2 id="careers-title">Job paths</h2>
           <p class="muted">What each role actually does, the skills that matter, and certifications commonly seen in job posts. Certs help you get shortlisted; projects and fundamentals get you hired.</p>
         </header>
@@ -148,10 +240,10 @@
     </section>
 
     <!-- AWARENESS -->
-    <section id="awareness" class="section" aria-labelledby="aw-title">
+    <section id="awareness" class="section alt" aria-labelledby="aw-title">
       <div class="wrap">
         <header class="section-head reveal">
-          <p class="kicker mono">05 / stay safe</p>
+          <p class="kicker mono">06 / stay safe</p>
           <h2 id="aw-title">Cyber awareness for everyone</h2>
           <p class="muted">Share this with your family. Most scams work by creating panic or greed — slow down and verify.</p>
         </header>
@@ -168,11 +260,11 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section alt" aria-labelledby="about-title">
+    <section id="about" class="section" aria-labelledby="about-title">
       <div class="wrap about">
         <header class="section-head reveal">
-          <p class="kicker mono">06 / about</p>
-          <h2 id="about-title">Hi, I'm Madhav Pandya</h2>
+          <p class="kicker mono">07 / about · Madhav Pandya</p>
+          <h2 id="about-title">IT engineer who studies law, explaining cybersecurity in Hinglish.</h2>
         </header>
         <div class="about-grid">
           <aside class="about-card card reveal">
@@ -187,6 +279,7 @@
           </aside>
           <div>
             <ol class="timeline" id="timeline"></ol>
+            <aside class="law card reveal" id="law" aria-labelledby="law-title"></aside>
             <h3 class="reveal">Projects</h3>
             <div class="grid projects" id="projects"></div>
           </div>
@@ -195,10 +288,10 @@
     </section>
 
     <!-- NEWSLETTER / CONTACT -->
-    <section id="contact" class="section" aria-labelledby="contact-title">
+    <section id="contact" class="section alt" aria-labelledby="contact-title">
       <div class="wrap">
         <header class="section-head reveal">
-          <p class="kicker mono">07 / connect</p>
+          <p class="kicker mono">08 / connect</p>
           <h2 id="contact-title">Stay in the loop</h2>
           <p class="muted">Get new cheat sheets and scam alerts, or send a message. Forms work when the optional backend is running; otherwise email <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>.</p>
         </header>
@@ -241,7 +334,16 @@
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <p class="sr-only" id="sr-live" aria-live="polite"></p>
+  <dialog class="palette" id="palette" aria-label="Command palette">
+    <div class="pal-head">
+      <label for="pal-input" class="sr-only">Search sections, sheets, tools and commands</label>
+      <input id="pal-input" type="text" placeholder="Jump to a section, sheet, tool or command…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="pal-list" aria-autocomplete="list">
+    </div>
+    <ul id="pal-list" role="listbox" aria-label="Results"></ul>
+    <p class="pal-foot mono">↑↓ move · Enter open · Esc close</p>
+  </dialog>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,216 @@
+{
+  "note": "Educational tools. Everything runs in your browser: nothing you type is sent anywhere or saved.",
+  "commonPasswords": [
+    "123456",
+    "password",
+    "123456789",
+    "12345678",
+    "12345",
+    "qwerty",
+    "abc123",
+    "password1",
+    "111111",
+    "123123",
+    "1234567",
+    "iloveyou",
+    "admin",
+    "welcome",
+    "monkey",
+    "dragon",
+    "letmein",
+    "football",
+    "india123",
+    "india@123",
+    "qwerty123",
+    "1q2w3e4r",
+    "000000",
+    "654321",
+    "sunshine",
+    "princess",
+    "master",
+    "login",
+    "passw0rd",
+    "p@ssw0rd",
+    "p@ssword",
+    "admin123",
+    "welcome123",
+    "krishna",
+    "sairam",
+    "omsairam",
+    "ganesh",
+    "jaihind",
+    "pass@123",
+    "test@123"
+  ],
+  "keyboardRows": [
+    "qwertyuiop",
+    "asdfghjkl",
+    "zxcvbnm",
+    "1234567890"
+  ],
+  "hashNote": "Identification is a guess from length, characters and prefix. Many hashes share a length, so context (where you found it) decides.",
+  "link": {
+    "shorteners": [
+      "bit.ly",
+      "tinyurl.com",
+      "t.co",
+      "goo.gl",
+      "is.gd",
+      "cutt.ly",
+      "rb.gy",
+      "shorturl.at",
+      "ow.ly",
+      "buff.ly",
+      "rebrand.ly",
+      "t.ly",
+      "tiny.cc",
+      "s.id",
+      "v.gd",
+      "shorte.st",
+      "bl.ink",
+      "lnkd.in"
+    ],
+    "riskyTlds": [
+      "zip",
+      "mov",
+      "xyz",
+      "top",
+      "tk",
+      "ml",
+      "ga",
+      "cf",
+      "gq",
+      "click",
+      "country",
+      "work",
+      "loan",
+      "buzz",
+      "rest",
+      "icu",
+      "cyou",
+      "sbs",
+      "cfd",
+      "lol",
+      "monster",
+      "quest",
+      "support"
+    ],
+    "brands": {
+      "sbi": [
+        "sbi.co.in",
+        "onlinesbi.sbi",
+        "bank.in"
+      ],
+      "hdfc": [
+        "hdfcbank.com",
+        "bank.in"
+      ],
+      "icici": [
+        "icicibank.com",
+        "bank.in"
+      ],
+      "axis": [
+        "axisbank.com",
+        "bank.in"
+      ],
+      "paytm": [
+        "paytm.com"
+      ],
+      "phonepe": [
+        "phonepe.com"
+      ],
+      "amazon": [
+        "amazon.in",
+        "amazon.com"
+      ],
+      "flipkart": [
+        "flipkart.com"
+      ],
+      "google": [
+        "google.com",
+        "google.co.in"
+      ],
+      "apple": [
+        "apple.com"
+      ],
+      "microsoft": [
+        "microsoft.com",
+        "live.com"
+      ],
+      "whatsapp": [
+        "whatsapp.com"
+      ],
+      "instagram": [
+        "instagram.com"
+      ],
+      "facebook": [
+        "facebook.com"
+      ],
+      "irctc": [
+        "irctc.co.in"
+      ],
+      "aadhaar": [
+        "uidai.gov.in"
+      ],
+      "uidai": [
+        "uidai.gov.in"
+      ],
+      "incometax": [
+        "incometax.gov.in"
+      ],
+      "epfo": [
+        "epfindia.gov.in"
+      ],
+      "npci": [
+        "npci.org.in"
+      ],
+      "netflix": [
+        "netflix.com"
+      ]
+    },
+    "lureWords": [
+      "kyc",
+      "verify",
+      "update",
+      "login",
+      "signin",
+      "reward",
+      "refund",
+      "otp",
+      "free",
+      "gift",
+      "bonus",
+      "prize",
+      "lottery",
+      "blocked",
+      "suspend",
+      "urgent",
+      "claim",
+      "wallet"
+    ]
+  },
+  "checklist": [
+    "I wasn't expecting this message or link.",
+    "It creates urgency or fear: blocked account, arrest, last chance.",
+    "It promises money, a prize, a refund or a job that seems too good.",
+    "The sender is a personal number or an unknown email, not an official channel.",
+    "The domain isn't exactly the official one (extra words, hyphens, odd ending).",
+    "It asks for an OTP, UPI PIN, password, card details or remote-access app.",
+    "It wants me to install an APK or app from outside the Play Store / App Store.",
+    "The link is shortened, so I can't see where it really goes."
+  ],
+  "terminalDemo": {
+    "cmd": "nmap -sV {{TARGET_IP}}",
+    "lines": [
+      "Starting Nmap ( https://nmap.org )",
+      "Nmap scan report for {{TARGET_IP}}",
+      "Host is up (0.0021s latency).",
+      "Not shown: 997 closed tcp ports (conn-refused)",
+      "PORT     STATE SERVICE VERSION",
+      "22/tcp   open  ssh     OpenSSH 9.6p1 Ubuntu",
+      "80/tcp   open  http    Apache httpd 2.4.58",
+      "3306/tcp open  mysql   MySQL 8.0.36",
+      "Nmap done: 1 IP address (1 host up) scanned in 7.42 seconds"
+    ]
+  }
+}

@@ -7,17 +7,23 @@ Static site (vanilla HTML/CSS/JS, no framework) whose content lives in JSON, plu
 ## Sections
 | Section | What it has |
 |---|---|
-| Hero | Intro, CTAs, topic tags |
+| 1930 banner | "Scammed? Call 1930" bar, dismissible (remembered for the session) |
+| Hero | Headline + subhead, `whoami` typing, terminal with an **nmap demo** and a **"scam or not?" quiz**, proof line (counts computed from the data) |
 | Roadmap | Beginner → Intermediate → Advanced tabs: goals, topics, free resources, projects |
-| Networking | OSI vs TCP/IP layers, 10 concept cards, common ports, **subnet calculator** (network, broadcast, host range, mask, wildcard, binary; handles /31 and /32) |
-| Cheat sheets | 9 sheets (Linux, Nmap, Ports, Wireshark, Git, OWASP Top 10 2021, Incident Response, Windows/AD, Security hygiene) — search with highlight, category filters, copy buttons, print/PDF stylesheet |
+| Networking | OSI vs TCP/IP layers, concept cards, common ports |
+| Cheat sheets | 9 sheets / 110 entries. Sticky search + filter bar, max 8 rows per sheet with "Show all N →", search highlight, **{{VARS}}** you can set once (saved in `localStorage`), tap a row or button to copy ("copied ✓"), flag tooltips, light print stylesheet |
+| Tools | All client-side and educational: **subnet calculator**, **password strength** (entropy + pattern penalties + crack-time, never stored), **hash identifier** (with hashcat modes), **link checker** (URL analyzer + manual checklist; the link is never opened) |
 | Careers | 7 job paths: what you do, skills, certs, first steps (salaries intentionally omitted) |
-| Cyber awareness | **1930** helpline + cybercrime.gov.in, 6 common Indian scams with red flags, 8 safety habits |
-| About | Bio, links, timeline, projects (geoimg-osint, homelab-toolkit) |
+| Cyber awareness | **1930** helpline + cybercrime.gov.in, common Indian scams with red flags, safety habits |
+| About | Headline, honest timeline ("live" badges), law callout (IT Act, DPDP Act 2023, CERT-In, GRC), projects with "building" notes and GitHub stars (shown only if > 0) |
 | Contact | Newsletter + contact form (honeypot, client + server validation) |
 | Footer | Ethics / legal note (IT Act 2000, s.43 & s.66) |
 
-Extras: sticky nav with scroll-spy, reading-progress bar, light/dark toggle (saved in `localStorage`), scroll-reveal via IntersectionObserver (disabled under `prefers-reduced-motion`, content visible without JS), SEO + Open Graph + JSON-LD, SVG favicon.
+Shortcuts: `/` focuses cheat-sheet search, `Ctrl/⌘ + K` opens the command palette (sections, tools, sheets, commands).
+
+Colour roles: purple = actions/links, green = code and live states only, amber = alerts. Muted text is ≥ 7:1 contrast. Mobile: one-column cards, sideways-scrolling filter chips. `prefers-reduced-motion`: no glow, no typing.
+
+Extras: sticky nav with scroll-spy, reading-progress bar, light/dark toggle (saved in `localStorage`), scroll-reveal via IntersectionObserver (content visible without JS), SEO + Open Graph + JSON-LD, SVG favicon.
 
 ## File tree
 ```
@@ -28,7 +34,7 @@ cwm-site/
 ├── assets/js/main.js     # rendering, subnet calc, search, forms
 ├── data/                 # ← edit content here
 │   ├── roadmap.json  networking.json  cheatsheets.json
-│   ├── jobs.json     awareness.json   about.json
+│   ├── jobs.json     awareness.json   about.json   tools.json
 ├── backend/              # optional Flask API
 │   ├── app.py  export.py  requirements.txt  .env.example
 ├── tools/                # headless tests + screenshots (puppeteer-core)
@@ -62,7 +68,7 @@ With both servers running:
 ```bash
 cd tools && npm i && node test.mjs
 ```
-Runs 30 checks in headless Chrome (subnet math incl. edge cases, search/filter/copy, roadmap tabs, forms end-to-end, theme toggle, SEO meta, mobile overflow/menu, reduced motion, print CSS, zero console errors) and regenerates `docs/*.png`. Set `CHROME_PATH` if Chrome isn't at `/usr/bin/google-chrome`. Use a fresh DB (`CWM_DB_PATH=/tmp/x.sqlite3`) per run so the rate limiter doesn't trip.
+Runs 83 checks in headless Chrome (hero, quiz, contrast + colour roles, cheat-sheet cap/search/copy/vars/flags/palette/shortcuts, subnet/password/hash/link tools, about, forms end-to-end, theme toggle, SEO meta, mobile layout, reduced motion, print CSS, zero console errors; GitHub API is stubbed) and regenerates `docs/*.png`. Set `CHROME_PATH` if Chrome isn't at `/usr/bin/google-chrome`. Use a fresh DB (`CWM_DB_PATH=/tmp/x.sqlite3`) per run so the rate limiter doesn't trip.
 
 ## Backend security
 - JSON only (415 otherwise), 16 KB body cap (413), strict email/name/message validation
@@ -75,9 +81,10 @@ Runs 30 checks in headless Chrome (subnet math incl. edge cases, search/filter/c
 See [docs/DEPLOY.md](docs/DEPLOY.md) — GitHub Pages / Netlify / Cloudflare Pages for the static site (free), and optional backend hosting.
 
 ## TODO
-- [ ] Instagram and YouTube URLs → `data/about.json` (`links`), plus `sameAs` in the JSON-LD in `index.html`
+- [ ] Instagram and YouTube URLs → `data/about.json` (`links[].url`; rows stay hidden while empty), plus `sameAs` in the JSON-LD in `index.html`
+- [ ] Real numbers only if available → `data/about.json` `timeline[].metric` (empty = hidden)
 - [ ] Photo → `assets/img/madhav.jpg`, then swap the "MP" placeholder in `index.html`
-- [ ] Real domain → `<link rel="canonical">`, `og:url`, JSON-LD `url` (currently `cyberwithmadhav.example`)
+- [ ] Real domain → `<link rel="canonical">`, `og:url`, JSON-LD `url` (currently `cyberwithmadhav.example`; live site is https://iammadhavpandya-oss.github.io/cyberwithmadhav/)
 - [ ] Social preview image → `assets/img/og-image.png` (1200×630)
 - [ ] If the backend is deployed: set `<meta name="cwm-api" content="https://api.your-domain">` and `CWM_ALLOWED_ORIGINS`
 - [ ] Rate limiter is in-memory (single process). For multiple workers use Redis or a proxy-level limit.
