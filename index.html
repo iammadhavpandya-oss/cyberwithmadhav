@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CyberWithMadhav — Learn Cybersecurity, Stay Safe Online</title>
+  <meta name="description" content="CyberWithMadhav by Madhav Pandya: a free beginner-to-advanced cybersecurity roadmap, networking concepts, searchable cheat sheets, job paths and cyber-safety tips for India.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <!-- TODO: replace https://cyberwithmadhav.example with the real domain after deploying -->
+  <link rel="canonical" href="https://cyberwithmadhav.example/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="CyberWithMadhav — Learn Cybersecurity, Stay Safe Online">
+  <meta property="og:description" content="Free roadmap, cheat sheets, networking basics, job paths and cyber-safety tips — from beginner to advanced.">
+  <meta property="og:url" content="https://cyberwithmadhav.example/">
+  <meta property="og:image" content="https://cyberwithmadhav.example/assets/img/og-image.png">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CyberWithMadhav">
+  <meta name="twitter:description" content="Learn cybersecurity from beginner to advanced. Stay safe online.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Madhav Pandya","jobTitle":"IT Support Engineer","address":{"@type":"PostalAddress","addressLocality":"Vasai","addressRegion":"Maharashtra","addressCountry":"IN"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/madhav-pandya-55b809364"]}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="#roadmap">Roadmap</a>
+        <a href="#networking">Networking</a>
+        <a href="#cheatsheets">Cheat sheets</a>
+        <a href="#careers">Careers</a>
+        <a href="#awareness">Stay safe</a>
+        <a href="#about">About</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="eyebrow mono"><span class="prompt">$</span> whoami <span class="cursor" aria-hidden="true">_</span></p>
+        <h1 id="hero-title">Learn cybersecurity.<br><span class="grad">Stay safe online.</span></h1>
+        <p class="lead">Free, no-nonsense guides from <strong>CyberWithMadhav</strong> — a step-by-step roadmap from zero to advanced, networking made simple, copy-ready cheat sheets, career paths, and scam awareness for everyone in India.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#roadmap">Start the roadmap →</a>
+          <a class="btn btn-ghost" href="#cheatsheets">Open cheat sheets</a>
+        </div>
+        <ul class="hero-tags mono" aria-label="Topics">
+          <li>#networking</li><li>#linux</li><li>#blue-team</li><li>#red-team</li><li>#osint</li><li>#cyber-awareness</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section" aria-labelledby="roadmap-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">01 / roadmap</p>
+          <h2 id="roadmap-title">Learning roadmap</h2>
+          <p class="muted">Go in order. Each stage lists what to learn, free resources, and projects that prove you can do it. Timelines vary from person to person — consistency beats speed.</p>
+        </header>
+        <div class="stage-tabs reveal" role="tablist" aria-label="Roadmap stage"></div>
+        <div id="roadmap-panels"></div>
+      </div>
+    </section>
+
+    <!-- NETWORKING -->
+    <section id="networking" class="section alt" aria-labelledby="net-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">02 / networking</p>
+          <h2 id="net-title">Networking concepts</h2>
+          <p class="muted">You can't secure what you don't understand. These are the fundamentals every security role builds on.</p>
+        </header>
+
+        <div class="layers reveal" id="layers"></div>
+
+        <div class="subnet card reveal" id="subnet">
+          <div class="subnet-head">
+            <h3>Subnet calculator</h3>
+            <p class="muted small">Enter an IPv4 address with CIDR prefix, e.g. <code>192.168.1.10/24</code>. Runs entirely in your browser.</p>
+          </div>
+          <form id="subnet-form" class="subnet-form" autocomplete="off">
+            <label for="subnet-input" class="sr-only">IPv4 address with CIDR</label>
+            <input id="subnet-input" class="mono" type="text" value="192.168.1.10/24" spellcheck="false" inputmode="decimal" aria-describedby="subnet-error">
+            <button class="btn btn-primary" type="submit">Calculate</button>
+          </form>
+          <p id="subnet-error" class="error" role="alert"></p>
+          <dl id="subnet-out" class="subnet-out mono" aria-live="polite"></dl>
+        </div>
+
+        <div class="grid cards" id="net-cards"></div>
+      </div>
+    </section>
+
+    <!-- CHEAT SHEETS -->
+    <section id="cheatsheets" class="section" aria-labelledby="cs-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">03 / cheat sheets</p>
+          <h2 id="cs-title">Cheat sheets</h2>
+          <p class="muted">Search, filter, copy, print. Only run offensive tools against systems you own or have written permission to test.</p>
+        </header>
+        <div class="cs-controls reveal">
+          <label for="cs-search" class="sr-only">Search cheat sheets</label>
+          <input id="cs-search" type="search" placeholder="Search commands… (e.g. nmap -sV, chmod, dns)" autocomplete="off">
+          <div class="chips" id="cs-filters" role="group" aria-label="Filter by category"></div>
+          <button class="btn btn-ghost small" type="button" id="cs-print">Print / save PDF</button>
+        </div>
+        <p class="muted small" id="cs-count" aria-live="polite"></p>
+        <div id="cs-list" class="cs-list"></div>
+      </div>
+    </section>
+
+    <!-- CAREERS -->
+    <section id="careers" class="section alt" aria-labelledby="careers-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">04 / careers</p>
+          <h2 id="careers-title">Job paths</h2>
+          <p class="muted">What each role actually does, the skills that matter, and certifications commonly seen in job posts. Certs help you get shortlisted; projects and fundamentals get you hired.</p>
+        </header>
+        <div class="grid jobs" id="jobs"></div>
+        <p class="muted small reveal" id="jobs-note"></p>
+      </div>
+    </section>
+
+    <!-- AWARENESS -->
+    <section id="awareness" class="section" aria-labelledby="aw-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">05 / stay safe</p>
+          <h2 id="aw-title">Cyber awareness for everyone</h2>
+          <p class="muted">Share this with your family. Most scams work by creating panic or greed — slow down and verify.</p>
+        </header>
+        <div class="helpline reveal" role="note">
+          <div>
+            <p class="mono small kicker">Been scammed? Act fast.</p>
+            <p class="helpline-big">Call <a href="tel:1930">1930</a></p>
+            <p class="muted">National Cyber Crime Helpline. Report online at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>. Reporting quickly — ideally within hours — improves the chance of freezing money in transit.</p>
+          </div>
+        </div>
+        <div class="grid scams" id="scams"></div>
+        <div class="card reveal habits" id="habits"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section alt" aria-labelledby="about-title">
+      <div class="wrap about">
+        <header class="section-head reveal">
+          <p class="kicker mono">06 / about</p>
+          <h2 id="about-title">Hi, I'm Madhav Pandya</h2>
+        </header>
+        <div class="about-grid">
+          <aside class="about-card card reveal">
+            <!-- TODO: replace placeholder with real photo at assets/img/madhav.jpg (square, ~480px) -->
+            <div class="photo" role="img" aria-label="Photo placeholder for Madhav Pandya">
+              <span class="mono">MP</span>
+              <small class="mono">TODO: photo</small>
+            </div>
+            <p class="about-loc muted">📍 Vasai, Mumbai</p>
+            <p id="about-bio"></p>
+            <ul class="links" id="about-links"></ul>
+          </aside>
+          <div>
+            <ol class="timeline" id="timeline"></ol>
+            <h3 class="reveal">Projects</h3>
+            <div class="grid projects" id="projects"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER / CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">07 / connect</p>
+          <h2 id="contact-title">Stay in the loop</h2>
+          <p class="muted">Get new cheat sheets and scam alerts, or send a message. Forms work when the optional backend is running; otherwise email <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>.</p>
+        </header>
+        <div class="grid two">
+          <form class="card form reveal" id="newsletter-form" novalidate>
+            <h3>Newsletter</h3>
+            <label for="nl-email">Email</label>
+            <input id="nl-email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
+            <div class="hp" aria-hidden="true"><label for="nl-website">Website</label><input id="nl-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+            <p class="form-status small" role="status"></p>
+          </form>
+          <form class="card form reveal" id="contact-form" novalidate>
+            <h3>Contact</h3>
+            <label for="c-name">Name</label>
+            <input id="c-name" name="name" type="text" required maxlength="80" autocomplete="name">
+            <label for="c-email">Email</label>
+            <input id="c-email" name="email" type="email" required maxlength="254" autocomplete="email">
+            <label for="c-msg">Message</label>
+            <textarea id="c-msg" name="message" rows="4" required minlength="10" maxlength="2000"></textarea>
+            <div class="hp" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <button class="btn btn-primary" type="submit">Send</button>
+            <p class="form-status small" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="ethics card">
+        <h2 class="h4">⚖️ Ethics &amp; legal</h2>
+        <p>Everything here is for <strong>learning and defence</strong>. Only test systems you own or have explicit written authorisation to test. Unauthorised access, data theft or damage to computer systems is an offence in India under the <strong>Information Technology Act, 2000</strong> (e.g. Sections 43 and 66) and can lead to fines and imprisonment. Use labs like TryHackMe, Hack The Box and PortSwigger Academy to practise legally.</p>
+      </div>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is.</p>
+        <p class="small"><a href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

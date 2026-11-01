@@ -1,0 +1,50 @@
+{
+  "scams": [
+    {
+      "title": "UPI fraud", "icon": "₹",
+      "how": "You get a 'collect request', QR code or link and are told to scan it or enter your PIN to 'receive' money, often while selling something online.",
+      "flags": ["You must enter your UPI PIN to receive money", "Pressure to act fast", "Buyer 'accidentally' sent extra money and wants a refund"],
+      "do": ["Remember: a UPI PIN is only for sending money, never for receiving", "Decline unknown collect requests", "Verify payments in your bank app, not via screenshots"]
+    },
+    {
+      "title": "OTP / KYC scams", "icon": "#",
+      "how": "Callers pretend to be from your bank, telecom provider or a delivery company and say your account or SIM will be blocked unless you share an OTP or update 'KYC'.",
+      "flags": ["Asking for OTP, PIN, CVV or card number", "Requests to install screen-sharing apps (AnyDesk, TeamViewer)", "Threats of account suspension"],
+      "do": ["Never share OTPs with anyone", "Hang up and call the official number on your card or the bank's website", "Do KYC only at the branch or official app"]
+    },
+    {
+      "title": "Phishing", "icon": "@",
+      "how": "Fake emails, SMS or WhatsApp messages with links to look-alike websites that steal your passwords or card details, or files that install malware.",
+      "flags": ["Misspelled or odd domains (amaz0n-offers.xyz)", "Urgent tone or 'you won a prize'", "Unexpected attachments (.apk, .exe, .zip)"],
+      "do": ["Type the website address yourself instead of clicking", "Never install APK files sent on WhatsApp", "Turn on 2FA so a stolen password isn't enough"]
+    },
+    {
+      "title": "Fake job offers", "icon": "✉",
+      "how": "'Work from home', 'like YouTube videos and earn', or overseas job offers that ask for a registration fee, deposit, or 'task investment' before paying you.",
+      "flags": ["Any fee to get a job", "Telegram 'task' groups with small early payouts", "Offer without a real interview or company email"],
+      "do": ["Real employers don't charge you to hire you", "Verify the company on its official website and LinkedIn", "Check overseas recruiters are registered with the MEA's eMigrate portal"]
+    },
+    {
+      "title": "Sextortion", "icon": "!",
+      "how": "A stranger starts a video call or chat, records or fakes compromising images, then threatens to share them with your contacts unless you pay.",
+      "flags": ["Unknown video calls, especially at night", "Rapid move from friendly chat to intimate requests", "Demands for money with threats"],
+      "do": ["Don't pay — payment usually leads to more demands", "Stop contact, save evidence (screenshots, profile links), and report the account", "Report at cybercrime.gov.in or call 1930. You are the victim — it's not your fault"]
+    },
+    {
+      "title": "'Digital arrest' calls", "icon": "⚠",
+      "how": "Fraudsters pose as police, CBI, customs or courier officials on a video call, claim you're linked to a crime, and demand money to 'clear your name'.",
+      "flags": ["Video call from 'officers' in uniform", "Told not to tell family or disconnect", "Asked to transfer money for 'verification'"],
+      "do": ["Indian law has no such thing as a 'digital arrest' over video call", "Disconnect and tell family", "Call 1930 and report at cybercrime.gov.in"]
+    }
+  ],
+  "habits": [
+    "Use unique passwords with a password manager",
+    "Turn on two-factor authentication for email, banking and social media",
+    "Keep phone, apps and laptop updated",
+    "Install apps only from official app stores",
+    "Lock your SIM with a PIN and your phone with a strong screen lock",
+    "Back up important photos and documents",
+    "Review app permissions — does a torch app need your contacts?",
+    "Be careful about what you post publicly — location, ID cards, tickets"
+  ]
+}

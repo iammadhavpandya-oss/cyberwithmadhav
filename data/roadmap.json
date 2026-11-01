@@ -1,0 +1,85 @@
+{
+  "stages": [
+    {
+      "id": "beginner",
+      "name": "Beginner",
+      "goal": "Understand how computers, networks and the internet work, get comfortable on the Linux and Windows command line, and learn the core security vocabulary.",
+      "topics": [
+        "How computers work: CPU, RAM, storage, OS, processes",
+        "Networking basics: OSI & TCP/IP, IP addressing, subnetting, DNS, DHCP, common ports",
+        "Linux command line: files, permissions, users, processes, package managers",
+        "Windows basics: PowerShell, users & groups, services, Event Viewer",
+        "Security fundamentals: CIA triad, threats vs vulnerabilities vs risk, authentication & MFA",
+        "Basic scripting: Bash and Python (variables, loops, files)",
+        "Cyber hygiene: passwords, phishing, updates, backups"
+      ],
+      "resources": [
+        {"name": "TryHackMe — Pre Security & Cyber Security 101 paths", "url": "https://tryhackme.com", "note": "Guided browser-based labs; many rooms are free"},
+        {"name": "OverTheWire — Bandit", "url": "https://overthewire.org/wargames/bandit/", "note": "Learn Linux through a free SSH wargame"},
+        {"name": "Professor Messer — CompTIA Network+ & Security+ videos", "url": "https://www.professormesser.com", "note": "Free full-length video courses"},
+        {"name": "Cisco Networking Academy", "url": "https://www.netacad.com", "note": "Free intro courses on networking and cybersecurity"},
+        {"name": "Linux Journey", "url": "https://linuxjourney.com", "note": "Free bite-sized Linux lessons"}
+      ],
+      "projects": [
+        "Install a Linux VM (Ubuntu or Kali) in VirtualBox and document your setup",
+        "Finish Bandit levels 0–15 and write short notes for each",
+        "Map your home network: list devices, IPs, and open ports on your own router",
+        "Write a Bash script that backs up a folder with a timestamp"
+      ]
+    },
+    {
+      "id": "intermediate",
+      "name": "Intermediate",
+      "goal": "Learn how attacks actually work and how defenders detect them. Build a home lab and start producing work you can show.",
+      "topics": [
+        "Web security: HTTP in depth, OWASP Top 10, Burp Suite basics",
+        "Network security: Nmap, Wireshark, firewalls, VPNs, IDS/IPS concepts",
+        "Blue team: logs, SIEM basics (Splunk / Elastic / Wazuh), alert triage",
+        "Active Directory fundamentals: domains, Kerberos, Group Policy",
+        "Cryptography basics: hashing, symmetric vs asymmetric, TLS, PKI",
+        "Cloud basics: IAM, shared responsibility model, storage misconfigurations",
+        "OSINT methodology and ethics"
+      ],
+      "resources": [
+        {"name": "PortSwigger Web Security Academy", "url": "https://portswigger.net/web-security", "note": "Free, high-quality web security labs"},
+        {"name": "TryHackMe — SOC Level 1 / Jr Penetration Tester paths", "url": "https://tryhackme.com", "note": "Role-based learning paths (some content is paid)"},
+        {"name": "Blue Team Labs Online / LetsDefend", "url": "https://blueteamlabs.online", "note": "Defensive investigations and SOC-style challenges"},
+        {"name": "OverTheWire — Natas", "url": "https://overthewire.org/wargames/natas/", "note": "Server-side web security wargame"},
+        {"name": "OWASP Top 10", "url": "https://owasp.org/Top10/", "note": "The standard list of web app risk categories"}
+      ],
+      "projects": [
+        "Home lab: pfSense/OPNsense firewall + Windows Server AD + a Linux host + Wazuh SIEM",
+        "Capture your own traffic in Wireshark and write up a DNS and a TLS handshake",
+        "Solve 20+ PortSwigger labs and blog the methodology (not just answers)",
+        "Build a small Python tool — e.g. a port scanner or log parser — and publish it on GitHub"
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced",
+      "goal": "Specialise. Go deep in one area (offence, defence, cloud, AppSec or GRC) and practise on realistic environments.",
+      "topics": [
+        "Penetration testing methodology and professional reporting",
+        "Active Directory attacks & defences (Kerberoasting, delegation, tiering)",
+        "Threat hunting, detection engineering (Sigma/YARA), MITRE ATT&CK",
+        "Digital forensics & incident response: memory, disk and timeline analysis",
+        "Cloud security: AWS/Azure IAM, logging, posture management, IaC scanning",
+        "Secure code review, threat modelling, DevSecOps pipelines",
+        "Malware analysis fundamentals (static & dynamic, in isolated labs)"
+      ],
+      "resources": [
+        {"name": "Hack The Box (Academy & Labs)", "url": "https://www.hackthebox.com", "note": "Realistic machines and Pro Labs"},
+        {"name": "MITRE ATT&CK", "url": "https://attack.mitre.org", "note": "Knowledge base of adversary techniques"},
+        {"name": "SANS Reading Room & DFIR posters", "url": "https://www.sans.org/white-papers/", "note": "Free research papers and cheat posters"},
+        {"name": "flAWS / flAWS2 (AWS)", "url": "http://flaws.cloud", "note": "Free cloud misconfiguration challenges"},
+        {"name": "Detection Engineering resources — SigmaHQ", "url": "https://github.com/SigmaHQ/sigma", "note": "Open detection rules to read and write"}
+      ],
+      "projects": [
+        "Build a vulnerable AD lab, attack it, then write detections for each step",
+        "Publish a full pentest-style report on a retired HTB machine",
+        "Create a CI pipeline that runs SAST, dependency and IaC scans on a sample app",
+        "Contribute a detection rule or tool fix to an open-source security project"
+      ]
+    }
+  ]
+}

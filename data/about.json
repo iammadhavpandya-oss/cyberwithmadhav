@@ -1,0 +1,76 @@
+{
+  "name": "Madhav Pandya",
+  "location": "Vasai, Mumbai",
+  "bio": "IT Support Engineer and founder of CyberWithMadhav. I make cybersecurity simple for beginners and help everyday people stay safe from online scams — in plain English and Hinglish.",
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/iammadhavpandya-oss"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/madhav-pandya-55b809364"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:madhavpandya@zoho.in",
+      "display": "madhavpandya@zoho.in"
+    },
+    {
+      "label": "Instagram",
+      "url": "",
+      "todo": "TODO: URL"
+    },
+    {
+      "label": "YouTube",
+      "url": "",
+      "todo": "TODO: URL"
+    }
+  ],
+  "timeline": [
+    {
+      "when": "Now",
+      "title": "Founder, CyberWithMadhav",
+      "body": "Creating cybersecurity awareness and learning content on Instagram and YouTube.",
+      "now": true
+    },
+    {
+      "when": "Jul 2025 – Present",
+      "title": "IT Support Engineer, Jetking Vasai",
+      "body": "Supporting systems, networks and users day to day.",
+      "now": true
+    },
+    {
+      "when": "Ongoing",
+      "title": "BCA — Yenepoya",
+      "body": "Bachelor of Computer Applications."
+    },
+    {
+      "when": "Ongoing",
+      "title": "BA LLB — KES Patel",
+      "body": "Studying law alongside tech — useful for cyber law and GRC."
+    }
+  ],
+  "projects": [
+    {
+      "name": "geoimg-osint",
+      "url": "https://github.com/iammadhavpandya-oss/geoimg-osint",
+      "body": "Image geolocation OSINT toolkit: EXIF/GPS extraction, OCR clue extraction, India-specific location hints, manipulation checks and confidence-scored reports.",
+      "tags": [
+        "Python",
+        "OSINT",
+        "CLI + web UI"
+      ]
+    },
+    {
+      "name": "homelab-toolkit",
+      "url": "https://github.com/iammadhavpandya-oss/homelab-toolkit",
+      "body": "Defensive Python utilities for an owned home lab: local listening-socket inventory, file integrity hashing, and session notes.",
+      "tags": [
+        "Python",
+        "Blue team",
+        "Homelab"
+      ]
+    }
+  ]
+}
