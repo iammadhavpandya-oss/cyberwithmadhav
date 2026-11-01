@@ -350,3 +350,6 @@ await page.emulateMediaType('screen');
 ok('desktop: no console errors/warnings/failed requests', errors.length === 0, errors.join(' | '));
 console.log(results.join('\n'));
 await browser.close();
+
+// CTF page checks (needs the answer key in backend/ctf_answers.private.json; set SKIP_CTF=1 to skip)
+if (!process.env.SKIP_CTF) await import('./test_ctf.mjs');

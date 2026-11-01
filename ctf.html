@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CTF Arena | CyberWithMadhav</title>
+  <meta name="description" content="Free cybersecurity CTF practice by CyberWithMadhav: 7 tracks from Networking to Blue Team, three levels each, with flags, log puzzles, subnetting and quick quizzes.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <!-- CTF API base URL, e.g. https://<user>.pythonanywhere.com . Empty = http://127.0.0.1:5000 on localhost,
+       otherwise practice mode (static, scores stay on this device). Add the origin to connect-src below too. -->
+  <meta name="cwm-api" content="">
+  <link rel="canonical" href="https://cyberwithmadhav.example/ctf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="CTF Arena | CyberWithMadhav">
+  <meta property="og:description" content="Capture the flag, learn the concept. 7 tracks, 3 levels each, made for beginners in India.">
+  <meta property="og:url" content="https://cyberwithmadhav.example/ctf.html">
+  <meta property="og:image" content="https://cyberwithmadhav.example/assets/img/og-image.png">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' http://127.0.0.1:5000 http://localhost:5000 https://*.pythonanywhere.com; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/ctf.css">
+</head>
+<body class="v3 ctf-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="index.html#cheatsheets">Cheat sheets</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="ctf.html" class="nav-ctf active" aria-current="page"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ============ hero ============ -->
+    <section class="ctf-hero" aria-labelledby="ctf-title">
+      <div class="wrap ctf-hero-grid">
+        <div class="ctf-hero-copy">
+          <p class="kicker mono"><span class="prompt">$</span> ./ctf --start</p>
+          <h1 id="ctf-title" class="glitch" data-text="CTF Arena">CTF Arena</h1>
+          <p class="lead">Capture the flag, learn the concept. Seven tracks, three levels each, from your first port number to reading attacker logs. Every puzzle is self-contained and safe to solve right here in your browser.</p>
+          <div class="ctf-hero-actions">
+            <a class="btn btn-primary" href="#/hub" id="ctf-start">Pick a track</a>
+            <a class="btn btn-ghost" href="#/overall">My results</a>
+          </div>
+        </div>
+        <div class="ctf-hero-side card">
+          <div class="ring-wrap">
+            <svg class="ring" id="ring-overall" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+              <circle class="ring-fg" cx="60" cy="60" r="52" pathLength="100"></circle>
+            </svg>
+            <div class="ring-label"><b id="ov-pct">0%</b><span class="small muted">overall</span></div>
+          </div>
+          <dl class="ov-stats">
+            <div><dt>Rank</dt><dd id="ov-rank">Recruit</dd></div>
+            <div><dt>XP</dt><dd id="ov-xp">0</dd></div>
+            <div><dt>Score</dt><dd id="ov-score">0</dd></div>
+            <div><dt>Day streak</dt><dd><span id="ov-streak">0</span> <span class="flame" aria-hidden="true">🔥</span></dd></div>
+          </dl>
+          <p class="small muted" id="ov-next-rank"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ mode banner + settings ============ -->
+    <div class="wrap">
+      <div class="mode-banner" id="mode-banner" role="status">
+        <span class="mode-dot" aria-hidden="true"></span>
+        <span id="mode-text">Checking the scoreboard server…</span>
+      </div>
+      <div class="ctf-toolbar" role="group" aria-label="Game settings">
+        <button type="button" class="chip" id="opt-sound" aria-pressed="false">Sound</button>
+        <button type="button" class="chip" id="opt-relaxed" aria-pressed="false">Relaxed (no timers)</button>
+        <button type="button" class="chip" id="opt-free" aria-pressed="false">Free roam</button>
+        <button type="button" class="chip" id="opt-motion" aria-pressed="false">Reduce motion</button>
+        <button type="button" class="chip" id="opt-lite" aria-pressed="false">Lite visuals</button>
+      </div>
+      <p class="small muted toolbar-note" id="free-note" hidden>Free roam opens every level. Free roam runs do not count toward your rank or the leaderboard.</p>
+    </div>
+
+    <!-- ============ HUB ============ -->
+    <section class="ctf-view section" id="view-hub" data-view="hub" aria-labelledby="hub-title" hidden>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker mono">// choose your track</p>
+          <h2 id="hub-title">Seven tracks. Three levels each.</h2>
+          <p class="muted">Beginner questions are worth 10 marks, Intermediate 20 and Expert 30. Score 60% on a level to unlock the next one.</p>
+        </div>
+        <div class="track-grid" id="track-grid"></div>
+
+        <div class="hub-lower">
+          <div class="card player-card" id="player-card">
+            <h3>Your player</h3>
+            <div id="player-api" hidden>
+              <form id="join-form" class="join-form" novalidate>
+                <label for="nick">Pick a nickname for the leaderboard</label>
+                <div class="row">
+                  <input id="nick" name="nick" autocomplete="nickname" maxlength="20" spellcheck="false" aria-describedby="nick-help nick-error">
+                  <button class="btn btn-primary small" type="submit">Join</button>
+                </div>
+                <p class="small muted" id="nick-help">3 to 20 letters, numbers, dot, dash or underscore. No real names needed.</p>
+                <p class="error small" id="nick-error" role="alert"></p>
+              </form>
+              <details class="recover">
+                <summary class="small">Have a recovery code?</summary>
+                <form id="recover-form" class="join-form" novalidate>
+                  <label for="recover-code">Recovery code</label>
+                  <div class="row">
+                    <input id="recover-code" autocomplete="off" spellcheck="false" maxlength="24" aria-describedby="recover-error">
+                    <button class="btn btn-ghost small" type="submit">Restore</button>
+                  </div>
+                  <p class="error small" id="recover-error" role="alert"></p>
+                </form>
+              </details>
+              <div id="player-in" hidden>
+                <p>Playing as <b id="player-nick"></b></p>
+                <div class="recovery-box" id="recovery-box" hidden>
+                  <p class="small"><b>Save this recovery code now.</b> It is shown once and lets you get your account back on another device.</p>
+                  <p class="mono code-pill" id="recovery-code"></p>
+                  <button class="btn btn-ghost small" type="button" id="copy-recovery">Copy code</button>
+                </div>
+                <button class="btn btn-ghost small" type="button" id="sign-out">Sign out on this device</button>
+              </div>
+            </div>
+            <div id="player-local">
+              <p class="small muted">Practice mode keeps your best scores in this browser only. Nothing is sent anywhere.</p>
+            </div>
+          </div>
+          <div class="card board-card" id="board-card">
+            <div class="board-head">
+              <h3 id="board-title">Leaderboard</h3>
+              <div class="seg" role="tablist" aria-label="Leaderboard scope" id="board-tabs">
+                <button type="button" role="tab" aria-selected="true" data-scope="overall">Overall</button>
+                <button type="button" role="tab" aria-selected="false" data-scope="weekly">This week</button>
+                <button type="button" role="tab" aria-selected="false" data-scope="streak">Streaks</button>
+              </div>
+            </div>
+            <ol class="board" id="board-list" aria-live="polite"></ol>
+            <p class="small muted" id="board-note"></p>
+          </div>
+        </div>
+
+        <details class="card rules" id="rules">
+          <summary><h3>How scoring works</h3></summary>
+          <ul class="dash">
+            <li>Each level has about 5 or 6 questions: 10 marks each at Beginner, 20 at Intermediate, 30 at Expert.</li>
+            <li>Multiple choice: one attempt. Typed answers and flags: up to 5 attempts, and from the 3rd attempt each try costs 2 marks.</li>
+            <li>A hint costs 25% of that question's marks (a second hint, where there is one, takes it to 50%).</li>
+            <li>Timers are soft (45, 75 and 120 seconds). Running over never costs marks; finishing early adds up to 20% bonus XP. Relaxed mode turns timers off.</li>
+            <li>Correct answers in a row build a streak multiplier on XP: x1.1 per answer, up to x1.5.</li>
+            <li>XP decides your rank: Recruit, Packet Scout, Shell Walker, Analyst, Operator, Root.</li>
+            <li>Flags look like <code>CWM{something}</code>. Typing just the inside also works.</li>
+            <li>Keys: <kbd>1</kbd> to <kbd>4</kbd> pick an option, <kbd>Enter</kbd> submits, <kbd>Esc</kbd> closes panels.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ TRACK ============ -->
+    <section class="ctf-view section" id="view-track" data-view="track" aria-labelledby="track-title" hidden>
+      <div class="wrap">
+        <nav class="crumbs small" aria-label="Breadcrumb"><a href="#/hub">Tracks</a> <span aria-hidden="true">/</span> <span id="track-crumb"></span></nav>
+        <div class="section-head">
+          <p class="kicker mono" id="track-kicker"></p>
+          <h2 id="track-title"></h2>
+          <p class="muted" id="track-blurb"></p>
+        </div>
+        <p class="ethics" id="ethics" hidden><b>Ethics first:</b> Practice only on systems you own or are authorised to test.</p>
+        <div class="level-grid" id="level-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ BRIEFING ============ -->
+    <section class="ctf-view section" id="view-brief" data-view="brief" aria-labelledby="brief-title" hidden>
+      <div class="wrap narrow">
+        <nav class="crumbs small" aria-label="Breadcrumb"><a href="#/hub">Tracks</a> <span aria-hidden="true">/</span> <a id="brief-track-link" href="#/hub"></a> <span aria-hidden="true">/</span> <span id="brief-crumb"></span></nav>
+        <div class="card brief-card">
+          <p class="kicker mono">// mission briefing</p>
+          <h2 id="brief-title"></h2>
+          <ul class="brief-facts" id="brief-facts"></ul>
+          <p class="ethics" id="brief-ethics" hidden><b>Ethics first:</b> Practice only on systems you own or are authorised to test.</p>
+          <p class="small muted" id="brief-mode"></p>
+          <div class="brief-actions">
+            <button class="btn btn-primary" type="button" id="brief-start">Start level</button>
+            <a class="btn btn-ghost" id="brief-back" href="#/hub">Back</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLAY ============ -->
+    <section class="ctf-view section" id="view-play" data-view="play" aria-labelledby="q-title" hidden>
+      <div class="wrap narrow">
+        <div class="play-head card">
+          <div class="ph-row">
+            <p class="ph-where mono small" id="ph-where"></p>
+            <button class="btn btn-ghost small" type="button" id="quit">Quit level</button>
+          </div>
+          <div class="ph-row ph-stats">
+            <span class="pill" id="ph-count">Q 1 / 5</span>
+            <span class="pill" id="ph-score">0 marks</span>
+            <span class="pill" id="ph-xp">0 XP</span>
+            <span class="pill combo" id="ph-combo" hidden>x1.0</span>
+            <span class="pill timer" id="ph-timer" aria-label="Time left"><span id="ph-time">0:45</span></span>
+          </div>
+          <div class="bar" aria-hidden="true"><span id="ph-bar"></span></div>
+          <ol class="dots" id="ph-dots" aria-hidden="true"></ol>
+        </div>
+
+        <article class="card q-card" id="q-card">
+          <div class="q-meta">
+            <span class="tag p" id="q-type"></span>
+            <span class="tag" id="q-set" hidden></span>
+            <span class="tag" id="q-points"></span>
+            <span class="tag" id="q-attempts"></span>
+          </div>
+          <h2 id="q-title" tabindex="-1"></h2>
+          <p class="q-prompt" id="q-prompt"></p>
+          <div class="q-code-wrap" id="q-code-wrap" hidden>
+            <pre class="q-code" id="q-code" tabindex="0"></pre>
+            <button class="btn btn-ghost small copy-code" type="button" id="copy-code">Copy</button>
+          </div>
+          <form class="q-form" id="q-form" novalidate>
+            <div id="q-answer"></div>
+            <div class="q-actions">
+              <button class="btn btn-primary" type="submit" id="q-submit">Submit</button>
+              <button class="btn btn-ghost" type="button" id="q-hint">Hint</button>
+              <button class="btn btn-primary" type="button" id="q-next" hidden>Next question</button>
+            </div>
+          </form>
+          <p class="q-hint-text" id="q-hint-text" hidden></p>
+          <div class="q-feedback" id="q-feedback" aria-live="polite"></div>
+          <div class="q-explain" id="q-explain" hidden></div>
+        </article>
+        <p class="small muted center">Keys: <kbd>1</kbd>-<kbd>4</kbd> pick, <kbd>Enter</kbd> submit, <kbd>Esc</kbd> close.</p>
+      </div>
+    </section>
+
+    <!-- ============ LEVEL RESULT ============ -->
+    <section class="ctf-view section" id="view-result" data-view="result" aria-labelledby="res-title" hidden>
+      <div class="wrap narrow">
+        <div class="card result-card" id="result-card">
+          <div class="res-top">
+            <div class="ring-wrap big">
+              <svg class="ring" id="ring-result" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fg" cx="60" cy="60" r="52" pathLength="100"></circle>
+              </svg>
+              <div class="ring-label"><b id="res-pct">0%</b><span class="small muted" id="res-score"></span></div>
+            </div>
+            <div class="res-copy">
+              <p class="kicker mono" id="res-where"></p>
+              <h2 id="res-title" tabindex="-1"></h2>
+              <p class="muted" id="res-sub"></p>
+              <div class="badge" id="res-badge" hidden><span aria-hidden="true">🏅</span> <span id="res-badge-text"></span></div>
+            </div>
+          </div>
+          <dl class="res-stats" id="res-stats"></dl>
+          <div class="res-actions">
+            <button class="btn btn-primary" type="button" id="res-next">Next level</button>
+            <button class="btn btn-ghost" type="button" id="res-retry">Retry</button>
+            <button class="btn btn-ghost" type="button" id="res-review" aria-expanded="false" aria-controls="review">Review wrong answers</button>
+            <a class="btn btn-ghost" id="res-share-wa" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+            <button class="btn btn-ghost" type="button" id="res-share-png">Save score card</button>
+          </div>
+          <div class="review" id="review" hidden></div>
+        </div>
+
+        <div class="quotes">
+          <figure class="card quote" id="q-phil">
+            <blockquote><p id="phil-text"></p></blockquote>
+            <p class="q-hi" lang="hi" id="phil-hi"></p>
+            <figcaption><span id="phil-ref"></span> · <a id="phil-src" class="small" target="_blank" rel="noopener">source</a></figcaption>
+          </figure>
+          <figure class="card quote gita" id="q-gita">
+            <p class="kicker mono">Bhagavad Gita</p>
+            <blockquote><p class="translit" lang="sa-Latn" id="gita-text"></p></blockquote>
+            <p id="gita-en" lang="en"></p>
+            <p class="q-hi" lang="hi" id="gita-hi"></p>
+            <figcaption><span id="gita-ref"></span> · <a id="gita-src" class="small" target="_blank" rel="noopener">source</a></figcaption>
+          </figure>
+        </div>
+        <p class="center"><a href="#/overall">See all tracks on the radar</a></p>
+      </div>
+    </section>
+
+    <!-- ============ OVERALL ============ -->
+    <section class="ctf-view section" id="view-overall" data-view="overall" aria-labelledby="ovr-title" hidden>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker mono">// overall</p>
+          <h2 id="ovr-title">Your skills radar</h2>
+          <p class="muted" id="ovr-sub"></p>
+        </div>
+        <div class="overall-grid">
+          <div class="card radar-card">
+            <svg id="radar" viewBox="0 0 360 360" role="img" aria-labelledby="radar-desc"><desc id="radar-desc">Radar chart of your best score in each track.</desc></svg>
+          </div>
+          <div class="card">
+            <h3>Track by track</h3>
+            <table class="ovr-table">
+              <caption class="sr-only">Best score per track</caption>
+              <thead><tr><th scope="col">Track</th><th scope="col">Beginner</th><th scope="col">Intermediate</th><th scope="col">Expert</th></tr></thead>
+              <tbody id="ovr-body"></tbody>
+            </table>
+            <div class="suggest" id="suggest"></div>
+            <button class="btn btn-ghost small" type="button" id="reset-progress">Reset practice progress</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is. Puzzles are self-contained: no live targets.</p>
+        <p class="small"><a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="levelup" id="levelup" aria-hidden="true"><div class="levelup-inner"><span class="lu-small" id="lu-small">Level cleared</span><span class="lu-big" id="lu-big">LEVEL UP</span></div></div>
+  <canvas class="fx" id="fx" aria-hidden="true"></canvas>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <p class="sr-only" id="sr-live" aria-live="polite"></p>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/ctf.js" defer></script>
+</body>
+</html>

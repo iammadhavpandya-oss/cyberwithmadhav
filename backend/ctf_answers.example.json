@@ -1,0 +1,54 @@
+{
+ "version": 1,
+ "challenges": [
+  {
+   "id": "net-b1",
+   "track": "networking",
+   "level": "beginner",
+   "type": "mcq",
+   "kind": "mcq",
+   "set": null,
+   "title": "Example MCQ",
+   "prompt": "Question text",
+   "code": null,
+   "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "correct": null,
+   "answers": [
+    "B"
+   ],
+   "explain": "Shown after a correct answer.",
+   "hints": [],
+   "dyn": null
+  },
+  {
+   "id": "net-b5",
+   "track": "networking",
+   "level": "beginner",
+   "type": "flag",
+   "kind": "flag",
+   "set": null,
+   "title": "Example flag",
+   "prompt": "Decode the hex.",
+   "code": "43 57 4d 7b ... 7d",
+   "options": null,
+   "correct": null,
+   "answers": [
+    "CWM{example_flag}",
+    "CWM{accepted_variant}"
+   ],
+   "explain": "Shown after a correct answer.",
+   "hints": [
+    "Optional hint, costs 25% of the marks."
+   ],
+   "dyn": {
+    "enc": "hex",
+    "template": "{x}"
+   }
+  }
+ ]
+}

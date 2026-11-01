@@ -25,6 +25,22 @@ Colour roles: purple = actions/links, green = code and live states only, amber =
 
 Extras: sticky nav with scroll-spy, reading-progress bar, light/dark toggle (saved in `localStorage`), scroll-reveal via IntersectionObserver (content visible without JS), SEO + Open Graph + JSON-LD, SVG favicon.
 
+## CTF Arena (`ctf.html`)
+Seven tracks (Networking, Linux, Basic IT Knowledge, CCNA, Cloud Computing, Pentesting, Blue Team), three levels each, 111 self-contained puzzles (MCQ, multi-select, flag, command, log reading, ordering). Beginner 10 marks, Intermediate 20, Expert 30; score 60% to unlock the next level. Results show a Bhagavad Gita verse for the score band, plus a philosopher quote on low scores (`data/ctf_quotes.json`).
+
+- **Static practice mode (default, GitHub Pages):** `data/ctf.json` holds PBKDF2 verifiers only; explanations are AES-GCM encrypted with a key derived from the right answer. Progress lives in `localStorage`. This is honour-system: a determined player can brute-force short answers offline.
+- **Server mode (optional):** set `<meta name="cwm-api" content="https://api.your-domain">` in `ctf.html`. The Flask app checks answers with HMAC-SHA256 under a secret `FLAG_PEPPER`, issues per-player flags for some challenges, and runs the leaderboard. If `/api/health` does not answer within 2.5 s the page falls back to practice mode and never mixes the two scores.
+
+Content workflow (the answer key never goes in git):
+```bash
+# edit backend/ctf_answers.private.json (gitignored; see backend/ctf_answers.example.json for the format)
+python3 tools/build_ctf.py --check      # validate
+python3 tools/build_ctf.py              # writes data/ctf.json + backend/ctf_import.private.json
+cd backend && FLAG_PEPPER=... python manage.py import
+python3 tools/csp_hash.py               # only if the inline theme script in ctf.html changes
+```
+Tests: `cd tools && node test_ctf.mjs` (45 browser checks, also run at the end of `test.mjs`; needs the private key file, set `SKIP_CTF=1` to skip) and `cd backend && python -m unittest test_ctf` (20 API checks).
+
 ## File tree
 ```
 cwm-site/
@@ -86,6 +102,7 @@ See [docs/DEPLOY.md](docs/DEPLOY.md) — GitHub Pages / Netlify / Cloudflare Pag
 - [ ] Photo → `assets/img/madhav.jpg`, then swap the "MP" placeholder in `index.html`
 - [ ] Real domain → `<link rel="canonical">`, `og:url`, JSON-LD `url` (currently `cyberwithmadhav.example`; live site is https://iammadhavpandya-oss.github.io/cyberwithmadhav/)
 - [ ] Social preview image → `assets/img/og-image.png` (1200×630)
+- [ ] CTF API is not deployed yet: see the CTF section of docs/DEPLOY.md, then set `cwm-api` in `ctf.html`
 - [ ] If the backend is deployed: set `<meta name="cwm-api" content="https://api.your-domain">` and `CWM_ALLOWED_ORIGINS`
 - [ ] Rate limiter is in-memory (single process). For multiple workers use Redis or a proxy-level limit.
 

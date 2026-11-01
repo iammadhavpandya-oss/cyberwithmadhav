@@ -1,0 +1,3088 @@
+{
+ "version": 1,
+ "format": "cwm-ctf-2",
+ "kdf": {
+  "name": "PBKDF2",
+  "hash": "SHA-256",
+  "iterations": 60000,
+  "bytes": 64,
+  "verifier": "hex(dk[0:32])",
+  "aesKey": "dk[32:64]",
+  "salt": "utf-8 of the salt string"
+ },
+ "scoring": {
+  "points": {
+   "beginner": 10,
+   "intermediate": 20,
+   "expert": 30
+  },
+  "softSeconds": {
+   "beginner": 45,
+   "intermediate": 75,
+   "expert": 120
+  },
+  "maxAttempts": {
+   "mcq": 1,
+   "multi": 1,
+   "order": 3,
+   "text": 5,
+   "flag": 5
+  },
+  "wrongPenaltyFromAttempt": 3,
+  "wrongPenalty": 2,
+  "hintCost": [
+   0.25,
+   0.5
+  ],
+  "unlockPercent": 60,
+  "timeBonusMax": 0.2,
+  "streakStep": 0.1,
+  "streakCap": 1.5,
+  "bands": {
+   "low": [
+    0,
+    39
+   ],
+   "mid": [
+    40,
+    74
+   ],
+   "high": [
+    75,
+    100
+   ]
+  },
+  "ranks": [
+   [
+    0,
+    "Recruit"
+   ],
+   [
+    150,
+    "Packet Scout"
+   ],
+   [
+    500,
+    "Shell Walker"
+   ],
+   [
+    1100,
+    "Analyst"
+   ],
+   [
+    1900,
+    "Operator"
+   ],
+   [
+    2700,
+    "Root"
+   ]
+  ],
+  "totalPoints": 2220
+ },
+ "tracks": [
+  {
+   "id": "networking",
+   "name": "Networking",
+   "blurb": "IP, ports, subnets and packets",
+   "icon": "🌐",
+   "levels": [
+    {
+     "id": "beginner",
+     "name": "Beginner",
+     "points": 10,
+     "softSeconds": 45,
+     "maxPoints": 50,
+     "challenges": [
+      {
+       "id": "net-b1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Where routers live",
+       "prompt": "In the OSI model, which layer does a router mainly work at?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Layer 3: Network",
+        "Layer 2: Data Link",
+        "Layer 4: Transport",
+        "Layer 1: Physical"
+       ],
+       "salt": "ddd801f5dab7df23e8c71df23ba21b14",
+       "verifiers": [
+        "80340eabf1ef57ba51467e16309a1ec924482171c8f1fd470aa6be6c0e4684fb"
+       ],
+       "exp": [
+        {
+         "iv": "q3kA5UvQGuTfkdyB",
+         "ct": "W0WvRzz8AaXxbWOMAqlVdNCxfllhuYuZzUM5IMGh7oGvSI/Bo4Rp+5tMhS0fGHBd+E8dZw6qmr4UDGzOSx47maozjKZoD02RQxFm02GhMJ3+WVdXyBnpFCXG8YHga4Nc4x6cxNHarCHm0DO/7fKV0N9+9Fgveao1nL1G7u6AkRkdI2MZUCzdv9/yiZqwQIZRwY6Y/Jp2+JlVLMty"
+        }
+       ]
+      },
+      {
+       "id": "net-b2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Padlock port",
+       "prompt": "Which TCP port does HTTPS use by default?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "22",
+        "80",
+        "8080",
+        "443"
+       ],
+       "salt": "ed7b112dc06fd4ce15684b9bff9cb36a",
+       "verifiers": [
+        "034f2ffbdde14363b778b2f0f058a1c0e8cbd7ebe63edd70728674cd0a274667"
+       ],
+       "exp": [
+        {
+         "iv": "GK2NA1GSm8falEk9",
+         "ct": "XbMLD6gc/2kXX9D/G4C/t0fRIqfG3lBJWMKC30de4RYNkiVKc6dTweTXu4xyfeMHolq5q4WKwJ7hHnqQtOJU//lIJA9KxX6n0OJuVhyTUmBpla/Czt0AHVwpx5Ch1GvSR79wMsAKvQv+w0YNDgz/BHqV8/v/kBtb3JIgud9D+hcFzaID0Q62h0sIPTZ978A="
+        }
+       ]
+      },
+      {
+       "id": "net-b3",
+       "type": "text",
+       "kind": "text",
+       "title": "Count the bits",
+       "prompt": "How many bits long is an IPv4 address? Type a number.",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "9dc8891c6433158e0371efe652d5d78e",
+       "verifiers": [
+        "b3bb61a1e19b8de4b0f0c256de9ae5b3cace229273c0fb451bbe151365c4cd67",
+        "94ec7793c42ccda942b6bc64acf74a72d5e641a78b714e049ec95ecd7960f1c8"
+       ],
+       "exp": [
+        {
+         "iv": "BrKAUhPiYxxkZr9X",
+         "ct": "VJSfVkVI6uXDla/LIQbavbveQsThvrgoteCZfq7JnVHeDMBPBEn3VA3RNiNfWpEnxIMk6DcWFabxSSkXCRJt59DZRBnpdesWqABS0rqYecgk1hmtgM6yNHkVllYJsKt9qoY6AEy1mRrR8J1TK1lvZfF83KuJL6ma"
+        },
+        {
+         "iv": "R4jTF4Af1lIOA3NL",
+         "ct": "AWTTX+pHC5joc9OIL6jsWvO+oryYV3c9RMsTC7FChZlB/oy/B/3z53rq010brLkah/CyES87m410ZL31bbENz/GfMCSXER1wm8mf1aTbCd4eEaXDglwGtfoj2/Q1+lKyj8oVMRQAUTN7Kz3ddvcjZANEYjoF3OG7"
+        }
+       ]
+      },
+      {
+       "id": "net-b4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Name to number",
+       "prompt": "Which protocol turns a hostname like example.com into an IP address?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "NTP",
+        "DHCP",
+        "ARP",
+        "DNS"
+       ],
+       "salt": "28b1e6076cd1bd58f9f18bea77aec131",
+       "verifiers": [
+        "d86ee5c2fd7cacb34016903daaf2d81bd085cc52413f1f5dbc231220ec90fb86"
+       ],
+       "exp": [
+        {
+         "iv": "PkqbALeC6LR/e9pH",
+         "ct": "cUCFQNuAUDM4w+69Fw5X2rNWcTq4WTbKMRNL8BL6YqTvCeUMBa1nUqhmPWbjDT+ThsaQpYU1ME67SzR4qbU24uuJIHfkfdy/Eo2qryztsrPBVlLdsqFKT08WU1+0sTwioyapFJCQK+Y7c8Wi1yYS0TBspDdBTcOWnA2dTN28lK8e3S9fqsQpQX+MTDJANjzhhR4O513XHIKpyRp2XEXJ3w=="
+        }
+       ]
+      },
+      {
+       "id": "net-b5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Hex payload",
+       "prompt": "A packet capture shows this payload in hex. Convert each byte to ASCII to get the flag.",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "43 57 4d 7b 70 69 6e 67 5f 70 6f 6e 67 7d",
+       "dynamic": true,
+       "salt": "a461b852365a0ec51cadbe7e1853f7e8",
+       "verifiers": [
+        "f44c052c7a582ad4f524fcddc681d1acf17d4b56014c3fde07f2719f1cedb392"
+       ],
+       "exp": [
+        {
+         "iv": "N518POkbzmgiU/Vs",
+         "ct": "3GJC2jlwqaTTxV2HjG/pKdWWOB/aE02Xg55VpLNt6D5hcbe/hS59i4IA1LoMMzPLmtDm1ShHFCx9uy0bU7zxxJ9iWt6s58A99tPjpc3iHtA52Xyk1kG3u7v2ElnCxXl1sLCmAir48S0rB5hg/HqHIb9nXkoVOo+cZXZFqtZaZrmCDPWUCwM2+8K+Yqz9FgYqy3aDyu/dULR62zdg45s="
+        }
+       ],
+       "hints": [
+        "0x43 is the letter C."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "intermediate",
+     "name": "Intermediate",
+     "points": 20,
+     "softSeconds": 75,
+     "maxPoints": 100,
+     "challenges": [
+      {
+       "id": "net-i1",
+       "type": "text",
+       "kind": "subnet",
+       "title": "Find the network",
+       "prompt": "What is the network address of 192.168.10.77/27?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "salt": "18a63b487231db3019b11225b6851863",
+       "verifiers": [
+        "5bcc57ec54b1e4a10b5219b7a92010291cc9400e9aaab01bfbd04d21b9888150"
+       ],
+       "exp": [
+        {
+         "iv": "8sNqLIkLVagjmAip",
+         "ct": "9L12lmm4AIL7tae+K7oafOr9XI91P1LPAiQ2ZsrnGFK42L8glLuiVGZuyJE3BXynxUp5+LTlAGGfPGkBXq91RZIzjbzk4LcJVcVdS6AM4yTu3dU8yskjmeZjmgBR98R6kjS982VhibpFIgsU9409+iIV8jNwjwIcgWMeTHEJObYhpMKaQG60EMtgRo5b4g9GrNFfF0khEVtXV7HQ6H3Gt4ONyZx7/qTywGEd9fRm0qWgGw=="
+        }
+       ],
+       "hints": [
+        "A /27 mask is 255.255.255.224, so blocks go up in steps of 32."
+       ]
+      },
+      {
+       "id": "net-i2",
+       "type": "text",
+       "kind": "subnet",
+       "title": "Hosts in a /26",
+       "prompt": "How many usable host addresses does a /26 subnet have?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "186ac685e206b6efa310dfc0c94b978d",
+       "verifiers": [
+        "1a33a5938fe4130f7842029b9a36086fbd78040ae0aa28deee747d47088fa073"
+       ],
+       "exp": [
+        {
+         "iv": "MD5xzs1DjScsFGI1",
+         "ct": "bGjg2/um9MB9CZq1PtmtaxEzRimeVZTyTKv66tSo/HpMcDXfGes/bmfnHvpA/ZD0V7v+ICikoUZIHJkTvZ7XIuTLJj75hv6XYOXJ2fWFow4ekfeywdXH0qWaWF2q9C/WKTp6CKG7kGlo6lStreJrbBKcnGy3mual7xM/kQze4yZhCQ=="
+        }
+       ]
+      },
+      {
+       "id": "net-i3",
+       "type": "order",
+       "kind": "order",
+       "title": "Handshake order",
+       "prompt": "Put the start of a TCP connection in the right order.",
+       "points": 20,
+       "maxAttempts": 3,
+       "hintCount": 0,
+       "options": [
+        "Client sends ACK",
+        "Server replies SYN-ACK",
+        "Data starts flowing",
+        "Client sends SYN"
+       ],
+       "salt": "105258a8724067431f2944460b129759",
+       "verifiers": [
+        "2126e79bdd9780149f80d003057df59f971470d762a8b55195be854153b34a6d"
+       ],
+       "exp": [
+        {
+         "iv": "dpamV7BCKVYXqJyw",
+         "ct": "s7DNA2eWZmexouoI2z4hISI3g67j7s6kNxTET/tvWQ798nH4g6mmt9UmHhreGPVbgS0ZBwkQrIgVJOy2JCvXtDxrdt+Yc9s5b0EpN4WZhN14uWY/2ItkEL56W+sLsOlgZVjBtEXkj2sqAPF06U1/V3Jcfyi2cI3ptpB1v4Q="
+        }
+       ]
+      },
+      {
+       "id": "net-i4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "IPv6 record",
+       "prompt": "Which DNS record type maps a hostname to an IPv6 address?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "A",
+        "MX",
+        "CNAME",
+        "AAAA"
+       ],
+       "salt": "49ef66bbd8b630c568943c8a6fdda1fa",
+       "verifiers": [
+        "4016c68b4ed03ce55ba05ca0c9f68cd07a0623145cf36ac3d0e6f1746f3e3880"
+       ],
+       "exp": [
+        {
+         "iv": "Bh/1nzVYg4cpv4+U",
+         "ct": "5cmgUFPSdj8rHPFkwNujPtOQaN1iwMhLNV9/EGsarRbWlowte4q2lS3IhxHh3rooLC/nO44NvlSg6jl99HvFFAAbYhGKPxUZnzafiLaiPMmhGJEdrQ6aZBYubtklsXgqC2XRhQ8pdpC9pA9GXjWLwjMqTQbf0ttE1dkslBSwHg=="
+        }
+       ]
+      },
+      {
+       "id": "net-i5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Sniffed header",
+       "prompt": "You captured this plain-HTTP request on your own lab network. Find the password: it is the flag.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "GET /admin HTTP/1.1\nHost: lab.local\nAuthorization: Basic Y3dtOkNXTXtiYXNpY19pc19ub3RfZW5jcnlwdGlvbn0=",
+       "dynamic": true,
+       "salt": "03a45684812c5e142125c0955b1d116d",
+       "verifiers": [
+        "109821e6e41baa8a48681c2095fcbd826187ae9309c69c04a7251bb3e3e78a5c"
+       ],
+       "exp": [
+        {
+         "iv": "Kvdois/fDqww00PT",
+         "ct": "6IMy/Ef4X/7Ep/trocGNnfnA5iwqsB7ZlHu+5ib2ZVr3kWiN/8cMwHi5GxOPAiRyY7k3ro+bWm+XTASL60VEk3sDoHwit9TVheIchWjRwPcfvdRacIIj4/uOks8RJ7aWLt+0Ei1kPywzpnwSspMNLKEzO3iVtSv2YgCKLZ3YXyB1drvhsGmH63iNrcQHrIMlSAQegZXAPUdtFIf9JHZ7Z76YEaJr9Bl82c6mLL6IsAXc+4/2HwDxZUoZQkDjvxeF4vMXnalqFfU="
+        }
+       ],
+       "hints": [
+        "Decode the value after 'Basic' with base64. It is in the form user:password."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "name": "Expert",
+     "points": 30,
+     "softSeconds": 120,
+     "maxPoints": 150,
+     "challenges": [
+      {
+       "id": "net-e1",
+       "type": "text",
+       "kind": "subnet",
+       "title": "Route summary",
+       "prompt": "What single summary route covers exactly 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24 and 10.1.3.0/24? Answer in CIDR form.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "5cacc4f6a07a143e45945aa9d8222ba9",
+       "verifiers": [
+        "a786d2d66c9282575c0acc451582daea92b02725124e97cf51b3c7f97cfea613",
+        "291e2f4c0e686d3ffb046e32010ff0953dcc60f97246145d713d8badca95a306"
+       ],
+       "exp": [
+        {
+         "iv": "De5hr8a4NNW4mTjV",
+         "ct": "nopDzZdHHkBJuRzcONElEXK386Cu+ZYQQPy2Kyoqj+k0Zst8hBTs3xqYXbjQPTUe4FFA2may2weTiaz8eMaxSS1KLF6kOeUSt8TjQMwGoQLTxMhQe8NT4aXnEw30SdsTfFZl8FMFYv/sNuPlQk1H4sV0IPam+VCkseqoMNl2T0KLyZgitIDAwUwqCP7L/ypGRfHW3w146bJa7Rsfel41tk3ELF6DCm099R2g"
+        },
+        {
+         "iv": "CkqR9Sq9ttPWHy9Q",
+         "ct": "N2FaANiQXKoyZgLORh/hZ71vBFC0dr2K8xb4efHXvE3ebqwcDiktfhdY89941j41uHuwSEiQUVXBAKPCotKRzAygcQCQikGOl0pkBdUWHUixI7G49flJpofGBVwhjALtR+iYC3iOYGTOM1o+GNiqqxmM0qvdlZfV4dvcbMePHRCjUxAHtJhl3K3+rmym2b0G0TOHndthRYZJJNW+j/tqCu9ySl5cmqrf9bN3"
+        }
+       ]
+      },
+      {
+       "id": "net-e2",
+       "type": "text",
+       "kind": "subnet",
+       "title": "Slice the /24",
+       "prompt": "How many /29 subnets fit inside one /24?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "4cbcd727f55d6e5234f2f250722af394",
+       "verifiers": [
+        "95a66ee3f9c92e41049f9e435169cd117d31daca0d4207406c10e381e69053f3"
+       ],
+       "exp": [
+        {
+         "iv": "p+WqGVluGe6DArU/",
+         "ct": "igzZ5blM3XDPG+MHylp8t9Y+xAAEZda/rgQ3jII6cOaCH49kblfR2cDgq7jDheydPacQQyVS1OB74SEwB/3auKOr38cyQ8NqiA9h+2UgRC8MlCYMLqpgXJHyJO5frv4q40SK9IzJe3fPCGIBoKsb5dd2RjThBfA="
+        }
+       ]
+      },
+      {
+       "id": "net-e3",
+       "type": "text",
+       "kind": "text",
+       "title": "Shrink the IPv6",
+       "prompt": "Write the shortest valid form of 2001:0db8:0000:0000:0000:ff00:0042:8329.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "25cef45bd97d03133e8e42202b511cd1",
+       "verifiers": [
+        "f2c25c64df90b465b85c48039682da3a3e280075d554b788c39aa1f035b4ec96"
+       ],
+       "exp": [
+        {
+         "iv": "iBH3Lhrvvg+ecNot",
+         "ct": "/982q8Dpg4YqNqUwOawsL37WRU+QsmBU0j4A2oCimO5/35MbP/tnysJjUTwPCUijnVKVAbs7ZzgN/xFKS4qyM6QM8NozWojEfG6fcg87lRW6Vz3ftpVVaOEz2bYulgdtDjf5Sq/YHH1uyMutwAL9Uya8/2JY7wxI35WPEUEczS6bAT/mjbapaSwNXuSEIWTKZKC01FYIJYj6kGTA3PNtLl4o6aSOUe1Vli6l2nZD3G83"
+        }
+       ]
+      },
+      {
+       "id": "net-e4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Lit-up packet",
+       "prompt": "Your IDS sees TCP probes with only the FIN, PSH and URG flags set. Which Nmap scan type does this match?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "NULL scan",
+        "Xmas scan",
+        "FIN scan",
+        "ACK scan"
+       ],
+       "salt": "12408179578a0c64b061f7719f47eb72",
+       "verifiers": [
+        "7408f707acbb864fd1a9a4006f2f8e326c2524cd53a3884d4ef68e8a1a529d8d"
+       ],
+       "exp": [
+        {
+         "iv": "EaD5cBlrru9QhJhD",
+         "ct": "uBF2PDczz8i9Z5nwrUmS4D59HuNNohWmgmA+xLm6nYNg2IQCbrJjggYHCLyavQON4sOfwQCYGcR9hWeHAVmDdaXvq6c+5n2YDB4m7fWGVGm5NAJp6K3rzMug3ztc1TLzrVfmeKpFKgdfteq1Z4ZQhXd4TNY5p2IDNpbgcx4yW/hTSTUW+69S995i/47coq9KmTL5FN0fTS9sQw=="
+        }
+       ]
+      },
+      {
+       "id": "net-e5",
+       "type": "text",
+       "kind": "text",
+       "title": "Sequence maths",
+       "prompt": "A client sends SYN with sequence number 1000. In the server's SYN-ACK, what is the acknowledgement number?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "94e8a566b16e737e23bb4a21816304ae",
+       "verifiers": [
+        "c33faa3e52b687b54d5acfc858db41ba4a3f5d00a995780f78cf8b26404b6a47"
+       ],
+       "exp": [
+        {
+         "iv": "hPcv9xOc+mtMSgo5",
+         "ct": "NN6gdBl+gp8RxfwPWGg5j+6w0TmTNLSsGw/1/GrMTpKGFuEUAIXGV/ZQgxYs6boM+xqInNgr0dt2a7X0fmDgizeXBk7oG/lvgtcuBrAAZuedCxZbndZWlVn7JIfRJZGpAGjgsPC8VZrYhliqaTK1y9NFRUFVJHQdj+GaMWgonmnmThorRasb8L+D8xMNEw/nNh8="
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "linux",
+   "name": "Linux",
+   "blurb": "Shell, permissions and logs",
+   "icon": "🐧",
+   "levels": [
+    {
+     "id": "beginner",
+     "name": "Beginner",
+     "points": 10,
+     "softSeconds": 45,
+     "maxPoints": 50,
+     "challenges": [
+      {
+       "id": "lin-b1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Where am I?",
+       "prompt": "Which command prints your current working directory?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "pwd",
+        "ls",
+        "whoami",
+        "cd"
+       ],
+       "salt": "3576917a8b15ce03bbfd69c0b290cbf4",
+       "verifiers": [
+        "d9ce3198b59e781048e69131c5360f2f103f8d7e0ff3c7125e3532bb404acd9f"
+       ],
+       "exp": [
+        {
+         "iv": "aGh/2AapH58p6hBm",
+         "ct": "Cb48IzA4jWySNXBG5p9q65RvQABv6kyEngFAAZQGzBFpE66vmHRh8NEjW/eJyIdFYZ6qhoRAErO7GBr/bEXrQ/sFuz96Eb05HRGajXq472Mv+wTCcLXsFsS+odISD0W07xwy/x1KhVhqjqw12oDxvRWWch1nSLoFpAHKboA="
+        }
+       ]
+      },
+      {
+       "id": "lin-b2",
+       "type": "text",
+       "kind": "command",
+       "title": "Read the permissions",
+       "prompt": "ls -l shows this. What is the file's permission in octal (3 digits)?",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "-rwxr-x--- 1 madhav dev 1204 Nov  1 10:00 backup.sh",
+       "salt": "634e32f7039d68d969cb14480003bb85",
+       "verifiers": [
+        "28cecc611c4ef5864902bc69ffee38181e9d0a93063a02c04a96879648089320"
+       ],
+       "exp": [
+        {
+         "iv": "3u5ZStM9rjNL/QOq",
+         "ct": "PPrOOd3P3ywj0sPActAyWLbzRHOAA36LE2eix4MFdNjcXHD9uVkANi4hKzbktlW0H4V/Y2k59SrGLwIOMcelOB8p1gWIedBRMlO/jCLd7yH2YCHXhUzeQ3tfWAsManPBiLby1WzO8c/n"
+        }
+       ],
+       "hints": [
+        "r = 4, w = 2, x = 1. Add them per group of three."
+       ]
+      },
+      {
+       "id": "lin-b3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "User list",
+       "prompt": "Which file lists the local user accounts (but not their password hashes) on most Linux systems?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "/etc/passwd",
+        "/etc/hosts",
+        "/etc/group",
+        "/etc/shadow"
+       ],
+       "salt": "2f3d5c1a909252fb567228d786470d49",
+       "verifiers": [
+        "5fb2019bd43a023bec2a2181ca4716bbdb72397515c198e9224c999db67fb41d"
+       ],
+       "exp": [
+        {
+         "iv": "qDlxzPFpEG0cLzAZ",
+         "ct": "Df9CSEXK9QWa+xXHnpOdixSjYdb21f2gg5JY3SiVKyIbESDbGJxRaqp+ijXvMWJti01BaNRz6XGkUOZGUxUfE3e4IUjaGi5oIQu8Gb+UCkHux5NDmoqA7lqc1rNeGdWlC7n7ALUiqdD4ZogfSeCF2oyEM5wdzqhot3k7JhXsRlluDA6CC0D1KhUb+BuSwg=="
+        }
+       ]
+      },
+      {
+       "id": "lin-b4",
+       "type": "text",
+       "kind": "command",
+       "title": "Last lines",
+       "prompt": "Type the command that shows the last 20 lines of app.log.",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "a2b768e6394fbeda97fdc5bf1ab47013",
+       "verifiers": [
+        "f51ce5c7e3113a664cffb338937ece985007006304d3748bbad944feb3e62034",
+        "ab2a3b19602fe0816a195f72256b83c5a05b00f55482b552680ab2cc78d5be24",
+        "ba9f71d6d319ad5e82a8ab4d34c79f46e4e121d77aee937c11e85e202e3b0d31",
+        "ee1af42e2f4658a6d792bbf59c0e3ace4dab62811a8072bb40932699a88976b0",
+        "39a977a1741803fdca19dc5482903acdeaa61945cf1fb259ab22701f530a3567"
+       ],
+       "exp": [
+        {
+         "iv": "oakBUiOkPQe8gIsG",
+         "ct": "yZAdoF0VhHwaGB8dnCyziPjQTcb9bD8emZoCaiYgEC2sNJHVBe+Fb7KocHMMMZlwgQ7QXznWvsA3Mbzz7B1fJ9hG8+17MBT/cEyTGF3T6n9VUliBLfgPoRBidylKHH6GEBAJz1cK9NrRoeYwwWaRJ8K1uxvCQVWxUH1IbEM8qVIpFB9fwcwLNMdCGyLue3gm2+grxvg="
+        },
+        {
+         "iv": "Mi2VfXNolNZvgk+r",
+         "ct": "uoSqgGBLAWXLiS3DR+BM6qXkzZQal11LTE6ThG/nXttPHtxfCvB7QYrdKGdwnwIcgpGGgOyDYEeGKDQ+3oXXxFWe2nRBc0NVJZzbyTvGfAi2nayS4OgqJk1Zzsb5luzJ/sDmdle57KxGrVpUIi+YdtuTOFBpF/Oej7ChXU91HfSW46t5IW1EOaR+HjMsz4ABDIcJQ98="
+        },
+        {
+         "iv": "O1cX5MLPY+zUbBqX",
+         "ct": "yBwIH6G4gUvBK7fEfSo/YDq190tAZkLQ2XGS3kKKKHvdH2GbqHpNyza7ZV0BFNMkujULITPMmLY9AzAUllct8Z3/0txOelpt0Y41jVhPBpoAMEEGZbMU4ilJb+zU9M8ZeZ5DobOyDYUbt8yoGjO6wzSlP/xJjEeM01gN4b9bK7fHgKM/xLwI7S2jPIYzEwkqH8lI694="
+        },
+        {
+         "iv": "I9BK3YxYuw5N5Rbw",
+         "ct": "L4OYuJ132DPj/wON2xyHwSUxQiw3r2DuF5qUtH2nddgplYYNZIzXfWb7QOiRBxTy4y6mZ2g7gY0v7Ox17qyYBcsPzIp72AGFW22a3S2M23oSM97i//0BEWP3MLgjlbZwQlmUiWOn33USywOk6JhCNcHX5fPa25z5re3UWeMDS59oLmnTo0OEjfL0P5LQ1rRKzNhuE8c="
+        },
+        {
+         "iv": "Ne3N6kMYp8c/5aju",
+         "ct": "U9QkxEXZwpiPXEISQJ3t0FU4DYZomj0fhxICwEKdKTI9VmhE/z0s0cP5ACpCs7IDYGhD3ZW9DsY+23g/khI8YySLo9j06GNMfShuUjHyYCD3bpT/L3yFVC3onOICNkaoLT0AxJvHwK348vciFmXVsYkmTYvz1KHFeCn5PBrZg/rHoVi7DuSYHLU5OWjNVTAfPKWUaMU="
+        }
+       ]
+      },
+      {
+       "id": "lin-b5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Backwards note",
+       "prompt": "Someone saved the flag backwards in notes.txt. What is the real flag?",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "$ cat notes.txt\n}senil_spilf_ver{MWC",
+       "dynamic": true,
+       "salt": "cc2ccd5d4558102f72a6cd98250aad2f",
+       "verifiers": [
+        "9dc9755af60e91255a5d0230a17e960802d668816cdb1991460e52b13b49a30c"
+       ],
+       "exp": [
+        {
+         "iv": "r1uH9urR8s02ecIM",
+         "ct": "5vDThil4/hb+gAFlQKr620ZjF8k/csAT7k6zTyrAvZ9lC3aIDy2WHlSjq3gKYv3GCtR4JWCG25+Z4fyaWzPjhTe7Al2WJk10OMZOSIZ/46iUyVP7jTT9CHlYNaFhar3hEhN20++aMGIG8htXtpZotX2bcAZd5AXf2jYbIbu1FpN8qnneV1ORYK1wXA=="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "intermediate",
+     "name": "Intermediate",
+     "points": 20,
+     "softSeconds": 75,
+     "maxPoints": 100,
+     "challenges": [
+      {
+       "id": "lin-i1",
+       "type": "text",
+       "kind": "text",
+       "title": "Set the bits",
+       "prompt": "What octal mode gives the owner read and write, the group read only, and others nothing?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "2c0ec8142ef7d42bd829b25ccb43094a",
+       "verifiers": [
+        "da20f6de92531642f1d695d61cf5cc90e5ec985903e0e1e272b0eb401ffe3ff1"
+       ],
+       "exp": [
+        {
+         "iv": "9pudgzG06ifC3Opb",
+         "ct": "3qIhu7eS8GFd+m/Cb9Of9SkPpnnifgPt3W5WoUiWnv99czjMAbyf1RppnKJwKGrjmh+9ZNUNBTmt1fDV5uzMCBosdK3LUva+g1ERBZkAvvBgyAhfYiN9uaRaoR47gnuZnREmCnX7AywY4TPld9hXBG1cYGySbsmTtmXpoDJpsoJqzN2y"
+        }
+       ]
+      },
+      {
+       "id": "lin-i2",
+       "type": "text",
+       "kind": "log",
+       "title": "Count the knocks",
+       "prompt": "How many failed password attempts came from 203.0.113.45 in this auth.log excerpt?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "Nov  1 09:12:01 lab sshd[811]: Failed password for root from 203.0.113.45 port 50122 ssh2\nNov  1 09:12:04 lab sshd[811]: Failed password for root from 203.0.113.45 port 50122 ssh2\nNov  1 09:12:09 lab sshd[815]: Accepted publickey for madhav from 192.168.1.20 port 51000 ssh2\nNov  1 09:12:11 lab sshd[818]: Failed password for admin from 203.0.113.45 port 50140 ssh2\nNov  1 09:12:15 lab sshd[820]: Failed password for root from 198.51.100.7 port 40222 ssh2\nNov  1 09:12:18 lab sshd[818]: Failed password for invalid user test from 203.0.113.45 port 50140 ssh2\nNov  1 09:12:22 lab sshd[824]: Accepted password for madhav from 192.168.1.20 port 51004 ssh2",
+       "salt": "9bf80bc12a421f0c5ceda401e1d27892",
+       "verifiers": [
+        "2bb747dce481ed55419e8dc93f7c97ea408687afcca4f8e039a28f5d0a83126f"
+       ],
+       "exp": [
+        {
+         "iv": "ufyvEROby7ERENPb",
+         "ct": "rxolFEL+q0GASIivsRQxinZIpKSXmx8wmafHIS+CLHNCdnlyqOPTH+xvopRbgZqbCrUBR2zuRuuDz3jZoa1AXNmgd9Iwg1DWmchMA5q9k2y5h64FWLhrvPKNBHgzoxqa53BdYsBZg0aOdxji1JxrHkOuhJ1K2tIqzBBut+OWnaZMNUufG0PSkqc="
+        }
+       ]
+      },
+      {
+       "id": "lin-i3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Redirect riddle",
+       "prompt": "In the command ./scan.sh > out.txt 2>&1, what does 2>&1 do?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Runs the script twice",
+        "Runs the script in the background",
+        "Sends errors (stderr) to the same place as normal output (stdout)",
+        "Appends output instead of overwriting"
+       ],
+       "salt": "23065827ad462457110756a5f6c6107b",
+       "verifiers": [
+        "dc7baa0a50926511db9b15cc1c2548cab31204359d012de1dcb6f39da9f8f4fc"
+       ],
+       "exp": [
+        {
+         "iv": "ZJ9civt7XUX6QOfp",
+         "ct": "Fce+LRBwXveDJyix9LGL/AEquhQrAZXW8+nPzTeLViRKFZw8sit+t6qfUHDZNjCuXJ7Ad8HPLFn/lWROgr+SeoYA+/PwSA7AbNPpdXUKEoK8O/B5AbZ8AalhG3IqPwRvAjJ5dAnz8nDEqouFGla2qH1PhmGYdMVGWTvn0XrtoUTwpg=="
+        }
+       ]
+      },
+      {
+       "id": "lin-i4",
+       "type": "text",
+       "kind": "text",
+       "title": "Signal nine",
+       "prompt": "kill -9 sends which signal? Type its name.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "94555f337ca37195b4efe55fa3dafce3",
+       "verifiers": [
+        "1391afddae53bcfae8ecd896fc51ff8b67672e23b3e3f1d6f9913b1e595ba27c",
+        "fa6ac7b7612a3c11b1b7c8cc0805155401643a5fc7063825dba03a4a21e16744"
+       ],
+       "exp": [
+        {
+         "iv": "ysgNbHiKkhOWR19r",
+         "ct": "JrhS67LCKYy1jOt1blqjHNNUY8kOGbIA3T3pPORv6M8fjfzNLj7ha6LanwE2eq72kZFjk85ebKPGjM78uph/Gqz70dAa7vgVjmQzhHBliu6BDi5KxDA7S3G7Ac/FUdmbhvErQJ+eAGva3IvG4HwbaQBZ/8ATATwai43yFZvJ/vUvYIUk48LJV3NqZon+vBljZMpDijjWzfImXuA3edigMXlRdYDXZMcVJayjVL5U"
+        },
+        {
+         "iv": "fwWrtMkQAtOrB1+J",
+         "ct": "4d0ovUwAXJI3Sue67V0zoWRb+2npxBZbn09IqkOeFwrj7bzuUTXE8oa+rzPz62G9R6c79MJ7fkZ5IVY8Ahg2TZcuoAbONWzpV1aA5jowpXKw0PXEwyesL3ZQab1qdczfQkOC4km1tC8ntSHp3CH8rWW8VnCWXtbTTZxmI/3b/RF4RV7eMujX14pf3D5DRIkLSe6dcuJElrqzNbRrCNEpqN4Qil0h4f+OWeZ64wLE"
+        }
+       ]
+      },
+      {
+       "id": "lin-i5",
+       "type": "flag",
+       "kind": "log",
+       "title": "Most wanted user",
+       "prompt": "users.txt lists usernames tried by a bot. The flag is CWM{the most frequent username}. Tip: sort | uniq -c | sort -rn | head -1.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "$ cat users.txt\nadmin\nroot\nadmin\nguest\nadmin\nroot\noracle\nadmin\npi\ntest\nroot\nadmin",
+       "salt": "7175bb8d41333b362ff1b10b49dd88ff",
+       "verifiers": [
+        "cb8c5813c94f8bcd5f0ecc7037cf7d63eceb88b3587452a2299025e650dbd87a"
+       ],
+       "exp": [
+        {
+         "iv": "wxKhaGzJ+X2U055K",
+         "ct": "DwEDXOIPJsdwA1iykS4TJVZL6ENa+r670vxbqs5yai0SzccaJ6p4/Y2xOaZrHF20X6GpckoQMU8EiyI0HR8n+L1iOAslfUJ6aPUfznL2aXl/EFoo9J2WZ1uAwD/NDXEDfkaMie6f1r6iMOaVrcPG3+kX3IqGd3SquHCA83cmQHn5tLWRvepiLyMgd8HAIR+oHO/zj9uwZArsL4s="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "name": "Expert",
+     "points": 30,
+     "softSeconds": 120,
+     "maxPoints": 150,
+     "challenges": [
+      {
+       "id": "lin-e1",
+       "type": "text",
+       "kind": "command",
+       "title": "Special bit",
+       "prompt": "What is the full 4-digit octal mode of this file?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "-rwsr-xr-x 1 root root 68208 Feb  6 2024 /usr/bin/passwd",
+       "salt": "cc4ca2556f7313ff5816c776d21c4a22",
+       "verifiers": [
+        "ce70b20ee5414b2fdd008cc51312834337ca3036487cf892b06a40924c0eadb2"
+       ],
+       "exp": [
+        {
+         "iv": "5PcMDt66wpmiIHmD",
+         "ct": "OsWA8Eb7NJ17stirwf1s651HEx68cVB+bLiy7mu2GiqDU6jdaWDDfG3FiMz0X9HgPyN+LuEqbD0sBA8xQLwrBjSq/kQuO14BlRaPsCf5QBFd7TjpwfIzCA3pz3mLhQl97nq5Rqu5LGux+qfjj+TEaob8uqIQ+VCXYMsdmombBYKTSHn1MbZ/VZkrtO5JqB9uJs+IO01AYvQQHUZZUWAxgF3IN8KHQiVUPUepv6us/yfM498IkGJjIBbdrKTYibFci1Rb4xeKQPHJXeujf8hfXCtu"
+        }
+       ]
+      },
+      {
+       "id": "lin-e2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Hunting SUID",
+       "prompt": "What does find / -perm -4000 -type f 2>/dev/null list?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Files larger than 4000 bytes",
+        "World-writable directories",
+        "Regular files that have the SUID bit set",
+        "Files modified in the last 4000 minutes"
+       ],
+       "salt": "c62569370d8010d46053aa15c0a4cc1a",
+       "verifiers": [
+        "0eed34786f00aaacdbef2e3703bc0788722e9632130aaa73a6e84fe2ae49cfb2"
+       ],
+       "exp": [
+        {
+         "iv": "+Cv14Nsw04Fyqj7W",
+         "ct": "yxDI4ODxBvoGmBT3kuKKQKrY5poI5pfhO0AYFOXGGUn5dfOjFxvaHjDQgHvp4d3NX/3jOYSKuwaxejcksh6Kysy0Khj4czDBWhRXfGIdS8VUirnbERu/1BCO/ev/5PFJ882/m0MFYjLIFjQEfvAlmsBMtkI1ey/HyXZJuHsJfSggZlFx5FkidyHUeY8pTcUQ2eJUICrw66vVplFnGd4NkDXZIYi8xxQuNhc0rySIs9SxrI9YNf1kbdZh5VvOZvwr"
+        }
+       ]
+      },
+      {
+       "id": "lin-e3",
+       "type": "text",
+       "kind": "command",
+       "title": "Cron count",
+       "prompt": "How many times does this cron job run every Monday?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "*/15 2 * * 1 /opt/backup.sh",
+       "salt": "0430b8fb41f6bcb06916641213f82daa",
+       "verifiers": [
+        "64d42aa2f9bc9a3b4a21a18a06ab102cd346a64609e268a0ae5201c10061863b"
+       ],
+       "exp": [
+        {
+         "iv": "Wwvvc2pCDvhg6Z4K",
+         "ct": "DhYGS0dkfYYGGPd8OwmFMWq36owUMKhnOr8Rlsu35xKyoZ2zPZb5mr7Kn445QWD+o0X6BfDmlc1OO9WfWrtAL69Lq+gkDMwzJpthvlgB3/lu5HPmXD3Jh45z14N7cwgohW4H7RYga30hLMpT+FnMSfETXqjxdnGyZDMc30DLcNx1mzvrY8idEoYvWO+WIK0yRfKlktWWQJF3onY3OE4O6LaQv5U="
+        }
+       ]
+      },
+      {
+       "id": "lin-e4",
+       "type": "text",
+       "kind": "text",
+       "title": "Mask maths",
+       "prompt": "With umask 077, what octal permissions does a newly created directory get?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "salt": "38275efe43d231ebd4064b422e797b83",
+       "verifiers": [
+        "41778a8cabc0f9ee6cde0f9bea7853d6920810cfe835def085d315b2c16f6daf"
+       ],
+       "exp": [
+        {
+         "iv": "NNtZqqi2o0hIg2Gg",
+         "ct": "SO/T0IA21yduoh9epT2kxZQsk9zGXCvf/v/FXRkNO2Gf85NF+iSD9ZFvQvgUNlBOffn+Hq6DsasVV79jKVvT1ceu00dnSo9xZFrPc3IQ2EZ9GB5ufHV0urDDm7u1LtIFRQJu1F9G5pXYtqcHR3JSNDK2X2zomj5pB4hxEIedxcaVVEfR0Rn3w4qyERw="
+        }
+       ],
+       "hints": [
+        "New directories start from 777; new files start from 666."
+       ]
+      },
+      {
+       "id": "lin-e5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Two-layer wrap",
+       "prompt": "The flag was encoded with: echo -n FLAG | base64 | tr 'A-Za-z' 'N-ZA-Mn-za-m'. Reverse it.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "D1qAr2AbLJyhK2EyL29xMKWmsD==",
+       "dynamic": true,
+       "salt": "8b3ee38c70bac9ddce7b846857b5092b",
+       "verifiers": [
+        "e773ccc4f15a5061f29270d91b4afdaaa532199b5d8e7b75817436a87334c2ee"
+       ],
+       "exp": [
+        {
+         "iv": "qjUVjixf9IyQL8KL",
+         "ct": "wjqdox+HuWmngvv1vAbRnBDvQ977eOntEnaba4p3qjkDguv41hAkBL/mFmSGbrktRXe0iE74/48xgYq/f5bGIFiPSZSNuPfBWCtKH2ElArJ6rTyA/l4h2Cvytap9n5CjNtqRjR4ZSwsFiCIBYTItV2+Dw5+7ChObax6uhs8ny9rUpYF3Ns8D0BAE5k38aXrWPajN8ulqkSolc4m+g33RrWjEfu976io="
+        }
+       ],
+       "hints": [
+        "ROT13 first, then base64 decode."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "basics",
+   "name": "Basic IT Knowledge",
+   "blurb": "Bits, hardware, safe habits and scam spotting",
+   "icon": "💻",
+   "levels": [
+    {
+     "id": "beginner",
+     "name": "Beginner",
+     "points": 10,
+     "softSeconds": 45,
+     "maxPoints": 60,
+     "challenges": [
+      {
+       "id": "bas-b1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Bits and bytes",
+       "prompt": "How many bits make one byte?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "4",
+        "16",
+        "32",
+        "8"
+       ],
+       "salt": "f4556447a1e2428b48c72aa44d6f94bc",
+       "verifiers": [
+        "a9e28f9a11396670891a0581a91ac7efe6f12bbe1b72ed39ae333d94ce3cf4cc"
+       ],
+       "exp": [
+        {
+         "iv": "vfNT5BCkMPUBjTWe",
+         "ct": "8T891Zb4euJrSbYPZpTcksTVw5NxOAh7fxixpupvty1+M4uhfn6azl0J7n4yRgL5++UV9Ppw4+KBqFNed6GTGRo9UkGdB51DsZDboVcOATOsCri9fGwL"
+        }
+       ]
+      },
+      {
+       "id": "bas-b2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Forgetful memory",
+       "prompt": "Which memory loses its contents when the power goes off?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Hard disk",
+        "RAM",
+        "SSD",
+        "ROM"
+       ],
+       "salt": "4af59166bf6e55882224f51b41275c29",
+       "verifiers": [
+        "b125277d33ce38a9f7fe27d4acb125b9b0153f1ec531c8a3f27f5bf9b510c9b4"
+       ],
+       "exp": [
+        {
+         "iv": "59bdWLSIEkIqijtJ",
+         "ct": "9cIs89g1zGMnuXH6/MvS/iRWlEdBWqonqtMUr+pUm3dbeHfBHeh9hSJ0T+GDu5+HIRzS05OUG2hHdWIUHrIQh0Pw46Bvco/D5Z40w6GcqYPMOy8FW6lnR0JlMJoSIf7yvg=="
+        }
+       ]
+      },
+      {
+       "id": "bas-b3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Spot the goal",
+       "prompt": "What does a phishing message usually try to make you do?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Speed up your internet",
+        "Click a link or share details like passwords or OTPs",
+        "Back up your files",
+        "Update your antivirus"
+       ],
+       "salt": "b2c62d29ed3583b023515b93da9be181",
+       "verifiers": [
+        "0108a11fa84684ccb6fa683d4d4d1897135bd180a6b0d23d8248837fddf913ab"
+       ],
+       "exp": [
+        {
+         "iv": "1b1xn1ZrTjLdEfJC",
+         "ct": "uJsyKImmt3srOojjot17xTqm0a3KqpYUqBJCc/BwfL/QeyOjfXZf4ASFUNbBf/m9kmmNpAscAT31Zj1ffkf8Zybng7lkhAVmIt9WB9tNrGqmryGruH8n566TsDttYHFd2D0OcthjW19AnEV4p5XlV8k9MiZSS41lQuAha1CNimTKfHTKh77go5TP2LBoAiYpuAru+REPxaisIa4Ln1CJe1GqqbmiR2qnNw=="
+        }
+       ]
+      },
+      {
+       "id": "bas-b4",
+       "type": "text",
+       "kind": "text",
+       "title": "Binary to decimal",
+       "prompt": "What is binary 1010 in decimal?",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "002712c118437946924bf63b795b3649",
+       "verifiers": [
+        "a6ae216bf75e14108b032a068fae1c5d2137ae1d90f78259cbc63978c06e0185"
+       ],
+       "exp": [
+        {
+         "iv": "IDKg4JgNh+ypY7UZ",
+         "ct": "eySlxHG+qUyqbw2sIUGdL9RuOcqlSzRSwkfvNWyXo0SqfxfWXviQrMhISeYREQxRong="
+        }
+       ]
+      },
+      {
+       "id": "bas-b5",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Best password habit",
+       "prompt": "Which is the safest habit for passwords?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "One strong password reused everywhere",
+        "A long, unique passphrase for each account, kept in a password manager",
+        "Your birthday with a symbol at the end",
+        "Changing one letter every month"
+       ],
+       "salt": "56c1ed31fc4cabc2727e09e17f5f0cb0",
+       "verifiers": [
+        "948c987085dfb26198cb17949793ceca696d1b9afde7fcafb0123d079a9e8ca0"
+       ],
+       "exp": [
+        {
+         "iv": "PInVsrg4n9MVFxwg",
+         "ct": "T49Gn2L2hBrDzFWjgAWroh987g/VuM1NdiaidAbk+jMP2Y/CEw00NhwpvVTSbtYHJzRQcKD9tXtWelMzD119jnAF1orjnfKYzypXnfvAxWGXsgNnegXPFe7ebQ82UOY6L/gwnvvA/B98wAyUUGxHV8VQ0OZYAzXsgSHZTeYEDOR5jxddUij1hfMFPjhSFjJ1i8Xd1ixDWVZwgEDMDULqfBBySWxJ/te26SZN"
+        }
+       ]
+      },
+      {
+       "id": "bas-b6",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Prize via UPI?",
+       "prompt": "A stranger sends you a UPI collect request saying you won Rs 5,000 and must enter your UPI PIN to receive it. What is true?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "set": "India Scam Spotter",
+       "options": [
+        "You never need your UPI PIN to receive money; entering it sends money out",
+        "The PIN is needed to verify your identity",
+        "Entering the PIN is safe for small amounts",
+        "Only Google Pay needs a PIN to receive"
+       ],
+       "salt": "a0007a6caefa999dec84cb0061d479a4",
+       "verifiers": [
+        "99f30fd733d6c56d83c3606ae18b2dbd173777d04ecd82321da2113699c547ff"
+       ],
+       "exp": [
+        {
+         "iv": "U4z8eLYLIdQop3nz",
+         "ct": "AR5fYRqYQmFRBB6QW2XD/PXJazk5rFKf9rzNl56z37n5U7XI3GcmzM/EwiA1Z+Dqa/z6pWMoctvfZt4XHQJ5KKtdo5ZuRrssscl7IvfuC4vJnfgrR2QAntOa9p4GdaxF1GSfeUMJMkbY0+nnijIw8IfylbCgp4gVeZvrzcAIdO5ZOgL7RHWkAxY+2Yc1XrdxNCIx+He0BRejJGo7tPS2Tw3cIKtf4fLbBc8fDfDT6aKVDLk8LpuQhCQOEwAAiNc="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "intermediate",
+     "name": "Intermediate",
+     "points": 20,
+     "softSeconds": 75,
+     "maxPoints": 120,
+     "challenges": [
+      {
+       "id": "bas-i1",
+       "type": "text",
+       "kind": "text",
+       "title": "Hex to decimal",
+       "prompt": "What is hexadecimal FF in decimal?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "2562f1f176e705c682d23c7c9a2c3e1a",
+       "verifiers": [
+        "1dee4153f9e9e842f06775aec8570faa3fa21ab16ba1b5c71d64deeaacc99915",
+        "e07f9f36e054e29742d6da1bb40e6e42c50359e3e0b9b90ea573d1e6c584e04e"
+       ],
+       "exp": [
+        {
+         "iv": "+wOVTR9rXSHSXd1n",
+         "ct": "MmF5oWuny0ituioPz6cKz/6JId092lYJwjKz0xSxKlcgW6lxu0+iTf9tw6EpqtcLq3YI3tE+bqO81qGNoXPPn30UVXv83TYZwrTGhcjxDrvzxGidlHjp"
+        },
+        {
+         "iv": "itLhR22Am+N3xGte",
+         "ct": "WP7WtnU8thkoiySLrBX5N3NOTkwqEHtQnsDxGNu1jgyC0Mgsj/t3+SdmtdNQ4RbRonH2kea3Mz/huE7zj6rktxit07Pa1XVFG3h3lzbNq5ZoL7rAp9rS"
+        }
+       ]
+      },
+      {
+       "id": "bas-i2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Mirror, mirror",
+       "prompt": "What does RAID 1 do?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Compresses data",
+        "Mirrors the same data onto two or more disks",
+        "Stripes data for speed with no redundancy",
+        "Encrypts the disk"
+       ],
+       "salt": "3dfb22ca293246a4d60e00725671ed1b",
+       "verifiers": [
+        "08d0f59349f7ec8557154117a71491c3ec3678d33521129a296f6cb9cae86b46"
+       ],
+       "exp": [
+        {
+         "iv": "669k1EuI4RCOACCg",
+         "ct": "DuGx/Y+OBCN4ILOFgIq//T7b/ZydRsetHqwZTgHCXB6W7XdlNp3MV6KOjXg6FdQS555WupCvsI4mKcgg3ALw9kiLr7BBdrIHQ6nbdMLI71E6DQEA78Q8fo16nGdkx0deCkc6mVkV0C3hrK1H5S2qMOkofwzhxJ2TtP8Zt9iDxWS7qZn58nhf2nAog6QIRHFHZq9VUVC6hn7Z5E5jHiuHYzHfnraTE190DKp+LtIDpybrArTQyh8FNAECGeR2i1zjo8xcyfoohYqbNUEuJw=="
+        }
+       ]
+      },
+      {
+       "id": "bas-i3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Mail between servers",
+       "prompt": "Which protocol sends email from one mail server to another?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "IMAP",
+        "SNMP",
+        "SMTP",
+        "POP3"
+       ],
+       "salt": "534fd99e10b369a7824d6cc2fcc0d1ab",
+       "verifiers": [
+        "2cf749f22f7d532fdda998af5d1882cf2d9705e8675ddbc98339361f4820daa6"
+       ],
+       "exp": [
+        {
+         "iv": "NpNXR3S68+aFiqYz",
+         "ct": "us/qQqGrItG0kDFGYi5iyfKIoodW478blB8ACeNGcHFPEF1rF2X8vk1N+qUFPQzfxM5VCrXvdgxnoNX8uCt9LxSRRsttSsoY70Kh+vigYL/cjU4roBOjTE4YUNrZi2LF+XTI8/EUagNDZ+IDl/4uOtw="
+        }
+       ]
+      },
+      {
+       "id": "bas-i4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Something you have",
+       "prompt": "In two-factor authentication, which is a 'something you have' factor?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Your mother's maiden name",
+        "Your username",
+        "A code from an authenticator app on your phone",
+        "Your password"
+       ],
+       "salt": "2506b4e7b067e32f4338471b8dd2995e",
+       "verifiers": [
+        "52f240ce79a5ba79d255e3a7a36876a97fcd390cbd55439081ae277a8a54a0f0"
+       ],
+       "exp": [
+        {
+         "iv": "7aSHX2mIB/1I+eDN",
+         "ct": "BSxhKnPVxA1KEju8LFVpbpV/CTNVgPGmswz9Vui9N9SqHr2BFzTN2PWMhKOPOHRm7Kai2AsPnakRoojQeZpglcWyp9++JfRx5PnZfZU9CC1AAaUY7dP5UpraYkxCVrFnYSJoTr/xMWa4oP5bWpQDGkX1YeuYkCXfX90xHi6+X8bMuMkXf+LL2rmepeqFY0zLMkXCvn+5+GoaoAo344BRP0jnzvcz73O7ipKYts54Krk2"
+        }
+       ]
+      },
+      {
+       "id": "bas-i5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Caesar's cousin",
+       "prompt": "This flag was shifted with ROT13. Shift it back.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "PJZ{ebg13_vf_abg_rapelcgvba}",
+       "dynamic": true,
+       "salt": "08f223d3a8be7501277175db5adeccfe",
+       "verifiers": [
+        "363bb23c2c50686917e7a0bde498d25c653f96cc4b119292749e193e67b01282"
+       ],
+       "exp": [
+        {
+         "iv": "BOu9V7AYNzs5GMwQ",
+         "ct": "/8EQFZqABQtcq4H2i4Q2sXcM+s6+sERv6qQ+UG2NBL/wUPqa17s3LfjcXfk0KyIX2tCN3jWY7WU8hq6Un3gLIWgR08SC9Zi8HSi2tjdw53t7W0W+RT63RtAkUAEsIdgeArC0QQFpRJnZuAL47OeJhK4MjyAslffpFIVtV1Xs5RTU5Lq4MH0HxBQE5mIXIAAYtjNm/pdwbCN7d0b42wvU8OwC"
+        }
+       ]
+      },
+      {
+       "id": "bas-i6",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "KYC panic SMS",
+       "prompt": "An SMS says: 'Dear customer, your bank KYC has expired and your account will be blocked today. Update now: http://kyc-update.example'. What should you do?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "set": "India Scam Spotter",
+       "options": [
+        "Ignore the link, check with your bank through its official app or number, and report the SMS",
+        "Forward it to family so they can update too",
+        "Reply with your account number so they can check",
+        "Click the link quickly before the account is blocked"
+       ],
+       "salt": "e1c2df77933ddf0dfe3a8ecbf7f02b0a",
+       "verifiers": [
+        "2231906eb4e1121cc042d1daeddd6d92cc96124a5027ad1f81ba164fc1138415"
+       ],
+       "exp": [
+        {
+         "iv": "8oegQnk5MPgl2bbx",
+         "ct": "J2Kqk5xoqBZg5Es4ksQHMFCpOOkNBFakKD/kMCbmGtU8SKEjOghosnAqmrwKwjqEkwchGzntdiMFFIc7Uktd7LDaBddKKM5qyuykvyIHe7h9uq6t1ve5a8WPcGKoPNXJPBeOjqizf/0HRO/GYIXvqyhAfTSdDU2LDMlKMXhM3+e7COTd115Bqg4tNKW/Z+wWY/Xhc6wi4Pzh4PnybuyLiM7hUOhKpivtEBGK92tTIq++Hdgf0396tNtAJRH+rlunW+lbeKK4gVb7+/Z8nYr8Gishj/Zepg7hjhiomPiAsYQ9JecwcNLErucESZcgkC6CwDbMk51V6luXyzZZjf6C"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "name": "Expert",
+     "points": 30,
+     "softSeconds": 120,
+     "maxPoints": 180,
+     "challenges": [
+      {
+       "id": "bas-e1",
+       "type": "text",
+       "kind": "text",
+       "title": "Link speed maths",
+       "prompt": "Ignoring overhead, how many seconds does a perfect 1 Gbps link take to send a 1 GB file (1 GB = 10^9 bytes)?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "a8035a6e59c603e462a0b9075768f905",
+       "verifiers": [
+        "8e16d2253a8470352da8c8ee9a6a241961e9205d386979cbbe96f731ede3285e",
+        "c402c0814e61c1fc24a29631f5e9edeffb34eadaa2dce9f89b4ba940ab36cbd7",
+        "474bc2a5a3b7e29ee8a6d55b04d3600d982258e71566752e4872d07242f92173"
+       ],
+       "exp": [
+        {
+         "iv": "xZX/cgYaxng6qQpb",
+         "ct": "NsKMIzRXYeHvzj23rjgwIF0KumYW1UDSlkPZ2GW+VhINprUGJijmgf9QZdntY7pUERkZVJcAz91bmXXgySk3FFG8VE2SXd8Pnlzru8nEVEjcDfBNDlvAHvk29fepPK27hkxALy6d8ro1GY2XC1Cz//YCfnVURQXD1Ij8ioFZUoKep8zP9F43vyu1Y1y3Bg=="
+        },
+        {
+         "iv": "7ZV1ENAr0Zr/luaj",
+         "ct": "xtEQjoEXesiQgc8dfZcvZC8Sia7T3Wvu1fCfUpAmQlWNTcDZtwYjjE12AHoOpqtFZeURggdDXP7b66XQaYgAvyVwzyyHEWDS9skDNB1bDQ2MeezGfMx3NhAXzH8nbyfP2F4/Ysol9SrUTzJfEfRF0+w6zOVoUhMOreySmLFd8thsh5syjZ3PKs5BScpiEQ=="
+        },
+        {
+         "iv": "SNxCivPZf3YFrnIm",
+         "ct": "VelLQQV2zc4GKlm78WO2gBwlWimMVADR69VYxTt/yGnqbtuC8ALz6exLo88LHNuD0AsZAFwaIgkv05lfTxn9tR8LrKRebhRi7RLiYNg7SBpdecl3so94z1ev+fYX3z9eOgkZgdteTGYS3FcMhZV4qvxpHbh1pD/2A+G3+zTU3vpFMLfoQSH3TYhL5uGc4g=="
+        }
+       ]
+      },
+      {
+       "id": "bas-e2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "One-way street",
+       "prompt": "What is the key difference between hashing and encryption?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "They are the same thing",
+        "Encryption is one-way; hashing needs a key",
+        "Hashing always makes data bigger",
+        "Hashing is one-way; encryption can be reversed with the right key"
+       ],
+       "salt": "8cc2b52733e2f2a39d25918afad06f49",
+       "verifiers": [
+        "7f3066395d145934ed8e16a54f1c22e4ebadcc07a34c0176fb5df1ebb2eab1e0"
+       ],
+       "exp": [
+        {
+         "iv": "uHwZYXVWpD6dO//6",
+         "ct": "S1jN2cw0V1VbFBU49BY/gIt/PUDhaz8YwpArDzi83vGRIxx7BegS01G02MEijimP6iQ+2JW5Or0x0D+1/cS/Z5Qn5P9p91wdI1Mm5OTYDwGb4qT6qj6hvhOsnuXyTfpGlnEspcSB2ab13xxxxCVsutlGqjSENGm4kxTh47qJwxZPhvvR0Y0WehetDFdj3Qk4Z95hkWRLNTWS2kn7SVkxcok209+WWTvd7r83ELZhYIQo"
+        }
+       ]
+      },
+      {
+       "id": "bas-e3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "CIA check",
+       "prompt": "Ransomware locks a company's files so staff cannot open them. Which part of the CIA triad is hit most directly?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Integrity",
+        "Confidentiality",
+        "Authentication",
+        "Availability"
+       ],
+       "salt": "6c0720e4401533fd3bf37ea0f9773c51",
+       "verifiers": [
+        "caf5ea30a43d3ba97283f41f414bc083b4fbc0d844c05a37e0bd90780f548a93"
+       ],
+       "exp": [
+        {
+         "iv": "QpD5xiJ4eEl9yGhu",
+         "ct": "IipbiESgOkddaj/+kJ6ia0QRejtAHoBThvl/GI8gxsZgO6dL8qA4v6n7gUSmABLXnMq7Fg5QL7+WfaV7cGFYeKUfkpro5zHNt+43AaDNmkNAwgeBfcVAOzw86EtgP30bQogxySsMtm5BoH45M4ilq63ZecZr/AJHk0rnPw3XkRa9alMk9vx6olFWr+V3KmTKWzZfB3tvYxViPBEcnBq0HFh6oL7HGullth0CdEzZu6tfWl/YGpj2bhrx2U6pv75Uv31tE+ogMQ+/dPpG15cHmsVNvReVe2RlCBxqEG3HIW+U4WQeCaEEYfLOROo+fjnhwRE+Mis="
+        }
+       ]
+      },
+      {
+       "id": "bas-e4",
+       "type": "text",
+       "kind": "text",
+       "title": "Decimal to binary",
+       "prompt": "Write decimal 200 as an 8-bit binary number.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "bd5e6b9e8b04971e812698d219f53720",
+       "verifiers": [
+        "3f24a4f13ee9b59561b0a2202a07648f9d21a678db116fcffac49627afc86099"
+       ],
+       "exp": [
+        {
+         "iv": "3VUAeVAs+ALDfn8t",
+         "ct": "4na2u2bSN/WPB1kVZBR/HdMKAs+8rrwlMJ+rnF9uRSvEe0EfMGFBeqL6EFopAFtEBqmr4xnGheDLTBOyC3vkmSmrLowNJH/3R71L"
+        }
+       ]
+      },
+      {
+       "id": "bas-e5",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Backup rule",
+       "prompt": "What does the 3-2-1 backup rule recommend?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "3 copies of data, on 2 different types of media, with 1 copy offsite",
+        "3 passwords, 2 factors, 1 admin",
+        "3 servers, 2 firewalls, 1 router",
+        "Back up 3 times a day, 2 days a week, 1 week a month"
+       ],
+       "salt": "ef304a12fdb294f70897cdb3acde2288",
+       "verifiers": [
+        "130a404a0508d10b2d37460f3645cfaa7cf7a884ac48327332e17f01423ce664"
+       ],
+       "exp": [
+        {
+         "iv": "dzrk8NjQxnrI8P7B",
+         "ct": "5S29HDMajvsqND03w1GcJE5Ssm7JW6jqFhweKK4B9B2Xoqxbnvs6Nts9qn8FoinoGTa6JbOF2mO8xVAVpFWeaPYKLSpSiuGCGwDen40JkXq/ffqdGWNmoUk2rmKEChTQb6hgb1Gc0aiXnZT+XKE1KsXe1rB5G4mvyvUGLR/VyrhYshOiTuja3Ez4VMzuOI7HH0Na/3s2Ji5oa3ti7R1Ro82ZpOXqClyvKZ0JBayf6PMUSK1rVD3kqeykwA=="
+        }
+       ]
+      },
+      {
+       "id": "bas-e6",
+       "type": "multi",
+       "kind": "multi",
+       "title": "Digital arrest call",
+       "prompt": "A video caller in uniform says he is from the CBI, that you are under 'digital arrest', must stay on camera, and must transfer money to a 'verification account'. Which statements are true? Select all that apply.",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 0,
+       "set": "India Scam Spotter",
+       "options": [
+        "You should hang up and report it at cybercrime.gov.in or on 1930",
+        "Real police or agencies never ask you to transfer money to prove your innocence",
+        "There is no legal procedure called 'digital arrest' over a video call",
+        "You must stay on the call until the officer ends it",
+        "Sharing your screen is safe if they show an ID card"
+       ],
+       "salt": "d4223e4638d634a904e7bd75f5105145",
+       "verifiers": [
+        "913e3956e6ec31467206b8f99103aee47f0fb2818f97ab951fbd7cf7a5b6e790"
+       ],
+       "exp": [
+        {
+         "iv": "6WZhcvVEuMwxieCz",
+         "ct": "78JuMKeyZOOOk8mPwS0Jn43fV+DaQGrUxdem0RLUlqU5MrUd4mu/LlHjt9FlqMlNBu06NMXp+MHkhKaGlegBgFKxsV+WRNz40T6awU0ESB0yytw8xo0ujxuYlw5hYeQlMnQXC/DzozAhkMS8ke7+k1SLuj/P/G8BjXm1OiXflursaW7Mo1mD5nd9v3oKaq0Tz2hXqrC7O34BDGNGyU0V3PmvZn70eguniTkuwyOExCOwQOOshJpsVIGdpEcaxdiI/GY/c4aG5XsL4Vs7R/k1ORdl+TIHsyLfFCUKTux/1ncaATng1gZ6pXAQVN6kUiAKMwjaZV0bKnZAjji68aw="
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ccna",
+   "name": "CCNA",
+   "blurb": "Cisco IOS, routing and switching",
+   "icon": "🖧",
+   "levels": [
+    {
+     "id": "beginner",
+     "name": "Beginner",
+     "points": 10,
+     "softSeconds": 45,
+     "maxPoints": 50,
+     "challenges": [
+      {
+       "id": "ccn-b1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Get privileged",
+       "prompt": "On a Cisco router, which command moves you from user EXEC (>) to privileged EXEC (#)?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "enable",
+        "privilege",
+        "login",
+        "configure terminal"
+       ],
+       "salt": "401bc77bed7b3f814461279d11391122",
+       "verifiers": [
+        "1c846a6c97f589a93e23b1ed9ebc542768ede83d543b839d055b7c500ef49d61"
+       ],
+       "exp": [
+        {
+         "iv": "/MHi9QpUNvfqmtIJ",
+         "ct": "Z4J7OvaPGU1ycwgUqSPmzfFDrs4e562rRGHuFO9ygNiFG/59x9W3qHyqZ9F2WMKoerNc59La9Ok7vIA+zGx+yqlxmTTqjD7QEiGcJqNNU5BIbdt7JY1oyRibm2NN+/fF8hRkGYkMeAQlsP/Of9XZPN5M8pY="
+        }
+       ]
+      },
+      {
+       "id": "ccn-b2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Save your work",
+       "prompt": "Which command saves the running configuration so it survives a reboot?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "reload",
+        "copy running-config startup-config",
+        "show running-config",
+        "copy startup-config running-config"
+       ],
+       "salt": "f1b823220cd6559e0aaae06be6e8eef0",
+       "verifiers": [
+        "233d24cd03715f905d784d41ea2ac52a6fed639db646cfcb8659012a8b829a12"
+       ],
+       "exp": [
+        {
+         "iv": "rX9xZb+xpaTGcnbj",
+         "ct": "Tnpqb51dWRXeVD+yd3/ho431Z1PVNf5GrqWoxhvtndDhiFru9tJgha7KY2Rsh63yAgIm/1q44aPjy7PcDwhGARVml+c4QIl/e26v8VSp5TJv3as+Z+yadZHdtRoiqX3+YXWgt25q7uAVVvnAnlH1tMc42ZiyNnvJlkGuXGrinapHkgPQutmtaGr1glvJF/ppnfpjhUb7Iw=="
+        }
+       ]
+      },
+      {
+       "id": "ccn-b3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "OSPF trust level",
+       "prompt": "What is the default administrative distance of OSPF on Cisco devices?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "110",
+        "90",
+        "100",
+        "120"
+       ],
+       "salt": "85d5751ac1e8cd53217add6716b26f7a",
+       "verifiers": [
+        "6161b60b969810e2e87eb8cc347f1ca61df67783fd0fa7a38113a5b30c1b2d5a"
+       ],
+       "exp": [
+        {
+         "iv": "aj9sh7DiR9vxNXRA",
+         "ct": "WAW/phH4cs9A4JO7zT2nmVEmQXzn3xv4G2eGtmAXLsVAaY5rMziMFp7eLMWhX2C6BfNnvTFm9inw/bRE1MfqSBoXKlH90ZmwVlhJZmHE4sDg63FpqqwQLpH0bV9O9Wx8IFUAaJKL/M/vGgQ55CUPXsbYa9qjLgByysp4I+7YHn5FsXCFxQ=="
+        }
+       ]
+      },
+      {
+       "id": "ccn-b4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Why VLANs",
+       "prompt": "What is the main job of a VLAN?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Encrypt traffic",
+        "Split one switch into separate broadcast domains",
+        "Make cables faster",
+        "Assign IP addresses"
+       ],
+       "salt": "790be0da25f3014061ee848c9a1f0b53",
+       "verifiers": [
+        "ea6d9557ce8219e182c5ffe033cfe52da6f35fd738c982cb5a1f7d7e4f20b9bd"
+       ],
+       "exp": [
+        {
+         "iv": "dZiJgbFwB0TI154k",
+         "ct": "zvgP88uCb9wjUGnwFyzMG/8nnWtCSfpUApZCxC1lJ3OMZ+l2aamNVhiGf7IE6lUeu1/ZU5ct+k8XfeYdqcxUMsEarij6UwKgD93KJuuujbn1V4twyVh2yzaps1hXL2nwHPtAWkVtvTSZ2Xe3WCkZaXh01y9KovyFf95O2rkBdbeNIrnBsTljXRw3N+WEMIfMUqH4aoJT5XqypRA2Z9SyorPV6WYsVS2sY3FGejN6pyNpO5Ou7urfBxIV"
+        }
+       ]
+      },
+      {
+       "id": "ccn-b5",
+       "type": "text",
+       "kind": "command",
+       "title": "Quick interface check",
+       "prompt": "Type the full Cisco IOS command that lists every interface with its IP address and up/down status in one short table.",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "727ba56d4f253dd6fdccd42216b64141",
+       "verifiers": [
+        "a9b3326fdd50c4a084733f9395a55d0f47c11a2d543fd45c8a5f1db1dbe7c971",
+        "a78fdd6346fcf3521c9f8574ac9fdb633d810689044227f9ba921850f7363fe1",
+        "5b5b1b79feb30dc2e496e439707f53aff24761e077d52598ec787b5d13e53841",
+        "0caf132f8641033be9aa796399be02ae364bbcd767ce3519c128d81be725c100",
+        "692e41bd8924b678d66a64de4d6d085f40c87e359255f95355d3758b94d1ef1f",
+        "849fed890d9cf94c2b78d690c2da5a41d9c4d214a5cbcb3451fbac9ecb73091d"
+       ],
+       "exp": [
+        {
+         "iv": "ucF7gYFAZVgDcpQ0",
+         "ct": "hVmKh4zhnYDN+IuJgHXncDx3+++SH+1uHfudqF3anmSNRWWZxYYXzRv2JtwywtjS1qbwLbHgInoALCqyf0TuZQsWhCC4Pe1TkqULiU6ThUHvgUyfcZC8XiCaVctUL3ccHwcOHPiSauMLj9x7tlA8iXAva0bBXWasje5dDBgNwZQDJ+L6ndOXayqkQ9/9VZMII30Mwu6wDAyNUIScaT5irLjtzp6L2ZKsA184mFEMvz49FQ=="
+        },
+        {
+         "iv": "RRvQWf59hwkOZHmy",
+         "ct": "3QC2AUIZ9El6DXqADI2hxWj5eLyht+JFmCjxdXzjcIdRAHMe0ZdBvCI8XEHq40M06F5Yte7sjM04t9ZmWftXzjh86BE6SiGKXqezr2dxzGJHyB7AfWtlxHOq23POy98iud3mABIjDOeqb3NY/is3Dych6TJyCDM8qS+TS7vPDGcbznCBulmu1O0d8ZcaLKL95slPmNUgTg5Ra7yFYyhkIw1dnDkni7UElVXlS0uDnu2GkA=="
+        },
+        {
+         "iv": "9EO+yj112CzxAMq+",
+         "ct": "EixzYtn+0u0lkNCygsMgLFWb2z0ZclT3CyZYYIt7PVgbI/9olq2DqxOagLDgRoPduDxXmpKdBKbWlyBupsDymJuASKYeXjSPCRinyKKDAsHtPObBogMDcIdj/2jdQCrUeUinvkF4xM22ujZXkQYJab9XyoNisWumaKg7irF7Uxk/Zi9UlEKuT9tsTRAnvR4Vzq7nm5aczCKFi3jw4eOcPutN+BfQQ4Tnpv+YPoAAlmq9DQ=="
+        },
+        {
+         "iv": "1xjlQXh++2HmCp24",
+         "ct": "+4+xwtmcjdxwAT60XDmqZhGy9OeNglbHmTfu/jSnTosaNqMz0FYzbuIy2kAZgqliOjvq3FwRDuPKpVv2k9Sh2+N6TLlH3rmcXeWZTknj86tVNYPq95PWrxlAkWV1LZa0COGIdMudihCGqjFSIPGP7wr9bivVCeFwKk6I9szXYM040isyE8L9kGAGcAeBlwzahc2l5r7IIeftCKbLSixv54l2BAzUE0GtXjzIKrjR2lrALQ=="
+        },
+        {
+         "iv": "xJHtPeLdHgWtue+K",
+         "ct": "IBY/OCrDDR2NYh7OCh9n+cGBSSTHsS/qq8HGUJfH7VHKURf2KF2UjIRJIcGM1DsfOLpbcwgE2K8IoS9pOK7LndC8WHdK+qySYIF63QrDlbDBbANYf9lJsKRG0h2/uuTKAf1+CNO3ZzYdc1QB9a6URzV8VAdpGVfBiu9ti8hMLGvIGFVcnhfQR7p0ZGgSvhcqp+X7EHU74+70cEenHrZmfSKStUl77I56j4oYMvPlx88Aqw=="
+        },
+        {
+         "iv": "FSrWe+C2lgmOt1ME",
+         "ct": "kwQF9Yu8bICujyKNe1heVZDCNu0NE7n9TX63TSDMWbzyG/c0C9yjjvEutgImFoLj/uN0OxG2IsaU0FTQo4RIOWbvS9rWk2AvjGiUI7blXtryV3xxJbKUiJbBYN0+lbAGkEJEQwj4/tak2phFhwkIY1xR16+AqKcMINx5w7hdS0rrHP7cFYpowkXLC3fxw4z7ljRkee4hfYn5341EcOEMd8oJ/NHhTlMwSdkt4q/GmQu8jg=="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "intermediate",
+     "name": "Intermediate",
+     "points": 20,
+     "softSeconds": 75,
+     "maxPoints": 100,
+     "challenges": [
+      {
+       "id": "ccn-i1",
+       "type": "text",
+       "kind": "text",
+       "title": "EIGRP trust level",
+       "prompt": "What is the default administrative distance of internal EIGRP routes? Type a number.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "3a7b5305cd046b80bdd8400cbfe1f193",
+       "verifiers": [
+        "5e2bf01751dc3531246c7dbeb8f38377e303f20306bea70bb3d9aa466209d159"
+       ],
+       "exp": [
+        {
+         "iv": "TyeTkgwy97RMb+9r",
+         "ct": "ruklTH3Evte+Mqf6bbkrLc4TFLm5bs7HYF4e2SHFjOcvP6vvPC2+8J7LtT/tu6QLuZecAUTa6bTe4d8euYuGxgjuEQqsr6lYurqXNp83jNSTOdk9zkWTctHaokWroCBoBiUAEXHPLTCDX7Gq5tRVZ5kwZYXeF9YUhcwrYqbltw=="
+        }
+       ]
+      },
+      {
+       "id": "ccn-i2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Many VLANs, one link",
+       "prompt": "Which switch port mode carries traffic for multiple VLANs over one link using 802.1Q tags?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Monitor",
+        "Shutdown",
+        "Trunk",
+        "Access"
+       ],
+       "salt": "0f7416f3aacc2ed56088b8234341b2a9",
+       "verifiers": [
+        "43580adc13bf0ce0f9908afa3d97aee89700b31250580837d1090722cdf80a4f"
+       ],
+       "exp": [
+        {
+         "iv": "8SLuw7O90GdBUbx0",
+         "ct": "H8TXk/u3E8lEF3qhkuu8QbM+3YxiygBCxCj0c6FYqnuPDlH6dOrCU+cmnza8QkdUG1bXvNaBnDYvMtWeqWPFFZ8x6G5x8+z/skGavMuOCVWxK6RvWlMt6jLnEN7bVNLmQ5yxL6Gw1vd3R+wNgKqpUb0x1dTRkUuAIzmFVlrh2U9Z6bYibrCfzNBlPoJ+THkZ06MLnP+oOLfVMgQ="
+        }
+       ]
+      },
+      {
+       "id": "ccn-i3",
+       "type": "text",
+       "kind": "subnet",
+       "title": "Wildcard flip",
+       "prompt": "What is the wildcard mask for subnet mask 255.255.255.224?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "c6e59ad446f73bfcd5ba7e49b9df7b8f",
+       "verifiers": [
+        "0cd1ae15af6febb1f5d3be782f01f4e856b283c5ecadf56f4b2de0f8359d3e53"
+       ],
+       "exp": [
+        {
+         "iv": "sxQxd9DdnFfuSyd6",
+         "ct": "x3VA5ZPGqs76+jZaP3twSm/SnVg84ONripFcGmrdqRWRl0z6NazT8q0+fC0uTFHFwtuVl02fzWSmipBuG18cWkFxyq/j1um0ltLeb7fcJTZhYUoI9XgaSzQyP6CayfC3r2k2oMWnNBbaK7epKrbyjBVlPF44cLlZPFN5ZNhk0Ix7OPhroUrR"
+        }
+       ]
+      },
+      {
+       "id": "ccn-i4",
+       "type": "text",
+       "kind": "log",
+       "title": "Longest match wins",
+       "prompt": "Using this routing table, which next-hop IP will the router use to reach 10.1.1.50?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "Gateway of last resort is not set\nO     10.1.0.0/16 [110/20] via 192.168.1.2, GigabitEthernet0/0\nS     10.1.1.0/24 [1/0] via 192.168.1.3\nD     10.1.1.0/25 [90/3072] via 192.168.1.4, GigabitEthernet0/1",
+       "salt": "5848534c286ed8c358e405a6700c0475",
+       "verifiers": [
+        "e45779f090d535e6c89add6fd18f9e3524684c2a5ee1c1998ae140f6084f72df"
+       ],
+       "exp": [
+        {
+         "iv": "oc6lslBmhfO0B/W+",
+         "ct": "ApGr60VPWZ/i9eISQQQD3Zi8EV5SW75xF3iGLvBbYaDCsn19BG8jmKiPL1NafRqacpNRh5Igixkm2rX+qkeVhzdghQWAJYlMOJn18hZB7fv4hGbUDsHrjkPWE2xCsnyiuXvZ5ZHUo7EXeQffevx+JdsadWAcB02RGb07bwTYRMw46wFMtUlBjQnocebADzh3aR7tF4xXzq5tWKcWmSdJnLkvB0h0znlgk7t0ekDzgDFNAWKajdNRs90EdRhhO54V/RPDFW5XIjpp+Q=="
+        }
+       ]
+      },
+      {
+       "id": "ccn-i5",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Root bridge election",
+       "prompt": "How does Spanning Tree Protocol pick the root bridge?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "The switch with the highest IP",
+        "The newest switch",
+        "The switch with the most ports",
+        "The switch with the lowest bridge ID (priority, then MAC address)"
+       ],
+       "salt": "7759e5dbe9f72b5d14ff4a77699e0400",
+       "verifiers": [
+        "fdb2a89b03bf16c3b17bac720fbf51e63b6a30c0ebed1bc2370f6931907d3dbb"
+       ],
+       "exp": [
+        {
+         "iv": "mnf8+cixH4O9+bVB",
+         "ct": "IhXJvZ/uxRTMyTpgJ5o7EhTrffs0b6KUl2thMFVUv/NYzz5NkM2ISYxm3rzcjZFpGILE7Vau4m91cGYmyqM2utxpBnvPyfnqYAEFHF+JYWn41BRtDIeeMMSZXjUncZblhz5dp1pTnf26S4dLIydP+0fL6tUWBBszCgq9iEo9XU8vj/FjqwruUFQ/APXMLBYsqwR6IO1yqdO/Jv0YXFxLXWAjenL5zBwyINtSpve61Y/bPQ=="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "name": "Expert",
+     "points": 30,
+     "softSeconds": 120,
+     "maxPoints": 150,
+     "challenges": [
+      {
+       "id": "ccn-e1",
+       "type": "text",
+       "kind": "text",
+       "title": "OSPF cost",
+       "prompt": "With auto-cost reference-bandwidth 10000 (Mbps), what OSPF cost does a 1 Gbps interface get?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "32c1b3f5e949dd3775d6d5595fd63f09",
+       "verifiers": [
+        "74f7585a20c4b1f44437b03cc7da45f5dd3d17a12556162ae651a9d34f53efe2"
+       ],
+       "exp": [
+        {
+         "iv": "1e85FSWMLQ4fBaG6",
+         "ct": "Cc5AiYJLvlk679r2EftxZWqdl+/4iUlp+yH1JXqGOF1JBfKhBFi3/FioXB3W4Pc7oU5596cVWw/d4wkb0RJvR0YYO20cRb+nb3SOzb2OApoTRu4ZkAWUId+TxHNCsG9loclTgPKGoK1DcJTduT3GsFYkCzZmI9/ldM2MxGGwbvpoEns4krPJyrAxbCwcAznVOFUlnKuANQT44xIT4IkUKElNOw5cVekfZcd1dcng3mdK32GCPC/jJZsme3OFV283WsDVHrvPaKi0M8mEVh0UkRLqD5NaDKUaJPI="
+        }
+       ]
+      },
+      {
+       "id": "ccn-e2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Placing a standard ACL",
+       "prompt": "Where should a standard IPv4 ACL usually be placed?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "On every interface",
+        "Only on the core switch",
+        "As close to the source as possible",
+        "As close to the destination as possible"
+       ],
+       "salt": "6c904b77418f2d45ccf033c0f311e12b",
+       "verifiers": [
+        "abc320fa208ecb4bb275b773c5ce4c5c80336f47c38b03ad660d5dd8729673a6"
+       ],
+       "exp": [
+        {
+         "iv": "hMa0FziQGDFQK7BQ",
+         "ct": "yl2UwdrOuBsyGbwuofRdwrov1TYZoBVVU5U5r43Sj6Az6iT0LtBfaDZFZrbXEOi8O6CFE4tkzxsyCp1F6HhhpJ+30LVkTb05dGCAskl4NQB7o6nOznQJ+8+xk3TRGcIeT0yFLbCTv47x9v5zKkPEiQetKgi2HEngovMAfeKwZW4YwrhKb0o7xUn85WZ3z2k2Ew9BGPjIbtlUcve6weBSG6JOgGhVt41mAg=="
+        }
+       ]
+      },
+      {
+       "id": "ccn-e3",
+       "type": "text",
+       "kind": "text",
+       "title": "HSRP default",
+       "prompt": "What is the default HSRP priority on a Cisco router? Type a number.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "f1c751cf790cae551c69a6a9cc0865d3",
+       "verifiers": [
+        "98788cb20f8724e612f0326b797bea6dc45b51426a4211f0e083eb1f7ecdd767"
+       ],
+       "exp": [
+        {
+         "iv": "WHv6/KUFgwB+3Gun",
+         "ct": "TO2KSojLRQc4uoRhZNw4R3DtuUDkz/4kZrLNkWlPSw5nYhsfbDsO7UOgBFan0qfJhOZs5crm8iUBFNTAHfZHh9nQcrkXeTPZbBNzKj7IwzpmrF7LHY1+zDXAemqig0OFp9CyuZpU+J8JEEcLoH99UySsbyrtEbu6hxcw2Jib+mZJkzVcF49mTmcEo5n/owphLM1dmXCX"
+        }
+       ]
+      },
+      {
+       "id": "ccn-e4",
+       "type": "mcq",
+       "kind": "command",
+       "title": "Walk the ACL",
+       "prompt": "A packet from 172.16.1.1 to 10.0.0.5 on TCP port 80 hits ACL 110. What happens?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "code": "access-list 110 deny   tcp any host 10.0.0.5 eq 23\naccess-list 110 permit tcp 192.168.1.0 0.0.0.255 any eq 80\n! applied inbound on the interface facing the branch",
+       "options": [
+        "Permitted because no line matched",
+        "Permitted by line 2",
+        "Denied by line 1",
+        "Denied by the implicit deny at the end"
+       ],
+       "salt": "9e2fe9932ca943fa551bc2f7d9ae7ffa",
+       "verifiers": [
+        "a4e60dde7a3395bc2fcf6f87ae068b39229ffc38b99f842bb3d45759b4bf344b"
+       ],
+       "exp": [
+        {
+         "iv": "UiwsGeKiMySZwf3D",
+         "ct": "dgDP7trS3lAQ8DkFjcHK0lQzx861tW/Do5qykmYSRA86RYO9EKT84OKEiKMuCEKhWN8qlUwetd1YXeIpygGKuoJ+QiuRlLG+9URwWnWm6G/hh76ol7vAWaa1yIGBBglHYoKVf6BtYUvN6DgMuR0yM9DGzDzfhBhsOGgZr7Gn0hPMhsiYL1v51xOxzyfXR8sjlGKTuIDfqleiNf/+PJ438oEme8EAtUQtWr2yXxTV5Zp33kdQ/0dgS3kt3QDaZwcZ7bc="
+        }
+       ]
+      },
+      {
+       "id": "ccn-e5",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Port security strike",
+       "prompt": "A port has switchport port-security maximum 2 with the default violation mode. A third MAC address appears. What happens?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "The new MAC is quietly added",
+        "The port goes into err-disabled (shutdown)",
+        "The switch reboots",
+        "Only a log message is sent"
+       ],
+       "salt": "6e49fd591f529552fdec549ecaf3a5ef",
+       "verifiers": [
+        "10a5fe9bb1fcb60255943bda78f4ed58fca75f53edd71821f37bf89cc227c5de"
+       ],
+       "exp": [
+        {
+         "iv": "5AeQaNF+wFkc0fp5",
+         "ct": "E07pp0PFovVfowXg1RBs46Us/hcwKvEmJFYbN/PdjtFYL19Ou3tmdD45XjPwVHWREA0caFyvO76/g9upOQntEYfcV7+johLx+nannNfrhrjGqD0+WXiwW/dxOkCRd9rqg8CadTGwj/UaLSQpgw6AGrgfekw7wLREUgFA+KPRVAtfxF5USurZ8GwpqVg0sr6/RGlOtjJkeTeuvn4EgxuALiYHbqm92BZ9Bhw45Q=="
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cloud",
+   "name": "Cloud Computing",
+   "blurb": "Shared responsibility, IAM and VPCs",
+   "icon": "☁️",
+   "levels": [
+    {
+     "id": "beginner",
+     "name": "Beginner",
+     "points": 10,
+     "softSeconds": 45,
+     "maxPoints": 50,
+     "challenges": [
+      {
+       "id": "clo-b1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Service model",
+       "prompt": "Gmail, used through a browser, is an example of which cloud model?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "PaaS",
+        "SaaS",
+        "On-premises",
+        "IaaS"
+       ],
+       "salt": "3a96e17dac560ff28888ca419b6bd39d",
+       "verifiers": [
+        "96fb411f2348006e0b2bb72fada29e6d3f6ae061631d02582634ec852f16f719"
+       ],
+       "exp": [
+        {
+         "iv": "QmJmVQ3vnhhJdIj7",
+         "ct": "K+vyBSgoPmZvyfN/3c0DbhNE4rtqLSTZzkd03vE1JpDPsD9LoJjGHTcsx5NLj3k7gcsNg8yf1AFi4YI+enEJ4o2Z8ITXHHEXdlY+aZaDCxjQ6mbiqd7d4S6756asfi7tuCmv1EU8jmJv+fqNxpWKPOesNc5s1zUozHFKRKQHaJyFJ7Imw4LjoBYNOMkj0FV1oIeV0p8Tydy3ovTwLg=="
+        }
+       ]
+      },
+      {
+       "id": "clo-b2",
+       "type": "multi",
+       "kind": "multi",
+       "title": "Who patches?",
+       "prompt": "You rent a virtual machine (IaaS). Which of these are YOUR jobs as the customer? Select all that apply.",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 0,
+       "options": [
+        "Patching the guest operating system",
+        "Replacing failed server hardware",
+        "Setting firewall rules such as security groups",
+        "Protecting your data and access keys",
+        "Physical security of the data centre"
+       ],
+       "salt": "1e3273119f8c0039e1f874dfef9cff6b",
+       "verifiers": [
+        "57a6e977208ff30a3dd0e2929216fe6a318d5090d7ec7c97489f358efe4584f1"
+       ],
+       "exp": [
+        {
+         "iv": "tPzWKAXW/g202UiK",
+         "ct": "U8AYN5ocDDPkU7nJxfwmQqBKXGugiqGHMVRbmbP8BuJj2jRoxL+giKzVkopJM4nMY8wF/RQuUjNC+y3S8bxBAZ0+ULIFBofNspVibDP0Ws+Ty1sPmhWqy9WY727PW0efO333oKQAMm1Y6ZVTwWUt4Sy5jhYlgP93wbXo2HFA/WvLfGXvKB81How0MgQzuHpVLXdw0UsHyZ+fjm0b9wLA7eI8MkXCHxm+ouHKXKc8Vrgi617NJ+v6NHz5uty+d4KEBfvm37p/THs3pAmx5MfxOKywFAEvKBcdchx+G2pms5jIjjiPrTmcl+byKQ=="
+        }
+       ]
+      },
+      {
+       "id": "clo-b3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "What is S3?",
+       "prompt": "What kind of storage is Amazon S3?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Object storage",
+        "A CPU cache",
+        "A relational database",
+        "Block storage"
+       ],
+       "salt": "afae5c9249a822147b9c60175344ac4b",
+       "verifiers": [
+        "93b3c032392220ef8d294517fe97a4e716b0cdc7403c876e15edd8bdb0b052d2"
+       ],
+       "exp": [
+        {
+         "iv": "gvIVZp7TcEzgQN3o",
+         "ct": "uxZ0fK+P2Dv9PDd6Nxxd57PKxKZUA5MCsKM2mO389Z6gMhl7N6/VKE5QnfMCkBRXUTGP60yJftLCgSAi9mcRDqVx0o7i69XxVqb1MRR1u7WY5hHCdZQQct6z3rFR+WX1lBO06HzrXBEg4SeiX/DPOQr2m2cqhL3PU4JKmH/aXsWLFum35ifnJofkesMKPx+LDgwoVo1jzcHA2rcL2zayEAYkYbqP5g=="
+        }
+       ]
+      },
+      {
+       "id": "clo-b4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Regions and zones",
+       "prompt": "In AWS, what is an Availability Zone?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "One or more separate data centres inside a region",
+        "A country's internet backbone",
+        "A single server rack",
+        "A billing account"
+       ],
+       "salt": "ddf8489f4682134fa7cfe8d9d8ae50bd",
+       "verifiers": [
+        "92cd6ce61b38053941a37d3253016a7f98929b8e39f9baf1279c275986d754a0"
+       ],
+       "exp": [
+        {
+         "iv": "Z2DLKqzQn7EFX2uI",
+         "ct": "ZZAXmLGeR/eMVglky686ekqWUWVv8gCAuFK2zq5XqpE+xGPcdeMpzRTlJlRoLOTVKBxx0BBMR9LwAY/Vls41iLxG3nJcEal1UR8jE1dnkxC89+XSqdlyZmbYM2X01e6wpf8t0FY9pI9sMDXkMtUO8clLa2VnwmM4SLl91ALsuzJz4iT2Knhx3QtOJB/8fGh/vnbbSgnf/i4omcItJMrJErIn4Fq87RDNgfcrsOfAdwWfam7ovenmbA=="
+        }
+       ]
+      },
+      {
+       "id": "clo-b5",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Root account",
+       "prompt": "What is the best practice for the root (owner) account of a cloud subscription?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Share it with the whole team",
+        "Use it for all daily work",
+        "Turn on MFA and avoid using it for daily work",
+        "Delete it"
+       ],
+       "salt": "1e238db407f3ad5119fc08a1b815017e",
+       "verifiers": [
+        "ba4f815386bd873683f32e0f42211c724713b869524ebdd0eed235fc1dc9517a"
+       ],
+       "exp": [
+        {
+         "iv": "jXBIu/nI8LczzVPZ",
+         "ct": "OmUZ/dH+tPOjjlFmWx+1eF2LHXwuyyMphbqJ502xN6ZcpzxZj8PKD7CFCgVxbBYTT75wHT+B0mF0389B6canwzqK0quPv8Jel6ffg8YW1uLFdoywRAm37TbexR3GqiV8HFf/YHitRo1pmoR9edXHmeMzrW5713itFuHskKptAddwzKI2YVVCEHHOwN/97xhVYx6D6YgqpnpHb9ZTZSzxTAfkSNviTH3F4vY/NqllFnGx9S9dCjQ="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "intermediate",
+     "name": "Intermediate",
+     "points": 20,
+     "softSeconds": 75,
+     "maxPoints": 100,
+     "challenges": [
+      {
+       "id": "clo-i1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Least privilege",
+       "prompt": "What does the principle of least privilege mean?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Use the fewest passwords",
+        "Use the cheapest instance",
+        "Give everyone admin to avoid tickets",
+        "Give each user or service only the permissions it needs, nothing more"
+       ],
+       "salt": "61bd5508d71f710362c62e5e1918acba",
+       "verifiers": [
+        "e9002d0f66956cec82f14dd9ce724d5b1a5f3e061edbc161f98d5b3acba2c972"
+       ],
+       "exp": [
+        {
+         "iv": "VuV9bA6IStReUrFk",
+         "ct": "Crcq7Sd8aGqbj3alBQtW6CLbkIezcn74uJqNUXdeALd0DGhL96aP/2rR6ciS6B8fCpx5fHRibtjaKt3Ac/DSBnaZiAJXiz/3v6nrl8iIOs+lYwpwtasCsmvdwsVceMTbCtswtyDmPC/UHG4PINpclrMPyMXAIaQW85R+z8zqZRLGcysZgBHvxSb0BgA="
+        }
+       ]
+      },
+      {
+       "id": "clo-i2",
+       "type": "text",
+       "kind": "subnet",
+       "title": "Carve the VPC",
+       "prompt": "Your VPC is 10.0.0.0/16. How many /24 subnets can you carve out of it?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "7fd99aa8e4fa2ca43c54847134d328d1",
+       "verifiers": [
+        "0ef47b48dfc1f7944423b94f6b84a236e02937b907166b86b0cd91855119ca98"
+       ],
+       "exp": [
+        {
+         "iv": "yZ/2Mr5uDNBqoQ1F",
+         "ct": "w1TgWAoQ85wo7+aIjR8TSejgq6Kh/xthcKQdmXJa3bEGe2zPP61AxlfDZtIt5XxTCit+LWRrSMCu7nDINa+dpUOdCxqeEWZEqb6JwEHGttzP2J4="
+        }
+       ]
+      },
+      {
+       "id": "clo-i3",
+       "type": "text",
+       "kind": "log",
+       "title": "Read the policy",
+       "prompt": "Which single S3 action does this IAM policy allow? Type it exactly as written in the policy.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [{\n    \"Effect\": \"Allow\",\n    \"Action\": \"s3:GetObject\",\n    \"Resource\": \"arn:aws:s3:::cwm-reports/*\"\n  }]\n}",
+       "salt": "6316df2e691ace9927707801604c48ae",
+       "verifiers": [
+        "33318d575a9fd5e2513e93f988442866aa4d574a1cbaf4524b9338b199b6df68"
+       ],
+       "exp": [
+        {
+         "iv": "vX+KF/UMpjWipiR5",
+         "ct": "rbKX9zAFH9Z4qDC+shqazfe7cR+59//gbX35cHqL18k7WtTKPfiLmR8PGKOJrVjDA0XifwjDAtDOPPvjKPhTOEl10Cux/2zsi2euQCKm1TTPouALAyHqZnXkt6FtW0jZAVpMKT98y2UI9px9+weaWXtxR+rCFm54RwSRWYw5HYxzM1p3YlCcAocGvfMT1O4VE3EPON2WDf7siAVdCanZNQHPSidzMscO908vtiuDepZyv5tDfbRh71CuEeMo"
+        }
+       ]
+      },
+      {
+       "id": "clo-i4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Stateful or not",
+       "prompt": "In AWS, which statement about security groups and network ACLs is true?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Network ACLs are stateful; security groups are stateless",
+        "Both are stateless",
+        "Security groups are stateful; network ACLs are stateless",
+        "Both only filter IPv6"
+       ],
+       "salt": "a9e9b91f0f19f3bd6c3952be3282586a",
+       "verifiers": [
+        "1eb1679b1ed88c99b8888ea8fe26391cb535a6a09fac30bc06cb3932af66b813"
+       ],
+       "exp": [
+        {
+         "iv": "QLppRj5DVno0GMZ9",
+         "ct": "ojSZwmtssJhSYsuzOzQWtInFrNbngOQV6ABFMPPzuGdUn00hD/1FyCK1jjPRkEZxm90Ur0lgc4vYeDsLyzUprc/4me80lI0FvxwMVBvQ55jr1jlEgx4g26G3Yb9GnE8cCcw6pZvCliSbDH8P/dJPrjcPiW9wDRDNCa99zKr7i7WmnUIRskCsJs5UHbWqXKqCcMv6bqEzizIjG1vfe2O28CSCo+55Jg0fJgwRCACBcE4F0zgP"
+        }
+       ]
+      },
+      {
+       "id": "clo-i5",
+       "type": "text",
+       "kind": "text",
+       "title": "Reserved addresses",
+       "prompt": "How many IP addresses does AWS reserve in every VPC subnet? Type a number.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "8178f445dbcc40f4bcd59ba6e894523f",
+       "verifiers": [
+        "bf7e15b98d7e2782ca6f0ce1910559805500723e7e4220d37e8545a0d9b158fd"
+       ],
+       "exp": [
+        {
+         "iv": "wUzX2m5tskCol04j",
+         "ct": "iOB/LAEEu69Itr7lxn2O4oT4w2ZuURXBBAGbs8mwzL+0VWgDV0PvPzvSnW6mGbx4l2w0uqBowJr818GpI+0kV4/AXjK39i6gBpyljjSNse7ux3JrB0gGgYFJhNjAL8I3Yje93WyQ9XL/4HaCbNGMwNUvpLoIgAxVooWe5nD/XaZ1RxtcodA7/qw="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "name": "Expert",
+     "points": 30,
+     "softSeconds": 120,
+     "maxPoints": 150,
+     "challenges": [
+      {
+       "id": "clo-e1",
+       "type": "text",
+       "kind": "subnet",
+       "title": "Small subnet",
+       "prompt": "How many IP addresses can you actually assign to resources in an AWS subnet with a /28 block?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "ad814a8c172b1b903839e71771595f28",
+       "verifiers": [
+        "b45a8c562d63ab1c8b46beb95c524bd74d7c6657143d601d6c914b22cf93d1e1"
+       ],
+       "exp": [
+        {
+         "iv": "EK1eKvftvqw+xfTt",
+         "ct": "TjwnaDYKhq2O7UClLX+IwuXNhCUsFR/uucB/RbUbbFaswitHyE/XtNXMlcl0o/9Cq57zzZBfiJKb3RK1o/h8l6jFT4hsClouLXOBSr4w4sg+h7lyzzL8ouplmJKUC44WJCLnlSTzOkaNY4hNuKMQ93sVb26SYJ+78TXfrYTW"
+        }
+       ]
+      },
+      {
+       "id": "clo-e2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Allow vs deny",
+       "prompt": "One IAM policy allows s3:DeleteObject and another policy on the same user explicitly denies it. What happens?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "The explicit deny wins and the delete is blocked",
+        "AWS asks the user to choose",
+        "Both are ignored",
+        "The allow wins because it was added first"
+       ],
+       "salt": "bf0749b6f58d0262d48a1631741eff35",
+       "verifiers": [
+        "f9a545817e6d4585c9d497922f2433a1aea3101b95dcbe7e9dceafdc6963bf26"
+       ],
+       "exp": [
+        {
+         "iv": "gzsS2bHZnQJGGoon",
+         "ct": "keAK7sq05v6gQ10VCh0tgY/z1yq12JjqJqTlvzePubOGURm3ILL+ky10bTnyr69r5ZbJi/oQq19UDwit/nP4oN/dg2JVxvKIYhXEB/KEp6PyyLHiwrLg/Ovwblvu+BttqHhk0uRz6j7lWAKCM5swJRSSMkpCHWZUvo2D0S/69iDMHL0wKHvQo0eMdRe8+erIrA=="
+        }
+       ]
+      },
+      {
+       "id": "clo-e3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Star principal",
+       "prompt": "A bucket policy allows \"Principal\": \"*\" to perform s3:GetObject on the bucket's objects, and Block Public Access is off. What does that mean?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Objects are encrypted for everyone",
+        "Only the account owner can read",
+        "Anyone on the internet can download the objects",
+        "Only users with MFA can read"
+       ],
+       "salt": "001aef5e67751e25e2f6414c25d215db",
+       "verifiers": [
+        "550392862d57fea95e56e6429ac19b83cdc78f77c16e8f4f3d90d4bc5dbd2d9b"
+       ],
+       "exp": [
+        {
+         "iv": "elxlJRpo1iluQyvb",
+         "ct": "T6+C1W2wPAE/dEmgNMagl2Q5k1KWayJUR+QktK4DNpYhRCFBVRfxfby1FSbfMrEFJT168AAyt66OPGJFEkuO1QgsxH05udODn2J7tkdr/WD7SEsejoe1lvmmyrAK3ANOTh1OHIhU0GAr/jAvTUo2lky+vEM+Q0nPix/rVAEmZWQBgC+1CWmgCMidnZreZmRqII3BXFrhF98QUbEe/cMPOOESXQNQ6E5Ydz1CbgVmR32yLRYsg7/57h9dKG8L0UeZrQ=="
+        }
+       ]
+      },
+      {
+       "id": "clo-e4",
+       "type": "text",
+       "kind": "text",
+       "title": "Metadata address",
+       "prompt": "Which link-local IP address serves the EC2 instance metadata service? Defenders block it in SSRF filters.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "587d8b39a498cd4efde561b71abbd484",
+       "verifiers": [
+        "cf578e6687a0da67fea48bfcd832be574df0e282e40e30fb20353f7dacbc16b8"
+       ],
+       "exp": [
+        {
+         "iv": "lIBqnbUqbenjvs8s",
+         "ct": "RCHeALlNtT9Ym0b1hh/NmA+WB+mBT6flEyOFKBhwPrT0iExv2A2ephy/G+aKwgRy2vSspuZUX0O+/6VHEvfZoDIbG9tBaongUNel3FKeuu8dfE2sERfsY+GEWbWYFPN8/VKTTG31GNvRteVcW2TUYcCbiClFKAKhr/j5eIYJ5I23RenKExnJg5gEphhTvxxQngYcqGB+KLeLohb/GDaYFqE0XuwCRHwu/g+3+QKoYzWfWtINjw1HKsBzFicKhhmfhGg="
+        }
+       ]
+      },
+      {
+       "id": "clo-e5",
+       "type": "flag",
+       "kind": "log",
+       "title": "Blinding the watcher",
+       "prompt": "In these CloudTrail events (a lab scenario), an intruder logs in and then tries to switch off your audit trail. The flag is CWM{eventName of that action}.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "{\"eventTime\":\"2026-10-30T22:41:07Z\",\"eventName\":\"ConsoleLogin\",\"sourceIPAddress\":\"198.51.100.23\",\"responseElements\":{\"ConsoleLogin\":\"Failure\"}}\n{\"eventTime\":\"2026-10-30T22:41:55Z\",\"eventName\":\"ConsoleLogin\",\"sourceIPAddress\":\"198.51.100.23\",\"responseElements\":{\"ConsoleLogin\":\"Success\"}}\n{\"eventTime\":\"2026-10-30T22:43:12Z\",\"eventName\":\"ListBuckets\",\"sourceIPAddress\":\"198.51.100.23\"}\n{\"eventTime\":\"2026-10-30T22:44:30Z\",\"eventName\":\"StopLogging\",\"sourceIPAddress\":\"198.51.100.23\",\"requestParameters\":{\"name\":\"org-trail\"}}\n{\"eventTime\":\"2026-10-30T22:46:02Z\",\"eventName\":\"GetObject\",\"sourceIPAddress\":\"198.51.100.23\"}",
+       "salt": "2d8a159c0999193f9d99ec266e2ddf7a",
+       "verifiers": [
+        "b6ddbef24eefe33055fe2df15f1cf9f3b688c953e1668e01b947c92af5ce9108"
+       ],
+       "exp": [
+        {
+         "iv": "itMO1voAdYdeIXK4",
+         "ct": "Sl1F0YdvMKyQPFJAjeJ2vhyFdySpO9j2u9GxTRgMIBHwWPxfnrvNoA/d+Sk5R+/aEZ9p/pUdT6pl/IHzKrmzGGE/1FoxlGdBG9Wu5o4J4eom1RyLPfGzahPfnZEtUNQDCo7TxjzKUgoulMPq5eexTfCWo8d+MvdHxqhbvnBuiK48dDN64Uyk0hQp1JDFFzC9Xlrk0Y9GUrDPmTLQezs3geQkZz5VI62YYCIEroxlYHhu"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pentest",
+   "name": "Pentesting",
+   "blurb": "Ethical hacking basics, in a lab",
+   "icon": "🗝️",
+   "levels": [
+    {
+     "id": "beginner",
+     "name": "Beginner",
+     "points": 10,
+     "softSeconds": 45,
+     "maxPoints": 50,
+     "challenges": [
+      {
+       "id": "pen-b1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Step zero",
+       "prompt": "What must you have before starting any penetration test?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "A VPN",
+        "A fast laptop",
+        "A list of passwords",
+        "Written permission and an agreed scope from the system owner"
+       ],
+       "salt": "d27d1ef33efc051f2711a485eb5c9390",
+       "verifiers": [
+        "5015a4a9abb462f32fd8d599c1964f18fb6f271b2c31065487f87dec333ba3e0"
+       ],
+       "exp": [
+        {
+         "iv": "gn6RoocBHiCwzXt3",
+         "ct": "af3Z8UxlYycc+0bK/AtH6Sx/jxainWHQofJOard4EwS57YR6G6AjI+/caIlgZss29+MP+Pn9Lly/ag5CHV9jOoWF7ibfwyDg5p3bafTx7gJuVI9f5gCC45+MFlz3+gUWG1DmgAV9uc3awxfZ8FPz2y5BonzDNiisTrxs+KhVwnjAPCRMy9abs9aFuEQ1gVHiBjP8k7qHeEBDvAmNYEUNhAD6qEfcKWvhxYUuONCn/aC3/8LkFPseeE82"
+        }
+       ]
+      },
+      {
+       "id": "pen-b2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Nmap flag",
+       "prompt": "What does nmap -sV add to a scan?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Detects service names and versions on open ports",
+        "Scans very slowly",
+        "Saves output to a file",
+        "Scans only UDP"
+       ],
+       "salt": "5ddaf4d2253626ac44adb3a02bea6a86",
+       "verifiers": [
+        "938cd674881dbfa1ba3f7386bc99154bdc5cc06a6e8409a88e7c07877dc37ac2"
+       ],
+       "exp": [
+        {
+         "iv": "FqRiF+rtrJFpHUvI",
+         "ct": "7tcpf1/B3aagQQ4tiHH8DR/4r+KcXcYyh1s2xbab/CU6qcavJDd8LUUG//9RRzpXKgqsvTMsyn+0NftAIQ/Alrz+thWITpPfmPLIv2/RszKqLt1P/6a0nzodhhK4mhSLIbnZPF377aPlw46P6239zQd4EFh3XKC3KRigZzscOTt+WRHaGNXZ"
+        }
+       ]
+      },
+      {
+       "id": "pen-b3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Port 22",
+       "prompt": "Which service normally runs on TCP port 22?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "SSH",
+        "SMTP",
+        "FTP",
+        "Telnet"
+       ],
+       "salt": "16a1434e3a4acad5a0f31214060448a9",
+       "verifiers": [
+        "ed33b9057bef692409f63c37cad48c9ec849578789a95e0464ed1565230c372a"
+       ],
+       "exp": [
+        {
+         "iv": "GZx+2UaL20IdM6Lz",
+         "ct": "+j049IFsMAvKfeu68PO69a7DA05BOnoeeMfs7C//Qe/4J8gYPXaYVryDUxFVwKMlzlWyJbKNMUpMFbpnH/FEDM47LndHHHZN01J/Hcis0DBRcQpXG1wB4cWbwPk="
+        }
+       ]
+      },
+      {
+       "id": "pen-b4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "What is SQLi?",
+       "prompt": "What is SQL injection?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "A virus that infects databases",
+        "User input that changes the meaning of a database query",
+        "Encrypting a database",
+        "A way to speed up queries"
+       ],
+       "salt": "81599adc3d1351be1bc4b545f3956ca9",
+       "verifiers": [
+        "94f7587905403cc2a8cd265400bd1617cb45dbc6856440245c77219832ef2f37"
+       ],
+       "exp": [
+        {
+         "iv": "ygLPciRjHl76mlxO",
+         "ct": "OsBUW0vqG1qpZqpgmh5GjxcmjjGHAFD+hrhTevnH5YlqWS6w/CKvJ7d0G2FeNC7OR0HkubYIgRdlsfEOjSY8Qp8XMlvhyDYG5y5pPvt2owM+39HjgqUBbuBaDqrPRsq8r/Z88l2y2jgpxNsi6BuAmPNFa6puZ5WTvzPcHpnNH5dnZfm1/1yQicxloJEGlekcXrkbbaY/4Jz5didkHJ8nzLIMuYZZdg+/2u8z7laFyeI3Wm7q6sroyb/+QRXLE2VjK8PqAehRR7favdFBIWk="
+        }
+       ]
+      },
+      {
+       "id": "pen-b5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Look at the source",
+       "prompt": "While testing your own practice web app, you view the page source and find this comment. Decode it.",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "<!-- TODO remove before launch: Q1dNe3ZpZXdfc291cmNlX2ZpcnN0fQ== -->",
+       "dynamic": true,
+       "salt": "df3bfc67937a1b5c99eb6b5fa2ee6479",
+       "verifiers": [
+        "de1ba15e10fde52ea426e097ba87c0acef62757fcb440d6ba4c17985ed87d7eb"
+       ],
+       "exp": [
+        {
+         "iv": "lvlGNmTUijw4nGOR",
+         "ct": "HFu37YOCa+5uk8UmnqvSEHLNGELgJE1QD04tOVQWgoY7xkA4jZa5sMCNxJkUPqgjwvLr86eBf9GAt0dZMl5frg3WXBMA80M0e7lQUFEjNolWPrzZTMwWevu4hXjPg/SjGYy9t8lSPQNaUWe0hpIHJi6wa35sho/0cJdm4b+/rTGZMZCWIO8OCMmj4jI11jJFvY/0/jCAjnBQhOlK4rHQBu0VkcAU1t2hP79yCJ3nHQ6s"
+        }
+       ],
+       "hints": [
+        "Strings ending in = are often base64."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "intermediate",
+     "name": "Intermediate",
+     "points": 20,
+     "softSeconds": 75,
+     "maxPoints": 100,
+     "challenges": [
+      {
+       "id": "pen-i1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Classic payload",
+       "prompt": "Why does entering ' OR '1'='1 into a vulnerable login form often log you in?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "It crashes the server",
+        "It guesses the admin password",
+        "It makes the WHERE condition always true",
+        "It decrypts the password table"
+       ],
+       "salt": "3431c63824c8a9c05175371b2bf812a9",
+       "verifiers": [
+        "dd85c166d76f68ba535aeb73ca9a4bb71cfec8229fa182716f20424bdb855dca"
+       ],
+       "exp": [
+        {
+         "iv": "KC1lG7NeT6mpr2Z/",
+         "ct": "M2MexSZg9Z3ZMbQxsw3I1XD//B38oTYokehjF4nXbR90JohED+Hfp9sg3q7V4US1hzBA/R8JsQrGE5fVcv4T5x0HmqXog1j8y8SekFISlNjRVEgWUIWCLJ6cMp8tw46p9V8Xbj0CBjDZDEdpxQFv8251IVz31bTm8zv1wTnGXgipQPkT7zlA4/waZnsv8mPnynqCazswZGd5lkfySy5dDu4Wecq9e0aId+N74Q=="
+        }
+       ]
+      },
+      {
+       "id": "pen-i2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "XSS shield",
+       "prompt": "Which HTTP response header is the main defence-in-depth control against cross-site scripting?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Strict-Transport-Security",
+        "X-Frame-Options",
+        "Cache-Control",
+        "Content-Security-Policy"
+       ],
+       "salt": "037e3b428546af22381ef1c9ac91ebe0",
+       "verifiers": [
+        "aacb50483650b5a0ef20ca0771c8599747cf5c5f1f2c34301d948e0c4dd05183"
+       ],
+       "exp": [
+        {
+         "iv": "uY6a3t20gmhA7HTE",
+         "ct": "DdaNVBzpy7yfu+gFi51jX0jDlfeG9jNXDjB6aOToPr0IxUvd2IAWCy/eTk79cLFxJdNA5Nso2JKhaSKkNS9TWLcwiKZQ447S8YKXg+pORQNXwlFnvNl3xUr4dZa2CA5HUHy+lqa7wxZ+C4J16Va+Obgmp3uK/VXSKEBjc2WcfsogKPCW30Je6Bg2kfNI+xHgdptrHLjQpbJ1A2i+l/Bx4ACa9XA8GsUt2SbthEzI71O3OGYGe7+Xr2WQwLLbc9rvmtnmYp0NlAj38Ggx"
+        }
+       ]
+      },
+      {
+       "id": "pen-i3",
+       "type": "text",
+       "kind": "log",
+       "title": "Count open ports",
+       "prompt": "This is a scan of your own lab VM. How many ports are open?",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "Nmap scan report for 192.168.56.101\nPORT     STATE    SERVICE  VERSION\n21/tcp   open     ftp      vsftpd 3.0.5\n22/tcp   open     ssh      OpenSSH 8.9p1\n23/tcp   closed   telnet\n80/tcp   open     http     Apache httpd 2.4.52\n139/tcp  filtered netbios-ssn\n443/tcp  closed   https\n3306/tcp open     mysql    MySQL 8.0.36",
+       "salt": "4784449b65b50fe6d062af1220d5b241",
+       "verifiers": [
+        "1d6549c7a34ab8f5a402e36e261c407cd0f4c371d0a046c4560914019506c62e"
+       ],
+       "exp": [
+        {
+         "iv": "Uy+KEOGn0qPyJ2rS",
+         "ct": "MuAk/DR5+6WTAQkylu2+xr6dLWguh7/QL7A63Vzfo8WkA+3WaM5J8k3W7vKtRSFdQHH5sulhjOFs6czwV2lwX3T+v8pzYQ0SsoGaKkWsb5lz9sNlIEGTGuD4ibAbzWOz82PcBbVDuRG6KBaeo5cZ21VAIo/4DjkDjJMgJkde3dLVHqKc9lbhVYkHIKtpaIkc1CKiRPdDDvU1HZxQjBOVaBBl4OY7a1+TNgkLP35GmxsPR2gjj5fcSI4="
+        }
+       ]
+      },
+      {
+       "id": "pen-i4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Name that hash",
+       "prompt": "A leaked database stores 5f4dcc3b5aa765d61d8327deb882cf99 for a password. 32 hex characters and no salt. What is the most likely algorithm?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "MD5",
+        "SHA-256",
+        "SHA-1",
+        "bcrypt"
+       ],
+       "salt": "b9927073ff23e30f75173835bfd3bc3c",
+       "verifiers": [
+        "e726ca7915c9ff4c93e35d16301a7e5ccde38ecdb7822fc4f9ae35791acfb1e0"
+       ],
+       "exp": [
+        {
+         "iv": "rOWjlrsj9epWOQl9",
+         "ct": "sF4DC6kiIVxfWfHJyWqrKd552ke/QRi+VX3PY11C7TEda4oZQPGWZ7PbH9vl8fkR1iHbiH111HRjYzEDs4FaWrnZamFucj2gZKQRryvG1yqWuI/Woj3GRl40cWV/LPxzsOF06e2J+CxDvPO/GOrs8Ubr4QGTa3wnfsUg5RANMnWv9gyu2X2ju4i9zMlInxYfYh5ZP6wporTqu9DmV2JBnDYplYZv/ayKdYzoW91mhLkBEKMZ2II7XinxBKe/"
+        }
+       ]
+      },
+      {
+       "id": "pen-i5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Peek inside the token",
+       "prompt": "Your practice app gave you this JWT. Find the flag inside it.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZ3Vlc3QiLCJyb2xlIjoidXNlciIsImZsYWciOiJDV017and0X3BheWxvYWRfaXNfcmVhZGFibGV9In0.dGhpcy1pcy1hLWxhYi1zaWduYXR1cmU",
+       "dynamic": true,
+       "salt": "f08102c5f3eb382eeb73d8ec572ceb29",
+       "verifiers": [
+        "4dd4a763bca29554cfd9cb3f3d1cea99a8d0c7ca0089bf7e5fb7f9d9c6ee1432"
+       ],
+       "exp": [
+        {
+         "iv": "hwXqTeGul0JCcSGH",
+         "ct": "1TmFb5M8AY16ryenSs58rRgACyF6MBwatcpx3XpelglEhTH3XwXcJY/+7hsoelHYJ4AjntjyDFiD8EunLD7YofSROAhFyJq/BEGhlmwT+UixKzEAqJLHDkt2P+6CTAihz5mtKi6zurrTE51ucc7bE2EEv3Lx0/xce6ZV6t3P9qvuRVl3KjgP4sUkIoxf/kIupdRtN6JtlCel"
+        }
+       ],
+       "hints": [
+        "Split on the dots and base64url-decode the middle part."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "name": "Expert",
+     "points": 30,
+     "softSeconds": 120,
+     "maxPoints": 150,
+     "challenges": [
+      {
+       "id": "pen-e1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "alg: none",
+       "prompt": "A server accepts JWTs whose header says \"alg\": \"none\". What is the risk?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Nothing, it is safe",
+        "Tokens expire too fast",
+        "Tokens become too large",
+        "Anyone can forge tokens because the signature is never checked"
+       ],
+       "salt": "b0f512b51307c61891e3ba2365bd6cf0",
+       "verifiers": [
+        "4211c48548a0525c6cde0da66c34d48b16bf3f11787b042ef5c58c63cad6d8ae"
+       ],
+       "exp": [
+        {
+         "iv": "yxwm5A1bfnreRrwV",
+         "ct": "ziafyBmnmtjcFQlUeGLEy63QUjZzWQB+51dbsLDWNloIWaU3UmQfoDuc+VHjC9e9O/N2B2+SJU3S6ec+5hV5qrC8WqicSabZEUNOey5ZOmB2YHOgLfimSDfbsOWPzYq9e2qWGqIzil2Xi12zIAnDsxoVD8kJUQrl3NosC5udsXA1iSsG+Buth9zf/k34mCjvCRoo+Db/2il7WN0GoWHpMqmN7Xar6hrgYSsHHTHw3ARuKkqMDu+xYu+w0GJtYtLTwQYppScBoQ=="
+        }
+       ]
+      },
+      {
+       "id": "pen-e2",
+       "type": "mcq",
+       "kind": "code",
+       "title": "Review the code",
+       "prompt": "What is the main vulnerability in this code?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "code": "# Flask lab app (do not deploy)\n@app.route(\"/ping\")\ndef ping():\n    ip = request.args.get(\"ip\")\n    return os.popen(\"ping -c 1 \" + ip).read()",
+       "options": [
+        "Cross-site request forgery",
+        "OS command injection",
+        "SQL injection",
+        "Open redirect"
+       ],
+       "salt": "ca145412edc1c9e42bcfec1277382593",
+       "verifiers": [
+        "c2cf8e0ba7564e5b66bb36fa4cc33832877ba879ec0403b4a8103db18ec26edc"
+       ],
+       "exp": [
+        {
+         "iv": "625jxqU+QgvyqqW+",
+         "ct": "5ZI/d7B4rlM8kZpcFvz36Z06ul4ASOlbdBc7a16df7rtKUXFp+/ZM+hdEhgVPyutqn+J4GoKbNIyaHDPEC/QxVKDvYZPgx3DzVAkcK6yERj0yWhmk4L9raWRUh9LyNkJd5rnDtY69n8XQMNMHuDe/wWE7LD7RixZM7HyVaIKDn4cD/x/GOWvYRBlMNpfASEb63pTImlvfZofKpEMj3/EfZGklia84o7nyrLp2gPu6NuzprsEA+0Ghgpwr7iDaWaaL4HZJZoHf8FKOmj2N0rIU7tcs8U="
+        }
+       ]
+      },
+      {
+       "id": "pen-e3",
+       "type": "text",
+       "kind": "text",
+       "title": "Hashcat mode",
+       "prompt": "Which hashcat mode number (-m) cracks NTLM hashes in your authorised password audit?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "0f7645955d7356f413385cca3a4eb20b",
+       "verifiers": [
+        "b4a1bcc2f790e5893d1e13d5f2573f742bc9975015b19dce6e0847831c16355b",
+        "e7cf78ceee8a499fc7264b70c8c19e213dbff13361709e25afbfeea6af4fdfe3"
+       ],
+       "exp": [
+        {
+         "iv": "6UCChYeselqURGIC",
+         "ct": "JCw+F8G2Vg+tXzhHC7NQKwgLk8wVzEvlGle2WBsA9zqKhroml/KPpkhFiLEv3ESAv634Prmy/cc7UAhZwpTGYowr1rzZoJ/MkQynxVKwKMDBNEeg9FKpUJc6LnUEH3rUxdih8ntJxPAwpx/oY00NEFAqxSdfxGGZDYpdIQhpIu6zRRGzJ78S7j3ShdYh9x9o"
+        },
+        {
+         "iv": "jY4cYy1opPCcnVCK",
+         "ct": "ajODY7PRcyEyLzsJCfOyXcc0eeG+9xVstq9DwWXL5VGcrCwzzyFpR/v4Tfs31M/uSArqSN0Rmrp++vPyCgw4hWHpWLnIFmjHU6mNrdCreqp9Pe0yogHBqfOZMOw4sB4wy/SdCKQXF8M90GpHI+42kBeqA0hdnx7oCO/WT9lh1gKcehsr6dSssx0AvVfUMleV"
+        }
+       ]
+      },
+      {
+       "id": "pen-e4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Severity band",
+       "prompt": "A vulnerability has a CVSS v3.1 base score of 9.8. Which severity rating is that?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Low",
+        "High",
+        "Critical",
+        "Medium"
+       ],
+       "salt": "0822df9f82399679a4bb520d98968e34",
+       "verifiers": [
+        "2d328be283efb2e0dfc4691cac95f98e619b730f99bc93f5762c05fa9a3e0ac4"
+       ],
+       "exp": [
+        {
+         "iv": "/h1IzX+6LFc2+D1L",
+         "ct": "TNxk+hdPYFYp3c4IeZPJzmVpnCCvcDf8QkPTFk+2nbjdX0VRakYS8C0qM/PDA0dnoxSTDrKYOko1aFaIp/wod0yarABtGOr4pAzhgIiLfXa4BPnmtZ4WD5wOZwNIBzmbo8vpgL1KXfru8A=="
+        }
+       ]
+      },
+      {
+       "id": "pen-e5",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Single-byte XOR",
+       "prompt": "This hex was XORed with one secret byte. You know every flag starts with CWM{. Recover the flag.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "190d1721223528052d332e32053134352d34052a363b33342e3f222e27",
+       "dynamic": true,
+       "salt": "d062be855d3e6dd28a9c3741458018e0",
+       "verifiers": [
+        "e180e7eb74476e19b8e00ee13cc7513c9187dcfd4ec25dc053994a713a2cbb2a"
+       ],
+       "exp": [
+        {
+         "iv": "x3GGm8Nrcwpl1gg8",
+         "ct": "QRtH5URdXYTqhJ811pS1JrjFiA2mzikJY0S3JRFG6K7E1aGq3sKS6M3/pjPzFRTPkr8XcUmjTOJYnUt2rjOozZueH9tE6EjvXH4TV/kwogR5pe2s5aV4Du7sKgyiD8GZCtgB5qCjIvSX6PksRhX6/rpszLB92+Hi49tJAeDC+OJArYKzBgqYWHS0itlqAkxmo/uLJIN9aZeGclgxZVmVvoT/h8f+dLm+T3MVXJaYS4dvvg=="
+        }
+       ],
+       "hints": [
+        "key = first byte XOR ord('C')."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "blueteam",
+   "name": "Blue Team",
+   "blurb": "Logs, alerts and incident response",
+   "icon": "🛡️",
+   "levels": [
+    {
+     "id": "beginner",
+     "name": "Beginner",
+     "points": 10,
+     "softSeconds": 45,
+     "maxPoints": 60,
+     "challenges": [
+      {
+       "id": "blu-b1",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "SIEM",
+       "prompt": "What does SIEM stand for?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "System Integrity and Encryption Module",
+        "Secure Internet Email Manager",
+        "Security Information and Event Management",
+        "Server Incident Escalation Matrix"
+       ],
+       "salt": "e78152c42656c671d80bfed7a136220f",
+       "verifiers": [
+        "17cd3f1062a478586892eb386a1256d4d8364e2a0cc5f042d4e610de87fe06fb"
+       ],
+       "exp": [
+        {
+         "iv": "AMurJeHXDTi0NyHo",
+         "ct": "6wBX+SeXOr2AYfIxFC2B1O2Evp7L+wopj/XENb0Gx7qrYs2M070DVVkFIZPYzDts1c1PjOCjkIifvm+gEW7SZJNMn/STFnQ6E564zT4yEHrHbtr3o0agFaLsuzh0ZfVIVxft9fgOStb3T/WsTUrBwIg6lYF057VnHaW59hJM"
+        }
+       ]
+      },
+      {
+       "id": "blu-b2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Event 4625",
+       "prompt": "In the Windows Security log, what does Event ID 4625 record?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "An account failed to log on",
+        "A successful logon",
+        "The audit log was cleared",
+        "A user logged off"
+       ],
+       "salt": "d76ef1538cdb74d7505f5b0b4c821bb2",
+       "verifiers": [
+        "818860f4d4e6ef74c4dff1ba00bf4c4f1db56409b4449e0b794f3fc1d002a7b7"
+       ],
+       "exp": [
+        {
+         "iv": "QGCnCme56XrgTlpA",
+         "ct": "rUjOmCKWrQR+gf7G2Q6ifQoERVGak64O+y7WAaA5FOsuTEDK01XYL8s37dWbGekNwApy9TlLbaOjfRwjqH3dCQtI1AGQsMyKr4JhYr0yCAcqGepFOAivnITJMjPwAOQFld38pnc5pyGZH/vzfGnBvUIgu/wvwvDAtd/tRYd2h3Eg"
+        }
+       ]
+      },
+      {
+       "id": "blu-b3",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Suspicious mail at work",
+       "prompt": "You get a suspicious email at work asking you to 'verify your salary account'. What should you do first?",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "Forward it to all colleagues as a warning",
+        "Reply and ask who sent it",
+        "Report it to the security team using the official process, without clicking anything",
+        "Click the link to check if it is real"
+       ],
+       "salt": "6a3f3d48f569c9dddabb4e6cc775b9fd",
+       "verifiers": [
+        "aedb2c514a06875bcd8f0f14df068bfd621f2ca1a32ad35ca18021fbcb248b4c"
+       ],
+       "exp": [
+        {
+         "iv": "JMhRrq03oRT7iG0N",
+         "ct": "4KZnimO8buGKNV/LTtgrSf/cKniiePhjiTBsg/m4oze6ibQ2PCuB4CHJ+gmhrkjBXo7cY8wHvWitcHAn/lS1HdO7AvM5idJhAnLKudnVDLP0+p8wgM0LReP0yBFdf0AJrBRhKGa82qbD5/txqEgJf2JAa8SY/S+3bQ=="
+        }
+       ]
+      },
+      {
+       "id": "blu-b4",
+       "type": "multi",
+       "kind": "multi",
+       "title": "Spot the IOCs",
+       "prompt": "Which of these are indicators of compromise (IOCs)? Select all that apply.",
+       "points": 10,
+       "maxAttempts": 1,
+       "hintCount": 0,
+       "options": [
+        "A domain that malware on your network keeps contacting",
+        "A software licence key",
+        "The hash of a known malware file found on a laptop",
+        "A strong password policy",
+        "An IP address listed in a threat report as a botnet server"
+       ],
+       "salt": "e72f1e8a6a30bfff579936ee89f52ac4",
+       "verifiers": [
+        "ebb9e0dfdfde041094fbedfd5a27ab282a1e611c7b99329eb778b8830696ddc8"
+       ],
+       "exp": [
+        {
+         "iv": "pWtX/kTvEAt7dVtO",
+         "ct": "v6tcsXJ2HE37nQmzcoEcMChSft6JRAjs3AlGu1UCGu870aYPCAdyNSC0jjniGjBBMR9X57GHj9FfJIoVwyzV3M69aBF6SLFxDWFvwIJJbzv2CU3iCFfNw/0+fqn/IPsO1UFQlRnmUp72DlzjV1R+hAC6PgrO6iULnCULf201XNeVGmvSxU5FBGqBL4m4gBD2bdmXengZ/LSzWoJLCBtCX4kYoi4FBOh+mBa5DZ+CLoeqWjgfJ6EMUhfpuDmuNzTsxWyT+5xgKsOfmTeq"
+        }
+       ]
+      },
+      {
+       "id": "blu-b5",
+       "type": "text",
+       "kind": "log",
+       "title": "How many sources?",
+       "prompt": "How many different source IPs had at least one FAIL in this log?",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "2026-11-01 08:01:12 FAIL user=priya src=203.0.113.10\n2026-11-01 08:01:15 FAIL user=priya src=203.0.113.10\n2026-11-01 08:02:40 FAIL user=rahul src=198.51.100.44\n2026-11-01 08:03:05 OK   user=priya src=192.168.1.15\n2026-11-01 08:03:30 FAIL user=admin src=203.0.113.10\n2026-11-01 08:04:11 FAIL user=admin src=192.0.2.99\n2026-11-01 08:05:00 FAIL user=rahul src=198.51.100.44",
+       "salt": "5c4d53a591fd7bb659b234a7d17c9d11",
+       "verifiers": [
+        "b0c7abc061a36a1774c197e39185718dfffce98bdbe7b3307ad045084e53664b"
+       ],
+       "exp": [
+        {
+         "iv": "cW4eWBt4kdk6sc0G",
+         "ct": "qQjaHWPRVZcDYJIkjznJdYOvnfLuPJLOI6myZeVyxhX6y+i2ABuu0SxChw1sjafSTBnZE4YbBIi/+plWR4HTJycT7OX5Q4y7y6tMB4Lzo8lLIwtESShNQA9wnuzf1Fmf5CO0Ap49+/weB6HpnveRNv8B+P43wyhdFge/jA=="
+        }
+       ]
+      },
+      {
+       "id": "blu-b6",
+       "type": "text",
+       "kind": "text",
+       "title": "Where to report",
+       "prompt": "Which Government of India website takes online cybercrime complaints? Type the domain.",
+       "points": 10,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "set": "India Scam Spotter",
+       "salt": "4d18a14341d471fbdaf762d560a1b968",
+       "verifiers": [
+        "5cb1faee90df0cbf737cfeda91b423d05f5a80a653c32b410dffa1deff81fb2a",
+        "0e46142e85a9398cf51587549215b26a211d2b0ab765cc8fedd8e4aa2f80c96f",
+        "da3d58602d36b4bb6b047ebb92b2b20e26f5a8d1b444e68d0bca98d85aaa9198",
+        "7e26a52400c3a17b14f1035ed08939bedd42796df3294422ee84b6a647271d8e",
+        "07b2e1a221a20a840f3af11758143baefe23b5ff88bcfb9ded9dbbbbb310e8a0"
+       ],
+       "exp": [
+        {
+         "iv": "M+uurCbtoItUI+zk",
+         "ct": "aYNWWnpKU/wLUVysW4fCTrLwrWzyMoAVwy+0/xKkUFpB4jF5gE6YzEcPBMN0icmG52LlcEyzQ9LQh82/eXxtEG7ipX8g11dURx/XEUV/ppAEdp1CAA6SKZk7SqrAZLITslMwjADRh8VasMDhzVBrVxtDi2Ba4HJy8lV58indvfpH0O0rRgptsRsi0CSOOZK+oagqFzgcnxf4"
+        },
+        {
+         "iv": "AFbnWwjAp1OaJYJg",
+         "ct": "WtWyXjrDNnUfqnaDoTXxZ9y7P1oNKHvJgKuZHnG8K3Ok6AJMQctdr787LvZf3LufURnjKECVigVfsVrCosZDl9mK4cxd5XFg9SzxKrl1F/7L0zVkjIZm44Fz+2PxS5m0LWx3eoXiykCCa0UqFVjsQ1m9Q3qz8DUIIXRNxZ8mtXfff2dDA6+DnCGSIQ6+KZA+f85wIljNoqzV"
+        },
+        {
+         "iv": "AQwtd5r6TzJFiWeA",
+         "ct": "8vQd70IxUy5QfmjsV+vKLpbHsE/MdNgutEAqaqrwjZAdP7oE740i1bYrc3AmejtinKhL6CH3jUhrnaRyQuXM1lskYInEOx+sVQs6ve1drK8gSt1rC783/lqqXbgCONkQ1RnkjS1bPmRT1P/m5qR4jLHtHgrWjlYnk8TeA4Zbrid0SYdIpff0Opq8RNIgHjsOsVZm7ZT34c/z"
+        },
+        {
+         "iv": "0Ej4negGt+rg5UN5",
+         "ct": "/O8ET9oJJn+OMmvv3jT4ty5goDKwXbzbalgM03YMAnl/NaEyz1+mm9bH2KEToTCNavmevggQC1d5IDDHl8yVBoypeQwHHjdaViWCJwRLDVxNiU4Z5ycTyWv7pEdICm0qdyqyFw1LFIrys9GOsuvqz1i44FtJu5InrGUKLQD51B6yPfx+Dul8HKs3mWt9VZWd/8aqJLWMxLO8"
+        },
+        {
+         "iv": "VZCsTK6f7Lh/1bAM",
+         "ct": "F9pVSeB4kxU9pQ+apLesUmn7Dx+G2lZhR31VpcQo31JZIED6+AJ5TZscYN9zMSFZ+SqkBNvtH+PhwDRuPkJTdZ7EerOuzavHaIWjYaSr5xTECVkGINF2DxcD+67BLXsgtdD3phPiU0t8aw3QM43nf1Z71tXh9WbfMlM3hxH45a67ArjwP5Uvkq0+CxVPMzOBsDhU7GOmOwrh"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "intermediate",
+     "name": "Intermediate",
+     "points": 20,
+     "softSeconds": 75,
+     "maxPoints": 120,
+     "challenges": [
+      {
+       "id": "blu-i1",
+       "type": "text",
+       "kind": "text",
+       "title": "Good login, logged",
+       "prompt": "Which Windows Security Event ID records a successful logon? Type a number.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "21d29340f9ae7d5ef046981c98feb19b",
+       "verifiers": [
+        "2c861dfb9d7bc1b80a5f9277477d28979a70fdeee167d20a0ad302b0f9f116ce"
+       ],
+       "exp": [
+        {
+         "iv": "wOGCk8XE0nyO1TDb",
+         "ct": "uskiWJZZxY3a5VGka9Ryft+2Gpe2F1ZwQNgDmXNgUXvMIxeXUCWpnVjL+rkhQ90YMUWExJuypetUa8AMW9VTByqu5Tmbyr1M/adDGZnoFuETaakiqXq1Y8ZcHmLT+kLqX2PS0yruLdR7w9IHtQWuprzy+2pgUnYiYPE+/f/0XP+nbw=="
+        }
+       ]
+      },
+      {
+       "id": "blu-i2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Logon type 10",
+       "prompt": "A 4624 event shows Logon Type 10. How did the user log on?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "A scheduled task (Batch)",
+        "At the keyboard (Interactive)",
+        "Over a file share (Network)",
+        "Remote Desktop (RemoteInteractive)"
+       ],
+       "salt": "9fd0345ca1ea4da471caf3f04e1cde47",
+       "verifiers": [
+        "95ba8dd3d344c4409eff431cf7fc94068011f9f6e337163bf038441208694f39"
+       ],
+       "exp": [
+        {
+         "iv": "x7OF025PXVgC4mK7",
+         "ct": "RVH9Qvcueknu+W9x2HqfoZZw2PxDe/HQFnTSa5Ln9FApUiSRl8ivGoGID+dx2nYUzMr/B80GC5V1Xyyvo5u2ds9RSyQ+nkqTwj4G7qBW7VKxaO7FJaGNqqWyXEmK/TOpB7lZ47sQ1YPTMELAr5g/Q35tLemWHLXW+kuK7k/+Tj7HM2HZNzVoBQ=="
+        }
+       ]
+      },
+      {
+       "id": "blu-i3",
+       "type": "text",
+       "kind": "log",
+       "title": "Who climbed the path?",
+       "prompt": "One client in this web access log tried a path traversal attack. Type its IP address.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "203.0.113.12 - - [01/Nov/2026:10:02:11 +0530] \"GET /index.html HTTP/1.1\" 200 5120\n198.51.100.9 - - [01/Nov/2026:10:02:40 +0530] \"GET /images/logo.png HTTP/1.1\" 200 2048\n192.0.2.77 - - [01/Nov/2026:10:03:02 +0530] \"GET /download?file=../../../../etc/passwd HTTP/1.1\" 200 1789\n203.0.113.12 - - [01/Nov/2026:10:03:15 +0530] \"POST /contact HTTP/1.1\" 201 64\n198.51.100.9 - - [01/Nov/2026:10:04:01 +0530] \"GET /about HTTP/1.1\" 200 3300",
+       "salt": "dc83774cf8d097680008790b9dd5429c",
+       "verifiers": [
+        "359a1970a506633899066d404ddcf2262487dc246e8416cfbd99212c1cd940c0"
+       ],
+       "exp": [
+        {
+         "iv": "sb1NwUnpfudt81fR",
+         "ct": "FDYStDn9El/Mx05B7Ahql/PNA4IuFOZiwQXbijwIky00IVWVqfVZUKRSel8JN63gx7of3gya5yxUCVesEcrcpHsW2q3bIt9gEIQ9ch77P7bq8CrcBsGQ5Nnm3UvAFgktn5/g7Edce5zipadI/o7CS8viTAd/xMT77EGyRRCJ/PtXGFdwEX9XXvt/f11hCarhZJCUlGaaX2wzGH4fV+no"
+        }
+       ]
+      },
+      {
+       "id": "blu-i4",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "ATT&CK lookup",
+       "prompt": "Which MITRE ATT&CK technique ID is Phishing?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "T1486",
+        "T1059",
+        "T1003",
+        "T1566"
+       ],
+       "salt": "5f14cd136d827711308b298ed1ef5cb5",
+       "verifiers": [
+        "e4fe19307d185e27b11d1f17b5acebb9453a58cf7ccee2eaecf0cbfe6d06c717"
+       ],
+       "exp": [
+        {
+         "iv": "q0AR3h4SuVJStYJz",
+         "ct": "GBBsIJZnV9+IVIuBxWLLZeOsN3bjBSpueDN026tSFz5D1FkM8Ng63SdO7I6iMKwAuyf4PC+O6TK4RjYN0EYdOqvuKzmsoYwOZJ516KRPd/nnmpOyMzipUaQ0w13Vc3G+ugFA0XBWqenIPtRKoad5itKyfG3JtZhatCfMzOHrIk03BxTTbo4o/gR3G3+0Sr1aya+qxgIHokkSS5h3mrPgzvI1t+YAOKygOvf3YqQhwZ7CeaqGSnlU"
+        }
+       ]
+      },
+      {
+       "id": "blu-i5",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Email allow-list",
+       "prompt": "Which email authentication check uses a DNS TXT record to list which servers may send mail for a domain?",
+       "points": 20,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "S/MIME",
+        "SPF",
+        "DKIM",
+        "DMARC"
+       ],
+       "salt": "64ba576f5165c2836d5109da866486a9",
+       "verifiers": [
+        "abcb40dc94e97e0f158d1ae557d5e85aba8f726df81e80a392e54c5cb241e6f8"
+       ],
+       "exp": [
+        {
+         "iv": "anj448QEOz0e5Eg3",
+         "ct": "L6G8oJqPHsEd9WU2RW10+9ipCFXK1i1+ueWcv/atKXYDDdHGBI2X6l6scX8TGW3gdpsL4rGreJ8SJ8mPiNC4kZZ8BdW91P+WveCyAq0x900E/CBUMvlzURmIoN0R7jiajvB0JH6+ZwhuiWvvsFmHoq9nVtUSLdaG3s7j8Le6NvwSisLJsyaUDnuRannOqDmW6qXv2wlBTlFsbkRTWJFEJ704Dji+OzYCdrCRakL814j28Bke3j0LXmt/Rq1+hmw="
+        }
+       ]
+      },
+      {
+       "id": "blu-i6",
+       "type": "text",
+       "kind": "log",
+       "title": "SMS triage",
+       "prompt": "A relative forwards you these five SMS. How many are likely scams? Type a number.",
+       "points": 20,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "set": "India Scam Spotter",
+       "code": "1) VM-HDFCBK: Rs 2,000 debited from a/c XX1234 on 01-Nov. Not you? Call the number on the back of your card.\n2) +91 9XXXX XXXXX: Your electricity connection will be cut tonight at 9:30 PM. Call our officer immediately on 9XXXX XXXXX.\n3) +91 7XXXX XXXXX: Income tax refund of Rs 15,490 approved. Click http://refund-claim.example to claim now.\n4) JD-AMAZON: Your order has shipped. Track it in the Amazon app.\n5) +91 8XXXX XXXXX: Your PAN is blocked and KYC is pending. Update at http://kyc-update.example within 2 hours.",
+       "salt": "16f6429adf20d7284f628322d9934354",
+       "verifiers": [
+        "de0d732cdb806883542ed7abc60dbbd9f796841945d62706d6535adc95f135e9"
+       ],
+       "exp": [
+        {
+         "iv": "HGzRdcGFmDFYj5lT",
+         "ct": "88i3Q/U9OIqwEGTZICzkn/k+eAsWWPf0vsUDDBbZYhNQfIyi9I/B/cfpX47t3CMa9lz1Ff7mdqNN4/QHVVCiGNxgXTlMxdvBvg7lFYvi38LxBlPY3/qe+6MH49NNYig9sNmPKe5xjm/OaDzvuLSN//8EzZTDYOZkcSslCA27nfcmwoBJKNovBVinoY0SJSBgFWL1DwxmPqFEONTQRPOB76cVD7FME54tH+l+fX8MUhJVWy/RL7IksIqlVmySvi7P6floC1iJJgrDC/yUDpHJ2NyCdt2roZbsnFDBfF72SM+cmnkdgGWiaE1kSQqhNGQSVxZvKawTbDJQ6CHuKbBysEU2EXAYWCw="
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "name": "Expert",
+     "points": 30,
+     "softSeconds": 120,
+     "maxPoints": 180,
+     "challenges": [
+      {
+       "id": "blu-e1",
+       "type": "text",
+       "kind": "text",
+       "title": "Log wiped",
+       "prompt": "Which Windows Security Event ID records that the audit log was cleared? Type a number.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "salt": "84914d139224e3eddd3ee1c817b28bb1",
+       "verifiers": [
+        "368b9f7ed023212f6c65f6a7b24415acdc7a46884d16ac6566d47bfc5ea0c262"
+       ],
+       "exp": [
+        {
+         "iv": "wKD7LF89PKZ8eDgG",
+         "ct": "Phnbha7NyvYYL0ieNCfkNeCDEdBPKkZ1ur+qH0jbpre708wpMQh7aC0I6mnMx9fXqGAQZXaWF+jLaoYA139FiFpht4BUpiZ1jayj/UKRYHdERY+8P77zY8bTNl8me6hPNNjt0ig2K1MCpnWwNugV6U3pdRThxVzF1cPJSMta9BJ/hmcQmDH03+QEg4CS6CWKTTBfEKiiDA=="
+        }
+       ]
+      },
+      {
+       "id": "blu-e2",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Sysmon event 1",
+       "prompt": "What does Sysmon Event ID 1 record?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "options": [
+        "File deleted",
+        "Network connection",
+        "Driver loaded",
+        "Process creation, with the full command line"
+       ],
+       "salt": "8a6a72e56941a44df2b5a6c70da2e3b4",
+       "verifiers": [
+        "ff09fa1f50c70be6212880ec561047d3e5b4f319208337695eda5f7dc9c2f92b"
+       ],
+       "exp": [
+        {
+         "iv": "ip2YbbabYz3AEBHH",
+         "ct": "uypYosTfLjp5bUNYAEbzfg8jfBTwUdRkfPvPN3QLDyHAH6QVEOL/xWbI76KtLawxuNPd2g0i4gk44lUTuGf+VWGefjrmLg9pZrjDxRHekiAl4b9+9PgOk2YfcKMEigujku+LaTtFM0c7If8QT1U2ywkITG+oi/odsnrd2UcTZImL/awxliK5AzDbiSGsJGEI4MSyeX/nffYHaBbz78hizpo="
+        }
+       ]
+      },
+      {
+       "id": "blu-e3",
+       "type": "flag",
+       "kind": "flag",
+       "title": "Encoded PowerShell",
+       "prompt": "An alert caught this command line on a lab machine. Decode the payload to find the flag.",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 1,
+       "code": "powershell.exe -NoProfile -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVwBNAHsAZABlAGMAbwBkAGUAXwBiAGUAZgBvAHIAZQBfAHkAbwB1AF8AagB1AGQAZwBlAH0AJwA=",
+       "dynamic": true,
+       "salt": "5e7aec497c257993c472e9d10722b5cb",
+       "verifiers": [
+        "42b29b71faea4c15085491abca1d4cfefd6be7c1bd0e2a25180667654a292d36"
+       ],
+       "exp": [
+        {
+         "iv": "J2oeAhsrY/Q1T8wB",
+         "ct": "EfMjUrNieiVxy6laDlDvHOn8k9iYoWIuhxoCLFjNnmJ0Zp3N6vWo14g1gbxMW3kdVAYfy+bI/UNA/S6ABifNK+ux2C/UFGX+ykHAHbRzvCXGLaTqsI7awfBLIBBL96VDx1MXtXjXXEFoTJ98sTELX4TR++D9+lLaCktUf9qfSqvp+Bq1eX/wxCb/EAY2ai8gTv+ZTH9OR/9sCZ22/jnndCQ70qL6nwjiV0bxmhy/e2FECxIECcYE8sPXPHvoEkz5cqRObVEtQlWTVVETRH3QfbEEWvPwcBkQ0HmE"
+        }
+       ],
+       "hints": [
+        "Base64, but the text inside is UTF-16LE, so expect a zero byte after each letter."
+       ]
+      },
+      {
+       "id": "blu-e4",
+       "type": "text",
+       "kind": "log",
+       "title": "Which account fell?",
+       "prompt": "These are Windows events from a password-spraying attempt. Which account did the attacker actually get into?",
+       "points": 30,
+       "maxAttempts": 5,
+       "hintCount": 0,
+       "code": "Time      EventID  Account   Source IP\n10:01:02  4625     anil      203.0.113.66\n10:01:03  4625     sneha     203.0.113.66\n10:01:04  4625     vikram    203.0.113.66\n10:01:05  4625     anil      203.0.113.66\n10:01:06  4625     sneha     203.0.113.66\n10:01:07  4624     vikram    203.0.113.66\n10:05:40  4624     sneha     10.0.5.21",
+       "salt": "7b41bcde0d5fa2bc205d2593b4eca34c",
+       "verifiers": [
+        "1caff5c85efbd35b65df101b22964bab29787af432a6bde87ea962d6e1f6098a"
+       ],
+       "exp": [
+        {
+         "iv": "qCe1GgsBr1egY1m6",
+         "ct": "EDBTG4Zsrvu3GtDLlkEpNkX6FgReBE/XADgS90FebVbikvdSimLniZ9AdlduLXfL1yJctUJc43faFNKycLafBTYmJ0uvCQWYzUxhWSXH/WDVyW9XfStM0zniGo8jykCKqBON7k2CJa7dk88ZwttUH9OEIPQofau+YX/JUYNMS40HNk/YFnlh31AnVYcIWjTtaPiKLZkDwTgHWBatpgs83KMU2a/58bKa3yWQHx1aoVNWLUhCySO289uCm6s64fbTz+AExZbhuYgmKrCwcBZNC/AzQdZbrWG5lh0A8mhMHIpfcYijhLxSSG661UbGdFo="
+        }
+       ]
+      },
+      {
+       "id": "blu-e5",
+       "type": "order",
+       "kind": "order",
+       "title": "Incident response order",
+       "prompt": "Put the NIST SP 800-61 Rev. 2 incident response life cycle phases in order.",
+       "points": 30,
+       "maxAttempts": 3,
+       "hintCount": 0,
+       "options": [
+        "Post-Incident Activity",
+        "Detection and Analysis",
+        "Containment, Eradication and Recovery",
+        "Preparation"
+       ],
+       "salt": "fb8a1bd7d57b5c652c00a738cc377eec",
+       "verifiers": [
+        "552077eac6e7d9476e41c293a835694ff3c76ec0f4fdcd85e0c986454e4d0143"
+       ],
+       "exp": [
+        {
+         "iv": "iHPmIwhCF+KRbwij",
+         "ct": "BFMyomA749nksj6fKkFHjDzI9NMLmDG0BhamBDmA3/xVkROlZif7TY3rtRKAcvfGOT/8MaCO6pG0FvDA4qzv4PrRA8vvelwEk39ZaKbTyMEpanWZULKkZH0xOp9rnDyFs3cZ47TWS6/WqZLHWrrR2Z/IRQeHGs63aLHHa915tjvjIEyBCgs9/QxBkHpOdQbDs0tWzM3tf2nWtM9uoyMgpjq8StY="
+        }
+       ]
+      },
+      {
+       "id": "blu-e6",
+       "type": "mcq",
+       "kind": "mcq",
+       "title": "Why call 1930 fast?",
+       "prompt": "Money was just stolen from you in a UPI scam. Why does reporting on 1930 within the first hours matter so much?",
+       "points": 30,
+       "maxAttempts": 1,
+       "hintCount": 1,
+       "set": "India Scam Spotter",
+       "options": [
+        "The scammer gets arrested automatically",
+        "Banks can put the money on hold before the scammers withdraw it or move it on",
+        "Reporting later is not allowed by law",
+        "Your UPI ID gets a new PIN"
+       ],
+       "salt": "5ad8404f1267a29161c6fafa300f63d3",
+       "verifiers": [
+        "23904192a108b8cc61756a73e9976824fe31ab6c96085b18b0700bfe59f541fb"
+       ],
+       "exp": [
+        {
+         "iv": "T4njExTcApeC+Pwl",
+         "ct": "zBBwdSgtgtabAL56PWSDDzVdUhjAmGEIfOHHlr7nPlQoKGgkNR5u3TneaTiBi7w4BK2KWzjUSx7J1WAi3ilrzSNNH5KPxsJCm965+xXgYtkCFMzHDOmqpF0t0W0MoPvxvLBvKeTHM9a0cmOek8YQ4eWChZks0XfqSWPqIB7URH7FPeB6EV478B/D2wGpvToAaUPQZeGZIWbdWCQHVchBhNjE5LMqXoPx754NmihoQYcCiMHQ2Kb+BPAZbiP9T9vJ17E9lc6OMKMZ/obdkVTTY64zVAmdimVPpq7j39JWv6ovaBBFTDt3GQ9Jefui/uSR54g3y3LNNBPZqORFkZo/A0h7"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

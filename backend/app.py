@@ -1,4 +1,4 @@
-"""CyberWithMadhav optional backend: newsletter signup + contact form.
+"""CyberWithMadhav optional backend: newsletter signup, contact form and the CTF API.
 
 Stores submissions in SQLite. Features: input validation, per-IP rate limiting,
 honeypot spam trap, CORS restricted to an allow-list (localhost by default),
@@ -88,6 +88,7 @@ _hits: dict[tuple[str, str], deque] = defaultdict(deque)
 _lock = threading.Lock()
 _last_sweep = 0.0
 MAX_BUCKETS = 10_000  # hard cap so a flood of spoofed IPs cannot grow memory without bound
+MAX_WINDOW = max(RATE_WINDOW, 3600)  # longest window any caller uses (the CTF uses up to 1 hour)
 
 
 def _sweep(now: float) -> None:
@@ -96,24 +97,30 @@ def _sweep(now: float) -> None:
     if now - _last_sweep < 60 and len(_hits) < MAX_BUCKETS:
         return
     _last_sweep = now
-    for k in [k for k, q in _hits.items() if not q or now - q[-1] > RATE_WINDOW]:
+    for k in [k for k, q in _hits.items() if not q or now - q[-1] > MAX_WINDOW]:
         del _hits[k]
     if len(_hits) >= MAX_BUCKETS:  # still full: drop the oldest half
         for k in sorted(_hits, key=lambda k: _hits[k][-1])[: len(_hits) // 2]:
             del _hits[k]
 
 
-def rate_limited(key: str) -> int:
-    """Return 0 if allowed, else the number of seconds until the next request is allowed."""
+def rate_limited(key: str, limit: int | None = None, window: int | None = None, who: str | None = None) -> int:
+    """Return 0 if allowed, else the number of seconds until the next request is allowed.
+
+    Buckets are per (who, key); `who` defaults to the client IP. `limit`/`window`
+    default to CWM_RATE_LIMIT / CWM_RATE_WINDOW.
+    """
+    limit = RATE_LIMIT if limit is None else limit
+    window = min(RATE_WINDOW if window is None else window, MAX_WINDOW)
     now = time.monotonic()
-    bucket_key = (request.remote_addr or "unknown", key)
+    bucket_key = (who or request.remote_addr or "unknown", key)
     with _lock:
         _sweep(now)
         q = _hits[bucket_key]
-        while q and now - q[0] > RATE_WINDOW:
+        while q and now - q[0] > window:
             q.popleft()
-        if len(q) >= RATE_LIMIT:
-            return max(1, int(RATE_WINDOW - (now - q[0])) + 1)
+        if len(q) >= limit:
+            return max(1, int(window - (now - q[0])) + 1)
         q.append(now)
         return 0
 
@@ -122,11 +129,13 @@ def rate_limited(key: str) -> int:
 @app.after_request
 def add_headers(resp):
     origin = (request.headers.get("Origin") or "").rstrip("/")
-    if origin in ALLOWED_ORIGINS:
+    allowed = CTF_ORIGINS if request.blueprint == "ctf" else ALLOWED_ORIGINS
+    if origin in allowed:
         resp.headers["Access-Control-Allow-Origin"] = origin
-        resp.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
-        resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+        resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
         resp.headers["Access-Control-Max-Age"] = "600"
+        resp.headers["Access-Control-Expose-Headers"] = "Retry-After"
         resp.headers["Vary"] = "Origin"
     resp.headers["X-Content-Type-Options"] = "nosniff"
     resp.headers["X-Frame-Options"] = "DENY"
@@ -257,6 +266,15 @@ def contact():
 
 
 init_db()
+
+# CTF API (backend/ctf.py). It shares the database, rate limiter and helpers above.
+try:
+    from ctf import CTF_ORIGINS, init_ctf  # noqa: E402  (run from backend/)
+except ImportError:  # imported as backend.app
+    from .ctf import CTF_ORIGINS, init_ctf  # noqa: E402
+
+init_ctf(app, get_db=get_db, rate_limited=rate_limited, error=error, too_many=too_many,
+         read_json=read_json, clean=clean, db_path=DB_PATH)
 
 if __name__ == "__main__":
     # Development server only. Use gunicorn (see README) in production.

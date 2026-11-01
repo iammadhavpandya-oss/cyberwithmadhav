@@ -622,3 +622,10 @@ section[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .ethics{border:1px solid #999}
   a{color:#000}
 }
+
+/* CTF nav link (all pages) */
+.nav-ctf{display:inline-flex;align-items:center;gap:7px;font-weight:600}
+#nav-links a.nav-ctf{color:var(--text)}
+.nav-ctf-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 color-mix(in srgb,var(--green) 60%,transparent);animation:ctfPing 2.2s infinite}
+@keyframes ctfPing{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--green) 55%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion:reduce){.nav-ctf-dot{animation:none}}

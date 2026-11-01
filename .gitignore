@@ -7,3 +7,8 @@ __pycache__/
 *.pyc
 tools/node_modules/
 .DS_Store
+
+# CTF plaintext answer key (never commit)
+backend/ctf_answers.private.json
+*.private.json
+backend/.flag_pepper

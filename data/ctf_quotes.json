@@ -1,0 +1,238 @@
+{
+ "meta": {
+  "created": "2026-11-01",
+  "notes": {
+   "bands": "low = 0-39% (encouragement after failure), mid = 40-74% (steady effort, discipline), high = 75-100% (humility, mastery, keep learning).",
+   "philosophers": "Every 'text' was checked word-for-word against the fetched public-domain source on 2026-11-01. Excerpts are cut at sentence/clause boundaries; Meditations 5.20 and Apology 21d/38a start mid-sentence with the first letter capitalised. Heraclitus DK numbers come from the standard Diels-Kranz/Bywater concordance (Burnet prints Bywater numbers only). Epictetus Discourses 1.15 locus is the standard chapter number; Long's Gutenberg 'Selection' prints the chapter by title ('What philosophy promises'). The MIT Enchiridion text is labelled 'Translated by Elizabeth Carter' but reads in modernised wording. meaning_hi is our own short Hindi gloss. translation_en is null because text is already English.",
+   "gita": "Sanskrit transliteration copied from holy-bhagavad-gita.org (Swami Mukundananda) verse pages, fetched 2026-11-01; for 2.38 and 3.8 only the key line is given. translation_en and meaning_hi are our own plain-language paraphrases checked against that site's translation, NOT quotes of it (its translation is copyrighted). 3.21 is shown on the site as a combined 3.20-21 page.",
+   "excluded_misattributions": [
+    "'We are what we repeatedly do; excellence, then, is not an act but a habit' (Will Durant, not Aristotle)",
+    "'The only true wisdom is in knowing you know nothing' (paraphrase; real Apology 21d wording used instead)",
+    "'The impediment to action advances action. What stands in the way becomes the way' (modern Hays translation, copyrighted; Long's 5.20 wording used)",
+    "'No man ever steps in the same river twice' (loose paraphrase of Heraclitus)",
+    "'Luck is what happens when preparation meets opportunity' (not found in Seneca)"
+   ]
+  },
+  "synced_from": "ctf_quotes.json"
+ },
+ "philosophers": [
+  {
+   "text": "The mind converts and changes every hindrance to its activity into an aid; and so that which is a hindrance is made a furtherance to an act; and that which is an obstacle on the road helps us on this road.",
+   "author_or_ref": "Marcus Aurelius, Meditations 5.20 (tr. George Long)",
+   "band": "low",
+   "translation_en": null,
+   "meaning_hi": "रास्ते की रुकावट ही आगे बढ़ने का ज़रिया बन सकती है, हर अड़चन से सीखो।",
+   "source": "https://www.gutenberg.org/ebooks/15877"
+  },
+  {
+   "text": "If a thing is difficult to be accomplished by thyself, do not think that it is impossible for man: but if anything is possible for man and conformable to his nature, think that this can be attained by thyself too.",
+   "author_or_ref": "Marcus Aurelius, Meditations 6.19 (tr. George Long)",
+   "band": "low",
+   "translation_en": null,
+   "meaning_hi": "जो तुम्हें अभी मुश्किल लगे, वो नामुमकिन नहीं; जो इंसान कर सकता है, वो तुम भी कर सकते हो।",
+   "source": "https://www.gutenberg.org/ebooks/15877"
+  },
+  {
+   "text": "There are more things, Lucilius, likely to frighten us than there are to crush us; we suffer more often in imagination than in reality.",
+   "author_or_ref": "Seneca, Moral Letters to Lucilius 13 (tr. Richard M. Gummere)",
+   "band": "low",
+   "translation_en": null,
+   "meaning_hi": "हम असलियत से ज़्यादा अपने डर की कल्पना से दुखी होते हैं, डर को हावी मत होने दो।",
+   "source": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_13"
+  },
+  {
+   "text": "Those who seek for gold dig up much earth and find a little.",
+   "author_or_ref": "Heraclitus, fr. DK 22 B22 (Bywater/Burnet fr. 8; tr. John Burnet, Early Greek Philosophy, 2nd ed. 1908)",
+   "band": "low",
+   "translation_en": null,
+   "meaning_hi": "सोना ढूँढने वाले बहुत मिट्टी खोदते हैं और थोड़ा पाते हैं, कम नतीजे पर भी खुदाई जारी रखो।",
+   "source": "https://www.gutenberg.org/ebooks/67097"
+  },
+  {
+   "text": "Nothing great, said Epictetus, is produced suddenly, since not even the grape or the fig is. If you say to me now that you want a fig, I will answer to you that it requires time: let it flower first, then put forth fruit, and then ripen.",
+   "author_or_ref": "Epictetus, Discourses 1.15 'What philosophy promises' (tr. George Long)",
+   "band": "mid",
+   "translation_en": null,
+   "meaning_hi": "कोई बड़ी चीज़ अचानक नहीं बनती; अंगूर या अंजीर की तरह हुनर को भी पकने में समय लगता है।",
+   "source": "https://www.gutenberg.org/ebooks/10661"
+  },
+  {
+   "text": "Men become builders by building and lyreplayers by playing the lyre; so too we become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts.",
+   "author_or_ref": "Aristotle, Nicomachean Ethics 2.1, 1103a-b (tr. W. D. Ross)",
+   "band": "mid",
+   "translation_en": null,
+   "meaning_hi": "इंसान बनाकर ही बिल्डर बनता है; हुनर रोज़ के अभ्यास से आता है।",
+   "source": "https://classics.mit.edu/Aristotle/nicomachaen.2.ii.html"
+  },
+  {
+   "text": "When a man does not know what harbour he is making for, no wind is the right wind.",
+   "author_or_ref": "Seneca, Moral Letters to Lucilius 71 (tr. Richard M. Gummere)",
+   "band": "mid",
+   "translation_en": null,
+   "meaning_hi": "जब मंज़िल ही तय नहीं, तो कोई हवा मदद नहीं करती, पहले लक्ष्य तय करो।",
+   "source": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_71"
+  },
+  {
+   "text": "If you do not expect the unexpected, you will not find it; for it is hard to be sought out and difficult.",
+   "author_or_ref": "Heraclitus, fr. DK 22 B18 (Bywater/Burnet fr. 7; tr. John Burnet, Early Greek Philosophy, 2nd ed. 1908)",
+   "band": "mid",
+   "translation_en": null,
+   "meaning_hi": "अनपेक्षित की उम्मीद नहीं करोगे तो उसे पाओगे नहीं, हटकर सोचो, गहराई से खोजो।",
+   "source": "https://www.gutenberg.org/ebooks/67097"
+  },
+  {
+   "text": "He knows nothing, and thinks that he knows; I neither know nor think that I know.",
+   "author_or_ref": "Socrates in Plato, Apology 21d (tr. Benjamin Jowett)",
+   "band": "high",
+   "translation_en": null,
+   "meaning_hi": "जो न जानते हुए भी खुद को ज्ञानी समझे, उससे बेहतर वह है जो अपनी सीमा जानता है, विनम्र रहो।",
+   "source": "https://www.gutenberg.org/ebooks/1656"
+  },
+  {
+   "text": "Daily to discourse about virtue, and of those other things about which you hear me examining myself and others, is the greatest good of man, and that the unexamined life is not worth living.",
+   "author_or_ref": "Socrates in Plato, Apology 38a (tr. Benjamin Jowett)",
+   "band": "high",
+   "translation_en": null,
+   "meaning_hi": "रोज़ खुद को परखना ही सबसे बड़ी भलाई है; बिना आत्म-परीक्षण की ज़िंदगी अधूरी है।",
+   "source": "https://www.gutenberg.org/ebooks/1656"
+  },
+  {
+   "text": "You should keep learning as long as you are ignorant, even to the end of your life, if there is anything in the proverb.",
+   "author_or_ref": "Seneca, Moral Letters to Lucilius 76 (tr. Richard M. Gummere)",
+   "band": "high",
+   "translation_en": null,
+   "meaning_hi": "जब तक कुछ नहीं जानते, सीखते रहो, ज़िंदगी भर सीखना ही असली महारत है।",
+   "source": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_76"
+  },
+  {
+   "text": "If you want to improve, be content to be thought foolish and stupid with regard to external things. Don't wish to be thought to know anything; and even if you appear to be somebody important to others, distrust yourself.",
+   "author_or_ref": "Epictetus, Enchiridion 13 (tr. Elizabeth Carter, MIT Internet Classics Archive text)",
+   "band": "high",
+   "translation_en": null,
+   "meaning_hi": "बेहतर बनना है तो 'सब जानता हूँ' का दिखावा छोड़ो; दूसरों की तारीफ़ पर भी खुद को परखते रहो।",
+   "source": "https://classics.mit.edu/Epictetus/epicench.html"
+  }
+ ],
+ "gita": [
+  {
+   "text": "klaibyaṁ mā sma gamaḥ pārtha naitat tvayyupapadyate / kṣhudraṁ hṛidaya-daurbalyaṁ tyaktvottiṣhṭha parantapa",
+   "author_or_ref": "Bhagavad Gita 2.3",
+   "band": "low",
+   "translation_en": "Don't give in to faint-heartedness, it doesn't suit you. Shake off this small weakness of heart and stand up.",
+   "meaning_hi": "कमज़ोरी के आगे मत झुको; दिल की छोटी-सी दुर्बलता छोड़कर उठ खड़े हो।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/2/verse/3/"
+  },
+  {
+   "text": "mātrā-sparśhās tu kaunteya śhītoṣhṇa-sukha-duḥkha-dāḥ / āgamāpāyino 'nityās tāns-titikṣhasva bhārata",
+   "author_or_ref": "Bhagavad Gita 2.14",
+   "band": "low",
+   "translation_en": "Pleasure and pain come and go like winter and summer. They don't last, so learn to bear them calmly.",
+   "meaning_hi": "सुख-दुख सर्दी-गर्मी की तरह आते-जाते हैं; ये स्थायी नहीं, इन्हें धैर्य से सहो।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/2/verse/14/"
+  },
+  {
+   "text": "sukha-duḥkhe same kṛitvā lābhālābhau jayājayau / tato yuddhāya yujyasva",
+   "author_or_ref": "Bhagavad Gita 2.38",
+   "band": "low",
+   "translation_en": "Treat happiness and distress, gain and loss, victory and defeat alike, and then get ready to do your duty.",
+   "meaning_hi": "जीत-हार, लाभ-हानि को एक समान मानकर अपने कर्तव्य में डटे रहो।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/2/verse/38/"
+  },
+  {
+   "text": "uddhared ātmanātmānaṁ nātmānam avasādayet / ātmaiva hyātmano bandhur ātmaiva ripur ātmanaḥ",
+   "author_or_ref": "Bhagavad Gita 6.5",
+   "band": "low",
+   "translation_en": "Lift yourself up by your own mind; don't drag yourself down. Your mind can be your best friend or your worst enemy.",
+   "meaning_hi": "खुद अपने आप को ऊपर उठाओ, गिराओ मत; मन ही तुम्हारा मित्र है और मन ही शत्रु।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/6/verse/5/"
+  },
+  {
+   "text": "pārtha naiveha nāmutra vināśhas tasya vidyate / na hi kalyāṇa-kṛit kaśhchid durgatiṁ tāta gachchhati",
+   "author_or_ref": "Bhagavad Gita 6.40",
+   "band": "low",
+   "translation_en": "One who walks a good path is never destroyed, in this world or the next. Whoever strives for good never comes to a bad end.",
+   "meaning_hi": "अच्छे रास्ते पर की गई कोशिश कभी बेकार नहीं जाती; अच्छा करने वाले की दुर्गति नहीं होती।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/6/verse/40/"
+  },
+  {
+   "text": "karmaṇy-evādhikāras te mā phaleṣhu kadāchana / mā karma-phala-hetur bhūr mā te saṅgo 'stvakarmaṇi",
+   "author_or_ref": "Bhagavad Gita 2.47",
+   "band": "mid",
+   "translation_en": "Your right is to the work alone, never to its results. Don't work just for the reward, and don't fall into doing nothing.",
+   "meaning_hi": "तुम्हारा अधिकार केवल कर्म पर है, फल पर नहीं; फल की चिंता छोड़ो, पर कर्म भी मत छोड़ो।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/2/verse/47/"
+  },
+  {
+   "text": "yoga-sthaḥ kuru karmāṇi saṅgaṁ tyaktvā dhanañjaya / siddhy-asiddhyoḥ samo bhūtvā samatvaṁ yoga uchyate",
+   "author_or_ref": "Bhagavad Gita 2.48",
+   "band": "mid",
+   "translation_en": "Do your work steadily, letting go of attachment to success or failure. This evenness of mind is called yoga.",
+   "meaning_hi": "सफलता-असफलता में समान रहकर स्थिर मन से काम करो, यही समत्व योग है।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/2/verse/48/"
+  },
+  {
+   "text": "niyataṁ kuru karma tvaṁ karma jyāyo hyakarmaṇaḥ",
+   "author_or_ref": "Bhagavad Gita 3.8",
+   "band": "mid",
+   "translation_en": "Do the work that is yours to do; action is better than inaction. Without action you can't even keep your body going.",
+   "meaning_hi": "अपना नियत कर्म करो; कर्म करना निष्क्रिय रहने से बेहतर है।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/3/verse/8/"
+  },
+  {
+   "text": "yato yato niśhcharati manaśh chañchalam asthiram / tatas tato niyamyaitad ātmanyeva vaśhaṁ nayet",
+   "author_or_ref": "Bhagavad Gita 6.26",
+   "band": "mid",
+   "translation_en": "Whenever and wherever the restless mind wanders, gently bring it back and focus it again.",
+   "meaning_hi": "चंचल मन जहाँ-जहाँ भटके, उसे वहाँ से वापस लाकर फिर से एकाग्र करो।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/6/verse/26/"
+  },
+  {
+   "text": "asanśhayaṁ mahā-bāho mano durnigrahaṁ chalam / abhyāsena tu kaunteya vairāgyeṇa cha gṛihyate",
+   "author_or_ref": "Bhagavad Gita 6.35",
+   "band": "mid",
+   "translation_en": "Yes, the mind is restless and hard to control. But with steady practice and detachment, it can be mastered.",
+   "meaning_hi": "मन चंचल है और काबू करना कठिन, पर अभ्यास और वैराग्य से वश में आता है।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/6/verse/35/"
+  },
+  {
+   "text": "buddhi-yukto jahātīha ubhe sukṛita-duṣhkṛite / tasmād yogāya yujyasva yogaḥ karmasu kauśhalam",
+   "author_or_ref": "Bhagavad Gita 2.50",
+   "band": "high",
+   "translation_en": "One who works with clear understanding rises above both good and bad outcomes. So commit to yoga: yoga is skill in action.",
+   "meaning_hi": "समझदारी से कर्म करने वाला अच्छे-बुरे फल से ऊपर उठता है; योग का अर्थ है कर्म में कुशलता।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/2/verse/50/"
+  },
+  {
+   "text": "yad yad ācharati śhreṣhṭhas tat tad evetaro janaḥ / sa yat pramāṇaṁ kurute lokas tad anuvartate",
+   "author_or_ref": "Bhagavad Gita 3.21",
+   "band": "high",
+   "translation_en": "Whatever the best people do, others follow. The standards they set, the world goes by.",
+   "meaning_hi": "श्रेष्ठ लोग जैसा आचरण करते हैं, दूसरे वैसा ही करते हैं, अच्छा उदाहरण बनो।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/3/verse/21/"
+  },
+  {
+   "text": "tad viddhi praṇipātena paripraśhnena sevayā / upadekṣhyanti te jñānaṁ jñāninas tattva-darśhinaḥ",
+   "author_or_ref": "Bhagavad Gita 4.34",
+   "band": "high",
+   "translation_en": "Learn the truth by approaching those who know, with humility, sincere questions and service. Those who have seen the truth will teach you.",
+   "meaning_hi": "विनम्रता, सच्चे प्रश्नों और सेवा से ज्ञानियों के पास जाकर सीखो; वे तुम्हें ज्ञान देंगे।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/4/verse/34/"
+  },
+  {
+   "text": "na hi jñānena sadṛiśhaṁ pavitramiha vidyate / tatsvayaṁ yogasansiddhaḥ kālenātmani vindati",
+   "author_or_ref": "Bhagavad Gita 4.38",
+   "band": "high",
+   "translation_en": "Nothing in this world purifies like true knowledge. One who keeps practising finds it within, in due time.",
+   "meaning_hi": "इस संसार में ज्ञान के समान पवित्र कुछ नहीं; लगातार साधना करने वाला समय आने पर उसे अपने भीतर पाता है।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/4/verse/38/"
+  },
+  {
+   "text": "iti te jñānam ākhyātaṁ guhyād guhyataraṁ mayā / vimṛiśhyaitad aśheṣheṇa yathechchhasi tathā kuru",
+   "author_or_ref": "Bhagavad Gita 18.63",
+   "band": "high",
+   "translation_en": "I have shared with you this deepest knowledge. Reflect on it fully, and then act as you choose.",
+   "meaning_hi": "मैंने तुम्हें यह गहरा ज्ञान दिया; इस पर पूरी तरह विचार करो, फिर जैसा उचित लगे वैसा करो।",
+   "source": "https://www.holy-bhagavad-gita.org/chapter/18/verse/63/"
+  }
+ ]
+}

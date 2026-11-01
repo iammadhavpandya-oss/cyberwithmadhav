@@ -36,3 +36,27 @@ gunicorn -w 1 -b 0.0.0.0:8080 app:app
 - Put it behind HTTPS (the host's proxy, or Caddy/Nginx on a VPS).
 - Then add to `index.html` `<head>`: `<meta name="cwm-api" content="https://api.your-domain">`.
 - Back up / export with `python export.py subscribers`.
+
+
+## CTF API on PythonAnywhere (not deployed yet)
+The CTF page works fully static on GitHub Pages. These steps add the ranked leaderboard.
+
+1. Create a free PythonAnywhere account, open a Bash console and clone the repo.
+2. `cd cyberwithmadhav/backend && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
+3. Copy `ctf_import.private.json` to `backend/` over SFTP or the Files tab (never commit it).
+4. Generate a pepper once and keep it secret: `python3 -c "import secrets;print(secrets.token_hex(32))"`
+5. Web tab: add a manual Flask app, point the virtualenv at `backend/.venv`, and in the WSGI file set the environment before importing the app:
+   ```python
+   import os, sys
+   sys.path.insert(0, '/home/<user>/cyberwithmadhav/backend')
+   os.environ['FLAG_PEPPER'] = '<pepper>'
+   os.environ['CWM_DB_PATH'] = '/home/<user>/cwm.sqlite3'
+   os.environ['CWM_CTF_ORIGINS'] = 'https://iammadhavpandya-oss.github.io'
+   os.environ['CWM_ALLOWED_ORIGINS'] = 'https://iammadhavpandya-oss.github.io'
+   from app import app as application
+   ```
+6. In a console: `cd backend && FLAG_PEPPER=<pepper> CWM_DB_PATH=/home/<user>/cwm.sqlite3 .venv/bin/python manage.py import`
+7. Reload the web app and check `https://<user>.pythonanywhere.com/api/health` returns `{"ok": true}`.
+8. Set `<meta name="cwm-api" content="https://<user>.pythonanywhere.com">` in `ctf.html` and push.
+
+Notes: keep one worker (rate limits are per process). Changing `FLAG_PEPPER` invalidates stored answer hashes, so re-run `manage.py import` after any change. Free accounts sleep when idle; the page then shows the practice banner. Use `manage.py hide-user <nick>` to moderate the leaderboard and `manage.py events` to see flag-sharing alerts.
