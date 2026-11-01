@@ -1,0 +1,950 @@
+{
+ "meta": {
+  "updated": "2026-11-01",
+  "banner": "Use only on systems and data you own or are authorised to test."
+ },
+ "categories": [
+  {
+   "id": "defensive-analysis",
+   "name": "Defensive Analysis",
+   "group": [
+    "osint",
+    "recon",
+    "ir",
+    "threatintel",
+    "malware",
+    "phishing",
+    "cloud",
+    "code"
+   ],
+   "desc": "All defensive analysis prompts: OSINT on yourself or with consent, authorised scans, incident response, threat intel, malware, phishing, cloud and code review."
+  },
+  {
+   "id": "osint",
+   "name": "OSINT (ethical)",
+   "desc": "Open-source research on yourself, your organisation or a client who has authorised it in writing."
+  },
+  {
+   "id": "recon",
+   "name": "Recon and scanning (authorised)",
+   "desc": "Plan and read scans of systems you own or have written permission to test."
+  },
+  {
+   "id": "soc",
+   "name": "SOC and log triage",
+   "desc": "Make sense of alerts and logs faster, without guessing."
+  },
+  {
+   "id": "ir",
+   "name": "Incident response",
+   "desc": "Calm, structured steps when something has gone wrong."
+  },
+  {
+   "id": "threatintel",
+   "name": "Threat intelligence",
+   "desc": "Turn reports and indicators into decisions for your own environment."
+  },
+  {
+   "id": "malware",
+   "name": "Malware analysis (static and sandbox)",
+   "desc": "Read static findings and sandbox reports safely. No building or spreading malware."
+  },
+  {
+   "id": "phishing",
+   "name": "Phishing and email headers",
+   "desc": "Check suspicious emails and teach people to spot them."
+  },
+  {
+   "id": "cloud",
+   "name": "Cloud security review",
+   "desc": "Review your own cloud setup for common gaps."
+  },
+  {
+   "id": "code",
+   "name": "Secure code review",
+   "desc": "Review your own code for security bugs and fix them."
+  },
+  {
+   "id": "grc",
+   "name": "GRC and policy writing",
+   "desc": "Draft policies, map controls and prepare audits."
+  },
+  {
+   "id": "ctf",
+   "name": "CTF learning",
+   "desc": "Learn from capture-the-flag puzzles in legal practice environments."
+  },
+  {
+   "id": "report",
+   "name": "Report writing",
+   "desc": "Clear findings for clients, managers and courts."
+  },
+  {
+   "id": "career",
+   "name": "Career and interview prep",
+   "desc": "Prepare for cybersecurity roles and interviews."
+  },
+  {
+   "id": "content-creation",
+   "name": "Content Creation",
+   "desc": "Create clear, accurate cyber awareness content."
+  },
+  {
+   "id": "cyber-law-explainers",
+   "name": "Cyber Law Explainers",
+   "desc": "Explain Indian cyber law in plain words. Not legal advice."
+  },
+  {
+   "id": "compliance",
+   "name": "Compliance",
+   "desc": "Prepare for privacy and security compliance work."
+  },
+  {
+   "id": "victim-help",
+   "name": "Victim Help",
+   "desc": "Help victims of online fraud and abuse take the right next steps."
+  },
+  {
+   "id": "training",
+   "name": "Training",
+   "desc": "Plan and run security awareness and team training."
+  }
+ ],
+ "prompts": [
+  {
+   "id": "osint-digital-footprint-audit-self-or-client",
+   "cat": "osint",
+   "title": "Digital footprint audit (self or client)",
+   "use": "Map what is publicly visible about a person who asked you to do it.",
+   "prompt": "Act as an ethical OSINT analyst. I have written permission from [SUBJECT NAME] to assess their public digital footprint.\nKnown starting points: [USERNAMES / EMAIL / CITY / EMPLOYER].\n1. List public source types I should check (search engines, social profiles, breach notification sites, data brokers, code repos).\n2. For each, say what kind of exposure to look for and the privacy risk it creates.\n3. Give a checklist I can work through manually and a remediation step for each finding.\nDo not suggest accessing private accounts, guessing passwords or contacting the subject's contacts.",
+   "tip": "Keep the written authorisation and scope with your notes. OSINT on someone who has not agreed can become stalking.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "osint-company-attack-surface-from-public-sources",
+   "cat": "osint",
+   "title": "Company attack surface from public sources",
+   "use": "Pre-engagement view of what an authorised client exposes online.",
+   "prompt": "I am doing an authorised external assessment for [ORGANISATION], engagement ID [ID], scope: [DOMAINS].\nUsing only passive, public sources, help me plan:\n- Subdomain and certificate transparency review\n- Public code and paste exposure (leaked keys, configs)\n- Employee role exposure useful for phishing awareness training\n- Third-party and SaaS footprint\nOutput a table: Source | What to look for | Why it matters | How to report it safely.",
+   "tip": "Passive first. Do not touch anything outside the signed scope, even if it looks related.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "osint-image-verification-checklist",
+   "cat": "osint",
+   "title": "Image verification checklist",
+   "use": "Check whether a viral photo is real before you share or report it.",
+   "prompt": "Help me verify this image. Description: [WHAT THE IMAGE SHOWS]. Claimed place and date: [CLAIM].\nGive me a step-by-step plan: reverse image search, metadata check, shadows and weather consistency, landmarks, earliest upload, signs of editing or AI generation.\nEnd with a confidence rating template I can fill in, not a verdict.",
+   "tip": "Treat AI 'this looks real' answers as hints. The evidence has to come from your own checks.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "osint-username-pivot-plan-for-a-scam-report",
+   "cat": "osint",
+   "title": "Username pivot plan for a scam report",
+   "use": "Organise public information about a scam account to hand to police or a platform.",
+   "prompt": "I am a victim of an online scam and want to prepare a report for the police and the platform.\nScammer handle(s): [HANDLES]. Platform: [PLATFORM]. Payment info shown to me: [UPI ID / ACCOUNT].\nHelp me list what public information to capture (profile URL, screenshots with timestamps, linked accounts) and how to store it as evidence.\nDo not suggest contacting, threatening or hacking the scammer.",
+   "tip": "Screenshot with the URL and clock visible, and keep the originals. Report on cybercrime.gov.in or call 1930 first if money moved.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "osint-osint-findings-report",
+   "cat": "osint",
+   "title": "OSINT findings report",
+   "use": "Turn raw notes into a clean, client-ready report.",
+   "prompt": "Convert these authorised OSINT notes into a report for [CLIENT].\nNotes: [PASTE NOTES]\nStructure: Scope and authorisation, Method (sources only), Findings ranked by risk, Evidence references, Recommendations, Limitations.\nRemove any personal data that is not needed to explain a finding.",
+   "tip": "Minimise personal data in the final report. Clients rarely need every detail you found.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "recon-scan-plan-for-my-own-lab-or-approved-scope",
+   "cat": "recon",
+   "title": "Scan plan for my own lab or approved scope",
+   "use": "Choose safe nmap options before you run anything.",
+   "prompt": "I own or am authorised to scan: [TARGET RANGE / LAB]. Rules of engagement: [TIME WINDOW, RATE LIMITS, EXCLUSIONS].\nSuggest an nmap plan in phases (host discovery, top ports, full TCP, service versions, safe scripts).\nFor each phase, give the command, what it does, noise level and when to stop.\nKeep it low impact and within scope.",
+   "tip": "Put the scope and contact person in the first line of your notes. If a host is not on the list, skip it.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "recon-explain-my-nmap-output",
+   "cat": "recon",
+   "title": "Explain my nmap output",
+   "use": "Understand open ports and services from a scan you ran.",
+   "prompt": "Explain this nmap output from my authorised scan of [ASSET]:\n```\n[PASTE OUTPUT]\n```\nFor each open port: service, version, common misconfigurations to check, and a defensive fix. Then rank the top 3 risks and say what evidence would confirm each.",
+   "tip": "Version banners can lie. Confirm before you write 'vulnerable' in a report.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "recon-triage-nuclei-results",
+   "cat": "recon",
+   "title": "Triage nuclei results",
+   "use": "Separate real findings from false positives.",
+   "prompt": "These are nuclei results from an authorised scan of [SCOPE]:\n```\n[PASTE RESULTS]\n```\nGroup by severity. For each, say whether it is likely a true positive, how to verify it manually without causing harm, and the fix. Flag anything that needs the asset owner's attention today.",
+   "tip": "Templates are only as good as their matchers. Re-test critical items by hand.",
+   "model": "Use a model with a long context window so the full log or report fits in one go. Never paste secrets or client data into a tool your organisation has not approved."
+  },
+  {
+   "id": "recon-read-a-nikto-report",
+   "cat": "recon",
+   "title": "Read a nikto report",
+   "use": "Turn web server scan noise into an action list.",
+   "prompt": "Here is a nikto report for my own web server [HOST]:\n```\n[PASTE REPORT]\n```\nList findings that matter, explain each in plain English, and give the exact config change (Apache/Nginx/IIS: [SERVER]) to fix it. Mark informational items separately.",
+   "tip": "Nikto is loud. Only run it where noise is acceptable and approved.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "recon-hardening-checklist-after-a-scan",
+   "cat": "recon",
+   "title": "Hardening checklist after a scan",
+   "use": "Close what the scan found on assets you manage.",
+   "prompt": "Based on these findings for my systems [SUMMARY OF FINDINGS], write a hardening checklist grouped by: network exposure, service configuration, patching, authentication, logging. Include how to re-scan to confirm each fix.",
+   "tip": "Re-scan after fixing and keep the before and after as proof for the asset owner.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "soc-alert-triage-in-five-questions",
+   "cat": "soc",
+   "title": "Alert triage in five questions",
+   "use": "Decide quickly if an alert is real.",
+   "prompt": "Act as a tier 2 SOC analyst. Alert: [ALERT NAME]. Raw event:\n```\n[PASTE EVENT]\n```\nAnswer: What happened? Is it expected for this asset [ASSET ROLE]? What else should I query to confirm? True positive, benign, or needs more data? What is the next action and who owns it?",
+   "tip": "Write down why you closed an alert. Future you will thank you during the audit.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "soc-windows-event-log-story",
+   "cat": "soc",
+   "title": "Windows event log story",
+   "use": "Rebuild a timeline from Windows events.",
+   "prompt": "Here are Windows events (4624, 4625, 4688, 4672, 7045 and others) from host [HOST]:\n```\n[PASTE EVENTS]\n```\nBuild a timeline in a table: time, event ID, account, process, what it means. Then highlight suspicious sequences and the MITRE ATT&CK technique they may map to.",
+   "tip": "Normalise all times to one zone (say IST or UTC) before you compare sources.",
+   "model": "Use a model with a long context window so the full log or report fits in one go. Never paste secrets or client data into a tool your organisation has not approved."
+  },
+  {
+   "id": "soc-write-a-detection-query",
+   "cat": "soc",
+   "title": "Write a detection query",
+   "use": "Turn an idea into a SIEM query.",
+   "prompt": "Write a [SPLUNK SPL / KQL / ELASTIC EQL] query to detect [BEHAVIOUR, e.g. many failed logins then a success from a new country].\nData source fields: [FIELD NAMES].\nExplain each line, likely false positives, and a tuning suggestion.",
+   "tip": "Test on a week of real data before you turn it into an alert.",
+   "model": "A code-focused model or a general model with strong coding skills. Keep code you are not allowed to share out of public tools."
+  },
+  {
+   "id": "soc-linux-auth-log-review",
+   "cat": "soc",
+   "title": "Linux auth log review",
+   "use": "Spot brute force and odd sudo use.",
+   "prompt": "Review this /var/log/auth.log excerpt from my server [HOST]:\n```\n[PASTE LOG]\n```\nSummarise failed and successful SSH logins by IP and user, any sudo use, new users or keys, and anything worth escalating. Suggest fail2ban or sshd_config changes.",
+   "tip": "Remove real usernames and public IPs if you use a tool outside your organisation.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "soc-shift-handover-note",
+   "cat": "soc",
+   "title": "Shift handover note",
+   "use": "Hand over cleanly to the next shift.",
+   "prompt": "Write a SOC shift handover from these notes: [NOTES].\nSections: Open incidents (status, owner, next step), Alerts under watch, Changes made, Blockers, Things the next shift must do in the first hour.",
+   "tip": "Keep it short. If the next shift has to ask you a question, the note was missing something.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "ir-first-hour-plan",
+   "cat": "ir",
+   "title": "First hour plan",
+   "use": "Start an incident without missing the basics.",
+   "prompt": "We suspect [INCIDENT TYPE, e.g. ransomware, account takeover] at [ORGANISATION]. What we know: [FACTS].\nGive a first-hour checklist: who to call, what to preserve, containment options with trade-offs, what not to do (e.g. wiping machines), and what to log. Include India-specific duties such as reporting to CERT-In within 6 hours for listed incidents.",
+   "tip": "Preserve evidence before you clean. Rebuilding a machine too early erases the story.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "ir-containment-decision",
+   "cat": "ir",
+   "title": "Containment decision",
+   "use": "Weigh isolating a system against keeping the business running.",
+   "prompt": "Asset: [ASSET], business role: [ROLE]. Threat signs: [SIGNS].\nCompare options: network isolate, disable account, block IOC at firewall, keep monitoring. For each give risk, business impact, evidence impact and who must approve.",
+   "tip": "Get the decision and the approver in writing in the incident log.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "ir-evidence-collection-list",
+   "cat": "ir",
+   "title": "Evidence collection list",
+   "use": "Collect the right artefacts in the right order.",
+   "prompt": "For a [WINDOWS / LINUX / M365 / AWS] incident on [ASSET], list artefacts to collect in order of volatility, the tool or console to use, and how to record hash and chain of custody. Keep it to what a defender on our side can legally collect.",
+   "tip": "Hash every file you collect and note who handled it and when. In India this supports a BSA Section 63 certificate later.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "ir-stakeholder-update",
+   "cat": "ir",
+   "title": "Stakeholder update",
+   "use": "Explain an incident to leadership without jargon.",
+   "prompt": "Write a short incident update for [AUDIENCE: CEO / board / customers]. Facts: [FACTS]. Unknowns: [UNKNOWNS].\nInclude: what happened, impact so far, what we are doing, what we need from them, next update time. Do not speculate beyond the facts.",
+   "tip": "Say what you do not know yet. Overconfident early updates cause trouble later.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "ir-post-incident-review",
+   "cat": "ir",
+   "title": "Post-incident review",
+   "use": "Learn from it without blame.",
+   "prompt": "Run a blameless post-incident review from this timeline: [TIMELINE].\nOutput: summary, root cause and contributing factors, what went well, what to improve, actions with owner and due date.",
+   "tip": "Actions without an owner and a date do not happen.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "threatintel-summarise-a-threat-report-for-my-org",
+   "cat": "threatintel",
+   "title": "Summarise a threat report for my org",
+   "use": "Find what matters to you in a long vendor report.",
+   "prompt": "Summarise this threat report for [ORGANISATION, SECTOR, TECH STACK]:\n[PASTE REPORT OR KEY PARTS]\nOutput: 5-line summary, TTPs mapped to MITRE ATT&CK, IOCs as a table, whether it is relevant to us and why, 3 actions for this week.",
+   "tip": "Indicators age fast. Behaviours (TTPs) last longer and make better detections.",
+   "model": "Use a model with a long context window so the full log or report fits in one go. Never paste secrets or client data into a tool your organisation has not approved."
+  },
+  {
+   "id": "threatintel-ioc-enrichment-plan",
+   "cat": "threatintel",
+   "title": "IOC enrichment plan",
+   "use": "Decide what to check for each indicator.",
+   "prompt": "For these indicators [IPs / DOMAINS / HASHES], list which public reputation and sandbox services to check, what each result means, and how to decide block, monitor or ignore. Output a table I can fill in.",
+   "tip": "Never submit client files to public sandboxes without permission. Submit the hash first.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "threatintel-threat-profile-of-an-actor",
+   "cat": "threatintel",
+   "title": "Threat profile of an actor",
+   "use": "Brief your team on a group targeting your sector.",
+   "prompt": "Build a brief on [THREAT ACTOR] using only these sources: [SOURCES OR NOTES].\nSections: aliases, targeting, common initial access, tools, notable campaigns, detection ideas. Mark anything not in the sources as 'unconfirmed'.",
+   "tip": "Ask the model to cite which source each line came from. Drop anything it cannot cite.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "threatintel-intelligence-requirement-writer",
+   "cat": "threatintel",
+   "title": "Intelligence requirement writer",
+   "use": "Ask the right questions before collecting intel.",
+   "prompt": "Help me write priority intelligence requirements for [ORGANISATION]. Business: [WHAT WE DO]. Crown jewels: [ASSETS]. Recent worries: [WORRIES].\nGive 5 requirements, why each matters, and sources to answer them.",
+   "tip": "If an intel item does not answer a requirement, you probably do not need it.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "threatintel-weekly-threat-digest",
+   "cat": "threatintel",
+   "title": "Weekly threat digest",
+   "use": "A short Monday brief for your team.",
+   "prompt": "Turn these items into a one-page weekly threat digest for [TEAM]: [ITEMS].\nFor each: headline, why it matters to us, action (patch, hunt, watch, none). Keep it under 300 words.",
+   "tip": "Same format every week makes it easy to skim.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "malware-explain-a-sandbox-report",
+   "cat": "malware",
+   "title": "Explain a sandbox report",
+   "use": "Understand what a sample did in a sandbox you ran.",
+   "prompt": "Explain this sandbox report for a sample from our environment:\n```\n[PASTE REPORT]\n```\nSummarise behaviour (processes, files, registry, network), likely family if the report says so, MITRE techniques, IOCs, and detections I can add. Separate facts from guesses.",
+   "tip": "Run samples only in an isolated lab or an approved sandbox, never on your own laptop.",
+   "model": "Use a model with a long context window so the full log or report fits in one go. Never paste secrets or client data into a tool your organisation has not approved."
+  },
+  {
+   "id": "malware-static-triage-from-strings-and-pe-info",
+   "cat": "malware",
+   "title": "Static triage from strings and PE info",
+   "use": "First look at a suspicious file without running it.",
+   "prompt": "Here are strings, imports and PE header details from a suspicious file (hash [SHA256]):\n```\n[PASTE OUTPUT]\n```\nWhat capabilities do these suggest? Which indicators are strongest? What should I check next in a safe lab?",
+   "tip": "Packed files hide their strings. Low string count plus high entropy often means packing.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "malware-yara-rule-review",
+   "cat": "malware",
+   "title": "YARA rule review",
+   "use": "Improve a detection rule for your own hunting.",
+   "prompt": "Review this YARA rule for false positives and robustness:\n```\n[PASTE RULE]\n```\nSuggest improvements, explain each condition, and give test ideas using known-good files from our environment.",
+   "tip": "Test rules against a big set of clean files before you deploy them.",
+   "model": "A code-focused model or a general model with strong coding skills. Keep code you are not allowed to share out of public tools."
+  },
+  {
+   "id": "malware-malware-analysis-report",
+   "cat": "malware",
+   "title": "Malware analysis report",
+   "use": "Write findings for the SOC and management.",
+   "prompt": "Write a malware analysis report from these notes: [NOTES].\nSections: executive summary, sample details (hashes, names), behaviour, IOCs table, detections, remediation, open questions.",
+   "tip": "Put defanged IOCs (example[.]com) in reports so nobody clicks them by accident.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "malware-suspicious-macro-document",
+   "cat": "malware",
+   "title": "Suspicious macro document",
+   "use": "Decide if an Office file is dangerous.",
+   "prompt": "Here is olevba or similar output for a document from a user's inbox:\n```\n[PASTE OUTPUT]\n```\nExplain what the macro tries to do, risk level, IOCs, and what to tell the user. Do not rewrite or improve the macro.",
+   "tip": "Ask users how they got the file. The delivery path is half the story.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "phishing-email-header-analysis",
+   "cat": "phishing",
+   "title": "Email header analysis",
+   "use": "Find where an email really came from.",
+   "prompt": "Analyse these email headers:\n```\n[PASTE HEADERS]\n```\nShow the hop path, sending IP and domain, SPF, DKIM and DMARC results, any mismatch between From, Return-Path and Reply-To, and a verdict with reasons.",
+   "tip": "Read Received headers from bottom to top. The lowest one is closest to the sender.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "phishing-is-this-email-phishing",
+   "cat": "phishing",
+   "title": "Is this email phishing?",
+   "use": "Quick check for a staff member's report.",
+   "prompt": "A user reported this email (links defanged):\n[PASTE BODY]\nList red flags, what the attacker wants, whether to block sender or domain, and a friendly reply to the user thanking them.",
+   "tip": "Thank every reporter. People report more when they are not made to feel silly.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "phishing-phishing-awareness-micro-lesson",
+   "cat": "phishing",
+   "title": "Phishing awareness micro lesson",
+   "use": "Train staff in five minutes.",
+   "prompt": "Write a 5-minute phishing awareness lesson for [AUDIENCE, e.g. accounts team in India]. Include 3 realistic examples (UPI refund, KYC update, fake invoice), the clues in each, and what to do: report to IT, call 1930 if money moved.",
+   "tip": "Use local examples. 'KYC expired' lands better in India than generic examples.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "phishing-dmarc-rollout-plan",
+   "cat": "phishing",
+   "title": "DMARC rollout plan",
+   "use": "Protect your domain from spoofing.",
+   "prompt": "Plan a DMARC rollout for [DOMAIN]. Current SPF: [SPF]. DKIM: [STATUS]. Senders: [LIST OF SERVICES].\nGive steps from p=none to p=reject, how to read aggregate reports, and common breakages.",
+   "tip": "Find every service that sends as your domain before you move to reject.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "phishing-phishing-simulation-plan-internal-approved",
+   "cat": "phishing",
+   "title": "Phishing simulation plan (internal, approved)",
+   "use": "Run an approved awareness test.",
+   "prompt": "Plan an internal phishing simulation approved by [APPROVER] for [ORGANISATION].\nCover: goals, audience, scenarios with difficulty levels, landing page that teaches, metrics, and how to communicate results without shaming people.",
+   "tip": "Get HR and leadership approval in writing. Never collect real passwords in a simulation.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "cloud-iam-policy-review",
+   "cat": "cloud",
+   "title": "IAM policy review",
+   "use": "Find over-broad permissions.",
+   "prompt": "Review this [AWS / Azure / GCP] IAM policy for our account:\n```\n[PASTE POLICY]\n```\nFlag wildcards, privilege escalation paths, missing conditions, and give a least-privilege rewrite with explanations.",
+   "tip": "Use access logs to see what a role actually uses, then trim the rest.",
+   "model": "A code-focused model or a general model with strong coding skills. Keep code you are not allowed to share out of public tools."
+  },
+  {
+   "id": "cloud-storage-exposure-check",
+   "cat": "cloud",
+   "title": "Storage exposure check",
+   "use": "Make sure buckets and blobs are not public by mistake.",
+   "prompt": "Give me a checklist and CLI commands to review [S3 / Azure Blob / GCS] storage in my own account for public access, encryption, logging, versioning and lifecycle rules. Explain what a good result looks like.",
+   "tip": "Turn on account-level public access blocks so a single mistake cannot expose data.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "cloud-read-a-cspm-findings-export",
+   "cat": "cloud",
+   "title": "Read a CSPM findings export",
+   "use": "Prioritise cloud posture findings.",
+   "prompt": "Here is an export from our cloud posture tool:\n```\n[PASTE FINDINGS]\n```\nGroup duplicates, rank by real risk (internet exposure, data sensitivity, privilege), and give a 2-week fix plan.",
+   "tip": "Severity labels from tools ignore your context. Re-rank by exposure and data.",
+   "model": "Use a model with a long context window so the full log or report fits in one go. Never paste secrets or client data into a tool your organisation has not approved."
+  },
+  {
+   "id": "cloud-terraform-security-review",
+   "cat": "cloud",
+   "title": "Terraform security review",
+   "use": "Catch misconfigurations before deploy.",
+   "prompt": "Review this Terraform for security issues:\n```\n[PASTE CODE]\n```\nCheck network exposure, encryption, logging, secrets in code, IAM. Give fixed code and explain each change.",
+   "tip": "Add a policy scanner to CI so these checks run on every pull request.",
+   "model": "A code-focused model or a general model with strong coding skills. Keep code you are not allowed to share out of public tools."
+  },
+  {
+   "id": "cloud-cloud-logging-baseline",
+   "cat": "cloud",
+   "title": "Cloud logging baseline",
+   "use": "Make sure you can investigate later.",
+   "prompt": "For our [CLOUD] setup with services [SERVICES], list the logs to enable, where to store them, retention (CERT-In expects 180 days for ICT logs in India), and 5 alerts to start with.",
+   "tip": "Logs you did not turn on before an incident cannot be recovered after it.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "code-security-review-of-a-function",
+   "cat": "code",
+   "title": "Security review of a function",
+   "use": "Find bugs in a piece of your code.",
+   "prompt": "Review this [LANGUAGE] code for security issues:\n```\n[PASTE CODE]\n```\nCheck input validation, injection, auth, secrets, error handling. For each issue: line, risk, why, fixed code.",
+   "tip": "Paste only code you are allowed to share. Strip keys and internal hostnames.",
+   "model": "A code-focused model or a general model with strong coding skills. Keep code you are not allowed to share out of public tools."
+  },
+  {
+   "id": "code-threat-model-a-feature",
+   "cat": "code",
+   "title": "Threat model a feature",
+   "use": "Think like an attacker before you build.",
+   "prompt": "Threat model this feature using STRIDE: [FEATURE DESCRIPTION, DATA FLOWS, USERS].\nOutput a table: threat, STRIDE category, impact, likelihood, mitigation, test to prove it.",
+   "tip": "Draw the data flow first. Most threats sit where data crosses a trust boundary.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "code-explain-a-sast-finding",
+   "cat": "code",
+   "title": "Explain a SAST finding",
+   "use": "Decide if a scanner finding is real.",
+   "prompt": "Our scanner flagged this:\nRule: [RULE]\nCode:\n```\n[PASTE CODE]\n```\nIs it a true positive? Explain the data flow from source to sink, and give a fix or a reason to suppress.",
+   "tip": "Document every suppression with a reason so reviewers can trust the scan.",
+   "model": "A code-focused model or a general model with strong coding skills. Keep code you are not allowed to share out of public tools."
+  },
+  {
+   "id": "code-dependency-risk-review",
+   "cat": "code",
+   "title": "Dependency risk review",
+   "use": "Check third-party packages.",
+   "prompt": "Here is our dependency list and audit output:\n```\n[PASTE]\n```\nRank vulnerable packages by exploitability in our use, suggest safe upgrade versions, and flag abandoned packages.",
+   "tip": "A vulnerable function you never call is lower risk, but still plan the upgrade.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "code-secure-coding-checklist-for-a-pull-request",
+   "cat": "code",
+   "title": "Secure coding checklist for a pull request",
+   "use": "A reviewer's checklist for your stack.",
+   "prompt": "Write a secure code review checklist for pull requests in [STACK, e.g. Node.js + PostgreSQL]. Keep it to 15 checks, each with a one-line example of bad and good code.",
+   "tip": "Short checklists get used. Long ones get skipped.",
+   "model": "A code-focused model or a general model with strong coding skills. Keep code you are not allowed to share out of public tools."
+  },
+  {
+   "id": "grc-write-a-policy-draft",
+   "cat": "grc",
+   "title": "Write a policy draft",
+   "use": "First draft of an internal policy.",
+   "prompt": "Draft a [POLICY NAME, e.g. Acceptable Use] policy for [ORGANISATION, SIZE, SECTOR] in India.\nSections: purpose, scope, roles, policy statements, exceptions, enforcement, review cycle. Plain English. Mark where legal review is needed (IT Act, DPDP Act, CERT-In Directions).",
+   "tip": "A lawyer should review anything that creates obligations for staff or customers.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "grc-control-mapping",
+   "cat": "grc",
+   "title": "Control mapping",
+   "use": "Map one control set to another.",
+   "prompt": "Map these controls [LIST] from [FRAMEWORK A, e.g. ISO 27001:2022 Annex A] to [FRAMEWORK B, e.g. NIST CSF 2.0]. Table: control, mapped control, fit (full, partial), gap notes. Say when you are unsure.",
+   "tip": "Check every mapping against the official framework text. Models mix up control numbers.",
+   "model": "A model with strong step-by-step reasoning helps here. Check every claim it makes against the source."
+  },
+  {
+   "id": "grc-risk-register-entry",
+   "cat": "grc",
+   "title": "Risk register entry",
+   "use": "Write a clear, scored risk.",
+   "prompt": "Write risk register entries for these issues: [ISSUES]. For each: risk statement (cause, event, impact), likelihood, impact, current controls, treatment, owner, review date.",
+   "tip": "A good risk statement names a cause, an event and an impact.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "grc-dpdp-readiness-questions",
+   "cat": "grc",
+   "title": "DPDP readiness questions",
+   "use": "Start a DPDP Act gap check.",
+   "prompt": "Create a DPDP Act 2023 readiness questionnaire for [ORGANISATION] covering notice, consent, purpose limits, data principal rights, children's data, breach notification, retention and processors. Mark items that depend on DPDP Rules 2025 timelines.",
+   "tip": "Most DPDP Rules obligations start 18 months after 13 Nov 2025. Plan now, verify dates with counsel.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "grc-audit-evidence-request-list",
+   "cat": "grc",
+   "title": "Audit evidence request list",
+   "use": "Prepare for an audit.",
+   "prompt": "Create an evidence request list for an audit of [SCOPE] against [STANDARD]. For each control area list the evidence, who owns it and the format.",
+   "tip": "Collect evidence through the year, not the week before the audit.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "ctf-hint-do-not-solve",
+   "cat": "ctf",
+   "title": "Hint, do not solve",
+   "use": "Get unstuck without spoilers.",
+   "prompt": "I am working on a legal CTF challenge [CHALLENGE NAME, CATEGORY] on [PLATFORM]. What I tried: [ATTEMPTS].\nGive me one small hint at a time. Do not give the flag or full solution unless I say 'show solution'.",
+   "tip": "Hints teach more than answers. Ask for one at a time.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "ctf-explain-a-concept-from-a-challenge",
+   "cat": "ctf",
+   "title": "Explain a concept from a challenge",
+   "use": "Understand the idea behind a puzzle.",
+   "prompt": "Explain [CONCEPT, e.g. base64, XOR, SQL injection, JWT] as used in beginner CTFs. Give a simple example, how to recognise it, and one practice exercise.",
+   "tip": "Rewrite the explanation in your own notes. That is how it sticks.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "ctf-write-my-ctf-writeup",
+   "cat": "ctf",
+   "title": "Write my CTF writeup",
+   "use": "Turn messy notes into a clean writeup.",
+   "prompt": "Turn my notes into a writeup for [CHALLENGE]: [NOTES]. Sections: challenge, recon, dead ends, solution, lesson learned. Hide the flag unless the event allows publishing.",
+   "tip": "Check the event rules before you publish writeups.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "ctf-study-plan-by-category",
+   "cat": "ctf",
+   "title": "Study plan by category",
+   "use": "Plan practice for a weak area.",
+   "prompt": "I am weak at [CATEGORY: crypto, web, forensics, OSINT, pwn]. I have [HOURS] per week. Build a 4-week plan with legal practice platforms, topics in order and a weekly self-test.",
+   "tip": "Practise on legal platforms only, such as the CTF Arena on this site.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "ctf-forensics-file-triage",
+   "cat": "ctf",
+   "title": "Forensics file triage",
+   "use": "First steps with a challenge file.",
+   "prompt": "I have a CTF forensics file [FILE TYPE, size, any output of 'file', 'binwalk', 'exiftool']. Suggest the next 5 commands to try and what each would reveal.",
+   "tip": "Always check metadata and embedded files first. Many easy flags hide there.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "report-pentest-finding-write-up",
+   "cat": "report",
+   "title": "Pentest finding write-up",
+   "use": "Write one finding the way clients like.",
+   "prompt": "Write a finding from an authorised test for [CLIENT]. Notes: [NOTES].\nSections: title, severity with reason, affected assets, description, evidence summary, impact, steps to reproduce at a high level, remediation, references.",
+   "tip": "Write the impact in business terms. 'An attacker could read all invoices' beats 'IDOR'.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "report-executive-summary",
+   "cat": "report",
+   "title": "Executive summary",
+   "use": "One page for leadership.",
+   "prompt": "Write a one-page executive summary from these findings: [FINDINGS]. Audience: [AUDIENCE]. Include overall risk, top 3 issues, what is working, and the top 5 actions with effort level.",
+   "tip": "Leaders read the first paragraph. Put the decision you need there.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "report-technical-to-plain-english",
+   "cat": "report",
+   "title": "Technical to plain English",
+   "use": "Explain a technical issue to non-tech people.",
+   "prompt": "Explain this to [AUDIENCE, e.g. a lawyer or a school principal] in plain English, under 150 words: [TECHNICAL TEXT].",
+   "tip": "Ask the reader to repeat it back. If they can, the explanation worked.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "report-cyber-incident-complaint-draft-victim",
+   "cat": "report",
+   "title": "Cyber incident complaint draft (victim)",
+   "use": "Write a clear complaint for the police or portal.",
+   "prompt": "Help me write a clear complaint for cybercrime.gov.in. What happened: [FACTS, DATES, AMOUNTS, ACCOUNTS, HANDLES]. Evidence I have: [LIST].\nKeep it factual, in time order, with a list of attachments. Do not add legal sections unless I give them.",
+   "tip": "Call 1930 first if money was lost. Speed matters for freezing funds.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "report-proofread-a-security-report",
+   "cat": "report",
+   "title": "Proofread a security report",
+   "use": "Catch errors before you send.",
+   "prompt": "Proofread this report section for clarity, consistent severity terms, tense, and unsupported claims. Return a corrected version and a list of changes: [PASTE TEXT].",
+   "tip": "Ask it to list changes, not just rewrite. You stay in control of the meaning.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "career-mock-interview",
+   "cat": "career",
+   "title": "Mock interview",
+   "use": "Practise for a specific role.",
+   "prompt": "Act as an interviewer for a [ROLE, e.g. SOC L1 analyst] job at [COMPANY TYPE] in India. Ask me one question at a time, mix technical and behavioural, wait for my answer, then give feedback and a better sample answer.",
+   "tip": "Answer out loud before typing. Real interviews are spoken.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "career-resume-bullet-rewrite",
+   "cat": "career",
+   "title": "Resume bullet rewrite",
+   "use": "Make your experience sound concrete.",
+   "prompt": "Rewrite these resume bullets for a [ROLE] application using action + task + result. Do not invent numbers; if a metric is missing, put [ADD METRIC]: [BULLETS].",
+   "tip": "Only use numbers you can defend in the interview.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "career-skill-gap-plan",
+   "cat": "career",
+   "title": "Skill gap plan",
+   "use": "See what to learn next.",
+   "prompt": "Compare my skills [SKILLS] with this job description [JD]. List gaps, rank by importance, and give a 30-day plan with free resources and a small project for each gap.",
+   "tip": "One small public project beats five half-finished courses.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs."
+  },
+  {
+   "id": "career-explain-a-home-lab-project",
+   "cat": "career",
+   "title": "Explain a home lab project",
+   "use": "Talk about your lab clearly in an interview.",
+   "prompt": "Help me describe my home lab project [DESCRIPTION] in a 2-minute interview answer: goal, setup, what I learned, what I would do next.",
+   "tip": "Bring a diagram. Interviewers remember pictures.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "career-linkedin-about-section",
+   "cat": "career",
+   "title": "LinkedIn about section",
+   "use": "Write a short, honest profile summary.",
+   "prompt": "Write a LinkedIn About section for me: [BACKGROUND, SKILLS, GOALS]. 120 words, first person, friendly, no buzzwords, no claims I did not give you.",
+   "tip": "Read it aloud. If it does not sound like you, edit it.",
+   "model": "Any strong writing model. Ask it to keep your tone and to flag claims it cannot support."
+  },
+  {
+   "id": "content-creation-scam-news-story-to-hinglish-reel-script",
+   "cat": "content-creation",
+   "title": "Scam News Story to Hinglish Reel Script",
+   "use": "Turn a verified Indian scam news report into a 30 to 45 second awareness Reel in Hinglish.",
+   "prompt": "You are a cyber awareness scriptwriter for an Indian Instagram and YouTube Shorts page called [PAGE NAME], aimed at [AUDIENCE, e.g. working adults in Mumbai and Palghar]. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. News facts: [PASTE NEWS SUMMARY]. Source: [SOURCE NAME AND DATE]. Case status: [UNDER INVESTIGATION / CHARGESHEETED / CONVICTED]. Write a [30/45/60] second Reel script in natural Hinglish (Roman script). Constraints: explain how the scam works only at a level that helps a victim recognise it, never step by step instructions a criminal could reuse; do not name accused persons or companies if the case is ongoing, use 'police ke mutabik' or 'allegedly'; no fear mongering, keep it calm and practical; mention helpline 1930 and cybercrime.gov.in at the end. Output format: 1) On-screen text hook for 0 to 2 seconds (max 6 words). 2) Spoken hook line. 3) Three beats labelled Kya hua, Kaise pehchane, Kya kare, each with spoken line and on-screen text. 4) CTA line. 5) Caption in English (max 60 words) with 5 relevant hashtags. 6) A one-line source credit.",
+   "tip": "Paste the actual article text instead of a headline so the AI does not invent details, and always re-read the final script against the source before recording.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "content-creation-marathi-cyber-awareness-reel",
+   "cat": "content-creation",
+   "title": "Marathi Cyber Awareness Reel",
+   "use": "Create a short awareness Reel in simple spoken Marathi for Maharashtra audiences, including seniors.",
+   "prompt": "You are a Marathi-speaking cyber safety educator creating content for [PAGE NAME] for viewers in [REGION, e.g. Vasai, Palghar, Thane]. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Topic or scam type: [TOPIC]. Key facts: [FACTS]. Target viewer: [e.g. senior citizens, homemakers, students]. Write a [30/45] second Reel script in simple, conversational Marathi written in Devanagari, with an optional Roman transliteration below each line. Avoid heavy Sanskritised words; use everyday words people in [REGION] actually use, and keep common English tech words like OTP, UPI, link, app as they are. Rules: protective guidance only, no instructions that teach the scam; no names of accused in ongoing cases; end with 1930 and cybercrime.gov.in. Output: hook text (max 5 words), spoken script in 3 short beats, a 'he kara / he karu naka' (do / do not) list of 3 items each, and an English caption under 50 words.",
+   "tip": "Ask a native Marathi speaker from your target area to read the script aloud once; if they stumble on a word, replace it.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "content-creation-instagram-carousel-outline",
+   "cat": "content-creation",
+   "title": "Instagram Carousel Outline",
+   "use": "Plan a 7 slide educational carousel on a scam or safety topic that people save and share.",
+   "prompt": "You are a social media content strategist specialising in Indian cyber awareness carousels for [PAGE NAME]. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Topic: [TOPIC]. Facts and examples: [FACTS]. Language: [HINGLISH / ENGLISH / MARATHI]. Brand style: [e.g. navy background, cyan and red accents]. Create a 7 slide carousel outline. Slide 1: cover with an alert tag and a question hook (max 7 words). Slides 2 to 5: one idea per slide, max 25 words each, with a suggested visual (e.g. phone mockup showing a blurred fake SMS). Slide 6: 'Kya kare / Kya na kare' with 3 ticks and 3 crosses. Slide 7: CTA with 'Report: 1930 | cybercrime.gov.in', Save and Share prompt, and handle [HANDLE]. Constraints: blur or replace any real phone numbers, names, UPI IDs or links in example visuals; do not explain how to execute the scam; do not name accused parties in ongoing cases. Output as a table with columns: Slide, Headline, Body text, Visual notes. Then give a caption (max 80 words) and 5 hashtags.",
+   "tip": "Write slide 1 last. Once the inner slides are clear, the strongest hook is usually the most surprising fact from slide 2 or 3 turned into a question.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "content-creation-youtube-long-form-explainer-script",
+   "cat": "content-creation",
+   "title": "YouTube Long-Form Explainer Script",
+   "use": "Draft an 8 to 12 minute YouTube explainer on a cyber fraud trend in India for monetisable long-form content.",
+   "prompt": "You are a YouTube scriptwriter for an Indian cyber awareness channel, [CHANNEL NAME], presented by [PRESENTER NAME] in [HINGLISH / HINDI / ENGLISH]. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Topic: [TOPIC]. Verified facts, stats and sources: [FACTS WITH SOURCES]. Target length: [MINUTES]. Viewer: [AUDIENCE]. Structure: 1) Cold open (first 30 seconds) with a relatable situation, no clickbait claims. 2) What the scam is. 3) Why people fall for it (psychology: urgency, authority, fear, greed). 4) Red flags checklist. 5) What to do in the first hour if it happens: call 1930, report on cybercrime.gov.in, contact the bank, preserve evidence. 6) Common myths. 7) Recap and CTA. Rules: awareness only, never a how-to for committing fraud; attribute every statistic to the source I gave; for ongoing cases say 'allegedly' and avoid naming accused; where law is discussed, add a line that viewers should consult a lawyer for their specific case. Output: full script with section headings, timestamps estimate, B-roll suggestions in [brackets], 3 title options under 60 characters, and a description with chapter markers.",
+   "tip": "Ask the AI for the script first, then in a second message ask it to cut 15 percent. Tighter scripts hold retention much better.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "content-creation-thumbnail-headline-and-concept-ideas",
+   "cat": "content-creation",
+   "title": "Thumbnail Headline and Concept Ideas",
+   "use": "Generate honest, high click-through thumbnail text and concepts for a cyber awareness video.",
+   "prompt": "You are a YouTube thumbnail strategist for Indian tech and cyber awareness channels. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Video topic: [TOPIC]. Key takeaway: [ONE LINE]. Language: [HINGLISH / HINDI / MARATHI / ENGLISH]. Presenter will appear: [YES / NO]. Brand colours: [COLOURS]. Give 10 thumbnail headline options, each 2 to 4 words, with one word to put in a highlight box. Mix scripts if useful (e.g. Roman plus Devanagari). Then give 3 full concepts, each with: face expression, prop or phone mockup content, background colour, text placement, and an optional tag like 'SCAM ALERT'. Constraints: the thumbnail must match what the video actually delivers, no misleading claims, no real victim photos, no real scammer numbers or identifiable private data, no logos of banks or companies used in a way that implies they did wrong. Output: a numbered list of headlines, then the 3 concepts as short bullet blocks, then which one you recommend and why.",
+   "tip": "Test the top two options on a phone screen at small size. If you cannot read the text in one second, it is too long.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "cyber-law-explainers-explain-a-cyber-law-section-in-simple-hinglish",
+   "cat": "cyber-law-explainers",
+   "title": "Explain a Cyber Law Section in Simple Hinglish",
+   "use": "Break down one section of the IT Act 2000, BNS 2023 or DPDP Act 2023 for a general audience.",
+   "prompt": "You are a legal educator who explains Indian cyber law to ordinary people in simple Hinglish. You are not giving legal advice. Law and section: [ACT AND SECTION NUMBER]. Official text of the section (pasted from the official source): [PASTE TEXT]. Audience: [e.g. students, small shop owners]. Use only the section text I pasted. If I have not pasted it, say you need the official text and do not reconstruct it from memory. Output: 1) One line meaning in Hinglish. 2) Explanation in 4 to 6 short bullets: what act is covered, who it applies to, what the penalty or consequence is as stated in the text. 3) Two everyday Indian examples that are clearly hypothetical. 4) Common misunderstandings. 5) 'Victim ho toh kya kare' with 1930 and cybercrime.gov.in if the section relates to a cybercrime. 6) Closing disclaimer: this is general information, consult a qualified lawyer for your case. Constraints: do not cite case law or amendments unless I provide them; flag any old IPC to BNS mapping as 'verify with official text'.",
+   "tip": "Always paste the section from an official government source such as indiacode.nic.in. Models often mix up IPC and BNS numbering.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "cyber-law-explainers-real-case-study-explainer-law-plus-lesson",
+   "cat": "cyber-law-explainers",
+   "title": "Real Case Study Explainer (Law Plus Lesson)",
+   "use": "Explain a reported Indian cybercrime case by linking what happened to the relevant laws and the safety lesson.",
+   "prompt": "You are a cyber law and awareness educator. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Case summary from a reputable news source: [PASTE SUMMARY]. Source and date: [SOURCE]. Current case status: [STATUS]. Sections reportedly invoked by police (as reported): [SECTIONS OR UNKNOWN]. Write an explainer for [FORMAT: Reel script / LinkedIn post / blog section] in [LANGUAGE]. Structure: what reportedly happened (neutral language), which legal provisions were reported and what they broadly cover, what the victim did right or could have done, 3 safety lessons, how to report (1930, cybercrime.gov.in). Rules: if the case is not concluded, do not name accused individuals or companies and use 'allegedly' or 'as per police'; never present allegations as proven; do not speculate about guilt; do not describe attack techniques in reproducible detail; do not identify the victim. End with: for any legal situation, consult a lawyer.",
+   "tip": "Note the article date in your content. Case status changes fast, and an 'allegedly' that turns into an acquittal can create defamation risk if you named someone.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "cyber-law-explainers-myth-vs-fact-cyber-law-edition",
+   "cat": "cyber-law-explainers",
+   "title": "Myth vs Fact: Cyber Law Edition",
+   "use": "Create myth-busting content about common legal misconceptions people in India have about online crime.",
+   "prompt": "You are a cyber law awareness writer creating myth vs fact content for [PLATFORM]. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Myths to address: [LIST 3 TO 6 MYTHS, e.g. 'Police only take cyber complaints above a certain amount', 'Sharing a forwarded morphed photo is not a crime']. Legal points I have verified, with sources: [PASTE VERIFIED POINTS]. For each myth, write: Myth (one line), Fact (max 40 words, based only on my verified points), and What to do (one action). If I have not provided a verified point for a myth, mark it [NEEDS VERIFICATION] rather than stating the law yourself. Add a closing slide or line: report cybercrime at 1930 or cybercrime.gov.in; this is general awareness, not legal advice, consult a lawyer for your situation. Output in [LANGUAGE], formatted as [CAROUSEL SLIDES / REEL BEATS / BLOG LIST].",
+   "tip": "Pick myths from real comments and DMs you receive. Content that answers your own audience's confusion gets shared more.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "compliance-dpdp-act-2023-readiness-checklist-for-a-small-business",
+   "cat": "compliance",
+   "title": "DPDP Act 2023 Readiness Checklist for a Small Business",
+   "use": "Build a practical, plain-language data protection checklist for an Indian SME, clinic, coaching centre or shop.",
+   "prompt": "You are a privacy compliance consultant helping small Indian businesses prepare for the Digital Personal Data Protection Act 2023 and any Rules notified under it. You give general guidance, not legal advice. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Business type: [TYPE]. Size: [EMPLOYEES]. Personal data collected: [e.g. names, phone numbers, Aadhaar copies, health records, student data]. How it is collected: [FORMS / WHATSAPP / WEBSITE / CCTV]. Where it is stored: [EXCEL / GOOGLE DRIVE / BILLING SOFTWARE / PAPER]. Who has access: [ROLES]. Third parties used: [e.g. payment gateway, SMS vendor]. Any children's data: [YES / NO]. Create a checklist grouped into: notice and consent, purpose limitation and data minimisation, security safeguards, data principal rights (access, correction, erasure, grievance), children's data, vendors and processors, retention and deletion, breach handling. For each item give: the action in plain English, priority (High / Medium / Low), effort (Quick win / Project), and an owner role. Constraints: do not quote penalty amounts or rule deadlines unless I paste the official text; flag anything that depends on the latest DPDP Rules as 'verify current Rules'. End with a note to consult a qualified lawyer or privacy professional before finalising.",
+   "tip": "Start by listing every place customer data lives, including staff WhatsApp chats and personal phones. That is where most small businesses have gaps.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "compliance-privacy-notice-draft-plain-language",
+   "cat": "compliance",
+   "title": "Privacy Notice Draft (Plain Language)",
+   "use": "Draft a clear privacy notice for a small Indian website, app or offline business.",
+   "prompt": "You are a privacy writer who drafts plain-language privacy notices for Indian small businesses. You are drafting for review, not giving legal advice. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Business name and contact: [NAME, ADDRESS, EMAIL]. Grievance or contact person: [NAME / ROLE]. Data collected: [LIST]. Purposes: [LIST]. Sharing with: [THIRD PARTIES]. Retention: [PERIODS]. Cookies or analytics: [TOOLS OR NONE]. Languages needed: [ENGLISH / HINDI / MARATHI]. Draft a privacy notice under 600 words with headings: Who we are, What data we collect, Why we use it, Who we share it with, How long we keep it, Your rights and how to use them, How to withdraw consent, How to complain, Updates to this notice. Rules: write at a Class 8 reading level, short sentences, no legal jargon; do not claim certifications or security measures I have not listed; do not invent data uses. Mark every assumption with [CONFIRM]. Add a final note to me (not in the notice) listing points a lawyer should review.",
+   "tip": "Read the notice as if you were the customer. If you would not understand why the business needs your Aadhaar copy, the notice is not clear enough yet.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "compliance-data-breach-response-plan-for-an-sme",
+   "cat": "compliance",
+   "title": "Data Breach Response Plan for an SME",
+   "use": "Prepare a one-page incident response plan an Indian small business can follow when personal data is exposed.",
+   "prompt": "You are an incident response consultant writing for a non-technical small business owner in India. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Business: [TYPE AND SIZE]. IT setup: [e.g. 5 laptops, Google Workspace, Tally, website on shared hosting]. IT support: [IN-HOUSE / VENDOR NAME / NONE]. Key data: [LIST]. Write a breach response plan with phases: 1) Detect and confirm, 2) Contain (first 60 minutes), 3) Preserve evidence, 4) Assess what data and whose data, 5) Notify (affected people, the Data Protection Board as required under DPDP, CERT-In where its directions apply, police or cybercrime.gov.in if a crime is involved, bank if money is involved), 6) Recover, 7) Review and improve. For each phase: what to do, who does it, and a one-line 'do not do this' warning (e.g. do not wipe the affected laptop before evidence is preserved). Constraints: do not state exact reporting timelines unless I paste the official requirement; mark them [VERIFY TIMELINE]. Include a contact sheet template with blanks. Recommend legal counsel review notification decisions. Output as a printable one to two page document with checkboxes.",
+   "tip": "Print the plan and keep a copy offline. During ransomware or an account takeover, the shared drive where the plan is stored may be the thing that is locked.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "victim-help-cybercrime-complaint-draft-for-cybercrime-gov-in",
+   "cat": "victim-help",
+   "title": "Cybercrime Complaint Draft for cybercrime.gov.in",
+   "use": "Help a victim organise facts into a clear, chronological complaint to file on the National Cyber Crime Reporting Portal.",
+   "prompt": "You are a calm, supportive cyber crime victim assistance helper in India. You help organise facts; you do not provide legal representation. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Victim details to include only as placeholders: [NAME], [CITY], [CONTACT]. Incident type: [e.g. UPI fraud, sextortion, fake job, account hack]. What happened in my own words: [STORY]. Dates and times: [LIST]. Amounts and transaction IDs / UTR numbers: [LIST]. Suspect identifiers I have (phone, UPI ID, account, profile link, website): [LIST]. Evidence I have: [SCREENSHOTS, SMS, CALL LOGS, EMAILS]. Already done: [e.g. called 1930, informed bank]. Produce: 1) A short incident summary (max 80 words). 2) A chronological timeline table (date, time, event, evidence reference). 3) A list of suspect identifiers exactly as I gave them. 4) A list of evidence to upload, with suggested file names. 5) The complaint description in clear English (max 400 words), and optionally in Hindi. Rules: do not add, assume or exaggerate facts; keep the tone factual, not emotional; do not accuse anyone by name beyond the identifiers I provide. End with reminders: if money was lost, call 1930 immediately if not done yet, since speed matters; file at cybercrime.gov.in; inform your bank in writing; keep the acknowledgement number; consult a lawyer for further legal steps.",
+   "tip": "Do not paste full card numbers, PINs, OTPs or passwords into any AI tool. Use the last 4 digits only. The portal and bank will ask for full details through their own channels.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "victim-help-bank-or-upi-fraud-dispute-letter",
+   "cat": "victim-help",
+   "title": "Bank or UPI Fraud Dispute Letter",
+   "use": "Draft a formal written complaint to a bank about an unauthorised transaction or UPI fraud.",
+   "prompt": "You are a consumer banking complaint writer in India. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Bank and branch: [BANK, BRANCH]. Account holder: [NAME]. Account or card (last 4 digits only): [XXXX]. Transaction details (date, time, amount, UTR or reference): [LIST]. How it happened: [SUMMARY]. When I noticed and when I first informed the bank: [DATE AND TIME, CHANNEL]. 1930 or cybercrime.gov.in acknowledgement number: [NUMBER OR NONE]. Remedy sought: [e.g. reversal, block, investigation, written response]. Draft a polite, firm letter or email to the bank's grievance cell with: subject line, reference to my earlier report and complaint number, transaction table, clear statement that the transaction was not authorised by me (only if I said so), request for the remedy, request for written acknowledgement and timeline. Mention that I am aware of the RBI framework on customer liability for unauthorised electronic banking transactions and the RBI Integrated Ombudsman Scheme (cms.rbi.org.in) as an escalation path, but do not quote specific day limits or liability rules unless I paste the current RBI text. Keep under 350 words. Add a separate checklist of attachments. Note at the end: for disputed liability, consult a lawyer or consumer forum advisor.",
+   "tip": "Report to the bank in writing as early as possible, even if you already called, and keep the email or acknowledgement. Timing can affect how liability is decided.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "victim-help-digital-evidence-preservation-checklist",
+   "cat": "victim-help",
+   "title": "Digital Evidence Preservation Checklist",
+   "use": "Give a victim a step by step checklist to safely preserve evidence before it disappears.",
+   "prompt": "You are a digital forensics awareness trainer helping an ordinary person in India preserve evidence after a cyber incident. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Incident type: [TYPE]. Platforms involved: [e.g. WhatsApp, Instagram, Gmail, UPI app, website]. Device: [ANDROID / IPHONE / LAPTOP]. Has the suspect deleted or might delete messages: [YES / NO / UNSURE]. Create a checklist with: what to capture (screenshots showing date, time, sender identifier and URL; transaction screens with UTR; call logs; emails with full headers if relevant), how to capture on my device type, how to export chats where the platform allows it, how to store copies safely (a second device or offline drive), what not to do (do not delete chats, do not reply to or threaten the suspect, do not factory reset, do not try to hack back or trace the person yourself, do not share intimate images further even as evidence on social media). Add: report at 1930 / cybercrime.gov.in, keep the acknowledgement number, and give evidence to police when asked. For sextortion or image abuse, add the option of reporting directly to the platform and note that the victim is not at fault. Output as a numbered checklist in [ENGLISH / HINGLISH], under 300 words, with a note to consult a lawyer for court-related evidence questions.",
+   "tip": "Take a screenshot that includes the profile or number of the sender, not just the message. Investigators need to know who sent it.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "victim-help-1930-helpline-call-preparation-sheet",
+   "cat": "victim-help",
+   "title": "1930 Helpline Call Preparation Sheet",
+   "use": "Prepare a victim to make a fast, complete call to the 1930 cyber fraud helpline.",
+   "prompt": "You are a cyber fraud first-response helper in India. Your goal is to help me call 1930 quickly with every detail ready. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. What happened: [SHORT SUMMARY]. Transactions: [DATE, TIME, AMOUNT, UTR / REFERENCE, FROM BANK, TO ACCOUNT OR UPI ID]. My bank and account (last 4 digits): [DETAILS]. Suspect phone, UPI ID, link or app: [DETAILS]. Produce: 1) A 30 second opening statement I can read out on the call. 2) A one-page fact sheet table I can read from (transactions in time order). 3) Questions the operator is likely to ask, with my answers filled from my facts or marked [NEEDS INFO]. 4) What to ask for: the complaint or acknowledgement number and next steps. 5) What to do right after the call: file or complete the complaint on cybercrime.gov.in within the time the operator advises, inform the bank in writing, block cards or UPI if needed, change passwords, preserve evidence. Rules: never include full card numbers, CVV, PIN, OTP or passwords; remind me that no genuine helpline operator will ask for OTP or PIN. Keep it short and calm. Output in [ENGLISH / HINGLISH].",
+   "tip": "Call first, polish later. If money left your account in the last few hours, do not spend more than 5 minutes on this prep before dialling 1930.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "career-linkedin-post-for-soc-learners",
+   "cat": "career",
+   "title": "LinkedIn Post for SOC Learners",
+   "use": "Write an authentic LinkedIn post documenting a SOC learning milestone, lab, or lesson.",
+   "prompt": "You are a LinkedIn ghostwriter for an early-career cybersecurity professional in India targeting Junior SOC Analyst roles. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. My role and background: [e.g. IT Support Engineer, BCA, law student]. What I did or learned: [DETAILS: lab, room, tool, cert, ticket lesson]. Tools involved: [e.g. Splunk, Wazuh, Wireshark, Sysmon]. One concrete result or screenshot description: [RESULT]. Post goal: [VISIBILITY / RECRUITER INTEREST / COMMUNITY]. Write a post of 150 to 220 words: a first line hook under 12 words with no clickbait, the context in 2 lines, what I did in 3 short steps, the one lesson, a question to invite comments. Suggest one visual (diagram or redacted screenshot) and 3 to 5 hashtags. Rules: no exaggeration of skills or results, no claim of certs I have not earned, no client or employer confidential data, redact IPs, hostnames and usernames from real environments; only lab or permitted data. Avoid buzzword stacking. Give 2 versions: one more personal, one more technical.",
+   "tip": "Put links in the first comment and reply to every comment in the first hour. Early engagement matters more than hashtags.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "career-junior-soc-analyst-interview-prep-with-mock-q-a",
+   "cat": "career",
+   "title": "Junior SOC Analyst Interview Prep with Mock Q&A",
+   "use": "Run a realistic mock interview for an L1 SOC Analyst role in India.",
+   "prompt": "You are a senior SOC manager at an Indian MSSP or global capability centre interviewing candidates for a SOC Analyst L1 role. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Job description: [PASTE JD]. My background: [SUMMARY]. My projects and labs: [LIST]. Certs done or in progress: [LIST]. Interview round: [HR / TECHNICAL / SCENARIO]. Run the mock interview one question at a time and wait for my answer. Cover: networking basics (TCP/IP, DNS, ports), Windows and Linux logs, SIEM concepts, the alert triage process, phishing analysis, the incident response lifecycle, MITRE ATT&CK at a high level, a scenario question, and 'tell me about a project'. After each of my answers, give: a score out of 5, what was good, what was missing, and a model answer of max 120 words. At the end, give a summary of my 3 strongest and 3 weakest areas with a 7 day study plan. Keep the questions defensive and realistic for L1; do not ask me to perform attacks.",
+   "tip": "Answer out loud and type afterwards. The real interview is spoken, and typing lets you over-polish answers you would not say that way.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "career-homelab-write-up-as-an-incident-report",
+   "cat": "career",
+   "title": "Homelab Write-Up as an Incident Report",
+   "use": "Turn a homelab exercise into a professional incident report for GitHub or a portfolio.",
+   "prompt": "You are a SOC team lead who reviews incident reports. Help me turn my homelab work into a portfolio-quality incident report. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Lab setup: [e.g. Windows 10 VM with Sysmon, Wazuh manager, Kali attacker VM, all on an isolated host-only network that I own]. Simulated activity I ran in my own lab: [DESCRIPTION]. Alerts and logs observed: [PASTE KEY LOG LINES, REDACTED]. Actions I took: [LIST]. Write a report with: Title, Executive summary (3 lines), Environment and scope (state clearly that this was an authorised isolated lab), Timeline table, Detection (which rule or log fired and why), Analysis (mapping to MITRE ATT&CK technique IDs only if I supplied them or they clearly match; otherwise suggest and mark [VERIFY]), Containment and remediation steps, Lessons learned, Detection improvement ideas. Rules: focus on detection and response; do not include weaponised commands or payloads; describe attacker steps only at a high level. Output in Markdown suitable for a GitHub README, with placeholders for screenshots.",
+   "tip": "Hiring managers read the executive summary and the detection section first. Make those two sections strong before polishing the rest.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "career-resume-bullet-polishing-for-soc-roles",
+   "cat": "career",
+   "title": "Resume Bullet Polishing for SOC Roles",
+   "use": "Rewrite IT support and project experience into honest, impact-focused resume bullets for SOC applications.",
+   "prompt": "You are a cybersecurity recruiter in India who screens resumes for SOC L1 roles. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Target role and JD keywords: [PASTE]. My current bullets: [PASTE]. Real numbers I can stand behind: [e.g. tickets per week, users supported, labs completed]. Rewrite each bullet using the pattern action verb, what, tool, measurable result. Highlight security-relevant parts of IT support work (access management, endpoint hygiene, phishing reports handled, patching, backups). Rules: never invent numbers, tools or responsibilities; if a bullet has no metric, suggest what I could measure and mark it [ADD METRIC]; keep each bullet under 25 words; avoid buzzwords like 'rockstar' or 'ninja'. Output a table: Original, Rewritten, Keywords matched. Then list 5 JD keywords I am missing and an honest way to close each gap.",
+   "tip": "Tailor the top three bullets for each application. Recruiters often scan only those before deciding.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "training-college-phishing-awareness-session-script",
+   "cat": "training",
+   "title": "College Phishing-Awareness Session Script",
+   "use": "Create a 45 minute interactive phishing awareness session for college students.",
+   "prompt": "You are a cyber awareness trainer who runs sessions in Indian colleges. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. College and audience: [COLLEGE, YEAR, STREAM, APPROX SIZE]. Language: [HINGLISH / ENGLISH / MARATHI]. Time: [MINUTES]. Recent local scam examples I want to use: [LIST WITH SOURCES]. Resources available: [PROJECTOR / NO PROJECTOR]. Create a session plan with: icebreaker poll, what phishing is (email, SMS smishing, voice vishing, WhatsApp, QR code), 5 real-style examples with red flags (use fictional names, numbers and domains like example.com, never live malicious links), a live 'spot the phish' activity, fake internship and job scam section relevant to students, what to do if you clicked, reporting (1930, cybercrime.gov.in, Chakshu on Sancharsaathi for suspicious calls and SMS), and a closing pledge or quiz. Rules: awareness only; do not teach how to build phishing pages or kits; no shaming of victims. Output: a minute-by-minute agenda table, speaker notes for each segment, and a one-page take-home handout.",
+   "tip": "Get the college's permission before running any simulated phishing test. Never send fake phishing to students without written approval from the institution.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "training-cyber-safety-quiz-generator",
+   "cat": "training",
+   "title": "Cyber Safety Quiz Generator",
+   "use": "Generate quiz questions for a workshop, Instagram story poll or Google Form.",
+   "prompt": "You are an instructional designer creating cyber safety quizzes for Indian audiences. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Topic(s): [TOPICS]. Audience: [STUDENTS / EMPLOYEES / SENIORS / GENERAL]. Difficulty: [EASY / MEDIUM / HARD]. Number of questions: [N]. Format: [MCQ / TRUE-FALSE / SCENARIO]. Language: [LANGUAGE]. For each question give: the question, 4 options (for MCQ), the correct answer, and a one-line explanation that teaches the safe behaviour. Use realistic Indian scenarios (UPI collect requests, KYC update SMS, courier or customs calls, 'digital arrest' calls, fake job offers) with fictional names and numbers. Rules: protective knowledge only; explanations should mention 1930 or cybercrime.gov.in where reporting is relevant. Also output a version formatted for Instagram story polls (question under 80 characters, 2 options).",
+   "tip": "Make wrong options plausible. If the right answer is obvious, people learn nothing, so base distractors on what victims actually believed.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "training-parent-and-senior-citizen-cyber-safety-workshop",
+   "cat": "training",
+   "title": "Parent and Senior Citizen Cyber Safety Workshop",
+   "use": "Plan a gentle, practical workshop for parents or senior citizens on common frauds.",
+   "prompt": "You are a patient community cyber safety educator for families in [CITY / AREA]. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Audience: [PARENTS / SENIOR CITIZENS / BOTH], approx [N] people. Language: [HINDI / MARATHI / HINGLISH / GUJARATI]. Duration: [MINUTES]. Venue setup: [e.g. society hall, no projector]. Top concerns from the organiser: [LIST]. Plan a workshop covering: OTP and PIN never sharing, fake bank or KYC calls, 'digital arrest' and fake police or CBI calls, pension and life certificate scams, fake customer care numbers from search results, UPI collect requests and QR code scams, WhatsApp account safety (two-step verification), and for parents: children's gaming and social media safety. Include: simple role-play scripts (fictional), a 'pause, check, report' rule, a printable large-font handout with 1930 and cybercrime.gov.in, and how a family member can help. Rules: respectful tone, no tech jargon without explanation, no blaming victims, no step by step fraud methods. Output: agenda, talking points, 2 role-plays, the handout text.",
+   "tip": "Ask attendees to save 1930 in their phone contacts during the session itself. It is the single most useful thing they will take home.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "soc-alert-triage-explainer-and-walkthrough",
+   "cat": "soc",
+   "title": "Alert Triage Explainer and Walkthrough",
+   "use": "Understand and document how to triage a specific SIEM or EDR alert in a lab or authorised environment.",
+   "prompt": "You are a patient SOC L2 analyst mentoring an L1 analyst. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Alert name and source: [e.g. Wazuh rule 5710, Defender alert]. Alert details (redacted): [PASTE FIELDS: timestamp, host, user, process, source and destination IP, rule description]. Environment: [LAB / AUTHORISED EMPLOYER ENVIRONMENT]. Available tools: [LIST]. Explain: 1) What this alert usually means in plain language. 2) Common false positive causes. 3) A triage checklist: what to verify, which logs to pivot to, which questions to ask the user or asset owner. 4) Indicators that would make it a true positive. 5) Severity reasoning. 6) Recommended next actions and when to escalate. 7) A short ticket note template filled from my data. Rules: do not invent log values; if a field is missing, say what to look up. Map to MITRE ATT&CK only where it clearly applies, marked as a suggestion. Defensive guidance only.",
+   "tip": "Always write down why you closed an alert as a false positive. That note is what protects you and trains the next analyst.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "soc-phishing-email-analysis-of-a-sample-you-received",
+   "cat": "soc",
+   "title": "Phishing Email Analysis of a Sample You Received",
+   "use": "Safely analyse a suspicious email you personally received and write a short verdict.",
+   "prompt": "You are a SOC analyst specialising in phishing analysis. I received this email myself and want to understand whether it is malicious, without interacting with it. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Email headers (pasted as text): [HEADERS]. Body text: [BODY]. Links shown, with the actual URLs written defanged like hxxp[:]//example[.]com: [LINKS]. Attachment names and hashes if any (I have not opened them): [DETAILS]. Analyse: sender and reply-to mismatch, SPF / DKIM / DMARC results from the headers, Received chain anomalies, display name tricks, lookalike domains, urgency and social engineering cues, link versus displayed text mismatch, and attachment risk. Output: a verdict (Likely phishing / Suspicious / Likely legitimate) with confidence, an evidence table, IOCs listed in defanged form, safe next steps (report to my email provider or IT team, block sender, check the hash on a reputation service without opening the file, report to cybercrime.gov.in or the impersonated organisation, call 1930 if money or banking credentials were involved), and a 3-line awareness summary I could share with redacted details. Rules: do not visit or reconstruct the phishing page; do not suggest contacting or retaliating against the sender; redact my own email address and personal data.",
+   "tip": "Always defang URLs before pasting them anywhere so nobody, including you, can click them by accident.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  },
+  {
+   "id": "soc-log-review-summary-for-a-shift-handover",
+   "cat": "soc",
+   "title": "Log Review Summary for a Shift Handover",
+   "use": "Summarise a batch of logs or alerts from a lab or authorised environment into a clear handover note.",
+   "prompt": "You are a SOC shift lead writing a concise handover. Use only the facts I provide below; if something is missing, write [NEEDS INFO] instead of guessing. Time window: [START TO END, TIMEZONE]. Environment: [LAB / AUTHORISED ENVIRONMENT NAME]. Log or alert extract (redacted): [PASTE]. Tickets worked: [LIST]. Open items: [LIST]. Produce: 1) Shift summary in 3 bullets. 2) Table of notable events (time, source, event, assessment, status). 3) Patterns or anomalies worth watching, with the specific log lines that support each. 4) Open items and recommended owner. 5) Any tuning suggestions for noisy rules. Rules: base every statement on the supplied logs; mark guesses as [HYPOTHESIS]; do not include unredacted personal data, passwords or tokens; keep the whole note under 300 words so the next shift can read it in 2 minutes.",
+   "tip": "Lead with what the next shift must act on. Put routine items at the bottom, because a handover is read under time pressure.",
+   "model": "Any capable general chat model works. Pick one with a long context window when you paste large inputs.",
+   "source": "community"
+  }
+ ]
+}

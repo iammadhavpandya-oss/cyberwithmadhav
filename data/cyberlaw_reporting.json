@@ -1,0 +1,143 @@
+[
+ {
+  "forum": "National Cyber Crime Reporting Portal (NCRP), cybercrime.gov.in, run by I4C, Ministry of Home Affairs",
+  "who_can_file": "Any victim or complainant, for any type of cybercrime, from anywhere in India. The portal has two options: (i) Report Crime related to Women/Child (online child sexual exploitative and abuse material, rape or gang rape content, sexually explicit content) and (ii) Report Other Cybercrimes. Under the Women/Child option, the 'Report Anonymously' route allows online rape or gang rape (RGR) content to be reported without giving personal details. The 'Report and Track' route needs registration with a valid Indian mobile number and OTP.",
+  "when_to_use": "First stop for most cybercrimes: financial fraud, social media abuse, hacking, online harassment, CSEAM or RGR content. Complaints are routed to the State/UT police of the place of incident. Financial fraud should also be reported on 1930 at once. Per the portal FAQ, a complaint under the Women/Child section cannot be withdrawn, while one under Report Cybercrime can be withdrawn before it is converted into an FIR. A portal complaint is not itself an FIR; ask the police to register one under BNSS s.173 where a cognizable offence is disclosed.",
+  "time_limit": "No statutory filing deadline. Report immediately. For financial fraud, the formal portal complaint should be filed within 24 hours of a 1930 call, using the acknowledgement number sent by SMS (CFCFRMS FAQ).",
+  "documents_needed": [
+   "Incident date and time",
+   "Incident details of at least 200 characters, without special characters",
+   "Soft copy of a national ID of the complainant (Voter ID, Driving Licence, Passport, PAN or Aadhaar) in jpeg, jpg or png, up to 5 MB (not required for the anonymous RGR route)",
+   "For financial crime: name of the bank, wallet or merchant; transaction ID or UTR number; date of transaction; fraud amount",
+   "Soft copies of all relevant evidence, up to 10 MB each: screenshots, chat transcripts, emails, URLs, suspect phone numbers, bank statements, money transfer receipts, images, videos",
+   "Keep the hash value the portal generates for each uploaded evidence file"
+  ],
+  "official_url": "https://cybercrime.gov.in/",
+  "verify": false
+ },
+ {
+  "forum": "National Cyber Crime Helpline 1930 and the Citizen Financial Cyber Fraud Reporting and Management System (CFCFRMS)",
+  "who_can_file": "Any victim of financial cyber fraud (UPI, net banking, card, wallet, investment or other online payment fraud), or a person calling on the victim's behalf. Calls are answered by State/UT police officials, who enter the complaint on the system.",
+  "when_to_use": "Immediately after money is lost to online financial fraud, so that the bank or intermediary holding the funds can put a lien on or hold the amount and the ticket can be escalated to the next bank if the money has moved on. The 'golden hour' is not a statutory term; officials describe it as the first hours after the fraud, when early reporting improves the chance of tracing and holding the funds. Also inform your own bank through its official channel.",
+  "time_limit": "As early as possible, ideally within the first hour. After the call, file the formal complaint on cybercrime.gov.in within 24 hours using the SMS acknowledgement number (CFCFRMS FAQ). No statutory limitation period.",
+  "documents_needed": [
+   "Name, mobile number and address of the complainant",
+   "Transaction details: bank, wallet or merchant name, transaction ID or UTR number, date, time and amount",
+   "Account or card number debited (last digits are enough on the call)",
+   "Screenshots of the SMS alerts, UPI app history, and the fraudster's number, link or profile",
+   "The acknowledgement number received by SMS, for the follow-up portal complaint"
+  ],
+  "official_url": "https://i4c.mha.gov.in/ncrp.aspx",
+  "verify": false
+ },
+ {
+  "forum": "Police FIR at the local police station or district or state cyber cell (BNSS s.173), including Zero FIR and e-FIR",
+  "who_can_file": "Any person with information about a cognizable offence: the victim, a relative, a witness or an advocate acting for the victim. Under the s.173(1) proviso, where the woman against whom an offence under BNS ss.64 to 71, 74 to 79 or 124 is alleged gives the information, it is to be recorded by a woman police officer or any woman officer.",
+  "when_to_use": "Where the facts disclose a cognizable offence (for example IT Act ss.66C, 66D, 66E, 67, 67A and 67B, or BNS offences such as cheating, extortion and stalking; note that defamation is non-cognizable and needs a private complaint to the Magistrate). Zero FIR: s.173(1) provides that information about a cognizable offence may be given 'irrespective of the area where the offence is committed', so the station cannot refuse for want of territorial jurisdiction. e-FIR: s.173(1)(ii) allows information by electronic communication, which is taken on record on being signed within three days by the person giving it. A free copy of the FIR must be given to the informant or victim (s.173(2)). For offences punishable with 3 years or more but less than 7 years, the officer may, with prior permission of an officer not below DSP, hold a preliminary enquiry within 14 days (s.173(3)). If the station refuses, send the substance in writing and by post to the Superintendent of Police (s.173(4)), and then apply to the Magistrate under s.175(3), supported by an affidavit.",
+  "time_limit": "No limitation for registering an FIR. e-FIR: the informant must sign within three days for it to be taken on record (s.173(1)(ii)). Preliminary enquiry, where permitted, within 14 days (s.173(3)). Limitation for taking cognizance of offences punishable with up to 3 years is governed by BNSS Chapter XXXVIII (check separately).",
+  "documents_needed": [
+   "Written complaint signed by the informant (or e-FIR, to be signed within three days)",
+   "Identity proof and contact details of the informant",
+   "Printouts and soft copies of evidence: screenshots, URLs, chat logs, emails, call logs, transaction statements",
+   "NCRP or 1930 acknowledgement number, if already reported",
+   "BSA s.63 certificate (Schedule format) for electronic records, if they are to be relied on later",
+   "Copy of the postal complaint to the SP and its postal proof, if the station refused to register"
+  ],
+  "official_url": "https://digitalpolice.gov.in/",
+  "verify": false
+ },
+ {
+  "forum": "CERT-In (Indian Computer Emergency Response Team) incident reporting",
+  "who_can_file": "Obliged: every service provider, intermediary, data centre, body corporate and Government organisation must report the incidents listed in Annexure I of the CERT-In Directions dated 28 Apr 2022 (para (ii)). The CERT-In FAQ says these Directions also cover VPS, cloud and VPN service providers and virtual asset service, exchange and custodian wallet providers, and that individual citizens are not covered. Optional: under rule 12(1)(a) of the CERT-In Rules 2013, any individual, organisation or corporate entity affected by a cyber security incident may report it.",
+  "when_to_use": "Technical cyber security incidents such as ransomware, data breach or data leak, intrusion, DoS or DDoS attacks, compromise of systems or accounts, website defacement, malicious code, and attacks on critical systems. CERT-In handles incident response and coordination. It does not register crimes or award compensation, so victims of crime should also go to the police or NCRP.",
+  "time_limit": "Within 6 hours of noticing the incident or of it being brought to notice, for entities obliged under the 28 Apr 2022 Directions. Per the CERT-In FAQ, entities may report the information available within 6 hours and send further details later within a reasonable time. No fixed time for voluntary reports by individuals.",
+  "documents_needed": [
+   "CERT-In Incident Reporting Form (https://www.cert-in.org.in/PDF/certinirform.pdf), filled to the extent information is available",
+   "Contact details of the reporting entity and its point of contact",
+   "Time of occurrence and time of detection, affected systems, IP addresses, domains and URLs",
+   "Nature of the incident and the Annexure I category",
+   "Relevant logs (the Directions require logs of ICT systems to be kept for 180 days), indicators of compromise and screenshots",
+   "Send by email to incident@cert-in.org.in, phone 1800-11-4949 or fax 1800-11-6969"
+  ],
+  "official_url": "https://www.cert-in.org.in/",
+  "verify": true
+ },
+ {
+  "forum": "Adjudicating Officer under IT Act s.46 (the IT Secretary of the State or UT)",
+  "who_can_file": "Any person who has suffered injury or damage from a contravention of the IT Act or of any rule, regulation, direction or order made under it (for example unauthorised access or data theft under s.43, or failure to protect sensitive personal data under s.43A while it is in force), and who claims compensation of up to Rs 5 crore. Claims above Rs 5 crore lie with the competent civil court (s.46(1A)).",
+  "when_to_use": "Civil compensation claims against a person or body corporate, for example a bank or company whose security failure enabled the loss. Under s.46(1) the Central Government appoints an officer not below the rank of Director to the Government of India, or an equivalent State officer; in practice the State IT Secretaries act as Adjudicating Officers. The complaint goes to the Adjudicating Officer of the State or UT where the computer system or network is located (r.4(b), 2003 Rules). Since 30 Nov 2023 (G.S.R. 808(E)), r.4(a) covers any contravention of the Act or of any rule, regulation, direction or order, not only Chapter IX. Where the case discloses an offence under Chapter XI, the Adjudicating Officer may transfer it to the Magistrate (r.4, last clause). Appeal against the order lies to TDSAT within 45 days of receiving the order (s.57(3)).",
+  "time_limit": "The 2003 Adjudication Rules prescribe no period for filing. They say that, as far as possible, every application shall be heard and decided in four months and the whole matter in six months (r.4(k)). Whether the Limitation Act, 1963 applies is not settled in the texts reviewed; file promptly.",
+  "documents_needed": [
+   "Complaint on plain paper in the proforma appended to the 2003 Rules: complainant and respondent details (name, email, phone, address, digital signature certificate if any), damages claimed, fee deposited, section or rule contravened, time and place of contravention, cause of action and brief facts, signed by the complainant",
+   "Fee by bank draft in favour of 'Adjudicating Officer, Information Technology Act' at the place of functioning (r.8): up to Rs 10,000, 10 percent; Rs 10,001 to Rs 50,000, Rs 1,000 plus 5 percent of the excess over Rs 10,000; Rs 50,001 to Rs 1,00,000, Rs 3,000 plus 4 percent of the excess over Rs 50,000; above Rs 1,00,000, Rs 5,000 plus 2 percent of the excess over Rs 1,00,000; each rounded to the next hundred; plus Rs 50 per application",
+   "Supporting evidence: bank statements, transaction records, correspondence with the respondent, FIR or NCRP copy if any",
+   "BSA s.63 certificate for electronic records",
+   "Identity proof; some States (for example Maharashtra) also ask for notarised documents and true copies stamped"
+  ],
+  "official_url": "https://www.cca.gov.in/sites/files/pdf/ACT/Notification2003.pdf",
+  "verify": true
+ },
+ {
+  "forum": "RBI Ombudsman under the Reserve Bank Integrated Ombudsman Scheme, 2026 (RB-IOS 2026), via the Complaint Management System",
+  "who_can_file": "Any customer aggrieved by a deficiency in service by a Regulated Entity covered by the Scheme (banks, NBFCs, payment system participants and others covered), personally or through a representative authorised in writing. The representative cannot be an advocate unless the advocate is the aggrieved person (RB-IOS 2026 FAQ).",
+  "when_to_use": "When a bank or other Regulated Entity fails to reverse an unauthorised electronic transaction, delays the shadow credit, or otherwise mishandles a fraud complaint. Customer liability for unauthorised electronic banking transactions is now in the RBI (Commercial Banks, Responsible Business Conduct) Directions, 2025, Chapter IV, Section D, paras 67 to 72 (which replaced the 6 Jul 2017 circular): zero liability if reported within 3 working days; limited liability (Rs 5,000, Rs 10,000 or Rs 25,000 caps) if reported in 4 to 7 working days; shadow credit within 10 working days. RB-IOS 2026 applies from 1 Jul 2026; complaints received before that date continue under RB-IOS 2021. Filing is free. No cap on the amount in dispute; compensation up to Rs 30 lakh for consequential loss plus up to Rs 3 lakh for loss of time, expenses and harassment. Status can be tracked on the CMS portal or on toll free 14448.",
+  "time_limit": "First complain to the Regulated Entity, with proof. Approach the Ombudsman only if there is no reply within 30 days (or the time set by RBI, NPCI or card network rules, whichever is higher), or if the reply is unsatisfactory. File within 90 days from the date that period expires or from the date of the last communication from the entity, whichever is later. The complaint to the entity itself must have been made within the Limitation Act period. Appeal against an Award to the Appellate Authority within 30 days of receiving it, extendable by up to 30 days.",
+  "documents_needed": [
+   "Complainant name, mobile number, email (if any) and full postal address",
+   "Regulated Entity name, branch or location and address",
+   "Complaint or acknowledgement number and date of the complaint made to the Regulated Entity, with a copy of that complaint",
+   "Account, card, loan or transaction details, with date and reference number",
+   "Copy of the entity's reply, if any",
+   "Full facts, nature and extent of loss, and relief sought",
+   "Supporting documents (statements, SMS alerts, NCRP or FIR copy)",
+   "Written authorisation, if filed through a representative"
+  ],
+  "official_url": "https://cms.rbi.org.in/",
+  "verify": true
+ },
+ {
+  "forum": "Grievance Officer of the intermediary (IT Rules 2021, r.3(2))",
+  "who_can_file": "Any user, or a victim, or any person on behalf of an individual (for intimate-image complaints under r.3(2)(b)), against content or conduct on the intermediary's platform that violates r.3 or rr.4(11) to 4(13), or any other matter relating to the intermediary's computer resource.",
+  "when_to_use": "To get content removed or disabled: impersonation, morphed images, non-consensual intimate images, harassment, defamatory or unlawful content, fake accounts. Use the grievance mechanism and Grievance Officer details that the intermediary must publish prominently on its website or app. This is a precondition for an appeal to the Grievance Appellate Committee.",
+  "time_limit": "Acknowledge within 24 hours and resolve within 7 days of receipt (r.3(2)(a)(i), 'seven days' substituted for 'fifteen days' by G.S.R. 120(E), 10 Feb 2026). Requests to remove information under r.3(1)(b) (other than sub-clauses (i), (iv) and (xi)) must be resolved within 36 hours (previously 72 hours). Content that exposes private areas, shows nudity or sexual acts, or is impersonation including artificially morphed images: take down or disable within 2 hours of the complaint (r.3(2)(b), previously 24 hours).",
+  "documents_needed": [
+   "URLs or links of the offending content, account or profile",
+   "Screenshots with date and time",
+   "The rule or ground relied on (for example r.3(1)(b) category, or r.3(2)(b) intimate imagery or impersonation)",
+   "Identity proof, and proof of authority if filing on behalf of another person",
+   "Keep the complaint ticket number and acknowledgement for any GAC appeal"
+  ],
+  "official_url": "https://gac.gov.in/",
+  "verify": true
+ },
+ {
+  "forum": "Grievance Appellate Committee (GAC) under IT Rules 2021, r.3A",
+  "who_can_file": "Any person aggrieved by a decision of an intermediary's Grievance Officer, or whose grievance is not resolved within the period set in r.3(2)(a)(i) or r.3(2)(b) or r.4A(11) (r.3A(3)). Appellants log in with a mobile number and OTP.",
+  "when_to_use": "After the Grievance Officer route has been used and the decision is unsatisfactory or no decision has come within the prescribed time. The whole process is online. The GAC endeavours to decide within 30 calendar days of receiving the appeal (r.3A(4)), and its orders must be complied with by the intermediary (r.3A(7)).",
+  "time_limit": "Within 30 days from the date of receipt of the Grievance Officer's communication (r.3A(3)). The GAC home page also says an appeal may be filed on non-receipt of any response within 30 days; that wording predates the 2026 change of the resolution period to 7 days, so check the current portal instructions.",
+  "documents_needed": [
+   "Copy of the original grievance and its ticket or acknowledgement number",
+   "The Grievance Officer's decision or communication, or proof that none was received in time",
+   "URLs and screenshots of the content",
+   "Grounds of appeal and relief sought",
+   "Registered mobile number for OTP login"
+  ],
+  "official_url": "https://gac.gov.in/",
+  "verify": true
+ },
+ {
+  "forum": "Data Protection Board of India (DPDP Act 2023 and DPDP Rules 2025)",
+  "who_can_file": "A Data Principal (the person whose personal data is concerned) or a person on her behalf, after first exhausting the grievance redressal of the Data Fiduciary or Consent Manager (s.13(3)). The Board may also act on a reference from the Government or a court, or on intimation of a personal data breach (s.27).",
+  "when_to_use": "NOT YET LIVE FOR DATA PRINCIPAL COMPLAINTS. The Board provisions (ss.18 to 26) have been in force since 13 Nov 2025, but the rights, the duty to answer grievances (s.13), the Board's complaint and inquiry powers (s.27 except (1)(d), s.28) and the TDSAT appeal (s.29) take effect 18 months later, around 13 May 2027 (G.S.R. 843(E)). In a Lok Sabha answer of 12 Aug 2026, MeitY said the posts of Chairperson and Members were advertised on 6 Jun 2026, and did not report any appointments. Until then, use IT Act s.43A with s.46 (Adjudicating Officer) or the civil courts, plus the intermediary grievance routes. Once live, the Board works digitally and appeals go to TDSAT.",
+  "time_limit": "Expected from about 13 May 2027. Once in force: the Data Fiduciary must respond to a grievance within a reasonable period not exceeding 90 days (DPDP Rules r.14(3)); appeal against a Board order to TDSAT within 60 days (s.29(2)). No limitation period for a complaint to the Board was found in the Act or Rules.",
+  "documents_needed": [
+   "Copy of the grievance made to the Data Fiduciary or Consent Manager, and its reply or proof of no reply within the prescribed period",
+   "Identity of the Data Principal, and authorisation if filed by a nominee or representative",
+   "Details of the Data Fiduciary and of the personal data and processing complained of",
+   "Evidence such as breach notices, emails and screenshots",
+   "Relief sought"
+  ],
+  "official_url": "https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf",
+  "verify": true
+ }
+]

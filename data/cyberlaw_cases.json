@@ -1,0 +1,123 @@
+[
+ {
+  "name": "Shreya Singhal v Union of India",
+  "citation": "(2015) 5 SCC 1; AIR 2015 SC 1523",
+  "year": "2015",
+  "court": "Supreme Court of India (2 judge bench)",
+  "facts": "Writ petitions challenged Section 66A of the IT Act, which made it an offence to send 'grossly offensive' or 'menacing' messages, after several arrests over social media posts. The petitions also challenged Section 69A (website blocking) and Section 79 (intermediary liability) along with their rules.",
+  "held": "The Court struck down Section 66A in its entirety as violating Article 19(1)(a) and not saved by Article 19(2), finding its terms vague and overbroad. It upheld Section 69A and the Blocking Rules, and read down Section 79 so that 'actual knowledge' means a court order or a government notification.",
+  "why_it_matters": "It is the leading case on online free speech in India and on when intermediaries must take down content.",
+  "source": "https://indiankanoon.org/doc/110813550/"
+ },
+ {
+  "name": "Justice K.S. Puttaswamy (Retd) v Union of India",
+  "citation": "(2017) 10 SCC 1; AIR 2017 SC 4161",
+  "year": "2017",
+  "court": "Supreme Court of India (9 judge bench)",
+  "facts": "While hearing challenges to the Aadhaar scheme, a question arose whether the Constitution protects a fundamental right to privacy, given older rulings in M.P. Sharma and Kharak Singh. The issue was referred to a nine judge bench.",
+  "held": "The bench unanimously held that the right to privacy is a fundamental right protected as part of Article 21 and the freedoms in Part III, and overruled the earlier rulings to the extent they held otherwise. The opinions recognised informational privacy and said any intrusion must meet tests such as legality, legitimate aim and proportionality.",
+  "why_it_matters": "It is the constitutional foundation for data protection in India, including the DPDP Act 2023.",
+  "source": "https://indiankanoon.org/doc/91938676/"
+ },
+ {
+  "name": "Anvar P.V. v P.K. Basheer",
+  "citation": "(2014) 10 SCC 473; AIR 2015 SC 180",
+  "year": "2014",
+  "court": "Supreme Court of India (3 judge bench)",
+  "facts": "In an election petition, the appellant relied on CDs containing speeches and songs to allege corrupt practices by the returned candidate. The question was how electronic records must be proved in court.",
+  "held": "The Court held that secondary evidence of an electronic record is admissible only if it is accompanied by a certificate under Section 65B(4) of the Evidence Act, which is a special provision. It overruled State (NCT of Delhi) v Navjot Sandhu on this point.",
+  "why_it_matters": "It made the Section 65B certificate central to digital evidence; the equivalent rule now sits in Section 63 of the BSA 2023.",
+  "source": "https://indiankanoon.org/doc/187283766/"
+ },
+ {
+  "name": "Arjun Panditrao Khotkar v Kailash Kushanrao Gorantyal",
+  "citation": "AIR 2020 SC 4908; (2020) 7 SCC 1 (verify)",
+  "year": "2020",
+  "court": "Supreme Court of India (3 judge bench)",
+  "facts": "An election dispute turned on video recordings, and the party relying on them could not obtain a Section 65B certificate from the election officials. Conflicting Supreme Court rulings on whether the certificate is mandatory were referred to a larger bench.",
+  "held": "The Court reaffirmed Anvar P.V., holding that the Section 65B(4) certificate is a condition precedent for admitting secondary evidence of an electronic record, and overruled Shafhi Mohammad on this point. It clarified that no certificate is needed where the original device itself is produced, and that a court can direct the relevant person to produce the certificate.",
+  "why_it_matters": "It settled the certificate debate for digital evidence, a principle carried forward under Section 63 of the BSA 2023.",
+  "source": "https://indiankanoon.org/doc/172105947/"
+ },
+ {
+  "name": "Avnish Bajaj v State (Bazee.com case)",
+  "citation": "Aneeta Hada v Godfather Travels and Tours, (2012) 5 SCC 661 (SC appeal); Delhi HC: 150 (2008) DLT 769 (verify)",
+  "year": "2008",
+  "court": "Delhi High Court (S. Muralidhar J); appeal decided by the Supreme Court in 2012",
+  "facts": "A listing on Baazee.com offered for sale an obscene video clip involving school students, and the website company's Managing Director was prosecuted. He sought to quash the case under Sections 292 and 294 IPC and Section 67 of the IT Act.",
+  "held": "The Delhi High Court discharged him of the IPC offences because the IPC has no automatic vicarious liability for directors, but let the Section 67 read with Section 85 IT Act charge continue. In Aneeta Hada (2012), the Supreme Court held that the company must be arraigned for a director to be liable under Section 85, and quashed the proceedings in their existing form.",
+  "why_it_matters": "It shaped how platform executives can and cannot be prosecuted for user content and company offences under the IT Act.",
+  "source": "https://indiankanoon.org/doc/309722/"
+ },
+ {
+  "name": "Google India Pvt Ltd v Visaka Industries",
+  "citation": "AIR 2020 SC 350; (2020) 4 SCC 162 (verify)",
+  "year": "2019",
+  "court": "Supreme Court of India (2 judge bench)",
+  "facts": "An asbestos sheet maker filed a criminal defamation complaint over articles posted in 2008 on a Google hosted group, alleging that Google did not remove them after notice. Google sought to quash the summons, relying on Section 79 of the IT Act.",
+  "held": "The Court held that Section 79 as it stood before the 2008 amendment protected intermediaries only against offences under the IT Act itself and did not cover IPC defamation, so the complaint was not barred on that ground. It dismissed Google's appeal and left the question of actual liability to be decided at trial.",
+  "why_it_matters": "It shows that intermediary safe harbour depends on the version of Section 79 in force at the time of the content.",
+  "source": "https://indiankanoon.org/doc/97017195/"
+ },
+ {
+  "name": "Shamsher Singh Verma v State of Haryana",
+  "citation": "(2016) 15 SCC 485; 2016 Cri LJ 364",
+  "year": "2015",
+  "court": "Supreme Court of India (2 judge bench)",
+  "facts": "In a criminal trial, the accused wanted to play a compact disc of a recorded conversation in his defence and have it examined by a forensic laboratory. The trial court and High Court refused his application.",
+  "held": "The Court held that a compact disc is a 'document' under the Evidence Act, and that admission or denial under Section 294 CrPC can be recorded through counsel or the public prosecutor. It allowed the defence to play the CD and send it for forensic examination.",
+  "why_it_matters": "It confirms that electronic media like CDs are documents and that the accused can use digital evidence in their defence.",
+  "source": "https://indiankanoon.org/doc/55466355/"
+ },
+ {
+  "name": "Anuradha Bhasin v Union of India",
+  "citation": "AIR 2020 SC 1308; (2020) 3 SCC 637 (verify)",
+  "year": "2020",
+  "court": "Supreme Court of India (3 judge bench)",
+  "facts": "After August 2019, the internet and movement were restricted across Jammu and Kashmir, and a newspaper editor challenged the restrictions as affecting press freedom. The orders imposing the restrictions had not been published.",
+  "held": "The Court held that freedom of speech and the freedom to carry on trade or business through the internet are constitutionally protected under Articles 19(1)(a) and 19(1)(g), so restrictions on them must be necessary and proportionate. It held that indefinite internet suspension is not permissible, that suspension orders must be published and periodically reviewed, and directed a review of the orders.",
+  "why_it_matters": "It set the constitutional tests for internet shutdowns in India.",
+  "source": "https://indiankanoon.org/doc/82461587/"
+ },
+ {
+  "name": "State of Tamil Nadu v Suhas Katti",
+  "citation": "C.C. No. 4680 of 2004, Addl. Chief Metropolitan Magistrate, Egmore (unreported; no official online text) (verify)",
+  "year": "2004",
+  "court": "Additional Chief Metropolitan Magistrate, Egmore, Chennai (trial court)",
+  "facts": "The accused posted obscene and defamatory messages about a woman in a Yahoo message group and sent emails through a fake account opened in her name, which led to harassing calls to her. The Chennai Cyber Crime Cell investigated, and a charge sheet was filed under Section 67 of the IT Act and Sections 469 and 509 IPC.",
+  "held": "The trial court, relying on electronic evidence, convicted the accused under Section 67 of the IT Act and Sections 469 and 509 IPC (verify). It is widely reported as one of the first convictions under the IT Act; the judgment is not available on official sites and details come from secondary reports.",
+  "why_it_matters": "It is often cited as an early example of quick investigation and conviction in an online harassment case using digital evidence.",
+  "source": "https://www.naavi.org/cl_editorial_04/suhas_katti_case.htm (secondary source; no official text online) (verify)"
+ },
+ {
+  "name": "Sharat Babu Digumarti v Govt of NCT of Delhi",
+  "citation": "(2017) 2 SCC 18; AIR 2017 SC 150",
+  "year": "2016",
+  "court": "Supreme Court of India",
+  "facts": "Arising from the same Bazee.com listing of an obscene clip, a senior manager of the website company faced trial under Section 292 IPC after the Section 67 IT Act charge did not proceed against him. He challenged the framing of the IPC charge.",
+  "held": "The Court held that the IT Act is a special law and that, read with Sections 79 and 81, its provisions on obscenity in electronic form prevail over the general IPC offence. It quashed the Section 292 IPC prosecution against him.",
+  "why_it_matters": "It established that offences involving electronic records should generally be dealt with under the IT Act as a special law.",
+  "source": "https://indiankanoon.org/doc/153597150/"
+ },
+ {
+  "name": "MySpace Inc v Super Cassettes Industries Ltd",
+  "citation": "FAO(OS) 540/2011; 2016:DHC:8178-DB; (2017) 236 DLT 478 (verify)",
+  "year": "2016",
+  "court": "Delhi High Court (Division Bench)",
+  "facts": "T Series owner Super Cassettes sued MySpace for copyright infringement over user uploaded songs and films, and a single judge granted a broad injunction against hosting its works. MySpace appealed against that interim order.",
+  "held": "The Division Bench held that Section 79 safe harbour is available to intermediaries in copyright cases if they meet due diligence conditions, and that liability under Section 51(a)(ii) of the Copyright Act needs actual knowledge of specific infringement, not general awareness. It set aside the broad injunction and required the rights owner to give specific notices identifying infringing content for removal.",
+  "why_it_matters": "It is a key ruling on notice and takedown and platform liability for user uploaded copyrighted content.",
+  "source": "https://indiankanoon.org/doc/12972852/"
+ },
+ {
+  "name": "Kunal Kamra v Union of India (Fact Check Unit case)",
+  "citation": "WP (L) No. 9792 of 2023; 2024:BHC-OS:14750-DB",
+  "year": "2024",
+  "court": "Bombay High Court (Division Bench, after a split verdict and the opinion of a third judge, A.S. Chandurkar J)",
+  "facts": "A 2023 amendment to Rule 3(1)(b)(v) of the IT Rules 2021 let a government Fact Check Unit identify online content about the business of the Central Government as fake, false or misleading, with consequences for intermediaries. Kunal Kamra and media bodies challenged it, and a two judge bench delivered a split verdict in January 2024.",
+  "held": "The third judge agreed that the rule violated Articles 14, 19(1)(a) and 19(1)(g), was ultra vires the IT Act and was vague and overbroad, and on 26 September 2024 the Division Bench struck down the amendment. The Union of India's appeal (SLP (C) Diary No. 60880/2024) is pending in the Supreme Court: notice was issued on 10 March 2026 and no interim stay was granted.",
+  "why_it_matters": "It limits the government's power to declare online content false through its own unit and protects intermediaries from that chilling effect.",
+  "source": "https://indiankanoon.org/doc/172701335/",
+  "status_src": "https://www.livelaw.in/pdf_upload/2026/03/11/6088020242026-03-10-660964.pdf"
+ }
+]

@@ -1,0 +1,314 @@
+[
+ {
+  "year": 2000,
+  "date": "2000-06-09",
+  "title": "IT Act 2000 receives Presidential assent",
+  "what_changed": "The Information Technology Act, 2000 (Act 21 of 2000) received the assent of the President on 9 June 2000. It gave legal recognition to electronic records and digital signatures and created the first set of cyber offences and adjudication powers in India.",
+  "why_it_matters_for_advocates": "It is the parent statute for almost every cyber law notice, complaint and petition an advocate will draft.",
+  "source_url": "https://www.meity.gov.in/static/uploads/2024/03/ITbill_2000.pdf",
+  "verify": false
+ },
+ {
+  "year": 2000,
+  "date": "2000-10-17",
+  "title": "IT Act 2000 comes into force",
+  "what_changed": "By notification G.S.R. 788(E) dated 17 October 2000 the Central Government appointed that day as the date the IT Act came into force. From then on electronic contracts, records and signatures had statutory backing.",
+  "why_it_matters_for_advocates": "Commencement dates decide which version of the law applies to older transactions and offences.",
+  "source_url": "https://www.meity.gov.in/static/uploads/2024/03/Notification-of-IT-Act2000.pdf",
+  "verify": false
+ },
+ {
+  "year": 2009,
+  "date": "2009-10-27",
+  "title": "IT (Amendment) Act 2008 comes into force",
+  "what_changed": "The IT (Amendment) Act, 2008 (Act 10 of 2009) received assent on 5 February 2009 and its amendments took effect from 27 October 2009. It added new offences such as sections 66A to 66F and 67A to 67B, data protection duties in section 43A and the intermediary safe harbour in section 79.",
+  "why_it_matters_for_advocates": "Most of the IT Act sections cited in cyber crime FIRs today were inserted or reshaped by this amendment.",
+  "source_url": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
+  "verify": false
+ },
+ {
+  "year": 2009,
+  "date": "2009-10-27",
+  "title": "Blocking Rules 2009 notified",
+  "what_changed": "The IT (Procedure and Safeguards for Blocking for Access of Information by Public) Rules, 2009 were published and commenced on 27 October 2009. They set out the committee procedure, hearing and emergency route for blocking orders under section 69A.",
+  "why_it_matters_for_advocates": "Advocates challenging or defending a blocking order need to test it against these procedural safeguards.",
+  "source_url": "https://indiankanoon.org/doc/136292737/",
+  "verify": false
+ },
+ {
+  "year": 2011,
+  "date": "2011-04-11",
+  "title": "SPDI Rules 2011 notified",
+  "what_changed": "The IT (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011 were published and commenced on 11 April 2011 under section 43A. They defined sensitive personal data and required a privacy policy, consent for collection and reasonable security practices such as ISO 27001.",
+  "why_it_matters_for_advocates": "They remain the data protection yardstick for Section 43A compensation claims until DPDP Act s.44(2) omits Section 43A, around 13 May 2027.",
+  "source_url": "https://indiankanoon.org/doc/114407484/",
+  "verify": false,
+  "corrections": [
+   "C9"
+  ],
+  "pending": "DPDP 18-month date: 13 or 14 May 2027 depending on the day count (gazette dated 13 Nov 2025, e-signed 14 Nov). A proposed cut to 12 months has not been notified."
+ },
+ {
+  "year": 2011,
+  "date": "2011-04-11",
+  "title": "Intermediary Guidelines Rules 2011 notified",
+  "what_changed": "The IT (Intermediaries Guidelines) Rules, 2011 were published and commenced on 11 April 2011 under section 79. They set the first due diligence and takedown framework for platforms and were later replaced by the IT Rules 2021.",
+  "why_it_matters_for_advocates": "Older platform liability disputes and judgments such as Shreya Singhal and MySpace interpret these rules.",
+  "source_url": "https://indiankanoon.org/doc/62479050/",
+  "verify": false
+ },
+ {
+  "year": 2014,
+  "date": "2014-09-18",
+  "title": "Anvar P V v P K Basheer decided",
+  "what_changed": "The Supreme Court held that a section 65B certificate is mandatory for secondary electronic evidence.",
+  "why_it_matters_for_advocates": "It is the starting point for every objection to an uncertified electronic record, now under BSA section 63.",
+  "source_url": "https://indiankanoon.org/doc/187283766/",
+  "verify": false,
+  "added_by": "fact-check"
+ },
+ {
+  "year": 2015,
+  "date": "2015-03-24",
+  "title": "Shreya Singhal v Union of India decided",
+  "what_changed": "The Supreme Court struck down section 66A of the IT Act as unconstitutional for vagueness and overbreadth under Article 19(1)(a). It upheld section 69A and the Blocking Rules and read down section 79 so that actual knowledge means a court order or government notification. The Jan Vishwas Act 2023 later omitted section 66A from the statute book with effect from 30 November 2023.",
+  "why_it_matters_for_advocates": "No one can be prosecuted under section 66A, and this ruling is the starting point for speech and takedown arguments.",
+  "source_url": "https://indiankanoon.org/doc/110813550/",
+  "verify": false,
+  "corrections": [
+   "C3"
+  ]
+ },
+ {
+  "year": 2017,
+  "date": "2017-05-26",
+  "title": "Finance Act 2017 merges Cyber Appellate Tribunal into TDSAT",
+  "what_changed": "Section 169 of the Finance Act, 2017 amended the IT Act so that the Telecom Disputes Settlement and Appellate Tribunal became the appellate tribunal, with effect from 26 May 2017. The separate Cyber Appellate Tribunal provisions were omitted.",
+  "why_it_matters_for_advocates": "Appeals against adjudicating officer orders under the IT Act now go to TDSAT, not the old Cyber Appellate Tribunal.",
+  "source_url": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
+  "verify": false
+ },
+ {
+  "year": 2017,
+  "date": "2017-08-24",
+  "title": "Justice K S Puttaswamy v Union of India decided",
+  "what_changed": "A nine judge bench of the Supreme Court held that privacy is a fundamental right protected under Article 21 and Part III. It recognised informational privacy and a test of legality, legitimate aim and proportionality for state intrusion.",
+  "why_it_matters_for_advocates": "Every data protection, surveillance and Aadhaar style argument now builds on this judgment.",
+  "source_url": "https://indiankanoon.org/doc/91938676/",
+  "verify": false
+ },
+ {
+  "year": 2020,
+  "date": "2020-01-10",
+  "title": "Anuradha Bhasin v Union of India decided",
+  "what_changed": "The Supreme Court held that freedom of speech and the freedom to carry on trade through the internet are protected under Article 19. It said internet suspension orders must be published, be proportionate and be open to judicial review.",
+  "why_it_matters_for_advocates": "It gives advocates the framework to challenge internet shutdowns and broad restriction orders.",
+  "source_url": "https://indiankanoon.org/doc/82461587/",
+  "verify": false
+ },
+ {
+  "year": 2020,
+  "date": "2020-07-14",
+  "title": "Arjun Panditrao Khotkar v Kailash Kushanrao Gorantyal decided",
+  "what_changed": "A three judge bench of the Supreme Court held that a certificate under section 65B(4) of the Evidence Act is a condition precedent for admitting secondary electronic evidence. It affirmed Anvar P V and overruled the contrary view in Shafhi Mohammad.",
+  "why_it_matters_for_advocates": "Electronic evidence can fail for want of a proper certificate, a point now carried into section 63 of the BSA.",
+  "source_url": "https://indiankanoon.org/doc/172105947/",
+  "verify": false
+ },
+ {
+  "year": 2021,
+  "date": "2021-02-25",
+  "title": "IT Rules 2021 notified",
+  "what_changed": "The IT (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 were notified as G.S.R. 139(E) on 25 February 2021, replacing the 2011 Intermediary Guidelines. They added grievance officers, extra duties for significant social media intermediaries and a code for digital news and OTT publishers.",
+  "why_it_matters_for_advocates": "These rules, as amended in 2022, 2023, 2025 and 2026, are the current baseline for takedown requests, grievance escalation and platform compliance work.",
+  "source_url": "https://indiankanoon.org/doc/111130067/",
+  "verify": false,
+  "corrections": [
+   "C5-C8"
+  ],
+  "more": [
+   {
+    "label": "Consolidated text (MeitY, as on 10 Feb 2026)",
+    "url": "https://www.meity.gov.in/static/uploads/2026/03/0b576f2071694b52e4cd6bb1b6dfab1e.pdf"
+   }
+  ]
+ },
+ {
+  "year": 2022,
+  "date": "2022-04-28",
+  "title": "CERT-In Directions under section 70B(6) issued",
+  "what_changed": "CERT-In issued directions dated 28 April 2022 under section 70B(6) of the IT Act on information security practices and reporting of cyber incidents. They cover incident reporting, log retention, clock synchronisation and duties for VPN, cloud and data centre providers. They took effect after 60 days (27 June 2022), and the MSME and validation parts were extended to 25 September 2022.",
+  "why_it_matters_for_advocates": "Clients facing a breach must check these directions early because reporting duties attach soon after an incident.",
+  "source_url": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+  "verify": false,
+  "corrections": [
+   "key dates"
+  ],
+  "more": [
+   {
+    "label": "Extension notice",
+    "url": "https://www.cert-in.org.in/PDF/CERT-In_directions_extension_MSMEs_and_validation_27.06.2022.pdf"
+   }
+  ]
+ },
+ {
+  "year": 2022,
+  "date": "2022-10-28",
+  "title": "IT Rules amendment 2022 notified",
+  "what_changed": "The IT (Intermediary Guidelines and Digital Media Ethics Code) Amendment Rules, 2022 were published as G.S.R. 794(E) and commenced on 28 October 2022. They created Grievance Appellate Committees under rule 3A and tightened how intermediaries handle user grievances.",
+  "why_it_matters_for_advocates": "Users unhappy with a platform grievance decision now have a Grievance Appellate Committee route besides the courts.",
+  "source_url": "https://indiankanoon.org/doc/28426973/",
+  "verify": false
+ },
+ {
+  "year": 2023,
+  "date": "2023-04-06",
+  "title": "IT Rules amendment 2023 on online gaming and Fact Check Unit",
+  "what_changed": "The IT Rules amendment of 2023 (G.S.R. 275(E)) commenced on 6 April 2023. It added a framework for online games and self regulatory bodies and a rule letting a government Fact Check Unit flag content about the Central Government's business.",
+  "why_it_matters_for_advocates": "Gaming clients rely on its framework, while the Fact Check Unit part was later struck down in Kunal Kamra.",
+  "source_url": "https://indiankanoon.org/doc/167974121/",
+  "verify": false
+ },
+ {
+  "year": 2023,
+  "date": "2023-08-11",
+  "title": "DPDP Act 2023 receives Presidential assent",
+  "what_changed": "The Digital Personal Data Protection Act, 2023 (Act 22 of 2023) received the assent of the President on 11 August 2023. It sets duties for data fiduciaries, rights for data principals and a Data Protection Board, and it omits section 43A of the IT Act once s.44(2) commences, 18 months after 13 November 2025 (around 13 May 2027). Until then IT Act section 43A and the SPDI Rules 2011 stay in force.",
+  "why_it_matters_for_advocates": "It will replace the SPDI Rules as the main data protection law advocates advise on.",
+  "source_url": "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
+  "verify": false,
+  "corrections": [
+   "C9"
+  ],
+  "pending": "DPDP 18-month date: 13 or 14 May 2027 depending on the day count (gazette dated 13 Nov 2025, e-signed 14 Nov). A proposed cut to 12 months has not been notified."
+ },
+ {
+  "year": 2023,
+  "date": "2023-11-30",
+  "title": "Jan Vishwas Act changes to the IT Act take effect",
+  "what_changed": "The Jan Vishwas (Amendment of Provisions) Act, 2023 (published 11 August 2023) came into force for the IT Act on 30 November 2023 (S.O. 4745(E)). Sections 72 and 72A became civil penalties (up to ₹5 lakh and ₹25 lakh), section 66A was formally omitted, and penalties under sections 33(2), 44, 45, 67C, 68, 69B and 70B were revised.",
+  "why_it_matters_for_advocates": "A breach of confidentiality under section 72 or 72A after 30 November 2023 is a penalty matter, not a criminal charge.",
+  "source_url": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+  "verify": false,
+  "added_by": "fact-check",
+  "more": [
+   {
+    "label": "Jan Vishwas Act (Gazette)",
+    "url": "https://egazette.gov.in/WriteReadData/2023/248047.pdf"
+   }
+  ]
+ },
+ {
+  "year": 2024,
+  "date": "2024-02-23",
+  "title": "Commencement notifications for BNS, BNSS and BSA",
+  "what_changed": "Notifications S.O. 850(E), 848(E) and 849(E) dated 23 February 2024 brought the three codes into force from 1 July 2024, except BNS section 106(2).",
+  "why_it_matters_for_advocates": "Cite the commencement notification when the date of offence decides IPC or BNS.",
+  "source_url": "https://egazette.gov.in/WriteReadData/2024/252353.pdf",
+  "verify": false,
+  "added_by": "fact-check"
+ },
+ {
+  "year": 2024,
+  "date": "2024-07-01",
+  "title": "BNS, BNSS and BSA come into force",
+  "what_changed": "The Bharatiya Nyaya Sanhita, the Bharatiya Nagarik Suraksha Sanhita and the Bharatiya Sakshya Adhiniyam, 2023 commenced on 1 July 2024, replacing the IPC, CrPC and Evidence Act. Cyber cases now pair IT Act sections with BNS offences, BNSS procedure and BSA rules on electronic evidence.",
+  "why_it_matters_for_advocates": "Advocates must map old IPC, CrPC and Evidence Act sections to new ones based on the date of the offence.",
+  "source_url": "https://indiankanoon.org/doc/149679501/",
+  "verify": false
+ },
+ {
+  "year": 2024,
+  "date": "2024-09-26",
+  "title": "Kunal Kamra v Union of India final Bombay High Court judgment",
+  "what_changed": "After a split verdict on 31 January 2024 and the third judge opinion on 20 September 2024, the Bombay High Court on 26 September 2024 struck down the Fact Check Unit rule in rule 3(1)(b)(v) of the IT Rules. The Union of India's appeal is pending in the Supreme Court: notice was issued on 10 March 2026 with no interim stay.",
+  "why_it_matters_for_advocates": "It is the leading authority against government fact checking of online content, subject to the Supreme Court appeal.",
+  "source_url": "https://indiankanoon.org/doc/172701335/",
+  "verify": false,
+  "corrections": [
+   "SC order 10 Mar 2026"
+  ],
+  "more": [
+   {
+    "label": "SC record of proceedings, 10 Mar 2026",
+    "url": "https://www.livelaw.in/pdf_upload/2026/03/11/6088020242026-03-10-660964.pdf"
+   }
+  ]
+ },
+ {
+  "year": 2025,
+  "date": "2025-10-22",
+  "title": "IT Rules amendment on takedown notices",
+  "what_changed": "G.S.R. 775(E), in force 15 November 2025, says an intermediary gets 'actual knowledge' under rule 3(1)(d) only through a court order or a reasoned intimation from an officer of Joint Secretary rank, or DIG rank for police.",
+  "why_it_matters_for_advocates": "A takedown demand from a junior officer may not trigger the platform's duty; check who signed it.",
+  "source_url": "https://www.meity.gov.in/static/uploads/2026/03/0b576f2071694b52e4cd6bb1b6dfab1e.pdf",
+  "verify": false,
+  "added_by": "fact-check"
+ },
+ {
+  "year": 2025,
+  "date": "2025-11-13",
+  "title": "DPDP Rules 2025 notified",
+  "what_changed": "The Digital Personal Data Protection Rules, 2025 were notified as G.S.R. 846(E) dated 13 November 2025, with the Act's commencement notification G.S.R. 843(E). Rules 1, 2 and 17 to 21 applied at once; rule 4 (consent managers) after one year (around 13 November 2026); rules 3, 5 to 16, 22 and 23 after 18 months (around 13 May 2027).",
+  "why_it_matters_for_advocates": "Advocates should plan client compliance around the phased start dates rather than a single deadline.",
+  "source_url": "https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf",
+  "verify": false,
+  "corrections": [
+   "C9"
+  ],
+  "pending": "DPDP 18-month date: 13 or 14 May 2027 depending on the day count (gazette dated 13 Nov 2025, e-signed 14 Nov). A proposed cut to 12 months has not been notified.",
+  "more": [
+   {
+    "label": "Commencement notification",
+    "url": "https://egazette.gov.in/WriteReadData/2025/267647.pdf"
+   }
+  ]
+ },
+ {
+  "year": 2025,
+  "date": "2025-11-28",
+  "title": "RBI Responsible Business Conduct Directions replace the 2017 liability circular",
+  "what_changed": "The RBI (Commercial Banks - Responsible Business Conduct) Directions, 2025 (RBI/DOR/2025-26/170) carried the July 2017 customer liability rules into Ch. IV, Section D, paras 67 to 72, and the 2017 circular was withdrawn. The substance is unchanged: zero liability if reported within 3 working days, capped liability for 4 to 7 days, shadow credit within 10 working days.",
+  "why_it_matters_for_advocates": "Cite the 2025 Directions, not the withdrawn 2017 circular, in bank fraud notices.",
+  "source_url": "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=13140",
+  "verify": false,
+  "added_by": "fact-check",
+  "pending": "RBI Responsible Business Conduct Directions 2025: title and date confirmed on RBI's page; clause text read from a non-government mirror because RBI PDFs are bot-blocked."
+ },
+ {
+  "year": 2026,
+  "date": "2026-02-10",
+  "title": "IT Rules amendment 2026 on synthetically generated information",
+  "what_changed": "The IT Rules amendment notified as G.S.R. 120(E) on 10 February 2026, in force from 20 February 2026, defines synthetically generated information such as deepfakes and adds labelling, metadata and provenance duties for intermediaries. It also cuts timelines: intimate or morphed images within 2 hours, court or government orders within 3 hours, other removal requests within 36 hours, and grievances resolved within 7 days (acknowledgement still 24 hours).",
+  "why_it_matters_for_advocates": "Deepfake complaints and platform notices now need to cite these specific duties.",
+  "source_url": "https://www.meity.gov.in/static/uploads/2026/02/f55fe52418b03f58b0669f6a8bc03b6d.pdf",
+  "verify": false,
+  "corrections": [
+   "C5-C8"
+  ],
+  "pending": "2026 IT Rules timelines (G.S.R. 120(E)): fact-check reports them verified against MeitY's text; shown as being verified until a second check.",
+  "more": [
+   {
+    "label": "SGI FAQ (MeitY)",
+    "url": "https://www.meity.gov.in/static/uploads/2026/02/49d4c4b42fc2d3dce00e0fdcf7ed1389.pdf"
+   }
+  ]
+ },
+ {
+  "year": 2026,
+  "date": "2026-07-01",
+  "title": "RBI Integrated Ombudsman Scheme, 2026 in force",
+  "what_changed": "RB-IOS 2026, announced on 16 January 2026, replaced the 2021 scheme from 1 July 2026. Complaints must be filed within 90 days, and awards can go up to ₹30 lakh + ₹3 lakh (the 2021 limits were ₹20 lakh + ₹1 lakh with one year to file). Complaints received before 1 July 2026 stay under the 2021 scheme.",
+  "why_it_matters_for_advocates": "The filing window for bank and payment complaints is now 90 days, so escalate quickly.",
+  "source_url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=62052",
+  "verify": false,
+  "added_by": "fact-check",
+  "pending": "RB-IOS 2026 figures (₹30 lakh + ₹3 lakh, 90 days): from RBI's press release and FAQ; shown as being verified until a second check. RB-IOS 2021 limits (₹20 lakh + ₹1 lakh, 1 year) confirmed only from a non-government copy of the RBI FAQ. Historical: superseded from 1 Jul 2026.",
+  "more": [
+   {
+    "label": "RB-IOS 2026 FAQ",
+    "url": "https://rbi.org.in/SCRIPTS/FAQDisplay.aspx?Id=153"
+   }
+  ]
+ }
+]

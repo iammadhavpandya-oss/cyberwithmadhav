@@ -1,0 +1,725 @@
+{
+ "meta": {
+  "updated": "2026-11-01",
+  "disclaimer": "Educational, not legal advice. Check the current bare act and case law before you rely on anything here.",
+  "note": "Each item links to its source. Items tagged 'verify' need a fresh check before use in court.",
+  "factcheck": "Facts checked against primary texts on 1 Nov 2026 (IST). Items tagged 'being verified' are still being confirmed."
+ },
+ "hero": {
+  "kicker": "IT Act 2000 · Sections 43 and 66",
+  "title": "Entering someone's device without permission is illegal in India",
+  "sub": "Under Section 43 of the IT Act, accessing a computer, phone, network or data without the owner's permission makes you liable to pay compensation, even with no bad intent: it is a civil wrong. Do the same act dishonestly or fraudulently and it becomes a crime under Section 66, punishable with up to 3 years in jail, a fine of up to ₹5 lakh, or both.",
+  "cards": [
+   {
+    "k": "Sec 43",
+    "label": "Civil wrong",
+    "text": "Access without permission. Pay damages by way of compensation to the person affected. No intent needed.",
+    "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   },
+   {
+    "k": "Sec 66",
+    "label": "Crime",
+    "text": "Any Sec 43 act done dishonestly or fraudulently. Up to 3 years, or fine up to ₹5 lakh, or both. Cognizable and bailable (Sec 77B).",
+    "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   }
+  ],
+  "note": "An honest, unknowing act is not a Section 66 offence. It can still attract Section 43 compensation.",
+  "disclaimer": "Educational, not legal advice. Check the current bare act and case law before you rely on anything here."
+ },
+ "timeline": [
+  {
+   "date": "9 Jun 2000",
+   "title": "Information Technology Act, 2000 (Act 21 of 2000)",
+   "text": "Assent on 9 June 2000; in force from 17 October 2000. Gave legal recognition to electronic records and signatures and created the first cyber contraventions and offences. Based on the UNCITRAL Model Law on Electronic Commerce.",
+   "src": "https://www.indiacode.nic.in/handle/123456789/1999"
+  },
+  {
+   "date": "27 Oct 2009",
+   "title": "IT (Amendment) Act, 2008 in force (Act 10 of 2009)",
+   "text": "Added Sections 66A to 66F, 67A, 67B, 69A, 72A, 43A and 77A/77B, removed the old compensation cap in Section 43 and moved to the technology-neutral term 'electronic signature'.",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "date": "11 Apr 2011",
+   "title": "SPDI Rules, 2011",
+   "text": "The Reasonable Security Practices and Sensitive Personal Data or Information Rules (G.S.R. 313(E)) under Section 43A: privacy policy, consent, disclosure limits and reasonable security (IS/ISO/IEC 27001 named as one standard). Still in force until DPDP Act s.44(2) commences (around 13 May 2027).",
+   "src": "https://upload.indiacode.nic.in/showfile?actid=AC_CEN_45_76_00001_200021_1517807324077&filename=GSR313E_10511%281%29_0.pdf&type=rule"
+  },
+  {
+   "date": "24 Mar 2015",
+   "title": "Shreya Singhal v. Union of India",
+   "text": "Supreme Court struck down Section 66A as violating Article 19(1)(a). Upheld Section 69A blocking. Read down Section 79(3)(b): 'actual knowledge' means a court order or government notification.",
+   "src": "https://indiankanoon.org/doc/110813550/"
+  },
+  {
+   "date": "26 May 2017",
+   "title": "Cyber Appellate Tribunal merged into TDSAT",
+   "text": "Finance Act, 2017 (Section 169) made the Telecom Disputes Settlement and Appellate Tribunal the 'Appellate Tribunal' under the IT Act.",
+   "src": "https://indiacode.ecourtsindia.com/finance-act-2017/section/169/"
+  },
+  {
+   "date": "24 Aug 2017",
+   "title": "Justice K.S. Puttaswamy v. Union of India",
+   "text": "Nine-judge bench held that privacy is a fundamental right under Article 21 and Part III. The foundation for India's data protection law.",
+   "src": "https://digiscr.sci.gov.in/view_judgment?id=NjEwMg=="
+  },
+  {
+   "date": "25 Feb 2021",
+   "title": "IT (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021",
+   "text": "G.S.R. 139(E), replacing the 2011 intermediary rules: due diligence, grievance officers, extra duties for significant social media intermediaries and a code for digital news and OTT publishers.",
+   "src": "https://mib.gov.in/sites/default/files/IT%28Intermediary%20Guidelines%20and%20Digital%20Media%20Ethics%20Code%29%20Rules%2C%202021%20English.pdf"
+  },
+  {
+   "date": "28 Apr 2022",
+   "title": "CERT-In Directions under Section 70B(6)",
+   "text": "Report listed cyber incidents to CERT-In within 6 hours, keep ICT logs for a rolling 180 days within India, sync clocks to NIC/NPL NTP. Effective 27 June 2022; extended to 25 September 2022 for MSMEs and some VPN/cloud KYC duties.",
+   "src": "https://www.cert-in.org.in/PDF/CERT-In_directions_extension_MSMEs_and_validation_27.06.2022.pdf"
+  },
+  {
+   "date": "11 Aug 2023",
+   "title": "Digital Personal Data Protection Act, 2023",
+   "text": "Consent-based processing, Data Principal rights, Data Protection Board of India and penalties of up to ₹250 crore.",
+   "src": "https://www.meity.gov.in/static/uploads/2024/02/Digital-Personal-Data-Protection-Act-2023.pdf"
+  },
+  {
+   "date": "30 Nov 2023",
+   "title": "Jan Vishwas Act changes to the IT Act",
+   "text": "Section 66A formally omitted. Sections 72 and 72A turned from offences into penalties (up to ₹5 lakh and ₹25 lakh). Penalties under ss.33(2), 44, 45, 67C, 68, 69B and 70B revised.",
+   "src": "https://www.meity.gov.in/static/uploads/2024/03/249809-Notification-dtd-31-10-2023-Date-of-appointment-for-enforcing-Amendments-to-IT-Act-2000-under-Jan-Vishwas-Act-2023.pdf"
+  },
+  {
+   "date": "1 Jul 2024",
+   "title": "BNS, BNSS and BSA in force",
+   "text": "Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita and Bharatiya Sakshya Adhiniyam replaced the IPC, CrPC and Indian Evidence Act.",
+   "src": "https://www.ncrb.mha.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteNotificationOfBNS,BNSS,BSA.pdf"
+  },
+  {
+   "date": "1 Jul 2024",
+   "title": "Electronic evidence: Section 65B becomes BSA Section 63",
+   "text": "Certificate requirement continues. Anvar P.V. (2014) made the 65B certificate mandatory for secondary electronic evidence; Arjun Panditrao Khotkar (2020) confirmed it and overruled Shafhi Mohammad. BSA 63 adds a two-part certificate format in its Schedule.",
+   "src": "https://digiscr.sci.gov.in/view_judgment?id=MTA2MjI=",
+   "verify": "Whether Anvar and Arjun Panditrao apply unchanged to BSA 63 is still being worked out by courts."
+  },
+  {
+   "date": "13 Nov 2025",
+   "title": "DPDP Rules, 2025 notified",
+   "text": "G.S.R. 846(E). Board provisions in force at once; consent manager rules after 1 year; most duties of Data Fiduciaries after 18 months (around 13 May 2027). DPDP Act Section 44(2), which omits IT Act Section 43A, also starts at 18 months.",
+   "src": "https://egazette.gov.in/WriteReadData/2025/267647.pdf",
+   "pending": "DPDP 18-month date: 13 or 14 May 2027 depending on the day count (gazette dated 13 Nov 2025, e-signed 14 Nov). A proposed cut to 12 months has not been notified."
+  },
+  {
+   "date": "22 Oct 2025",
+   "title": "IT Rules: who can send takedown notices",
+   "text": "G.S.R. 775(E), in force 15 Nov 2025: 'actual knowledge' under rule 3(1)(d) arises only from a court order or a reasoned intimation from a Joint Secretary-rank officer (DIG for police).",
+   "src": "https://www.meity.gov.in/static/uploads/2026/03/0b576f2071694b52e4cd6bb1b6dfab1e.pdf"
+  },
+  {
+   "date": "10 Feb 2026",
+   "title": "IT Rules amendment on synthetic media",
+   "text": "G.S.R. 120(E), in force 20 Feb 2026: defines synthetically generated information, adds labelling duties and cuts timelines: 2 hours for intimate or morphed images, 3 hours on orders, 36 hours for other removal requests, 7 days for grievances.",
+   "src": "https://www.meity.gov.in/static/uploads/2026/02/f55fe52418b03f58b0669f6a8bc03b6d.pdf",
+   "pending": "2026 IT Rules timelines (G.S.R. 120(E)): fact-check reports them verified against MeitY's text; shown as being verified until a second check."
+  },
+  {
+   "date": "1 Jul 2026",
+   "title": "RBI Integrated Ombudsman Scheme, 2026",
+   "text": "Replaces the 2021 scheme. Complain within 90 days at cms.rbi.org.in; awards up to ₹30 lakh + ₹3 lakh. Complaints received before 1 Jul 2026 stay under the 2021 scheme.",
+   "src": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=62052",
+   "pending": "RB-IOS 2026 figures (₹30 lakh + ₹3 lakh, 90 days): from RBI's press release and FAQ; shown as being verified until a second check."
+  }
+ ],
+ "itact": [
+  {
+   "sec": "43",
+   "title": "Unauthorised access, download, virus, damage, disruption and more",
+   "kind": "civil",
+   "punishment": "Damages by way of compensation to the person affected (no upper cap in the section). Adjudicating Officer up to ₹5 crore claims, civil court above.",
+   "bail": "Not an offence",
+   "compound": "Contravention can be compounded under Sec 63",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "sec": "43A",
+   "title": "Body corporate negligent in protecting sensitive personal data",
+   "kind": "civil",
+   "punishment": "Damages by way of compensation. Still in force: DPDP Act s.44(2), which omits it, starts 18 months after 13 Nov 2025 (around 13 May 2027). Until then the SPDI Rules 2011 also apply.",
+   "bail": "Not an offence",
+   "compound": "Sec 63",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
+   "pending": "DPDP 18-month date: 13 or 14 May 2027 depending on the day count (gazette dated 13 Nov 2025, e-signed 14 Nov). A proposed cut to 12 months has not been notified.",
+   "src2": "https://egazette.gov.in/WriteReadData/2025/267647.pdf",
+   "src2_label": "DPDP commencement"
+  },
+  {
+   "sec": "33(2), 44, 45",
+   "title": "Surrendering a licence, failing to furnish information, residuary penalty",
+   "kind": "civil",
+   "punishment": "Sec 33(2): penalty up to ₹5 lakh (was 6 months or ₹10,000). Sec 44: ₹15 lakh / ₹50,000 / ₹1 lakh (was ₹1.5 lakh / ₹5,000 / ₹10,000). Sec 45: penalty up to ₹1 lakh plus compensation up to ₹10 lakh (intermediary, company or body corporate) or ₹1 lakh (any other person); now also covers directions or orders.",
+   "bail": "Not an offence",
+   "compound": "n/a",
+   "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src_label": "Jan Vishwas Act",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+   "src2_label": "In force 30 Nov 2023"
+  },
+  {
+   "sec": "65",
+   "title": "Tampering with computer source documents",
+   "kind": "offence",
+   "punishment": "Up to 3 years, or fine up to ₹2 lakh, or both",
+   "bail": "Bailable, cognizable",
+   "compound": "Yes (Sec 77A)",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "sec": "66",
+   "title": "Computer related offences (Sec 43 acts done dishonestly or fraudulently)",
+   "kind": "offence",
+   "punishment": "Up to 3 years, or fine up to ₹5 lakh, or both",
+   "bail": "Bailable, cognizable",
+   "compound": "Yes (Sec 77A)",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "sec": "66A",
+   "title": "Offensive messages",
+   "kind": "struck",
+   "punishment": "Struck down in Shreya Singhal (24 Mar 2015) and formally omitted by the Jan Vishwas Act 2023 (entry 32(E)) from 30 Nov 2023. No one can be prosecuted (PUCL, 2022).",
+   "bail": "n/a",
+   "compound": "n/a",
+   "src": "https://indiankanoon.org/doc/173319912/",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src2_label": "Jan Vishwas Act"
+  },
+  {
+   "sec": "66B",
+   "title": "Dishonestly receiving stolen computer resource or device",
+   "kind": "offence",
+   "punishment": "Up to 3 years, or fine up to ₹1 lakh, or both",
+   "bail": "Bailable, cognizable",
+   "compound": "Yes (Sec 77A)",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "sec": "66C",
+   "title": "Identity theft (password, e-signature, unique ID)",
+   "kind": "offence",
+   "punishment": "Up to 3 years and fine up to ₹1 lakh",
+   "bail": "Bailable, cognizable",
+   "compound": "Yes, unless against a woman or child (Sec 77A)",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "sec": "66D",
+   "title": "Cheating by personation using a computer resource",
+   "kind": "offence",
+   "punishment": "Up to 3 years and fine up to ₹1 lakh",
+   "bail": "Bailable, cognizable",
+   "compound": "Yes, unless against a woman or child (Sec 77A)",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "sec": "66E",
+   "title": "Violation of privacy (images of private area without consent)",
+   "kind": "offence",
+   "punishment": "Up to 3 years, or fine up to ₹2 lakh, or both",
+   "bail": "Bailable, cognizable",
+   "compound": "Yes, unless the offence is against a woman or a child (Sec 77A)",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "verify": "Compoundability under 77A is an interpretation; check the victim and facts."
+  },
+  {
+   "sec": "66F",
+   "title": "Cyber terrorism",
+   "kind": "offence",
+   "punishment": "Imprisonment which may extend to life",
+   "bail": "Non-bailable, cognizable",
+   "compound": "No",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
+  },
+  {
+   "sec": "67",
+   "title": "Publishing or transmitting obscene material electronically",
+   "kind": "offence",
+   "punishment": "First: up to 3 years and fine up to ₹5 lakh. Repeat: up to 5 years and fine up to ₹10 lakh",
+   "bail": "First: bailable. Repeat: non-bailable. Cognizable",
+   "compound": "First conviction only, and not if against a woman or child",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
+  },
+  {
+   "sec": "67A",
+   "title": "Sexually explicit material",
+   "kind": "offence",
+   "punishment": "First: up to 5 years and fine up to ₹10 lakh. Repeat: up to 7 years and fine up to ₹10 lakh",
+   "bail": "Non-bailable, cognizable",
+   "compound": "No (over 3 years)",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
+  },
+  {
+   "sec": "67B",
+   "title": "Child sexual exploitation and abuse material (CSEAM)",
+   "kind": "offence",
+   "punishment": "First: up to 5 years and fine up to ₹10 lakh. Repeat: up to 7 years and fine up to ₹10 lakh. Covers browsing, downloading and storing too (Just Rights for Children Alliance, 2024)",
+   "bail": "Non-bailable, cognizable",
+   "compound": "No",
+   "src": "https://api.sci.gov.in/supremecourt/2024/8562/8562_2024_1_1501_56073_Judgement_23-Sep-2024.pdf",
+   "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
+  },
+  {
+   "sec": "67C(2)",
+   "title": "Intermediary failing to preserve and retain information",
+   "kind": "civil",
+   "punishment": "Penalty up to ₹25 lakh (was up to 3 years and fine). Jan Vishwas entry 32(F).",
+   "bail": "Not an offence since 30 Nov 2023",
+   "compound": "n/a",
+   "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src_label": "Jan Vishwas Act",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+   "src2_label": "In force 30 Nov 2023"
+  },
+  {
+   "sec": "68(2)",
+   "title": "Not complying with an order of the Controller",
+   "kind": "civil",
+   "punishment": "Penalty up to ₹25 lakh (was up to 2 years, or ₹1 lakh, or both). Jan Vishwas entry 32(G).",
+   "bail": "Not an offence since 30 Nov 2023",
+   "compound": "n/a",
+   "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src_label": "Jan Vishwas Act",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+   "src2_label": "In force 30 Nov 2023"
+  },
+  {
+   "sec": "69",
+   "title": "Failing to assist lawful interception, monitoring or decryption",
+   "kind": "offence",
+   "punishment": "Up to 7 years and fine",
+   "bail": "Non-bailable, cognizable",
+   "compound": "No",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
+  },
+  {
+   "sec": "69A",
+   "title": "Intermediary not complying with a blocking direction",
+   "kind": "offence",
+   "punishment": "Up to 7 years and fine",
+   "bail": "Non-bailable, cognizable",
+   "compound": "No",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
+  },
+  {
+   "sec": "69B(4)",
+   "title": "Failing to assist traffic-data monitoring",
+   "kind": "offence",
+   "punishment": "Up to 1 year, or fine up to ₹1 crore, or both (was up to 3 years and fine). Jan Vishwas entry 32(H).",
+   "bail": "Bailable; not cognizable (below 3 years)",
+   "compound": "Yes (Sec 77A)",
+   "pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation.",
+   "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src_label": "Jan Vishwas Act",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+   "src2_label": "In force 30 Nov 2023"
+  },
+  {
+   "sec": "70",
+   "title": "Unauthorised access to a notified protected system",
+   "kind": "offence",
+   "punishment": "Up to 10 years and fine",
+   "bail": "Non-bailable, cognizable",
+   "compound": "No",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
+  },
+  {
+   "sec": "70B(7)",
+   "title": "Not complying with CERT-In directions",
+   "kind": "offence",
+   "punishment": "Up to 1 year, or fine up to ₹1 crore (was ₹1 lakh), or both. Jan Vishwas entry 32(I).",
+   "bail": "Bailable; not cognizable (below 3 years)",
+   "compound": "Yes (Sec 77A)",
+   "pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation.",
+   "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src_label": "Jan Vishwas Act",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+   "src2_label": "In force 30 Nov 2023"
+  },
+  {
+   "sec": "72",
+   "title": "Breach of confidentiality by a person acting under powers of the Act",
+   "kind": "civil",
+   "punishment": "Penalty up to ₹5 lakh (Jan Vishwas Act 2023, entry 32(J), from 30 Nov 2023). Before that: up to 2 years, or fine up to ₹1 lakh, or both.",
+   "bail": "Not an offence since 30 Nov 2023",
+   "compound": "n/a",
+   "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src_label": "Jan Vishwas Act",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+   "src2_label": "In force 30 Nov 2023"
+  },
+  {
+   "sec": "72A",
+   "title": "Penalty for disclosure of information in breach of lawful contract",
+   "kind": "civil",
+   "punishment": "Penalty up to ₹25 lakh (Jan Vishwas Act 2023, entry 32(K), from 30 Nov 2023). Before that: up to 3 years, or fine up to ₹5 lakh, or both.",
+   "bail": "Not an offence since 30 Nov 2023",
+   "compound": "n/a",
+   "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
+   "src_label": "Jan Vishwas Act",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
+   "src2_label": "In force 30 Nov 2023"
+  },
+  {
+   "sec": "77A",
+   "title": "Compounding of offences",
+   "kind": "rule",
+   "punishment": "A court may compound offences other than those punishable with life or over 3 years. Not where enhanced punishment applies for a prior conviction, or the offence affects socio-economic conditions, or is against a child under 18 or a woman.",
+   "bail": "n/a",
+   "compound": "n/a",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "pending": "s.77A(2) still cites CrPC ss.265B/265C. The CrPC is repealed; reading it as BNSS Ch. XXIII ss.289-300 (s.290 application, s.291 guidelines) is an interpretation (General Clauses Act s.8). No amending notification found."
+  },
+  {
+   "sec": "77B",
+   "title": "Cognizable and bailable",
+   "kind": "rule",
+   "punishment": "Offences punishable with 3 years and above are cognizable; offences punishable with 3 years are bailable. Others follow the BNSS First Schedule Part II (3 to 7 years: non-bailable).",
+   "bail": "n/a",
+   "compound": "n/a",
+   "src": "https://sansad.in/getFile/loksabhaquestions/annex/182/AS226_y8fPvt.pdf",
+   "pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation.",
+   "src2": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
+   "src2_label": "Bare act"
+  },
+  {
+   "sec": "79",
+   "title": "Safe harbour for intermediaries",
+   "kind": "rule",
+   "punishment": "No liability for third-party content if the intermediary only provides access, does not initiate, select the receiver or modify, observes due diligence (IT Rules 2021), and acts on actual knowledge (court order or government notice, per Shreya Singhal).",
+   "bail": "n/a",
+   "compound": "n/a",
+   "src": "https://indiankanoon.org/doc/110813550/"
+  },
+  {
+   "sec": "84B",
+   "title": "Abetment",
+   "kind": "offence",
+   "punishment": "Same punishment as the offence abetted, if committed in consequence and no express provision exists",
+   "bail": "Follows the main offence",
+   "compound": "Follows the main offence",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "sec": "84C",
+   "title": "Attempt",
+   "kind": "offence",
+   "punishment": "Up to half of the longest term for the offence, or the fine for it, or both",
+   "bail": "Follows the term",
+   "compound": "Follows the term",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  }
+ ],
+ "bns": [
+  {
+   "topic": "Cheating (online fraud, UPI and investment scams)",
+   "bns": "318 (318(4) for inducing delivery of property)",
+   "ipc": "415, 417, 418, 420",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
+   "punishment": "318(2): up to 3 years (IPC 417: 1 year). 318(3): up to 5 years. 318(4): up to 7 years and fine (as IPC 420)",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+  },
+  {
+   "topic": "Cheating by personation (fake profiles, fake officials)",
+   "bns": "319",
+   "ipc": "416, 419",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
+   "punishment": "319(2): up to 5 years (IPC 419: 3 years)",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+  },
+  {
+   "topic": "Personating a public servant (fake police, 'digital arrest' calls)",
+   "bns": "204",
+   "ipc": "170",
+   "punishment": "6 months to 3 years and fine",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+  },
+  {
+   "topic": "Extortion (sextortion, 'digital arrest' demands)",
+   "bns": "308",
+   "ipc": "383 to 389",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
+   "punishment": "308(2): up to 7 years (IPC 384: 3 years)",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+  },
+  {
+   "topic": "Defamation",
+   "bns": "356",
+   "ipc": "499 to 502",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
+   "punishment": "356(2): up to 2 years, or fine, or both, or community service (new)",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+  },
+  {
+   "topic": "Organised crime (definition expressly covers cyber-crimes)",
+   "bns": "111",
+   "ipc": "New, no IPC equivalent",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Petty organised crime",
+   "bns": "112",
+   "ipc": "New",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Forgery, including for cheating or harming reputation",
+   "bns": "336 (336(3), 336(4))",
+   "ipc": "463, 465, 468, 469",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Making a false document (includes electronic records)",
+   "bns": "335",
+   "ipc": "464",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Criminal intimidation, incl. anonymous communication",
+   "bns": "351 (351(4))",
+   "ipc": "503, 506, 507",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
+   "punishment": "351(2): up to 2 years. 351(3): up to 7 years. 351(4): up to 2 years in addition (as IPC 507)",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+  },
+  {
+   "topic": "Stalking (includes monitoring a woman's internet or email use)",
+   "bns": "78",
+   "ipc": "354D",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
+   "punishment": "Up to 3 years (first), up to 5 years (repeat)",
+   "src2": "https://egazette.gov.in/WriteReadData/2023/250883.pdf"
+  },
+  {
+   "topic": "Voyeurism",
+   "bns": "77",
+   "ipc": "354C",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Sexual harassment",
+   "bns": "75",
+   "ipc": "354A",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Statements conducing to public mischief (fake news)",
+   "bns": "353",
+   "ipc": "505",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Criminal breach of trust",
+   "bns": "316",
+   "ipc": "405 to 409",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Theft (devices, data carriers)",
+   "bns": "303",
+   "ipc": "378, 379",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  {
+   "topic": "Criminal conspiracy",
+   "bns": "61",
+   "ipc": "120A, 120B",
+   "src": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  }
+ ],
+ "bns_note": "BNS punishments are often higher than the old IPC ones: simple cheating 3 years (was 1), personation 5 (was 3), extortion 7 (was 3), and defamation adds community service. Where the act is about an electronic record and the IT Act covers it, the Supreme Court treats the IT Act as the special law (Sharat Babu Digumarti, 2016). Check overlap case by case.",
+ "dpdp": {
+  "intro": "Penalties are imposed by the Data Protection Board after an inquiry, under Section 33 and the Schedule. They are maximum amounts, not fixed fines.",
+  "rows": [
+   {
+    "breach": "Failing to take reasonable security safeguards to prevent a personal data breach (Sec 8(5))",
+    "max": "₹250 crore"
+   },
+   {
+    "breach": "Failing to notify the Board or affected Data Principals of a breach (Sec 8(6))",
+    "max": "₹200 crore"
+   },
+   {
+    "breach": "Additional obligations for children (Sec 9)",
+    "max": "₹200 crore"
+   },
+   {
+    "breach": "Additional obligations of a Significant Data Fiduciary (Sec 10)",
+    "max": "₹150 crore"
+   },
+   {
+    "breach": "Duties of a Data Principal (Sec 15)",
+    "max": "₹10,000"
+   },
+   {
+    "breach": "Breach of a voluntary undertaking (Sec 32)",
+    "max": "Up to the amount for the original breach"
+   },
+   {
+    "breach": "Any other provision of the Act or Rules",
+    "max": "₹50 crore"
+   }
+  ],
+  "status": "Phased commencement (G.S.R. 843(E), 13 Nov 2025): the Board provisions are in force; consent managers from about 13 Nov 2026; duties of Data Fiduciaries, grievance and complaints (ss.13, 27), appeals (s.29), these penalties (s.33 and Schedule) and the omission of IT Act s.43A (s.44(2)) only from 18 months, around 13 May 2027 (being verified). Until then IT Act s.43A and the SPDI Rules 2011 still apply.",
+  "src": "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
+  "src2": "https://egazette.gov.in/WriteReadData/2025/267647.pdf"
+ },
+ "procedure": [
+  {
+   "step": "1",
+   "title": "Report fast: 1930 and cybercrime.gov.in",
+   "text": "Call the National Cyber Crime Helpline 1930 as soon as money is lost, so the transaction can be flagged and frozen. File a complaint on the National Cyber Crime Reporting Portal (cybercrime.gov.in), which routes it to the state police.",
+   "src": "https://cybercrime.gov.in/"
+  },
+  {
+   "step": "2",
+   "title": "FIR and investigation",
+   "text": "For cognizable offences (3 years and above under Sec 77B), the police must register an FIR under BNSS Section 173, which allows e-FIRs. IT Act offences are investigated by an officer not below the rank of Inspector (Sec 78).",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "step": "3",
+   "title": "Compensation: Adjudicating Officer (Sec 46)",
+   "text": "For Sec 43, 43A and other contraventions, file before the Adjudicating Officer: an officer not below Director rank in the Government of India, or equivalent in the state (usually the state IT Secretary). Claims up to ₹5 crore; above that, the competent court (Sec 46(1A)).",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "verify": "Check your state's notification for who the Adjudicating Officer is and the current filing format."
+  },
+  {
+   "step": "4",
+   "title": "Appeal: TDSAT (Sec 57)",
+   "text": "Appeal from the Adjudicating Officer or Controller lies to the Appellate Tribunal within 45 days. Since 26 May 2017 that is TDSAT, after the Cyber Appellate Tribunal was merged into it by the Finance Act, 2017.",
+   "src": "https://tdsat.gov.in/admin/introduction/uploads/TDSAT%20INTRO.pdf"
+  },
+  {
+   "step": "5",
+   "title": "High Court (Sec 62)",
+   "text": "Appeal from TDSAT to the High Court within 60 days, on any question of fact or law. The High Court can allow a further 60 days for sufficient cause.",
+   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+  },
+  {
+   "step": "6",
+   "title": "Data breaches: CERT-In and the DPDP Board",
+   "text": "Organisations must report listed incidents to CERT-In within 6 hours (2022 Directions). Under the DPDP Act, personal data breaches must also be notified to the Board and affected people, but that duty starts only around 13 May 2027.",
+   "src": "https://www.cert-in.org.in/PDF/CERT-In_directions_extension_MSMEs_and_validation_27.06.2022.pdf",
+   "pending": "DPDP 18-month date: 13 or 14 May 2027 depending on the day count (gazette dated 13 Nov 2025, e-signed 14 Nov). A proposed cut to 12 months has not been notified."
+  },
+  {
+   "step": "7",
+   "title": "Get content taken down: platform timelines (IT Rules 2026)",
+   "text": "Complain to the platform's grievance officer: it must acknowledge within 24 hours and resolve within 7 days. Intimate or morphed images must be removed within 2 hours of a complaint. On a court order or a reasoned notice from a Joint Secretary-rank officer (DIG for police), content must go within 3 hours. Other removal requests: 36 hours. If the platform does not act, appeal to the Grievance Appellate Committee or go to court.",
+   "pending": "2026 IT Rules timelines (G.S.R. 120(E)): fact-check reports them verified against MeitY's text; shown as being verified until a second check.",
+   "src": "https://www.meity.gov.in/static/uploads/2026/02/f55fe52418b03f58b0669f6a8bc03b6d.pdf",
+   "more": [
+    {
+     "label": "IT Rules consolidated (MeitY)",
+     "url": "https://www.meity.gov.in/static/uploads/2026/03/0b576f2071694b52e4cd6bb1b6dfab1e.pdf"
+    },
+    {
+     "label": "SGI FAQ (MeitY)",
+     "url": "https://www.meity.gov.in/static/uploads/2026/02/49d4c4b42fc2d3dce00e0fdcf7ed1389.pdf"
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "name": "Shreya Singhal v. Union of India",
+   "year": "2015",
+   "court": "Supreme Court",
+   "cite": "(2015) 5 SCC 1",
+   "held": "Section 66A unconstitutional; 69A blocking upheld; Section 79 read down to court or government notice.",
+   "src": "https://indiankanoon.org/doc/110813550/"
+  },
+  {
+   "name": "PUCL v. Union of India",
+   "year": "2022",
+   "court": "Supreme Court",
+   "cite": "Order of 12 Oct 2022",
+   "held": "No prosecution under struck-down Section 66A; police told not to register 66A cases; pending 66A charges deleted.",
+   "src": "https://indiankanoon.org/doc/173319912/"
+  },
+  {
+   "name": "Justice K.S. Puttaswamy v. Union of India",
+   "year": "2017",
+   "court": "Supreme Court (9 judges)",
+   "cite": "2017 INSC 801",
+   "held": "Privacy is a fundamental right; restrictions need legality, legitimate aim and proportionality.",
+   "src": "https://digiscr.sci.gov.in/view_judgment?id=NjEwMg=="
+  },
+  {
+   "name": "Anvar P.V. v. P.K. Basheer",
+   "year": "2014",
+   "court": "Supreme Court",
+   "cite": "(2014) 10 SCC 473",
+   "held": "Secondary electronic evidence needs a Section 65B certificate; oral evidence cannot replace it.",
+   "src": "https://indiankanoon.org/doc/160854826/"
+  },
+  {
+   "name": "Arjun Panditrao Khotkar v. Kailash Kushanrao Gorantyal",
+   "year": "2020",
+   "court": "Supreme Court (3 judges)",
+   "cite": "2020 INSC 453",
+   "held": "65B(4) certificate is a condition precedent unless the original device is produced; Shafhi Mohammad overruled.",
+   "src": "https://digiscr.sci.gov.in/view_judgment?id=MTA2MjI="
+  },
+  {
+   "name": "Anuradha Bhasin v. Union of India",
+   "year": "2020",
+   "court": "Supreme Court",
+   "cite": "2020 INSC 31",
+   "held": "Speech and trade over the internet are protected under Article 19; shutdown orders must be published, proportionate and reviewed.",
+   "src": "https://digiscr.sci.gov.in/view_judgment?id=OTQwOA%3D%3D"
+  },
+  {
+   "name": "Sharat Babu Digumarti v. Govt of NCT of Delhi",
+   "year": "2016",
+   "court": "Supreme Court",
+   "cite": "Judgment of 14 Dec 2016",
+   "held": "For electronic records the IT Act is a special law that overrides IPC 292 on obscenity.",
+   "src": "https://indiankanoon.org/doc/153597150/"
+  },
+  {
+   "name": "Just Rights for Children Alliance v. S. Harish",
+   "year": "2024",
+   "court": "Supreme Court",
+   "cite": "2024 INSC 716",
+   "held": "Viewing, storing or possessing child sexual abuse material is punishable under POCSO Sec 15 and IT Act 67B; use the term CSEAM.",
+   "src": "https://api.sci.gov.in/supremecourt/2024/8562/8562_2024_1_1501_56073_Judgement_23-Sep-2024.pdf"
+  },
+  {
+   "name": "Kunal Kamra v. Union of India",
+   "year": "2024",
+   "court": "Bombay High Court",
+   "cite": "WP (L) No. 9792 of 2023, decided 26 Sep 2024",
+   "held": "2023 amendment to IT Rules 3(1)(b)(v) creating a government Fact Check Unit struck down as violating Articles 14, 19(1)(a) and 19(1)(g). The Union of India's appeal is pending in the Supreme Court (notice issued 10 Mar 2026).",
+   "src": "https://www.livelaw.in/high-court/bombay-high-court/it-rules-amendment-2023-unconstitutional-bombay-high-court-third-judge-verdict-kunal-kamra-270177"
+  }
+ ],
+ "downloads": [
+  {
+   "title": "Cyber Law PG Diploma cheat sheet",
+   "desc": "IT Act sections, BNS map, DPDP penalties, procedure and leading cases on a few printable pages.",
+   "file": "assets/pdf/cyberlaw-pg-cheatsheet.pdf",
+   "available": true
+  },
+  {
+   "title": "CyberPrompts sheet",
+   "desc": "The best prompts from the CyberPrompts page, formatted for print.",
+   "file": "assets/pdf/cyberprompts-sheet.pdf",
+   "available": true
+  }
+ ]
+}

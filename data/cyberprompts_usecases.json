@@ -1,0 +1,158 @@
+[
+ {
+  "title": "Check your own digital footprint",
+  "scenario": "You want to see what the internet shows about your own name, handle or small brand so you can clean up old or risky information.",
+  "which_prompt_category": "Defensive Analysis",
+  "steps": [
+   "List only your own names, handles and brand terms",
+   "Ask the AI for a checklist of public places to search and what to look for",
+   "Note what to remove or lock down, then update privacy settings"
+  ],
+  "safety_note": "Search only your own footprint or a brand you officially manage, never another person, because that can become stalking or doxxing. Do not paste your phone number, address or ID numbers into the AI; describe them in general words.",
+  "level": "beginner",
+  "cat_id": "defensive-analysis"
+ },
+ {
+  "title": "Spot a phishing email",
+  "scenario": "A suspicious email asks you to update KYC or reset a password, and you want help deciding if it is phishing.",
+  "which_prompt_category": "SOC Basics",
+  "steps": [
+   "Copy the email text and headers with your own address and names replaced by placeholders",
+   "Ask the AI to list red flags such as sender mismatch, urgency and odd links",
+   "Report the mail to your IT team or the platform and delete it without clicking"
+  ],
+  "safety_note": "Never click links or open attachments to test them, and do not paste live links into tools you do not trust. Redact PII, card numbers, OTPs, client names and internal IPs before pasting anything into an AI tool.",
+  "level": "beginner",
+  "cat_id": "soc"
+ },
+ {
+  "title": "Turn a news story into a scam awareness Reel",
+  "scenario": "You read a news report about a new scam and want a short Hinglish Reel script that warns your followers.",
+  "which_prompt_category": "Content Creation",
+  "steps": [
+   "Paste a short summary of the news in your own words",
+   "Ask the AI for a 30 second script with a hook, how the scam works and how to stay safe",
+   "Add 1930 and cybercrime.gov.in at the end and check every fact against the original report"
+  ],
+  "safety_note": "Explain how to stay safe, not how to run the scam, and do not name accused people in ongoing cases. Blur any victim details, phone numbers or screenshots that show personal data.",
+  "level": "beginner",
+  "cat_id": "content-creation"
+ },
+ {
+  "title": "Draft a complaint for cybercrime.gov.in",
+  "scenario": "You or a family member lost money or faced harassment online and want a clear, factual complaint draft before filing.",
+  "which_prompt_category": "Victim Help",
+  "steps": [
+   "Write down the dates, amounts, platforms and what happened in simple points",
+   "Ask the AI to arrange these facts into a clear complaint using only what you gave it",
+   "Call 1930 quickly for money fraud, file on cybercrime.gov.in, and consult a lawyer if needed"
+  ],
+  "safety_note": "Use the AI only to organise your own facts; it should not invent details or give legal advice. Keep full account numbers, card numbers and OTPs out of the AI and add them only on the official portal.",
+  "level": "beginner",
+  "cat_id": "victim-help"
+ },
+ {
+  "title": "Draft a basic security policy",
+  "scenario": "Your small team needs a simple password and device use policy written in plain language.",
+  "which_prompt_category": "Compliance",
+  "steps": [
+   "Describe your team size, tools and current practices in general terms",
+   "Ask the AI for a short draft policy with clear do and do not points",
+   "Review it with your team and a qualified advisor before adopting it"
+  ],
+  "safety_note": "Treat the AI draft as a starting point, not a final legal or compliance document. Do not share real passwords, network diagrams, internal IPs or client names while drafting.",
+  "level": "mid",
+  "cat_id": "compliance"
+ },
+ {
+  "title": "DPDP readiness check for a small business",
+  "scenario": "You run a small shop or startup that collects customer names and phone numbers and want to know what to look at under the DPDP Act 2023.",
+  "which_prompt_category": "Compliance",
+  "steps": [
+   "List what personal data you collect, why, and where it is stored, without real customer records",
+   "Ask the AI for a general readiness checklist covering notice, consent, security and deletion",
+   "Confirm the points and any timelines with a lawyer or the official DPDP Act and Rules text"
+  ],
+  "safety_note": "The AI gives general awareness only, and any deadline or penalty it mentions must be checked against official sources. Never paste real customer lists, phone numbers or payment data into the tool.",
+  "level": "mid",
+  "cat_id": "compliance"
+ },
+ {
+  "title": "Prepare for a SOC analyst interview",
+  "scenario": "You have a SOC analyst interview coming up and want practice questions with feedback on your answers.",
+  "which_prompt_category": "Career",
+  "steps": [
+   "Share the job description and your experience level",
+   "Ask the AI for common SOC questions and answer them one by one",
+   "Ask for feedback and then revise weak answers using official vendor docs and your own lab notes"
+  ],
+  "safety_note": "Practise with labs you own or legal training platforms, never live systems without written permission. Do not paste past employer logs, client names or internal IPs as examples.",
+  "level": "mid",
+  "cat_id": "career"
+ },
+ {
+  "title": "Plan a college cyber awareness session",
+  "scenario": "You are invited to give a one hour cyber safety talk at a college and need a structure that students will enjoy.",
+  "which_prompt_category": "Training",
+  "steps": [
+   "Tell the AI the audience, duration and topics like UPI fraud, sextortion and safe social media",
+   "Ask for an outline with short stories, a quiz and key takeaways",
+   "Add helpline 1930, cybercrime.gov.in and a reminder to talk to a trusted adult or lawyer"
+  ],
+  "safety_note": "Teach defence only and avoid live demos of hacking tools or real accounts. Use made up examples instead of real victim stories, names or screenshots.",
+  "level": "mid",
+  "cat_id": "training"
+ },
+ {
+  "title": "Triage security logs",
+  "scenario": "You have a batch of firewall or login logs showing unusual activity and want help spotting patterns worth investigating.",
+  "which_prompt_category": "SOC Basics",
+  "steps": [
+   "Mask usernames, internal IPs, hostnames and client names with placeholders",
+   "Paste a small sample and ask the AI to group events and flag likely suspicious patterns",
+   "Confirm every finding in your SIEM or original logs before escalating"
+  ],
+  "safety_note": "Work only on logs from systems you are authorised to monitor, and follow your organisation's data handling policy. Redact PII, card numbers, OTPs, client names and internal IPs before pasting anything into an AI tool.",
+  "level": "expert",
+  "cat_id": "soc"
+ },
+ {
+  "title": "Summarise a vulnerability scan report",
+  "scenario": "You ran an authorised vulnerability scan on your own or a client's systems with written permission and need a clear summary for management.",
+  "which_prompt_category": "Defensive Analysis",
+  "steps": [
+   "Remove client names, internal IPs, hostnames and any credentials from the report",
+   "Ask the AI to group findings by severity and explain business impact in simple words",
+   "Check each item against the scanner output and vendor advisories before sharing the summary"
+  ],
+  "safety_note": "Never scan or test systems you do not own or lack written permission for. Ask the AI only for fixes and priorities, not exploit steps, and keep raw reports out of public tools.",
+  "level": "expert",
+  "cat_id": "defensive-analysis"
+ },
+ {
+  "title": "Build an incident timeline",
+  "scenario": "After a security incident you have notes, alerts and emails scattered everywhere and need one clean timeline for the report.",
+  "which_prompt_category": "Defensive Analysis",
+  "steps": [
+   "Collect events with time, source and a short description, using placeholders for people and systems",
+   "Ask the AI to sort them into a timeline and point out gaps or conflicting times",
+   "Verify each entry against original evidence and keep the evidence untouched for any legal process"
+  ],
+  "safety_note": "The AI only arranges facts you supply, so mark anything it suggests as unconfirmed until checked. Redact PII, client names, internal IPs and any credentials, and follow your incident response and legal team's guidance.",
+  "level": "expert",
+  "cat_id": "defensive-analysis"
+ },
+ {
+  "title": "Explain a CVE for your team",
+  "scenario": "A new CVE affects software your organisation uses and you need a short internal advisory that both engineers and managers understand.",
+  "which_prompt_category": "Training",
+  "steps": [
+   "Paste the CVE ID, the official advisory text and the affected product versions",
+   "Ask the AI to explain the risk, who is affected and the recommended patch or workaround in plain words",
+   "Check the details against the vendor advisory and NVD or CERT-In before sending it out"
+  ],
+  "safety_note": "Focus on detection, patching and mitigation, not on writing or running exploits. Do not paste your asset inventory, internal IPs or client names; describe affected systems in general terms.",
+  "level": "expert",
+  "cat_id": "training"
+ }
+]
