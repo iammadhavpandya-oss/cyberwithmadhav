@@ -17,8 +17,8 @@ const fetch = u => new Promise((res, rej) => (u.startsWith('https') ? https : ht
 }).on('error', rej));
 const results = [];
 const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  : ' + extra : ''}`); };
-const PAGES = ['index.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html']
-  .concat(['commands.html', 'scams.html', 'game.html', 'soc.html'].filter(p => fs.existsSync(SITE + p)));
+const PAGES = ['index.html', 'commands.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html']
+  .concat(['scams.html', 'game.html', 'soc.html'].filter(p => fs.existsSync(SITE + p)));
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
   const c = await browser.createBrowserContext();

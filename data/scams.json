@@ -1,0 +1,826 @@
+{
+ "meta": {
+  "count": 25,
+  "helpline": "1930",
+  "portal": "https://cybercrime.gov.in"
+ },
+ "scams": [
+  {
+   "id": "digital-arrest",
+   "slug": "digital_arrest",
+   "name": "Digital arrest scam",
+   "hinglish": "Digital arrest wala fraud",
+   "steps": [
+    "Caller poses as police, CBI, NCB, RBI or customs and says your name is in a crime",
+    "You are kept on a video call and told not to tell anyone",
+    "You are pushed to transfer money to 'verify' or 'settle' the case"
+   ],
+   "flags": [
+    "Video call with uniformed people or fake police station background",
+    "Threat of immediate arrest over phone or video",
+    "Demand to stay on call and keep it secret",
+    "Request to move money to a 'safe' or 'verification' account"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Disconnect the call; there is no 'digital arrest' procedure, so verify with your local police station",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319",
+    "BNS s.308"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/ADVISORYTAU-ADV-003DigitalArrest06.03.2025.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "courier-parcel-scam",
+   "slug": "courier_parcel_scam",
+   "name": "Courier or customs parcel scam (FedEx style)",
+   "hinglish": "Courier parcel mein drugs wala fraud",
+   "steps": [
+    "Caller claims to be from a courier company or customs and says a parcel in your name is held",
+    "They say it contains illegal items or needs duty and transfer you to fake officials",
+    "You are pressured to pay duty, fines or 'clearance' money"
+   ],
+   "flags": [
+    "Parcel you never sent or ordered",
+    "Call transferred to so called police or customs",
+    "Payment asked to a personal account or UPI",
+    "Pressure, threats and urgency"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Check directly with the courier company using its official website number",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://pib.gov.in/PressReleaseIframePage.aspx?PRID=2025648",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "task-based-job-fraud",
+   "slug": "task_based_job_fraud",
+   "name": "Task based part time job fraud",
+   "hinglish": "Like karo, paisa kamao task scam",
+   "steps": [
+    "You get a WhatsApp or Telegram message offering easy money for likes, reviews or ratings",
+    "Small payouts are made first to build trust",
+    "You are asked to 'invest' or pay for premium tasks and the money is never returned"
+   ],
+   "flags": [
+    "Unsolicited job offer on WhatsApp or Telegram",
+    "Earning for simple tasks like liking videos",
+    "Need to deposit money to unlock tasks or withdraw",
+    "Group full of people showing big profits"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Exit the group and do not deposit more to 'unlock' your money",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318"
+   ],
+   "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1982936",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "upi-collect-request",
+   "slug": "upi_collect_request",
+   "name": "UPI collect request fraud",
+   "hinglish": "UPI collect request se paisa kat jaana",
+   "steps": [
+    "Fraudster, often posing as a buyer or helper, sends a UPI collect request",
+    "The message says enter your UPI PIN to receive money",
+    "Entering the PIN approves a payment out of your account"
+   ],
+   "flags": [
+    "Being told to enter PIN to receive money",
+    "Unknown collect request after a call or chat",
+    "Urgent push to approve quickly",
+    "Request labelled as refund or prize"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Remember: UPI PIN is only needed to send money, never to receive",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318"
+   ],
+   "source": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53185",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "sextortion-video-call",
+   "slug": "sextortion_video_call",
+   "name": "Sextortion video call",
+   "hinglish": "Video call recording blackmail",
+   "steps": [
+    "An attractive fake profile befriends you on social media and starts a video call",
+    "The call is recorded, sometimes with obscene content edited in",
+    "You are threatened that the video will be sent to family and friends unless you pay"
+   ],
+   "flags": [
+    "Stranger quickly moves to a video call",
+    "Sexual content within minutes of chatting",
+    "Threats to share a recording with your contacts",
+    "Repeated demands for money, often by impersonating police later"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Do not pay; paying usually leads to more demands",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Block the account and report it to the platform",
+    "Talk to family or a trusted person; you are the victim"
+   ],
+   "law": [
+    "BNS s.308",
+    "IT Act s.66E",
+    "IT Act s.67A"
+   ],
+   "source": "https://cyber.delhipolice.gov.in/Sextortion.html",
+   "verify": true,
+   "slow": false
+  },
+  {
+   "id": "kyc-update-sms",
+   "slug": "kyc_update_sms",
+   "name": "KYC update SMS scam",
+   "hinglish": "KYC update karo warna account band",
+   "steps": [
+    "You get an SMS or call saying your bank account or KYC will be blocked",
+    "A link or app is shared to 'update KYC'",
+    "Your login details or OTP are captured and money is withdrawn"
+   ],
+   "flags": [
+    "Threat of account suspension",
+    "Link from a normal mobile number",
+    "Request for OTP, PIN or password",
+    "App download for KYC"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Do KYC only through your branch or the official bank app",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66C",
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=57244",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "electricity-bill-sms",
+   "slug": "electricity_bill_sms",
+   "name": "Electricity bill disconnection SMS",
+   "hinglish": "Bijli kat jayegi wala SMS",
+   "steps": [
+    "SMS says your power will be cut tonight because the last bill was not updated",
+    "It asks you to call an 'electricity officer' number",
+    "You are told to install an app or pay a small amount, and your account is emptied"
+   ],
+   "flags": [
+    "Personal mobile number in the SMS",
+    "Same night disconnection threat",
+    "Request to install a remote access app",
+    "Spelling errors and no official sender ID"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Check your bill only on the official electricity board website or office",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/FakeSMSsrelatedtounpaidElectricityBilltodupecitizens.pdf",
+   "verify": false,
+   "slow": true
+  },
+  {
+   "id": "investment-whatsapp-group",
+   "slug": "investment_whatsapp_group",
+   "name": "Investment tips WhatsApp group and fake trading app",
+   "hinglish": "Stock tips group aur nakli trading app",
+   "steps": [
+    "You are added to a WhatsApp or Telegram group sharing stock or IPO tips",
+    "Members post fake profit screenshots and an admin shares a trading app link",
+    "The app shows profits but withdrawals are blocked or need more 'fees'"
+   ],
+   "flags": [
+    "Guaranteed or very high returns",
+    "App link shared privately, not from an official store",
+    "Fake profit screenshots by group members",
+    "Fees or tax demanded before withdrawal"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Stop all further deposits and do not pay withdrawal 'fees'",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://sancharsaathi.gov.in/SancharSaathiDocuments/KeepYourselfAwareDocuments/InvestmentScam.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "wedding-invite-apk",
+   "slug": "wedding_invite_apk",
+   "name": "APK file in wedding invitation",
+   "hinglish": "Shaadi card ki APK file",
+   "steps": [
+    "You receive a 'wedding invitation' on WhatsApp as an APK file",
+    "Installing it gives malware wide permissions on your phone",
+    "The malware can read SMS and OTPs and may misuse your accounts"
+   ],
+   "flags": [
+    "Invitation sent as an .apk file",
+    "Unknown number or unexpected sender",
+    "App asks for SMS, accessibility or other broad permissions",
+    "Strange SMS or OTPs after installing"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Disconnect the phone from the internet and uninstall the app",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Change passwords and UPI PIN from a clean device",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.43",
+    "IT Act s.66",
+    "IT Act s.66C"
+   ],
+   "source": "https://www.cert-in.org.in/s2cMainServlet?VACODE=CIVA-2025-2216&pageid=PUBVA01",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "fake-customer-care",
+   "slug": "fake_customer_care",
+   "name": "Fake customer care numbers",
+   "hinglish": "Google wala nakli customer care",
+   "steps": [
+    "Fraudsters post fake helpline numbers on search results, maps or social media",
+    "When you call, they pose as support staff",
+    "They ask for card details, OTP or a remote access app and steal money"
+   ],
+   "flags": [
+    "Number found on search, not on the official site",
+    "Support asks for OTP or PIN",
+    "Request to install a screen sharing app",
+    "Small 'registration' payment demanded"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Get helpline numbers only from the official website or app",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/CybercriminalsusingFakeCustomerCareNumberstodefraudcitizens.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "olx-army-buyer",
+   "slug": "olx_army_buyer",
+   "name": "OLX or army buyer scam",
+   "hinglish": "Army wala buyer fraud",
+   "steps": [
+    "A buyer posing as army or paramilitary staff agrees to your price on OLX or similar",
+    "He claims he is posted far away and sends a QR code or payment request",
+    "Scanning or approving it takes money out of your account"
+   ],
+   "flags": [
+    "Buyer agrees without bargaining",
+    "Claims to be in the army and cannot meet",
+    "Sends QR code to 'receive' payment",
+    "Asks for a small test payment first"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Remember: you never need to scan a QR code to receive money",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://cyber.delhipolice.gov.in/OLX.html",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "qr-code-tampering",
+   "slug": "qr_code_tampering",
+   "name": "QR code tampering scam",
+   "hinglish": "Nakli QR code scam",
+   "steps": [
+    "Fraudsters paste or send a tampered QR code",
+    "Scanning it opens a malicious site or app, or pays the fraudster",
+    "Your login or payment details are stolen"
+   ],
+   "flags": [
+    "Sticker QR pasted over the original",
+    "QR code sent by a stranger",
+    "QR that opens a login page or asks for PIN",
+    "Payee name does not match the shop"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Check the payee name before paying",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/CybercriminalsTamperingwithQRCodestodefraudCitizens.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "fake-e-challan",
+   "slug": "fake_e_challan",
+   "name": "Fake traffic e-challan",
+   "hinglish": "Nakli e-challan SMS",
+   "steps": [
+    "You get an SMS or WhatsApp message about an unpaid traffic challan",
+    "The link opens a fake payment page or asks you to install an APK",
+    "Your card, UPI or OTP details are stolen"
+   ],
+   "flags": [
+    "Link that is not the official Parivahan portal",
+    "APK or file attached to a challan message",
+    "Threat of licence suspension or court case",
+    "Message from a normal 10 digit number"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Check challans only on the official Parivahan e-challan portal",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66C",
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://sancharsaathi.gov.in/SancharSaathiDocuments/KeepYourselfAwareDocuments/FakeTrafficChallan.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "loan-app-harassment",
+   "slug": "loan_app_harassment",
+   "name": "Illegal loan app harassment",
+   "hinglish": "Loan app wali blackmail",
+   "steps": [
+    "An app offers instant loans with almost no checks",
+    "It takes access to your contacts and photos and charges hidden fees",
+    "Recovery agents harass, abuse or threaten to share morphed photos"
+   ],
+   "flags": [
+    "Lender not a bank or RBI registered NBFC",
+    "App asks for contacts, gallery and storage access",
+    "Very high charges and short repayment time",
+    "Threats and messages to your contacts"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Do not pay extortion demands; check the lender is RBI regulated",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Report the app to the app store",
+    "Inform your contacts that messages may be fake"
+   ],
+   "law": [
+    "BNS s.308",
+    "BNS s.351",
+    "BNS s.356",
+    "IT Act s.66E"
+   ],
+   "source": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=50846",
+   "verify": true,
+   "slow": false
+  },
+  {
+   "id": "fake-shopping-sites",
+   "slug": "fake_shopping_sites",
+   "name": "Fake festive sale shopping websites",
+   "hinglish": "Diwali sale ki nakli website",
+   "steps": [
+    "Ads or links promote a shopping site with huge discounts",
+    "You pay in advance for the product",
+    "Nothing arrives, or a fake or used item comes and the site disappears"
+   ],
+   "flags": [
+    "Discount too good to be true",
+    "Website address slightly different from the brand",
+    "Only prepaid payment allowed",
+    "No contact details or return policy"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Shop only on known sites by typing the address yourself",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318"
+   ],
+   "source": "https://cyber.delhipolice.gov.in/Fakeshoppingsite.html",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "kbc-lottery",
+   "slug": "kbc_lottery",
+   "name": "KBC lottery fraud",
+   "hinglish": "KBC lottery jeetne wala call",
+   "steps": [
+    "You get a WhatsApp message or call saying you won a KBC lottery",
+    "A fake 'manager' asks for tax or processing fee",
+    "Fees keep increasing and no prize ever comes"
+   ],
+   "flags": [
+    "Lottery you never entered",
+    "Fees to release the prize",
+    "Photos of celebrities or TV logos",
+    "Calls from foreign or unknown numbers"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/CybercrimeInformation-132.pdf",
+   "verify": false,
+   "slow": true
+  },
+  {
+   "id": "romance-dating-app",
+   "slug": "romance_dating_app",
+   "name": "Romance fraud on dating apps",
+   "hinglish": "Dating app romance scam",
+   "steps": [
+    "A fake profile builds a relationship online",
+    "Soon there is an emergency, gift stuck in customs or travel problem",
+    "You are asked to send money again and again"
+   ],
+   "flags": [
+    "Avoids video calls or meeting",
+    "Quick declarations of love",
+    "Story of gift held at customs",
+    "Requests for money or gift cards"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says",
+    "Report the profile to the dating app"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/CybercrimeInformation-130.pdf",
+   "verify": false,
+   "slow": true
+  },
+  {
+   "id": "matrimonial-crypto",
+   "slug": "matrimonial_crypto",
+   "name": "Matrimonial site investment or crypto fraud",
+   "hinglish": "Rishta site se crypto scam",
+   "steps": [
+    "A 'prospective match' on a matrimonial site builds trust",
+    "They suggest investing in crypto or trading on an app they use",
+    "Fake profits are shown, then withdrawals are blocked"
+   ],
+   "flags": [
+    "Match talks about investments early",
+    "Refuses to meet in person",
+    "Pushes a specific app or website",
+    "Asks for more money to withdraw"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the profile to the matrimonial platform",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/ADVISORY-Matriminy%20Scam.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "fake-job-offer-sms",
+   "slug": "fake_job_offer_sms",
+   "name": "Fake job offer SMS",
+   "hinglish": "Nakli naukri SMS",
+   "steps": [
+    "You get an SMS offering a high paying job with a link",
+    "The link leads to a chat where you are asked for fees or details",
+    "Money is taken for registration, training or a 'job kit'"
+   ],
+   "flags": [
+    "Job offer you did not apply for",
+    "High pay for little work",
+    "Registration or security fee",
+    "Chat only on WhatsApp or Telegram"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/FraudsterssendingFakeJobOfferSMSstoperpetrateCybercrime.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "captcha-job",
+   "slug": "captcha_job",
+   "name": "Fake CAPTCHA filling job",
+   "hinglish": "CAPTCHA bharo, kamao fraud",
+   "steps": [
+    "Ads offer work from home money for typing CAPTCHAs",
+    "You pay a registration fee or deposit to start",
+    "Earnings are never paid and more fees are demanded"
+   ],
+   "flags": [
+    "Upfront registration fee",
+    "Easy work with high pay",
+    "Withdrawal needs more payment",
+    "No verifiable company details"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66D",
+    "BNS s.318"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/ADVISORY%20TAU-ADV-004_Captcha%20Filling%20Fraud_08.04.2025.pdf",
+   "verify": false,
+   "slow": true
+  },
+  {
+   "id": "aeps-biometric",
+   "slug": "aeps_biometric",
+   "name": "Aadhaar biometric misuse in AePS",
+   "hinglish": "AePS se fingerprint wala fraud",
+   "steps": [
+    "Fraudsters obtain or clone fingerprints, for example from documents or records",
+    "They use AePS with your Aadhaar number to withdraw money",
+    "You notice debits without any OTP or card use"
+   ],
+   "flags": [
+    "Debits marked AePS that you did not make",
+    "No OTP received for the withdrawal",
+    "Fingerprints taken at unknown places",
+    "Documents with your Aadhaar shared widely"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Lock your Aadhaar biometrics through the official UIDAI channel",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66C",
+    "BNS s.318"
+   ],
+   "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2039647",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "screen-sharing-app",
+   "slug": "screen_sharing_app",
+   "name": "Screen sharing or remote access app scam",
+   "hinglish": "Screen share app wala fraud",
+   "steps": [
+    "Fraudster poses as bank, telecom or support staff",
+    "You are asked to install a remote access or screen sharing app",
+    "They watch or control your phone and move money"
+   ],
+   "flags": [
+    "Request to download an app on a call",
+    "Asked to share a code shown in the app",
+    "Told to open banking app while sharing screen",
+    "Caller insists it is for 'help' or 'refund'"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Uninstall the app and change passwords and UPI PIN",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.43",
+    "IT Act s.66",
+    "IT Act s.66D",
+    "BNS s.318"
+   ],
+   "source": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53185",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "ussd-call-forwarding",
+   "slug": "ussd_call_forwarding",
+   "name": "USSD call forwarding delivery agent scam",
+   "hinglish": "Delivery boy ka call forwarding trick",
+   "steps": [
+    "Caller poses as a delivery agent about a parcel",
+    "You are asked to dial a code starting with a star or hash",
+    "Your calls and OTPs get forwarded to the fraudster"
+   ],
+   "flags": [
+    "Request to dial a USSD code",
+    "Parcel story you do not recognise",
+    "Calls stop coming to your phone",
+    "OTPs you did not request"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Dial *#21# to check forwarding and contact your telecom operator",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66C",
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/Advisory-USSD%20based%20account%20takeover-TAU_ADV_007.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "whatsapp-hijack",
+   "slug": "whatsapp_hijack",
+   "name": "WhatsApp account hijack",
+   "hinglish": "WhatsApp hack karke dosto se paise",
+   "steps": [
+    "Fraudster tricks you into sharing the WhatsApp verification code",
+    "Your account is taken over",
+    "Your contacts get messages asking for urgent money"
+   ],
+   "flags": [
+    "Someone asks for a 6 digit code sent to you",
+    "Logged out of WhatsApp suddenly",
+    "Friend asks for urgent money by text only",
+    "New device login alerts"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Reinstall WhatsApp, verify your number and turn on two step verification",
+    "Warn your contacts not to pay",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs"
+   ],
+   "law": [
+    "IT Act s.66C",
+    "IT Act s.66D",
+    "IT Act s.43"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/CybercrimeInformation%E2%80%93145.pdf",
+   "verify": false,
+   "slow": false
+  },
+  {
+   "id": "ai-voice-clone",
+   "slug": "ai_voice_clone",
+   "name": "AI voice clone or deepfake emergency call",
+   "hinglish": "AI awaaz copy karke emergency call",
+   "steps": [
+    "Fraudsters use AI tools to copy a voice or face from online videos or calls",
+    "You get a call that sounds like a family member in trouble",
+    "You are pushed to send money urgently"
+   ],
+   "flags": [
+    "Urgent emergency with pressure to pay now",
+    "Caller avoids questions only the real person knows",
+    "Payment to an unknown UPI or account",
+    "Call from a new or unknown number"
+   ],
+   "todo": [
+    "Call 1930, the National Cyber Crime Helpline, as early as possible",
+    "Report the complaint on cybercrime.gov.in",
+    "Hang up and call the person back on their known number",
+    "Inform your bank and ask them to block the card, account or UPI",
+    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
+    "Do not pay anything more, whatever the caller says"
+   ],
+   "law": [
+    "IT Act s.66C",
+    "IT Act s.66D",
+    "BNS s.318",
+    "BNS s.319"
+   ],
+   "source": "https://i4c.mha.gov.in/theme/resources/advisories/ADVISORY%20TAU-ADV-016-3.pdf",
+   "verify": true,
+   "slow": false
+  }
+ ]
+}

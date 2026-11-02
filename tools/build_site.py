@@ -20,7 +20,17 @@ OG_IMG = BASE + "assets/img/og-image.png"
 OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
-PAGES = ["index.html", "commands.html", "scams.html", "game.html", "ctf.html", "prompts.html", "cyberlaw.html", "terms.html", "privacy.html"]
+PAGES = ["index.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
+         "ctf.html", "prompts.html", "cyberlaw.html", "terms.html", "privacy.html"]
+# The nav "More" menu: (file, label, short description). Only pages that exist are listed.
+MORE = [("commands.html", "Command Reference", "60 blue team commands"),
+        ("scams.html", "Scam Encyclopedia", "25 Indian scams, decoded"),
+        ("game.html", "Scam ya Nahi?", "Spot the scam game"),
+        ("soc.html", "SOC Triage Labs", "Read logs, pick a verdict"),
+        ("owasp.html", "OWASP Top 10:2025", "Web risks, 2021 to 2025"),
+        ("terminal.html", "Terminal Wargame", "Learn the shell by playing"),
+        ("daily.html", "Daily Challenge", "5 questions a day"),
+        ("progress.html", "My Progress", "Badges and certificate")]
 PRIORITY = {"index.html": "1.0", "terms.html": "0.3", "privacy.html": "0.3"}
 
 
@@ -60,9 +70,33 @@ def git_date(p):
     return now.replace(hour=0, minute=0, second=0, microsecond=0)  # stable within a day for uncommitted files
 
 
-# ---------- 1 and 2: head tags and shared scripts ----------
+# ---------- 1 and 2: head tags, nav "More" menu and shared scripts ----------
+def more_menu(p):
+    items = [m for m in MORE if (ROOT / m[0]).exists()]
+    if not items: return ""
+    cur = any(f == p for f, _, _ in items)
+    links = "".join(
+        f'\n            <a href="{f}"{' class="active" aria-current="page"' if f == p else ''}><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>'
+        for f, t, d in items)
+    return (f'\n        <!-- more:start -->\n        <details class="nav-more">\n          <summary{' class="active"' if cur else ''}>More<span class="sr-only"> pages</span></summary>'
+            f'\n          <div class="nav-more-menu">{links}'
+            '\n            <div class="nav-more-legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>'
+            '\n          </div>\n        </details>\n        <!-- more:end -->')
+
+
+def patch_nav(s, p):
+    s = re.sub(r"\n\s*<!-- more:start -->.*?<!-- more:end -->", "", s, flags=re.S)
+    m = re.search(r'<nav id="nav-links"[^>]*>.*?</nav>', s, re.S)
+    if not m: return s
+    nav = m.group(0)
+    a = re.search(r'\n\s*<a href="terms\.html"', nav) or re.search(r'\n\s*<button', nav)
+    nav = nav[:a.start()] + more_menu(p) + nav[a.start():]
+    return s[:m.start()] + nav + s[m.end():]
+
+
 def patch_page(p):
     s = read(p)
+    s = patch_nav(s, p)
     # social image tags: drop old ones, then add one consistent block after og:locale (or og:url)
     s = re.sub(r'\n\s*<meta (?:property="og:image(?::[a-z]+)?"|name="twitter:image(?::alt)?") content="[^"]*">', "", s)
     title, desc = meta(s, "property", "og:title") or title_of(s), meta(s, "property", "og:description") or meta(s, "name", "description")
@@ -83,8 +117,8 @@ def patch_page(p):
     s = s.replace('<link rel="icon" type="image/svg+xml" href="favicon.svg">',
                   '<link rel="icon" type="image/svg+xml" href="favicon.svg">\n  <link rel="manifest" href="manifest.json">\n  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">', 1)
     # shared scripts before </body>
-    s = re.sub(r'\n\s*<script src="assets/js/(?:pwa|search)\.js" defer></script>', "", s)
-    tags = ([] if p == "index.html" else ['<script src="assets/js/search.js" defer></script>']) + ['<script src="assets/js/pwa.js" defer></script>']
+    s = re.sub(r'\n\s*<script src="assets/js/(?:pwa|search|nav)\.js" defer></script>', "", s)
+    tags = ['<script src="assets/js/nav.js" defer></script>'] + ([] if p == "index.html" else ['<script src="assets/js/search.js" defer></script>']) + ['<script src="assets/js/pwa.js" defer></script>']
     s = s.replace("\n</body>", "".join("\n  " + t for t in tags) + "\n</body>", 1)
     write(p, s)
 
@@ -134,7 +168,7 @@ def search_index():
         add("Law FAQ", f["q"], "Cyber Law FAQ", "cyberlaw.html#faq", " ".join(f.get("refs", [])))
     for c in json.loads((DATA / "cyberlaw_cases.json").read_text()):
         add("Case", c["name"], f'{c.get("court", "")} {c.get("year", "")}'.strip(), "cyberlaw.html#cases", c.get("why_it_matters", ""))
-    for extra in ("commands_index.json", "scams_index.json", "owasp_index.json"):
+    for extra in ("commands_index.json", "scams_index.json", "game_index.json", "soc_index.json", "owasp_index.json", "terminal_index.json", "daily_index.json"):
         f = DATA / extra  # optional per page indexes written by later build steps
         if f.exists():
             for it in json.loads(f.read_text()): add(it["k"], it["t"], it.get("s", ""), it["u"], it.get("x", ""))
@@ -235,6 +269,7 @@ def not_found():
     head = re.sub(r'\n\s*<link rel="stylesheet" href="assets/css/legal.css">', "", head)
     nav = re.search(r'<header class="nav" id="top">.*?</header>', t, re.S).group(0)
     nav = nav.replace(' active" aria-current="page"', '"')
+    nav = patch_nav(nav, "404.html")
     foot = re.search(r'<footer.*?</footer>', t, re.S).group(0)
     body = f"""<body class="v3 nf-page">
   <div class="space" aria-hidden="true">
@@ -274,6 +309,7 @@ def not_found():
   <script src="assets/js/space.js" defer></script>
   <script src="assets/js/pages.js" defer></script>
   <script src="assets/js/notfound.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
   <script src="assets/js/search.js" defer></script>
   <script src="assets/js/pwa.js" defer></script>
 </body>

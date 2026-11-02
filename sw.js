@@ -2,8 +2,8 @@
    Pages: network first, falling back to the cache, then to 404.html.
    Styles, scripts, data and images from this site: stale while revalidate.
    Other origins (fonts, APIs) are never touched. */
-const VERSION = 'cwm-offline-e7a94ea3d073';
-const CORE = [ "./", "index.html", "ctf.html", "prompts.html", "cyberlaw.html", "terms.html", "privacy.html", "404.html", "assets/css/ctf.css", "assets/css/legal.css", "assets/css/pages.css", "assets/css/style.css", "assets/js/consent.js", "assets/js/ctf.js", "assets/js/cyberlaw.js", "assets/js/legal.js", "assets/js/main.js", "assets/js/pages.js", "assets/js/prompts.js", "assets/js/pwa.js", "assets/js/search.js", "assets/js/space.js", "manifest.json", "favicon.svg", "assets/img/icon-192.png", "assets/img/apple-touch-icon.png", "data/search.json" ];
+const VERSION = 'cwm-offline-5a936864d131';
+const CORE = [ "./", "index.html", "commands.html", "scams.html", "terminal.html", "ctf.html", "prompts.html", "cyberlaw.html", "terms.html", "privacy.html", "404.html", "assets/css/ctf.css", "assets/css/features.css", "assets/css/legal.css", "assets/css/pages.css", "assets/css/style.css", "assets/css/wargame.css", "assets/js/commands.js", "assets/js/consent.js", "assets/js/ctf.js", "assets/js/cyberlaw.js", "assets/js/legal.js", "assets/js/main.js", "assets/js/nav.js", "assets/js/pages.js", "assets/js/prompts.js", "assets/js/pwa.js", "assets/js/scams.js", "assets/js/search.js", "assets/js/space.js", "assets/js/wargame.js", "manifest.json", "favicon.svg", "assets/img/icon-192.png", "assets/img/apple-touch-icon.png", "data/search.json" ];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
 });
