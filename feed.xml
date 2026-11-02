@@ -8,13 +8,6 @@
     <language>en-in</language>
     <lastBuildDate>Mon, 02 Nov 2026 09:42:39 +0000</lastBuildDate>
     <item>
-      <title>CyberWithMadhav: Cybersecurity in plain English and Hinglish</title>
-      <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/</link>
-      <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/</guid>
-      <pubDate>Mon, 02 Nov 2026 09:42:39 +0000</pubDate>
-      <description>CyberWithMadhav by Madhav Pandya: cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets, browser-only security tools and scam alerts, made for India.</description>
-    </item>
-    <item>
       <title>Command Reference: 60 blue team commands with safety notes</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/commands.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/commands.html</guid>
@@ -62,6 +55,13 @@
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/privacy.html</guid>
       <pubDate>Mon, 02 Nov 2026 09:42:39 +0000</pubDate>
       <description>Privacy Policy for CyberWithMadhav: no trackers, no analytics, no cookies. What the site keeps in your browser and which services it relies on.</description>
+    </item>
+    <item>
+      <title>CyberWithMadhav: Cybersecurity in plain English and Hinglish</title>
+      <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/</link>
+      <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <description>CyberWithMadhav by Madhav Pandya: cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets, browser-only security tools and scam alerts, made for India.</description>
     </item>
     <item>
       <title>CyberPrompts: Defensive AI Prompt Sheets for India</title>

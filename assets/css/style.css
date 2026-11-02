@@ -683,6 +683,9 @@ html.consent-pending body::after{content:"";position:fixed;inset:0;z-index:9998;
 /* desktop: Terms and Privacy live in the More menu, the footer and the mobile menu so the top nav keeps to one row */
 @media (min-width:821px){#nav-links a.nav-legal:not([aria-current="page"]){display:none}}
 @media (min-width:1081px) and (max-width:1279px){#nav-links > a{padding:7px 9px}}
+/* header must never overlap: brand keeps its size, secondary section links (still in the mobile menu, palette and page) drop on desktop */
+.nav-inner{gap:16px}.brand{flex:none}#nav-links{min-width:0}
+@media (min-width:821px){#nav-links a.nav-sec{display:none}}
 @media (min-width:821px) and (max-width:900px){#nav-links{gap:2px}#nav-links > a{padding:6px 4px;font-size:.76rem}.nav-more summary{padding:6px 4px}}
 
 /* ---------- initials avatar (replaces the photo placeholder) ---------- */

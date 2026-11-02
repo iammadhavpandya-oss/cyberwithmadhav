@@ -60,7 +60,7 @@
 .tc-emoji{font-size:1.6rem;line-height:1}
 .track-card h3{margin:0;font-size:1.12rem}
 .track-card p{margin:0;color:var(--muted);font-size:.9rem}
-.tc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.tc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:auto}
 .seg-ring{width:58px;height:58px;flex:none;transform:rotate(-90deg)}
 .seg-ring circle{fill:none;stroke-width:7}
 .seg-ring .s-bg{stroke:color-mix(in srgb,var(--border) 85%,transparent)}
@@ -69,7 +69,7 @@
 .tc-best{font:600 .9rem var(--font-head)}
 .tc-best small{display:block;font:500 .72rem var(--mono);color:var(--muted)}
 .flame-tag{font:500 .75rem var(--mono);color:var(--warn)}
-.track-card .flame-tag{position:absolute;top:18px;right:18px;padding:2px 8px;border:1px solid currentColor;border-radius:999px;line-height:1.4}
+.track-card .flame-tag{position:static;flex:none;align-self:flex-end;padding:2px 8px;border:1px solid currentColor;border-radius:999px;line-height:1.4;white-space:nowrap}
 .hub-lower{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:22px}
 .join-form label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
 .join-form .row{display:flex;gap:8px}

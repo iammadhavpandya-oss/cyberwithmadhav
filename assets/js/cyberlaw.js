@@ -241,11 +241,11 @@
       const ok = d.available === false ? false : await P.exists(d.file);
       opts.append(el('div', { class: 'dl-opt' }, [
         el('span', { class: 'dl-tag' }, ['PDF 1']),
-        ok ? dlBtn('btn btn-primary small', d.file, 'PDF 1 · CyberWithMadhav edition')
+        ok ? dlBtn('btn btn-primary small', d.file, 'PDF 1 · CyberWithMadhav')
           : el('span', { class: 'soon', 'data-file': d.file }, ['PDF coming soon'])]));
       const c = d.claude;
       if (c && c.available !== false && await P.exists(c.file)) {
-        const row = el('div', { class: 'dl-row' }, [dlBtn('btn btn-ghost small dl-claude', c.file, 'PDF 2 · Claude edition')]);
+        const row = el('div', { class: 'dl-row' }, [dlBtn('btn btn-ghost small dl-claude', c.file, 'PDF 2 · Claude')]);
         if (c.dark && c.dark_available !== false) row.append(el('a', { class: 'dl-dark', href: c.dark, download: '' }, ['Dark version']));
         const note = el('p', { class: 'dl-note' }, ['Claude edition, some section numbers still being verified; see ']);
         note.append(el('a', { href: 'terms.html#pdfs' }, ['Terms']), '.');
