@@ -121,6 +121,17 @@ def _n1(s) -> str:
     s = unicodedata.normalize("NFKC", str(s)).strip()
     return re.sub(r"\s+", " ", s).lower()
 
+_UNIT_RE = re.compile(r"^([0-9][0-9.]*) ?(?:bits?|hosts?|times|runs|secs?|seconds|s)$")
+
+
+def _loose(s):
+    """Typed answers: drop http(s)://, www. and a trailing slash, and a unit word after a number."""
+    s = re.sub(r"^https?://", "", s)
+    s = re.sub(r"^www\.", "", s)
+    if " " not in s and len(s) > 1:
+        s = s.rstrip("/")
+    return _UNIT_RE.sub(r"\1", s)
+
 
 def normalise(s, type_: str) -> str:
     """Must match tools/build_ctf.py and assets/js/ctf.js."""
@@ -131,6 +142,8 @@ def normalise(s, type_: str) -> str:
     s = _n1(s)
     if type_ == "flag" and s and not s.startswith("cwm{"):
         s = "cwm{" + s.strip("{}") + "}"
+    elif type_ == "text":
+        s = _loose(s)
     return s
 
 

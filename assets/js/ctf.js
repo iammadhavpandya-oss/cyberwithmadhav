@@ -60,11 +60,18 @@
 
   /* ---------------- answer normalisation (must match tools/build_ctf.py and backend/ctf.py) ---------------- */
   const n1 = s => String(s).normalize('NFKC').trim().replace(/\s+/g, ' ').toLowerCase();
+  /* typed answers: drop http(s)://, www. and a trailing slash, and a unit word after a number */
+  function loose(s) {
+    s = s.replace(/^https?:\/\//, '').replace(/^www\./, '');
+    if (s.indexOf(' ') < 0 && s.length > 1) s = s.replace(/\/+$/, '');
+    return s.replace(/^([0-9][0-9.]*) ?(?:bits?|hosts?|times|runs|secs?|seconds|s)$/, '$1');
+  }
   function normalise(s, type) {
     if (type === 'multi') return String(s).split('|').map(n1).filter(Boolean).sort().join('|');
     if (type === 'order') return String(s).split('|').map(n1).join('|');
     let t = n1(s);
     if (type === 'flag' && t && !t.startsWith('cwm{')) t = 'cwm{' + t.replace(/^[{}]+|[{}]+$/g, '') + '}';
+    else if (type === 'text') t = loose(t);
     return t;
   }
 
@@ -678,7 +685,7 @@
       const flag = c.type === 'flag';
       box.append(el('div', { class: 'answer-input' }, el('label', { for: 'ans-text', text: flag ? 'Flag (CWM{...} or just the inside)' : 'Your answer' }),
         el('input', { id: 'ans-text', type: 'text', autocomplete: 'off', spellcheck: 'false', autocapitalize: 'off', maxlength: '200',
-          placeholder: flag ? 'CWM{...}' : c.kind === 'subnet' ? 'e.g. 192.168.1.0/24' : c.kind === 'command' ? 'type the command' : 'type here' })));
+          placeholder: c.placeholder ? c.placeholder : flag ? 'CWM{...}' : c.kind === 'subnet' ? 'type a number, address or mask' : c.kind === 'command' ? 'type the command' : 'type here' })));
     }
   }
   function orderItem(text) {
