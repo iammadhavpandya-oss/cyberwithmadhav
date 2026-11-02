@@ -14,13 +14,13 @@
     "k": "Sec 43",
     "label": "Civil wrong",
     "text": "Access without permission. Pay damages by way of compensation to the person affected. No intent needed.",
-    "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+    "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
    },
    {
     "k": "Sec 66",
     "label": "Crime",
     "text": "Any Sec 43 act done dishonestly or fraudulently. Up to 3 years, or fine up to ₹5 lakh, or both. Cognizable and bailable (Sec 77B).",
-    "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+    "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
    }
   ],
   "note": "An honest, unknowing act is not a Section 66 offence. It can still attract Section 43 compensation.",
@@ -37,7 +37,7 @@
    "date": "27 Oct 2009",
    "title": "IT (Amendment) Act, 2008 in force (Act 10 of 2009)",
    "text": "Added Sections 66A to 66F, 67A, 67B, 69A, 72A, 43A and 77A/77B, removed the old compensation cap in Section 43 and moved to the technology-neutral term 'electronic signature'.",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "date": "11 Apr 2011",
@@ -55,7 +55,7 @@
    "date": "26 May 2017",
    "title": "Cyber Appellate Tribunal merged into TDSAT",
    "text": "Finance Act, 2017 (Section 169) made the Telecom Disputes Settlement and Appellate Tribunal the 'Appellate Tribunal' under the IT Act.",
-   "src": "https://indiacode.ecourtsindia.com/finance-act-2017/section/169/"
+   "src": "https://egazette.gov.in/WriteReadData/2017/175141.pdf"
   },
   {
    "date": "24 Aug 2017",
@@ -67,7 +67,7 @@
    "date": "25 Feb 2021",
    "title": "IT (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021",
    "text": "G.S.R. 139(E), replacing the 2011 intermediary rules: due diligence, grievance officers, extra duties for significant social media intermediaries and a code for digital news and OTT publishers.",
-   "src": "https://mib.gov.in/sites/default/files/IT%28Intermediary%20Guidelines%20and%20Digital%20Media%20Ethics%20Code%29%20Rules%2C%202021%20English.pdf"
+   "src": "https://www.meity.gov.in/static/uploads/2026/03/0b576f2071694b52e4cd6bb1b6dfab1e.pdf"
   },
   {
    "date": "28 Apr 2022",
@@ -136,7 +136,7 @@
    "punishment": "Damages by way of compensation to the person affected (no upper cap in the section). Adjudicating Officer up to ₹5 crore claims, civil court above.",
    "bail": "Not an offence",
    "compound": "Contravention can be compounded under Sec 63",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "sec": "43A",
@@ -169,7 +169,7 @@
    "punishment": "Up to 3 years, or fine up to ₹2 lakh, or both",
    "bail": "Bailable, cognizable",
    "compound": "Yes (Sec 77A)",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "sec": "66",
@@ -178,7 +178,7 @@
    "punishment": "Up to 3 years, or fine up to ₹5 lakh, or both",
    "bail": "Bailable, cognizable",
    "compound": "Yes (Sec 77A)",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "sec": "66A",
@@ -198,7 +198,7 @@
    "punishment": "Up to 3 years, or fine up to ₹1 lakh, or both",
    "bail": "Bailable, cognizable",
    "compound": "Yes (Sec 77A)",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "sec": "66C",
@@ -207,7 +207,7 @@
    "punishment": "Up to 3 years and fine up to ₹1 lakh",
    "bail": "Bailable, cognizable",
    "compound": "Yes, unless against a woman or child (Sec 77A)",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "sec": "66D",
@@ -216,7 +216,7 @@
    "punishment": "Up to 3 years and fine up to ₹1 lakh",
    "bail": "Bailable, cognizable",
    "compound": "Yes, unless against a woman or child (Sec 77A)",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "sec": "66E",
@@ -225,7 +225,7 @@
    "punishment": "Up to 3 years, or fine up to ₹2 lakh, or both",
    "bail": "Bailable, cognizable",
    "compound": "Yes, unless the offence is against a woman or a child (Sec 77A)",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "verify": "Compoundability under 77A is an interpretation; check the victim and facts."
   },
   {
@@ -235,7 +235,7 @@
    "punishment": "Imprisonment which may extend to life",
    "bail": "Non-bailable, cognizable",
    "compound": "No",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
   },
   {
@@ -245,7 +245,7 @@
    "punishment": "First: up to 3 years and fine up to ₹5 lakh. Repeat: up to 5 years and fine up to ₹10 lakh",
    "bail": "First: bailable. Repeat: non-bailable. Cognizable",
    "compound": "First conviction only, and not if against a woman or child",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
   },
   {
@@ -255,7 +255,7 @@
    "punishment": "First: up to 5 years and fine up to ₹10 lakh. Repeat: up to 7 years and fine up to ₹10 lakh",
    "bail": "Non-bailable, cognizable",
    "compound": "No (over 3 years)",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
   },
   {
@@ -299,7 +299,7 @@
    "punishment": "Up to 7 years and fine",
    "bail": "Non-bailable, cognizable",
    "compound": "No",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
   },
   {
@@ -309,7 +309,7 @@
    "punishment": "Up to 7 years and fine",
    "bail": "Non-bailable, cognizable",
    "compound": "No",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
   },
   {
@@ -317,9 +317,9 @@
    "title": "Failing to assist traffic-data monitoring",
    "kind": "offence",
    "punishment": "Up to 1 year, or fine up to ₹1 crore, or both (was up to 3 years and fine). Jan Vishwas entry 32(H).",
-   "bail": "Bailable; not cognizable (below 3 years)",
+   "bail": "Non-cognizable, bailable (below 3 years; BNSS First Schedule Part II)",
    "compound": "Yes (Sec 77A)",
-   "pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation.",
+   "pending": "s.77B covers only offences of 3 years and above; treating this below 3 years offence as non-cognizable and bailable under BNSS First Schedule Part II is an interpretation.",
    "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
    "src_label": "Jan Vishwas Act",
    "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
@@ -332,7 +332,7 @@
    "punishment": "Up to 10 years and fine",
    "bail": "Non-bailable, cognizable",
    "compound": "No",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "bail_pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation."
   },
   {
@@ -340,9 +340,9 @@
    "title": "Not complying with CERT-In directions",
    "kind": "offence",
    "punishment": "Up to 1 year, or fine up to ₹1 crore (was ₹1 lakh), or both. Jan Vishwas entry 32(I).",
-   "bail": "Bailable; not cognizable (below 3 years)",
+   "bail": "Non-cognizable, bailable (below 3 years; BNSS First Schedule Part II)",
    "compound": "Yes (Sec 77A)",
-   "pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation.",
+   "pending": "s.77B covers only offences of 3 years and above; treating this below 3 years offence as non-cognizable and bailable under BNSS First Schedule Part II is an interpretation.",
    "src": "https://egazette.gov.in/WriteReadData/2023/248047.pdf",
    "src_label": "Jan Vishwas Act",
    "src2": "https://egazette.gov.in/WriteReadData/2023/249809.pdf",
@@ -379,7 +379,7 @@
    "punishment": "A court may compound offences other than those punishable with life or over 3 years. Not where enhanced punishment applies for a prior conviction, or the offence affects socio-economic conditions, or is against a child under 18 or a woman.",
    "bail": "n/a",
    "compound": "n/a",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "pending": "s.77A(2) still cites CrPC ss.265B/265C. The CrPC is repealed; reading it as BNSS Ch. XXIII ss.289-300 (s.290 application, s.291 guidelines) is an interpretation (General Clauses Act s.8). No amending notification found."
   },
   {
@@ -389,7 +389,7 @@
    "punishment": "Offences punishable with 3 years and above are cognizable; offences punishable with 3 years are bailable. Others follow the BNSS First Schedule Part II (3 to 7 years: non-bailable).",
    "bail": "n/a",
    "compound": "n/a",
-   "src": "https://sansad.in/getFile/loksabhaquestions/annex/182/AS226_y8fPvt.pdf",
+   "src": "https://sansad.in/getFile/loksabhaquestions/annex/182/AS226_y8fPvt.pdf?source=pqals",
    "pending": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation.",
    "src2": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "src2_label": "Bare act"
@@ -410,7 +410,7 @@
    "punishment": "Same punishment as the offence abetted, if committed in consequence and no express provision exists",
    "bail": "Follows the main offence",
    "compound": "Follows the main offence",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "sec": "84C",
@@ -419,7 +419,7 @@
    "punishment": "Up to half of the longest term for the offence, or the fine for it, or both",
    "bail": "Follows the term",
    "compound": "Follows the term",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   }
  ],
  "bns": [
@@ -587,14 +587,20 @@
   {
    "step": "2",
    "title": "FIR and investigation",
-   "text": "For cognizable offences (3 years and above under Sec 77B), the police must register an FIR under BNSS Section 173, which allows e-FIRs. IT Act offences are investigated by an officer not below the rank of Inspector (Sec 78).",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "text": "For cognizable offences (3 years and above under Sec 77B), the police must register an FIR under BNSS Section 173, which allows e-FIRs. For offences punishable with 3 years or more but less than 7 years, the officer may, with prior permission of an officer not below the rank of DSP, first hold a preliminary enquiry within 14 days (BNSS 173(3)). IT Act offences are investigated by an officer not below the rank of Inspector (Sec 78).",
+   "src": "https://egazette.gov.in/WriteReadData/2023/250884.pdf",
+   "more": [
+    {
+     "label": "IT Act s.77B and s.78 (India Code)",
+     "url": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
+    }
+   ]
   },
   {
    "step": "3",
    "title": "Compensation: Adjudicating Officer (Sec 46)",
    "text": "For Sec 43, 43A and other contraventions, file before the Adjudicating Officer: an officer not below Director rank in the Government of India, or equivalent in the state (usually the state IT Secretary). Claims up to ₹5 crore; above that, the competent court (Sec 46(1A)).",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
    "verify": "Check your state's notification for who the Adjudicating Officer is and the current filing format."
   },
   {
@@ -607,7 +613,7 @@
    "step": "5",
    "title": "High Court (Sec 62)",
    "text": "Appeal from TDSAT to the High Court within 60 days, on any question of fact or law. The High Court can allow a further 60 days for sufficient cause.",
-   "src": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf"
+   "src": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf"
   },
   {
    "step": "6",

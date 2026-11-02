@@ -35,10 +35,6 @@
     "url": "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=13140"
    },
    {
-    "label": "Directions text (mirror)",
-    "url": "https://www.caalley.com/rbi_mc_md_25/md/170MD.pdf"
-   },
-   {
     "label": "2017 circular (withdrawn)",
     "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040&Mode=0"
    }
@@ -188,10 +184,6 @@
    {
     "label": "POCSO Amendment 2019 (WCD)",
     "url": "https://www.wcd.gov.in/documents/uploaded/1709101352.pdf"
-   },
-   {
-    "label": "POCSO text (mirror)",
-    "url": "https://www.legitquest.com/act/protection-of-children-from-sexual-offences-act-2012-amended-upto-2019/2816"
    }
   ]
  },
@@ -253,8 +245,8 @@
     "url": "https://cms.rbi.org.in/"
    },
    {
-    "label": "RB-IOS 2021 FAQ (mirror)",
-    "url": "https://www.banklaw.in/manage/images/services/301552251RBI-FAQs-IntegratedOmbudsmanScheme2021-19.12.2024.pdf"
+    "label": "RB-IOS 2021 scheme (RBI)",
+    "url": "https://rbi.org.in/Scripts/NotificationUser.aspx?Id=12192"
    }
   ]
  },

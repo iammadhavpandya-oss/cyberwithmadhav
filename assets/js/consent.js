@@ -48,7 +48,7 @@
         el('p', { text: 'Free cybersecurity learning, CTF practice, AI prompt sheets and Indian cyber law notes, made for learners in India.' }),
         el('ul', {}, [
           el('li', { text: 'Everything here is for education and awareness. It is not legal or professional advice.' }),
-          el('li', { text: 'Practise only on systems you own or are authorised to test. Unauthorised access is an offence under the IT Act 2000.' }),
+          el('li', { text: 'Practise only on systems you own or are authorised to test. Unauthorised access is a civil wrong under IT Act s.43 and, if done dishonestly or fraudulently, an offence under s.66.' }),
           el('li', { text: 'No trackers or analytics. Your theme, progress and this choice stay in your browser.' })
         ])
       ]),

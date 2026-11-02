@@ -32,6 +32,7 @@
    ],
    "law": [
     "IT Act s.66D",
+    "BNS s.204",
     "BNS s.318",
     "BNS s.319",
     "BNS s.308"
@@ -143,30 +144,33 @@
    "hinglish": "Video call recording blackmail",
    "steps": [
     "An attractive fake profile befriends you on social media and starts a video call",
-    "The call is recorded, sometimes with obscene content edited in",
+    "The call is screen recorded, and the recording is used to blackmail you",
     "You are threatened that the video will be sent to family and friends unless you pay"
    ],
    "flags": [
     "Stranger quickly moves to a video call",
     "Sexual content within minutes of chatting",
     "Threats to share a recording with your contacts",
-    "Repeated demands for money, often by impersonating police later"
+    "Repeated demands for money, sometimes followed by calls from people posing as police or officials"
    ],
    "todo": [
     "Call 1930, the National Cyber Crime Helpline, as early as possible",
     "Report the complaint on cybercrime.gov.in",
-    "Do not pay; paying usually leads to more demands",
+    "Do not pay or give in to threats",
+    "First save screenshots of the profile, chats and numbers, then report the profile to the platform and block it",
     "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
-    "Block the account and report it to the platform",
+    "Report the call or number on Chakshu at sancharsaathi.gov.in within 30 days. If you already lost money, use 1930 or cybercrime.gov.in",
+    "You can also file a complaint at your nearest police station with the screenshots and payment proof",
     "Talk to family or a trusted person; you are the victim"
    ],
    "law": [
     "BNS s.308",
+    "BNS s.351",
     "IT Act s.66E",
     "IT Act s.67A"
    ],
    "source": "https://cyber.delhipolice.gov.in/Sextortion.html",
-   "verify": true,
+   "verify": false,
    "slow": false
   },
   {
@@ -439,32 +443,34 @@
    "name": "Illegal loan app harassment",
    "hinglish": "Loan app wali blackmail",
    "steps": [
-    "An app offers instant loans with almost no checks",
-    "It takes access to your contacts and photos and charges hidden fees",
-    "Recovery agents harass, abuse or threaten to share morphed photos"
+    "An app promises quick and hassle free loans",
+    "It asks for access to your contacts, photos and files, and charges very high interest and hidden fees",
+    "Recovery agents use harsh, high handed methods to harass borrowers",
+    "MeitY has blocked 87 illegal loan apps under IT Act s.69A (PIB, 21 Jul 2026)"
    ],
    "flags": [
-    "Lender not a bank or RBI registered NBFC",
+    "The app does not name the bank or NBFC behind the loan, or is not listed in RBI's directory of Digital Lending Apps (being listed is not an RBI endorsement)",
     "App asks for contacts, gallery and storage access",
-    "Very high charges and short repayment time",
-    "Threats and messages to your contacts"
+    "Very high interest and hidden charges",
+    "Threats, abuse or harassment during recovery"
    ],
    "todo": [
     "Call 1930, the National Cyber Crime Helpline, as early as possible",
     "Report the complaint on cybercrime.gov.in",
-    "Do not pay extortion demands; check the lender is RBI regulated",
+    "Do not pay threats or extra demands. Check the lender's name and look the app up in RBI's directory of Digital Lending Apps (Citizen's Corner on rbi.org.in)",
+    "If the loan is from a bank or NBFC, complain to the lender first; if there is no reply in 30 days or you are unhappy, complain to the RBI Ombudsman at cms.rbi.org.in",
     "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
     "Report the app to the app store",
-    "Inform your contacts that messages may be fake"
+    "If your contacts get threatening messages, tell them not to respond and to share screenshots with you"
    ],
    "law": [
     "BNS s.308",
     "BNS s.351",
     "BNS s.356",
-    "IT Act s.66E"
+    "IT Act s.67 (if obscene morphed images are sent)"
    ],
    "source": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=50846",
-   "verify": true,
+   "verify": false,
    "slow": false
   },
   {
@@ -799,27 +805,27 @@
    ],
    "flags": [
     "Urgent emergency with pressure to pay now",
-    "Caller avoids questions only the real person knows",
+    "Voice sounds robotic or flat, or on video the lips do not match the words",
     "Payment to an unknown UPI or account",
-    "Call from a new or unknown number"
+    "The call often comes from a number you do not have saved, but a known number can also be spoofed or hacked"
    ],
    "todo": [
     "Call 1930, the National Cyber Crime Helpline, as early as possible",
     "Report the complaint on cybercrime.gov.in",
     "Hang up and call the person back on their known number",
     "Inform your bank and ask them to block the card, account or UPI",
-    "Report the fraud call or SMS on Chakshu at sancharsaathi.gov.in",
+    "Report the suspected fraud call on Chakshu at sancharsaathi.gov.in within 30 days. If you already lost money, call 1930 or file on cybercrime.gov.in first",
     "Preserve evidence: screenshots, numbers, links, UTR or transaction IDs",
-    "Do not pay anything more, whatever the caller says"
+    "Do not pay anything more, whatever the caller says",
+    "Limit public videos and voice notes of yourself and family; a short clip can be enough to copy a voice"
    ],
    "law": [
-    "IT Act s.66C",
     "IT Act s.66D",
     "BNS s.318",
     "BNS s.319"
    ],
-   "source": "https://i4c.mha.gov.in/theme/resources/advisories/ADVISORY%20TAU-ADV-016-3.pdf",
-   "verify": true,
+   "source": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2024-0060&pageid=PUBVLNOTES02",
+   "verify": false,
    "slow": false
   }
  ]

@@ -21,10 +21,19 @@
   "year": 2009,
   "date": "2009-10-27",
   "title": "IT (Amendment) Act 2008 comes into force",
-  "what_changed": "The IT (Amendment) Act, 2008 (Act 10 of 2009) received assent on 5 February 2009 and its amendments took effect from 27 October 2009. It added new offences such as sections 66A to 66F and 67A to 67B, data protection duties in section 43A and the intermediary safe harbour in section 79.",
+  "what_changed": "The IT (Amendment) Act, 2008 (Act 10 of 2009) received assent on 5 February 2009 and its amendments took effect from 27 October 2009. It added new offences such as sections 66A to 66F and 67A to 67B, data protection duties in section 43A, and substituted section 79 with the present intermediary safe harbour.",
   "why_it_matters_for_advocates": "Most of the IT Act sections cited in cyber crime FIRs today were inserted or reshaped by this amendment.",
   "source_url": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
-  "verify": false
+  "verify": false,
+  "corrections": [
+   "s.79 substituted, not added"
+  ],
+  "more": [
+   {
+    "label": "IT Act 2000 as first enacted, with the original s.79 (MeitY)",
+    "url": "https://www.meity.gov.in/static/uploads/2024/03/ITbill_2000.pdf"
+   }
+  ]
  },
  {
   "year": 2009,

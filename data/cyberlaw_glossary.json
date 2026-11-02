@@ -63,7 +63,7 @@
   "term": "Blocking order",
   "meaning_en": "A direction by the Central Government to an intermediary or government agency to block public access to specific online content on grounds such as sovereignty, security of the State or public order, following a prescribed procedure.",
   "meaning_hinglish": "Sarkar ka order jisme kisi website ya post ko public ke liye block karne ko kaha jaata hai, specific grounds pe.",
-  "ref": "IT Act 2000 s.69A; IT (Procedure and Safeguards for Blocking for Access of Information by Public) Rules 2009 (verify)"
+  "ref": "IT Act 2000 s.69A; IT (Procedure and Safeguards for Blocking for Access of Information by Public) Rules 2009"
  },
  {
   "term": "Adjudicating officer",
@@ -199,9 +199,15 @@
  },
  {
   "term": "IP address and log retention",
-  "meaning_en": "An IP address identifies a device or connection on a network, and logs record activity linked to it; intermediaries must preserve certain information, and CERT-In directions require covered entities to maintain ICT system logs for a set period (verify).",
+  "meaning_en": "An IP address identifies a device or connection on a network, and logs record activity linked to it; intermediaries must preserve certain information, and CERT-In directions require covered entities to maintain logs of all ICT systems for a rolling 180 days, within India.",
   "meaning_hinglish": "IP address se pata chalta hai ki activity kis connection se hui, aur companies ko logs kuch time tak sambhal ke rakhne padte hain.",
-  "ref": "IT Act 2000 s.67C; CERT-In Directions dated 28.04.2022 under IT Act s.70B(6)"
+  "ref": "IT Act 2000 s.67C; CERT-In Directions dated 28.04.2022 under IT Act s.70B(6)",
+  "sources": [
+   {
+    "label": "CERT-In Directions, 28 Apr 2022",
+    "url": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf"
+   }
+  ]
  },
  {
   "term": "Digital arrest",
@@ -213,7 +219,7 @@
   "term": "Deepfake",
   "meaning_en": "Audio, video or images created or altered with AI to realistically show a person saying or doing something they did not; the IT Rules now regulate this as 'synthetically generated information'.",
   "meaning_hinglish": "AI se bana nakli video ya awaaz jo kisi asli insaan jaisa lagta hai, deepfake kehlaata hai.",
-  "ref": "IT Rules Amendment 2026, G.S.R. 120(E), r.2(1)(wa) and r.3(3) (being verified)",
+  "ref": "IT Rules Amendment 2026, G.S.R. 120(E), r.2(1)(wa) and r.3(3)",
   "sources": [
    {
     "label": "G.S.R. 120(E), 2026",

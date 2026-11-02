@@ -1,9 +1,9 @@
 # Source of data/cyberlaw.json. Edit here, then: python3 tools/build_pages_data.py
 S = {
  "itact": "https://www.indiacode.nic.in/handle/123456789/1999",
- "itact_pdf": "https://www.py.gov.in/sites/default/files/information-technology-act-20003.pdf",
+ "itact_pdf": "https://www.indiacode.nic.in/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
  "itact_updated": "https://www.indiacode.nic.in/indiacode/bitstream/123456789/13116/1/it_act_2000_updated.pdf",
- "sansad": "https://sansad.in/getFile/loksabhaquestions/annex/182/AS226_y8fPvt.pdf",
+ "sansad": "https://sansad.in/getFile/loksabhaquestions/annex/182/AS226_y8fPvt.pdf?source=pqals",
  "janvishwas": "https://www.meity.gov.in/static/uploads/2024/03/MeitY-JVA-1.pdf",
  "janvishwas_date": "https://www.meity.gov.in/static/uploads/2024/03/249809-Notification-dtd-31-10-2023-Date-of-appointment-for-enforcing-Amendments-to-IT-Act-2000-under-Jan-Vishwas-Act-2023.pdf",
  "shreya": "https://indiankanoon.org/doc/110813550/",
@@ -16,7 +16,7 @@ S = {
  "justrights": "https://api.sci.gov.in/supremecourt/2024/8562/8562_2024_1_1501_56073_Judgement_23-Sep-2024.pdf",
  "kamra": "https://www.livelaw.in/high-court/bombay-high-court/it-rules-amendment-2023-unconstitutional-bombay-high-court-third-judge-verdict-kunal-kamra-270177",
  "spdi": "https://upload.indiacode.nic.in/showfile?actid=AC_CEN_45_76_00001_200021_1517807324077&filename=GSR313E_10511%281%29_0.pdf&type=rule",
- "itrules21": "https://mib.gov.in/sites/default/files/IT%28Intermediary%20Guidelines%20and%20Digital%20Media%20Ethics%20Code%29%20Rules%2C%202021%20English.pdf",
+ "itrules21": "https://www.meity.gov.in/static/uploads/2026/03/0b576f2071694b52e4cd6bb1b6dfab1e.pdf",
  "certin": "https://www.cert-in.org.in/PDF/CERT-In_directions_extension_MSMEs_and_validation_27.06.2022.pdf",
  "dpdp": "https://www.meity.gov.in/static/uploads/2024/02/Digital-Personal-Data-Protection-Act-2023.pdf",
  "dpdp_commence": "https://egazette.gov.in/WriteReadData/2025/267647.pdf",
@@ -25,7 +25,7 @@ S = {
  "newlaws": "https://www.ncrb.mha.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteNotificationOfBNS,BNSS,BSA.pdf",
  "bns_table": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
  "tdsat": "https://tdsat.gov.in/admin/introduction/uploads/TDSAT%20INTRO.pdf",
- "fin169": "https://indiacode.ecourtsindia.com/finance-act-2017/section/169/",
+ "fin169": "https://egazette.gov.in/WriteReadData/2017/175141.pdf",
  "ncrp": "https://cybercrime.gov.in/",
 }
 

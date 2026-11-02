@@ -19,7 +19,6 @@ V = {  # sources cited in cyberlaw_verify.md
  "sgi_faq": "https://www.meity.gov.in/static/uploads/2026/02/49d4c4b42fc2d3dce00e0fdcf7ed1389.pdf",
  "pocso_ic": "https://www.indiacode.nic.in/indiacode/bitstream/123456789/2079/1/AA2012-32.pdf",
  "pocso_2019": "https://www.wcd.gov.in/documents/uploaded/1709101352.pdf",
- "pocso_mirror": "https://www.legitquest.com/act/protection-of-children-from-sexual-offences-act-2012-amended-upto-2019/2816",
  "certin": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
  "certin_ext": "https://www.cert-in.org.in/PDF/CERT-In_directions_extension_MSMEs_and_validation_27.06.2022.pdf",
  "rbios21": "https://rbi.org.in/Scripts/NotificationUser.aspx?Id=12192",
@@ -27,8 +26,6 @@ V = {  # sources cited in cyberlaw_verify.md
  "rbios26_faq": "https://rbi.org.in/SCRIPTS/FAQDisplay.aspx?Id=153",
  "rbi2017": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040&Mode=0",
  "rbc2025": "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=13140",
- "rbc_mirror": "https://www.caalley.com/rbi_mc_md_25/md/170MD.pdf",
- "rbios21_mirror": "https://www.banklaw.in/manage/images/services/301552251RBI-FAQs-IntegratedOmbudsmanScheme2021-19.12.2024.pdf",
  "cms": "https://cms.rbi.org.in/",
  "anvar": "https://indiankanoon.org/doc/187283766/",
  "kamra_sc": "https://www.livelaw.in/pdf_upload/2026/03/11/6088020242026-03-10-660964.pdf",
@@ -42,6 +39,7 @@ U = {
  "U4": "s.77B is silent on offences above 3 years; treating them as non-bailable via BNSS First Schedule Part II is an interpretation.",
  "U5": "RB-IOS 2021 limits (₹20 lakh + ₹1 lakh, 1 year) confirmed only from a non-government copy of the RBI FAQ. Historical: superseded from 1 Jul 2026.",
  "U6": "RBI Responsible Business Conduct Directions 2025: title and date confirmed on RBI's page; clause text read from a non-government mirror because RBI PDFs are bot-blocked.",
+ "U4b": "s.77B covers only offences of 3 years and above; treating this below 3 years offence as non-cognizable and bailable under BNSS First Schedule Part II is an interpretation.",
  "ITR26": "2026 IT Rules timelines (G.S.R. 120(E)): fact-check reports them verified against MeitY's text; shown as being verified until a second check.",
  "IOS26": "RB-IOS 2026 figures (₹30 lakh + ₹3 lakh, 90 days): from RBI's press release and FAQ; shown as being verified until a second check.",
 }
@@ -80,11 +78,11 @@ def apply_law(d):
      {"sec": "68(2)", "title": "Not complying with an order of the Controller", "kind": "civil",
       "punishment": "Penalty up to ₹25 lakh (was up to 2 years, or ₹1 lakh, or both). Jan Vishwas entry 32(G).", "bail": "Not an offence since 30 Nov 2023", "compound": "n/a", **jva},
      {"sec": "69B(4)", "title": "Failing to assist traffic-data monitoring", "kind": "offence",
-      "punishment": "Up to 1 year, or fine up to ₹1 crore, or both (was up to 3 years and fine). Jan Vishwas entry 32(H).", "bail": "Bailable; not cognizable (below 3 years)",
-      "compound": "Yes (Sec 77A)", "pending": U["U4"], **jva},
+      "punishment": "Up to 1 year, or fine up to ₹1 crore, or both (was up to 3 years and fine). Jan Vishwas entry 32(H).", "bail": "Non-cognizable, bailable (below 3 years; BNSS First Schedule Part II)",
+      "compound": "Yes (Sec 77A)", "pending": U["U4b"], **jva},
      {"sec": "70B(7)", "title": "Not complying with CERT-In directions", "kind": "offence",
-      "punishment": "Up to 1 year, or fine up to ₹1 crore (was ₹1 lakh), or both. Jan Vishwas entry 32(I).", "bail": "Bailable; not cognizable (below 3 years)",
-      "compound": "Yes (Sec 77A)", "pending": U["U4"], **jva},
+      "punishment": "Up to 1 year, or fine up to ₹1 crore (was ₹1 lakh), or both. Jan Vishwas entry 32(I).", "bail": "Non-cognizable, bailable (below 3 years; BNSS First Schedule Part II)",
+      "compound": "Yes (Sec 77A)", "pending": U["U4b"], **jva},
     ]
     order = ["43", "43A", "33(2), 44, 45", "65", "66", "66A", "66B", "66C", "66D", "66E", "66F", "67", "67A", "67B", "67C(2)", "68(2)", "69", "69A", "69B(4)",
              "70", "70B(7)", "72", "72A", "77A", "77B", "79", "84B", "84C"]
@@ -116,6 +114,10 @@ def apply_law(d):
     # procedure: s.46 limit verified; TDSAT then HC verified (sec 5); add takedown step with 2026 timelines (C5-C8)
     p = {s["step"]: s for s in d["procedure"]}
     p["3"]["text"] = p["3"]["text"].replace("above that, the competent civil court.", "above that, the competent court (Sec 46(1A)).")
+    p["2"]["text"] = ("For cognizable offences (3 years and above under Sec 77B), the police must register an FIR under BNSS Section 173, which allows e-FIRs. "
+                      "For offences punishable with 3 years or more but less than 7 years, the officer may, with prior permission of an officer not below the rank of DSP, "
+                      "first hold a preliminary enquiry within 14 days (BNSS 173(3)). IT Act offences are investigated by an officer not below the rank of Inspector (Sec 78).")
+    p["2"]["src"] = V["bnss"]; p["2"]["more"] = [S("IT Act s.77B and s.78 (India Code)", "itact_updated")]
     p["5"].pop("verify", None)  # Mokit s.5: TDSAT (s.57), then the High Court (s.62) verified
     p["6"]["text"] = ("Organisations must report listed incidents to CERT-In within 6 hours (2022 Directions). Under the DPDP Act, personal data breaches must also be notified to the Board "
                       "and affected people, but that duty starts only around 13 May 2027 (being verified).")
@@ -153,8 +155,10 @@ def apply_timeline(tl):
         title = t["title"]
         def fix(field, new, code):
             t[field] = new; t["corrections"].append(code)
-        if title.startswith("IT Act 2000 comes into force") or title.startswith("IT (Amendment) Act 2008"):
-            pass
+        if title.startswith("IT (Amendment) Act 2008"):
+            fix("what_changed", t["what_changed"].replace("data protection duties in section 43A and the intermediary safe harbour in section 79.",
+                "data protection duties in section 43A, and substituted section 79 with the present intermediary safe harbour."), "s.79 substituted, not added")
+            t["more"] = [{"label": "IT Act 2000 as first enacted, with the original s.79 (MeitY)", "url": "https://www.meity.gov.in/static/uploads/2024/03/ITbill_2000.pdf"}]
         if title.startswith("SPDI Rules 2011"):
             fix("why_it_matters_for_advocates", "They remain the data protection yardstick for Section 43A compensation claims until DPDP Act s.44(2) omits Section 43A, around 13 May 2027.", "C9")
             t["pending"] = U["U1"]
@@ -215,7 +219,7 @@ def apply_faq(f):
         "Under the RBI's customer liability rules (first issued in July 2017 and now in the RBI Responsible Business Conduct Directions, 2025, paras 67 to 72), you bear zero loss for a third-party fraud reported within 3 working days; reporting within 4 to 7 working days caps your loss at ₹5,000, ₹10,000 or ₹25,000 depending on the account; after that the bank's Board-approved policy applies (being verified).")
     x["a_hinglish"] += " RBI rules ke hisaab se 3 working days ke andar report kiya toh third-party fraud mein aapki liability zero ho sakti hai."
     x["refs"] = ["RBI (Commercial Banks - Responsible Business Conduct) Directions 2025, paras 67-72 (carries over the July 2017 circular) (being verified)", "IT Act s.66D", "BNS s.318 (old IPC 420)"]
-    x["sources"] = [S("RBI master direction page", "rbc2025"), S("Directions text (mirror)", "rbc_mirror"), S("2017 circular (withdrawn)", "rbi2017")]
+    x["sources"] = [S("RBI master direction page", "rbc2025"), S("2017 circular (withdrawn)", "rbi2017")]
     # FAQ3: s.61 verified
     x = q(3); x["refs"] = ["BSA 2023 s.63 (old Evidence Act s.65B)", "BSA 2023 s.61", "BSA 2023 Schedule (certificate)"]; x["sources"] = [S("BSA (Gazette)", "bsa")]
     # FAQ4: s.46 verified
@@ -251,7 +255,7 @@ def apply_faq(f):
     # FAQ10 (U2)
     x = q(10)
     x["refs"] = ["BNS s.78 (old IPC 354D)", "BNS s.351 (old IPC 503/506)", "IT Act s.67B", "POCSO Act 2012 s.11 (being verified)", "POCSO Act 2012 s.15 (as substituted in 2019)"]
-    x["sources"] = [S("POCSO (India Code)", "pocso_ic"), S("POCSO Amendment 2019 (WCD)", "pocso_2019"), S("POCSO text (mirror)", "pocso_mirror")]
+    x["sources"] = [S("POCSO (India Code)", "pocso_ic"), S("POCSO Amendment 2019 (WCD)", "pocso_2019")]
     # FAQ11: three days verified
     x = q(11)
     x["a_en"] = x["a_en"].replace("Complaints received electronically may need to be signed by the complainant within a set period to be taken on record as an FIR (verify).",
@@ -279,7 +283,7 @@ def apply_faq(f):
     x["refs"] = ["RBI (Commercial Banks - Responsible Business Conduct) Directions 2025, paras 67-72 (being verified)", "Reserve Bank - Integrated Ombudsman Scheme 2026, in force 1 Jul 2026 (being verified)",
                  "RB-IOS 2021 limits, historical (being verified)"]
     x["sources"] = [S("RBC Directions (RBI)", "rbc2025"), S("RB-IOS 2026 press release", "rbios26_pr"), S("RB-IOS 2026 FAQ", "rbios26_faq"), S("RBI complaint portal", "cms"),
-                    S("RB-IOS 2021 FAQ (mirror)", "rbios21_mirror")]
+                    S("RB-IOS 2021 scheme (RBI)", "rbios21")]
     # FAQ14: 2026 amendment cite
     x = q(14)
     x["refs"] = [r if not r.startswith("IT (Intermediary") else "IT Rules Amendment 2026, G.S.R. 120(E), in force 20 Feb 2026" for r in x["refs"]]
@@ -326,4 +330,13 @@ def apply_glossary(g):
     if has("Cognizable offence"):
         x = by["Cognizable offence"]
         x["meaning_en"] += " Offences of exactly three years are also bailable; for offences above three years s.77B is silent on bail (being verified)."
+    if has("IP address and log retention"):
+        x = by["IP address and log retention"]
+        x["meaning_en"] = x["meaning_en"].replace("CERT-In directions require covered entities to maintain ICT system logs for a set period (verify).",
+            "CERT-In directions require covered entities to maintain logs of all ICT systems for a rolling 180 days, within India.")
+        x["sources"] = [S("CERT-In Directions, 28 Apr 2022", "certin")]
+    if has("Blocking order"):
+        x = by["Blocking order"]; x["ref"] = x["ref"].replace(" Rules 2009 (verify)", " Rules 2009")
+    if has("Deepfake"):
+        by["Deepfake"]["ref"] = "IT Rules Amendment 2026, G.S.R. 120(E), r.2(1)(wa) and r.3(3)"
     return g

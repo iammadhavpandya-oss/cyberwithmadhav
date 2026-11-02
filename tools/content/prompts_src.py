@@ -56,7 +56,7 @@ CATS = [
    "Keep it short. If the next shift has to ask you a question, the note was missing something.", M_WRITE)]),
  ("ir", "Incident response", "Calm, structured steps when something has gone wrong.", [
   ("First hour plan", "Start an incident without missing the basics.",
-   "We suspect [INCIDENT TYPE, e.g. ransomware, account takeover] at [ORGANISATION]. What we know: [FACTS].\nGive a first-hour checklist: who to call, what to preserve, containment options with trade-offs, what not to do (e.g. wiping machines), and what to log. Include India-specific duties such as reporting to CERT-In within 6 hours for listed incidents.",
+   "We suspect [INCIDENT TYPE, e.g. ransomware, account takeover] at [ORGANISATION]. What we know: [FACTS].\nGive a first-hour checklist: who to call, what to preserve, containment options with trade-offs, what not to do (e.g. wiping machines), and what to log. Include India-specific duties such as reporting listed incidents to CERT-In within 6 hours of noticing the incident or being told of it.",
    "Preserve evidence before you clean. Rebuilding a machine too early erases the story.", M_REASON),
   ("Containment decision", "Weigh isolating a system against keeping the business running.",
    "Asset: [ASSET], business role: [ROLE]. Threat signs: [SIGNS].\nCompare options: network isolate, disable account, block IOC at firewall, keep monitoring. For each give risk, business impact, evidence impact and who must approve.",

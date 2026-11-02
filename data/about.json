@@ -87,7 +87,7 @@
     "title": "Why law + tech",
     "body": "Most security content explains how attacks work. Studying law means I also look at what the law says about them, and what organisations must do to comply.",
     "points": [
-      "IT Act, 2000: offences like unauthorised access (s.43, s.66), identity theft (s.66C) and cheating by impersonation (s.66D)",
+      "IT Act, 2000: unauthorised access (civil wrong under s.43; offence under s.66 if done dishonestly or fraudulently), identity theft (s.66C) and cheating by impersonation (s.66D)",
       "Digital Personal Data Protection (DPDP) Act, 2023: consent, data-fiduciary duties and breach obligations",
       "CERT-In directions: incident reporting for organisations",
       "GRC: turning these rules into policies, risk registers and audits"
