@@ -6,7 +6,7 @@ const BASE = (process.env.URL || 'https://iammadhavpandya-oss.github.io/cyberwit
 const OUT = (process.env.OUT || '/tmp/audit').replace(/\/?$/, '/');
 const SHOTS = process.env.SHOTS !== '0';
 fs.mkdirSync(OUT, { recursive: true });
-const ALL = ['index.html', 'commands.html', 'scams.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', '404.html', 'game.html', 'soc.html', 'owasp.html', 'daily.html', 'progress.html', 'paths.html'];
+const ALL = ['index.html', 'explore.html', 'commands.html', 'scams.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', '404.html', 'game.html', 'soc.html', 'owasp.html', 'daily.html', 'progress.html', 'paths.html'];
 const PAGES = process.argv.slice(2).length ? process.argv.slice(2) : ALL;
 const SIZES = [[360, 740], [390, 844], [768, 1024], [1280, 800], [1440, 900]];
 const THEMES = ['dark', 'light'];

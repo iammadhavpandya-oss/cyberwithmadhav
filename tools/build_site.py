@@ -20,17 +20,8 @@ OG_IMG = BASE + "assets/img/og-image.png"
 OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
-PAGES = ["index.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
+PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
          "ctf.html", "prompts.html", "cyberlaw.html", "terms.html", "privacy.html"]
-# The nav "More" menu: (file, label, short description). Only pages that exist are listed.
-MORE = [("commands.html", "Command Reference", "60 blue team commands"),
-        ("scams.html", "Scam Encyclopedia", "25 Indian scams, decoded"),
-        ("game.html", "Scam ya Nahi?", "Spot the scam game"),
-        ("soc.html", "SOC Triage Labs", "Read logs, pick a verdict"),
-        ("owasp.html", "OWASP Top 10:2025", "Web risks, 2021 to 2025"),
-        ("terminal.html", "Terminal Wargame", "Learn the shell by playing"),
-        ("daily.html", "Daily Challenge", "5 questions a day"),
-        ("progress.html", "My Progress", "Badges and certificate")]
 PRIORITY = {"index.html": "1.0", "terms.html": "0.3", "privacy.html": "0.3"}
 
 
@@ -71,26 +62,32 @@ def git_date(p):
 
 
 # ---------- 1 and 2: head tags, nav "More" menu and shared scripts ----------
-def more_menu(p):
-    items = [m for m in MORE if (ROOT / m[0]).exists()]
-    if not items: return ""
-    cur = any(f == p for f, _, _ in items)
-    links = "".join(
-        f'\n            <a href="{f}"{' class="active" aria-current="page"' if f == p else ''}><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>'
-        for f, t, d in items)
-    return (f'\n        <!-- more:start -->\n        <details class="nav-more">\n          <summary{' class="active"' if cur else ''}>More<span class="sr-only"> pages</span></summary>'
-            f'\n          <div class="nav-more-menu">{links}'
-            '\n            <div class="nav-more-legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>'
-            '\n          </div>\n        </details>\n        <!-- more:end -->')
+# The top nav is kept short: Home, Explore (the hub that lists every page), CTF, then search and theme.
+NAV = [("index.html", "Home", "nav-home", ""),
+       ("explore.html", "Explore", "nav-explore",
+        '<svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>'),
+       ("ctf.html", "CTF", "nav-ctf", '<span class="nav-ctf-dot" aria-hidden="true"></span>')]
+
+
+def nav_links(p):
+    hub = p not in [f for f, _, _, _ in NAV] and p != "404.html"  # every other page lives inside Explore
+    out = []
+    for f, label, cls, ico in NAV:
+        if not (ROOT / f).exists(): continue
+        attrs = f' class="{cls}{" active" if f == p or (hub and f == "explore.html") else ""}"'
+        if f == p: attrs += ' aria-current="page"'
+        out.append(f'\n        <a href="{f}"{attrs}>{ico}{label}</a>')
+    return "".join(out)
 
 
 def patch_nav(s, p):
-    s = re.sub(r"\n\s*<!-- more:start -->.*?<!-- more:end -->", "", s, flags=re.S)
     m = re.search(r'<nav id="nav-links"[^>]*>.*?</nav>', s, re.S)
     if not m: return s
     nav = m.group(0)
-    a = re.search(r'\n\s*<a href="terms\.html"', nav) or re.search(r'\n\s*<button', nav)
-    nav = nav[:a.start()] + more_menu(p) + nav[a.start():]
+    head = re.match(r'<nav id="nav-links"[^>]*>', nav).group(0)
+    pal = re.search(r'\n\s*<button class="pal-btn".*?</button>', nav, re.S)
+    tt = re.search(r'\n\s*<button class="theme-toggle".*?</button>', nav, re.S)
+    nav = head + nav_links(p) + (pal.group(0) if pal else "") + (tt.group(0) if tt else "") + "\n      </nav>"
     return s[:m.start()] + nav + s[m.end():]
 
 
@@ -292,9 +289,11 @@ def not_found():
       <p class="lead muted">The link may be old or mistyped. Ye page exist nahi karta, but everything else is one click away.</p>
       <div class="nf-actions">
         <a class="btn btn-primary" href="index.html">Go to home</a>
+        <a class="btn" href="explore.html">Open mission control</a>
         <button class="btn" type="button" id="nf-search">Search the site <span class="mono small" aria-hidden="true">Ctrl+K</span></button>
       </div>
       <ul class="nf-links clean">
+        <li><a href="explore.html">Explore all pages</a></li>
         <li><a href="index.html#cheatsheets">Cheat sheets</a></li>
         <li><a href="ctf.html">CTF Arena</a></li>
         <li><a href="prompts.html">Prompts</a></li>

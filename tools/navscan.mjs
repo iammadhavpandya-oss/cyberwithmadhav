@@ -1,7 +1,7 @@
 // Sweep viewport widths and check the header fits: brand, links and buttons must not overlap or overflow.
 import puppeteer from 'puppeteer-core';
 const BASE = (process.env.URL || 'http://127.0.0.1:8000/').replace(/\/?$/, '/');
-const PAGES = process.argv.slice(2).length ? process.argv.slice(2) : ['index.html', 'commands.html', 'scams.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', '404.html'];
+const PAGES = process.argv.slice(2).length ? process.argv.slice(2) : ['index.html', 'explore.html', 'commands.html', 'scams.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', '404.html'];
 const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'], protocolTimeout: 120000 });
 let bad = 0;
 for (const pg of PAGES) {

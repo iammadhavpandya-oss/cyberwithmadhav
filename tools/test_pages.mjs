@@ -46,7 +46,7 @@ let r = await p.evaluate(() => ({
   da: document.querySelector('#p-cats .chip[data-cat="defensive-analysis"]')?.textContent || '',
   everyCard: [...document.querySelectorAll('.p-card')].every(c => c.querySelector('h3') && c.querySelector('.p-use') && c.querySelector('pre code') && c.querySelector('.copy') && c.querySelector('.p-tip') && c.querySelector('.p-model')),
   placeholders: document.querySelectorAll('.p-card .ph').length,
-  navActive: document.querySelector('#nav-links a[aria-current="page"]')?.textContent,
+  navActive: document.querySelector('#nav-links a[aria-current="page"]')?.textContent, navHub: document.querySelector('#nav-links a.active')?.getAttribute('href'),
   navLinks: [...document.querySelectorAll('#nav-links a')].map(a => a.textContent.trim()).join('|'),
   uc: document.querySelectorAll('.uc').length, lv: document.querySelectorAll('.uc .lvl').length,
   chipNames: [...document.querySelectorAll('#p-cats .chip')].map(c => c.dataset.cat).filter(c => c !== 'all'),
@@ -66,7 +66,7 @@ ok('prompts: ethics banner', r.banner === 'Use only on systems and data you own 
 ok('prompts: 90 cards, each with title/use/template/copy/tip/model', r.cards === 90 && r.everyCard, String(r.cards));
 ok('prompts: 19 categories + All chip, incl. Defensive Analysis', r.chips === 20 && /Defensive Analysis/.test(r.da), r.chips + ' ' + r.da);
 ok('prompts: [placeholders] highlighted', r.placeholders > 90, String(r.placeholders));
-ok('prompts: nav has Prompts (current) and Cyber Law', r.navActive === 'Prompts' && r.navLinks.includes('Cyber Law'), r.navLinks);
+ok('prompts: short nav (Home, Explore, CTF) with Explore highlighted', r.navLinks === 'Home|Explore|CTF' && r.navHub === 'explore.html' && !r.navActive, r.navLinks + ' ' + r.navHub);
 ok('prompts: 12 use-case cards with level badges', r.uc === 12 && r.lv === 12);
 await p.type('#p-search', 'nmap'); await sleep(300);
 const nm = await p.$$eval('.p-card', cs => cs.length);
@@ -231,8 +231,8 @@ ok('law mobile: reduced motion shows final state, no animation', rm.o === '1' &&
 const tlr = await p.evaluate(() => { const li = document.querySelector('#tl li'); return { o: getComputedStyle(li).opacity, t: getComputedStyle(li).transform, line: getComputedStyle(document.querySelector('#tl'), '::before').transform }; });
 ok('law mobile: reduced motion timeline is static (no slide, line drawn)', tlr.o === '1' && tlr.t === 'none' && /^(none|matrix\(1, 0, 0, 1, 0, 0\))$/.test(tlr.line), JSON.stringify(tlr));
 await p.click('.nav-toggle'); await sleep(150);
-const nav = await p.evaluate(() => ({ open: document.querySelector('#nav-links').classList.contains('open'), law: [...document.querySelectorAll('#nav-links a')].some(a => a.textContent === 'Cyber Law') }));
-ok('law mobile: menu opens and lists Cyber Law', nav.open && nav.law);
+const nav = await p.evaluate(() => ({ open: document.querySelector('#nav-links').classList.contains('open'), hub: [...document.querySelectorAll('#nav-links a')].some(a => a.getAttribute('href') === 'explore.html' && a.textContent.trim() === 'Explore') }));
+ok('law mobile: menu opens and lists Explore (the hub that links Cyber Law)', nav.open && nav.hub);
 await p.click('.nav-toggle');
 await revealAll(p);
 tc = await textCheck(p);
@@ -240,13 +240,13 @@ ok('law mobile: no horizontal overflow', tc.overflow <= 0, JSON.stringify(tc));
 await p.screenshot({ path: OUT + 'cyberlaw-mobile.png' });
 await p.close();
 
-/* index + ctf nav carry the new links and still fit on one line at 900px */
+/* index + ctf nav: the short nav (Home, Explore, CTF) fits on one line */
 for (const page of ['index.html', 'ctf.html']) {
   const q = await open(page, { width: 1000, height: 800, wait: 'load' }); await sleep(800);
   const n = await q.evaluate(() => { const nl = document.querySelector('#nav-links'); const links = [...nl.querySelectorAll('a')].map(a => a.getAttribute('href')); const tops = new Set([...nl.children].filter(c => c.getClientRects().length).map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2))); return { links, rows: tops.size, over: document.documentElement.scrollWidth - innerWidth }; });
   if (page === 'ctf.html') { const m = await q.evaluate(async () => ({ t: (await (await fetch(location.href)).text()).match(/<title>([^<]*)/)[1], ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => { try { return JSON.parse(s.textContent)['@type']; } catch (e) { return 'bad'; } }), c: document.querySelector('link[rel=canonical]').href }));
     ok('ctf SEO: title, LearningResource JSON-LD, real canonical', m.t === 'CTF Arena: Free Cyber Security Practice | CyberWithMadhav' && m.ld.join() === 'LearningResource' && m.c === 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/ctf.html', JSON.stringify(m)); }
-  ok(`${page}: nav links to prompts.html and cyberlaw.html, one row at 1000px`, n.links.includes('prompts.html') && n.links.includes('cyberlaw.html') && n.rows === 1 && n.over <= 0, JSON.stringify({ rows: n.rows, over: n.over }));
+  ok(`${page}: nav is Home, Explore, CTF in one row at 1000px`, n.links.join() === 'index.html,explore.html,ctf.html' && n.rows === 1 && n.over <= 0, JSON.stringify({ rows: n.rows, over: n.over }));
   await q.close();
 }
 

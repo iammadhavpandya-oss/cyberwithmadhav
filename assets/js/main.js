@@ -690,11 +690,13 @@
   let palRes = [], palIdx = 0;
   const scrollTo = (sel, focusSel) => () => {
     const el = $(sel); if (!el) return;
+    el.dispatchEvent(new CustomEvent('cwm:show', { bubbles: true })); // tool tabs and folds open the target first
     if (window.cwmSpace) window.cwmSpace.warp(el);
     el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
     if (focusSel) setTimeout(() => { const f = $(focusSel); if (f) f.focus({ preventScroll: true }); }, reduced ? 0 : 400);
   };
-  $$('#nav-links a[href^="#"]').forEach(a => addPalette([{ kind: 'Section', label: a.textContent.trim(), sub: a.getAttribute('href'), run: scrollTo(a.getAttribute('href')) }]));
+  // home sections (the top nav is short now, so list them from the page itself)
+  $$('main > section[id]').forEach(sec => { const h = sec.querySelector('h2'); if (h) addPalette([{ kind: 'Section', label: h.textContent.trim(), sub: '#' + sec.id, run: scrollTo('#' + sec.id) }]); });
   addPalette([
     { kind: 'Tool', label: 'Subnet calculator', sub: 'IPv4 / CIDR', run: scrollTo('#subnet', '#subnet-input') },
     { kind: 'Tool', label: 'Password strength checker', sub: 'offline entropy estimate', run: scrollTo('#pw-tool', '#pw-input') },

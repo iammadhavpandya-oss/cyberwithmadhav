@@ -38,6 +38,7 @@
   <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/explore.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Madhav Pandya","jobTitle":"IT Support Engineer","description":"IT engineer who studies law, explaining cybersecurity in Hinglish.","address":{"@type":"PostalAddress","addressLocality":"Vasai","addressRegion":"Maharashtra","addressCountry":"IN"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/madhav-pandya-55b809364"]}
   </script>
@@ -66,29 +67,9 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" aria-label="Primary">
-        <a href="#roadmap">Roadmap</a>
-        <a class="nav-sec" href="#networking">Networking</a>
-        <a href="#cheatsheets">Cheat sheets</a>
-        <a href="#tools">Tools</a>
-        <a class="nav-sec" href="#careers">Careers</a>
-        <a href="#awareness">Stay safe</a>
-        <a class="nav-sec" href="#about">About</a>
+        <a href="index.html" class="nav-home active" aria-current="page">Home</a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>Explore</a>
         <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
-        <a href="prompts.html">Prompts</a>
-        <a href="cyberlaw.html">Cyber Law</a>
-        <!-- more:start -->
-        <details class="nav-more">
-          <summary>More<span class="sr-only"> pages</span></summary>
-          <div class="nav-more-menu">
-            <a href="commands.html"><b>Command Reference</b><span>60 blue team commands</span></a>
-            <a href="scams.html"><b>Scam Encyclopedia</b><span>25 Indian scams, decoded</span></a>
-            <a href="terminal.html"><b>Terminal Wargame</b><span>Learn the shell by playing</span></a>
-            <div class="nav-more-legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>
-          </div>
-        </details>
-        <!-- more:end -->
-        <a href="terms.html" class="nav-legal">Terms</a>
-        <a href="privacy.html" class="nav-legal">Privacy</a>
         <button class="pal-btn" type="button" id="palette-open" title="Search everything (Ctrl+K)"><span aria-hidden="true">⌘K</span><span class="sr-only">Open command palette (Ctrl+K)</span></button>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
@@ -113,7 +94,7 @@
           <p class="lead">Free roadmap, cheat sheets and scam alerts, made for India.</p>
           <div class="cta">
             <a class="btn btn-primary" href="#roadmap">Start the roadmap →</a>
-            <a class="btn btn-ghost" href="#cheatsheets">Open cheat sheets</a>
+            <a class="btn btn-ghost" href="explore.html">Explore all missions</a>
           </div>
           <p class="proof mono" id="proof"><a href="#cheatsheets"><b data-count="entries">110</b> commands &amp; refs</a> · <a href="#cheatsheets"><b data-count="sheets">9</b> sheets</a> · <a href="#tools"><b data-count="tools">4</b> tools</a> · free forever</p>
         </div>
@@ -139,6 +120,64 @@
             <p class="quiz-why" id="quiz-why" aria-live="polite"></p>
             <button type="button" class="link-btn" id="quiz-next" hidden>Next message →</button>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSIONS: a short teaser grid, the full list lives on explore.html -->
+    <section id="missions" class="section missions" aria-labelledby="missions-title">
+      <div class="wrap">
+        <header class="missions-head reveal">
+          <div>
+            <p class="kicker mono"><span class="prompt">$</span> ls ~/missions</p>
+            <h2 id="missions-title">Choose your mission</h2>
+            <p class="muted">Seekhna hai, khelna hai ya bachna hai? Ek card chuno aur launch karo.</p>
+          </div>
+          <a class="btn" href="explore.html">Open mission control <span aria-hidden="true">→</span></a>
+        </header>
+        <div class="mc-grid">
+          <article class="mc-card t-green">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22V3.5M5 4h12.5l-2.2 4.2L17.5 12.5H5"/></svg></span>
+            <h3 class="mc-title"><a href="ctf.html">CTF Arena</a></h3>
+            <p class="mc-tag">Flags dhoondo, levels todo, hints lo jab atak jao.</p>
+            <p class="mc-meta mono">7 tracks · 3 levels each</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7 2 14a3.2 3.2 0 0 0 6 0L5 7zM19 7l-3 7a3.2 3.2 0 0 0 6 0l-3-7z"/></svg></span>
+            <h3 class="mc-title"><a href="cyberlaw.html">Cyber Law</a></h3>
+            <p class="mc-tag">IT Act, BNS aur DPDP, simple English aur Hinglish mein.</p>
+            <p class="mc-meta mono">15 FAQs · 40 terms · 12 cases</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-amber">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v5.8c0 4.8 3.2 8.9 7.5 10.2 4.3-1.3 7.5-5.4 7.5-10.2V5.5z"/><path d="M12 8v4.5M12 16h.01"/></svg></span>
+            <h3 class="mc-title"><a href="scams.html">Scam Encyclopedia</a></h3>
+            <p class="mc-tag">Digital arrest se UPI collect tak, har scam ka pura postmortem.</p>
+            <p class="mc-meta mono">25 Indian scams</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-green">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.5" width="20" height="11" rx="4"/><path d="M6.5 12h4M8.5 10v4M15.5 11h.01M18 13.2h.01"/></svg></span>
+            <h3 class="mc-title"><a href="terminal.html">Terminal Wargame</a></h3>
+            <p class="mc-tag">Simulated shell mein Linux seekho, ek password se agla level.</p>
+            <p class="mc-meta mono">20 levels</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-cyan">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3.5 12.8 8.7 18 10.5l-5.2 1.8L11 17.5l-1.8-5.2L4 10.5l5.2-1.8z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
+            <h3 class="mc-title"><a href="prompts.html">CyberPrompts</a></h3>
+            <p class="mc-tag">Ready to use defensive prompts: SOC, victim help, compliance.</p>
+            <p class="mc-meta mono">90 prompts · 19 categories</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="m7 10 3 2.5L7 15M12.5 15H17"/></svg></span>
+            <h3 class="mc-title"><a href="commands.html">Command Reference</a></h3>
+            <p class="mc-tag">Defenders jo commands sach mein type karte hain, examples ke saath.</p>
+            <p class="mc-meta mono">60 commands · Linux, Windows, Cisco</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
         </div>
       </div>
     </section>
@@ -206,6 +245,12 @@
           <h2 id="tools-title">Tools</h2>
           <p class="muted" id="tools-note">Educational tools. Everything runs in your browser: nothing you type is sent anywhere or saved.</p>
         </header>
+        <div class="tool-tabs" role="tablist" aria-label="Choose a tool" hidden>
+          <button type="button" role="tab" id="tab-subnet" aria-controls="subnet" aria-selected="true">Subnet calculator</button>
+          <button type="button" role="tab" id="tab-pw-tool" aria-controls="pw-tool" aria-selected="false" tabindex="-1">Password strength</button>
+          <button type="button" role="tab" id="tab-hash-tool" aria-controls="hash-tool" aria-selected="false" tabindex="-1">Hash identifier</button>
+          <button type="button" role="tab" id="tab-link-tool" aria-controls="link-tool" aria-selected="false" tabindex="-1">Link checker</button>
+        </div>
         <div class="tools-grid">
         <div class="tool card reveal" id="subnet">
           <div class="tool-head">
@@ -389,6 +434,8 @@
   </dialog>
   <script src="assets/js/space.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/declutter.js" defer></script>
+  <script src="assets/js/explore.js" defer></script>
   <script src="assets/js/nav.js" defer></script>
   <script src="assets/js/pwa.js" defer></script>
 </body>

@@ -1,0 +1,120 @@
+/* Explore hub (mission control) and the shared mission cards, also used by the homepage "Choose your mission" grid. */
+.t-violet{--tone:#B79CFF;--tone-2:#8B5CF6}
+.t-green{--tone:#4ADE80;--tone-2:#22C55E}
+.t-amber{--tone:#FBBF24;--tone-2:#F59E0B}
+.t-cyan{--tone:#67E8F9;--tone-2:#06B6D4}
+.t-pink{--tone:#F9A8D4;--tone-2:#EC4899}
+[data-theme="light"] .t-violet{--tone:#6D28D9;--tone-2:#7C3AED}
+[data-theme="light"] .t-green{--tone:#15803D;--tone-2:#16A34A}
+[data-theme="light"] .t-amber{--tone:#92400E;--tone-2:#D97706}
+[data-theme="light"] .t-cyan{--tone:#0E7490;--tone-2:#0891B2}
+[data-theme="light"] .t-pink{--tone:#BE185D;--tone-2:#DB2777}
+
+/* ---------- mission card ---------- */
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.mc-card{position:relative;display:flex;flex-direction:column;gap:8px;padding:22px 22px 20px;border-radius:20px;isolation:isolate;
+  background:radial-gradient(420px circle at var(--mx,30%) var(--my,0%),color-mix(in srgb,var(--tone) 14%,transparent),transparent 55%),
+    linear-gradient(160deg,var(--glass-hi),transparent 40%),var(--glass);
+  border:1px solid var(--glass-border);box-shadow:var(--shadow);
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(150%);backdrop-filter:blur(var(--blur)) saturate(150%);
+  transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px));
+  transition:transform .35s var(--ease),border-color .3s,box-shadow .35s var(--ease)}
+.mc-card:hover,.mc-card:focus-within{--lift:-4px;border-color:color-mix(in srgb,var(--tone) 55%,var(--glass-border));
+  box-shadow:var(--shadow),0 0 0 1px color-mix(in srgb,var(--tone) 22%,transparent),0 22px 50px -26px var(--tone-2)}
+.mc-card.tilting{transition:transform .08s linear,border-color .3s,box-shadow .35s var(--ease)}
+.mc-ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;color:var(--tone);margin-bottom:6px;
+  background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--tone) 30%,transparent),color-mix(in srgb,var(--tone) 8%,transparent) 70%);
+  border:1px solid color-mix(in srgb,var(--tone) 35%,transparent);box-shadow:0 0 22px -6px color-mix(in srgb,var(--tone-2) 70%,transparent)}
+.mc-title{font-size:1.12rem;margin:0}
+.mc-title a{color:var(--text);text-decoration:none}
+.mc-title a::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:1}
+.mc-title a:focus-visible{outline:none}
+.mc-card:has(.mc-title a:focus-visible){outline:2px solid var(--tone);outline-offset:3px}
+.mc-tag{margin:0;color:var(--muted);font-size:.93rem;line-height:1.5}
+.mc-meta{margin:auto 0 0;padding-top:8px;font-size:.74rem;letter-spacing:.02em;color:var(--tone)}
+.mc-go{position:absolute;top:20px;right:20px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;color:var(--muted);
+  border:1px solid var(--glass-border);transition:transform .3s var(--ease),color .2s,border-color .2s,background-color .2s}
+.mc-card:hover .mc-go,.mc-card:focus-within .mc-go{color:var(--tone);border-color:color-mix(in srgb,var(--tone) 50%,transparent);transform:translateX(3px) rotate(-35deg)}
+
+/* ---------- explore page ---------- */
+.explore-page .page-hero{padding:96px 0 24px}
+.mc-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.mc-hero h1{font-size:clamp(2.4rem,6vw,4rem)}
+.mc-hero .lead{margin:16px 0 22px}
+.mc-zones{display:flex;flex-wrap:wrap;gap:8px}
+.mc-zone-chip{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:8px 14px;color:var(--text);
+  border-color:color-mix(in srgb,var(--tone) 40%,var(--glass-border));background:color-mix(in srgb,var(--tone) 8%,transparent)}
+.mc-zone-chip span{display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;font-size:.72rem;color:var(--tone);background:color-mix(in srgb,var(--tone) 14%,transparent)}
+.mc-zone-chip:hover{color:var(--text);border-color:var(--tone);transform:translateY(-2px)}
+.mc-hint{margin:18px 0 0}
+
+.mc-radar{position:relative;width:min(340px,100%);aspect-ratio:1;justify-self:center}
+.mc-radar .ring{position:absolute;inset:0;margin:auto;border-radius:50%;border:1px dashed color-mix(in srgb,var(--purple-2) 30%,transparent)}
+.mc-radar .r1{width:38%;height:38%}
+.mc-radar .r2{width:68%;height:68%}
+.mc-radar .r3{width:98%;height:98%;border-style:solid;border-color:var(--glass-border);background:radial-gradient(circle,color-mix(in srgb,var(--purple) 10%,transparent),transparent 70%)}
+.mc-radar .sweep{position:absolute;inset:1%;border-radius:50%;background:conic-gradient(from 0deg,color-mix(in srgb,var(--green) 26%,transparent),transparent 22%);animation:mcSweep 7s linear infinite}
+.mc-radar .core{position:absolute;inset:0;margin:auto;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;
+  background:var(--glass-strong);border:1px solid var(--glass-border);box-shadow:0 0 50px -8px var(--glow)}
+.mc-radar .p{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--tone);box-shadow:0 0 0 5px color-mix(in srgb,var(--tone) 18%,transparent),0 0 22px var(--tone-2);animation:mcFloat 5s ease-in-out infinite alternate}
+.mc-radar .p1{left:14%;top:22%}
+.mc-radar .p2{right:10%;top:34%;animation-delay:-1s}
+.mc-radar .p3{left:28%;bottom:12%;animation-delay:-2s;width:11px;height:11px}
+.mc-radar .p4{right:26%;top:12%;animation-delay:-3s;width:10px;height:10px}
+.mc-radar .p5{right:20%;bottom:22%;animation-delay:-4s;width:9px;height:9px}
+.mc-count{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);white-space:nowrap;font-size:.78rem;color:var(--muted);padding:4px 12px;border-radius:999px;background:var(--glass-strong);border:1px solid var(--glass-border)}
+.mc-count b{color:var(--text)}
+@keyframes mcSweep{to{transform:rotate(360deg)}}
+@keyframes mcFloat{from{transform:translateY(-4px)}to{transform:translateY(4px)}}
+
+.mc-zone{padding:44px 0 20px;scroll-margin-top:70px}
+.mc-zone-head{max-width:640px;margin-bottom:22px}
+.mc-zone-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin:0 0 6px}
+.mc-zone-head p.muted{margin:0}
+.mc-zone-head .kicker{color:var(--tone)}
+.mc-dot{width:8px;height:8px;border-radius:50%;background:var(--tone);box-shadow:0 0 12px var(--tone-2)}
+.mc-end{padding:40px 0 80px}
+.mc-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.mc-cta h2{font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 6px}
+.mc-cta p{margin:0}
+.mc-cta-btns{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ---------- homepage teaser ---------- */
+.missions .mc-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.missions .mc-card{padding:20px 20px 18px}
+.missions-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px}
+.missions-head h2{margin:0 0 6px}
+.missions-head p{margin:0}
+
+@media (max-width:820px){
+  .mc-hero-grid{grid-template-columns:1fr;gap:28px}
+  .mc-radar{width:min(240px,70%);order:-1}
+  .explore-page .page-hero{padding-top:84px}
+}
+@media (max-width:420px){
+  .mc-grid,.missions .mc-grid{grid-template-columns:1fr}
+  .mc-card{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .mc-radar .sweep,.mc-radar .p{animation:none}
+  .mc-card,.mc-go,.mc-zone-chip{transition:none}
+  .mc-card:hover,.mc-card:focus-within{--lift:0px}
+}
+/* desktop: zone title rides along on the left, cards fill a tidy 2 column grid; a lone last card goes wide */
+@media (min-width:900px){
+  .mc-zone:not(.mc-end) > .wrap{display:grid;grid-template-columns:minmax(220px,280px) minmax(0,1fr);gap:28px 44px;align-items:start}
+  .mc-zone:not(.mc-end) .mc-zone-head{position:sticky;top:96px;margin:0;padding-top:6px}
+  .mc-zone .mc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mc-zone .mc-grid > .mc-card:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:20px;row-gap:6px;align-content:start}
+  .mc-zone .mc-grid > .mc-card:last-child:nth-child(odd) .mc-ico{grid-row:1/span 3;margin:0}
+  .mc-zone .mc-grid > .mc-card:last-child:nth-child(odd) .mc-tag{max-width:52ch}
+  .missions .mc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:560px) and (max-width:899px){
+  .missions .mc-grid,.mc-zone .mc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:560px) and (max-width:899px){
+  .mc-zone .mc-grid > .mc-card:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:18px;row-gap:6px;align-content:start}
+  .mc-zone .mc-grid > .mc-card:last-child:nth-child(odd) .mc-ico{grid-row:1/span 3;margin:0}
+}
+.mc-hero{overflow-x:clip}

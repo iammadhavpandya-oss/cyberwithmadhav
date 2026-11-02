@@ -343,3 +343,25 @@ table.law tr.struck td.sec{text-decoration:line-through}
 .nf-term .r{color:var(--danger)}
 .nf-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .nf-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin:6px 0 0;padding:0;list-style:none}
+
+/* cyber law: sticky section bar, roomier sections and folded long lists */
+html:has(.law-toc){scroll-padding-top:122px}
+.law-toc{position:sticky;top:60px;z-index:40;padding:10px 0;border-block:1px solid transparent;transition:background-color .3s,border-color .3s,box-shadow .3s}
+.law-toc.stuck{background:var(--glass-strong);border-bottom-color:var(--glass-border);box-shadow:0 10px 30px -22px rgba(0,0,0,.6);
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(150%);backdrop-filter:blur(var(--blur)) saturate(150%)}
+.law-toc-in{display:flex;align-items:center;gap:12px}
+.law-toc-label{flex:none;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.law-toc-scroll{flex:1;min-width:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:2px;scroll-padding-inline:12px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 24px),transparent)}
+.law-toc-scroll::-webkit-scrollbar{display:none}
+.law-toc .chip{flex:none;white-space:nowrap;text-decoration:none;background:var(--glass-soft)}
+.law-toc .chip.on{color:var(--text);background:color-mix(in srgb,var(--purple) 22%,var(--surface));border-color:var(--purple)}
+.law-page .section{padding-block:clamp(64px,9vw,104px)}
+.law-page .section-head{margin-bottom:28px}
+.law-page .section-head .lead{max-width:62ch}
+.fold-x{display:none!important}
+.folded:not(.tbl-wrap){-webkit-mask-image:linear-gradient(#000 calc(100% - 80px),rgba(0,0,0,.25));mask-image:linear-gradient(#000 calc(100% - 80px),rgba(0,0,0,.25))}
+.fold-btn{display:flex;margin:18px auto 0;border-color:var(--glass-border);background:var(--glass-soft)}
+.fold-btn[hidden]{display:none}
+.fold-btn[aria-expanded="false"]::after{content:"";width:8px;height:8px;border:solid currentColor;border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg);margin-left:4px}
+@media (max-width:640px){.law-toc-label{display:none}.law-toc{padding:8px 0}}

@@ -726,3 +726,17 @@ html.consent-pending body::after{content:"";position:fixed;inset:0;z-index:9998;
   .nav-more-menu{position:static;min-width:0;box-shadow:none;border:0;background:transparent;padding:0 0 4px 10px}
 }
 @media (prefers-reduced-motion:reduce){.nav-more summary::after{transition:none}}
+
+/* simplified top nav: Home, Explore, CTF, search, theme */
+.nav-explore{display:inline-flex;align-items:center;gap:7px}
+.nav-explore .nav-ico{flex:none;color:var(--purple-2)}
+@media (min-width:821px){#nav-links{gap:6px}}
+
+/* homepage tools: one tool at a time once JS adds the tabs */
+.tool-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:6px;border-radius:16px;background:var(--glass-soft);border:1px solid var(--glass-border);width:fit-content;max-width:100%}
+.tool-tabs [role="tab"]{background:none;border:1px solid transparent;color:var(--muted);padding:9px 16px;border-radius:12px;cursor:pointer;font:600 .9rem var(--font);transition:color .2s,background-color .2s,border-color .2s}
+.tool-tabs [role="tab"]:hover{color:var(--text)}
+.tool-tabs [role="tab"][aria-selected="true"]{color:var(--text);background:color-mix(in srgb,var(--purple) 22%,var(--surface));border-color:color-mix(in srgb,var(--purple) 60%,transparent)}
+.tools-grid.tabs-on{grid-template-columns:minmax(0,1fr);max-width:820px}
+.tools-grid.tabs-on .tool.tab-off{display:none}
+@media (max-width:520px){.tool-tabs{display:grid;grid-template-columns:1fr 1fr;width:100%}.tool-tabs [role="tab"]{padding:9px 8px}}

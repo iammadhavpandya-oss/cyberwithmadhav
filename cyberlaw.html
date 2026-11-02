@@ -201,26 +201,9 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="index.html#roadmap">Roadmap</a>
-        <a href="index.html#cheatsheets">Cheat sheets</a>
-        <a href="index.html#tools">Tools</a>
+        <a href="index.html" class="nav-home">Home</a>
+        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>Explore</a>
         <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
-        <a href="prompts.html">Prompts</a>
-        <a href="cyberlaw.html" class="active" aria-current="page">Cyber Law</a>
-        <!-- more:start -->
-        <details class="nav-more">
-          <summary>More<span class="sr-only"> pages</span></summary>
-          <div class="nav-more-menu">
-            <a href="commands.html"><b>Command Reference</b><span>60 blue team commands</span></a>
-            <a href="scams.html"><b>Scam Encyclopedia</b><span>25 Indian scams, decoded</span></a>
-            <a href="terminal.html"><b>Terminal Wargame</b><span>Learn the shell by playing</span></a>
-            <div class="nav-more-legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>
-          </div>
-        </details>
-        <!-- more:end -->
-        <a href="terms.html" class="nav-legal">Terms</a>
-        <a href="privacy.html" class="nav-legal">Privacy</a>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -248,9 +231,6 @@
           <div class="law-cards" id="hero-cards"></div>
           <p class="law-note" id="hero-note"></p>
           <p class="notice-slim" role="note"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg><span>Educational only, not legal advice. See <a href="terms.html">Terms</a>.</span></p>
-          <nav class="jump chips" aria-label="On this page">
-            <a class="chip" href="#timeline">Timeline</a><a class="chip" href="#itact">IT Act table</a><a class="chip" href="#bns">BNS map</a><a class="chip" href="#dpdp">DPDP penalties</a><a class="chip" href="#procedure">Procedure</a><a class="chip" href="#where-to-file">Where to file</a><a class="chip" href="#cases">Cases</a><a class="chip" href="#faq">FAQ</a><a class="chip" href="#glossary">Glossary</a><a class="chip" href="#downloads">Cheat sheets</a>
-          </nav>
         </div>
         <div class="court" aria-hidden="false">
           <svg viewBox="0 0 400 400" role="img" aria-labelledby="court-t">
@@ -286,6 +266,23 @@
       </div>
     </section>
 
+    <nav class="law-toc" id="law-toc" aria-label="On this page">
+      <div class="wrap law-toc-in">
+        <span class="law-toc-label mono" aria-hidden="true">jump to</span>
+        <div class="law-toc-scroll chips">
+          <a class="chip" href="#timeline">Timeline</a>
+          <a class="chip" href="#itact">IT Act table</a>
+          <a class="chip" href="#bns">BNS map</a>
+          <a class="chip" href="#dpdp">DPDP penalties</a>
+          <a class="chip" href="#procedure">Procedure</a>
+          <a class="chip" href="#where-to-file">Where to file</a>
+          <a class="chip" href="#cases">Cases</a>
+          <a class="chip" href="#faq">FAQ</a>
+          <a class="chip" href="#glossary">Glossary</a>
+          <a class="chip" href="#downloads">Cheat sheets</a>
+        </div>
+      </div>
+    </nav>
 
     <section class="section" id="timeline" aria-labelledby="timeline-h">
       <div class="wrap">
@@ -434,6 +431,7 @@
   <script src="assets/js/space.js" defer></script>
   <script src="assets/js/pages.js" defer></script>
   <script src="assets/js/cyberlaw.js" defer></script>
+  <script src="assets/js/declutter.js" defer></script>
   <script src="assets/js/nav.js" defer></script>
   <script src="assets/js/search.js" defer></script>
   <script src="assets/js/pwa.js" defer></script>

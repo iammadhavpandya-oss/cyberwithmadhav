@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore: Mission Control for every CyberWithMadhav page | CyberWithMadhav</title>
+  <meta name="description" content="One hub for everything on CyberWithMadhav: cyber law, commands, roadmap, CTF, terminal wargame, browser tools, scams, AI prompts, terms and privacy.">
+  <meta name="keywords" content="cyber security hindi, cyberwithmadhav explore, cyber law india, ctf practice, linux wargame, scam awareness india, ai prompts security">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://iammadhavpandya-oss.github.io/cyberwithmadhav/explore.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="Mission Control: every CyberWithMadhav page in one place">
+  <meta property="og:description" content="Pick a mission: Learn, Practice, Stay Safe, AI or Legal. Cyber law, CTF, terminal wargame, scams, prompts and more, in Hinglish.">
+  <meta property="og:url" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/explore.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mission Control: every CyberWithMadhav page in one place">
+  <meta name="twitter:description" content="Pick a mission: Learn, Practice, Stay Safe, AI or Legal. Cyber law, CTF, terminal wargame, scams, prompts and more, in Hinglish.">
+  <meta name="twitter:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
+  <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/consent.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/explore.css">
+</head>
+<body class="v3 explore-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home">Home</a>
+        <a href="explore.html" class="nav-explore active" aria-current="page"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>Explore</a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero mc-hero" aria-labelledby="p-title">
+      <div class="wrap mc-hero-grid">
+        <div>
+          <p class="kicker mono"><span class="prompt">$</span> cd ~/mission-control</p>
+          <h1 id="p-title">Mission <span class="grad">Control</span></h1>
+          <p class="lead">Har page ek planet hai. Choose a zone, pick a mission, launch karo. Sab kuch free, sab kuch aapke browser mein.</p>
+          <nav class="mc-zones" aria-label="Zones">
+          <a class="chip mc-zone-chip t-violet" href="#learn">Learn <span class="mono">6</span></a>
+          <a class="chip mc-zone-chip t-green" href="#practice">Practice <span class="mono">3</span></a>
+          <a class="chip mc-zone-chip t-amber" href="#safe">Stay Safe <span class="mono">2</span></a>
+          <a class="chip mc-zone-chip t-cyan" href="#ai">AI <span class="mono">1</span></a>
+          <a class="chip mc-zone-chip t-pink" href="#legal">Legal <span class="mono">2</span></a>
+          </nav>
+          <p class="small muted mc-hint">Kuch specific chahiye? Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to search the whole site.</p>
+        </div>
+        <div class="mc-radar" aria-hidden="true">
+          <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><span class="sweep"></span>
+          <span class="core"><img src="favicon.svg" alt="" width="40" height="40"></span>
+          <i class="p p1 t-violet"></i><i class="p p2 t-green"></i><i class="p p3 t-amber"></i><i class="p p4 t-cyan"></i><i class="p p5 t-pink"></i>
+          <span class="mc-count mono"><b>14</b> destinations</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mc-zone t-violet" id="learn" aria-labelledby="learn-title">
+      <div class="wrap">
+        <div class="mc-zone-head">
+          <p class="kicker mono"><span class="mc-dot" aria-hidden="true"></span>zone 01</p>
+          <h2 id="learn-title">Learn</h2>
+          <p class="muted">Basics se depth tak. Padho, samjho, notes banao.</p>
+        </div>
+        <div class="mc-grid">
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7 2 14a3.2 3.2 0 0 0 6 0L5 7zM19 7l-3 7a3.2 3.2 0 0 0 6 0l-3-7z"/></svg></span>
+            <h3 class="mc-title"><a href="cyberlaw.html">Cyber Law</a></h3>
+            <p class="mc-tag">IT Act, BNS aur DPDP, simple English aur Hinglish mein.</p>
+            <p class="mc-meta mono">15 FAQs · 40 terms · 12 cases</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="m7 10 3 2.5L7 15M12.5 15H17"/></svg></span>
+            <h3 class="mc-title"><a href="commands.html">Command Reference</a></h3>
+            <p class="mc-tag">Defenders jo commands sach mein type karte hain, examples ke saath.</p>
+            <p class="mc-meta mono">60 commands · Linux, Windows, Cisco</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19h8a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7h8"/></svg></span>
+            <h3 class="mc-title"><a href="index.html#roadmap">Learning Roadmap</a></h3>
+            <p class="mc-tag">Kahan se shuru karein? Step by step path, zero se job ready.</p>
+            <p class="mc-meta mono">3 stages</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="5" rx="1.2"/><rect x="2.5" y="16.5" width="6" height="5" rx="1.2"/><rect x="15.5" y="16.5" width="6" height="5" rx="1.2"/><path d="M12 7.5v4.5M5.5 16.5V12h13v4.5"/></svg></span>
+            <h3 class="mc-title"><a href="index.html#networking">Networking</a></h3>
+            <p class="mc-tag">OSI, TCP/IP aur ports. Security ki neev yahin se.</p>
+            <p class="mc-meta mono">7 layers · 22 ports</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5z"/><path d="M14 2.5v5h5M9 13h6M9 17h4"/></svg></span>
+            <h3 class="mc-title"><a href="index.html#cheatsheets">Cheat Sheets</a></h3>
+            <p class="mc-tag">Quick reference, apne variables daalo aur copy karo.</p>
+            <p class="mc-meta mono">9 sheets</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-violet">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="19" height="13" rx="2.5"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2M2.5 13h19"/></svg></span>
+            <h3 class="mc-title"><a href="index.html#careers">Job Paths</a></h3>
+            <p class="mc-tag">SOC se GRC tak, kaunsa role aapke liye bana hai.</p>
+            <p class="mc-meta mono">7 roles</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mc-zone t-green" id="practice" aria-labelledby="practice-title">
+      <div class="wrap">
+        <div class="mc-zone-head">
+          <p class="kicker mono"><span class="mc-dot" aria-hidden="true"></span>zone 02</p>
+          <h2 id="practice-title">Practice</h2>
+          <p class="muted">Haath gande karo, safely. Sab kuch browser mein.</p>
+        </div>
+        <div class="mc-grid">
+          <article class="mc-card t-green">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22V3.5M5 4h12.5l-2.2 4.2L17.5 12.5H5"/></svg></span>
+            <h3 class="mc-title"><a href="ctf.html">CTF Arena</a></h3>
+            <p class="mc-tag">Flags dhoondo, levels todo, hints lo jab atak jao.</p>
+            <p class="mc-meta mono">7 tracks · 3 levels each</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-green">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.5" width="20" height="11" rx="4"/><path d="M6.5 12h4M8.5 10v4M15.5 11h.01M18 13.2h.01"/></svg></span>
+            <h3 class="mc-title"><a href="terminal.html">Terminal Wargame</a></h3>
+            <p class="mc-tag">Simulated shell mein Linux seekho, ek password se agla level.</p>
+            <p class="mc-meta mono">20 levels</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-green">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 6.4a4.2 4.2 0 0 0-5.6 5.6L3 18l3 3 6-6a4.2 4.2 0 0 0 5.6-5.6l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span>
+            <h3 class="mc-title"><a href="index.html#tools">Browser Tools</a></h3>
+            <p class="mc-tag">Subnet, password, hash aur link checker. Kuch bhi upload nahi hota.</p>
+            <p class="mc-meta mono">4 tools · offline</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mc-zone t-amber" id="safe" aria-labelledby="safe-title">
+      <div class="wrap">
+        <div class="mc-zone-head">
+          <p class="kicker mono"><span class="mc-dot" aria-hidden="true"></span>zone 03</p>
+          <h2 id="safe-title">Stay Safe</h2>
+          <p class="muted">Scam pehchano, report karo, family ko bhi batao.</p>
+        </div>
+        <div class="mc-grid">
+          <article class="mc-card t-amber">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v5.8c0 4.8 3.2 8.9 7.5 10.2 4.3-1.3 7.5-5.4 7.5-10.2V5.5z"/><path d="M12 8v4.5M12 16h.01"/></svg></span>
+            <h3 class="mc-title"><a href="scams.html">Scam Encyclopedia</a></h3>
+            <p class="mc-tag">Digital arrest se UPI collect tak, har scam ka pura postmortem.</p>
+            <p class="mc-meta mono">25 Indian scams</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-amber">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <h3 class="mc-title"><a href="index.html#awareness">Cyber Awareness</a></h3>
+            <p class="mc-tag">Sabke liye simple habits aur ek chhota sa quiz.</p>
+            <p class="mc-meta mono">8 habits · 6 question quiz</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mc-zone t-cyan" id="ai" aria-labelledby="ai-title">
+      <div class="wrap">
+        <div class="mc-zone-head">
+          <p class="kicker mono"><span class="mc-dot" aria-hidden="true"></span>zone 04</p>
+          <h2 id="ai-title">AI</h2>
+          <p class="muted">AI ko apna security sidekick banao, responsibly.</p>
+        </div>
+        <div class="mc-grid">
+          <article class="mc-card t-cyan">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3.5 12.8 8.7 18 10.5l-5.2 1.8L11 17.5l-1.8-5.2L4 10.5l5.2-1.8z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
+            <h3 class="mc-title"><a href="prompts.html">CyberPrompts</a></h3>
+            <p class="mc-tag">Ready to use defensive prompts: SOC, victim help, compliance.</p>
+            <p class="mc-meta mono">90 prompts · 19 categories</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mc-zone t-pink" id="legal" aria-labelledby="legal-title">
+      <div class="wrap">
+        <div class="mc-zone-head">
+          <p class="kicker mono"><span class="mc-dot" aria-hidden="true"></span>zone 05</p>
+          <h2 id="legal-title">Legal</h2>
+          <p class="muted">Seedhi baat: rules kya hain aur data kahan rehta hai.</p>
+        </div>
+        <div class="mc-grid">
+          <article class="mc-card t-pink">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5z"/><path d="M14 2.5v5h5M9.5 14.5l1.8 1.8 3.4-3.6"/></svg></span>
+            <h3 class="mc-title"><a href="terms.html">Terms</a></h3>
+            <p class="mc-tag">Educational use, authorised testing aur fair play ke rules.</p>
+            <p class="mc-meta mono">Plain language</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+          <article class="mc-card t-pink">
+            <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="11" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 15v2.5"/></svg></span>
+            <h3 class="mc-title"><a href="privacy.html">Privacy</a></h3>
+            <p class="mc-tag">No trackers, no analytics. Progress sirf aapke browser mein.</p>
+            <p class="mc-meta mono">0 trackers</p>
+            <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mc-zone mc-end" aria-labelledby="end-title">
+      <div class="wrap">
+        <div class="card mc-cta">
+          <div>
+            <h2 id="end-title">Pata nahi kahan se start karein?</h2>
+            <p class="muted">Roadmap se shuru karo, phir CTF mein practice. Bas itna hi.</p>
+          </div>
+          <div class="mc-cta-btns">
+            <a class="btn btn-primary" href="index.html#roadmap">Start the roadmap</a>
+            <a class="btn" href="ctf.html">Play a CTF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. For learning and defensive or authorised work only.</p>
+        <p class="small"><a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+  <script src="assets/js/explore.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</body>
+</html>

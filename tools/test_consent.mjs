@@ -100,12 +100,12 @@ for (const [page, n, h1] of [['terms.html', 15, 'Terms and Conditions'], ['priva
         toc: [...document.querySelectorAll('.legal-toc a')].map(a => a.getAttribute('href')), ids: [...document.querySelectorAll('.legal-sec')].map(s => '#' + s.id),
         updated: /Last updated: 1 November 2026/.test(t), dash: /[\u2013\u2014]/.test(document.documentElement.outerHTML), theme: document.documentElement.dataset.theme,
         sticky: getComputedStyle(document.querySelector('.legal-toc')).position, blur: getComputedStyle(document.querySelector('.legal-sec')).backdropFilter,
-        legal: [...document.querySelectorAll('footer .foot-legal a')].map(a => a.getAttribute('href')).join(','), navLegal: [...document.querySelectorAll('#nav-links a.nav-legal')].map(a => a.getAttribute('href')).join(','),
+        legal: [...document.querySelectorAll('footer .foot-legal a')].map(a => a.getAttribute('href')).join(','), navLegal: [...document.querySelectorAll('#nav-links a')].map(a => a.getAttribute('href')).join(','),
         overflow: document.documentElement.scrollWidth - innerWidth, text: t };
     });
     ok(`${page} ${scheme}: not gated, ${n} sections, contents sidebar matches, sticky glass, last updated, no dashes`, !r.gate && r.h1 === h1 && r.secs === n && r.toc.join() === r.ids.join() && r.sticky === 'sticky' && /blur/.test(r.blur) && r.updated && !r.dash && r.theme === scheme && r.overflow <= 0,
       JSON.stringify(Object.assign({}, r, { text: undefined })));
-    ok(`${page} ${scheme}: footer and nav carry Terms and Privacy, no errors`, r.legal === 'terms.html,privacy.html' && r.navLegal === 'terms.html,privacy.html' && p.errors.length === 0, r.legal + ' | ' + r.navLegal + ' ' + p.errors);
+    ok(`${page} ${scheme}: footer carries Terms and Privacy, short nav (Home, Explore, CTF), no errors`, r.legal === 'terms.html,privacy.html' && r.navLegal === 'index.html,explore.html,ctf.html' && p.errors.length === 0, r.legal + ' | ' + r.navLegal + ' ' + p.errors);
     if (page === 'terms.html' && scheme === 'dark') {
       const need = ['Section 43', 'Section 66', 'Bharatiya Nyaya Sanhita', 'brute force', 'OTPs, passwords', 'client data', 'watermark', 'resell', 'Madhav Pandya for CyberWithMadhav', 'privacy.html', 'theme', 'CTF practice progress', 'indemnify', 'laws of India', 'Mumbai', 'Vasai in Palghar district', 'madhavpandya@zoho.in'];
       const miss = need.filter(k => !r.text.includes(k) && !(k === 'privacy.html' && true));

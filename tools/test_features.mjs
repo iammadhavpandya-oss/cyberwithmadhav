@@ -1,4 +1,4 @@
-// Feature page checks (phases 3 to 8): nav "More" menu, commands.html, and later pages when they exist.
+// Feature page checks (phases 3 to 8): short top nav, explore hub, commands.html, and later pages when they exist.
 // Run from tools/: node test_features.mjs   Needs the static server on :8000. URL=<live base> tests the live site (no screenshots).
 import puppeteer from 'puppeteer-core';
 import fs from 'node:fs';
@@ -40,10 +40,9 @@ const contrastFn = () => (sel) => {
   const a = lum(getComputedStyle(e).color), b = lum(bg); return +((Math.max(a, b) + .05) / (Math.min(a, b) + .05)).toFixed(2);
 };
 
-const ALL = ['index.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', 'commands.html', 'scams.html', 'game.html', 'soc.html', 'owasp.html', 'terminal.html', 'daily.html', 'progress.html'].filter(has);
-const MORE = ['commands.html', 'scams.html', 'game.html', 'soc.html', 'owasp.html', 'terminal.html', 'daily.html', 'progress.html'].filter(has);
-
-// ---------- nav "More" menu on every page ----------
+const ALL = ['index.html', 'explore.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', 'commands.html', 'scams.html', 'game.html', 'soc.html', 'owasp.html', 'terminal.html', 'daily.html', 'progress.html'].filter(has);
+// ---------- short top nav on every page: Home, Explore, CTF, search, theme ----------
+const NAV = 'index.html,explore.html,ctf.html';
 for (const pg of ALL) {
   for (const w of [1000, 1280]) {
     const p = await open(pg, { width: w, height: 800 });
@@ -51,28 +50,40 @@ for (const pg of ALL) {
       const nav = document.getElementById('nav-links'); const kids = [...nav.children].filter(k => getComputedStyle(k).display !== 'none');
       const mids = kids.map(k => { const r = k.getBoundingClientRect(); return r.top + r.height / 2; }); const tops = { size: Math.max(...mids) - Math.min(...mids) > 8 ? 2 : 1 };
       const inner = document.querySelector('.nav-inner').getBoundingClientRect();
-      return { rows: tops.size, over: Math.round(nav.getBoundingClientRect().right - inner.right), more: [...document.querySelectorAll('.nav-more-menu > a')].map(a => a.getAttribute('href')) };
+      return { rows: tops.size, over: Math.round(nav.getBoundingClientRect().right - inner.right), links: [...nav.querySelectorAll('a')].map(a => a.getAttribute('href')).join(','),
+        pal: !!nav.querySelector('.pal-btn'), theme: !!nav.querySelector('.theme-toggle'), more: !!document.querySelector('.nav-more'),
+        cur: (nav.querySelector('[aria-current="page"]') || {}).textContent || '' };
     });
-    ok(`${pg} @${w}: nav one row with More menu listing ${MORE.length} pages`, n.rows === 1 && n.over <= 0 && JSON.stringify(n.more) === JSON.stringify(MORE), JSON.stringify(n));
-    if (w === 1000) {
-      await p.focus('.nav-more summary'); await p.keyboard.press('Enter'); await sleep(150);
-      const o = await p.evaluate(() => ({ open: document.querySelector('.nav-more').open, exp: document.querySelector('.nav-more summary').getAttribute('aria-expanded'), vis: document.querySelector('.nav-more-menu a').getBoundingClientRect().height > 0 }));
-      if (pg === 'commands.html') await shot(p, 'nav-more-dark.png');
-      await p.keyboard.press('Escape'); await sleep(100);
-      const c = await p.evaluate(() => ({ open: document.querySelector('.nav-more').open, f: document.activeElement.tagName }));
-      await p.mouse.click(5, 400);
-      ok(`${pg}: More opens with Enter (aria-expanded), Esc closes and returns focus`, o.open && o.exp === 'true' && o.vis && !c.open && c.f === 'SUMMARY', JSON.stringify({ o, c }));
-      ok(`${pg}: no console errors`, p.errors.length === 0, p.errors.join(' | '));
-    }
+    const wantCur = { 'index.html': 'Home', 'explore.html': 'Explore', 'ctf.html': 'CTF' }[pg] || '';
+    ok(`${pg} @${w}: short nav in one row (Home, Explore, CTF, search, theme)`, n.rows === 1 && n.over <= 0 && n.links === NAV && n.pal && n.theme && !n.more && n.cur.trim() === wantCur, JSON.stringify(n));
+    if (w === 1000) ok(`${pg}: no console errors`, p.errors.length === 0, p.errors.join(' | '));
     await p.ctx.close();
   }
 }
 { const p = await open('index.html', { width: 390, height: 800 });
   await p.click('.nav-toggle'); await sleep(400);
-  await p.click('.nav-more summary'); await sleep(200);
-  const r = await p.evaluate(() => { const a = document.querySelector('.nav-more-menu a'); const b = a.getBoundingClientRect(); return { h: b.height, inView: b.right <= innerWidth && b.left >= 0 }; });
-  ok('mobile 390px: More expands inside the menu sheet', r.h > 30 && r.inView, JSON.stringify(r));
+  const r = await p.evaluate(() => { const a = document.querySelector('#nav-links a[href="explore.html"]'); const b = a.getBoundingClientRect(); return { h: b.height, inView: b.right <= innerWidth && b.left >= 0 }; });
+  ok('mobile 390px: menu sheet shows Explore', r.h > 30 && r.inView, JSON.stringify(r));
   await p.ctx.close(); }
+
+// ---------- explore.html hub ----------
+if (has('explore.html')) {
+  const p = await open('explore.html');
+  const r = await p.evaluate(() => {
+    const cards = [...document.querySelectorAll('.mc-card')];
+    return { zones: [...document.querySelectorAll('.mc-zone[id] h2')].map(h => h.textContent.trim()).join(','), n: cards.length,
+      named: cards.every(c => c.querySelector('.mc-title a') && c.querySelector('.mc-tag').textContent.trim().length > 10),
+      hrefs: cards.map(c => c.querySelector('.mc-title a').getAttribute('href')),
+      dash: /[\u2013\u2014]/.test(document.documentElement.outerHTML), overflow: document.documentElement.scrollWidth - innerWidth };
+  });
+  const need = ['cyberlaw.html', 'commands.html', 'ctf.html', 'terminal.html', 'scams.html', 'prompts.html', 'terms.html', 'privacy.html', 'index.html#networking', 'index.html#tools'];
+  ok('explore: zones Learn, Practice, Stay Safe, AI, Legal with a card for every page', r.zones === 'Learn,Practice,Stay Safe,AI,Legal' && need.every(h => r.hrefs.includes(h)) && r.named && !r.dash && r.overflow <= 0, JSON.stringify(r));
+  const brk = []; for (const h of r.hrefs) { const f = h.split('#')[0]; if (!has(f)) brk.push(h); }
+  ok('explore: every card links to a page that exists', brk.length === 0, brk.join());
+  await shot(p, 'explore-dark.png');
+  ok('explore: no console errors', p.errors.length === 0, p.errors.join(' | '));
+  await p.ctx.close();
+}
 
 // ---------- commands.html ----------
 if (has('commands.html')) {
