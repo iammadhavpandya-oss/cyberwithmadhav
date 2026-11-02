@@ -101,6 +101,10 @@ def main():
     law = clean(factcheck.apply_law(json.loads(json.dumps(cyberlaw_src.DATA))))  # Mokit's fact-check wins
     for d in law["downloads"]:  # page shows "coming soon" for missing PDFs without a 404 request
         d["available"] = (ROOT / d["file"]).is_file()
+        if d.get("claude"):  # PDF 2: Claude edition, Light plus an optional Dark file
+            c = d["claude"]
+            c["available"] = (ROOT / c["file"]).is_file()
+            c["dark_available"] = bool(c.get("dark")) and (ROOT / c["dark"]).is_file()
     (DATA / "cyberlaw.json").write_text(json.dumps(law, ensure_ascii=False, indent=1) + "\n")
     print("cyberlaw.json written")
     copy_usecases()

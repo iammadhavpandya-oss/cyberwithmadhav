@@ -141,8 +141,10 @@ cases = [
 ]
 
 downloads = [
- {"title": "Cyber Law PG Diploma cheat sheet", "desc": "IT Act sections, BNS map, DPDP penalties, procedure and leading cases on a few printable pages.", "file": "assets/pdf/cyberlaw-pg-cheatsheet.pdf"},
- {"title": "CyberPrompts sheet", "desc": "The best prompts from the CyberPrompts page, formatted for print.", "file": "assets/pdf/cyberprompts-sheet.pdf"}
+ {"title": "Cyber Law PG Diploma cheat sheet", "desc": "IT Act sections, BNS map, DPDP penalties, procedure and leading cases on a few printable pages.", "file": "assets/pdf/cyberlaw-pg-cheatsheet.pdf",
+  "claude": {"file": "assets/pdf/cyberlaw-pg-cheatsheet-claude.pdf", "dark": "assets/pdf/cyberlaw-pg-cheatsheet-claude-dark.pdf"}},
+ {"title": "CyberPrompts sheet", "desc": "The best prompts from the CyberPrompts page, formatted for print.", "file": "assets/pdf/cyberprompts-sheet.pdf",
+  "claude": {"file": "assets/pdf/cyberprompts-sheet-claude.pdf", "dark": "assets/pdf/cyberprompts-sheet-claude-dark.pdf"}}
 ]
 
 DATA = {"meta": {"updated": "2026-11-01", "disclaimer": hero["disclaimer"], "note": "Each item links to its source. Items tagged 'verify' need a fresh check before use in court."},

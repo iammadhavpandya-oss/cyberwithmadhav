@@ -170,8 +170,9 @@ ok('law: Kamra card says SC appeal pending', /appeal.*is pending in the Supreme 
 ok('law: FAQ 15, glossary 40', r.faq === 15 && r.gl === 40, r.faq + ' ' + r.gl);
 { const dl = JSON.parse(fs.readFileSync(new globalThis.URL('../data/cyberlaw.json', import.meta.url))).downloads;
   const have = dl.filter(d => d.available).length;
-  ok('law: each PDF slot is a link if the file exists, else "coming soon"', r.pdfLinks === have && r.soon === dl.length - have, r.pdfLinks + ' links ' + r.soon + ' soon'); }
-for (const f of ['cyberlaw-pg-cheatsheet.pdf', 'cyberprompts-sheet.pdf']) {
+  const links = have + dl.reduce((n, d) => n + (d.claude && d.claude.available ? 1 + (d.claude.dark_available ? 1 : 0) : 0), 0);
+  ok('law: PDF 1 and PDF 2 (Claude, Light + Dark) are links if the files exist, else "coming soon"', r.pdfLinks === links && r.soon === dl.length - have, r.pdfLinks + ' links ' + r.soon + ' soon'); }
+for (const f of ['cyberlaw-pg-cheatsheet.pdf', 'cyberprompts-sheet.pdf', 'cyberlaw-pg-cheatsheet-claude.pdf', 'cyberlaw-pg-cheatsheet-claude-dark.pdf', 'cyberprompts-sheet-claude.pdf', 'cyberprompts-sheet-claude-dark.pdf']) {
   const res = await fetch(BASE + 'assets/pdf/' + f).catch(() => null);
   const exists = fs.existsSync(new globalThis.URL('../assets/pdf/' + f, import.meta.url));
   if (exists) ok('pdf served 200: ' + f, res && res.status === 200 && (res.headers.get('content-type') || '').includes('pdf'), res && res.status);

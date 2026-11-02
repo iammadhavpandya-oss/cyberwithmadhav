@@ -225,14 +225,32 @@
     renderGloss();
   }
 
+  // Each sheet offers PDF 1 (CyberWithMadhav edition) and, if present, PDF 2 (Claude edition, Light plus Dark).
+  const DL_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M6.5 10.5 12 16l5.5-5.5M5 20h14"/></svg>';
+  function dlBtn(cls, file, label) {
+    const a = el('a', { class: cls, href: file, download: '' }, [label]);
+    a.insertAdjacentHTML('afterbegin', DL_ICON);
+    return a;
+  }
   async function downloads(list) {
     const g = $('#dl-grid'); g.textContent = '';
     for (const d of list) {
-      const card = el('div', { class: 'card' }, [el('h3', { text: d.title }), el('p', { text: d.desc })]);
+      const opts = el('div', { class: 'dl-opts' });
+      const card = el('div', { class: 'card dl-card' }, [el('h3', { text: d.title }), el('p', { text: d.desc }), opts]);
       g.append(card);
       const ok = d.available === false ? false : await P.exists(d.file);
-      card.append(ok ? el('a', { class: 'btn btn-primary small', href: d.file, download: '' }, ['Download PDF'])
-        : el('span', { class: 'soon', 'data-file': d.file }, ['PDF coming soon']));
+      opts.append(el('div', { class: 'dl-opt' }, [
+        el('span', { class: 'dl-tag' }, ['PDF 1']),
+        ok ? dlBtn('btn btn-primary small', d.file, 'PDF 1 · CyberWithMadhav edition')
+          : el('span', { class: 'soon', 'data-file': d.file }, ['PDF coming soon'])]));
+      const c = d.claude;
+      if (c && c.available !== false && await P.exists(c.file)) {
+        const row = el('div', { class: 'dl-row' }, [dlBtn('btn btn-ghost small dl-claude', c.file, 'PDF 2 · Claude edition')]);
+        if (c.dark && c.dark_available !== false) row.append(el('a', { class: 'dl-dark', href: c.dark, download: '' }, ['Dark version']));
+        const note = el('p', { class: 'dl-note' }, ['Claude edition, some section numbers still being verified; see ']);
+        note.append(el('a', { href: 'terms.html#pdfs' }, ['Terms']), '.');
+        opts.append(el('div', { class: 'dl-opt dl-opt-2' }, [el('span', { class: 'dl-tag' }, ['PDF 2']), row, note]));
+      }
     }
   }
 
