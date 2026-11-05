@@ -656,7 +656,7 @@
         b.disabled = st === 'locked';
         b.append(el('span', 'wg-lvl-n mono', levelNo(i)), el('span', 'wg-lvl-t', l.title),
           el('span', 'wg-lvl-s', st === 'done' ? '\u2713' : st === 'locked' ? '\uD83D\uDD12' : '\u203A'));
-        b.setAttribute('aria-label', `Level ${i}: ${l.title}, ${st === 'done' ? 'solved' : st === 'locked' ? 'locked' : 'open'}`);
+        b.setAttribute('aria-label', `${levelNo(i)} ${l.title}, ${st === 'done' ? 'solved' : st === 'locked' ? 'locked' : 'open'}`);
         b.addEventListener('click', () => { select(i); if (window.matchMedia('(max-width: 900px)').matches) input.focus({ preventScroll: true }); });
         li.append(b); list.append(li);
       });

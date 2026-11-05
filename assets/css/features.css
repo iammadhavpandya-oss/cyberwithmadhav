@@ -2,7 +2,7 @@
 .f-group{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:0 0 10px}
 .f-label{margin:0;min-width:3.2em;font-size:.78rem;color:var(--muted);text-transform:lowercase}
 .f-group .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips .chip .n{opacity:.75;margin-left:5px;font-size:.74rem}
+.chips .chip .n{opacity:1;color:var(--muted);margin-left:5px;font-size:.74rem}
 .f-group+.count,.count.after-f{margin-top:14px}
 
 /* command cards */

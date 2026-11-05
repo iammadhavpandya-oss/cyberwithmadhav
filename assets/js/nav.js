@@ -3,7 +3,6 @@
   'use strict';
   const d = document.querySelector('.nav-more'); if (!d) return;
   const s = d.querySelector('summary');
-  s.setAttribute('aria-haspopup', 'true');
   const sync = () => s.setAttribute('aria-expanded', String(d.open));
   sync(); d.addEventListener('toggle', sync);
   document.addEventListener('click', e => { if (d.open && !d.contains(e.target)) d.open = false; });

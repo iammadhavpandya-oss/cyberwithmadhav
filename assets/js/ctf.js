@@ -500,7 +500,7 @@
     DATA.tracks.forEach(t => {
       const ti = trackInfo(t.id);
       const done = t.levels.filter(l => levelInfo(t.id, l.id).pct >= S.unlockPercent).length;
-      grid.append(el('a', { class: 'card track-card', href: '#/track/' + t.id, 'aria-label': t.name + ': ' + ti.pct + '% complete, ' + done + ' of 3 levels passed' },
+      grid.append(el('a', { class: 'card track-card', href: '#/track/' + t.id },
         el('div', { class: 'tc-top' }, el('span', { class: 'tc-emoji', 'aria-hidden': 'true', text: t.icon }), el('h3', { text: t.name })),
         el('p', { text: t.blurb }),
         el('div', { class: 'tc-foot' }, segRing(t.id),

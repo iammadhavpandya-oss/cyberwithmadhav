@@ -117,7 +117,7 @@ else {
   const root = '/tmp/cwm-ghp', mount = root + '/cyberwithmadhav';
   fs.rmSync(root, { recursive: true, force: true }); fs.mkdirSync(mount + '/deep/missing', { recursive: true });
   for (const f of fs.readdirSync(SITE)) if (!['tools', 'backend', '.git'].includes(f)) fs.symlinkSync(SITE + f, mount + '/' + f);
-  fs.symlinkSync(SITE + '404.html', mount + '/deep/missing/page.html');
+  fs.copyFileSync(SITE + '404.html', mount + '/deep/missing/page.html'); // copy: py3.13 http.server refuses out-of-tree symlinks
   srv = spawn('python3', ['-m', 'http.server', '8001', '--bind', '127.0.0.1'], { cwd: root, stdio: 'ignore' }); await sleep(900);
   NF = 'http://127.0.0.1:8001/cyberwithmadhav/deep/missing/page.html';
 }

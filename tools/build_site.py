@@ -211,7 +211,12 @@ def sitemap_and_feed():
 # ---------- 5: service worker and 404 ----------
 def service_worker():
     ps = pages() + ["404.html"]
-    assets = sorted({m for p in pages() for m in re.findall(r'(?:src|href)="((?:assets/(?:css|js)/)[^"?#]+)"', read(p))})
+    assets = sorted({m for p in pages() for m in re.findall(r'(?:src|href)="((?:assets/(?:css|js|fonts)/)[^"?#]+)"', read(p))})
+    fonts_css = ROOT / "assets/css/fonts.css"
+    if fonts_css.exists():
+        for name in re.findall(r'url\(\.\./fonts/([^)]+)\)', fonts_css.read_text(encoding="utf-8")):
+            assets.append("assets/fonts/" + name)
+        assets = sorted(set(assets))
     core = ["./"] + ps + assets + ["manifest.json", "favicon.svg", "assets/img/icon-192.png", "assets/img/apple-touch-icon.png", "data/search.json"]
     h = hashlib.sha256()
     for f in sorted(set(ps + assets + ["manifest.json", "data/search.json"])):

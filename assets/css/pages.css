@@ -22,7 +22,7 @@
 
 /* ---------- CyberPrompts ---------- */
 .p-chips{margin-bottom:12px}
-.p-chips .chip .n{opacity:.7;margin-left:4px;font-size:.75rem}
+.p-chips .chip .n{opacity:1;color:var(--muted);margin-left:4px;font-size:.75rem}
 .p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
 .p-card{display:flex;flex-direction:column;gap:10px;padding:20px}
 .p-card h3{margin:0;font:600 1.08rem/1.3 var(--font-head)}
@@ -365,3 +365,9 @@ html:has(.law-toc){scroll-padding-top:122px}
 .fold-btn[hidden]{display:none}
 .fold-btn[aria-expanded="false"]::after{content:"";width:8px;height:8px;border:solid currentColor;border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg);margin-left:4px}
 @media (max-width:640px){.law-toc-label{display:none}.law-toc{padding:8px 0}}
+
+/* quality audit P1.2: readable prompt placeholders in light theme */
+[data-theme="light"] .code-box pre .ph{color:#5B21B6}
+/* quality audit P1.7: reserve space for JS-rendered grids and filter chips so the page does not jump (CLS) */
+#p-grid:empty,#c-grid:empty{min-height:80vh}
+#c-os,#c-cat,#p-cats{min-height:38px}

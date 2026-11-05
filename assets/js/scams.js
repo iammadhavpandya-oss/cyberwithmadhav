@@ -35,7 +35,7 @@
       el('div', { class: 's-foot' }, [
         el('p', { class: 's-law' }, [el('span', { class: 'c-k mono', text: 'law ' }), ...c.law.map(l => el('span', { class: 'badge', text: l }))]),
         el('p', { class: 's-src small' }, [el('span', { class: 'muted', text: 'Source: ' }), ext(c.source, host(c.source) + ' ↗'), c.slow ? el('span', { class: 'muted', text: ' (official site may be slow)' }) : null]),
-        el('a', { class: 's-wa small', href: share, target: '_blank', rel: 'noopener noreferrer', 'aria-label': 'Share ' + c.name + ' on WhatsApp (opens in a new tab)' }, [waIcon(), 'Share on WhatsApp'])
+        el('a', { class: 's-wa small', href: share, target: '_blank', rel: 'noopener noreferrer', 'aria-label': 'Share on WhatsApp: ' + c.name + ' (opens in a new tab)' }, [waIcon(), 'Share on WhatsApp'])
       ])
     ]);
     art._hay = norm([c.name, c.hinglish, c.steps.join(' '), c.flags.join(' '), c.todo.join(' '), c.law.join(' ')].join(' '));

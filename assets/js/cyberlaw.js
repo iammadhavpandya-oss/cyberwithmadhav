@@ -247,7 +247,7 @@
       if (c && c.available !== false && await P.exists(c.file)) {
         const row = el('div', { class: 'dl-row' }, [dlBtn('btn btn-ghost small dl-claude', c.file, 'PDF 2 · Claude')]);
         if (c.dark && c.dark_available !== false) row.append(el('a', { class: 'dl-dark', href: c.dark, download: '' }, ['Dark version']));
-        const note = el('p', { class: 'dl-note' }, ['Claude edition, some section numbers still being verified; see ']);
+        const note = el('p', { class: 'dl-note' }, ['Claude edition, fact-checked Nov 2026. A few items still carry a verify tag; see ']);
         note.append(el('a', { href: 'terms.html#pdfs' }, ['Terms']), '.');
         opts.append(el('div', { class: 'dl-opt dl-opt-2' }, [el('span', { class: 'dl-tag' }, ['PDF 2']), row, note]));
       }

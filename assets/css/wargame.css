@@ -137,3 +137,7 @@ html:not([data-theme="light"]) .wg-screen{background-image:repeating-linear-grad
   .wg-input{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){.wg-toast,.wg-lvl,.wg-progress span{transition:none}.wg-pass.shake{animation:none}}
+
+/* quality audit P2.3: visible focus for the terminal input */
+.wg-screen:focus-within{outline:2px solid var(--green);outline-offset:2px}
+.wg-output{min-height:18em}

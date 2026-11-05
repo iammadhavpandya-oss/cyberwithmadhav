@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CyberWithMadhav: Cybersecurity in plain English and Hinglish</title>
-  <meta name="description" content="CyberWithMadhav by Madhav Pandya: cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets, browser-only security tools and scam alerts, made for India.">
+  <meta name="description" content="Cybersecurity in plain English and Hinglish by Madhav Pandya: free roadmap, cheat sheets, browser-only security tools and scam alerts for India.">
   <meta name="author" content="Madhav Pandya">
   <meta name="theme-color" content="#0D0B14">
   <meta name="cwm-version" content="3">
@@ -25,6 +25,7 @@
   <meta name="twitter:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
   <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
   <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
   <script>
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
@@ -33,10 +34,9 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/explore.css">
   <script type="application/ld+json">
@@ -84,7 +84,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
@@ -266,7 +266,6 @@
           <dl id="subnet-out" class="subnet-out mono" aria-live="polite"></dl>
         </div>
 
-
           <div class="tool card reveal" id="pw-tool">
             <div class="tool-head">
               <h3>Password strength <span class="tag">offline</span></h3>
@@ -378,7 +377,7 @@
           <p class="muted">Questions, corrections or a scam you want explained? Write to <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>. This site has no mailing list and stores nothing you type here.</p>
         </header>
         <div class="grid two">
-          <form class="card form reveal" id="contact-form" action="mailto:madhavpandya@zoho.in" method="post" enctype="text/plain" novalidate>
+          <form class="card form reveal" id="contact-form" data-mailto="mailto:madhavpandya@zoho.in" novalidate>
             <h3>Email Madhav</h3>
             <label for="c-name">Your name</label>
             <input id="c-name" name="name" type="text" required maxlength="80" autocomplete="name">

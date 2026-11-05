@@ -136,7 +136,7 @@ PRIVACY = [
   "You can remove all of it at any time by clearing site data for this site in your browser settings. If you clear the consent record, you will see the welcome screen again."]),
  ("services", "Services the site relies on", [
   ["<strong>GitHub Pages</strong> hosts the site. Like any web host, GitHub receives technical information such as your IP address when your browser requests a page. See the <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener\">GitHub General Privacy Statement</a>.",
-   "<strong>Google Fonts</strong> serves the fonts used on the pages, so your browser requests font files from Google's servers. See the <a href=\"https://developers.google.com/fonts/faq/privacy\" target=\"_blank\" rel=\"noopener\">Google Fonts privacy FAQ</a>.",
+   "<strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN.",
    "<strong>GitHub API</strong>: on the home page, when you scroll near the About section, your browser may fetch public star counts for the listed projects from api.github.com."],
   "We do not receive any personal information from these services."]),
  ("optional", "Contact and optional leaderboard", [
@@ -193,13 +193,13 @@ def page(fname, title, h1, kicker, desc, lead, sections, other):
   <meta property="og:url" content="{BASE}{fname}">
   <meta property="og:locale" content="en_IN">
   <meta name="color-scheme" content="dark light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
   <script>{THEME_JS}</script>
   <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/legal.css">

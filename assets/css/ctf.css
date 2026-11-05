@@ -283,3 +283,6 @@
   .mode-banner{font-size:.8rem;padding:8px 10px;line-height:1.45}
   .play-head{position:static}
 }
+/* quality audit P1.7: hold space for the JS-rendered track cards so the hub does not jump (CLS) */
+#track-grid:empty{min-height:430px}
+@media (max-width:560px){#track-grid:empty{min-height:1250px}}
