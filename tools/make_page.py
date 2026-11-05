@@ -4,7 +4,8 @@
 The head, nav and footer are copied from prompts.html so every page matches; the page's own <main> lives in
 tools/pages/<name>.main.html. build_site.py then adds the social tags, the shared scripts and the nav "More" menu,
 and csp_hash.py hashes the inline theme script. Run from the repo root: python3 tools/make_page.py
-Idempotent; a spec whose main file is missing is skipped."""
+Idempotent; a spec whose main file is missing is skipped. Pass file names to build only those
+(scams.html and commands.html were hand tuned after generation, so rebuild them only on purpose)."""
 import html, re
 from pathlib import Path
 
@@ -24,6 +25,13 @@ SPECS = [
      "ogdesc": "How each scam works in 3 steps, red flags, what to do in the first hour (call 1930), the law that applies and the official advisory.",
      "keywords": "cyber fraud india, digital arrest scam, upi fraud, kyc scam sms, 1930 helpline, cybercrime.gov.in, scam awareness hindi",
      "body": "scam-page", "css": ["pages.css", "features.css"], "js": ["scams.js"]},
+    {"file": "game.html", "title": "Scam ya Nahi? Spot the Scam Game in Hinglish | CyberWithMadhav",
+     "desc": "30 made up SMS, WhatsApp, call and email messages from Indian scams and real alerts. Tap Scam or Safe, see the red flags, the Hinglish explanation and when to call 1930.",
+     "og": "Scam ya Nahi? Spot the scam in 30 messages",
+     "ogdesc": "Swipe or tap Scam or Safe on SMS, WhatsApp, call and email examples. Easy, medium and hard levels, red flags explained in Hinglish, best score saved in your browser.",
+     "keywords": "scam ya nahi, spot the scam game, cyber fraud quiz india, sms scam test, whatsapp scam quiz, 1930 helpline, scam awareness hinglish",
+     "body": "game-page", "css": ["pages.css", "features.css", "game.css"], "js": ["game.js"],
+     "foot": "For awareness and learning only. Messages are made up examples."},
 ]
 
 
@@ -79,8 +87,11 @@ def _norm(s):
 
 
 def main():
+    import sys
+    only = [a for a in sys.argv[1:] if a.endswith(".html")]  # e.g. python3 tools/make_page.py game.html
     parts = shell()
-    for spec in SPECS: build(spec, *parts)
+    for spec in SPECS:
+        if not only or spec["file"] in only: build(spec, *parts)
 
 
 if __name__ == "__main__":

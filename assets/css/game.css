@@ -1,0 +1,97 @@
+/* game.html: Scam ya Nahi? Phone style message cards. Uses the tokens in style.css. Mobile first. */
+.g-hero .notice-slim{margin-top:18px}
+.g-sec{padding-top:8px}
+.g-bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.g-bar .f-group{margin:0}
+.g-opts{display:flex;gap:8px;flex-wrap:wrap}
+.g-score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 10px;align-items:baseline;padding:12px 14px;border-radius:14px;
+  background:var(--glass);border:1px solid var(--glass-border);-webkit-backdrop-filter:blur(var(--blur));backdrop-filter:blur(var(--blur));margin-bottom:18px}
+.g-stat{margin:0;font-size:.95rem;min-width:0}
+.g-stat b{font:600 1.15rem var(--font-head);color:var(--text)}
+.g-stat .c-k{display:block}
+.g-progress{grid-column:1/-1;height:6px;border-radius:999px;background:color-mix(in srgb,var(--border) 70%,transparent);overflow:hidden;margin-top:4px}
+.g-progress i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--purple),var(--green));transition:width .35s var(--ease)}
+
+.g-stage{max-width:560px;margin:0 auto}
+.g-phone{position:relative;border-radius:28px;padding:14px 14px 12px;min-height:300px;
+  background:var(--glass-strong);border:1px solid var(--glass-border);box-shadow:var(--shadow);
+  -webkit-backdrop-filter:blur(var(--blur));backdrop-filter:blur(var(--blur));
+  touch-action:pan-y;user-select:none;-webkit-user-select:none;transition:transform .3s var(--ease),border-color .25s,box-shadow .25s;scroll-margin-top:90px}
+.g-phone:focus{outline:none}
+.g-phone:focus-visible{outline:3px solid var(--purple-2);outline-offset:4px}
+.g-phone.dragging{transition:none}
+.g-phone.lean-l{border-color:color-mix(in srgb,var(--danger) 70%,transparent)}
+.g-phone.lean-r{border-color:color-mix(in srgb,var(--green) 70%,transparent)}
+.g-phone.right{border-color:var(--green);box-shadow:0 0 0 2px color-mix(in srgb,var(--green) 55%,transparent),var(--shadow)}
+.g-phone.wrong{border-color:var(--danger);box-shadow:0 0 0 2px color-mix(in srgb,var(--danger) 55%,transparent),var(--shadow)}
+.g-phone.enter{animation:g-in .35s var(--ease)}
+@keyframes g-in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.g-notch{width:84px;height:6px;border-radius:999px;background:color-mix(in srgb,var(--muted) 35%,transparent);margin:0 auto 12px}
+.g-head{display:flex;align-items:center;gap:10px;padding:0 4px 12px;border-bottom:1px solid var(--glass-border)}
+.g-ico{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:#fff;background:var(--purple)}
+.g-phone[data-channel="whatsapp"] .g-ico{background:#128C7E}
+.g-phone[data-channel="call_script"] .g-ico{background:#2563EB}
+.g-phone[data-channel="email"] .g-ico{background:#B45309}
+.g-who{flex:1;min-width:0}
+.g-chan{margin:0;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.g-sender{margin:2px 0 0;font:600 1rem var(--font);color:var(--text);overflow-wrap:anywhere;line-height:1.35}
+.g-lvl{flex:none;font-size:.7rem;padding:3px 8px;border-radius:999px;border:1px solid var(--glass-border);color:var(--muted)}
+.g-body{display:flex;flex-direction:column;gap:10px;padding:14px 2px 8px}
+.g-bubble{max-width:92%;align-self:flex-start;padding:10px 14px;border-radius:4px 16px 16px 16px;background:var(--surface-2);border:1px solid var(--glass-border)}
+.g-bubble p{margin:0;font-size:.98rem;line-height:1.55;color:var(--text);overflow-wrap:anywhere}
+.g-bubble.me{align-self:flex-end;border-radius:16px 4px 16px 16px;background:color-mix(in srgb,var(--green) 16%,var(--surface-2))}
+.g-phone[data-channel="whatsapp"] .g-bubble:not(.me){background:color-mix(in srgb,#128C7E 14%,var(--surface-2))}
+.g-phone[data-channel="email"] .g-bubble{max-width:100%;border-radius:10px}
+.g-speaker{display:block;font-size:.7rem;color:var(--purple-2);margin-bottom:2px;text-transform:uppercase;letter-spacing:.05em}
+.g-note{margin:0;text-align:center}
+.g-swipe-hint{display:flex;justify-content:space-between;margin:6px 4px 0;font-size:.75rem}
+.g-swipe-hint .g-l{color:var(--danger)}
+.g-swipe-hint .g-r{color:var(--green)}
+@media (hover:hover) and (pointer:fine){.g-swipe-hint{display:none}}
+
+.g-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.g-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 16px;border-radius:14px;font:700 1.05rem var(--font);cursor:pointer;border:2px solid transparent;transition:transform .15s,background-color .2s,opacity .2s}
+.g-btn:focus-visible{outline:3px solid var(--purple-2);outline-offset:3px}
+.g-btn:not(:disabled):hover{transform:translateY(-1px)}
+.g-btn:not(:disabled):active{transform:scale(.97)}
+.g-btn:disabled{opacity:.45;cursor:default}
+.g-scam{background:#B91C1C;color:#fff}
+.g-scam:not(:disabled):hover{background:#991B1B}
+.g-safe{background:#15803D;color:#fff}
+.g-safe:not(:disabled):hover{background:#166534}
+.g-keys{text-align:center;margin:10px 0 0}
+@media (hover:none){.g-keys{display:none}}
+
+.g-result:empty{display:none}
+.g-result{margin-top:16px;padding:16px;border-radius:16px;background:var(--glass);border:1px solid var(--glass-border);-webkit-backdrop-filter:blur(var(--blur));backdrop-filter:blur(var(--blur))}
+.g-verdict{margin:0 0 10px;font-size:1.02rem;color:var(--text)}
+.g-verdict.ok b{color:var(--green)}
+.g-verdict.no b{color:var(--danger)}
+.g-tells{margin:4px 0 10px;padding-left:1.2em}
+.g-tells li{margin:3px 0;line-height:1.5}
+.g-why{margin:0 0 10px;line-height:1.6;color:var(--text)}
+.g-report{margin:0 0 8px;padding:8px 12px;border-radius:10px;border:1px solid color-mix(in srgb,var(--danger) 55%,var(--glass-border));background:color-mix(in srgb,var(--danger) 10%,transparent)}
+.g-report a,.g-link a,.g-miss a{color:var(--purple-2);text-decoration:underline;text-underline-offset:2px}
+.g-report a[href^="tel"]{font-family:var(--mono);font-weight:700}
+.g-link{margin:0}
+.g-next-row{display:flex;justify-content:flex-end;margin-top:12px}
+.g-next-row[hidden],.g-play[hidden],.g-end[hidden]{display:none}
+
+.g-end{text-align:center;padding:28px 20px;background:var(--glass-strong);border-color:var(--glass-border)}
+.g-end:focus{outline:none}
+.g-end:focus-visible{outline:3px solid var(--purple-2);outline-offset:4px}
+.g-end h3{margin:4px 0 6px}
+.g-end-score{margin:0;font:700 3rem var(--font-head);line-height:1.1}
+.g-end-score b{background:linear-gradient(90deg,var(--purple-2),var(--green-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.g-end-msg{max-width:46ch;margin:12px auto 6px;line-height:1.6}
+.g-end-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:16px 0 8px}
+.g-miss{list-style:none;padding:0;margin:6px 0 0;text-align:left;display:grid;gap:6px}
+.g-miss li{padding:8px 12px;border-radius:10px;background:var(--surface-2);overflow-wrap:anywhere;font-size:.92rem}
+.g-meta{margin-top:20px;text-align:center}
+
+@media (min-width:720px){.g-phone{padding:16px 18px 14px}.g-bubble p{font-size:1rem}}
+@media (max-width:420px){.g-score{padding:10px 12px}.g-stat b{font-size:1.02rem}.g-end-score{font-size:2.5rem}}
+@media (prefers-reduced-motion:reduce){
+  .g-phone,.g-btn,.g-progress i{transition:none}
+  .g-phone.enter{animation:none}
+}

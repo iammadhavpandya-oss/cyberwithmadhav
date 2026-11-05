@@ -6,76 +6,83 @@
     <atom:link href="https://iammadhavpandya-oss.github.io/cyberwithmadhav/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Cybersecurity in plain English and Hinglish: roadmap, cheat sheets, CTF practice, prompts, cyber law and scam alerts for India.</description>
     <language>en-in</language>
-    <lastBuildDate>Mon, 02 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 06:19:53 +0000</lastBuildDate>
     <item>
       <title>CyberWithMadhav: Cybersecurity in plain English and Hinglish</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
-      <description>CyberWithMadhav by Madhav Pandya: cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets, browser-only security tools and scam alerts, made for India.</description>
-    </item>
-    <item>
-      <title>Mission Control: every CyberWithMadhav page in one place</title>
-      <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/explore.html</link>
-      <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/explore.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
-      <description>One hub for everything on CyberWithMadhav: cyber law, commands, roadmap, CTF, terminal wargame, browser tools, scams, AI prompts, terms and privacy.</description>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
+      <description>Cybersecurity in plain English and Hinglish by Madhav Pandya: free roadmap, cheat sheets, browser-only security tools and scam alerts for India.</description>
     </item>
     <item>
       <title>Command Reference: 60 blue team commands with safety notes</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/commands.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/commands.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
       <description>60 defensive commands for Linux, Windows, Cisco IOS and cross platform triage, with examples, typical output, blue team use, safety notes and official docs.</description>
     </item>
     <item>
       <title>Scam Encyclopedia India: 25 frauds decoded</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/scams.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/scams.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Digital arrest, UPI collect, KYC SMS, APK wedding cards, task jobs and 20 more Indian scams: how each works, red flags, what to do now, the law and the official source.</description>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
+      <description>Digital arrest, UPI collect, KYC SMS, APK wedding cards and 21 more Indian scams: how each works, red flags, what to do and the law.</description>
     </item>
     <item>
       <title>Terminal Wargame: Learn Linux by Hacking Your Way Up</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/terminal.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/terminal.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
       <description>Learn Linux in your browser: 20 levels of ls, find, grep, chmod, pipes and base64 in a safe simulated shell. Find each password to unlock the next level.</description>
     </item>
     <item>
       <title>CTF Arena: Capture the Flag, Learn the Concept</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/ctf.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/ctf.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
       <description>Free browser CTF practice: 7 tracks from Networking and Linux to Cloud, Pentesting and Blue Team, 3 levels each, with flags, hints and quizzes.</description>
     </item>
     <item>
       <title>CyberPrompts: Defensive AI Prompt Sheets for India</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/prompts.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/prompts.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
       <description>90 free defensive AI prompts in 19 categories, including Defensive Analysis, SOC, victim help, compliance and cyber law, plus 12 scenario cards. India focused.</description>
     </item>
     <item>
       <title>Cyber Law India: FAQs, Glossary, Cases and Timeline</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/cyberlaw.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/cyberlaw.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
       <description>Indian cyber law in plain English and Hinglish: 15 FAQs, 40 term glossary, 12 landmark cases and a timeline from the IT Act 2000. Not legal advice.</description>
     </item>
     <item>
       <title>Terms and Conditions | CyberWithMadhav</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/terms.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/terms.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
       <description>Terms and Conditions for CyberWithMadhav: educational use only, authorised and ethical use under the IT Act and BNS, CTF fair play, AI prompt safety, PDFs, liability and governing law.</description>
     </item>
     <item>
       <title>Privacy Policy | CyberWithMadhav</title>
       <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/privacy.html</link>
       <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/privacy.html</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Nov 2026 06:19:53 +0000</pubDate>
       <description>Privacy Policy for CyberWithMadhav: no trackers, no analytics, no cookies. What the site keeps in your browser and which services it relies on.</description>
+    </item>
+    <item>
+      <title>Mission Control: every CyberWithMadhav page in one place</title>
+      <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/explore.html</link>
+      <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/explore.html</guid>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+      <description>One hub for everything on CyberWithMadhav: cyber law, commands, roadmap, CTF, terminal wargame, browser tools, scams, AI prompts, terms and privacy.</description>
+    </item>
+    <item>
+      <title>Scam ya Nahi? Spot the scam in 30 messages</title>
+      <link>https://iammadhavpandya-oss.github.io/cyberwithmadhav/game.html</link>
+      <guid isPermaLink="true">https://iammadhavpandya-oss.github.io/cyberwithmadhav/game.html</guid>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+      <description>30 made up SMS, WhatsApp, call and email messages from Indian scams and real alerts. Tap Scam or Safe, see the red flags, the Hinglish explanation and when to call 1930.</description>
     </item>
   </channel>
 </rss>

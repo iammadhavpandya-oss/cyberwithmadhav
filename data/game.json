@@ -1,0 +1,553 @@
+{
+ "meta": {
+  "count": 30,
+  "levels": {
+   "easy": 11,
+   "medium": 11,
+   "hard": 8
+  },
+  "channels": {
+   "sms": "SMS",
+   "whatsapp": "WhatsApp",
+   "call_script": "Phone call",
+   "email": "Email"
+  },
+  "note": "All messages are made up training examples. Numbers are masked."
+ },
+ "items": [
+  {
+   "id": "syn_01",
+   "channel": "call_script",
+   "sender": "Unknown +91 98XXXXXX10 (video call)",
+   "text": "Caller: Main Central Investigation Bureau se Inspector Verma bol raha hoon. Aapke Aadhaar se ek parcel mein drugs mile hain. Aap abhi digital arrest mein ho, call cut mat karna, kisi ko batana mat. Case clear karne ke liye verification account mein paise transfer karne honge.",
+   "scam": true,
+   "level": "easy",
+   "tells": [
+    "Digital arrest jaisi koi cheez nahi hoti",
+    "Call cut na karne aur secret rakhne ka pressure",
+    "Verification ke naam par paisa transfer"
+   ],
+   "why": "Koi bhi asli police ya agency video call par arrest nahi karti aur paise transfer nahi karwati. Turant call kaato aur 1930 par call karke cybercrime.gov.in par report karo.",
+   "report": true,
+   "link": {
+    "href": "scams.html#s-digital-arrest",
+    "name": "Digital arrest scam"
+   }
+  },
+  {
+   "id": "syn_02",
+   "channel": "call_script",
+   "sender": "QuickShip Courier (IVR) +91 98XXXXXX27",
+   "text": "IVR: Aapka international parcel customs ne rok liya hai. Isme illegal items paaye gaye hain. Customer care se baat karne ke liye 1 dabaiye. Agent: Aapka case cyber police ko transfer kar rahe hain, abhi clearance charge bharna hoga.",
+   "scam": true,
+   "level": "medium",
+   "tells": [
+    "Aisa parcel jo aapne bheja hi nahi",
+    "Call ko so called police ko transfer karna",
+    "Clearance charge ki demand"
+   ],
+   "why": "Courier company khud kabhi police ko call transfer karke paise nahi maangti. Courier ki official website se number lekar khud check karo aur pressure mein payment mat karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-courier-parcel-scam",
+    "name": "Courier or customs parcel scam (FedEx style)"
+   }
+  },
+  {
+   "id": "syn_03",
+   "channel": "whatsapp",
+   "sender": "HR Priya (+91 98XXXXXX33)",
+   "text": "Hi! Hum ek digital marketing company hain. Ghar baithe online videos like karo aur har task par Rs 50 kamao. Aaj hi join karo hamara chat group, pehle 3 task free, phir premium task ke liye chhota deposit.",
+   "scam": true,
+   "level": "easy",
+   "tells": [
+    "Bina apply kiye job offer",
+    "Sirf like karne ke paise",
+    "Premium task ke liye deposit"
+   ],
+   "why": "Pehle chhota payout dekar trust banate hain, phir deposit ke naam par bada paisa phans jaata hai. Aisi job offer ko ignore karo, group se exit karo aur koi deposit mat karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-task-based-job-fraud",
+    "name": "Task based part time job fraud"
+   }
+  },
+  {
+   "id": "syn_04",
+   "channel": "sms",
+   "sender": "UPI Alert",
+   "text": "Aapko Rs 2,000 receive karne ke liye ek collect request aayi hai from buyer.sofa@examplebank. Paisa paane ke liye app kholo aur apna UPI PIN daalo.",
+   "scam": true,
+   "level": "medium",
+   "tells": [
+    "Paisa receive karne ke liye PIN maangna",
+    "Anjaan collect request",
+    "Jaldi approve karne ka message"
+   ],
+   "why": "UPI PIN sirf paise bhejne ke liye lagta hai, receive karne ke liye kabhi nahi. Collect request decline karo aur agar paisa kat gaya ho to bank aur 1930 ko turant batao.",
+   "report": true,
+   "link": {
+    "href": "scams.html#s-upi-collect-request",
+    "name": "UPI collect request fraud"
+   }
+  },
+  {
+   "id": "syn_05",
+   "channel": "sms",
+   "sender": "+91 98XXXXXX45",
+   "text": "Dear Customer, aapka ABC Bank account aaj raat KYC pending hone ki wajah se block ho jayega. Turant update karein: http://abc-kyc-update.example.in",
+   "scam": true,
+   "level": "easy",
+   "tells": [
+    "Normal mobile number se bank ka SMS",
+    "Account block hone ki dhamki",
+    "Anjaan link par KYC"
+   ],
+   "why": "Bank kabhi SMS link se KYC update nahi karwata. KYC sirf branch ya official bank app se karo aur fraud SMS ko Chakshu par report karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-kyc-update-sms",
+    "name": "KYC update SMS scam"
+   }
+  },
+  {
+   "id": "syn_06",
+   "channel": "sms",
+   "sender": "+91 98XXXXXX52",
+   "text": "Dear consumer, aapka pichle mahine ka bill update nahi hua hai. Aaj raat 9:30 baje aapki bijli kaat di jayegi. Turant Electricity Officer se sampark karein 98XXXXXX52.",
+   "scam": true,
+   "level": "easy",
+   "tells": [
+    "Same raat bijli katne ki dhamki",
+    "Personal mobile number par officer",
+    "Koi official sender ID nahi"
+   ],
+   "why": "Asli Vidyut Board aise personal number se raat mein connection katne ki dhamki nahi deta. Bill sirf official app ya website par check karo aur is number par call mat karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-electricity-bill-sms",
+    "name": "Electricity bill disconnection SMS"
+   }
+  },
+  {
+   "id": "syn_07",
+   "channel": "whatsapp",
+   "sender": "Stock Gurukul VIP Group (Admin)",
+   "text": "Congratulations! Aap hamare VIP stock tips group mein add ho gaye ho. Hamare members roz 20 percent profit kama rahe hain. Neeche diye link se hamari special trading app download karo: https://vip-trade.example.com/app.apk",
+   "scam": true,
+   "level": "medium",
+   "tells": [
+    "Guaranteed high returns ka daava",
+    "App link private, official store se nahi",
+    "Bina pooche group mein add karna"
+   ],
+   "why": "Aise groups mein fake profit screenshots dikhakar nakli app mein paisa daalwate hain aur withdrawal block ho jaata hai. Group chhodo, app install mat karo aur sirf registered platforms par invest karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-investment-whatsapp-group",
+    "name": "Investment tips WhatsApp group and fake trading app"
+   }
+  },
+  {
+   "id": "syn_08",
+   "channel": "whatsapp",
+   "sender": "+91 98XXXXXX61",
+   "text": "Namaste! Hamari beti ki shaadi mein aap zaroor aaiye. Shaadi card neeche attached hai. Attachment: Wedding_Card_Invite.apk",
+   "scam": true,
+   "level": "hard",
+   "tells": [
+    "Card .apk file mein aana",
+    "Anjaan number se invite",
+    "Asli card PDF ya photo hota hai"
+   ],
+   "why": "APK file install karte hi phone mein malware aa sakta hai jo SMS aur OTP padh leta hai. File mat kholo, sender ko alag se call karke confirm karo aur galti se install ho gaya ho to internet band karke 1930 par call karo.",
+   "report": true,
+   "link": {
+    "href": "scams.html#s-wedding-invite-apk",
+    "name": "APK file in wedding invitation"
+   }
+  },
+  {
+   "id": "syn_09",
+   "channel": "call_script",
+   "sender": "ABC Bank Helpline? (number from search result)",
+   "text": "Customer: Mera refund nahi aaya. Agent: Sir, aap ek support app install kariye, screen par jo code aaye wo bataiye, phir apna bank app kholiye, hum refund process kar denge.",
+   "scam": true,
+   "level": "medium",
+   "tells": [
+    "Number search result se mila, official site se nahi",
+    "Support app install karwana",
+    "Screen share ke time bank app kholne ko kehna"
+   ],
+   "why": "Search results mein nakli customer care number daale jaate hain aur screen share se paisa nikaal lete hain. Helpline sirf official website ya app se lo aur kisi ko screen share mat karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-fake-customer-care",
+    "name": "Fake customer care numbers"
+   }
+  },
+  {
+   "id": "syn_10",
+   "channel": "whatsapp",
+   "sender": "Rajesh (Army) +91 98XXXXXX74",
+   "text": "Bhai main army mein hoon, abhi border posting par hoon. Aapki sofa wali online ad dekhi, jo price bola wahi dunga. Payment ke liye ye QR scan karo, paisa seedha aapke account mein aa jayega.",
+   "scam": true,
+   "level": "medium",
+   "tells": [
+    "Bina bargaining ke price maan lena",
+    "Army posting ka bahana, mil nahi sakta",
+    "Paisa lene ke liye QR scan karwana"
+   ],
+   "why": "Paisa receive karne ke liye kabhi QR scan nahi karna padta, scan karte hi paisa kat sakta hai. Aise buyer se deal band karo aur QR scan mat karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-olx-army-buyer",
+    "name": "OLX or army buyer scam"
+   }
+  },
+  {
+   "id": "syn_11",
+   "channel": "sms",
+   "sender": "+91 98XXXXXX80",
+   "text": "Traffic Police: Aapki gaadi ka e-challan Rs 500 unpaid hai. 24 ghante mein pay nahi kiya to licence suspend. Pay karein: https://echallan-pay.example.in",
+   "scam": true,
+   "level": "hard",
+   "tells": [
+    "Link official transport portal nahi hai",
+    "Licence suspend karne ki dhamki",
+    "Normal 10 digit number se SMS"
+   ],
+   "why": "Nakli challan link par card ya UPI details daalte hi paisa chura liya jaata hai. Challan sirf official government e-challan portal par khud type karke check karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-fake-e-challan",
+    "name": "Fake traffic e-challan"
+   }
+  },
+  {
+   "id": "syn_12",
+   "channel": "whatsapp",
+   "sender": "InstaPaisa Recovery",
+   "text": "Aapka loan overdue hai. Aaj shaam tak payment nahi kiya to aapki photos aur details aapke saare contacts ko bhej denge. Last warning.",
+   "scam": true,
+   "level": "easy",
+   "tells": [
+    "Contacts ko photos bhejne ki dhamki",
+    "Gaali aur pressure wali recovery",
+    "Lender RBI registered hai ya nahi, pata nahi"
+   ],
+   "why": "Aisi dhamki dena harassment hai aur ye illegal loan apps ka pattern hai. Paisa dene ke dabav mein mat aao, evidence save karo aur 1930 ya cybercrime.gov.in par report karo.",
+   "report": true,
+   "link": {
+    "href": "scams.html#s-loan-app-harassment",
+    "name": "Illegal loan app harassment"
+   }
+  },
+  {
+   "id": "syn_13",
+   "channel": "email",
+   "sender": "MegaDiwali Sale <offers@mega-sale.example.com>",
+   "text": "Diwali Dhamaka! Branded smartphone sirf Rs 999 mein, 90 percent OFF. Sirf aaj ke liye, stock limited. Sirf prepaid order. Abhi kharido: https://mega-sale.example.com",
+   "scam": true,
+   "level": "medium",
+   "tells": [
+    "Discount itna zyada ki sach na lage",
+    "Sirf prepaid payment",
+    "Sirf aaj ka pressure"
+   ],
+   "why": "Nakli shopping sites badi discount dikhakar advance paisa le leti hain aur saamaan nahi aata. Sirf jaani maani website par address khud type karke shopping karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-fake-shopping-sites",
+    "name": "Fake festive sale shopping websites"
+   }
+  },
+  {
+   "id": "syn_14",
+   "channel": "whatsapp",
+   "sender": "Crorepati Lucky Draw Manager",
+   "text": "Badhai ho! Aapka number Crorepati Lucky Draw mein Rs 25 lakh ke liye chuna gaya hai. Prize release karne ke liye processing fee aur tax jama karein. Manager se baat karein: 98XXXXXX91",
+   "scam": true,
+   "level": "easy",
+   "tells": [
+    "Aisi lottery jisme aapne hissa hi nahi liya",
+    "Prize ke liye fee aur tax",
+    "Anjaan manager ka number"
+   ],
+   "why": "Jis lottery mein aapne kabhi part hi nahi liya, wo jeet nahi sakte. Koi fee mat bharo aur number ko block karke report karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-kbc-lottery",
+    "name": "KBC lottery fraud"
+   }
+  },
+  {
+   "id": "syn_15",
+   "channel": "whatsapp",
+   "sender": "Ananya (Rishta match)",
+   "text": "Hum 2 hafte se baat kar rahe hain, mujhe lagta hai hum perfect hain. Main ek crypto app par trading karti hoon, bahut profit hai. Aap bhi thoda invest karo, main sikha dungi. Ye raha link: https://crypto-earn.example.in",
+   "scam": true,
+   "level": "hard",
+   "tells": [
+    "Match jaldi investment ki baat kare",
+    "Milne se bachna",
+    "Khaas app ya website par push karna"
+   ],
+   "why": "Rishta ya dating ke naam par trust banakar nakli investment app mein paisa daalwaya jaata hai. Online match ke kehne par kabhi invest mat karo aur profile ko platform par report karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-matrimonial-crypto",
+    "name": "Matrimonial site investment or crypto fraud"
+   }
+  },
+  {
+   "id": "syn_16",
+   "channel": "sms",
+   "sender": "+91 98XXXXXX03",
+   "text": "Congratulations! Aapka resume select ho gaya hai. Part time job, salary Rs 8,000 per day. Registration ke liye HR se WhatsApp par baat karein: https://wa-jobs.example.com",
+   "scam": true,
+   "level": "medium",
+   "tells": [
+    "Job jiske liye apply hi nahi kiya",
+    "Bahut zyada salary thode kaam ke liye",
+    "Chat sirf WhatsApp par"
+   ],
+   "why": "Asli company bina interview ke itni salary ka offer SMS par nahi bhejti. Registration ya training fee kabhi mat do.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-fake-job-offer-sms",
+    "name": "Fake job offer SMS"
+   }
+  },
+  {
+   "id": "syn_17",
+   "channel": "whatsapp",
+   "sender": "Friend Rohit (+91 98XXXXXX18)",
+   "text": "Yaar ek urgent kaam hai. Tere number par galti se ek 6 digit code chala gaya hai, please mujhe forward kar de jaldi.",
+   "scam": true,
+   "level": "hard",
+   "tells": [
+    "Dost ka verification code maangna",
+    "Urgency",
+    "Code aapke phone par aaya, unke nahi"
+   ],
+   "why": "Ye code dete hi aapka WhatsApp account hijack ho sakta hai aur aapke contacts se paise maange ja sakte hain. Code kabhi share mat karo aur two step verification on karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-whatsapp-hijack",
+    "name": "WhatsApp account hijack"
+   }
+  },
+  {
+   "id": "syn_18",
+   "channel": "call_script",
+   "sender": "Unknown +91 98XXXXXX29",
+   "text": "Caller (beta jaisi awaaz): Papa main musibat mein hoon, mera accident ho gaya hai, police pakad ke le gayi hai. Abhi isi number par UPI se paise bhejo, kisi ko mat batana, phone band ho raha hai.",
+   "scam": true,
+   "level": "hard",
+   "tells": [
+    "Naye number se emergency call",
+    "Turant paise bhejne ka pressure",
+    "Kisi ko na batane ko kehna"
+   ],
+   "why": "AI se awaaz copy karke family emergency ka drama kiya ja sakta hai. Call kaato aur us vyakti ko unke purane number par khud call karke confirm karo.",
+   "report": false,
+   "link": {
+    "href": "scams.html#s-ai-voice-clone",
+    "name": "AI voice clone or deepfake emergency call"
+   }
+  },
+  {
+   "id": "syn_19",
+   "channel": "sms",
+   "sender": "AD-ABCBNK",
+   "text": "123456 is your OTP for login to ABC Bank NetBanking. Valid for 5 minutes. Never share your OTP with anyone. ABC Bank never asks for OTP.",
+   "scam": false,
+   "level": "easy",
+   "tells": [
+    "Official sender ID",
+    "Khud OTP share na karne ki salah",
+    "Koi link ya payment ki demand nahi"
+   ],
+   "why": "Ye normal OTP SMS hai jo tabhi aata hai jab aap khud login karte ho. Isse safe rakhna aapka kaam hai, ise kisi ko mat batao.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_20",
+   "channel": "sms",
+   "sender": "VM-QSHIPC",
+   "text": "QuickShip Courier: Aapka order QS12XXXX89 aaj out for delivery hai. Delivery agent 2 se 6 baje ke beech aayega. Koi payment due nahi hai.",
+   "scam": false,
+   "level": "easy",
+   "tells": [
+    "Koi payment nahi maangi",
+    "Koi link ya app install nahi",
+    "Order ki saaf jaankari jo aapne kiya tha"
+   ],
+   "why": "Ye ek normal delivery update hai jisme sirf jaankari hai. Agar aapne order kiya tha to ye genuine lagta hai, phir bhi koi code dial karne ko kahe to mat karna.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_21",
+   "channel": "sms",
+   "sender": "AX-ABCBNK",
+   "text": "ABC Bank: Rs 1,250 debited from A/c XX4821 on 01-11 at QuickMart. Not you? Call the number on the back of your card or use the ABC Bank app.",
+   "scam": false,
+   "level": "medium",
+   "tells": [
+    "Account number masked",
+    "Koi link nahi",
+    "Card ke peeche wale number ya official app par bharosa"
+   ],
+   "why": "Ye ek transaction alert hai jo aapko official channel par hi bhejta hai. Agar transaction aapka nahi hai to bank ko official number se turant batao.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_22",
+   "channel": "sms",
+   "sender": "VD-VIDYUT",
+   "text": "Vidyut Board: Aapka November ka bill Rs 1,840 generate ho gaya hai. Due date 15-11. Payment ke liye official Vidyut Board app ya nearest office use karein.",
+   "scam": false,
+   "level": "easy",
+   "tells": [
+    "Koi dhamki ya same day disconnection nahi",
+    "Official app aur office ka zikr",
+    "Official sender ID"
+   ],
+   "why": "Ye ek simple bill reminder hai jo official app ki taraf bhejta hai. Isme koi personal number ya urgent dhamki nahi hai.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_23",
+   "channel": "sms",
+   "sender": "VM-CLINIC",
+   "text": "Sehat Clinic: Dr. Mehra ke saath aapka appointment kal 11:00 AM par hai. Reschedule karne ke liye clinic reception par call karein.",
+   "scam": false,
+   "level": "easy",
+   "tells": [
+    "Koi payment ya link nahi",
+    "Aapne khud jo booking ki uski jaankari",
+    "Koi personal detail nahi maangi"
+   ],
+   "why": "Ye ek normal appointment reminder hai. Isme koi pressure, link ya paisa nahi maanga gaya.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_24",
+   "channel": "email",
+   "sender": "ABC Bank <alerts@bank-example.in>",
+   "text": "Dear Customer, aapke account mein naye device se login hua. Agar ye aap the to kuch karne ki zaroorat nahi. Agar nahi, to ABC Bank app kholkar password badlein. Hum kabhi email par password ya OTP nahi maangte.",
+   "scam": false,
+   "level": "hard",
+   "tells": [
+    "Email mein koi link click karne ko nahi kaha",
+    "Khud app kholne ki salah",
+    "OTP ya password nahi maanga"
+   ],
+   "why": "Genuine security alert aapko khud official app kholne ko kehta hai, link par nahi bhejta. Phir bhi shak ho to bank ko official number par confirm karo.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_25",
+   "channel": "whatsapp",
+   "sender": "Sharma Uncle",
+   "text": "Beta, Diwali ki bahut shubhkamnayein! Ghar par sab ko pyaar. Agle hafte milte hain.",
+   "scam": false,
+   "level": "easy",
+   "tells": [
+    "Jaana pehchana contact",
+    "Koi link, file ya paisa nahi",
+    "Koi urgency nahi"
+   ],
+   "why": "Ye ek normal festival greeting hai jisme kuch maanga nahi gaya. Bas dhyaan rahe ki greeting ke saath APK ya anjaan link aaye to mat kholna.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_26",
+   "channel": "call_script",
+   "sender": "ABC Bank (you called the number on your card)",
+   "text": "Aap: Mera card kho gaya hai. Agent: Main aapka card abhi block kar raha hoon. Main aapse koi OTP, PIN ya CVV nahi poochunga. Naya card aapke registered address par aayega.",
+   "scam": false,
+   "level": "medium",
+   "tells": [
+    "Call aapne khud card ke peeche wale number par kiya",
+    "Agent khud OTP ya PIN nahi maang raha",
+    "Koi app install nahi karwaya"
+   ],
+   "why": "Jab aap khud official number par call karte ho aur koi secret details nahi maangi jaati, to ye genuine process hai. Card kho jaye to turant aise hi block karwana sahi hai.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_27",
+   "channel": "email",
+   "sender": "Nagar Nigam <noreply@city-example.in>",
+   "text": "Property tax reminder: Aapka property tax 31 March tak due hai. Payment ke liye official Nagar Nigam portal ya ward office use karein. Koi penalty abhi nahi lagi hai.",
+   "scam": false,
+   "level": "medium",
+   "tells": [
+    "Official office aur portal ka zikr",
+    "Koi dhamki nahi",
+    "Koi link click karne ka pressure nahi"
+   ],
+   "why": "Ye ek saaf reminder hai jo official channel ki taraf bhejta hai. Portal ka address hamesha khud type karke kholo.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_28",
+   "channel": "sms",
+   "sender": "AD-TELCOX",
+   "text": "TelcoX: Aapka prepaid plan 3 din mein expire hoga. Recharge ke liye TelcoX app ya kisi bhi authorised retailer par jaayein. TelcoX kabhi OTP ya PIN nahi maangta.",
+   "scam": false,
+   "level": "medium",
+   "tells": [
+    "Official sender ID",
+    "Official app ya retailer ka zikr",
+    "OTP na share karne ki salah"
+   ],
+   "why": "Ye ek normal recharge reminder hai jisme koi link ya urgent dhamki nahi hai. Recharge hamesha official app se karo.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_29",
+   "channel": "whatsapp",
+   "sender": "Greenfield School (verified business)",
+   "text": "Dear Parents, kal PTM subah 10 baje school campus mein hai. Fees se related koi payment WhatsApp par nahi li jayegi, sirf school office ya official portal par.",
+   "scam": false,
+   "level": "hard",
+   "tells": [
+    "WhatsApp par payment na lene ki saaf baat",
+    "Event ki seedhi jaankari",
+    "Koi link ya file nahi"
+   ],
+   "why": "Ye genuine school notice lagta hai kyunki ye khud bolta hai ki payment WhatsApp par nahi hogi. Agar kabhi isi naam se fees ka link aaye to school office se confirm karna.",
+   "report": false,
+   "link": null
+  },
+  {
+   "id": "syn_30",
+   "channel": "sms",
+   "sender": "AX-ABCBNK",
+   "text": "ABC Bank: Rs 5,000 credited to A/c XX4821 by NEFT from Rahul K. Available balance aap ABC Bank app mein dekh sakte hain.",
+   "scam": false,
+   "level": "hard",
+   "tells": [
+    "Account number masked",
+    "Koi PIN ya action maanga nahi",
+    "Balance check ke liye official app"
+   ],
+   "why": "Credit alert mein kuch karne ko nahi kaha jaata, ye normal hai. Agar koi call karke kahe ki galti se paisa bheja hai, wapas bhejo, to pehle app mein khud check karo.",
+   "report": false,
+   "link": null
+  }
+ ]
+}

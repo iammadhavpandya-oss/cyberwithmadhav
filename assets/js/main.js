@@ -135,7 +135,7 @@
         ${d.osi.map(l => `<div class="layer"><b><span class="num">L${l.n}</span>${esc(l.name)}</b><span>${esc(l.ex)}</span></div>`).join('')}</div>
       <div class="layer-col tcp"><h3>TCP/IP model <span class="muted small">(4 layers, practical)</span></h3>
         ${d.tcpip.map(l => `<div class="layer"><b>${esc(l.name)}</b><span>${esc(l.ex)}</span></div>`).join('')}
-        <p class="muted small" style="margin-top:12px">${esc(d.note)}</p></div>`;
+        <p class="muted small mt-12">${esc(d.note)}</p></div>`;
     $('#net-cards').innerHTML = d.cards.map(c => `
       <article class="card net-card reveal"><h3>${esc(c.title)} <span class="tag g">${esc(c.tag)}</span></h3>
         <p>${esc(c.body)}</p><p class="ex">${esc(c.ex)}</p></article>`).join('') + `
@@ -352,7 +352,7 @@
     $('#jobs').innerHTML = d.jobs.map(j => `
       <article class="card job reveal">
         <span class="tag p">${esc(j.team)}</span>
-        <h3 style="margin-top:10px">${esc(j.title)}</h3>
+        <h3 class="mt-10">${esc(j.title)}</h3>
         <p class="sum">${esc(j.summary)}</p>
         <h4>Key skills</h4><div class="tags">${j.skills.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>
         <h4>Certs to consider</h4><div class="tags">${j.entry.map(s => `<span class="tag g">${esc(s)}</span>`).join('')}</div>
@@ -367,7 +367,7 @@
     renderQuiz(d.quiz);
     $('#scams').innerHTML = d.scams.map(s => `
       <article class="card scam reveal">
-        <h3><span aria-hidden="true" class="mono" style="color:var(--green-2)">${esc(s.icon)}</span> ${esc(s.title)}</h3>
+        <h3><span aria-hidden="true" class="mono txt-green">${esc(s.icon)}</span> ${esc(s.title)}</h3>
         <p class="how">${esc(s.how)}</p>
         <h4 class="flag">Red flags</h4><ul class="dash">${s.flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
         <h4 class="do">What to do</h4><ul class="dash">${s.do.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
@@ -399,7 +399,7 @@
       <article class="card project reveal" data-repo="${esc(p.repo || '')}"><h3>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)} ↗</a>` : esc(p.name)} <span class="stars mono" hidden></span></h3>
         <p>${esc(p.body)}</p>
         ${p.building ? `<p class="building"><span class="live">building</span> ${esc(p.building.replace(/^Now building:\s*/i, ''))}</p>` : ''}
-        <div class="tags" style="display:flex;gap:6px;flex-wrap:wrap">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div></article>`).join('');
+        <div class="tags tags-row">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div></article>`).join('');
     observe($('#about'));
     lazyStars();
   }

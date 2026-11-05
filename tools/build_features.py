@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Copy the feature page content from /workspace/cwm-content into data/ and write per page search indexes.
 Run from the repo root after build_pages_data.py and before build_site.py:
-  python3 tools/build_features.py [--content /workspace/cwm-content]
+  python3 tools/build_features.py [--content /workspace/cwm-content] [--only commands,terminal,scams,game]
 Idempotent. Missing source files are skipped with a message, so a page keeps its last committed data."""
 import json, re, sys
 from pathlib import Path
@@ -111,11 +111,46 @@ def scams():
     print(f"scams: {len(out)} ({sum(c['verify'] for c in out)} being verified, {sum(c['slow'] for c in out)} slow sources)")
 
 
+# ---------- Phase 4: Scam ya Nahi? game ----------
+CHANNEL_LABEL = {"sms": "SMS", "whatsapp": "WhatsApp", "call_script": "Phone call", "email": "Email"}
+LEVELS = ["easy", "medium", "hard"]
+
+
+def game():
+    src = load("scam_ya_nahi.json")
+    if src is None: return
+    names = load("scam_slug_map.json") or {}
+    sp = DATA / "scams.json"
+    live = {s["id"] for s in json.loads(sp.read_text(encoding="utf-8"))["scams"]} if sp.exists() else set()
+    out, seen = [], set()
+    for x in src:
+        assert x["id"] not in seen, x["id"]; seen.add(x["id"])
+        assert x["channel"] in CHANNEL_LABEL, x["channel"]
+        assert x["difficulty"] in LEVELS, x["difficulty"]
+        assert isinstance(x["is_scam"], bool), x["id"]
+        why = x["explanation_hinglish"]
+        link = None
+        lid = x.get("linked_scam_id")
+        if lid and lid in names and lid.replace("_", "-") in live:
+            link = {"href": "scams.html#s-" + lid.replace("_", "-"), "name": names[lid]}
+        # the report line is shown only where the explanation itself points to 1930 or cybercrime.gov.in
+        out.append({"id": x["id"], "channel": x["channel"], "sender": x["sender_display"], "text": x["message_text"],
+                    "scam": x["is_scam"], "level": x["difficulty"], "tells": x["tells"], "why": why,
+                    "report": "1930" in why or "cybercrime.gov.in" in why, "link": link})
+    count = {k: sum(1 for c in out if c["level"] == k) for k in LEVELS}
+    write("game.json", {"meta": {"count": len(out), "levels": count, "channels": CHANNEL_LABEL,
+                                 "note": "All messages are made up training examples. Numbers are masked."}, "items": clean(out)})
+    idx = [{"k": "Game", "t": "Scam ya Nahi? " + k.capitalize() + " level", "s": f"{count[k]} messages: scam ya safe?",
+            "u": "game.html?level=" + k, "x": "scam game quiz sms whatsapp call email spot the scam"} for k in LEVELS]
+    write("game_index.json", idx, compact=True)
+    print(f"game: {len(out)} cards ({sum(c['scam'] for c in out)} scam, {sum(1 for c in out if c['link'])} linked to scams.html)")
+
+
 def main():
     DATA.mkdir(exist_ok=True)
-    commands()
-    terminal()
-    scams()
+    only = sys.argv[sys.argv.index("--only") + 1].split(",") if "--only" in sys.argv else None
+    for name, fn in (("commands", commands), ("terminal", terminal), ("scams", scams), ("game", game)):
+        if only is None or name in only: fn()
 
 
 if __name__ == "__main__":

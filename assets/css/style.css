@@ -744,3 +744,9 @@ html.consent-pending body::after{content:"";position:fixed;inset:0;z-index:9998;
 
 /* quality audit P1.5: field borders reach 3:1 (WCAG 1.4.11) */
 [data-theme="light"] input,[data-theme="light"] textarea{border-color:#857A9E}
+
+/* utility classes for JS rendered cards (CSP style-src 'self' blocks inline style attributes) */
+.mt-12{margin-top:12px}
+.mt-10{margin-top:10px}
+.txt-green{color:var(--green-2)}
+.tags-row{display:flex;gap:6px;flex-wrap:wrap}
