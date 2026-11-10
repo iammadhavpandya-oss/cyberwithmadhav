@@ -371,3 +371,26 @@ html:has(.law-toc){scroll-padding-top:122px}
 /* quality audit P1.7: reserve space for JS-rendered grids and filter chips so the page does not jump (CLS) */
 #p-grid:empty,#c-grid:empty{min-height:80vh}
 #c-os,#c-cat,#p-cats{min-height:38px}
+
+/* ---------- about.html ---------- */
+.about-page .ab-hero{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:center}
+.about-page .ab-avatar{width:200px;margin:0}
+.about-page .ab-sub{font:600 clamp(1.05rem,2.2vw,1.3rem)/1.35 var(--font-head);color:var(--green);margin:0 0 4px}
+.about-page .ab-hero .lead{margin:14px 0 22px}
+.about-page .ab-cta{display:flex;flex-wrap:wrap;gap:10px}
+.about-page .ab-loc{margin-top:14px}
+.about-page .ab-sec{padding:clamp(36px,6vw,64px) 0}
+.about-page .ab-sec h2{font:700 clamp(1.5rem,3.2vw,2.1rem)/1.2 var(--font-head);margin:0 0 18px}
+.about-page .ab-narrow > *{max-width:820px}
+.about-page .ab-narrow > p{color:var(--muted);font-size:1.02rem;line-height:1.7}
+.about-page .ab-grid3{grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
+.about-page .ab-card h3{margin:.1em 0 .6em}
+.about-page .ab-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.about-page .ab-list .tag{margin-left:4px;vertical-align:middle}
+.about-page .law h2{font-size:1.35rem;margin-bottom:.4em}
+.about-page .ab-links{max-width:560px}
+@media (max-width:720px){
+  .about-page .ab-hero{grid-template-columns:1fr;gap:20px;text-align:left}
+  .about-page .ab-avatar{width:140px}
+  .about-page .ab-links a{flex-direction:column;gap:2px}
+}

@@ -21,7 +21,7 @@ OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
 PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
-         "ctf.html", "prompts.html", "cyberlaw.html", "terms.html", "privacy.html"]
+         "ctf.html", "prompts.html", "cyberlaw.html", "about.html", "terms.html", "privacy.html"]
 PRIORITY = {"index.html": "1.0", "terms.html": "0.3", "privacy.html": "0.3"}
 
 

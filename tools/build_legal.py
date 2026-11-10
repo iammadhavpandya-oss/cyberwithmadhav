@@ -255,7 +255,7 @@ def page(fname, title, h1, kicker, desc, lead, sections, other):
       <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, provided as is.</p>
-        <p class="small"><a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html">About Madhav Pandya</a> · <a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>

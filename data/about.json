@@ -1,7 +1,7 @@
 {
   "name": "Madhav Pandya",
   "location": "Vasai, Mumbai",
-  "bio": "I'm Madhav Pandya, an IT Support Engineer in Vasai who is also studying law. I started CyberWithMadhav to explain cybersecurity in plain English and Hinglish, so beginners can learn it and families can spot scams before they lose money.",
+  "bio": "I'm Madhav Pandya, an IT Support Engineer from Vasai, Mumbai, and the founder of CyberWithMadhav. I'm pursuing a BCA in Cloud Computing and Cyber Security and a BA LLB, and I explain cybersecurity and scam awareness in plain English and Hinglish so beginners can learn it and families can spot scams before they lose money.",
   "links": [
     {
       "label": "GitHub",
@@ -37,23 +37,47 @@
     },
     {
       "when": "Jul 2025 to Present",
-      "title": "IT Support Engineer, Jetking Vasai",
+      "title": "IT Support Engineer",
       "body": "Troubleshooting PCs, networks and user accounts hands-on. That day-to-day fixing is where the practical tips on this site come from.",
       "metric": "",
       "now": true
     },
     {
       "when": "Ongoing",
-      "title": "BCA, Yenepoya",
-      "body": "Building the computer-science base (programming, databases, networking) behind the projects and cheat sheets here.",
+      "title": "BCA, specialisation in Cloud Computing and Cyber Security",
+      "body": "Building the computer-science, cloud and security base behind the projects and cheat sheets here.",
       "metric": ""
     },
     {
       "when": "Ongoing",
-      "title": "BA LLB, KES Patel",
+      "title": "BA LLB",
       "body": "Studying law alongside tech, which shapes the cyber-law and GRC side of my content.",
       "metric": "",
       "law": true
+    },
+    {
+      "when": "Completed",
+      "title": "Diploma in Cloud Computing",
+      "body": "Completed. Cloud fundamentals behind the Cloud Computing track in the CTF Arena.",
+      "metric": ""
+    },
+    {
+      "when": "Certified",
+      "title": "Oracle Cloud Infrastructure AI Associate",
+      "body": "Oracle certification on AI and machine learning services in Oracle Cloud Infrastructure.",
+      "metric": ""
+    },
+    {
+      "when": "Certified",
+      "title": "Agile Project Management, HP LIFE",
+      "body": "Certification in Agile project management from HP LIFE.",
+      "metric": ""
+    },
+    {
+      "when": "Certified",
+      "title": "Prompt Engineering, Infosys Springboard",
+      "body": "Certification in prompt engineering from Infosys Springboard. Useful for the safe-use notes in CyberPrompts.",
+      "metric": ""
     }
   ],
   "projects": [
@@ -82,7 +106,7 @@
       "repo": "iammadhavpandya-oss/homelab-toolkit"
     }
   ],
-  "headline": "IT engineer who studies law, explaining cybersecurity in Hinglish.",
+  "headline": "Madhav Pandya: IT engineer studying BCA and law, explaining cybersecurity in Hinglish.",
   "lawCallout": {
     "title": "Why law + tech",
     "body": "Most security content explains how attacks work. Studying law means I also look at what the law says about them, and what organisations must do to comply.",

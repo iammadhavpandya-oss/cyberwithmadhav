@@ -32,6 +32,13 @@ SPECS = [
      "keywords": "scam ya nahi, spot the scam game, cyber fraud quiz india, sms scam test, whatsapp scam quiz, 1930 helpline, scam awareness hinglish",
      "body": "game-page", "css": ["pages.css", "features.css", "game.css"], "js": ["game.js"],
      "foot": "For awareness and learning only. Messages are made up examples."},
+    {"file": "about.html", "title": "Madhav Pandya | Cybersecurity Educator, Vasai, India",
+     "desc": "Madhav Pandya is an IT Support Engineer and cybersecurity educator in Vasai, Mumbai, explaining scams and cyber law in plain English and Hinglish.",
+     "og": "Madhav Pandya | Cybersecurity Educator, Vasai, India",
+     "ogdesc": "IT Support Engineer and founder of CyberWithMadhav. Cybersecurity and scam awareness in plain English and Hinglish.",
+     "keywords": "Madhav Pandya, Madhav Pandya cybersecurity, CyberWithMadhav, Madhav Pandya Vasai, cybersecurity educator India, scam awareness Hinglish, cyber law India",
+     "body": "about-page", "css": ["pages.css"], "js": [], "ogtype": "profile",
+     "head": "about.head.html", "foot": "Content is for awareness and education, not legal advice."},
 ]
 
 
@@ -61,6 +68,10 @@ def build(spec, head, nav, foot, tail):
         h = re.sub(r'(<meta (?:property|name)="%s" content=")[^"]*' % k, lambda m: m.group(1) + html.escape(spec["og"]), h)
     for k in ("og:description", "twitter:description"):
         h = re.sub(r'(<meta (?:property|name)="%s" content=")[^"]*' % k, lambda m: m.group(1) + html.escape(spec["ogdesc"]), h)
+    if spec.get("ogtype"):
+        h = re.sub(r'(<meta property="og:type" content=")[^"]*', lambda m: m.group(1) + spec["ogtype"], h)
+    if spec.get("head"):  # extra head tags (profile meta, JSON-LD) from tools/pages/<head file>
+        h = h.replace("\n</head>\n", "\n" + (ROOT / "tools" / "pages" / spec["head"]).read_text(encoding="utf-8").rstrip() + "\n</head>\n", 1)
     h = h.replace('  <link rel="stylesheet" href="assets/css/pages.css">\n',
                   "".join(f'  <link rel="stylesheet" href="assets/css/{c}">\n' for c in spec["css"]))
     n = nav.replace(f'<a href="{spec["file"]}">', f'<a href="{spec["file"]}" class="active" aria-current="page">')
