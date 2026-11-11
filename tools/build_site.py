@@ -21,12 +21,26 @@ OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
 PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
-         "ctf.html", "prompts.html", "cyberlaw.html", "about.html", "terms.html", "privacy.html"]
+         "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "about.html", "terms.html", "privacy.html"]
 PRIORITY = {"index.html": "1.0", "terms.html": "0.3", "privacy.html": "0.3"}
 
 
+def blog_posts():
+    f = DATA / "blog.json"  # written by build_blog.py, newest first
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+
+
 def pages():
-    return [p for p in PAGES if (ROOT / p).exists()]
+    out = [p for p in PAGES if (ROOT / p).exists()]
+    if "blog.html" in out:
+        i = out.index("blog.html") + 1
+        out[i:i] = [b["file"] for b in blog_posts() if (ROOT / b["file"]).exists()]
+    return out
+
+
+def post_date(p, key="published"):
+    s = read(p); m = re.search(r'<meta property="article:%s_time" content="([^"]+)"' % key, s)
+    return datetime.fromisoformat(m.group(1)) if m else None
 
 
 def read(p): return (ROOT / p).read_text(encoding="utf-8")
@@ -66,17 +80,26 @@ def git_date(p):
 NAV = [("index.html", "Home", "nav-home", ""),
        ("explore.html", "Explore", "nav-explore",
         '<svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>'),
+       ("blog.html", "Blog", "nav-blog", ""),
        ("ctf.html", "CTF", "nav-ctf", '<span class="nav-ctf-dot" aria-hidden="true"></span>')]
+LANG_BTN = ('<button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish">'
+            '<span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>')
+I18N_TAGS = '<script src="assets/js/i18n-dict.js"></script>\n  <script src="assets/js/i18n.js"></script>\n  '
+FOOT_LINKS = [("terms.html", "Terms and Conditions", "foot.terms"), ("privacy.html", "Privacy Policy", "foot.privacy"),
+              ("index.html", "Back to home", "foot.home"), ("#top", "Back to top ↑", "foot.top"), ("#top", "Back to top &#8593;", "foot.top")]
 
 
 def nav_links(p):
-    hub = p not in [f for f, _, _, _ in NAV] and p != "404.html"  # every other page lives inside Explore
+    post = p.startswith("blog-")  # blog posts live under Blog
+    hub = p not in [f for f, _, _, _ in NAV] and p != "404.html" and not post  # every other page lives inside Explore
     out = []
     for f, label, cls, ico in NAV:
         if not (ROOT / f).exists(): continue
-        attrs = f' class="{cls}{" active" if f == p or (hub and f == "explore.html") else ""}"'
+        on = f == p or (hub and f == "explore.html") or (post and f == "blog.html")
+        attrs = f' class="{cls}{" active" if on else ""}"'
         if f == p: attrs += ' aria-current="page"'
-        out.append(f'\n        <a href="{f}"{attrs}>{ico}{label}</a>')
+        key = "nav." + label.lower()
+        out.append(f'\n        <a href="{f}"{attrs}>{ico}<span data-i18n="{key}">{label}</span></a>')
     return "".join(out)
 
 
@@ -87,18 +110,40 @@ def patch_nav(s, p):
     head = re.match(r'<nav id="nav-links"[^>]*>', nav).group(0)
     pal = re.search(r'\n\s*<button class="pal-btn".*?</button>', nav, re.S)
     tt = re.search(r'\n\s*<button class="theme-toggle".*?</button>', nav, re.S)
-    nav = head + nav_links(p) + (pal.group(0) if pal else "") + (tt.group(0) if tt else "") + "\n      </nav>"
+    nav = head + nav_links(p) + (pal.group(0) if pal else "") + "\n        " + LANG_BTN + (tt.group(0) if tt else "") + "\n      </nav>"
     return s[:m.start()] + nav + s[m.end():]
+
+
+def patch_footer(s):
+    m = re.search(r'<footer class="footer">.*?</footer>', s, re.S)
+    if not m: return s
+    f = m.group(0)
+    f = re.sub(r'<a href="about\.html"(?: data-i18n="foot\.about")?>About Madhav Pandya</a>(?: · <a href="blog\.html" data-i18n="foot\.blog">Blog</a>)?',
+               '<a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a>', f)
+    for href, text, key in FOOT_LINKS:
+        f = re.sub(r'<a href="%s"(?: data-i18n="[^"]*")?>%s</a>' % (re.escape(href), re.escape(text)), f'<a href="{href}" data-i18n="{key}">{text}</a>', f)
+    return s[:m.start()] + f + s[m.end():]
+
+
+def patch_head(s):
+    s = re.sub(r'<html lang="[^"]*"', '<html lang="en-IN"', s, count=1)
+    s = re.sub(r'<script src="assets/js/i18n-dict\.js"></script>\s*<script src="assets/js/i18n\.js"></script>\s*', "", s)
+    return s.replace('<script src="assets/js/consent.js"></script>', I18N_TAGS + '<script src="assets/js/consent.js"></script>', 1)
 
 
 def patch_page(p):
     s = read(p)
+    s = patch_head(s)
     s = patch_nav(s, p)
+    s = patch_footer(s)
     # social image tags: drop old ones, then add one consistent block after og:locale (or og:url)
     s = re.sub(r'\n\s*<meta (?:property="og:image(?::[a-z]+)?"|name="twitter:image(?::alt)?") content="[^"]*">', "", s)
     title, desc = meta(s, "property", "og:title") or title_of(s), meta(s, "property", "og:description") or meta(s, "name", "description")
+    post = next((b for b in blog_posts() if b["file"] == p), None)
     if p == "about.html":
-        og_img, og_w, og_h, og_alt = BASE + "assets/img/madhav.jpg", "600", "800", "Madhav Pandya, cybersecurity educator from Mumbai"
+        og_img, og_w, og_h, og_alt = BASE + "assets/img/madhav-og.jpg", "1200", "630", "Madhav Pandya, cybersecurity educator from Mumbai"
+    elif post and (ROOT / f"assets/img/blog/{post['slug']}.png").exists():
+        og_img, og_w, og_h, og_alt = BASE + f"assets/img/blog/{post['slug']}.png", "1200", "630", post["og_alt"]
     else:
         og_img, og_w, og_h, og_alt = OG_IMG, "1200", "630", OG_ALT
     social = (f'\n  <meta property="og:image" content="{og_img}">'
@@ -141,7 +186,7 @@ def search_index():
     for p in pages():
         s = read(p)
         name = "Home" if p == "index.html" else short_title(title_of(s))
-        add("Page", name, meta(s, "name", "description"), p)
+        add("Blog" if p.startswith("blog-") else "Page", title_of(s).split(" | ")[0] if p.startswith("blog-") else name, meta(s, "name", "description"), p)
         for m in re.finditer(r'<section[^>]*\bid="([a-z0-9-]+)"[^>]*>(.*?)</h2>', s, re.S):
             sid, body = m.group(1), m.group(2)
             h = re.search(r"<h2[^>]*>(.*)$", body, re.S)
@@ -192,17 +237,19 @@ def sitemap_and_feed():
     rows = []
     for p in ps:
         loc = BASE if p == "index.html" else BASE + p
-        rows.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{git_date(p).date().isoformat()}</lastmod>\n    <priority>{PRIORITY.get(p, '0.8')}</priority>\n  </url>")
+        lm = post_date(p, "modified") or git_date(p)
+        rows.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lm.date().isoformat()}</lastmod>\n    <priority>{PRIORITY.get(p, '0.8')}</priority>\n  </url>")
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(rows) + "\n</urlset>\n")
     items = []
-    for p in sorted(ps, key=lambda p: git_date(p), reverse=True):
+    when = {p: post_date(p) or git_date(p) for p in ps}  # posts use their real publish date
+    for p in sorted(ps, key=lambda p: when[p], reverse=True):
         s = read(p); loc = BASE if p == "index.html" else BASE + p
         items.append("    <item>\n"
                      f"      <title>{html.escape(meta(s, 'property', 'og:title') or title_of(s))}</title>\n"
                      f"      <link>{loc}</link>\n      <guid isPermaLink=\"true\">{loc}</guid>\n"
-                     f"      <pubDate>{format_datetime(git_date(p))}</pubDate>\n"
+                     f"      <pubDate>{format_datetime(when[p])}</pubDate>\n"
                      f"      <description>{html.escape(meta(s, 'name', 'description'))}</description>\n    </item>")
-    latest = max(git_date(p) for p in ps)
+    latest = max(when.values())
     write("feed.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n'
           "    <title>CyberWithMadhav</title>\n"
           f"    <link>{BASE}</link>\n"

@@ -396,36 +396,13 @@
       <ul class="dash">${lc.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`;
     else $('#law').remove();
     $('#projects').innerHTML = d.projects.map(p => `
-      <article class="card project reveal" data-repo="${esc(p.repo || '')}"><h3>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)} ↗</a>` : esc(p.name)} <span class="stars mono" hidden></span></h3>
+      <article class="card project reveal"><h3>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)} ↗</a>` : esc(p.name)}</h3>
         <p>${esc(p.body)}</p>
+        ${p.note ? `<p class="small muted project-note">${esc(p.note)}</p>` : ''}
         ${p.building ? `<p class="building"><span class="live">building</span> ${esc(p.building.replace(/^Now building:\s*/i, ''))}</p>` : ''}
         <div class="tags tags-row">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div></article>`).join('');
     observe($('#about'));
-    lazyStars();
   }
-  // GitHub star counts: fetched only when About is near the viewport, cached for 6h, shown only if > 0, fails silently.
-  function lazyStars() {
-    const cards = $$('.project[data-repo]').filter(c => c.dataset.repo);
-    if (!cards.length) return;
-    const run = () => cards.forEach(async c => {
-      const repo = c.dataset.repo, key = 'cwm-stars:' + repo;
-      let n = null;
-      try { const c0 = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c0 && Date.now() - c0.t < 216e5) n = c0.n; } catch (e) {}
-      if (n === null) {
-        try {
-          const r = await fetch(`https://api.github.com/repos/${repo}`, { headers: { Accept: 'application/vnd.github+json' } });
-          if (!r.ok) return;
-          n = (await r.json()).stargazers_count;
-          try { sessionStorage.setItem(key, JSON.stringify({ n, t: Date.now() })); } catch (e) {}
-        } catch (e) { return; }
-      }
-      if (typeof n === 'number' && n > 0) { const s = $('.stars', c); s.textContent = `★ ${n.toLocaleString('en-IN')}`; s.title = `${n} GitHub stars`; s.hidden = false; }
-    });
-    if (!('IntersectionObserver' in window)) return run();
-    const o = new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) { o.disconnect(); run(); } }, { rootMargin: '600px 0px' });
-    o.observe($('#projects'));
-  }
-
   /* ---------- banner ---------- */
   $('.alert-close').addEventListener('click', () => {
     document.documentElement.classList.add('no-banner');

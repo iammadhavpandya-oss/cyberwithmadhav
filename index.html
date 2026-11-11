@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en-IN" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CyberWithMadhav: Cybersecurity in Hinglish by Madhav Pandya</title>
-  <meta name="description" content="Cybersecurity in plain English and Hinglish by Madhav Pandya: free roadmap, cheat sheets, browser-only security tools and scam alerts for India.">
+  <meta name="description" content="Learn cybersecurity in plain English and Hinglish with Madhav Pandya. Free roadmap, CTF practice, cheat sheets, Indian cyber law and scam alerts.">
   <meta name="author" content="Madhav Pandya">
   <meta name="theme-color" content="#0D0B14">
   <meta name="cwm-version" content="3">
@@ -20,7 +20,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CyberWithMadhav">
+  <meta name="twitter:title" content="CyberWithMadhav: Cybersecurity in Hinglish by Madhav Pandya">
   <meta name="twitter:description" content="Cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets and scam alerts, made for India.">
   <meta name="twitter:image" content="https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/og-image.png">
   <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
@@ -30,6 +30,8 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
@@ -39,11 +41,10 @@
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/explore.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","@id":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/about.html#person","name":"Madhav Pandya","alternateName":"CyberWithMadhav","url":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/about.html","image":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/madhav.jpg","jobTitle":"Cybersecurity Educator and Founder, CyberWithMadhav","description":"Cybersecurity educator and founder of CyberWithMadhav, explaining cybersecurity and scam awareness in plain English and Hinglish.","address":{"@type":"PostalAddress","addressLocality":"Mumbai","addressRegion":"Maharashtra","addressCountry":"IN"},"alumniOf":{"@type":"EducationalOrganization","name":"KES Shri J.P. Law College"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/pandyamadhav/","https://www.instagram.com/cyberwithmadhav/","https://www.youtube.com/@cyberwithmadhav"]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"CyberWithMadhav","alternateName":"Madhav Pandya","url":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/"}
+  {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/#website","name":"CyberWithMadhav","alternateName":"Cyber With Madhav","url":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/","inLanguage":"en-IN","publisher":{"@id":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/#org"}},{"@type":"Organization","@id":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/#org","name":"CyberWithMadhav","url":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/","logo":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/apple-touch-icon.png","founder":{"@id":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/about.html#person"},"sameAs":["https://www.instagram.com/cyberwithmadhav/","https://www.youtube.com/@cyberwithmadhav","https://github.com/iammadhavpandya-oss"]}]}
   </script>
 </head>
 <body class="v3">
@@ -70,10 +71,12 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" aria-label="Primary">
-        <a href="index.html" class="nav-home active" aria-current="page">Home</a>
-        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>Explore</a>
-        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
+        <a href="index.html" class="nav-home active" aria-current="page"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
         <button class="pal-btn" type="button" id="palette-open" title="Search everything (Ctrl+K)"><span aria-hidden="true">⌘K</span><span class="sr-only">Open command palette (Ctrl+K)</span></button>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -93,13 +96,14 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow mono" id="whoami"><span class="prompt">$</span> whoami <span class="who-out" id="who-out">madhav@cyberwithmadhav</span><span class="cursor" aria-hidden="true">_</span></p>
-          <h1 id="hero-title">Cybersecurity in <span class="grad">plain English and Hinglish.</span></h1>
-          <p class="lead">Free roadmap, cheat sheets and scam alerts, made for India.</p>
+          <h1 id="hero-title" data-i18n="home.h1">Cybersecurity in <span class="grad">plain English and Hinglish.</span></h1>
+          <p class="lead" data-i18n="home.lead">Free roadmap, cheat sheets and scam alerts, made for India.</p>
+          <p class="hero-hing">Seekhna hai? Cyber security hinglish mein, bina jargon ke.</p>
           <div class="cta">
-            <a class="btn btn-primary" href="#roadmap">Start the roadmap →</a>
-            <a class="btn btn-ghost" href="explore.html">Explore all missions</a>
+            <a class="btn btn-primary" href="#roadmap" data-i18n="home.cta1">Start the roadmap →</a>
+            <a class="btn btn-ghost" href="explore.html" data-i18n="home.cta2">Explore all missions</a>
           </div>
-          <p class="proof mono" id="proof"><a href="#cheatsheets"><b data-count="entries">110</b> commands &amp; refs</a> · <a href="#cheatsheets"><b data-count="sheets">9</b> sheets</a> · <a href="#tools"><b data-count="tools">4</b> tools</a> · free forever</p>
+          <p class="proof mono" id="proof"><a href="#cheatsheets"><b data-count="entries">110</b> <span data-i18n="home.proof.entries">cheat sheet entries</span></a> · <a href="#cheatsheets"><b data-count="sheets">9</b> <span data-i18n="home.proof.sheets">sheets</span></a> · <a href="#tools"><b data-count="tools">4</b> <span data-i18n="home.proof.tools">tools</span></a> · <span data-i18n="home.proof.free">free</span></p>
         </div>
         <div class="term card" id="term" aria-label="Interactive demo terminal">
           <div class="term-bar">
@@ -133,10 +137,10 @@
         <header class="missions-head reveal">
           <div>
             <p class="kicker mono"><span class="prompt">$</span> ls ~/missions</p>
-            <h2 id="missions-title">Choose your mission</h2>
-            <p class="muted">Seekhna hai, khelna hai ya bachna hai? Ek card chuno aur launch karo.</p>
+            <h2 id="missions-title" data-i18n="home.missions.h">Choose your mission</h2>
+            <p class="muted" data-i18n="home.missions.p">Seekhna hai, khelna hai ya bachna hai? Ek card chuno aur launch karo.</p>
           </div>
-          <a class="btn" href="explore.html">Open mission control <span aria-hidden="true">→</span></a>
+          <a class="btn" href="explore.html" data-i18n="home.missions.btn">Open mission control <span aria-hidden="true">→</span></a>
         </header>
         <div class="mc-grid">
           <article class="mc-card t-green">
@@ -190,8 +194,8 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">01 / roadmap</p>
-          <h2 id="roadmap-title">Learning roadmap</h2>
-          <p class="muted">Go in order. Each stage lists what to learn, free resources, and projects that prove you can do it. Timelines vary from person to person. Consistency beats speed.</p>
+          <h2 id="roadmap-title" data-i18n="home.roadmap.h">Cybersecurity roadmap for beginners in India</h2>
+          <p class="muted" data-i18n="home.roadmap.p">Go in order. Each stage lists what to learn, free resources, and projects that prove you can do it. Timelines vary from person to person. Consistency beats speed.</p>
         </header>
         <div class="stage-tabs reveal" role="tablist" aria-label="Roadmap stage"></div>
         <div id="roadmap-panels"></div>
@@ -203,8 +207,8 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">02 / networking</p>
-          <h2 id="net-title">Networking concepts</h2>
-          <p class="muted">You can't secure what you don't understand. These are the fundamentals every security role builds on.</p>
+          <h2 id="net-title" data-i18n="home.net.h">Networking concepts</h2>
+          <p class="muted" data-i18n="home.net.p">You can't secure what you don't understand. These are the fundamentals every security role builds on.</p>
         </header>
 
         <div class="layers reveal" id="layers"></div>
@@ -218,8 +222,8 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">03 / cheat sheets</p>
-          <h2 id="cs-title">Cheat sheets</h2>
-          <p class="muted">Search, filter, copy, print. Tap any row to copy it, and hover or tap a <code>-flag</code> to see what it does. Only scan systems you own or have written permission to test.</p>
+          <h2 id="cs-title" data-i18n="home.cs.h">Free cybersecurity cheat sheets: Linux, networking, nmap</h2>
+          <p class="muted" data-i18n="home.cs.p">Search, filter, copy, print. Tap any row to copy it, and hover or tap a <code>-flag</code> to see what it does. Only scan systems you own or have written permission to test.</p>
         </header>
         <div class="cs-controls" id="cs-controls">
           <div class="cs-row">
@@ -237,6 +241,23 @@
         </div>
         <p class="muted small" id="cs-count" aria-live="polite"></p>
         <div id="cs-list" class="cs-list"></div>
+
+        <aside class="nl-card reveal" id="next-level" aria-labelledby="nl-title">
+          <div class="nl-sign" aria-hidden="true">
+            <span class="nl-bulb"></span>
+            <span class="nl-word nl-p">Next</span><span class="nl-word nl-g">level</span>
+          </div>
+          <div class="nl-copy">
+            <p class="kicker mono"><span class="nl-dot" aria-hidden="true"></span><span data-i18n="nl.kicker">unlocking soon</span></p>
+            <h3 id="nl-title" data-i18n="nl.title">Next level: premium cheat sheets, unlocking soon</h3>
+            <p class="muted" data-i18n="nl.body">Deeper, print ready cheat sheets for people who want to go beyond the basics are in the works. Follow along on YouTube or Instagram to hear first when they unlock.</p>
+            <div class="nl-cta">
+              <span class="nl-lock mono" data-i18n="nl.lock">🔒 Locked for now</span>
+              <a class="btn btn-ghost small" href="https://www.youtube.com/@cyberwithmadhav" target="_blank" rel="me noopener" data-i18n="nl.yt">Follow on YouTube</a>
+              <a class="btn btn-ghost small" href="https://www.instagram.com/cyberwithmadhav/" target="_blank" rel="me noopener" data-i18n="nl.ig">Follow on Instagram</a>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -245,7 +266,7 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">04 / tools</p>
-          <h2 id="tools-title">Tools</h2>
+          <h2 id="tools-title" data-i18n="home.tools.h">Free browser-only security tools</h2>
           <p class="muted" id="tools-note">Educational tools. Everything runs in your browser: nothing you type is sent anywhere or saved.</p>
         </header>
         <div class="tool-tabs" role="tablist" aria-label="Choose a tool" hidden>
@@ -316,8 +337,8 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">05 / careers</p>
-          <h2 id="careers-title">Job paths</h2>
-          <p class="muted">What each role actually does, the skills that matter, and certifications commonly seen in job posts. Certs help you get shortlisted; projects and fundamentals get you hired.</p>
+          <h2 id="careers-title" data-i18n="home.careers.h">Cybersecurity career paths in India</h2>
+          <p class="muted" data-i18n="home.careers.p">What each role actually does, the skills that matter, and certifications commonly seen in job posts. Certs help you get shortlisted; projects and fundamentals get you hired.</p>
         </header>
         <div class="grid jobs" id="jobs"></div>
         <p class="muted small reveal" id="jobs-note"></p>
@@ -329,14 +350,15 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">06 / stay safe</p>
-          <h2 id="aw-title">Cyber awareness for everyone</h2>
-          <p class="muted">Share this with your family. Most scams work by creating panic or greed, so slow down and verify.</p>
+          <h2 id="aw-title" data-i18n="home.aw.h">Scam awareness for every family in India</h2>
+          <p class="muted" data-i18n="home.aw.p">Share this with your family. Most scams work by creating panic or greed, so slow down and verify.</p>
+          <p class="small" data-i18n="home.aw.links">Read the <a href="blog-digital-arrest-scam-india.html">digital arrest scam guide</a>, browse the <a href="scams.html">Scam Encyclopedia</a> or get the <a href="cyberlaw.html">IT Act and DPDP explained</a>.</p>
         </header>
         <div class="helpline reveal" role="note">
           <div>
-            <p class="mono small kicker">Been scammed? Act fast.</p>
+            <p class="mono small kicker" data-i18n="home.help.k">Been scammed? Act fast.</p>
             <p class="helpline-big">Call <a href="tel:1930">1930</a></p>
-            <p class="muted">National Cyber Crime Helpline. Report online at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>. Reporting quickly, ideally within hours, improves the chance of freezing money in transit.</p>
+            <p class="muted" data-i18n="home.help.p">National Cyber Crime Helpline. Report online at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>. Reporting quickly, ideally within hours, improves the chance of freezing money in transit. Step by step: <a href="blog-report-cyber-fraud-india.html">how to report cyber fraud in India</a>.</p>
           </div>
         </div>
         <div class="grid scams" id="scams"></div>
@@ -344,14 +366,47 @@
       </div>
     </section>
 
+    <!-- blog:start -->
+    <section id="blog-latest" class="section" aria-labelledby="blog-latest-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker mono">latest / blog</p>
+          <h2 id="blog-latest-title" data-i18n="home.blog.h">Latest from the blog</h2>
+          <p class="muted" data-i18n="home.blog.p">Step by step guides on scams and cyber law, with official sources, in plain English and Hinglish.</p>
+        </header>
+        <div class="bp-grid">
+        <article class="bp-card" data-cat="Scam awareness">
+          <p class="bp-cat mono" data-i18n="cat.scam-awareness">Scam awareness</p>
+          <h3 class="bp-card-t"><a href="blog-upi-scams-india.html" data-i18n="blogpost.upi-scams-india.t">UPI Scams Explained: Collect Requests, Fake QR Codes and Refund Tricks</a></h3>
+          <p class="muted small" data-i18n="blogpost.upi-scams-india.d">Almost every UPI scam relies on one confusion: thinking you need to scan, approve or enter your PIN to receive money. You never do.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-11">11 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Scam awareness">
+          <p class="bp-cat mono" data-i18n="cat.scam-awareness">Scam awareness</p>
+          <h3 class="bp-card-t"><a href="blog-report-cyber-fraud-india.html" data-i18n="blogpost.report-cyber-fraud-india.t">How to Report Cyber Fraud in India: 1930 and cybercrime.gov.in, Step by Step</a></h3>
+          <p class="muted small" data-i18n="blogpost.report-cyber-fraud-india.d">If money has left your account because of a scam, the order of steps matters. Here is what to do, in order, with the official links.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-11">11 November 2026</time> · 5 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Scam awareness">
+          <p class="bp-cat mono" data-i18n="cat.scam-awareness">Scam awareness</p>
+          <h3 class="bp-card-t"><a href="blog-digital-arrest-scam-india.html" data-i18n="blogpost.digital-arrest-scam-india.t">Digital Arrest Scam: What It Is and What To Do</a></h3>
+          <p class="muted small" data-i18n="blogpost.digital-arrest-scam-india.d">There is no such thing as a digital arrest in Indian law. Here is how the scam works, how to spot it, and what to do if you or a family member gets the call.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-11">11 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        </div>
+        <p class="bp-all"><a class="btn btn-ghost small" href="blog.html" data-i18n="home.blog.all">All blog posts →</a></p>
+      </div>
+    </section>
+    <!-- blog:end -->
+
     <!-- ABOUT -->
     <section id="about" class="section" aria-labelledby="about-title">
       <div class="wrap about">
         <header class="section-head reveal">
           <p class="kicker mono">07 / about · Madhav Pandya</p>
           <h2 id="about-title">Madhav Pandya: cybersecurity educator studying BCA and law, explaining cybersecurity in Hinglish.</h2>
-          <p class="muted">Hi, I'm <a href="about.html">Madhav Pandya</a>, from Mumbai, and the founder of CyberWithMadhav. I explain cybersecurity and scam awareness in plain English and Hinglish.</p>
-          <p><a class="btn btn-primary small" href="about.html">Read the full About Madhav Pandya page</a></p>
+          <p class="muted" data-i18n="home.about.p">Hi, I'm <a href="about.html">Madhav Pandya</a>, from Mumbai, and the founder of CyberWithMadhav. I explain cybersecurity and scam awareness in plain English and Hinglish.</p>
+          <p><a class="btn btn-primary small" href="about.html" data-i18n="home.about.btn">Read the full About Madhav Pandya page</a></p>
         </header>
         <div class="about-grid">
           <aside class="about-card card reveal">
@@ -391,8 +446,8 @@
             </div>
             <div class="book-copy">
               <p class="kicker mono">coming soon</p>
-              <h3>My cybersecurity book is on the way</h3>
-              <p class="muted">I am writing a beginner-friendly cybersecurity book. Follow me on YouTube and Instagram for launch updates.</p>
+              <h3 data-i18n="book.h">My cybersecurity book is on the way</h3>
+              <p class="muted" data-i18n="book.p">I am writing a beginner-friendly cybersecurity book. Follow me on YouTube and Instagram for launch updates.</p>
               <div class="ab-cta">
                 <a class="btn btn-primary small" href="https://www.youtube.com/@cyberwithmadhav" target="_blank" rel="me noopener">Follow on YouTube</a>
                 <a class="btn btn-ghost small" href="https://www.instagram.com/cyberwithmadhav/" target="_blank" rel="me noopener">Follow on Instagram</a>
@@ -408,8 +463,8 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker mono">08 / connect</p>
-          <h2 id="contact-title">Say hello</h2>
-          <p class="muted">Questions, corrections or a scam you want explained? Write to <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>. This site has no mailing list and stores nothing you type here.</p>
+          <h2 id="contact-title" data-i18n="home.contact.h">Say hello</h2>
+          <p class="muted" data-i18n="home.contact.p">Questions, corrections or a scam you want explained? Write to <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>. This site has no mailing list and stores nothing you type here.</p>
         </header>
         <div class="grid two">
           <form class="card form reveal" id="contact-form" data-mailto="mailto:madhavpandya@zoho.in" novalidate>
@@ -441,13 +496,13 @@
   <footer class="footer">
     <div class="wrap">
       <div class="ethics card">
-        <h2 class="h4">⚖️ Ethics &amp; legal</h2>
-        <p>Everything here is for <strong>learning and defence</strong>. Only test systems you own or have explicit written authorisation to test. Unauthorised access, data theft or damage to computer systems is an offence in India under the <strong>Information Technology Act, 2000</strong> (e.g. Sections 43 and 66) and can lead to fines and imprisonment. Use labs like TryHackMe, Hack The Box and PortSwigger Academy to practise legally.</p>
+        <h2 class="h4" data-i18n="foot.ethics.h">⚖️ Ethics &amp; legal</h2>
+        <p data-i18n="foot.ethics.p">Everything here is for <strong>learning and defence</strong>. Only test systems you own or have explicit written authorisation to test. Unauthorised access, data theft or damage to computer systems is an offence in India under the <strong>Information Technology Act, 2000</strong> (e.g. Sections 43 and 66) and can lead to fines and imprisonment. Use labs like TryHackMe, Hack The Box and PortSwigger Academy to practise legally.</p>
       </div>
-      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is.</p>
-        <p class="small"><a href="about.html">About Madhav Pandya</a> · <a href="#top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>

@@ -33,10 +33,10 @@ SPECS = [
      "body": "game-page", "css": ["pages.css", "features.css", "game.css"], "js": ["game.js"],
      "foot": "For awareness and learning only. Messages are made up examples."},
     {"file": "about.html", "title": "Madhav Pandya | Cybersecurity Educator, Mumbai, India",
-     "desc": "Madhav Pandya is a cybersecurity educator in Mumbai, explaining scams and cyber law in plain English and Hinglish.",
+     "desc": "Madhav Pandya is a cybersecurity educator in Mumbai and founder of CyberWithMadhav. Scams, cyber law and online safety in plain English and Hinglish.",
      "og": "Madhav Pandya | Cybersecurity Educator, Mumbai, India",
      "ogdesc": "Cybersecurity educator and founder of CyberWithMadhav. Cybersecurity and scam awareness in plain English and Hinglish.",
-     "keywords": "Madhav Pandya, Madhav Pandya cybersecurity, CyberWithMadhav, Madhav Pandya Mumbai, KES Shri J.P. Law College, cybersecurity educator India, scam awareness Hinglish, cyber law India",
+     "keywords": "",
      "body": "about-page", "css": ["pages.css"], "js": [], "ogtype": "profile",
      "head": "about.head.html", "foot": "Content is for awareness and education, not legal advice."},
 ]
@@ -55,13 +55,20 @@ def shell():
 
 def build(spec, head, nav, foot, tail):
     main = ROOT / "tools" / "pages" / spec["file"].replace(".html", ".main.html")
-    if not main.exists():
+    if "main" in spec:  # generated pages (blog) pass their <main> directly
+        main_html = spec["main"]
+    elif not main.exists():
         print("skip", spec["file"], "(no", main.name + ")"); return
+    else:
+        main_html = main.read_text(encoding="utf-8")
     url = BASE + spec["file"]
     h = head
     h = re.sub(r"<title>.*?</title>", "<title>" + html.escape(spec["title"], quote=False) + "</title>", h)
     h = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + html.escape(spec["desc"]), h)
-    h = re.sub(r'(<meta name="keywords" content=")[^"]*', lambda m: m.group(1) + html.escape(spec["keywords"]), h)
+    if spec.get("keywords"):
+        h = re.sub(r'(<meta name="keywords" content=")[^"]*', lambda m: m.group(1) + html.escape(spec["keywords"]), h)
+    else:  # Google ignores meta keywords; pages without a list drop the tag
+        h = re.sub(r'\n\s*<meta name="keywords" content="[^"]*">', "", h)
     h = re.sub(r'(<link rel="canonical" href=")[^"]*', lambda m: m.group(1) + url, h)
     h = re.sub(r'(<meta property="og:url" content=")[^"]*', lambda m: m.group(1) + url, h)
     for k in ("og:title", "twitter:title"):
@@ -72,6 +79,8 @@ def build(spec, head, nav, foot, tail):
         h = re.sub(r'(<meta property="og:type" content=")[^"]*', lambda m: m.group(1) + spec["ogtype"], h)
     if spec.get("head"):  # extra head tags (profile meta, JSON-LD) from tools/pages/<head file>
         h = h.replace("\n</head>\n", "\n" + (ROOT / "tools" / "pages" / spec["head"]).read_text(encoding="utf-8").rstrip() + "\n</head>\n", 1)
+    if spec.get("head_html"):  # extra head tags passed directly (blog)
+        h = h.replace("\n</head>\n", "\n" + spec["head_html"].rstrip() + "\n</head>\n", 1)
     h = h.replace('  <link rel="stylesheet" href="assets/css/pages.css">\n',
                   "".join(f'  <link rel="stylesheet" href="assets/css/{c}">\n' for c in spec["css"]))
     n = nav.replace(f'<a href="{spec["file"]}">', f'<a href="{spec["file"]}" class="active" aria-current="page">')
@@ -81,7 +90,7 @@ def build(spec, head, nav, foot, tail):
     page = (h + f'<body class="v3 {spec["body"]}">\n  <div class="space" aria-hidden="true">\n'
             '    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>\n'
             '    <canvas id="starfield"></canvas>\n  </div>\n  <a class="skip" href="#main">Skip to content</a>\n\n'
-            + n + "\n" + main.read_text(encoding="utf-8").rstrip() + "\n\n" + f + "\n" + tail + scripts + "</body>\n</html>\n")
+            + n + "\n" + main_html.rstrip() + "\n\n" + f + "\n" + tail + scripts + "</body>\n</html>\n")
     out = ROOT / spec["file"]
     old = out.read_text(encoding="utf-8") if out.exists() else ""
     # keep what build_site.py and csp_hash.py add later, so re-running this does not churn the file

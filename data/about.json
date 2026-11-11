@@ -92,7 +92,7 @@
         "CLI + web UI"
       ],
       "building": "Now building: tuning the India-specific clue tables on real photos.",
-      "repo": "iammadhavpandya-oss/geoimg-osint"
+      "note": "Ethics: use it only on your own images or with the owner's consent, never to locate or track private individuals."
     },
     {
       "name": "homelab-toolkit",
@@ -103,13 +103,12 @@
         "Blue team",
         "Homelab"
       ],
-      "building": "Now building: more safe, local-only checks for a home lab.",
-      "repo": "iammadhavpandya-oss/homelab-toolkit"
+      "building": "Now building: more safe, local-only checks for a home lab."
     }
   ],
   "headline": "Madhav Pandya: cybersecurity educator studying BCA and law, explaining cybersecurity in Hinglish.",
   "lawCallout": {
-    "title": "Why law + tech",
+    "title": "Why I study law alongside cybersecurity",
     "body": "Most security content explains how attacks work. Studying law means I also look at what the law says about them, and what organisations must do to comply.",
     "points": [
       "IT Act, 2000: unauthorised access (civil wrong under s.43; offence under s.66 if done dishonestly or fraudulently), identity theft (s.66C) and cheating by impersonation (s.66D)",

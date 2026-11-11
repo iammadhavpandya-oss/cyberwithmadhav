@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en-IN" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +31,8 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
@@ -62,9 +64,11 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" aria-label="Primary">
-        <a href="index.html" class="nav-home">Home</a>
-        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>Explore</a>
-        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -106,14 +110,27 @@
         <noscript><p class="empty">Turn on JavaScript to search, or open <a href="data/scams.json">data/scams.json</a>. In an emergency call 1930.</p></noscript>
       </div>
     </section>
+    <!-- blog-related:start -->
+    <section class="section bp-hub" aria-labelledby="hub-rel-h">
+      <div class="wrap">
+        <h2 id="hub-rel-h" class="h3" data-i18n="blog.related">Related guides</h2>
+        <ul class="bp-hub-list">
+          <li><a href="blog-upi-scams-india.html" data-i18n="blogpost.upi-scams-india.t">UPI Scams Explained: Collect Requests, Fake QR Codes and Refund Tricks</a></li>
+          <li><a href="blog-report-cyber-fraud-india.html" data-i18n="blogpost.report-cyber-fraud-india.t">How to Report Cyber Fraud in India: 1930 and cybercrime.gov.in, Step by Step</a></li>
+          <li><a href="blog-digital-arrest-scam-india.html" data-i18n="blogpost.digital-arrest-scam-india.t">Digital Arrest Scam: What It Is and What To Do</a></li>
+        </ul>
+        <p class="small"><a href="blog.html" data-i18n="home.blog.all">All blog posts →</a></p>
+      </div>
+    </section>
+    <!-- blog-related:end -->
   </main>
 
   <footer class="footer">
     <div class="wrap">
-      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. For learning and defensive or authorised work only.</p>
-        <p class="small"><a href="about.html">About Madhav Pandya</a> · <a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>
