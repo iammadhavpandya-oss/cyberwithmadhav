@@ -36,9 +36,15 @@ async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
 for (const pg of PAGES) {
   const h = await (await fetch(BASE + pg)).text();
   const has = re => re.test(h);
-  ok(`${pg}: og:image 1200x630 + twitter:image + manifest + touch icon`,
-    has(/property="og:image" content="https:\/\/iammadhavpandya-oss\.github\.io\/cyberwithmadhav\/assets\/img\/og-image\.png"/) && has(/og:image:width" content="1200"/) && has(/og:image:height" content="630"/)
-    && has(/name="twitter:card" content="summary_large_image"/) && has(/name="twitter:image" content="https:[^"]+og-image\.png"/) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));
+  if (pg === 'about.html') {
+    ok(`${pg}: og:image madhav.jpg 600x800 + twitter:image + manifest + touch icon`,
+      has(/property="og:image" content="https:\/\/iammadhavpandya-oss\.github\.io\/cyberwithmadhav\/assets\/img\/madhav\.jpg"/) && has(/og:image:width" content="600"/) && has(/og:image:height" content="800"/)
+      && has(/name="twitter:card" content="summary_large_image"/) && has(/name="twitter:image" content="https:[^"]+madhav\.jpg"/) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));
+  } else {
+    ok(`${pg}: og:image 1200x630 + twitter:image + manifest + touch icon`,
+      has(/property="og:image" content="https:\/\/iammadhavpandya-oss\.github\.io\/cyberwithmadhav\/assets\/img\/og-image\.png"/) && has(/og:image:width" content="1200"/) && has(/og:image:height" content="630"/)
+      && has(/name="twitter:card" content="summary_large_image"/) && has(/name="twitter:image" content="https:[^"]+og-image\.png"/) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));
+  }
   ok(`${pg}: pwa.js${pg === 'index.html' ? '' : ' + search.js'} loaded`, has(/assets\/js\/pwa\.js/) && (pg === 'index.html' || has(/assets\/js\/search\.js/)));
 }
 { const r = await fetch(BASE + 'assets/img/og-image.png'); const b = Buffer.from(await r.arrayBuffer());

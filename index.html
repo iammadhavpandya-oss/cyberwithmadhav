@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/explore.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","@id":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/about.html#person","name":"Madhav Pandya","alternateName":"CyberWithMadhav","url":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/about.html","jobTitle":"Cybersecurity Educator and Founder, CyberWithMadhav","description":"Cybersecurity educator and founder of CyberWithMadhav, explaining cybersecurity and scam awareness in plain English and Hinglish.","address":{"@type":"PostalAddress","addressLocality":"Mumbai","addressRegion":"Maharashtra","addressCountry":"IN"},"alumniOf":{"@type":"EducationalOrganization","name":"KES Shri J.P. Law College"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/madhav-pandya-55b809364"]}
+  {"@context":"https://schema.org","@type":"Person","@id":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/about.html#person","name":"Madhav Pandya","alternateName":"CyberWithMadhav","url":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/about.html","image":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/assets/img/madhav.jpg","jobTitle":"Cybersecurity Educator and Founder, CyberWithMadhav","description":"Cybersecurity educator and founder of CyberWithMadhav, explaining cybersecurity and scam awareness in plain English and Hinglish.","address":{"@type":"PostalAddress","addressLocality":"Mumbai","addressRegion":"Maharashtra","addressCountry":"IN"},"alumniOf":{"@type":"EducationalOrganization","name":"KES Shri J.P. Law College"},"sameAs":["https://github.com/iammadhavpandya-oss","https://www.linkedin.com/in/pandyamadhav/","https://www.instagram.com/cyberwithmadhav/","https://www.youtube.com/@cyberwithmadhav"]}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"CyberWithMadhav","alternateName":"Madhav Pandya","url":"https://iammadhavpandya-oss.github.io/cyberwithmadhav/"}
@@ -355,9 +355,12 @@
         </header>
         <div class="about-grid">
           <aside class="about-card card reveal">
-            <div class="photo avatar" role="img" aria-label="Madhav Pandya">
+            <div class="photo avatar">
               <span class="av-ring" aria-hidden="true"></span>
-              <span class="av-initials" aria-hidden="true">MP</span>
+              <picture>
+                <source type="image/webp" srcset="assets/img/madhav-square.webp">
+                <img src="assets/img/madhav-square.jpg" width="400" height="400" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="lazy" decoding="async">
+              </picture>
             </div>
             <p class="about-loc muted">📍 Mumbai, Maharashtra, India</p>
             <p id="about-bio"></p>
@@ -369,6 +372,32 @@
             <aside class="law card reveal" id="law" aria-labelledby="law-title"></aside>
             <h3 class="reveal">Projects</h3>
             <div class="grid projects" id="projects"></div>
+          </div>
+        </div>
+
+        <div class="book-teaser book-teaser-home card reveal" id="book">
+          <div class="ab-book ab-book-home">
+            <div class="book-stage" aria-hidden="true">
+              <div class="book-3d book-3d-sm">
+                <div class="book-spine"></div>
+                <div class="book-pages"></div>
+                <div class="book-cover">
+                  <span class="book-badge">Coming soon</span>
+                  <span class="book-brand">CyberWithMadhav</span>
+                  <span class="book-placeholder">Cybersecurity</span>
+                  <span class="book-author">by Madhav Pandya</span>
+                </div>
+              </div>
+            </div>
+            <div class="book-copy">
+              <p class="kicker mono">coming soon</p>
+              <h3>My cybersecurity book is on the way</h3>
+              <p class="muted">I am writing a beginner-friendly cybersecurity book. Follow me on YouTube and Instagram for launch updates.</p>
+              <div class="ab-cta">
+                <a class="btn btn-primary small" href="https://www.youtube.com/@cyberwithmadhav" target="_blank" rel="me noopener">Follow on YouTube</a>
+                <a class="btn btn-ghost small" href="https://www.instagram.com/cyberwithmadhav/" target="_blank" rel="me noopener">Follow on Instagram</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -399,8 +428,8 @@
             <h3>Follow</h3>
             <p class="muted">New cheat sheets, scam alerts and CTF levels will be shared on these channels.</p>
             <ul class="links follow-links" id="follow-links">
-              <li><span class="soon"><span>Instagram</span><span class="muted small">coming soon</span></span></li>
-              <li><span class="soon"><span>YouTube</span><span class="muted small">coming soon</span></span></li>
+              <li><a href="https://www.instagram.com/cyberwithmadhav/" target="_blank" rel="me noopener"><span>Follow on Instagram</span><span class="muted small">instagram.com/cyberwithmadhav</span></a></li>
+              <li><a href="https://www.youtube.com/@cyberwithmadhav" target="_blank" rel="me noopener"><span>Follow on YouTube</span><span class="muted small">youtube.com/@cyberwithmadhav</span></a></li>
             </ul>
             <p class="small muted">Prefer a reader app? Subscribe to the <a href="feed.xml">RSS feed</a>.</p>
           </div>

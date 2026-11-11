@@ -216,7 +216,7 @@ await page.click('#tab-beginner');
 
 // counts
 const counts = await page.evaluate(() => ({ jobs: document.querySelectorAll('.job').length, scams: document.querySelectorAll('.scam').length, net: document.querySelectorAll('.net-card').length, tl: document.querySelectorAll('#timeline li').length, proj: document.querySelectorAll('.project').length }));
-ok('jobs=7, scams>=5, net cards, timeline, projects', counts.jobs===7 && counts.scams>=5 && counts.net>=10 && counts.tl===7 && counts.proj===2, JSON.stringify(counts));
+ok('jobs=7, scams>=5, net cards, timeline, projects', counts.jobs===7 && counts.scams>=5 && counts.net>=10 && counts.tl===8 && counts.proj===2, JSON.stringify(counts));
 
 // about
 await page.evaluate(() => document.querySelector('#projects').scrollIntoView()); await sleep(800);
@@ -224,7 +224,7 @@ const ab = await page.evaluate(() => ({ h2: document.querySelector('#about-title
   building: document.querySelectorAll('.project .building').length, stars: [...document.querySelectorAll('.project .stars')].map(s => s.hidden ? '-' : s.textContent) }));
 ok('about headline', ab.h2 === 'Madhav Pandya: cybersecurity educator studying BCA and law, explaining cybersecurity in Hinglish.');
 ok('law callout: IT Act, DPDP 2023, GRC', /IT Act/.test(ab.law) && /DPDP\)? Act,? 2023/.test(ab.law) && /GRC/.test(ab.law), ab.law.slice(0, 80));
-ok('Instagram/YouTube hidden until URL set', !ab.links.some(t => /Instagram|YouTube/.test(t)) && ab.links.some(t => /GitHub/.test(t)), ab.links.join(','));
+ok('Instagram, YouTube, LinkedIn and GitHub in about links', ['Instagram','YouTube','LinkedIn','GitHub'].every(n => ab.links.some(t => t.includes(n))), ab.links.join(','));
 ok('projects: building notes + stars only when > 0', ab.building === 2 && ab.stars[0] === '★ 3' && ab.stars[1] === '-', JSON.stringify(ab.stars));
 
 // contact form composes a mailto: link (no backend on GitHub Pages); no newsletter form
@@ -235,8 +235,8 @@ await page.type('#c-name', 'Test User'); await page.type('#c-subject', 'Hi'); aw
 await page.click('#contact-form button[type=submit]');
 { const m = await page.$eval('#contact-form', f => f.dataset.mailto || '');
   ok('contact form → mailto with subject and body', m.startsWith('mailto:madhavpandya@zoho.in?subject=Hi&body=') && m.includes('Test%20User'), m.slice(0, 80)); }
-ok('follow card: Instagram and YouTube coming soon, no fake URLs', await page.$$eval('#follow-links li', li => li.length === 2 && li.every(x => /coming soon/.test(x.textContent) && !x.querySelector('a'))));
-ok('initials avatar, no TODO', await page.evaluate(() => !!document.querySelector('.photo.avatar .av-initials') && !/TODO/.test(document.body.innerHTML)));
+ok('follow card: Instagram and YouTube profile links', await page.$$eval('#follow-links a', a => a.length === 2 && a.every(x => /instagram\.com\/cyberwithmadhav|youtube\.com\/@cyberwithmadhav/.test(x.href) && /\bme\b/.test(x.getAttribute('rel') || ''))));
+ok('photo avatar, no initials or TODO', await page.evaluate(() => { const img = document.querySelector('.photo.avatar img'); return img && /madhav-square\.jpg$/.test(img.getAttribute('src') || '') && img.alt === 'Madhav Pandya, cybersecurity educator from Mumbai' && !document.querySelector('.photo.avatar .av-initials') && !/TODO/.test(document.body.innerHTML); }));
 await page.$$eval('.form-status', s => s.forEach(x => { x.textContent=''; x.className='form-status small'; }));
 
 // theme toggle

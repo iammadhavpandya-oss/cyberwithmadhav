@@ -383,10 +383,10 @@
     // Links without a URL (e.g. Instagram/YouTube not set yet) are simply not shown.
     const fl = $('#follow-links');
     if (fl) fl.innerHTML = d.links.filter(l => /^(Instagram|YouTube)$/.test(l.label)).map(l => /^https:\/\//.test(l.url)
-      ? `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span>Follow on ${esc(l.label)}</span><span class="muted small">↗</span></a></li>`
+      ? `<li><a href="${esc(l.url)}" target="_blank" rel="me noopener"><span>Follow on ${esc(l.label)}</span><span class="muted small">${esc(l.display || '↗')}</span></a></li>`
       : `<li><span class="soon"><span>${esc(l.label)}</span><span class="muted small">coming soon</span></span></li>`).join('');
     $('#about-links').innerHTML = d.links.filter(l => l.url).map(l =>
-      `<li><a href="${esc(l.url)}" ${l.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}><span>${esc(l.label)}</span><span class="muted small">${esc(l.display || '↗')}</span></a></li>`).join('');
+      `<li><a href="${esc(l.url)}" ${l.url.startsWith('http') ? 'target="_blank" rel="me noopener"' : ''}><span>${esc(l.label)}</span><span class="muted small">${esc(l.display || '↗')}</span></a></li>`).join('');
     $('#timeline').innerHTML = d.timeline.map(t => `
       <li class="reveal${t.now ? ' now' : ''}${t.law ? ' law-item' : ''}"><span class="when">${esc(t.when)}${t.now ? ' <span class="live">live</span>' : ''}</span>
         <h3>${esc(t.title)}${t.law ? ' <a class="tag law-tag" href="#law">cyber law · GRC ↓</a>' : ''}</h3><p>${esc(t.body)}</p>

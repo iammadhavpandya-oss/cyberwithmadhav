@@ -97,9 +97,13 @@ def patch_page(p):
     # social image tags: drop old ones, then add one consistent block after og:locale (or og:url)
     s = re.sub(r'\n\s*<meta (?:property="og:image(?::[a-z]+)?"|name="twitter:image(?::alt)?") content="[^"]*">', "", s)
     title, desc = meta(s, "property", "og:title") or title_of(s), meta(s, "property", "og:description") or meta(s, "name", "description")
-    social = (f'\n  <meta property="og:image" content="{OG_IMG}">'
-              '\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">'
-              f'\n  <meta property="og:image:alt" content="{html.escape(OG_ALT)}">')
+    if p == "about.html":
+        og_img, og_w, og_h, og_alt = BASE + "assets/img/madhav.jpg", "600", "800", "Madhav Pandya, cybersecurity educator from Mumbai"
+    else:
+        og_img, og_w, og_h, og_alt = OG_IMG, "1200", "630", OG_ALT
+    social = (f'\n  <meta property="og:image" content="{og_img}">'
+              f'\n  <meta property="og:image:width" content="{og_w}">\n  <meta property="og:image:height" content="{og_h}">'
+              f'\n  <meta property="og:image:alt" content="{html.escape(og_alt)}">')
     anchor = re.search(r'\n\s*<meta property="og:locale"[^>]*>', s) or re.search(r'\n\s*<meta property="og:url"[^>]*>', s)
     s = s[:anchor.end()] + social + s[anchor.end():]
     if 'name="twitter:card"' not in s:
@@ -108,7 +112,7 @@ def patch_page(p):
               f'\n  <meta name="twitter:description" content="{html.escape(desc)}">')
         a = s.index(social) + len(social); s = s[:a] + tw + s[a:]
     m = re.search(r'\n\s*<meta name="twitter:description"[^>]*>', s)
-    s = s[:m.end()] + f'\n  <meta name="twitter:image" content="{OG_IMG}">\n  <meta name="twitter:image:alt" content="{html.escape(OG_ALT)}">' + s[m.end():]
+    s = s[:m.end()] + f'\n  <meta name="twitter:image" content="{og_img}">\n  <meta name="twitter:image:alt" content="{html.escape(og_alt)}">' + s[m.end():]
     # manifest and touch icon after the favicon
     s = re.sub(r'\n\s*<link rel="(?:manifest|apple-touch-icon)"[^>]*>', "", s)
     s = s.replace('<link rel="icon" type="image/svg+xml" href="favicon.svg">',
@@ -217,7 +221,11 @@ def service_worker():
         for name in re.findall(r'url\(\.\./fonts/([^)]+)\)', fonts_css.read_text(encoding="utf-8")):
             assets.append("assets/fonts/" + name)
         assets = sorted(set(assets))
-    core = ["./"] + ps + assets + ["manifest.json", "favicon.svg", "assets/img/icon-192.png", "assets/img/apple-touch-icon.png", "data/search.json"]
+    imgs = ["assets/img/icon-192.png", "assets/img/apple-touch-icon.png"]
+    for extra in ("assets/img/madhav.jpg", "assets/img/madhav-square.jpg", "assets/img/madhav.webp", "assets/img/madhav-square.webp"):
+        if (ROOT / extra).exists():
+            imgs.append(extra)
+    core = ["./"] + ps + assets + ["manifest.json", "favicon.svg"] + imgs + ["data/search.json"]
     h = hashlib.sha256()
     for f in sorted(set(ps + assets + ["manifest.json", "data/search.json"])):
         fp = ROOT / f

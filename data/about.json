@@ -5,11 +5,13 @@
   "links": [
     {
       "label": "GitHub",
-      "url": "https://github.com/iammadhavpandya-oss"
+      "url": "https://github.com/iammadhavpandya-oss",
+      "display": "github.com/iammadhavpandya-oss"
     },
     {
       "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/madhav-pandya-55b809364"
+      "url": "https://www.linkedin.com/in/pandyamadhav/",
+      "display": "linkedin.com/in/pandyamadhav"
     },
     {
       "label": "Email",
@@ -18,13 +20,13 @@
     },
     {
       "label": "Instagram",
-      "url": "",
-      "note": "Hidden on the site until url is set"
+      "url": "https://www.instagram.com/cyberwithmadhav/",
+      "display": "instagram.com/cyberwithmadhav"
     },
     {
       "label": "YouTube",
-      "url": "",
-      "note": "Hidden on the site until url is set"
+      "url": "https://www.youtube.com/@cyberwithmadhav",
+      "display": "youtube.com/@cyberwithmadhav"
     }
   ],
   "timeline": [
@@ -58,6 +60,12 @@
       "when": "Certified",
       "title": "Oracle Cloud Infrastructure AI Associate",
       "body": "Oracle certification on AI and machine learning services in Oracle Cloud Infrastructure.",
+      "metric": ""
+    },
+    {
+      "when": "Certified",
+      "title": "Oracle Virtualization, Jetking",
+      "body": "Certification in Oracle Virtualization from Jetking.",
       "metric": ""
     },
     {
@@ -111,8 +119,7 @@
     ]
   },
   "_todo": [
-    "Add real numbers only if Madhav provides them: set timeline[].metric (e.g. followers, videos published, users supported). Empty metric = hidden.",
-    "Instagram and YouTube: set links[].url to show those rows.",
-    "Photo: assets/img/madhav.jpg"
-  ]
+    "Add real numbers only if Madhav provides them: set timeline[].metric (e.g. followers, videos published, users supported). Empty metric = hidden."
+  ],
+  "photo": "assets/img/madhav.jpg"
 }
