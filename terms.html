@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en-IN" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +30,8 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
@@ -37,7 +39,7 @@
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/legal.css">
 </head>
@@ -58,9 +60,11 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" aria-label="Primary">
-        <a href="index.html" class="nav-home">Home</a>
-        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>Explore</a>
-        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -80,7 +84,8 @@
         <p class="kicker mono"><span class="prompt">$</span> cat terms.md</p>
         <h1 id="legal-title">Terms and Conditions</h1>
         <p class="lead">Please read these terms before using CyberWithMadhav. They explain what the site is for, how you may use its content, and the limits of our responsibility.</p>
-        <p class="legal-meta small muted">Last updated: <time datetime="2026-11-01">1 November 2026</time> · Version 2 · <a href="privacy.html">Read the Privacy Policy</a></p>
+        <p class="legal-meta small muted">Last updated: <time datetime="2026-11-11">11 November 2026</time> · Version 3 · <a href="privacy.html">Read the Privacy Policy</a></p>
+        <p class="legal-hi-note small" data-lang-only="hi">Ye page sirf English mein hai. Hinglish mode sirf baaki site ke liye hai, aur agar kisi bhi translation aur is English text mein fark ho, to English version hi maana jayega.</p>
       </div>
     </section>
 
@@ -92,6 +97,7 @@
             <li><a href="#educational">Educational purpose only</a></li>
             <li><a href="#accuracy">No guarantee of accuracy</a></li>
             <li><a href="#authorised-use">Authorised and ethical use only</a></li>
+            <li><a href="#responsibility">User responsibility and lawful use</a></li>
             <li><a href="#prohibited">Prohibited uses</a></li>
             <li><a href="#ctf">CTF rules and fair play</a></li>
             <li><a href="#ai-prompts">AI prompt usage and data safety</a></li>
@@ -100,6 +106,8 @@
             <li><a href="#third-party">Third party links</a></li>
             <li><a href="#privacy">Privacy</a></li>
             <li><a href="#liability">Limitation of liability and indemnity</a></li>
+            <li><a href="#age">Age</a></li>
+            <li><a href="#submissions">Content you submit and reporting problems</a></li>
             <li><a href="#law">Governing law and jurisdiction</a></li>
             <li><a href="#changes">Changes to these terms</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -114,8 +122,8 @@
         </section>
         <section class="legal-sec" id="educational" aria-labelledby="educational-h">
           <h2 id="educational-h"><span class="legal-n mono" aria-hidden="true">02</span>Educational purpose only</h2>
-          <p>The site is a free learning resource on cybersecurity, digital safety and Indian cyber law. All content is provided for general education and awareness.</p>
-          <p>Nothing on the site is legal advice, professional security advice, financial advice or a substitute for advice from a qualified advocate or security professional. Reading the site does not create a lawyer and client relationship or any other professional relationship with us.</p>
+          <p>The site is a free learning resource on cybersecurity, digital safety and Indian cyber law. All content is provided for general education and awareness only.</p>
+          <p>Nothing on the site is legal advice, professional security advice, financial advice or a substitute for advice from a qualified advocate or security professional. Reading the site does not create a lawyer and client relationship or any other professional relationship with us. The author is a student of law and is not a practising advocate.</p>
           <p>If you have a legal problem, consult a qualified advocate. If you are a victim of cybercrime, report it at <a href="https://cybercrime.gov.in/" target="_blank" rel="noopener">cybercrime.gov.in</a> or call the 1930 helpline.</p>
         </section>
         <section class="legal-sec" id="accuracy" aria-labelledby="accuracy-h">
@@ -126,71 +134,85 @@
         </section>
         <section class="legal-sec" id="authorised-use" aria-labelledby="authorised-use-h">
           <h2 id="authorised-use-h"><span class="legal-n mono" aria-hidden="true">04</span>Authorised and ethical use only</h2>
-          <p>Security techniques, commands, tools and prompts on the site are shared so that you can learn, defend systems and carry out testing that you are permitted to do. You may use them only on systems, networks, devices, accounts and data that you own, or for which you have clear written permission from the owner.</p>
+          <p>Security techniques, commands, tools and prompts on the site are shared so that you can learn, defend systems and carry out testing that you are permitted to do. You must not access or attempt to access any computer, system, network, account or data without authorisation. You may use what you learn here only on systems, networks, devices, accounts and data that you own, or for which you have clear written permission from the owner.</p>
           <p>In India, accessing a computer, computer system or network, or downloading or damaging data, without the permission of the owner can make you liable to pay compensation under Section 43 of the Information Technology Act, 2000. Doing so dishonestly or fraudulently is a criminal offence under Section 66 of the same Act. Related conduct such as cheating, extortion, criminal intimidation, defamation and stalking can also be offences under the Bharatiya Nyaya Sanhita, 2023 (BNS).</p>
-          <p>You are solely responsible for making sure that your use of anything you learn here is lawful where you are, and that you have the permissions you need.</p>
+          <p>Tools that work with images, locations or other personal data, such as the OSINT projects mentioned on the site, may be used only on your own data or with the consent of the person concerned, and never to locate, track, stalk or expose a private individual.</p>
+        </section>
+        <section class="legal-sec" id="responsibility" aria-labelledby="responsibility-h">
+          <h2 id="responsibility-h"><span class="legal-n mono" aria-hidden="true">05</span>User responsibility and lawful use</h2>
+          <p>You are solely responsible for how you use anything you learn, copy, download or run from this site. You must make sure your use is lawful where you are and that you hold every permission you need before you test, scan, access or change any system, network, account, device or data. If you are unsure whether you are permitted, do not proceed.</p>
+          <p>We do not control what you do with the content, and we do not accept responsibility for your actions or their consequences.</p>
         </section>
         <section class="legal-sec" id="prohibited" aria-labelledby="prohibited-h">
-          <h2 id="prohibited-h"><span class="legal-n mono" aria-hidden="true">05</span>Prohibited uses</h2>
+          <h2 id="prohibited-h"><span class="legal-n mono" aria-hidden="true">06</span>Prohibited uses</h2>
           <p>You must not use the site, or anything you learn or download from it, to:</p>
           <ul><li>attack, scan, probe, exploit or disrupt any system, network or service that you do not own or are not authorised to test;</li><li>harass, stalk, threaten, intimidate, impersonate, defame or spy on any person;</li><li>commit or help anyone commit fraud, phishing, identity theft, extortion or any other crime;</li><li>access, collect or share personal data, passwords or confidential information without a lawful basis;</li><li>spread malware, or interfere with the site itself, its hosting or other visitors, for example by overloading it, scraping it at scale or trying to bypass its security; or</li><li>break any law that applies to you.</li></ul>
           <p>We may report suspected unlawful use to the appropriate authorities.</p>
         </section>
         <section class="legal-sec" id="ctf" aria-labelledby="ctf-h">
-          <h2 id="ctf-h"><span class="legal-n mono" aria-hidden="true">06</span>CTF rules and fair play</h2>
+          <h2 id="ctf-h"><span class="legal-n mono" aria-hidden="true">07</span>CTF rules and fair play</h2>
           <p>The CTF Arena puzzles are self contained exercises. They do not involve any live targets, and you must not treat them as permission to test any real system.</p>
           <ul><li>Play fairly. Do not share flags, answers or full solutions publicly, so that other learners can enjoy the challenges.</li><li>Do not brute force answers, automate submissions, or scrape challenge data, hints or answers.</li><li>Do not attack, probe or try to bypass the scoring, the rate limits or any backend used for the leaderboard.</li><li>Use a nickname that is not offensive and does not impersonate anyone. You do not need to use your real name.</li><li>We may reset scores, hide nicknames or remove entries that break these rules, at our discretion.</li></ul>
           <p>Your practice progress is stored in your own browser, as described in the <a href="privacy.html">Privacy Policy</a>.</p>
         </section>
         <section class="legal-sec" id="ai-prompts" aria-labelledby="ai-prompts-h">
-          <h2 id="ai-prompts-h"><span class="legal-n mono" aria-hidden="true">07</span>AI prompt usage and data safety</h2>
+          <h2 id="ai-prompts-h"><span class="legal-n mono" aria-hidden="true">08</span>AI prompt usage and data safety</h2>
           <p>The CyberPrompts library contains prompts for defensive, educational and authorised security work. When you use a prompt with any AI tool, you are bound by that tool's own terms and by your organisation's policies.</p>
           <ul><li>Never paste OTPs, passwords, PINs, API keys, private keys, session tokens or other secrets into an AI tool.</li><li>Never paste client data, personal data, confidential documents or anything you do not have permission to share. Remove or mask identifying details first.</li><li>Use only the AI tools your organisation has approved for the type of data involved.</li><li>AI output can be wrong, incomplete or invented. Check every answer yourself before you act on it, and never run commands or code you do not understand.</li></ul>
           <p>We are not responsible for the output of any AI tool or for what you share with it.</p>
         </section>
         <section class="legal-sec" id="pdfs" aria-labelledby="pdfs-h">
-          <h2 id="pdfs-h"><span class="legal-n mono" aria-hidden="true">08</span>Downloadable PDFs</h2>
+          <h2 id="pdfs-h"><span class="legal-n mono" aria-hidden="true">09</span>Downloadable PDFs</h2>
           <p>The cheat sheets and other PDFs on the site are provided for your personal and educational use. You may download, print and share them for non commercial learning, as long as you keep them unchanged.</p>
           <ul><li>Keep the attribution to CyberWithMadhav and Madhav Pandya and any watermark intact.</li><li>Do not sell, resell, rent or bundle the PDFs, or include them in paid courses or products, without our written permission.</li><li>Do not remove or change the notices, or present the PDFs as your own work.</li></ul>
           <p>The PDFs carry the same educational purpose and accuracy limits as the rest of the site.</p>
         </section>
         <section class="legal-sec" id="ip" aria-labelledby="ip-h">
-          <h2 id="ip-h"><span class="legal-n mono" aria-hidden="true">09</span>Intellectual property and licences</h2>
+          <h2 id="ip-h"><span class="legal-n mono" aria-hidden="true">10</span>Intellectual property and licences</h2>
           <p><strong>Code.</strong> The source code of the site (HTML, CSS, JavaScript and build scripts) is released under the MIT License. You may reuse it under that licence, which is in the <a href="https://github.com/iammadhavpandya-oss/cyberwithmadhav/blob/main/LICENSE" target="_blank" rel="noopener">LICENSE file</a> of the public repository.</p>
           <p><strong>Content.</strong> The MIT License covers code only. The written content of the site, including explanations, cheat sheets, command references, scam guides, CTF puzzles, prompt sheets, PDFs, illustrations and the CyberWithMadhav name and logo, is created by Madhav Pandya for CyberWithMadhav, and all rights in it are reserved unless a page says otherwise.</p>
           <p>You may quote short extracts of the content with a clear credit and a link back to the site, and share links to any page. Any other copying, reproduction or reuse of the content needs our written permission.</p>
           <p>Names, logos and trademarks of other organisations, tools and platforms mentioned on the site belong to their owners. Mentioning them does not mean they endorse us or that we endorse them. Laws, judgments and official documents we refer to remain the works of their respective authorities.</p>
         </section>
         <section class="legal-sec" id="third-party" aria-labelledby="third-party-h">
-          <h2 id="third-party-h"><span class="legal-n mono" aria-hidden="true">10</span>Third party links</h2>
+          <h2 id="third-party-h"><span class="legal-n mono" aria-hidden="true">11</span>Third party links</h2>
           <p>The site links to other websites, such as government portals, courts, learning platforms and tool vendors, because they are useful sources. We do not control those sites and are not responsible for their content, availability, security or privacy practices.</p>
           <p>A link does not mean we endorse the site or its owner. Your use of any linked site is governed by that site's own terms.</p>
         </section>
         <section class="legal-sec" id="privacy" aria-labelledby="privacy-h">
-          <h2 id="privacy-h"><span class="legal-n mono" aria-hidden="true">11</span>Privacy</h2>
+          <h2 id="privacy-h"><span class="legal-n mono" aria-hidden="true">12</span>Privacy</h2>
           <p>We do not use analytics, advertising or tracking scripts, and the site does not set cookies.</p>
-          <p>Your browser's local storage keeps a few settings on your own device: your light or dark theme choice, your CTF practice progress and preferences, prompt favourites, cheat sheet lab values, and a record that you accepted these Terms (with the version number). You can clear them at any time through your browser's site data settings.</p>
+          <p>Your browser's local storage keeps a few settings on your own device: your light or dark theme choice, your language choice, your CTF practice progress and preferences, prompt favourites, cheat sheet lab values, and a record that you accepted these Terms (with the version number). You can clear them at any time through your browser's site data settings.</p>
           <p>Full details, including the services the site relies on, are in our <a href="privacy.html">Privacy Policy</a>.</p>
         </section>
         <section class="legal-sec" id="liability" aria-labelledby="liability-h">
-          <h2 id="liability-h"><span class="legal-n mono" aria-hidden="true">12</span>Limitation of liability and indemnity</h2>
-          <p>The site and all content, tools and downloads are provided free of charge, "as is" and "as available", without warranties of any kind, whether express or implied, including warranties of accuracy, fitness for a particular purpose or uninterrupted availability.</p>
-          <p>To the fullest extent permitted by law, CyberWithMadhav and Madhav Pandya are not liable for any loss or damage, whether direct, indirect, incidental or consequential, arising from your use of the site, your reliance on any content, any action you take based on it, or your misuse of any technique, tool or prompt described here.</p>
+          <h2 id="liability-h"><span class="legal-n mono" aria-hidden="true">13</span>Limitation of liability and indemnity</h2>
+          <p>The free content, tools and downloads are provided "as is" and "as available", without warranties of any kind, whether express or implied, including warranties of accuracy, completeness, fitness for a particular purpose, non infringement or uninterrupted availability. To the fullest extent permitted by law, CyberWithMadhav and Madhav Pandya are not liable for any loss or damage, whether direct, indirect, incidental or consequential, arising from your use of, or reliance on, the site.</p>
+          <p>This includes any action you take based on the content and any misuse of a technique, tool or prompt described here.</p>
           <p>You agree to indemnify and hold harmless CyberWithMadhav and Madhav Pandya against any claims, losses, liabilities and expenses, including reasonable legal fees, arising from your breach of these Terms or your unlawful or unauthorised use of anything on the site.</p>
           <p>Nothing in these Terms limits any liability that cannot be limited under applicable Indian law.</p>
         </section>
+        <section class="legal-sec" id="age" aria-labelledby="age-h">
+          <h2 id="age-h"><span class="legal-n mono" aria-hidden="true">14</span>Age</h2>
+          <p>The site is meant for a general audience. If you are under 18, please use it with the guidance of a parent, guardian or teacher, and agree to these Terms only with their permission. Do not submit personal information through the site if you are under 18.</p>
+        </section>
+        <section class="legal-sec" id="submissions" aria-labelledby="submissions-h">
+          <h2 id="submissions-h"><span class="legal-n mono" aria-hidden="true">15</span>Content you submit and reporting problems</h2>
+          <p>If a feature lets you submit content, such as a nickname, you must not submit anything unlawful, offensive, defamatory, infringing, or that impersonates another person. We may remove content or entries at our discretion.</p>
+          <p>To report content or a legal concern, email <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a> with the page address and details. Grievance contact: Madhav Pandya, <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>.</p>
+        </section>
         <section class="legal-sec" id="law" aria-labelledby="law-h">
-          <h2 id="law-h"><span class="legal-n mono" aria-hidden="true">13</span>Governing law and jurisdiction</h2>
+          <h2 id="law-h"><span class="legal-n mono" aria-hidden="true">16</span>Governing law and jurisdiction</h2>
           <p>These Terms are governed by the laws of India.</p>
-          <p>Subject to applicable law, the competent courts at Mumbai, and at Vasai in Palghar district, Maharashtra, shall have exclusive jurisdiction over any dispute arising out of or in connection with these Terms or the site.</p>
+          <p>Subject to applicable law, the courts at Mumbai, Maharashtra shall have jurisdiction over any dispute arising out of or in connection with these Terms or the site. Nothing here limits any right you have to approach a consumer forum or any other forum that applicable law gives you.</p>
         </section>
         <section class="legal-sec" id="changes" aria-labelledby="changes-h">
-          <h2 id="changes-h"><span class="legal-n mono" aria-hidden="true">14</span>Changes to these terms</h2>
+          <h2 id="changes-h"><span class="legal-n mono" aria-hidden="true">17</span>Changes to these terms</h2>
           <p>We may update these Terms from time to time, for example when the law changes or when we add new features. The date at the top of this page shows when they were last updated.</p>
           <p>When we make a significant change, we will ask you to read and accept the updated Terms the next time you visit. Continuing to use the site after that means you accept the updated Terms.</p>
         </section>
         <section class="legal-sec" id="contact" aria-labelledby="contact-h">
-          <h2 id="contact-h"><span class="legal-n mono" aria-hidden="true">15</span>Contact</h2>
+          <h2 id="contact-h"><span class="legal-n mono" aria-hidden="true">18</span>Contact</h2>
           <p>Questions about these Terms, requests for permission, or reports of an error or misuse can be sent to Madhav Pandya at <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>.</p>
           <p>You can also use the contact form on the <a href="index.html#contact">home page</a> when it is available.</p>
         </section>
@@ -200,10 +222,10 @@
 
   <footer class="footer">
     <div class="wrap">
-      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, provided as is.</p>
-        <p class="small"><a href="about.html">About Madhav Pandya</a> · <a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>

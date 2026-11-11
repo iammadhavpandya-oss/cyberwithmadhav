@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en-IN" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +30,8 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
@@ -37,7 +39,7 @@
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/legal.css">
 </head>
@@ -58,9 +60,11 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" aria-label="Primary">
-        <a href="index.html" class="nav-home">Home</a>
-        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>Explore</a>
-        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span>CTF</a>
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
           <span class="tt-track" aria-hidden="true">
             <span class="tt-knob">
@@ -80,7 +84,8 @@
         <p class="kicker mono"><span class="prompt">$</span> cat privacy.md</p>
         <h1 id="legal-title">Privacy Policy</h1>
         <p class="lead">Short version: no trackers, no analytics, no cookies and no account. Here is exactly what stays in your browser and which services the site relies on.</p>
-        <p class="legal-meta small muted">Last updated: <time datetime="2026-11-01">1 November 2026</time> · Version 2 · <a href="terms.html">Read the Terms and Conditions</a></p>
+        <p class="legal-meta small muted">Last updated: <time datetime="2026-11-11">11 November 2026</time> · Version 3 · <a href="terms.html">Read the Terms and Conditions</a></p>
+        <p class="legal-hi-note small" data-lang-only="hi">Ye page sirf English mein hai. Hinglish mode sirf baaki site ke liye hai, aur agar kisi bhi translation aur is English text mein fark ho, to English version hi maana jayega.</p>
       </div>
     </section>
 
@@ -103,6 +108,7 @@
           <h2 id="summary-h"><span class="legal-n mono" aria-hidden="true">01</span>Summary</h2>
           <p>CyberWithMadhav is a static website. We do not run analytics, advertising or tracking scripts, we do not set cookies, and you do not need an account to use the site.</p>
           <p>A few settings are kept in your own browser so the site remembers your choices. They never leave your device unless you use an optional feature described below.</p>
+          <p>The pages load nothing from third party servers: fonts, scripts, styles and images all come from this site. Links to other websites open only when you click them.</p>
         </section>
         <section class="legal-sec" id="who" aria-labelledby="who-h">
           <h2 id="who-h"><span class="legal-n mono" aria-hidden="true">02</span>Who we are</h2>
@@ -111,27 +117,29 @@
         <section class="legal-sec" id="browser" aria-labelledby="browser-h">
           <h2 id="browser-h"><span class="legal-n mono" aria-hidden="true">03</span>What is stored in your browser</h2>
           <p>The site uses your browser's local storage and session storage. This data stays on your device and is not sent to us.</p>
-          <div class="tbl-wrap" tabindex="0" role="region" aria-label="Browser storage used by the site"><table class="law legal-tbl"><caption>Browser storage used by the site</caption><thead><tr><th scope="col">Key</th><th scope="col">Where</th><th scope="col">What it holds</th></tr></thead><tbody><tr><th scope="row"><code>cwm-consent</code></th><td>Local storage</td><td>That you accepted the Terms and Privacy Policy, the version you accepted and when.</td></tr><tr><th scope="row"><code>cwm-theme</code></th><td>Local storage</td><td>Your light or dark theme choice.</td></tr><tr><th scope="row"><code>cwm-ctf-practice-v2, cwm-ctf-prefs, cwm-ctf-ui, cwm-ctf-quotes</code></th><td>Local storage</td><td>Your CTF practice progress and best scores, your CTF settings (such as sound and motion), and which quotes you have already seen.</td></tr><tr><th scope="row"><code>cwm-ctf-session</code></th><td>Local storage</td><td>Only if a CTF leaderboard backend is connected and you create a nickname: your nickname and sign in token.</td></tr><tr><th scope="row"><code>cwm-prompt-favs</code></th><td>Local storage</td><td>The prompts you marked as favourites.</td></tr><tr><th scope="row"><code>cwm-offline</code></th><td>Cache storage</td><td>Copies of the site&#x27;s own pages, styles, scripts and data, kept by the service worker so pages load faster and work offline. Nothing you type is cached.</td></tr><tr><th scope="row"><code>cwm-vars</code></th><td>Local storage</td><td>Lab values you type into the cheat sheets, such as a target IP for your own lab.</td></tr><tr><th scope="row"><code>cwm-banner, cwm-stars:*</code></th><td>Session storage</td><td>Whether you closed the alert banner, and a short cache of public GitHub star counts. Cleared when you close the tab.</td></tr></tbody></table></div>
+          <div class="tbl-wrap" tabindex="0" role="region" aria-label="Browser storage used by the site"><table class="law legal-tbl"><caption>Browser storage used by the site</caption><thead><tr><th scope="col">Key</th><th scope="col">Where</th><th scope="col">What it holds</th></tr></thead><tbody><tr><th scope="row"><code>cwm-consent</code></th><td>Local storage</td><td>That you accepted the Terms and Privacy Policy, the version you accepted and when.</td></tr><tr><th scope="row"><code>cwm-theme</code></th><td>Local storage</td><td>Your light or dark theme choice.</td></tr><tr><th scope="row"><code>cwm-lang</code></th><td>Local storage</td><td>Your language choice: English or Hinglish.</td></tr><tr><th scope="row"><code>cwm-ctf-practice-v2, cwm-ctf-prefs, cwm-ctf-ui, cwm-ctf-quotes</code></th><td>Local storage</td><td>Your CTF practice progress and best scores, your CTF settings (such as sound and motion), and which quotes you have already seen.</td></tr><tr><th scope="row"><code>cwm-ctf-session</code></th><td>Local storage</td><td>Only if a CTF leaderboard backend is connected and you create a nickname: your nickname and sign in token.</td></tr><tr><th scope="row"><code>cwm-prompt-favs</code></th><td>Local storage</td><td>The prompts you marked as favourites.</td></tr><tr><th scope="row"><code>cwm-offline</code></th><td>Cache storage</td><td>Copies of the site&#x27;s own pages, styles, scripts and data, kept by the service worker so pages load faster and work offline. Nothing you type is cached.</td></tr><tr><th scope="row"><code>cwm-vars</code></th><td>Local storage</td><td>Lab values you type into the cheat sheets, such as a target IP for your own lab.</td></tr><tr><th scope="row"><code>cwm-banner</code></th><td>Session storage</td><td>Whether you closed the alert banner. Cleared when you close the tab.</td></tr></tbody></table></div>
           <p>You can remove all of it at any time by clearing site data for this site in your browser settings. If you clear the consent record, you will see the welcome screen again.</p>
         </section>
         <section class="legal-sec" id="services" aria-labelledby="services-h">
           <h2 id="services-h"><span class="legal-n mono" aria-hidden="true">04</span>Services the site relies on</h2>
-          <ul><li><strong>GitHub Pages</strong> hosts the site. Like any web host, GitHub receives technical information such as your IP address when your browser requests a page. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub General Privacy Statement</a>.</li><li><strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN.</li><li><strong>GitHub API</strong>: on the home page, when you scroll near the About section, your browser may fetch public star counts for the listed projects from api.github.com.</li></ul>
-          <p>We do not receive any personal information from these services.</p>
+          <ul><li><strong>GitHub Pages</strong> hosts the site at the moment. Like any web host, GitHub receives technical information such as your IP address and browser details when your browser requests a page, and may keep it in server logs. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub General Privacy Statement</a>. If the site moves to another host, this section will be updated before or when it moves.</li><li><strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN.</li></ul>
+          <p>We do not receive any personal information from the host.</p>
         </section>
         <section class="legal-sec" id="optional" aria-labelledby="optional-h">
           <h2 id="optional-h"><span class="legal-n mono" aria-hidden="true">05</span>Contact and optional leaderboard</h2>
-          <p>The site has no newsletter. The contact form on the home page does not send anything to a server: it opens your own email app with your message filled in, and you decide whether to send it. If you email us, we receive what you write and your email address, and use them only to reply to you.</p>
+          <p>The site has no newsletter. The contact form on the home page does not send anything to a server: it opens your own email app with your message filled in, and you decide whether to send it. If you email us, we receive what you write and your email address, and use them only to reply to you. We keep emails only as long as needed to reply and for a reasonable period afterwards, and then delete them.</p>
           <p>The CTF leaderboard works only when an optional backend is connected. At the time of writing, no backend is connected on the live site, so CTF progress stays in your browser.</p>
           <p>If a leaderboard backend is connected in future, it will store only your chosen nickname and scores, along with basic technical data such as a hashed IP address used to prevent abuse. It will be used only to run the leaderboard, and never sold. We will update this policy before that happens.</p>
         </section>
         <section class="legal-sec" id="rights" aria-labelledby="rights-h">
           <h2 id="rights-h"><span class="legal-n mono" aria-hidden="true">06</span>Your choices and rights</h2>
           <p>You can use the site without giving us any personal information. You can clear browser storage at any time. If you have sent us information by email or a form, you can ask us to access, correct or delete it by writing to <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a>.</p>
+          <p>Under the Digital Personal Data Protection Act, 2023, you may have rights to access, correct and erase your personal data and to have grievances addressed, as its provisions come into force. Write to <a href="mailto:madhavpandya@zoho.in">madhavpandya@zoho.in</a> and we will respond within a reasonable time.</p>
         </section>
         <section class="legal-sec" id="children" aria-labelledby="children-h">
           <h2 id="children-h"><span class="legal-n mono" aria-hidden="true">07</span>Children</h2>
-          <p>The site is an educational resource for a general audience. We do not knowingly collect personal information from children. Parents and teachers are welcome to use the awareness content with children.</p>
+          <p>The site is for a general audience and is not directed at children. We do not knowingly collect personal information from anyone under 18. If you are under 18, please do not email us personal details, and ask a parent or guardian to help. Parents and teachers are welcome to use the awareness content with children.</p>
+          <p>If a leaderboard is introduced, it will be open only to people aged 18 or over, or will collect no personal data.</p>
         </section>
         <section class="legal-sec" id="changes" aria-labelledby="changes-h">
           <h2 id="changes-h"><span class="legal-n mono" aria-hidden="true">08</span>Changes to this policy</h2>
@@ -143,10 +151,10 @@
 
   <footer class="footer">
     <div class="wrap">
-      <nav class="foot-legal" aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, provided as is.</p>
-        <p class="small"><a href="about.html">About Madhav Pandya</a> · <a href="index.html">Back to home</a> · <a href="#top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>

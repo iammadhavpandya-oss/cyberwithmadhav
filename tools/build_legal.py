@@ -8,8 +8,9 @@ from html import escape
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://iammadhavpandya-oss.github.io/cyberwithmadhav/"
-UPDATED = "1 November 2026"
-UPDATED_ISO = "2026-11-01"
+UPDATED = "11 November 2026"
+UPDATED_ISO = "2026-11-11"
+VERSION = 3  # keep equal to VERSION in assets/js/consent.js
 EMAIL = "madhavpandya@zoho.in"
 
 THEME_JS = """
@@ -44,17 +45,20 @@ TERMS = [
   "By ticking the box on the welcome screen, or by otherwise using the site, you confirm that you have read, understood and agree to these Terms and to our <a href=\"privacy.html\">Privacy Policy</a>. If you do not agree, please do not use the site.",
   "In these Terms, \"we\", \"us\" and \"our\" mean Madhav Pandya, who runs CyberWithMadhav, and \"you\" means any person who visits or uses the site."]),
  ("educational", "Educational purpose only", [
-  "The site is a free learning resource on cybersecurity, digital safety and Indian cyber law. All content is provided for general education and awareness.",
-  "Nothing on the site is legal advice, professional security advice, financial advice or a substitute for advice from a qualified advocate or security professional. Reading the site does not create a lawyer and client relationship or any other professional relationship with us.",
+  "The site is a free learning resource on cybersecurity, digital safety and Indian cyber law. All content is provided for general education and awareness only.",
+  "Nothing on the site is legal advice, professional security advice, financial advice or a substitute for advice from a qualified advocate or security professional. Reading the site does not create a lawyer and client relationship or any other professional relationship with us. The author is a student of law and is not a practising advocate.",
   "If you have a legal problem, consult a qualified advocate. If you are a victim of cybercrime, report it at <a href=\"https://cybercrime.gov.in/\" target=\"_blank\" rel=\"noopener\">cybercrime.gov.in</a> or call the 1930 helpline."]),
  ("accuracy", "No guarantee of accuracy", [
   "We try to keep the content correct and up to date, and we mark points we are still checking as \"being verified\". However, we do not guarantee that any content is complete, accurate, current or suitable for your purpose.",
   "Laws, rules, notifications, court judgments and official procedures change, sometimes without much notice. Section numbers, penalties, time limits and the status of provisions may have changed since a page was written.",
   "Always check the official source, such as the bare act on indiacode.nic.in, the Gazette of India, the relevant regulator or the court judgment itself, before you rely on anything you read here. If you find an error, please tell us using the contact details below."]),
  ("authorised-use", "Authorised and ethical use only", [
-  "Security techniques, commands, tools and prompts on the site are shared so that you can learn, defend systems and carry out testing that you are permitted to do. You may use them only on systems, networks, devices, accounts and data that you own, or for which you have clear written permission from the owner.",
+  "Security techniques, commands, tools and prompts on the site are shared so that you can learn, defend systems and carry out testing that you are permitted to do. You must not access or attempt to access any computer, system, network, account or data without authorisation. You may use what you learn here only on systems, networks, devices, accounts and data that you own, or for which you have clear written permission from the owner.",
   "In India, accessing a computer, computer system or network, or downloading or damaging data, without the permission of the owner can make you liable to pay compensation under Section 43 of the Information Technology Act, 2000. Doing so dishonestly or fraudulently is a criminal offence under Section 66 of the same Act. Related conduct such as cheating, extortion, criminal intimidation, defamation and stalking can also be offences under the Bharatiya Nyaya Sanhita, 2023 (BNS).",
-  "You are solely responsible for making sure that your use of anything you learn here is lawful where you are, and that you have the permissions you need."]),
+  "Tools that work with images, locations or other personal data, such as the OSINT projects mentioned on the site, may be used only on your own data or with the consent of the person concerned, and never to locate, track, stalk or expose a private individual."]),
+ ("responsibility", "User responsibility and lawful use", [
+  "You are solely responsible for how you use anything you learn, copy, download or run from this site. You must make sure your use is lawful where you are and that you hold every permission you need before you test, scan, access or change any system, network, account, device or data. If you are unsure whether you are permitted, do not proceed.",
+  "We do not control what you do with the content, and we do not accept responsibility for your actions or their consequences."]),
  ("prohibited", "Prohibited uses", [
   "You must not use the site, or anything you learn or download from it, to:",
   ["attack, scan, probe, exploit or disrupt any system, network or service that you do not own or are not authorised to test;",
@@ -95,16 +99,21 @@ TERMS = [
   "A link does not mean we endorse the site or its owner. Your use of any linked site is governed by that site's own terms."]),
  ("privacy", "Privacy", [
   "We do not use analytics, advertising or tracking scripts, and the site does not set cookies.",
-  "Your browser's local storage keeps a few settings on your own device: your light or dark theme choice, your CTF practice progress and preferences, prompt favourites, cheat sheet lab values, and a record that you accepted these Terms (with the version number). You can clear them at any time through your browser's site data settings.",
+  "Your browser's local storage keeps a few settings on your own device: your light or dark theme choice, your language choice, your CTF practice progress and preferences, prompt favourites, cheat sheet lab values, and a record that you accepted these Terms (with the version number). You can clear them at any time through your browser's site data settings.",
   "Full details, including the services the site relies on, are in our <a href=\"privacy.html\">Privacy Policy</a>."]),
  ("liability", "Limitation of liability and indemnity", [
-  "The site and all content, tools and downloads are provided free of charge, \"as is\" and \"as available\", without warranties of any kind, whether express or implied, including warranties of accuracy, fitness for a particular purpose or uninterrupted availability.",
-  "To the fullest extent permitted by law, CyberWithMadhav and Madhav Pandya are not liable for any loss or damage, whether direct, indirect, incidental or consequential, arising from your use of the site, your reliance on any content, any action you take based on it, or your misuse of any technique, tool or prompt described here.",
+  "The free content, tools and downloads are provided \"as is\" and \"as available\", without warranties of any kind, whether express or implied, including warranties of accuracy, completeness, fitness for a particular purpose, non infringement or uninterrupted availability. To the fullest extent permitted by law, CyberWithMadhav and Madhav Pandya are not liable for any loss or damage, whether direct, indirect, incidental or consequential, arising from your use of, or reliance on, the site.",
+  "This includes any action you take based on the content and any misuse of a technique, tool or prompt described here.",
   "You agree to indemnify and hold harmless CyberWithMadhav and Madhav Pandya against any claims, losses, liabilities and expenses, including reasonable legal fees, arising from your breach of these Terms or your unlawful or unauthorised use of anything on the site.",
   "Nothing in these Terms limits any liability that cannot be limited under applicable Indian law."]),
+ ("age", "Age", [
+  "The site is meant for a general audience. If you are under 18, please use it with the guidance of a parent, guardian or teacher, and agree to these Terms only with their permission. Do not submit personal information through the site if you are under 18."]),
+ ("submissions", "Content you submit and reporting problems", [
+  "If a feature lets you submit content, such as a nickname, you must not submit anything unlawful, offensive, defamatory, infringing, or that impersonates another person. We may remove content or entries at our discretion.",
+  "To report content or a legal concern, email <a href=\"mailto:%s\">%s</a> with the page address and details. Grievance contact: Madhav Pandya, <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL, EMAIL, EMAIL)]),
  ("law", "Governing law and jurisdiction", [
   "These Terms are governed by the laws of India.",
-  "Subject to applicable law, the competent courts at Mumbai, and at Vasai in Palghar district, Maharashtra, shall have exclusive jurisdiction over any dispute arising out of or in connection with these Terms or the site."]),
+  "Subject to applicable law, the courts at Mumbai, Maharashtra shall have jurisdiction over any dispute arising out of or in connection with these Terms or the site. Nothing here limits any right you have to approach a consumer forum or any other forum that applicable law gives you."]),
  ("changes", "Changes to these terms", [
   "We may update these Terms from time to time, for example when the law changes or when we add new features. The date at the top of this page shows when they were last updated.",
   "When we make a significant change, we will ask you to read and accept the updated Terms the next time you visit. Continuing to use the site after that means you accept the updated Terms."]),
@@ -117,17 +126,19 @@ TERMS = [
 STORAGE = [
  ("cwm-consent", "Local storage", "That you accepted the Terms and Privacy Policy, the version you accepted and when."),
  ("cwm-theme", "Local storage", "Your light or dark theme choice."),
+ ("cwm-lang", "Local storage", "Your language choice: English or Hinglish."),
  ("cwm-ctf-practice-v2, cwm-ctf-prefs, cwm-ctf-ui, cwm-ctf-quotes", "Local storage", "Your CTF practice progress and best scores, your CTF settings (such as sound and motion), and which quotes you have already seen."),
  ("cwm-ctf-session", "Local storage", "Only if a CTF leaderboard backend is connected and you create a nickname: your nickname and sign in token."),
  ("cwm-prompt-favs", "Local storage", "The prompts you marked as favourites."),
  ("cwm-offline", "Cache storage", "Copies of the site's own pages, styles, scripts and data, kept by the service worker so pages load faster and work offline. Nothing you type is cached."),
  ("cwm-vars", "Local storage", "Lab values you type into the cheat sheets, such as a target IP for your own lab."),
- ("cwm-banner, cwm-stars:*", "Session storage", "Whether you closed the alert banner, and a short cache of public GitHub star counts. Cleared when you close the tab."),
+ ("cwm-banner", "Session storage", "Whether you closed the alert banner. Cleared when you close the tab."),
 ]
 PRIVACY = [
  ("summary", "Summary", [
   "CyberWithMadhav is a static website. We do not run analytics, advertising or tracking scripts, we do not set cookies, and you do not need an account to use the site.",
-  "A few settings are kept in your own browser so the site remembers your choices. They never leave your device unless you use an optional feature described below."]),
+  "A few settings are kept in your own browser so the site remembers your choices. They never leave your device unless you use an optional feature described below.",
+  "The pages load nothing from third party servers: fonts, scripts, styles and images all come from this site. Links to other websites open only when you click them."]),
  ("who", "Who we are", [
   "The site is run by Madhav Pandya under the name CyberWithMadhav. You can reach us at <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL)]),
  ("browser", "What is stored in your browser", [
@@ -135,18 +146,19 @@ PRIVACY = [
   "TABLE",
   "You can remove all of it at any time by clearing site data for this site in your browser settings. If you clear the consent record, you will see the welcome screen again."]),
  ("services", "Services the site relies on", [
-  ["<strong>GitHub Pages</strong> hosts the site. Like any web host, GitHub receives technical information such as your IP address when your browser requests a page. See the <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener\">GitHub General Privacy Statement</a>.",
-   "<strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN.",
-   "<strong>GitHub API</strong>: on the home page, when you scroll near the About section, your browser may fetch public star counts for the listed projects from api.github.com."],
-  "We do not receive any personal information from these services."]),
+  ["<strong>GitHub Pages</strong> hosts the site at the moment. Like any web host, GitHub receives technical information such as your IP address and browser details when your browser requests a page, and may keep it in server logs. See the <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener\">GitHub General Privacy Statement</a>. If the site moves to another host, this section will be updated before or when it moves.",
+   "<strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN."],
+  "We do not receive any personal information from the host."]),
  ("optional", "Contact and optional leaderboard", [
-  "The site has no newsletter. The contact form on the home page does not send anything to a server: it opens your own email app with your message filled in, and you decide whether to send it. If you email us, we receive what you write and your email address, and use them only to reply to you.",
+  "The site has no newsletter. The contact form on the home page does not send anything to a server: it opens your own email app with your message filled in, and you decide whether to send it. If you email us, we receive what you write and your email address, and use them only to reply to you. We keep emails only as long as needed to reply and for a reasonable period afterwards, and then delete them.",
   "The CTF leaderboard works only when an optional backend is connected. At the time of writing, no backend is connected on the live site, so CTF progress stays in your browser.",
   "If a leaderboard backend is connected in future, it will store only your chosen nickname and scores, along with basic technical data such as a hashed IP address used to prevent abuse. It will be used only to run the leaderboard, and never sold. We will update this policy before that happens."]),
  ("rights", "Your choices and rights", [
-  "You can use the site without giving us any personal information. You can clear browser storage at any time. If you have sent us information by email or a form, you can ask us to access, correct or delete it by writing to <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL)]),
+  "You can use the site without giving us any personal information. You can clear browser storage at any time. If you have sent us information by email or a form, you can ask us to access, correct or delete it by writing to <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL),
+  "Under the Digital Personal Data Protection Act, 2023, you may have rights to access, correct and erase your personal data and to have grievances addressed, as its provisions come into force. Write to <a href=\"mailto:%s\">%s</a> and we will respond within a reasonable time." % (EMAIL, EMAIL)]),
  ("children", "Children", [
-  "The site is an educational resource for a general audience. We do not knowingly collect personal information from children. Parents and teachers are welcome to use the awareness content with children."]),
+  "The site is for a general audience and is not directed at children. We do not knowingly collect personal information from anyone under 18. If you are under 18, please do not email us personal details, and ask a parent or guardian to help. Parents and teachers are welcome to use the awareness content with children.",
+  "If a leaderboard is introduced, it will be open only to people aged 18 or over, or will collect no personal data."]),
  ("changes", "Changes to this policy", [
   "If we change this policy in a meaningful way, we will update the date above and ask you to accept the updated version on your next visit. This policy forms part of our <a href=\"terms.html\">Terms and Conditions</a>."]),
 ]
@@ -176,7 +188,7 @@ def page(fname, title, h1, kicker, desc, lead, sections, other):
   active = 'class="nav-legal active" aria-current="page"'
   nav = NAV.replace('href="%s" class="nav-legal"' % fname, 'href="%s" %s' % (fname, active))
   html = f"""<!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en-IN" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -233,7 +245,8 @@ def page(fname, title, h1, kicker, desc, lead, sections, other):
         <p class="kicker mono">{kicker}</p>
         <h1 id="legal-title">{escape(h1)}</h1>
         <p class="lead">{lead}</p>
-        <p class="legal-meta small muted">Last updated: <time datetime="{UPDATED_ISO}">{UPDATED}</time> · Version 2 · <a href="{other[0]}">{other[1]}</a></p>
+        <p class="legal-meta small muted">Last updated: <time datetime="{UPDATED_ISO}">{UPDATED}</time> · Version {VERSION} · <a href="{other[0]}">{other[1]}</a></p>
+        <p class="legal-hi-note small" data-lang-only="hi">Ye page sirf English mein hai. Hinglish mode sirf baaki site ke liye hai, aur agar kisi bhi translation aur is English text mein fark ho, to English version hi maana jayega.</p>
       </div>
     </section>
 
