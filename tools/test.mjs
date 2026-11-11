@@ -216,13 +216,13 @@ await page.click('#tab-beginner');
 
 // counts
 const counts = await page.evaluate(() => ({ jobs: document.querySelectorAll('.job').length, scams: document.querySelectorAll('.scam').length, net: document.querySelectorAll('.net-card').length, tl: document.querySelectorAll('#timeline li').length, proj: document.querySelectorAll('.project').length }));
-ok('jobs=7, scams>=5, net cards, timeline, projects', counts.jobs===7 && counts.scams>=5 && counts.net>=10 && counts.tl===4 && counts.proj===2, JSON.stringify(counts));
+ok('jobs=7, scams>=5, net cards, timeline, projects', counts.jobs===7 && counts.scams>=5 && counts.net>=10 && counts.tl===7 && counts.proj===2, JSON.stringify(counts));
 
 // about
 await page.evaluate(() => document.querySelector('#projects').scrollIntoView()); await sleep(800);
 const ab = await page.evaluate(() => ({ h2: document.querySelector('#about-title').textContent, law: document.querySelector('#law').textContent, links: [...document.querySelectorAll('#about-links a')].map(a => a.textContent),
   building: document.querySelectorAll('.project .building').length, stars: [...document.querySelectorAll('.project .stars')].map(s => s.hidden ? '-' : s.textContent) }));
-ok('about headline', ab.h2 === 'Madhav Pandya: IT engineer studying BCA and law, explaining cybersecurity in Hinglish.');
+ok('about headline', ab.h2 === 'Madhav Pandya: cybersecurity educator studying BCA and law, explaining cybersecurity in Hinglish.');
 ok('law callout: IT Act, DPDP 2023, GRC', /IT Act/.test(ab.law) && /DPDP\)? Act,? 2023/.test(ab.law) && /GRC/.test(ab.law), ab.law.slice(0, 80));
 ok('Instagram/YouTube hidden until URL set', !ab.links.some(t => /Instagram|YouTube/.test(t)) && ab.links.some(t => /GitHub/.test(t)), ab.links.join(','));
 ok('projects: building notes + stars only when > 0', ab.building === 2 && ab.stars[0] === '★ 3' && ab.stars[1] === '-', JSON.stringify(ab.stars));

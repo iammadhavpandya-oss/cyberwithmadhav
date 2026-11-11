@@ -1,6 +1,6 @@
 # CyberWithMadhav website
 
-Minimal dark purple + green site for **CyberWithMadhav**, a cybersecurity awareness & learning brand by Madhav Pandya (Vasai, Mumbai).
+Minimal dark purple + green site for **CyberWithMadhav**, a cybersecurity awareness & learning brand by Madhav Pandya (Mumbai).
 
 Static site (vanilla HTML/CSS/JS, no framework) whose content lives in JSON, plus an **optional** Flask backend for newsletter signup and the contact form.
 
