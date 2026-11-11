@@ -10,7 +10,7 @@ const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 
 // Consent gate: pre-accept for these suites (the gate itself is covered by test_consent.mjs).
-{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 2, at: 'test' })); } catch (e) {} }); return p; }; }
+{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 3, at: 'test' })); } catch (e) {} }); return p; }; }
 await browser.defaultBrowserContext().overridePermissions(new globalThis.URL(BASE).origin, ['clipboard-read', 'clipboard-write', 'clipboard-sanitized-write']);
 
 async function open(path, { width = 1440, height = 900, scheme = 'dark', mobile = false, reduce = false, wait = 'networkidle0' } = {}) {
@@ -66,7 +66,7 @@ ok('prompts: ethics banner', r.banner === 'Use only on systems and data you own 
 ok('prompts: 90 cards, each with title/use/template/copy/tip/model', r.cards === 90 && r.everyCard, String(r.cards));
 ok('prompts: 19 categories + All chip, incl. Defensive Analysis', r.chips === 20 && /Defensive Analysis/.test(r.da), r.chips + ' ' + r.da);
 ok('prompts: [placeholders] highlighted', r.placeholders > 90, String(r.placeholders));
-ok('prompts: short nav (Home, Explore, CTF) with Explore highlighted', r.navLinks === 'Home|Explore|CTF' && r.navHub === 'explore.html' && !r.navActive, r.navLinks + ' ' + r.navHub);
+ok('prompts: short nav (Home, Explore, Blog, CTF) with Explore highlighted', r.navLinks === 'Home|Explore|Blog|CTF' && r.navHub === 'explore.html' && !r.navActive, r.navLinks + ' ' + r.navHub);
 ok('prompts: 12 use-case cards with level badges', r.uc === 12 && r.lv === 12);
 await p.type('#p-search', 'nmap'); await sleep(300);
 const nm = await p.$$eval('.p-card', cs => cs.length);
@@ -246,7 +246,7 @@ for (const page of ['index.html', 'ctf.html']) {
   const n = await q.evaluate(() => { const nl = document.querySelector('#nav-links'); const links = [...nl.querySelectorAll('a')].map(a => a.getAttribute('href')); const tops = new Set([...nl.children].filter(c => c.getClientRects().length).map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2))); return { links, rows: tops.size, over: document.documentElement.scrollWidth - innerWidth }; });
   if (page === 'ctf.html') { const m = await q.evaluate(async () => ({ t: (await (await fetch(location.href)).text()).match(/<title>([^<]*)/)[1], ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => { try { return JSON.parse(s.textContent)['@type']; } catch (e) { return 'bad'; } }), c: document.querySelector('link[rel=canonical]').href }));
     ok('ctf SEO: title, LearningResource JSON-LD, real canonical', m.t === 'CTF Arena: Free Cyber Security Practice | CyberWithMadhav' && m.ld.join() === 'LearningResource' && m.c === 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/ctf.html', JSON.stringify(m)); }
-  ok(`${page}: nav is Home, Explore, CTF in one row at 1000px`, n.links.join() === 'index.html,explore.html,ctf.html' && n.rows === 1 && n.over <= 0, JSON.stringify({ rows: n.rows, over: n.over }));
+  ok(`${page}: nav is Home, Explore, Blog, CTF in one row at 1000px`, n.links.join() === 'index.html,explore.html,blog.html,ctf.html' && n.rows === 1 && n.over <= 0, JSON.stringify({ rows: n.rows, over: n.over }));
   await q.close();
 }
 

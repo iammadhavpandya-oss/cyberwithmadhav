@@ -39,7 +39,7 @@ for (const page of ['index.html', 'ctf.html', 'prompts.html', 'cyberlaw.html']) 
   const p = await open(page);
   let g = await gate(p);
   ok(`${page}: gate shows on first visit as an aria-modal dialog`, g.shown && g.modal === 'true' && g.title === 'Welcome to CyberWithMadhav' && g.pending, JSON.stringify(g));
-  ok(`${page}: checkbox text and both links open in a new tab`, g.label.trim() === 'I have read and agree to the Terms and Conditions and Privacy Policy.' && g.links.join() === 'terms.html|_blank|noopener,privacy.html|_blank|noopener', g.label + ' ' + g.links);
+  ok(`${page}: checkbox text and both links open in a new tab`, g.label.trim() === 'I am 18 or older, or I have a parent or guardian\'s permission. I have read and agree to the Terms and Conditions and Privacy Policy, and I will use this site only for lawful, authorised learning.' && g.links.join() === 'terms.html|_blank|noopener,privacy.html|_blank|noopener', g.label + ' ' + g.links);
   ok(`${page}: Enter disabled until ticked, background inert, focus inside, no dashes`, g.disabled === true && g.checked === false && g.inert && g.focusIn && !g.dash, JSON.stringify(g));
   await p.keyboard.press('Escape'); await sleep(100);
   g = await gate(p);
@@ -63,16 +63,16 @@ for (const page of ['index.html', 'ctf.html', 'prompts.html', 'cyberlaw.html']) 
   const after = await pos();
   g = await gate(p);
   const st = JSON.parse(g.stored || 'null');
-  ok(`${page}: Enter site closes the gate, stores versioned consent, restores the page`, !g.shown && !g.pending && st && st.v === 2 && !!st.at && await p.evaluate(() => ![...document.body.children].some(n => n.inert)), JSON.stringify(g));
+  ok(`${page}: Enter site closes the gate, stores versioned consent, restores the page`, !g.shown && !g.pending && st && st.v === 3 && !!st.at && await p.evaluate(() => ![...document.body.children].some(n => n.inert)), JSON.stringify(g));
   ok(`${page}: no CSP or script errors; gate card is stable and closing it moves nothing on the page`, p.errors.length === 0 && card1 === card2 && near(before, after), JSON.stringify({ e: p.errors, card1, card2, before, after }));
   await p.reload({ waitUntil: 'load' }); await sleep(400);
   ok(`${page}: no gate on the next visit`, !(await gate(p)).shown);
   await p.ctx.close();
 }
 
-{ const p = await open('index.html', { consent: JSON.stringify({ v: 1, at: '2026-01-01T00:00:00Z' }) });
-  ok('older consent version re-prompts', (await gate(p)).shown); await p.ctx.close(); }
 { const p = await open('index.html', { consent: JSON.stringify({ v: 2, at: '2026-11-01T00:00:00Z' }) });
+  ok('older consent version re-prompts', (await gate(p)).shown); await p.ctx.close(); }
+{ const p = await open('index.html', { consent: JSON.stringify({ v: 3, at: '2026-11-11T00:00:00Z' }) });
   ok('current consent version skips the gate', !(await gate(p)).shown); await p.ctx.close(); }
 { const p = await open('prompts.html');
   await p.keyboard.down('Control'); await p.keyboard.press('k'); await p.keyboard.up('Control');
@@ -91,26 +91,26 @@ for (const scheme of ['dark', 'light']) {
   await p.screenshot({ path: OUT + 'consent-modal-mobile.png' }); await p.ctx.close(); }
 
 /* terms.html and privacy.html */
-for (const [page, n, h1] of [['terms.html', 15, 'Terms and Conditions'], ['privacy.html', 8, 'Privacy Policy']]) {
+for (const [page, n, h1] of [['terms.html', 18, 'Terms and Conditions'], ['privacy.html', 8, 'Privacy Policy']]) {
   for (const scheme of ['dark', 'light']) {
     const p = await open(page, { scheme });
     const r = await p.evaluate(() => {
       const t = document.body.innerText;
       return { gate: !!document.getElementById('cwm-consent'), h1: document.querySelector('h1').textContent, secs: document.querySelectorAll('.legal-sec').length,
         toc: [...document.querySelectorAll('.legal-toc a')].map(a => a.getAttribute('href')), ids: [...document.querySelectorAll('.legal-sec')].map(s => '#' + s.id),
-        updated: /Last updated: 1 November 2026/.test(t), dash: /[\u2013\u2014]/.test(document.documentElement.outerHTML), theme: document.documentElement.dataset.theme,
+        updated: /Last updated: 11 November 2026 · Version 3/.test(t), dash: /[\u2013\u2014]/.test(document.documentElement.outerHTML), theme: document.documentElement.dataset.theme,
         sticky: getComputedStyle(document.querySelector('.legal-toc')).position, blur: getComputedStyle(document.querySelector('.legal-sec')).backdropFilter,
         legal: [...document.querySelectorAll('footer .foot-legal a')].map(a => a.getAttribute('href')).join(','), navLegal: [...document.querySelectorAll('#nav-links a')].map(a => a.getAttribute('href')).join(','),
         overflow: document.documentElement.scrollWidth - innerWidth, text: t };
     });
     ok(`${page} ${scheme}: not gated, ${n} sections, contents sidebar matches, sticky glass, last updated, no dashes`, !r.gate && r.h1 === h1 && r.secs === n && r.toc.join() === r.ids.join() && r.sticky === 'sticky' && /blur/.test(r.blur) && r.updated && !r.dash && r.theme === scheme && r.overflow <= 0,
       JSON.stringify(Object.assign({}, r, { text: undefined })));
-    ok(`${page} ${scheme}: footer carries Terms and Privacy, short nav (Home, Explore, CTF), no errors`, r.legal === 'terms.html,privacy.html' && r.navLegal === 'index.html,explore.html,ctf.html' && p.errors.length === 0, r.legal + ' | ' + r.navLegal + ' ' + p.errors);
+    ok(`${page} ${scheme}: footer carries Terms and Privacy, short nav (Home, Explore, Blog, CTF), no errors`, r.legal === 'terms.html,privacy.html' && r.navLegal === 'index.html,explore.html,blog.html,ctf.html' && p.errors.length === 0, r.legal + ' | ' + r.navLegal + ' ' + p.errors);
     if (page === 'terms.html' && scheme === 'dark') {
-      const need = ['Section 43', 'Section 66', 'Bharatiya Nyaya Sanhita', 'brute force', 'OTPs, passwords', 'client data', 'watermark', 'resell', 'Madhav Pandya for CyberWithMadhav', 'privacy.html', 'theme', 'CTF practice progress', 'indemnify', 'laws of India', 'Mumbai', 'Vasai in Palghar district', 'madhavpandya@zoho.in'];
+      const need = ['Section 43', 'Section 66', 'Bharatiya Nyaya Sanhita', 'brute force', 'OTPs, passwords', 'client data', 'watermark', 'resell', 'Madhav Pandya for CyberWithMadhav', 'privacy.html', 'theme', 'CTF practice progress', 'indemnify', 'laws of India', 'courts at Mumbai, Maharashtra', 'User responsibility and lawful use', 'under 18', 'madhavpandya@zoho.in'];
       const miss = need.filter(k => !r.text.includes(k) && !(k === 'privacy.html' && true));
       ok('terms: covers every required topic', miss.length === 0, miss.join());
-      await p.click('.legal-toc a[href="#law"]'); await sleep(900);
+      await p.click('.legal-toc a[href="#law"]'); await sleep(1600);
       ok('terms: contents link jumps and highlights the section', await p.evaluate(() => location.hash === '#law' && document.querySelector('.legal-toc a.on').getAttribute('href') === '#law'));
       await p.evaluate(() => scrollTo(0, 0)); await sleep(300);
     }

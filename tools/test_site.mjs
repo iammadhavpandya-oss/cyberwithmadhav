@@ -17,7 +17,7 @@ const fetch = u => new Promise((res, rej) => (u.startsWith('https') ? https : ht
 }).on('error', rej));
 const results = [];
 const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  : ' + extra : ''}`); };
-const PAGES = ['index.html', 'explore.html', 'commands.html', 'scams.html', 'game.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'about.html', 'terms.html', 'privacy.html']
+const PAGES = ['index.html', 'explore.html', 'commands.html', 'scams.html', 'game.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'blog.html', 'blog-report-cyber-fraud-india.html', 'blog-digital-arrest-scam-india.html', 'blog-upi-scams-india.html', 'about.html', 'terms.html', 'privacy.html']
   .concat(['soc.html'].filter(p => fs.existsSync(SITE + p)));
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
@@ -25,7 +25,7 @@ async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
   const p = await c.newPage(); p.ctx = c; p.errors = [];
   p.on('console', m => { if (m.type() === 'error' && !/favicon|net::ERR_/.test(m.text())) p.errors.push(m.text()); });
   p.on('pageerror', e => p.errors.push('pageerror: ' + e.message));
-  await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 2, at: 'test' })); } catch (e) {} });
+  await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 3, at: 'test' })); } catch (e) {} });
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }]);
   await p.setViewport({ width, height });
   await p.goto(url, { waitUntil: 'load' }); await sleep(700);
@@ -36,15 +36,11 @@ async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
 for (const pg of PAGES) {
   const h = await (await fetch(BASE + pg)).text();
   const has = re => re.test(h);
-  if (pg === 'about.html') {
-    ok(`${pg}: og:image madhav.jpg 600x800 + twitter:image + manifest + touch icon`,
-      has(/property="og:image" content="https:\/\/iammadhavpandya-oss\.github\.io\/cyberwithmadhav\/assets\/img\/madhav\.jpg"/) && has(/og:image:width" content="600"/) && has(/og:image:height" content="800"/)
-      && has(/name="twitter:card" content="summary_large_image"/) && has(/name="twitter:image" content="https:[^"]+madhav\.jpg"/) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));
-  } else {
-    ok(`${pg}: og:image 1200x630 + twitter:image + manifest + touch icon`,
-      has(/property="og:image" content="https:\/\/iammadhavpandya-oss\.github\.io\/cyberwithmadhav\/assets\/img\/og-image\.png"/) && has(/og:image:width" content="1200"/) && has(/og:image:height" content="630"/)
-      && has(/name="twitter:card" content="summary_large_image"/) && has(/name="twitter:image" content="https:[^"]+og-image\.png"/) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));
-  }
+  const img = pg === 'about.html' ? 'madhav-og\\.jpg' : pg.startsWith('blog-') ? 'blog\\/' + pg.slice(5, -5) + '\\.png' : 'og-image\\.png';
+  ok(`${pg}: og:image 1200x630 (${img.replace(/\\/g, '')}) + twitter:image + manifest + touch icon`,
+    has(new RegExp('property="og:image" content="https://iammadhavpandya-oss\\.github\\.io/cyberwithmadhav/assets/img/' + img + '"')) && has(/og:image:width" content="1200"/) && has(/og:image:height" content="630"/)
+    && has(/name="twitter:card" content="summary_large_image"/) && has(new RegExp('name="twitter:image" content="https:[^"]+' + img + '"')) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));
+  ok(`${pg}: language toggle + i18n scripts, lang en-IN`, has(/class="lang-toggle"/) && has(/assets\/js\/i18n\.js/) && has(/<html lang="en-IN"/));
   ok(`${pg}: pwa.js${pg === 'index.html' ? '' : ' + search.js'} loaded`, has(/assets\/js\/pwa\.js/) && (pg === 'index.html' || has(/assets\/js\/search\.js/)));
 }
 { const r = await fetch(BASE + 'assets/img/og-image.png'); const b = Buffer.from(await r.arrayBuffer());

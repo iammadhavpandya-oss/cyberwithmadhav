@@ -4,7 +4,7 @@ const OUT = '/workspace/cwm-site/docs';
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 
 // Consent gate: pre-accept for these suites (the gate itself is covered by test_consent.mjs).
-{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 2, at: 'test' })); } catch (e) {} }); return p; }; }
+{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 3, at: 'test' })); } catch (e) {} }); return p; }; }
 const results = []; const ok = (name, cond, extra='') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  | ' + extra : ''}`); };
 const errors = [];
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -34,7 +34,7 @@ const hero = await page.evaluate(() => ({ h1: document.querySelector('#hero-titl
   banner: getComputedStyle(document.querySelector('#alert-bar')).display !== 'none' && document.querySelector('#alert-bar').textContent.includes('1930') }));
 ok('hero headline + subhead', hero.h1 === 'Cybersecurity in plain English and Hinglish.' && hero.lead === 'Free roadmap, cheat sheets and scam alerts, made for India.', hero.h1);
 ok('toast hidden on load', hero.toastHidden);
-ok('proof line computed from data (no hashtags)', /^110 commands & refs · 9 sheets · 4 tools · free forever$/.test(hero.proof) && !hero.tags, hero.proof);
+ok('proof line computed from data (no hashtags)', /^110 cheat sheet entries · 9 sheets · 4 tools · free$/.test(hero.proof) && !hero.tags, hero.proof);
 ok('1930 banner visible', hero.banner);
 await sleep(1600);
 const who = await page.evaluate(() => ({ w: document.querySelector('#who-out').textContent, h: getComputedStyle(document.querySelector('#hero-title')).opacity }));
@@ -221,11 +221,11 @@ ok('jobs=7, scams>=5, net cards, timeline, projects', counts.jobs===7 && counts.
 // about
 await page.evaluate(() => document.querySelector('#projects').scrollIntoView()); await sleep(800);
 const ab = await page.evaluate(() => ({ h2: document.querySelector('#about-title').textContent, law: document.querySelector('#law').textContent, links: [...document.querySelectorAll('#about-links a')].map(a => a.textContent),
-  building: document.querySelectorAll('.project .building').length, stars: [...document.querySelectorAll('.project .stars')].map(s => s.hidden ? '-' : s.textContent) }));
+  building: document.querySelectorAll('.project .building').length, stars: document.querySelectorAll('.project .stars').length, note: document.querySelectorAll('.project .project-note').length }));
 ok('about headline', ab.h2 === 'Madhav Pandya: cybersecurity educator studying BCA and law, explaining cybersecurity in Hinglish.');
 ok('law callout: IT Act, DPDP 2023, GRC', /IT Act/.test(ab.law) && /DPDP\)? Act,? 2023/.test(ab.law) && /GRC/.test(ab.law), ab.law.slice(0, 80));
 ok('Instagram, YouTube, LinkedIn and GitHub in about links', ['Instagram','YouTube','LinkedIn','GitHub'].every(n => ab.links.some(t => t.includes(n))), ab.links.join(','));
-ok('projects: building notes + stars only when > 0', ab.building === 2 && ab.stars[0] === '★ 3' && ab.stars[1] === '-', JSON.stringify(ab.stars));
+ok('projects: building notes, OSINT ethics note, no live GitHub star fetch', ab.building === 2 && ab.stars === 0 && ab.note === 1, JSON.stringify(ab));
 
 // contact form composes a mailto: link (no backend on GitHub Pages); no newsletter form
 ok('no newsletter form', !(await page.$('#newsletter-form')));
@@ -276,11 +276,10 @@ await page.evaluate(() => { history.replaceState(null, '', location.pathname); w
 
 // meta
 const meta = await page.evaluate(() => ({ og: !!document.querySelector('meta[property="og:title"]'), desc: !!document.querySelector('meta[name="description"]'), h1: document.querySelectorAll('h1').length, icon: document.querySelector('link[rel=icon]').href, lang: document.documentElement.lang }));
-ok('SEO/OG meta, single h1, favicon, lang', meta.og && meta.desc && meta.h1 === 1 && meta.lang === 'en', JSON.stringify(meta));
+ok('SEO/OG meta, single h1, favicon, lang', meta.og && meta.desc && meta.h1 === 1 && meta.lang === 'en-IN', JSON.stringify(meta));
 
 ok('password: leetspeak of a common password caught', (await page.evaluate(() => cwmPassword('P@ssw0rd!').score)) <= 1);
 // screenshots: hide stubbed star counts so docs never show fake numbers
-await page.evaluate(() => document.querySelectorAll('.project .stars').forEach(s => s.hidden = true));
 // screenshots: reveal everything first
 await page.evaluate(() => document.querySelectorAll('.reveal').forEach(e => e.classList.add('in')));
 await page.evaluate(() => { document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0, 0); }); await new Promise(r => setTimeout(r, 700));
