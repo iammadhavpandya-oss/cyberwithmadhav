@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/css/fonts.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;overflow:hidden;background:#0D0B14;color:#F4F1FA;font-family:Inter,sans-serif;position:relative}
+.glow1{position:absolute;width:760px;height:760px;left:-260px;top:-320px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.55),transparent 65%)}
+.glow2{position:absolute;width:720px;height:720px;right:-200px;bottom:-360px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,.40),transparent 65%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(183,156,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(183,156,255,.07) 1px,transparent 1px);background-size:48px 48px}
+.card{position:absolute;inset:48px 56px;border-radius:32px;border:1.5px solid rgba(183,156,255,.35);background:linear-gradient(140deg,rgba(30,24,41,.80),rgba(22,18,31,.55));padding:52px 56px;display:flex;gap:48px;align-items:center}
+.txt{flex:1;display:flex;flex-direction:column;height:100%}
+.brand{display:flex;align-items:center;gap:14px;font:700 30px 'Space Grotesk';letter-spacing:-.02em}
+.brand b{color:#B79CFF}.brand img{width:46px;height:46px}
+h1{margin-top:40px;font:700 76px/1.02 'Space Grotesk';letter-spacing:-.03em}
+.role{margin-top:18px;font:500 28px/1.35 Inter;color:#CFC6E6}
+.role span{color:#4ADE80}
+.row{margin-top:auto;display:flex;gap:12px;flex-wrap:wrap}
+.chip{white-space:nowrap;font:500 19px 'JetBrains Mono';padding:8px 16px;border-radius:999px;border:1.5px solid rgba(183,156,255,.45);color:#E6DEFF;background:rgba(139,92,246,.16)}
+.chip.g{border-color:rgba(74,222,128,.55);color:#BBF7D0;background:rgba(34,197,94,.14)}
+.ph{width:380px;height:440px;border-radius:28px;overflow:hidden;flex:none;position:relative;box-shadow:0 0 0 3px rgba(183,156,255,.55),0 0 60px rgba(139,92,246,.45),0 0 120px rgba(34,197,94,.18);background:#fff}
+.ph img{position:absolute;width:520px;left:-70px;top:-10px}
+</style></head><body>
+<div class="glow1"></div><div class="glow2"></div><div class="grid"></div>
+<div class="card">
+  <div class="txt">
+    <div class="brand"><img src="../../favicon.svg" alt=""><span>Cyber<b>With</b>Madhav</span></div>
+    <h1>Madhav Pandya</h1>
+    <p class="role">Cybersecurity educator, Mumbai.<br><span>Founder, CyberWithMadhav.</span></p>
+    <div class="row"><span class="chip">Plain English + Hinglish</span><span class="chip g">Scam awareness</span><span class="chip">Cyber law India</span></div>
+  </div>
+  <div class="ph"><img src="../../assets/img/madhav.jpg" alt=""></div>
+</div>
+</body></html>
