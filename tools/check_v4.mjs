@@ -11,7 +11,7 @@ async function open(path, { w = 1440, h = 900, scheme = 'dark', mobile = false, 
   p.on('console', m => { if (['error', 'warning'].includes(m.type())) p.errs.push(m.text()); });
   p.on('pageerror', e => p.errs.push('pageerror ' + e.message));
   p.on('requestfailed', r => p.errs.push('failed ' + r.url()));
-  await p.evaluateOnNewDocument((consent, lang) => { try { if (consent) localStorage.setItem('cwm-consent', JSON.stringify({ v: 3, at: 'x' })); localStorage.setItem('cwm-lang', lang); } catch (e) {} }, consent, lang);
+  await p.evaluateOnNewDocument((consent, lang) => { try { if (consent) localStorage.setItem('cwm-consent', JSON.stringify({ v: 4, at: 'x' })); localStorage.setItem('cwm-lang', lang); } catch (e) {} }, consent, lang);
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }]);
   await p.setViewport({ width: w, height: h, isMobile: mobile, hasTouch: mobile, deviceScaleFactor: mobile ? 2 : 1 });
   await p.goto(BASE + path, { waitUntil: 'networkidle0' }); await sleep(600);
@@ -62,7 +62,7 @@ for (const pg of pages) for (const [lang, mobile] of [['en', false], ['hi', fals
   const t = await p.$eval('#cg-title', e => e.textContent); res.push(`${/swagat/.test(t) ? 'PASS' : 'FAIL'} consent switches to Hinglish: ${t}`);
   await p.screenshot({ path: OUT + 'consent-v3-hinglish.png' });
   await p.click('#cg-agree'); await p.click('#cg-enter'); await sleep(200);
-  const st = await p.evaluate(() => JSON.parse(localStorage.getItem('cwm-consent')).v); res.push(`${st === 3 ? 'PASS' : 'FAIL'} consent stored v${st}`);
+  const st = await p.evaluate(() => JSON.parse(localStorage.getItem('cwm-consent')).v); res.push(`${st === 4 ? 'PASS' : 'FAIL'} consent stored v${st}`);
   await p.ctx.close(); }
 { const p = await open('index.html', { lang: 'hi' }); await sleep(300); await p.screenshot({ path: OUT + 'lang-toggle-hinglish.png' }); await p.ctx.close(); }
 { const p = await open('index.html', { lang: 'hi', w: 390, h: 844, mobile: true }); await p.click('.nav-toggle'); await sleep(500); await p.screenshot({ path: OUT + 'lang-toggle-hinglish-mobile-menu.png' }); await p.ctx.close(); }

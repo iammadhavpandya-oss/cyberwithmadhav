@@ -4,7 +4,7 @@
   'use strict';
   const { $, el, getJSON, store, save } = window.CWMP;
   const reduce = window.CWMP.reduce;
-  const PAGE = 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/game.html';
+  const PAGE = 'https://www.cyberwithmadhav.com/game.html';
   const BEST_KEY = 'cwm-scamgame-best';
   const LEVELS = ['all', 'easy', 'medium', 'hard'];
   const SPEAKER = /(Caller|IVR|Agent|Aap|You):\s*/g;

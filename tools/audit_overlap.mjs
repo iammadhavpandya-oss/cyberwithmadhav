@@ -2,7 +2,7 @@
 // Run from tools/: URL=http://127.0.0.1:8000/ OUT=/tmp/audit node audit_overlap.mjs [page ...]
 import puppeteer from 'puppeteer-core';
 import fs from 'node:fs';
-const BASE = (process.env.URL || 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/').replace(/\/?$/, '/');
+const BASE = (process.env.URL || 'https://www.cyberwithmadhav.com/').replace(/\/?$/, '/');
 const OUT = (process.env.OUT || '/tmp/audit').replace(/\/?$/, '/');
 const SHOTS = process.env.SHOTS !== '0';
 fs.mkdirSync(OUT, { recursive: true });

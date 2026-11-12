@@ -7,10 +7,10 @@ from pathlib import Path
 from html import escape
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE = "https://iammadhavpandya-oss.github.io/cyberwithmadhav/"
-UPDATED = "11 November 2026"
-UPDATED_ISO = "2026-11-11"
-VERSION = 3  # keep equal to VERSION in assets/js/consent.js
+BASE = "https://www.cyberwithmadhav.com/"
+UPDATED = "12 November 2026"
+UPDATED_ISO = "2026-11-12"
+VERSION = 4  # keep equal to VERSION in assets/js/consent.js
 EMAIL = "madhavpandya@zoho.in"
 
 THEME_JS = """
@@ -41,7 +41,7 @@ THEME_BTN = """<button class="theme-toggle" type="button" aria-label="Switch to 
 # ---------------------------------------------------------------- Terms
 TERMS = [
  ("acceptance", "Acceptance of these terms", [
-  "These Terms and Conditions govern your use of the CyberWithMadhav website at iammadhavpandya-oss.github.io/cyberwithmadhav, including every page, the CTF Arena, the CyberPrompts library, the Cyber Law India pages and the downloadable PDFs (together, the \"site\").",
+  "These Terms and Conditions govern your use of the CyberWithMadhav website at www.cyberwithmadhav.com, including every page, the CTF Arena, the CyberPrompts library, the Cyber Law India pages and the downloadable PDFs (together, the \"site\").",
   "By ticking the box on the welcome screen, or by otherwise using the site, you confirm that you have read, understood and agree to these Terms and to our <a href=\"privacy.html\">Privacy Policy</a>. If you do not agree, please do not use the site.",
   "In these Terms, \"we\", \"us\" and \"our\" mean Madhav Pandya, who runs CyberWithMadhav, and \"you\" means any person who visits or uses the site."]),
  ("educational", "Educational purpose only", [
@@ -146,7 +146,7 @@ PRIVACY = [
   "TABLE",
   "You can remove all of it at any time by clearing site data for this site in your browser settings. If you clear the consent record, you will see the welcome screen again."]),
  ("services", "Services the site relies on", [
-  ["<strong>GitHub Pages</strong> hosts the site at the moment. Like any web host, GitHub receives technical information such as your IP address and browser details when your browser requests a page, and may keep it in server logs. See the <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener\">GitHub General Privacy Statement</a>. If the site moves to another host, this section will be updated before or when it moves.",
+  ["<strong>Hostinger</strong> hosts the site. Like any web host, Hostinger receives technical information such as your IP address and browser details when your browser requests a page, and may keep it in server logs. See the <a href=\"https://www.hostinger.com/legal/privacy-policy\" target=\"_blank\" rel=\"noopener\">Hostinger Privacy Policy</a>.",
    "<strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN."],
   "We do not receive any personal information from the host."]),
  ("optional", "Contact and optional leaderboard", [

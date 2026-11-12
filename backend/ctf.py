@@ -22,7 +22,7 @@ Security notes
   * 5 wrong answers on one challenge within 10 minutes lock it for the rest of that window
     (429 + Retry-After). Unknown run/challenge ids all return the same 404 body.
   * Request bodies over 4 KB are rejected. CORS is limited to CWM_CTF_ORIGINS
-    (default: https://iammadhavpandya-oss.github.io).
+    (default: https://www.cyberwithmadhav.com and the GitHub Pages origin).
 """
 from __future__ import annotations
 
@@ -49,7 +49,7 @@ HERE = Path(__file__).resolve().parent
 IMPORT_PATH = Path(os.environ.get("CWM_CTF_IMPORT", HERE / "ctf_import.private.json"))
 CTF_ORIGINS = {
     o.strip().rstrip("/")
-    for o in os.environ.get("CWM_CTF_ORIGINS", "https://iammadhavpandya-oss.github.io").split(",")
+    for o in os.environ.get("CWM_CTF_ORIGINS", "https://www.cyberwithmadhav.com,https://cyberwithmadhav.com,https://iammadhavpandya-oss.github.io").split(",")
     if o.strip()
 }
 LOCK_AFTER = int(os.environ.get("CWM_CTF_LOCK_AFTER", "5"))

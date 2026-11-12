@@ -10,7 +10,7 @@ const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 
 // Consent gate: pre-accept for these suites (the gate itself is covered by test_consent.mjs).
-{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 3, at: 'test' })); } catch (e) {} }); return p; }; }
+{ const _np = browser.newPage.bind(browser); browser.newPage = async (...a) => { const p = await _np(...a); await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 4, at: 'test' })); } catch (e) {} }); return p; }; }
 await browser.defaultBrowserContext().overridePermissions(new globalThis.URL(BASE).origin, ['clipboard-read', 'clipboard-write', 'clipboard-sanitized-write']);
 
 async function open(path, { width = 1440, height = 900, scheme = 'dark', mobile = false, reduce = false, wait = 'networkidle0' } = {}) {
@@ -59,7 +59,7 @@ let r = await p.evaluate(() => ({
   const names = ld ? ld.itemListElement.map(x => x.item.name) : [];
   ok('prompts SEO: ItemList JSON-LD lists exactly the 19 rendered categories incl. Defensive Analysis', ld && ld.numberOfItems === 19 && names.length === r.chipNames.length && JSON.stringify(names) === JSON.stringify(cats) && names.includes('Defensive Analysis prompts'), names.length + '');
   ok('prompts SEO: meta says 90 prompts / 19 categories, keywords, real canonical + og:url', /^90 free defensive AI prompts in 19 categories/.test(r.desc) && /Defensive Analysis/.test(r.desc) && r.kw.length > 20
-    && r.canon === 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/prompts.html' && r.ogUrl === r.canon, r.desc); }
+    && r.canon === 'https://www.cyberwithmadhav.com/prompts.html' && r.ogUrl === r.canon, r.desc); }
 { const sc = await slimCheck(p);
   ok('prompts: big disclaimer boxes gone, one slim notice links to Terms, footer legal links', sc.boxes === 0 && sc.n === 1 && /Authorised and defensive use only/.test(sc.text) && /^terms\.html/.test(sc.href) && sc.h < 60 && !sc.dash && sc.legal === 'terms.html,privacy.html', JSON.stringify(sc)); }
 ok('prompts: ethics banner', r.banner === 'Use only on systems and data you own or are authorised to test.', r.banner);
@@ -154,7 +154,7 @@ ok('law: FAQ12 says Superintendent of Police (no DCP), FAQ6 phased DPDP, FAQ9 20
   /Superintendent of Police/.test(r.faqAll[11]) && !/DCP/.test(r.faqAll[11]) && /13 May 2027/.test(r.faqAll[5]) && /43A/.test(r.faqAll[5]) && /2 hours/.test(r.faqAll[8]) && /7 days/.test(r.faqAll[8]) && /Integrated Ombudsman Scheme, 2026/.test(r.faqAll[12]) && /₹30 lakh/.test(r.faqAll[12]));
 { let ld = null; try { ld = JSON.parse(r.ld[0]); } catch (e) { /* bad */ }
   ok('law SEO: FAQPage JSON-LD with 15 answers matching the page, real canonical, meta without dropped wording', r.ld.length === 1 && ld && ld['@type'] === 'FAQPage' && ld.mainEntity.length === 15 && /Superintendent of Police/.test(ld.mainEntity[11].acceptedAnswer.text)
-    && r.canon === 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/cyberlaw.html' && !/punishments, bail and compounding|DPDP Act penalties/.test(r.desc), r.desc); }
+    && r.canon === 'https://www.cyberwithmadhav.com/cyberlaw.html' && !/punishments, bail and compounding|DPDP Act penalties/.test(r.desc), r.desc); }
 ok('law: 12 case files loaded from data/cyberlaw_cases.json', r.cases === 12 && r.caseSrc === 'file', r.cases + ' ' + r.caseSrc);
 ok('law: unconfirmed citations show "citation being verified" not the SCC/DLT cite', r.pending === 6 && !r.rawVerifyInCite && !r.sccInPending, String(r.pending));
 { const want = JSON.parse(fs.readFileSync(new globalThis.URL('../data/cyberlaw_reporting.json', import.meta.url)));
@@ -245,7 +245,7 @@ for (const page of ['index.html', 'ctf.html']) {
   const q = await open(page, { width: 1000, height: 800, wait: 'load' }); await sleep(800);
   const n = await q.evaluate(() => { const nl = document.querySelector('#nav-links'); const links = [...nl.querySelectorAll('a')].map(a => a.getAttribute('href')); const tops = new Set([...nl.children].filter(c => c.getClientRects().length).map(c => Math.round(c.getBoundingClientRect().top + c.getBoundingClientRect().height / 2))); return { links, rows: tops.size, over: document.documentElement.scrollWidth - innerWidth }; });
   if (page === 'ctf.html') { const m = await q.evaluate(async () => ({ t: (await (await fetch(location.href)).text()).match(/<title>([^<]*)/)[1], ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => { try { return JSON.parse(s.textContent)['@type']; } catch (e) { return 'bad'; } }), c: document.querySelector('link[rel=canonical]').href }));
-    ok('ctf SEO: title, LearningResource JSON-LD, real canonical', m.t === 'CTF Arena: Free Cyber Security Practice | CyberWithMadhav' && m.ld.join() === 'LearningResource' && m.c === 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/ctf.html', JSON.stringify(m)); }
+    ok('ctf SEO: title, LearningResource JSON-LD, real canonical', m.t === 'CTF Arena: Free Cyber Security Practice | CyberWithMadhav' && m.ld.join() === 'LearningResource' && m.c === 'https://www.cyberwithmadhav.com/ctf.html', JSON.stringify(m)); }
   ok(`${page}: nav is Home, Explore, Blog, CTF in one row at 1000px`, n.links.join() === 'index.html,explore.html,blog.html,ctf.html' && n.rows === 1 && n.over <= 0, JSON.stringify({ rows: n.rows, over: n.over }));
   await q.close();
 }

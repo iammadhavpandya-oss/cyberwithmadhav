@@ -25,7 +25,7 @@ async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
   const p = await c.newPage(); p.ctx = c; p.errors = [];
   p.on('console', m => { if (m.type() === 'error' && !/favicon|net::ERR_/.test(m.text())) p.errors.push(m.text()); });
   p.on('pageerror', e => p.errors.push('pageerror: ' + e.message));
-  await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 3, at: 'test' })); } catch (e) {} });
+  await p.evaluateOnNewDocument(() => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 4, at: 'test' })); } catch (e) {} });
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }]);
   await p.setViewport({ width, height });
   await p.goto(url, { waitUntil: 'load' }); await sleep(700);
@@ -38,7 +38,7 @@ for (const pg of PAGES) {
   const has = re => re.test(h);
   const img = pg === 'about.html' ? 'madhav-og\\.jpg' : pg.startsWith('blog-') ? 'blog\\/' + pg.slice(5, -5) + '\\.png' : 'og-image\\.png';
   ok(`${pg}: og:image 1200x630 (${img.replace(/\\/g, '')}) + twitter:image + manifest + touch icon`,
-    has(new RegExp('property="og:image" content="https://iammadhavpandya-oss\\.github\\.io/cyberwithmadhav/assets/img/' + img + '"')) && has(/og:image:width" content="1200"/) && has(/og:image:height" content="630"/)
+    has(new RegExp('property="og:image" content="https://www\\.cyberwithmadhav\\.com/assets/img/' + img + '"')) && has(/og:image:width" content="1200"/) && has(/og:image:height" content="630"/)
     && has(/name="twitter:card" content="summary_large_image"/) && has(new RegExp('name="twitter:image" content="https:[^"]+' + img + '"')) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));
   ok(`${pg}: language toggle + i18n scripts, lang en-IN`, has(/class="lang-toggle"/) && has(/assets\/js\/i18n\.js/) && has(/<html lang="en-IN"/));
   ok(`${pg}: pwa.js${pg === 'index.html' ? '' : ' + search.js'} loaded`, has(/assets\/js\/pwa\.js/) && (pg === 'index.html' || has(/assets\/js\/search\.js/)));
@@ -52,7 +52,7 @@ for (const pg of PAGES) {
 // 2. sitemap and feed
 { const sm = await (await fetch(BASE + 'sitemap.xml')).text();
   const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-  ok('sitemap lists every public page, no 404', PAGES.every(p => locs.some(l => p === 'index.html' ? /cyberwithmadhav\/$/.test(l) : l.endsWith('/' + p))) && !locs.some(l => /404/.test(l)), locs.length + ' urls');
+  ok('sitemap lists every public page, no 404', PAGES.every(p => locs.some(l => p === 'index.html' ? /https:\/\/www\.cyberwithmadhav\.com\/$/.test(l) : l.endsWith('/' + p))) && !locs.some(l => /404/.test(l)), locs.length + ' urls');
   const fd = await (await fetch(BASE + 'feed.xml')).text();
   ok('feed.xml: RSS 2.0 with one item per page and self link', /<rss version="2.0"/.test(fd) && (fd.match(/<item>/g) || []).length === PAGES.length && /atom:link href="[^"]+feed\.xml" rel="self"/.test(fd));
   const p = await open(BASE + 'feed.xml');
@@ -112,16 +112,16 @@ if (!LIVE || BASE.startsWith('https:')) {
   await p.ctx.close();
 }
 
-// 5. 404 page (served under /cyberwithmadhav/ like GitHub Pages, including a nested path)
+// 5. 404 page (served at the domain root like Hostinger, including a nested path)
 let srv = null, NF = null;
 if (LIVE) NF = BASE + 'deep/missing/page.html';
 else {
-  const root = '/tmp/cwm-ghp', mount = root + '/cyberwithmadhav';
-  fs.rmSync(root, { recursive: true, force: true }); fs.mkdirSync(mount + '/deep/missing', { recursive: true });
-  for (const f of fs.readdirSync(SITE)) if (!['tools', 'backend', '.git'].includes(f)) fs.symlinkSync(SITE + f, mount + '/' + f);
-  fs.copyFileSync(SITE + '404.html', mount + '/deep/missing/page.html'); // copy: py3.13 http.server refuses out-of-tree symlinks
+  const root = '/tmp/cwm-host';
+  fs.rmSync(root, { recursive: true, force: true }); fs.mkdirSync(root + '/deep/missing', { recursive: true });
+  for (const f of fs.readdirSync(SITE)) if (!['tools', 'backend', '.git'].includes(f)) fs.symlinkSync(SITE + f, root + '/' + f);
+  fs.copyFileSync(SITE + '404.html', root + '/deep/missing/page.html'); // copy: py3.13 http.server refuses out-of-tree symlinks
   srv = spawn('python3', ['-m', 'http.server', '8001', '--bind', '127.0.0.1'], { cwd: root, stdio: 'ignore' }); await sleep(900);
-  NF = 'http://127.0.0.1:8001/cyberwithmadhav/deep/missing/page.html';
+  NF = 'http://127.0.0.1:8001/deep/missing/page.html';
 }
 for (const scheme of ['dark', 'light']) {
   const p = await open(NF, { scheme });
@@ -129,7 +129,7 @@ for (const scheme of ['dark', 'light']) {
     const css = [...document.styleSheets].filter(s => s.href && /assets\/css/.test(s.href)).length;
     return { h1: document.querySelector('h1').textContent, css, path: document.getElementById('nf-path').textContent, home: document.querySelector('.nf-actions a').href, star: !!document.querySelector('#starfield'), btn: !!document.querySelector('#nav-links .pal-btn') };
   });
-  ok(`404 (${scheme}): branded page with styles, path, home link and search even when nested`, r.h1 === 'This page went missing.' && r.css >= 2 && /deep\/missing\/page\.html/.test(r.path) && /\/cyberwithmadhav\/index\.html$/.test(r.home) && r.btn, JSON.stringify(r));
+  ok(`404 (${scheme}): branded page with styles, path, home link and search even when nested`, r.h1 === 'This page went missing.' && r.css >= 2 && /deep\/missing\/page\.html/.test(r.path) && /\/index\.html$/.test(r.home) && r.btn, JSON.stringify(r));
   ok(`404 (${scheme}): no console errors`, p.errors.length === 0, p.errors.join(' | '));
   if (scheme === 'dark') {
     await p.click('#nf-search'); await sleep(300);

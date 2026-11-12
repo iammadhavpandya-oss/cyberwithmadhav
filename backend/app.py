@@ -24,7 +24,7 @@ ALLOWED_ORIGINS = {
     for o in os.environ.get(
         "CWM_ALLOWED_ORIGINS",
         "http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500,"
-        "https://iammadhavpandya-oss.github.io",
+        "https://www.cyberwithmadhav.com,https://cyberwithmadhav.com,https://iammadhavpandya-oss.github.io",
     ).split(",")
     if o.strip()
 }

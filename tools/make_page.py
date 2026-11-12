@@ -10,7 +10,7 @@ import html, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE = "https://iammadhavpandya-oss.github.io/cyberwithmadhav/"
+BASE = "https://www.cyberwithmadhav.com/"
 
 SPECS = [
     {"file": "commands.html", "title": "Command Reference: Blue Team Commands for Linux, Windows and Cisco | CyberWithMadhav",

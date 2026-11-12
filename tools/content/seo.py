@@ -2,7 +2,7 @@
 # Idempotent: rewrites title/description/og/twitter/keywords tags and the JSON-LD block between seo markers.
 # Counts and categories are taken from the data the pages actually render, so the meta never drifts.
 import html, json, re
-BASE = "https://iammadhavpandya-oss.github.io/cyberwithmadhav/"
+BASE = "https://www.cyberwithmadhav.com/"
 
 def _attr(s): return html.escape(s, quote=True)
 

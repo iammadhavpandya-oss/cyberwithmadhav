@@ -24,7 +24,7 @@ async function open(path, { scheme = 'dark', width = 1440, height = 900, reduce 
   const p = await c.newPage(); p.ctx = c; p.errors = [];
   p.on('console', m => { if (m.type() === 'error' && !/favicon|net::ERR_/.test(m.text())) p.errors.push(m.text()); });
   p.on('pageerror', e => p.errors.push('pageerror: ' + e.message));
-  await p.evaluateOnNewDocument(s => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 3, at: 'test' })); if (s) for (const k in s) localStorage.setItem(k, s[k]); } catch (e) {} }, storage);
+  await p.evaluateOnNewDocument(s => { try { localStorage.setItem('cwm-consent', JSON.stringify({ v: 4, at: 'test' })); if (s) for (const k in s) localStorage.setItem(k, s[k]); } catch (e) {} }, storage);
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }, { name: 'prefers-reduced-motion', value: reduce ? 'reduce' : 'no-preference' }]);
   await p.setViewport({ width, height });
   await p.goto(BASE + path, { waitUntil: 'load' }); await sleep(800);

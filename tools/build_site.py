@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-BASE = "https://iammadhavpandya-oss.github.io/cyberwithmadhav/"
+BASE = "https://www.cyberwithmadhav.com/"
 OG_IMG = BASE + "assets/img/og-image.png"
 OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
@@ -259,6 +259,11 @@ def sitemap_and_feed():
           f"    <lastBuildDate>{format_datetime(latest)}</lastBuildDate>\n" + "\n".join(items) + "\n  </channel>\n</rss>\n")
 
 
+
+def robots():
+    write("robots.txt", "User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n" % BASE)
+
+
 # ---------- 5: service worker and 404 ----------
 def service_worker():
     ps = pages() + ["404.html"]
@@ -321,7 +326,7 @@ def not_found():
     head = re.sub(r"<title>.*?</title>", f"<title>{NOT_FOUND_TITLE}</title>", head)
     head = re.sub(r'\n\s*<(?:meta property="og:[^"]*"|meta name="twitter:[^"]*"|link rel="canonical")[^>]*>', "", head)
     head = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="This page does not exist on CyberWithMadhav.">\n  <meta name="robots" content="noindex">', head)
-    head = head.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  <base href="/cyberwithmadhav/">', 1)
+    head = head.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  <base href="/">', 1)
     head = head.replace("base-uri 'none'", "base-uri 'self'")
     head = re.sub(r'\n\s*<link rel="stylesheet" href="assets/css/legal.css">', "", head)
     nav = re.search(r'<header class="nav" id="top">.*?</header>', t, re.S).group(0)
@@ -382,6 +387,7 @@ def main():
     not_found()
     search_index()
     sitemap_and_feed()
+    robots()
     subprocess.run(["python3", str(ROOT / "tools" / "csp_hash.py")], check=True)  # hashes first, so the sw version covers the final pages
     service_worker()
 

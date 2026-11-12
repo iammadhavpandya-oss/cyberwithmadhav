@@ -63,16 +63,16 @@ for (const page of ['index.html', 'ctf.html', 'prompts.html', 'cyberlaw.html']) 
   const after = await pos();
   g = await gate(p);
   const st = JSON.parse(g.stored || 'null');
-  ok(`${page}: Enter site closes the gate, stores versioned consent, restores the page`, !g.shown && !g.pending && st && st.v === 3 && !!st.at && await p.evaluate(() => ![...document.body.children].some(n => n.inert)), JSON.stringify(g));
+  ok(`${page}: Enter site closes the gate, stores versioned consent, restores the page`, !g.shown && !g.pending && st && st.v === 4 && !!st.at && await p.evaluate(() => ![...document.body.children].some(n => n.inert)), JSON.stringify(g));
   ok(`${page}: no CSP or script errors; gate card is stable and closing it moves nothing on the page`, p.errors.length === 0 && card1 === card2 && near(before, after), JSON.stringify({ e: p.errors, card1, card2, before, after }));
   await p.reload({ waitUntil: 'load' }); await sleep(400);
   ok(`${page}: no gate on the next visit`, !(await gate(p)).shown);
   await p.ctx.close();
 }
 
-{ const p = await open('index.html', { consent: JSON.stringify({ v: 2, at: '2026-11-01T00:00:00Z' }) });
-  ok('older consent version re-prompts', (await gate(p)).shown); await p.ctx.close(); }
 { const p = await open('index.html', { consent: JSON.stringify({ v: 3, at: '2026-11-11T00:00:00Z' }) });
+  ok('older consent version re-prompts', (await gate(p)).shown); await p.ctx.close(); }
+{ const p = await open('index.html', { consent: JSON.stringify({ v: 4, at: '2026-11-12T00:00:00Z' }) });
   ok('current consent version skips the gate', !(await gate(p)).shown); await p.ctx.close(); }
 { const p = await open('prompts.html');
   await p.keyboard.down('Control'); await p.keyboard.press('k'); await p.keyboard.up('Control');
@@ -98,7 +98,7 @@ for (const [page, n, h1] of [['terms.html', 18, 'Terms and Conditions'], ['priva
       const t = document.body.innerText;
       return { gate: !!document.getElementById('cwm-consent'), h1: document.querySelector('h1').textContent, secs: document.querySelectorAll('.legal-sec').length,
         toc: [...document.querySelectorAll('.legal-toc a')].map(a => a.getAttribute('href')), ids: [...document.querySelectorAll('.legal-sec')].map(s => '#' + s.id),
-        updated: /Last updated: 11 November 2026 · Version 3/.test(t), dash: /[\u2013\u2014]/.test(document.documentElement.outerHTML), theme: document.documentElement.dataset.theme,
+        updated: /Last updated: 12 November 2026 · Version 4/.test(t), dash: /[\u2013\u2014]/.test(document.documentElement.outerHTML), theme: document.documentElement.dataset.theme,
         sticky: getComputedStyle(document.querySelector('.legal-toc')).position, blur: getComputedStyle(document.querySelector('.legal-sec')).backdropFilter,
         legal: [...document.querySelectorAll('footer .foot-legal a')].map(a => a.getAttribute('href')).join(','), navLegal: [...document.querySelectorAll('#nav-links a')].map(a => a.getAttribute('href')).join(','),
         overflow: document.documentElement.scrollWidth - innerWidth, text: t };

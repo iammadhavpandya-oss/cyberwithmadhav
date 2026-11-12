@@ -7,7 +7,7 @@
  */
 (function () {
   'use strict';
-  var VERSION = 3;
+  var VERSION = 4;
   var KEY = 'cwm-consent';
   var root = document.documentElement;
 

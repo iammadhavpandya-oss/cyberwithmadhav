@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const { $, el, getJSON } = window.CWMP;
-  const BASE = 'https://iammadhavpandya-oss.github.io/cyberwithmadhav/scams.html';
+  const BASE = 'https://www.cyberwithmadhav.com/scams.html';
   const state = { f: 'all', q: '' };
   let data = null, cards = [];
   const norm = s => String(s || '').toLowerCase();

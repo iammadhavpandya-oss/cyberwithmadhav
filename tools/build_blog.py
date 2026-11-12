@@ -5,8 +5,8 @@
 Share images: node tools/render_blog_og.mjs (reads tools/og/blog-og.json written here).
 
 URL scheme: flat files in the site root (blog.html, blog-<slug>.html) with relative links, so the same files work on
-the github.io project URL (/cyberwithmadhav/) and on a domain root (Hostinger). When the site moves to its own
-domain, keep these names (or add redirects) so links in search results and shares keep working.
+the live site at https://www.cyberwithmadhav.com/ and on the GitHub Pages project URL. Keep these names
+(or add redirects) so links in search results and shares keep working.
 It writes:
   blog.html, blog-<slug>.html, assets/js/i18n/post-<slug>.js (Hinglish text for each post),
   the "Latest from the blog" block in index.html, the Related guides block in scams.html and cyberlaw.html,

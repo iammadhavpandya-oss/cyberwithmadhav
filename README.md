@@ -115,7 +115,7 @@ See [docs/DEPLOY.md](docs/DEPLOY.md): GitHub Pages / Netlify / Cloudflare Pages 
 - [ ] Instagram and YouTube URLs → `data/about.json` (`links[].url`; rows stay hidden while empty), plus `sameAs` in the JSON-LD in `index.html`
 - [ ] Real numbers only if available → `data/about.json` `timeline[].metric` (empty = hidden)
 - [ ] Photo → `assets/img/madhav.jpg`, then swap the "MP" placeholder in `index.html`
-- [x] Real domain: `<link rel="canonical">`, `og:url`, `og:image` and `sitemap.xml` point to https://iammadhavpandya-oss.github.io/cyberwithmadhav/
+- [x] Real domain: `<link rel="canonical">`, `og:url`, `og:image` and `sitemap.xml` point to https://www.cyberwithmadhav.com/
 - [ ] Social preview image → `assets/img/og-image.png` (1200×630)
 - [ ] CTF API is not deployed yet: see the CTF section of docs/DEPLOY.md, then set `cwm-api` in `ctf.html`
 - [ ] If the backend is deployed: set `<meta name="cwm-api" content="https://api.your-domain">` and `CWM_ALLOWED_ORIGINS`

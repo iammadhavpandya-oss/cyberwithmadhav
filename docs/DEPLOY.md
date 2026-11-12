@@ -51,8 +51,8 @@ The CTF page works fully static on GitHub Pages. These steps add the ranked lead
    sys.path.insert(0, '/home/<user>/cyberwithmadhav/backend')
    os.environ['FLAG_PEPPER'] = '<pepper>'
    os.environ['CWM_DB_PATH'] = '/home/<user>/cwm.sqlite3'
-   os.environ['CWM_CTF_ORIGINS'] = 'https://iammadhavpandya-oss.github.io'
-   os.environ['CWM_ALLOWED_ORIGINS'] = 'https://iammadhavpandya-oss.github.io'
+   os.environ['CWM_CTF_ORIGINS'] = 'https://www.cyberwithmadhav.com,https://cyberwithmadhav.com'
+   os.environ['CWM_ALLOWED_ORIGINS'] = 'https://www.cyberwithmadhav.com,https://cyberwithmadhav.com'
    from app import app as application
    ```
 6. In a console: `cd backend && FLAG_PEPPER=<pepper> CWM_DB_PATH=/home/<user>/cwm.sqlite3 .venv/bin/python manage.py import`
