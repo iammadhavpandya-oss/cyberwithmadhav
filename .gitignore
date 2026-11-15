@@ -12,3 +12,6 @@ tools/node_modules/
 backend/ctf_answers.private.json
 *.private.json
 backend/.flag_pepper
+
+# Any private key/answer/backup files (never commit)
+*.private.*
