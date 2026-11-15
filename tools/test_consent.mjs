@@ -107,7 +107,7 @@ for (const [page, n, h1] of [['terms.html', 18, 'Terms and Conditions'], ['priva
       JSON.stringify(Object.assign({}, r, { text: undefined })));
     ok(`${page} ${scheme}: footer carries Terms and Privacy, short nav (Home, Explore, Blog, CTF), no errors`, r.legal === 'terms.html,privacy.html' && r.navLegal === 'index.html,explore.html,blog.html,ctf.html' && p.errors.length === 0, r.legal + ' | ' + r.navLegal + ' ' + p.errors);
     if (page === 'terms.html' && scheme === 'dark') {
-      const need = ['Section 43', 'Section 66', 'Bharatiya Nyaya Sanhita', 'brute force', 'OTPs, passwords', 'client data', 'watermark', 'resell', 'Madhav Pandya for CyberWithMadhav', 'privacy.html', 'theme', 'CTF practice progress', 'indemnify', 'laws of India', 'courts at Mumbai, Maharashtra', 'User responsibility and lawful use', 'under 18', 'madhavpandya@zoho.in'];
+      const need = ['Section 43', 'Section 66', 'Bharatiya Nyaya Sanhita', 'brute force', 'OTPs, passwords', 'client data', 'watermark', 'resell', 'Madhav Pandya for CyberWithMadhav', 'privacy.html', 'theme', 'CTF practice progress', 'indemnify', 'laws of India', 'courts at Mumbai, Maharashtra', 'User responsibility and lawful use', 'under 18', 'madhavpandya@zohomail.in'];
       const miss = need.filter(k => !r.text.includes(k) && !(k === 'privacy.html' && true));
       ok('terms: covers every required topic', miss.length === 0, miss.join());
       await p.click('.legal-toc a[href="#law"]'); await sleep(1600);

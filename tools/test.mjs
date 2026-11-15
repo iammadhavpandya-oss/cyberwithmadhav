@@ -234,7 +234,7 @@ ok('contact form client validation', (await page.$eval('#contact-form .form-stat
 await page.type('#c-name', 'Test User'); await page.type('#c-subject', 'Hi'); await page.type('#c-msg', 'Hello from the headless test!');
 await page.click('#contact-form button[type=submit]');
 { const m = await page.$eval('#contact-form', f => f.dataset.mailto || '');
-  ok('contact form → mailto with subject and body', m.startsWith('mailto:madhavpandya@zoho.in?subject=Hi&body=') && m.includes('Test%20User'), m.slice(0, 80)); }
+  ok('contact form → mailto with subject and body', m.startsWith('mailto:madhavpandya@zohomail.in?subject=Hi&body=') && m.includes('Test%20User'), m.slice(0, 80)); }
 ok('follow card: Instagram and YouTube profile links', await page.$$eval('#follow-links a', a => a.length === 2 && a.every(x => /instagram\.com\/cyberwithmadhav|youtube\.com\/@cyberwithmadhav/.test(x.href) && /\bme\b/.test(x.getAttribute('rel') || ''))));
 ok('photo avatar, no initials or TODO', await page.evaluate(() => { const img = document.querySelector('.photo.avatar img'); return img && /madhav-square\.jpg$/.test(img.getAttribute('src') || '') && img.alt === 'Madhav Pandya, cybersecurity educator from Mumbai' && !document.querySelector('.photo.avatar .av-initials') && !/TODO/.test(document.body.innerHTML); }));
 await page.$$eval('.form-status', s => s.forEach(x => { x.textContent=''; x.className='form-status small'; }));
