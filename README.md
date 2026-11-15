@@ -123,3 +123,24 @@ See [docs/DEPLOY.md](docs/DEPLOY.md): GitHub Pages / Netlify / Cloudflare Pages 
 
 ## Ethics
 All offensive-security content is for learning and **authorised** testing only. Unauthorised access is an offence under the IT Act 2000 (India).
+
+## Start here, Toolkit, Collaborate, Now, humans.txt, security.txt (`tools/build_extras.py`)
+
+`python3 tools/build_extras.py` writes `start-here.html`, `uses.html` (free toolkit), `collaborate.html` (media kit), `now.html`, `humans.txt` and `.well-known/security.txt` (renew `Expires` before 16 Nov 2027), plus their Hinglish strings in `assets/js/i18n-dict.js`. Run it after `build_blog.py` and before `build_site.py`. Keep every fact true: no follower counts, clients, awards or employer.
+
+`build_site.py` also: adds `?v=<content hash>` to every local CSS and JS URL (so the 1 year cache in `.htaccess` is safe), writes compressed JPEG copies of the PNG share images and points `og:image` at them, adds `assets/js/eggs.js` and a source comment flag to every page.
+
+## Easter eggs (`assets/js/eggs.js`, `assets/css/eggs.css`)
+
+| Trigger | What happens |
+|---|---|
+| Konami code (up up down down left right left right b a), or type `sudo` anywhere outside a form field | Root shell panel opens (not modal, Esc closes and returns focus). Commands: help, whoami, ls, cat flag.txt, ping, traceroute 1930, nmap localhost, sudo make me a coffee, matrix, handshake, clear, exit |
+| Tap the footer handshake line 3 times (phones) | Same shell |
+| Type `coffee`, `sudo make me a coffee` in the shell, or click the logo 5 times on the home page | HTTP 418 I'm a teapot toast |
+| Hover a section heading (mouse only) | First letters in hex |
+| Open the DevTools console | ASCII banner and a note for curious devs |
+| View page source | `CWM{...}` flag comment that points to the CTF |
+| `/robots.txt`, `/humans.txt` | Notes for humans (robots rules unchanged) |
+| Any missing page | 404 themed as packet lost, TTL expired, traceroute home |
+
+Reduced motion skips every animation. Tests: `cd tools && node test_extras.mjs`.

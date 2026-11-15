@@ -21,8 +21,9 @@ OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
 PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
-         "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "faq.html", "about.html", "terms.html", "privacy.html"]
-PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "terms.html": "0.3", "privacy.html": "0.3"}
+         "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "faq.html", "start-here.html", "uses.html", "collaborate.html", "now.html",
+         "about.html", "terms.html", "privacy.html"]
+PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "now.html": "0.5", "terms.html": "0.3", "privacy.html": "0.3"}
 
 
 def blog_posts():
@@ -119,8 +120,9 @@ def patch_footer(s):
     m = re.search(r'<footer class="footer">.*?</footer>', s, re.S)
     if not m: return s
     f = m.group(0)
-    f = re.sub(r'<a href="about\.html"(?: data-i18n="foot\.about")?>About Madhav Pandya</a>(?: · <a href="blog\.html" data-i18n="foot\.blog">Blog</a>)?(?: · <a href="faq\.html" data-i18n="foot\.faq">FAQ</a>)?',
-               '<a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a>', f)
+    f = re.sub(r'<a href="about\.html"(?: data-i18n="foot\.about")?>About Madhav Pandya</a>(?: · <a href="blog\.html" data-i18n="foot\.blog">Blog</a>)?(?: · <a href="faq\.html" data-i18n="foot\.faq">FAQ</a>)?(?: · <a href="start-here\.html" data-i18n="foot\.start">Start here</a>)?(?: · <a href="collaborate\.html" data-i18n="foot\.collab">Collaborate</a>)?',
+               '<a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a>'
+               ' · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a>', f)
     for href, text, key in FOOT_LINKS:
         f = re.sub(r'<a href="%s"(?: data-i18n="[^"]*")?>%s</a>' % (re.escape(href), re.escape(text)), f'<a href="{href}" data-i18n="{key}">{text}</a>', f)
     return s[:m.start()] + f + s[m.end():]
@@ -143,10 +145,12 @@ def patch_page(p):
     post = next((b for b in blog_posts() if b["file"] == p), None)
     if p == "about.html":
         og_img, og_w, og_h, og_alt = BASE + "assets/img/madhav-og.jpg", "1200", "630", "Madhav Pandya, cybersecurity educator from Mumbai"
+    elif post and (ROOT / f"assets/img/blog/{post['slug']}.jpg").exists():
+        og_img, og_w, og_h, og_alt = BASE + f"assets/img/blog/{post['slug']}.jpg", "1200", "630", post["og_alt"]
     elif post and (ROOT / f"assets/img/blog/{post['slug']}.png").exists():
         og_img, og_w, og_h, og_alt = BASE + f"assets/img/blog/{post['slug']}.png", "1200", "630", post["og_alt"]
     else:
-        og_img, og_w, og_h, og_alt = OG_IMG, "1200", "630", OG_ALT
+        og_img, og_w, og_h, og_alt = (BASE + "assets/img/og-image.jpg" if (ROOT / "assets/img/og-image.jpg").exists() else OG_IMG), "1200", "630", OG_ALT
     social = (f'\n  <meta property="og:image" content="{og_img}">'
               f'\n  <meta property="og:image:width" content="{og_w}">\n  <meta property="og:image:height" content="{og_h}">'
               f'\n  <meta property="og:image:alt" content="{html.escape(og_alt)}">')
@@ -164,10 +168,41 @@ def patch_page(p):
     s = s.replace('<link rel="icon" type="image/svg+xml" href="favicon.svg">',
                   '<link rel="icon" type="image/svg+xml" href="favicon.svg">\n  <link rel="manifest" href="manifest.json">\n  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">', 1)
     # shared scripts before </body>
-    s = re.sub(r'\n\s*<script src="assets/js/(?:pwa|search|nav)\.js" defer></script>', "", s)
-    tags = ['<script src="assets/js/nav.js" defer></script>'] + ([] if p == "index.html" else ['<script src="assets/js/search.js" defer></script>']) + ['<script src="assets/js/pwa.js" defer></script>']
+    s = re.sub(r'\n\s*<script src="assets/js/(?:pwa|search|nav|eggs)\.js(?:\?v=[0-9a-f]+)?" defer></script>', "", s)
+    tags = ['<script src="assets/js/nav.js" defer></script>'] + ([] if p == "index.html" else ['<script src="assets/js/search.js" defer></script>']) + ['<script src="assets/js/pwa.js" defer></script>']  # pwa.js loads eggs.js after the load event
     s = s.replace("\n</body>", "".join("\n  " + t for t in tags) + "\n</body>", 1)
-    write(p, s)
+    s = re.sub(r"\n\s*<!-- CWM\{.*?-->", "", s)
+    s = s.replace("\n</body>", "\n  " + FLAG + "\n</body>", 1)
+    write(p, version_assets(s))
+
+
+FLAG = "<!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->"
+
+
+def asset_hash(rel):
+    f = ROOT / rel
+    return hashlib.sha256(f.read_bytes()).hexdigest()[:10] if f.exists() else None
+
+
+def version_assets(s):
+    """Add ?v=<content hash> to local CSS and JS so the 1 year browser cache never serves an old file after a deploy."""
+    def sub(m):
+        h = asset_hash(m.group(2))
+        return f'{m.group(1)}="{m.group(2)}' + (f'?v={h}"' if h else '"')
+    return re.sub(r'\b(href|src)="(assets/(?:css|js)/[^"?#]+\.(?:css|js))(?:\?v=[0-9a-f]+)?"', sub, s)
+
+
+def version_eggs():
+    """eggs.js loads eggs.css itself; pin that URL to the CSS content hash too."""
+    p = ROOT / "assets/js/eggs.js"
+    if not p.exists(): return
+    s = p.read_text(encoding="utf-8")
+    s2 = re.sub(r"assets/css/eggs\.css(?:\?v=[0-9a-f]+)?'", f"assets/css/eggs.css?v={asset_hash('assets/css/eggs.css')}'", s)
+    if s2 != s: p.write_text(s2, encoding="utf-8"); print("wrote assets/js/eggs.js (css version)")
+    q = ROOT / "assets/js/pwa.js"  # pwa.js injects eggs.js after load; pin that URL to the eggs.js content hash
+    t = q.read_text(encoding="utf-8")
+    t2 = re.sub(r"assets/js/eggs\.js(?:\?v=[0-9a-f]+)?'", f"assets/js/eggs.js?v={asset_hash('assets/js/eggs.js')}'", t)
+    if t2 != t: q.write_text(t2, encoding="utf-8"); print("wrote assets/js/pwa.js (eggs version)")
 
 
 # ---------- 3: search index ----------
@@ -262,7 +297,10 @@ def sitemap_and_feed():
 
 
 def robots():
-    write("robots.txt", "User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n" % BASE)
+    write("robots.txt", "# Hello, curious human. Robots read this file, and so do future defenders.\n"
+          "# Nothing is hidden here. The flags live in the CTF Arena: /ctf.html\n"
+          "# Found a security issue? /.well-known/security.txt\n"
+          "User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n" % BASE)
 
 
 # ---------- 5: service worker and 404 ----------
@@ -271,7 +309,8 @@ def service_worker():
     # precache the main pages and only the 6 newest blog posts; other posts are cached when visited (network first)
     newest = [b["file"] for b in blog_posts()][:6]
     pre = [p for p in ps if not p.startswith("blog-") or p in newest]
-    assets = sorted({m for p in pre if p != "404.html" for m in re.findall(r'(?:src|href)="((?:assets/(?:css|js|fonts)/)[^"?#]+)"', read(p))})
+    # precache the exact versioned URLs the pages request (?v=hash), so offline pages find their CSS and JS
+    assets = sorted({m for p in pre if p != "404.html" for m in re.findall(r'(?:src|href)="((?:assets/(?:css|js|fonts)/)[^"?#]+(?:\?v=[0-9a-f]+)?)"', read(p))})
     fonts_css = ROOT / "assets/css/fonts.css"
     if fonts_css.exists():
         for name in re.findall(r'url\(\.\./fonts/([^)]+)\)', fonts_css.read_text(encoding="utf-8")):
@@ -283,7 +322,7 @@ def service_worker():
             imgs.append(extra)
     core = ["./"] + pre + assets + ["manifest.json", "favicon.svg"] + imgs + ["data/search.json"]
     h = hashlib.sha256()
-    for f in sorted(set(ps + assets + ["manifest.json", "data/search.json"])):
+    for f in sorted(set(ps + [a.split("?")[0] for a in assets] + ["manifest.json", "data/search.json"])):
         fp = ROOT / f
         if fp.exists(): h.update(f.encode()); h.update(fp.read_bytes())
     version = h.hexdigest()[:12]
@@ -348,11 +387,14 @@ def not_found():
 
   <main id="main">
     <section class="nf wrap" aria-labelledby="nf-title">
-      <p class="kicker mono">error 404 · not found</p>
+      <p class="kicker mono">error 404 · packet lost</p>
       <div class="nf-term card mono" aria-hidden="true">
-        <p><span class="g">$</span> curl -I <span id="nf-path">this-page</span></p>
-        <p>HTTP/1.1 <span class="r">404 Not Found</span></p>
-        <p class="muted">no flag here either</p>
+        <p><span class="g">$</span> ping <span id="nf-path">this-page</span></p>
+        <p>Request timed out. <span class="r">TTL expired in transit.</span></p>
+        <p class="muted">4 packets sent, 0 received, 100% packet loss</p>
+        <p><span class="g">$</span> traceroute home</p>
+        <p class="muted">1 you · 2 * * * · 3 * * * · 4 index.html <span class="g">found a route</span></p>
+        <p class="muted">no flag here either. try view source.</p>
       </div>
       <h1 id="nf-title">This page went missing.</h1>
       <p class="lead muted">The link may be old or mistyped. Ye page exist nahi karta, but everything else is one click away.</p>
@@ -362,6 +404,7 @@ def not_found():
         <button class="btn" type="button" id="nf-search">Search the site <span class="mono small" aria-hidden="true">Ctrl+K</span></button>
       </div>
       <ul class="nf-links clean">
+        <li><a href="start-here.html">Start here</a></li>
         <li><a href="explore.html">Explore all pages</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -385,10 +428,24 @@ def not_found():
 </body>
 </html>
 """
-    write("404.html", head + body)
+    write("404.html", version_assets(head + body))
+
+
+def share_jpegs():
+    """Compressed JPEG copies of the 1200x630 PNG share images (WhatsApp skips previews over about 300 KB)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        print("PIL missing: share images stay PNG"); return
+    for png in sorted((ROOT / "assets/img/blog").glob("*.png")) + [ROOT / "assets/img/og-image.png"]:
+        jpg = png.with_suffix(".jpg")
+        if png.exists() and (not jpg.exists() or jpg.stat().st_mtime < png.stat().st_mtime):
+            Image.open(png).convert("RGB").save(jpg, "JPEG", quality=84, optimize=True, progressive=True); print("wrote", jpg.relative_to(ROOT))
 
 
 def main():
+    share_jpegs()
+    version_eggs()
     for p in pages(): patch_page(p)
     not_found()
     search_index()

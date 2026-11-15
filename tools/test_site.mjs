@@ -18,7 +18,7 @@ const fetch = u => new Promise((res, rej) => (u.startsWith('https') ? https : ht
 const results = [];
 const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  : ' + extra : ''}`); };
 const POSTS = JSON.parse(fs.readFileSync(SITE + 'data/blog.json', 'utf8')).map(b => b.file); // every blog post, newest first
-const PAGES = ['index.html', 'explore.html', 'commands.html', 'scams.html', 'game.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'blog.html', 'faq.html'].concat(POSTS, ['about.html', 'terms.html', 'privacy.html'])
+const PAGES = ['index.html', 'explore.html', 'commands.html', 'scams.html', 'game.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'blog.html', 'faq.html'].concat(POSTS, ['start-here.html', 'uses.html', 'collaborate.html', 'now.html'].filter(p => fs.existsSync(SITE + p)), ['about.html', 'terms.html', 'privacy.html'])
   .concat(['soc.html'].filter(p => fs.existsSync(SITE + p)));
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
@@ -37,7 +37,7 @@ async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
 for (const pg of PAGES) {
   const h = await (await fetch(BASE + pg)).text();
   const has = re => re.test(h);
-  const img = pg === 'about.html' ? 'madhav-og\\.jpg' : pg.startsWith('blog-') ? 'blog\\/' + pg.slice(5, -5) + '\\.png' : 'og-image\\.png';
+  const img = pg === 'about.html' ? 'madhav-og\\.jpg' : pg.startsWith('blog-') ? 'blog\\/' + pg.slice(5, -5) + '\\.jpg' : 'og-image\\.jpg'; // compressed JPEG share images (PNG sources kept)
   ok(`${pg}: og:image 1200x630 (${img.replace(/\\/g, '')}) + twitter:image + manifest + touch icon`,
     has(new RegExp('property="og:image" content="https://www\\.cyberwithmadhav\\.com/assets/img/' + img + '"')) && has(/og:image:width" content="1200"/) && has(/og:image:height" content="630"/)
     && has(/name="twitter:card" content="summary_large_image"/) && has(new RegExp('name="twitter:image" content="https:[^"]+' + img + '"')) && has(/rel="manifest" href="manifest\.json"/) && has(/rel="apple-touch-icon"/));

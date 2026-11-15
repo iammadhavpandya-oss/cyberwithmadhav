@@ -118,3 +118,4 @@
   .mc-zone .mc-grid > .mc-card:last-child:nth-child(odd) .mc-ico{grid-row:1/span 3;margin:0}
 }
 .mc-hero{overflow-x:clip}
+.xp-home-btns{display:flex;flex-wrap:wrap;gap:10px}

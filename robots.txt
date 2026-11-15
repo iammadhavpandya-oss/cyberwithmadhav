@@ -1,3 +1,6 @@
+# Hello, curious human. Robots read this file, and so do future defenders.
+# Nothing is hidden here. The flags live in the CTF Arena: /ctf.html
+# Found a security issue? /.well-known/security.txt
 User-agent: *
 Allow: /
 Sitemap: https://www.cyberwithmadhav.com/sitemap.xml

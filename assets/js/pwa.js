@@ -1,8 +1,15 @@
-/* Registers the offline service worker (sw.js). Skipped on file:// and when the browser has no support. */
+/* Registers the offline service worker (sw.js), skipped on file:// and when the browser has no support.
+   Also loads the easter eggs (assets/js/eggs.js) only after the page has fully loaded and the browser is idle,
+   so they never compete with first paint. tools/build_site.py keeps the ?v= hash below up to date. */
 (function () {
   'use strict';
-  if (!('serviceWorker' in navigator) || location.protocol === 'file:') return;
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () {});
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () {});
+    }
+    var go = function () {
+      var s = document.createElement('script'); s.src = 'assets/js/eggs.js?v=b25a4018dc'; s.async = true; document.body.appendChild(s);
+    };
+    if (window.requestIdleCallback) window.requestIdleCallback(go, { timeout: 3000 }); else setTimeout(go, 800);
   });
 })();

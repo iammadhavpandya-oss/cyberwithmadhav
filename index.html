@@ -15,14 +15,14 @@
   <meta property="og:description" content="Free roadmap, cheat sheets and scam alerts, made for India.">
   <meta property="og:url" content="https://www.cyberwithmadhav.com/">
   <meta property="og:locale" content="en_IN">
-  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CyberWithMadhav: Cybersecurity in Hinglish by Madhav Pandya">
   <meta name="twitter:description" content="Cybersecurity in plain English and Hinglish. Free roadmap, cheat sheets and scam alerts, made for India.">
-  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
   <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
   <meta name="color-scheme" content="dark light">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
@@ -30,18 +30,18 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/consent.js"></script>
+  <script src="assets/js/i18n-dict.js?v=83887da26d"></script>
+  <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
+  <script src="assets/js/consent.js?v=489e6f7920"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/fonts.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/explore.css">
-  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
+  <link rel="stylesheet" href="assets/css/style.css?v=7112eb35b0">
+  <link rel="stylesheet" href="assets/css/explore.css?v=d50548b43a">
+  <link rel="stylesheet" href="assets/css/blog.css?v=189a7832da">
   <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.cyberwithmadhav.com/#website","name":"CyberWithMadhav","alternateName":"Cyber With Madhav","url":"https://www.cyberwithmadhav.com/","inLanguage":"en-IN","publisher":{"@id":"https://www.cyberwithmadhav.com/#org"}},{"@type":"Organization","@id":"https://www.cyberwithmadhav.com/#org","name":"CyberWithMadhav","url":"https://www.cyberwithmadhav.com/","logo":"https://www.cyberwithmadhav.com/assets/img/apple-touch-icon.png","founder":{"@id":"https://www.cyberwithmadhav.com/about.html#person"},"sameAs":["https://www.instagram.com/cyberwithmadhav/","https://www.youtube.com/@cyberwithmadhav","https://github.com/iammadhavpandya-oss"]}]}
@@ -141,7 +141,10 @@
             <h2 id="missions-title" data-i18n="home.missions.h">Choose your mission</h2>
             <p class="muted" data-i18n="home.missions.p">Seekhna hai, khelna hai ya bachna hai? Ek card chuno aur launch karo.</p>
           </div>
-          <a class="btn" href="explore.html" data-i18n="home.missions.btn">Open mission control <span aria-hidden="true">→</span></a>
+          <div class="xp-home-btns">
+            <a class="btn btn-primary" href="start-here.html" data-i18n="home.start.btn">New here? Start here</a>
+            <a class="btn" href="explore.html" data-i18n="home.missions.btn">Open mission control <span aria-hidden="true">→</span></a>
+          </div>
         </header>
         <div class="mc-grid">
           <article class="mc-card t-green">
@@ -485,10 +488,12 @@
             <h3>Follow</h3>
             <p class="muted">New cheat sheets, scam alerts and CTF levels will be shared on these channels.</p>
             <ul class="links follow-links" id="follow-links">
+              <li><a href="https://www.linkedin.com/in/pandyamadhav/" target="_blank" rel="me noopener"><span>Follow on LinkedIn</span><span class="muted small">linkedin.com/in/pandyamadhav</span></a></li>
               <li><a href="https://www.instagram.com/cyberwithmadhav/" target="_blank" rel="me noopener"><span>Follow on Instagram</span><span class="muted small">instagram.com/cyberwithmadhav</span></a></li>
               <li><a href="https://www.youtube.com/@cyberwithmadhav" target="_blank" rel="me noopener"><span>Follow on YouTube</span><span class="muted small">youtube.com/@cyberwithmadhav</span></a></li>
             </ul>
             <p class="small muted">Prefer a reader app? Subscribe to the <a href="feed.xml">RSS feed</a>.</p>
+            <p class="small muted" data-i18n="home.collab">Want an awareness session or a collab? See <a href="collaborate.html">Collaborate</a>.</p>
           </div>
         </div>
       </div>
@@ -504,7 +509,7 @@
       <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is.</p>
-        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>
@@ -523,11 +528,12 @@
     <ul id="pal-list" role="listbox" aria-label="Results"></ul>
     <p class="pal-foot mono">↑↓ move · Enter open · Esc close</p>
   </dialog>
-  <script src="assets/js/space.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/declutter.js" defer></script>
-  <script src="assets/js/explore.js" defer></script>
-  <script src="assets/js/nav.js" defer></script>
-  <script src="assets/js/pwa.js" defer></script>
+  <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
+  <script src="assets/js/main.js?v=d56748b26d" defer></script>
+  <script src="assets/js/declutter.js?v=73136d7904" defer></script>
+  <script src="assets/js/explore.js?v=506d1c0aee" defer></script>
+  <script src="assets/js/nav.js?v=a2320ad677" defer></script>
+  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
 </body>
 </html>

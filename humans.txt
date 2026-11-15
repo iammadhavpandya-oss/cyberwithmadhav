@@ -1,0 +1,23 @@
+/* TEAM */
+  Founder, writer and builder: Madhav Pandya
+  Contact: madhavpandya@zohomail.in
+  From: Mumbai, India
+  LinkedIn: https://www.linkedin.com/in/pandyamadhav/
+  YouTube: https://www.youtube.com/@cyberwithmadhav
+  Instagram: https://www.instagram.com/cyberwithmadhav/
+
+/* THANKS */
+  Everyone who reports a scam at 1930 and cybercrime.gov.in. You protect the next person.
+
+/* SITE */
+  Last update: 2026/11/16
+  Language: English, Hinglish
+  Standards: HTML5, CSS3, RSS 2.0, schema.org
+  Components: plain HTML, CSS and JavaScript, no framework, no trackers
+  Fonts: Space Grotesk, Inter, JetBrains Mono (self hosted)
+  Hosting: Hostinger
+
+/* SIDE QUEST */
+  You read humans.txt, so you are curious. Good.
+  There is a flag in every page source and a shell behind the Konami code.
+  Real challenges: https://www.cyberwithmadhav.com/ctf.html

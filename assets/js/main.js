@@ -382,7 +382,7 @@
     $('#about-bio').textContent = d.bio;
     // Links without a URL (e.g. Instagram/YouTube not set yet) are simply not shown.
     const fl = $('#follow-links');
-    if (fl) fl.innerHTML = d.links.filter(l => /^(Instagram|YouTube)$/.test(l.label)).map(l => /^https:\/\//.test(l.url)
+    if (fl) fl.innerHTML = d.links.filter(l => /^(LinkedIn|Instagram|YouTube)$/.test(l.label)).map(l => /^https:\/\//.test(l.url)
       ? `<li><a href="${esc(l.url)}" target="_blank" rel="me noopener"><span>Follow on ${esc(l.label)}</span><span class="muted small">${esc(l.display || '↗')}</span></a></li>`
       : `<li><span class="soon"><span>${esc(l.label)}</span><span class="muted small">coming soon</span></span></li>`).join('');
     $('#about-links').innerHTML = d.links.filter(l => l.url).map(l =>

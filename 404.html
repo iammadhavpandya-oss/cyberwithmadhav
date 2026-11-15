@@ -16,17 +16,18 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/consent.js"></script>
+  <script src="assets/js/i18n-dict.js?v=83887da26d"></script>
+  <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
+  <script src="assets/js/consent.js?v=489e6f7920"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/fonts.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
+  <link rel="stylesheet" href="assets/css/style.css?v=7112eb35b0">
+  <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
+  <link rel="stylesheet" href="assets/css/legal.css?v=d6bff4373f">
 </head>
 <body class="v3 nf-page">
   <div class="space" aria-hidden="true">
@@ -66,11 +67,14 @@
 
   <main id="main">
     <section class="nf wrap" aria-labelledby="nf-title">
-      <p class="kicker mono">error 404 · not found</p>
+      <p class="kicker mono">error 404 · packet lost</p>
       <div class="nf-term card mono" aria-hidden="true">
-        <p><span class="g">$</span> curl -I <span id="nf-path">this-page</span></p>
-        <p>HTTP/1.1 <span class="r">404 Not Found</span></p>
-        <p class="muted">no flag here either</p>
+        <p><span class="g">$</span> ping <span id="nf-path">this-page</span></p>
+        <p>Request timed out. <span class="r">TTL expired in transit.</span></p>
+        <p class="muted">4 packets sent, 0 received, 100% packet loss</p>
+        <p><span class="g">$</span> traceroute home</p>
+        <p class="muted">1 you · 2 * * * · 3 * * * · 4 index.html <span class="g">found a route</span></p>
+        <p class="muted">no flag here either. try view source.</p>
       </div>
       <h1 id="nf-title">This page went missing.</h1>
       <p class="lead muted">The link may be old or mistyped. Ye page exist nahi karta, but everything else is one click away.</p>
@@ -80,6 +84,7 @@
         <button class="btn" type="button" id="nf-search">Search the site <span class="mono small" aria-hidden="true">Ctrl+K</span></button>
       </div>
       <ul class="nf-links clean">
+        <li><a href="start-here.html">Start here</a></li>
         <li><a href="explore.html">Explore all pages</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -97,16 +102,16 @@
       <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, provided as is.</p>
-        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/space.js" defer></script>
-  <script src="assets/js/pages.js" defer></script>
-  <script src="assets/js/notfound.js" defer></script>
-  <script src="assets/js/nav.js" defer></script>
-  <script src="assets/js/search.js" defer></script>
-  <script src="assets/js/pwa.js" defer></script>
+  <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
+  <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
+  <script src="assets/js/notfound.js?v=bc8fbcf6af" defer></script>
+  <script src="assets/js/nav.js?v=a2320ad677" defer></script>
+  <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
+  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
 </body>
 </html>

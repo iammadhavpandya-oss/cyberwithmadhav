@@ -163,7 +163,9 @@ def post_main(p):
 
 
 def post_head(p):
-    url = BASE + fname(p); img = BASE + f"assets/img/blog/{p['slug']}.png"
+    url = BASE + fname(p)
+    ext = "jpg" if (ROOT / f"assets/img/blog/{p['slug']}.jpg").exists() else "png"  # compressed share image when present
+    img = BASE + f"assets/img/blog/{p['slug']}.{ext}"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BlogPosting", "@id": url + "#post", "mainEntityOfPage": url, "headline": p["title"], "description": p["desc"],
          "image": img, "datePublished": iso_ts(p["date"]), "dateModified": iso_ts(p["reviewed"]), "inLanguage": "en-IN",

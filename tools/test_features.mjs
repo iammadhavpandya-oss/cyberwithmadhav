@@ -244,7 +244,7 @@ if (has('game.html')) {
   ok('game: no horizontal scroll at 360px', await m.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await m.ctx.close();
   const sm = await get(BASE + 'sitemap.xml'), si = await get(BASE + 'data/search.json'), swj = await get(BASE + 'sw.js'), ex = await get(BASE + 'explore.html');
-  ok('game: in sitemap, search.json, sw.js precache and the Explore hub', /game\.html/.test(sm.text) && /"u":"game\.html\?level=easy"/.test(si.text) && /"game\.html"/.test(swj.text) && /"assets\/js\/game\.js"/.test(swj.text) && /href="game\.html"/.test(ex.text));
+  ok('game: in sitemap, search.json, sw.js precache and the Explore hub', /game\.html/.test(sm.text) && /"u":"game\.html\?level=easy"/.test(si.text) && /"game\.html"/.test(swj.text) && /"assets\/js\/game\.js(\?v=[0-9a-f]+)?"/.test(swj.text) && /href="game\.html"/.test(ex.text));
   const gh = (await get(BASE + 'game.html')).text, gj = (await get(BASE + 'assets/js/game.js')).text, gc = (await get(BASE + 'assets/css/game.css')).text, gd = (await get(BASE + 'data/game.json')).text;
   ok('game: no em or en dash in page, script, styles or data', !/[\u2013\u2014]/.test(gh + gj + gc + gd));
   ok('game: no external scripts or styles', !/<script[^>]+src="https?:|<link[^>]+href="https?:[^"]+\.css/.test(gh));
