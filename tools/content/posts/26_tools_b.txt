@@ -1,0 +1,287 @@
+=== vpn-myths
+title: VPN Myths Busted: What a VPN Does and Does Not Protect You From
+short: VPN myths
+desc: VPN myths busted in plain English: what a VPN actually hides, why it does not stop phishing or malware, free VPN risks, and when a VPN is genuinely useful.
+lead: VPN ads promise total anonymity and complete security. The reality is more modest. A VPN is a useful tool for specific situations, and knowing its limits keeps you from a false sense of safety.
+cat: Tools and labs
+tags: VPN, privacy, myths
+kw: VPN myths; does VPN protect from hackers; free VPN risks; VPN kya karta hai
+hi: VPN myths: VPN kis cheez se bachata hai aur kis se nahi
+related: public-wifi-safety, how-the-internet-works, zero-trust-explained
+hubs: index.html#tools|Free security tools; index.html#networking|Networking basics
+src: CERT-In Advisory CIAD-2026-0020: defending against frontier AI driven cyber risks|https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0020&pageid=PUBVLNOTES02
+src: CERT-In directions under Section 70B (includes VPN service provider requirements)|https://www.cert-in.org.in/Directions70B.jsp
+src: Cloudflare Learning Center: what is a VPN?|https://www.cloudflare.com/learning/access-management/what-is-a-vpn/
+quick: A VPN creates an encrypted tunnel from your device to the VPN provider's server. It **hides your traffic from the local network** (like a cafe WiFi) and **hides your real IP from websites**. It does **not** stop phishing, malware, scam calls, weak passwords or tracking by accounts you are logged into. And it shifts trust to the VPN provider, so choose carefully.
+takeaways:
+- A VPN encrypts traffic to the VPN server and changes the IP websites see.
+- It does not stop phishing, malware, scams or account based tracking.
+- Free or unknown VPNs can be a privacy risk themselves.
+- Useful on untrusted networks and for work access. Not a substitute for basic security.
+## what-it-does | What a VPN actually does
+Without a VPN, your traffic goes from your device through your local network and internet provider to websites. With a VPN, your device first creates an **encrypted tunnel** to a VPN server, and your traffic exits from there.
+
+Effects:
+
+- People on your **local network**, like a cafe WiFi operator, see only encrypted traffic to the VPN server.
+- Your **internet provider** sees that you are connected to a VPN, but not the content or destinations inside the tunnel.
+- **Websites** see the VPN server's IP address instead of yours.
+- The **VPN provider** can potentially see your traffic metadata, so you are moving trust from your ISP or WiFi to them.
+
+## myth1 | Myth 1: "A VPN makes me anonymous"
+Not really. If you log in to Google, Instagram or a shopping site, they know exactly who you are, VPN or not. Cookies, browser fingerprinting and account logins identify you. A VPN changes your IP address, which is only one piece of identity.
+
+## myth2 | Myth 2: "A VPN protects me from hackers and viruses"
+A VPN does not scan downloads, block malicious apps, stop you from typing your password into a fake site, or prevent someone from talking you into sharing an OTP. Most real world attacks on individuals, such as phishing, scam calls and malicious apps, work just as well with a VPN on. Some VPN apps include extra blocking features, but the tunnel itself is not antivirus.
+
+## myth3 | Myth 3: "Free VPNs are just as good"
+Running VPN servers costs money. Some free VPN apps have been found to show heavy ads, collect browsing data, or include poor security. A free VPN from an unknown developer may be a bigger privacy risk than not using one. If you need a VPN, choose a reputable provider with a clear privacy policy and independent audits, or use your organisation's official VPN.
+
+## myth4 | Myth 4: "HTTPS is useless, I need a VPN for everything"
+Most websites and apps already use HTTPS, which encrypts content between you and the site. On a trusted home network, a VPN adds limited extra security for most people. On an untrusted network, it adds an extra layer, which is why CERT-In's 2026 advisory on AI driven risks suggests avoiding public WiFi for sensitive transactions and using a VPN when necessary.
+
+## india | VPNs and Indian rules
+CERT-In's April 2022 directions under Section 70B include requirements for VPN service providers operating in India, such as maintaining certain subscriber information for a specified period. Read the official directions for the exact wording. For you as a user, the practical point is that a VPN is not a way to hide illegal activity, and using one does not change what is legal. Many companies also use VPNs or zero trust access tools so staff can reach internal systems safely.
+
+## when-useful | When a VPN is genuinely useful
+- On **public or untrusted WiFi**, as an extra layer.
+- For **work access** to company systems, using your employer's VPN or access tool.
+- In your **home lab**, to learn how tunnels and routing work.
+- For privacy from your local network or ISP, if that matters for your situation, with a trusted provider.
+
+## better | What protects you more than a VPN
+1. Updates on all devices.
+2. Unique passwords with a password manager.
+3. Two factor authentication or passkeys.
+4. Not clicking links in unexpected messages.
+5. Installing apps only from official stores.
+
+A VPN is a useful tool. It is not a shield. **"VPN laga liya matlab safe" galat soch hai.** Basics first, VPN when it fits the situation. For travel tips, see our [public WiFi guide](blog-public-wifi-safety.html).
+
+=== linux-logs-for-beginners
+title: Linux Logs for Beginners: Find Failed Logins, Sudo Use and Suspicious Activity
+short: Linux logs for beginners
+desc: A beginner's guide to Linux logs for security: auth.log, journalctl, finding failed SSH logins and sudo use, with simple grep commands for your own lab.
+lead: Logs are where attacks leave footprints. If you can read Linux logs quickly, you can answer the most important question in any investigation: what happened, and when? Here is a practical start on your own lab machine.
+cat: Tools and labs
+tags: Linux, logs, SOC, journalctl
+kw: linux logs for beginners; auth.log failed password; journalctl tutorial; linux log analysis security
+hi: Beginners ke liye Linux logs: failed logins, sudo use aur suspicious activity dhoondho
+related: linux-basics-for-cybersecurity, soc-analyst-day-in-life, nmap-own-lab-guide
+hubs: commands.html|Blue team commands; terminal.html|Linux terminal wargame; index.html#cheatsheets|Cheat sheets
+src: systemd journalctl manual|https://www.freedesktop.org/software/systemd/man/latest/journalctl.html
+src: Ubuntu Server documentation|https://documentation.ubuntu.com/server/
+src: CERT-In directions under Section 70B (log retention)|https://www.cert-in.org.in/Directions70B.jsp
+quick: On Debian and Ubuntu, authentication events go to `/var/log/auth.log` (on Red Hat style systems, `/var/log/secure`), and systemd systems also keep a journal you can read with `journalctl`. Use `grep "Failed password"` to find failed SSH logins, `grep sudo` for admin commands, and `journalctl -u ssh` for service specific logs. Practise on your own lab machine.
+takeaways:
+- auth.log or secure records logins, sudo use and SSH activity.
+- journalctl reads the systemd journal with handy filters by service and time.
+- grep, awk, sort and uniq turn huge logs into quick answers.
+- Logs only help if they are kept, protected and actually reviewed.
+## where | Where Linux keeps logs
+Most logs live in `/var/log`. Common files:
+
+- `/var/log/auth.log` (Debian, Ubuntu) or `/var/log/secure` (RHEL, Fedora, CentOS style): logins, SSH, sudo and authentication.
+- `/var/log/syslog` or `/var/log/messages`: general system messages.
+- Web server logs, such as `/var/log/apache2/access.log` or `/var/log/nginx/access.log`.
+
+Many modern distributions use **systemd**, which stores logs in a binary journal read with `journalctl`. Some systems keep both the journal and text files. Reading logs usually needs `sudo`.
+
+## failed | Find failed SSH logins
+On your lab VM with SSH enabled, try logging in with a wrong password a few times from another lab VM. Then:
+
+```
+sudo grep "Failed password" /var/log/auth.log
+sudo grep "Failed password" /var/log/auth.log | wc -l
+```
+
+To see which IP addresses failed most:
+
+```
+sudo grep "Failed password" /var/log/auth.log | grep -oE "from [0-9.]+" | sort | uniq -c | sort -nr
+```
+
+This one line is a mini brute force detector. Many real servers on the internet see constant automated SSH guessing, which is why key based login and tools like fail2ban are common.
+
+## success | Successful logins and sudo use
+```
+sudo grep "Accepted" /var/log/auth.log       # successful SSH logins
+sudo grep "sudo:" /var/log/auth.log          # commands run with sudo
+last                                         # recent logins
+lastb                                        # failed logins (needs sudo)
+```
+
+A successful login right after many failures from the same IP is a classic alert worth investigating. So is sudo use by an account that normally never uses it.
+
+## journalctl | Using journalctl
+```
+sudo journalctl -u ssh            # logs for the SSH service (may be sshd)
+sudo journalctl --since "1 hour ago"
+sudo journalctl -p err            # errors and above
+sudo journalctl -f                # follow live, like tail -f
+sudo journalctl -b                # since last boot
+```
+
+Combine filters, for example `sudo journalctl -u ssh --since today`. The journal is great for quick, time bound questions.
+
+## timeline | Build a simple timeline
+In an investigation, you want a clear story. For your lab exercise:
+
+1. Note the time you started an nmap scan from your attacker VM. See our [nmap guide](blog-nmap-own-lab-guide.html).
+2. Note when you tried wrong SSH passwords, then a correct one.
+3. Run a sudo command.
+4. Now read the logs and write a timeline: time, event, source IP, user.
+
+Compare your timeline with what you actually did. This is exactly what SOC and incident response people do daily, see our [SOC analyst day in life](blog-soc-analyst-day-in-life.html) post.
+
+## protect | Protecting and keeping logs
+- Logs on the same machine can be deleted by an attacker with root access. Organisations forward logs to a central server or SIEM.
+- Keep clocks accurate with NTP, so timelines across systems match.
+- Keep logs long enough. In India, CERT-In's April 2022 directions require covered entities to maintain logs of their ICT systems for 180 days, and CERT-In's October 2026 advisory on AI agent attacks also recommends retaining logs for at least 180 days.
+- Configure log rotation so disks do not fill up.
+
+## practice | Practice plan
+Week one: read `auth.log` daily on your lab VM. Week two: write a small Bash or Python script that summarises failed and successful logins by IP and user. Week three: install a free log tool in your lab and forward logs to it. Document everything in your portfolio. Logs might feel boring at first, but they are where real security work happens.
+
+=== verify-downloads-sha256
+title: How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)
+short: Verify downloads with SHA-256
+desc: Learn to verify software downloads with SHA-256 checksums on Windows, macOS and Linux, why it matters, and how signatures add even stronger trust.
+lead: When you download an ISO, a tool or an installer, how do you know it was not corrupted or tampered with? A checksum gives you a quick, free way to check. It takes one command.
+cat: Tools and labs
+tags: SHA-256, checksums, integrity, downloads
+kw: how to verify sha256 checksum; sha256sum windows certutil; verify download integrity; checksum kya hota hai
+hi: SHA-256 checksum se downloads kaise verify karein (Windows, Mac, Linux)
+related: password-hashing-explained, safe-home-lab-setup, linux-basics-for-cybersecurity
+hubs: index.html#tools|Free hash tool on the home page; commands.html|Blue team commands
+src: Microsoft Learn: Get-FileHash (PowerShell)|https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash
+src: GNU Coreutils: sha2 utilities|https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html
+src: Kali Linux docs: downloading Kali and verifying the image|https://www.kali.org/docs/introduction/download-official-kali-linux-images/
+quick: A SHA-256 checksum is a fingerprint of a file. Compute it on your downloaded file and compare it with the value the **official** website publishes. On Linux use `sha256sum file.iso`, on macOS `shasum -a 256 file.iso`, and on Windows PowerShell `Get-FileHash file.iso`. If even one character differs, do not use the file. For stronger trust, verify the developer's **signature** too.
+takeaways:
+- A checksum is a fingerprint that changes completely if a file changes.
+- Compare the hash with the value on the official site, character by character.
+- Use sha256sum, shasum or Get-FileHash depending on your system.
+- Signatures add proof of who published the checksum.
+## why | Why verify downloads at all?
+Downloads can go wrong in two ways:
+
+- **Corruption:** a network glitch breaks the file. An ISO might fail to boot strangely.
+- **Tampering:** a malicious mirror or fake download site serves a modified file with malware inside.
+
+Checking a checksum against the official value catches both. For security tools and operating system images you plan to use in your [home lab](blog-safe-home-lab-setup.html), this is a good professional habit.
+
+## how | How checksums work
+A hash function like **SHA-256** turns any file into a fixed 64 character hexadecimal string. Change a single byte in the file, and the string changes completely. So if your computed hash matches the official one exactly, the file is the same as the one the publisher hashed. Our [password hashing post](blog-password-hashing-explained.html) explains hash properties in more detail.
+
+## linux | On Linux
+```
+sha256sum ubuntu.iso
+```
+
+If the publisher provides a checksum file, such as `SHA256SUMS`, put it in the same folder and run:
+
+```
+sha256sum -c SHA256SUMS --ignore-missing
+```
+
+You should see `OK` next to your file name.
+
+## mac | On macOS
+```
+shasum -a 256 ubuntu.iso
+```
+
+Compare the output with the official value.
+
+## windows | On Windows
+In PowerShell:
+
+```
+Get-FileHash .\ubuntu.iso
+Get-FileHash .\ubuntu.iso -Algorithm SHA256
+```
+
+SHA-256 is the default algorithm for Get-FileHash. In Command Prompt you can also use:
+
+```
+certutil -hashfile ubuntu.iso SHA256
+```
+
+To compare automatically in PowerShell:
+
+```
+(Get-FileHash .\ubuntu.iso).Hash -eq "PASTE_OFFICIAL_HASH_HERE".ToUpper()
+```
+
+It prints `True` or `False`.
+
+## where-hash | Where to get the official hash
+- From the **official website**, on the download page or a linked checksum file, ideally over HTTPS.
+- Not from a random forum, a YouTube description or the same unofficial mirror you downloaded from. If an attacker controls the mirror, they can change both the file and the checksum shown there.
+
+## signatures | Going further: signatures
+A checksum proves the file matches a hash. But who published that hash? **Digital signatures** answer that. Many projects sign their checksum files with a GPG key or sign installers with code signing certificates. Kali Linux, for example, documents how to verify its images, including signed checksum files.
+
+On Windows, you can also right click an installer, open **Properties**, then **Digital Signatures** to see who signed it. An unsigned installer from an unknown source deserves extra caution.
+
+## habit | Make it a habit
+For OS images, security tools and anything you run with admin rights, verify the hash. It takes 30 seconds. Try it now with any file you downloaded recently, and also try the [hash tool on our home page](index.html#tools) with a short text to see how small changes produce different hashes.
+
+=== browser-devtools-for-security
+title: Browser Developer Tools for Security Beginners: See What a Website Really Does
+short: Browser DevTools for security
+desc: Use your browser's developer tools to learn web security: Network tab, cookies, storage, console and security panel, on your own sites and practice labs.
+lead: Every modern browser has a powerful set of developer tools built in. For security beginners, they are a free microscope for understanding how websites work, before you ever install a specialised tool.
+cat: Tools and labs
+tags: DevTools, web security, browser, cookies
+kw: browser developer tools security; chrome devtools network tab; inspect cookies browser; web security for beginners
+hi: Security beginners ke liye browser developer tools: website asal mein kya karti hai dekho
+related: how-the-internet-works, burp-suite-intro-practice, spot-phishing-sms-india
+hubs: index.html#link-tool|Free link checker; ctf.html|CTF Arena
+src: Chrome DevTools documentation|https://developer.chrome.com/docs/devtools
+src: Firefox DevTools user docs|https://firefox-source-docs.mozilla.org/devtools-user/
+src: Mozilla MDN: HTTP cookies|https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies
+quick: Press **F12** (or right click and choose Inspect) to open developer tools. Use the **Network** tab to see every request and response, the **Application** or **Storage** tab to view cookies and local storage, the **Console** for errors and scripts, and the **Security** information to check certificates. It is all read only learning on your own browser, but **only test or modify behaviour on sites you own or practice labs.**
+takeaways:
+- DevTools are built in, free and perfect for learning how the web works.
+- The Network tab shows every request, status code and header.
+- Cookies and storage reveal how sites keep you logged in.
+- Observe anywhere, but only test or tamper on your own sites and practice labs.
+## open | Opening developer tools
+In Chrome, Edge and Firefox, press **F12** or **Ctrl+Shift+I** (Cmd+Option+I on Mac), or right click a page and choose **Inspect**. A panel opens with tabs such as Elements, Console, Network, Sources and Application (called Storage in Firefox).
+
+Looking at what your own browser receives is normal and harmless. Using what you learn to tamper with someone else's website is not. The rule stays the same: **only test systems you own or have permission for.**
+
+## network | The Network tab
+This is the most useful tab for security learning.
+
+1. Open the Network tab, then reload the page.
+2. You will see every file the page loads: HTML, scripts, images, API calls.
+3. Click any request to see **Headers** (request and response), **Payload** (data sent), **Response** and **Timing**.
+
+Look for: status codes (200, 301, 404, 500), which domains the page talks to (third party trackers, analytics, ads), and security headers in responses such as `Content-Security-Policy` and `Strict-Transport-Security`. This connects to the request and response flow in our [How the Internet Works](blog-how-the-internet-works.html) post.
+
+## cookies | Cookies and storage
+Open **Application** (Chrome) or **Storage** (Firefox). Under **Cookies**, you will see what the site stores in your browser. Important cookie attributes:
+
+- **HttpOnly:** JavaScript cannot read the cookie, which helps against some attacks.
+- **Secure:** the cookie is only sent over HTTPS.
+- **SameSite:** limits when the cookie is sent with requests from other sites.
+
+Session cookies often keep you logged in. This is why stealing a session cookie can be as bad as stealing a password, and why you should never paste cookie values anywhere when someone asks. Some scams ask victims to copy and paste code into the console. **Never paste code into DevTools that someone sent you.** Browsers even show warnings about this.
+
+## console | The Console
+The Console shows JavaScript errors and warnings, and lets developers run code. For beginners, it is useful to notice errors, mixed content warnings (HTTP resources on an HTTPS page) and Content Security Policy violations. Run only code you wrote yourself, on your own pages or practice labs.
+
+## security | Certificates and the security view
+Click the padlock or site information icon in the address bar to view certificate details: who issued it, for which domain, and validity dates. Chrome's DevTools also has a Security panel in some versions. Remember from our [phishing SMS guide](blog-spot-phishing-sms-india.html): a valid certificate means the connection is encrypted for that domain, not that the site is honest. Check the domain itself.
+
+## exercises | Safe exercises to try
+1. Open any news website and count how many third party domains load in the Network tab. It is an eye opener about tracking.
+2. On your own simple HTML page or a local practice app, look at the response headers and research each one.
+3. In your lab's OWASP Juice Shop, watch the API calls the app makes when you log in and add items. This prepares you for the [Burp Suite intro](blog-burp-suite-intro-practice.html).
+4. Use **Elements** to see that hidden fields and disabled buttons are just HTML, which is why servers must never trust the browser.
+
+## next | Why this matters
+DevTools teach you the core truth of web security: **everything in the browser is under the user's control.** Secure applications check everything on the server. Once this clicks, web vulnerabilities make much more sense. It is a free skill that helps in AppSec, SOC investigations of phishing pages and even everyday troubleshooting.

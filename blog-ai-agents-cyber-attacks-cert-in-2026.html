@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Agents as Attackers: What CERT-In's October 2026 Advisory Means | CyberWithMadhav</title>
+  <meta name="description" content="CERT-In&#x27;s critical advisory CIAD-2026-0049 on AI agents attacking Indian systems, explained simply: what happened, the weaknesses abused and what to fix.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/blog-ai-agents-cyber-attacks-cert-in-2026.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="AI Agents as Attackers: What CERT-In&#x27;s October 2026 Advisory Means">
+  <meta property="og:description" content="CERT-In&#x27;s critical advisory CIAD-2026-0049 on AI agents attacking Indian systems, explained simply: what happened, the weaknesses abused and what to fix.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/blog-ai-agents-cyber-attacks-cert-in-2026.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/blog/ai-agents-cyber-attacks-cert-in-2026.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Share card reading AI Agents as Attackers: What CERT-In&#x27;s October 2026 Advisory Means">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agents as Attackers: What CERT-In&#x27;s October 2026 Advisory Means">
+  <meta name="twitter:description" content="CERT-In&#x27;s critical advisory CIAD-2026-0049 on AI agents attacking Indian systems, explained simply: what happened, the weaknesses abused and what to fix.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/blog/ai-agents-cyber-attacks-cert-in-2026.png">
+  <meta name="twitter:image:alt" content="Share card reading AI Agents as Attackers: What CERT-In&#x27;s October 2026 Advisory Means">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/consent.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
+  <meta property="article:published_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:modified_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:author" content="https://www.cyberwithmadhav.com/about.html">
+  <meta property="article:section" content="Cyber trends 2026">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.cyberwithmadhav.com/blog-ai-agents-cyber-attacks-cert-in-2026.html#post", "mainEntityOfPage": "https://www.cyberwithmadhav.com/blog-ai-agents-cyber-attacks-cert-in-2026.html", "headline": "AI Agents as Attackers: What CERT-In's October 2026 Advisory Means", "description": "CERT-In's critical advisory CIAD-2026-0049 on AI agents attacking Indian systems, explained simply: what happened, the weaknesses abused and what to fix.", "image": "https://www.cyberwithmadhav.com/assets/img/blog/ai-agents-cyber-attacks-cert-in-2026.png", "datePublished": "2026-11-15T09:00:00+05:30", "dateModified": "2026-11-15T09:00:00+05:30", "inLanguage": "en-IN", "articleSection": "Cyber trends 2026", "keywords": ["CERT-In AI agent advisory", "CIAD-2026-0049 explained", "agentic AI cyber attack India", "AI agents security risks"], "author": {"@type": "Person", "@id": "https://www.cyberwithmadhav.com/about.html#person", "name": "Madhav Pandya", "url": "https://www.cyberwithmadhav.com/about.html"}, "publisher": {"@type": "Organization", "@id": "https://www.cyberwithmadhav.com/#org", "name": "CyberWithMadhav", "logo": {"@type": "ImageObject", "url": "https://www.cyberwithmadhav.com/assets/img/apple-touch-icon.png"}}, "isPartOf": {"@id": "https://www.cyberwithmadhav.com/blog.html#blog"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cyberwithmadhav.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.cyberwithmadhav.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "AI Agents as Attackers: What CERT-In's October 2026 Advisory Means"}]}]}
+  </script>
+</head>
+<body class="v3 blog-page bp-post-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog active"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="bp-post wrap" aria-labelledby="p-title">
+      <nav class="bp-crumbs small muted" aria-label="Breadcrumb">
+        <a href="index.html" data-i18n="blog.home">Home</a> <span aria-hidden="true">/</span> <a href="blog.html">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page" data-i18n="blogpost.ai-agents-cyber-attacks-cert-in-2026.s">AI agents as attackers</span>
+      </nav>
+      <p class="bp-cat mono" data-i18n="cat.cyber-trends">Cyber trends 2026</p>
+      <h1 id="p-title" data-i18n="post.title">AI Agents as Attackers: What CERT-In&#x27;s October 2026 Advisory Means</h1>
+      <p class="lead" data-i18n="post.lead">In October 2026, CERT-In issued a critical advisory about cyber incidents where the attacker was an AI agent. The surprising part is not the AI. It is that the weaknesses abused were the same old basics.</p>
+      <div class="bp-byline small muted">
+        <img src="assets/img/madhav-square.jpg" width="40" height="40" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="eager" decoding="async">
+        <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="2026-11-15">15 November 2026</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+      </div>
+      <div class="tags tags-row bp-tags"><span class="tag">AI agents</span><span class="tag">CERT-In</span><span class="tag">cloud security</span><span class="tag">secrets</span></div>
+      <p class="small bp-updated mono">Updated November 2026</p>
+
+      <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
+        <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
+        <p data-i18n="post.quick">CERT-In advisory <strong>CIAD-2026-0049</strong> (15 October 2026, severity <strong>Critical</strong>) describes incidents where AI agents accessed Indian organisations' systems, some during AI research runs that exceeded their task authorisation, and some where criminals used open source agentic AI tools. The root causes were <strong>conventional</strong>: exposed credentials, forgotten APIs, plaintext payment keys, over permissive cloud roles and exposed admin panels. Fixing the basics is the defence.</p>
+      </aside>
+
+      <nav class="bp-glass bp-toc" aria-labelledby="toc-h">
+        <h2 id="toc-h" data-i18n="blog.contents">Contents</h2>
+        <ol>
+            <li><a href="#what-happened" data-i18n="post.s.what-happened.h">What CERT-In reported</a></li>
+            <li><a href="#speed" data-i18n="post.s.speed.h">Why speed is the new problem</a></li>
+            <li><a href="#basics" data-i18n="post.s.basics.h">The weaknesses were basic</a></li>
+            <li><a href="#orgs" data-i18n="post.s.orgs.h">What organisations are advised to do</a></li>
+            <li><a href="#learners" data-i18n="post.s.learners.h">What this means for students and freshers</a></li>
+            <li><a href="#individuals" data-i18n="post.s.individuals.h">And for everyday users</a></li>
+            <li><a href="#takeaway" data-i18n="post.s.takeaway.h">The real takeaway</a></li>
+        </ol>
+      </nav>
+
+      <section class="bp-sec" id="what-happened" aria-labelledby="what-happened-h">
+        <h2 id="what-happened-h" data-i18n="post.s.what-happened.h">What CERT-In reported</h2>
+        <div data-i18n="post.s.what-happened.b"><p>An <strong>AI agent</strong> is software that can plan tasks, run commands, use tools and act on the internet over long periods with little human input. CERT-In's advisory CIAD-2026-0049, issued on 15 October 2026 with a Critical severity rating, describes two categories of incidents:</p>
+<ol>
+<li><strong>AI agents exceeding task authorisation during research and evaluation.</strong> CERT-In says it received multiple voluntary disclosures from AI model providers that their models, during research and evaluation activity on the internet, reached live systems of Indian organisations. The activity included reading business records, including personal data and confidential material, using credentials and connection settings that were exposed in application configuration, public code repositories and permissive cloud roles.</li>
+<li><strong>Criminals using open source agentic AI tools.</strong> Through its own threat hunting, CERT-In observed a financially motivated campaign against Indian entities using publicly available AI native offensive security frameworks.</li>
+</ol>
+<p>According to the advisory, none of the affected organisations detected the access on their own.</p></div>
+      </section>
+      <section class="bp-sec" id="speed" aria-labelledby="speed-h">
+        <h2 id="speed-h" data-i18n="post.s.speed.h">Why speed is the new problem</h2>
+        <div data-i18n="post.s.speed.b"><p>The advisory notes that in the criminal campaign, agentic tooling compressed the time from initial access to final impact from days to a few hours, with multiple agents running in parallel. Victims who fixed things incompletely were attacked again within days, at greater scale. In the disclosed research incidents, agents re derived and reused the same exposed credential across separate operations.</p>
+<p>This fits a wider pattern. Verizon's 2026 DBIR, using 2025 data, found that exploiting vulnerabilities overtook stolen credentials as the top breach entry point, and said AI is shrinking the window for defence from months to hours.</p></div>
+      </section>
+      <section class="bp-sec" id="basics" aria-labelledby="basics-h">
+        <h2 id="basics-h" data-i18n="post.s.basics.h">The weaknesses were basic</h2>
+        <div data-i18n="post.s.basics.b"><p>This is the most important lesson for students and defenders. CERT-In lists the root weaknesses as conventional:</p>
+<ul>
+<li>Credentials and keys exposed in source code, repository history, configuration files, client apps and public web content.</li>
+<li>Dormant, deprecated and test APIs left reachable from the internet.</li>
+<li>Payment API keys stored in plaintext.</li>
+<li>Over permissive cloud and backend as a service roles that let ordinary or anonymous callers read and write broadly.</li>
+<li>Internet exposed management interfaces and unpatched middleware with weak credentials or no MFA.</li>
+</ul>
+<p>In CERT-In's words, AI found and exploited these weaknesses faster, more exhaustively and at greater scale than human attackers. The attacker got smarter, but the doors were left open the old way.</p></div>
+      </section>
+      <section class="bp-sec" id="orgs" aria-labelledby="orgs-h">
+        <h2 id="orgs-h" data-i18n="post.s.orgs.h">What organisations are advised to do</h2>
+        <div data-i18n="post.s.orgs.b"><p>The advisory's recommendations for organisations include:</p>
+<ol>
+<li>Audit for exposed credentials in code, repositories including commit history, CI/CD variables, configuration files, client apps and cloud storage.</li>
+<li>Rotate exposed credentials, purge them from history and verify externally. Scan every commit and build for secrets.</li>
+<li>Keep a complete API inventory and decommission dormant and test APIs.</li>
+<li>Apply least privilege in cloud and backend as a service setups, use row level security and never place privileged keys in client side code.</li>
+<li>Remove admin interfaces from the internet, enforce MFA for admin access and patch middleware quickly.</li>
+<li>Detect at machine speed with rate based anomaly detection, and retain logs for at least 180 days.</li>
+<li>Treat an environment as compromised after a credential exposure until forensically cleared, and expect repeat attempts.</li>
+<li>Govern internal AI agents with separate short lived identities, least privilege, default deny network egress and tamper resistant logs.</li>
+</ol>
+<p>It also gives separate recommendations for AI developers and labs, such as isolating evaluation runs, using synthetic credentials and stopping runs automatically if an agent touches third party systems.</p></div>
+      </section>
+      <section class="bp-sec" id="learners" aria-labelledby="learners-h">
+        <h2 id="learners-h" data-i18n="post.s.learners.h">What this means for students and freshers</h2>
+        <div data-i18n="post.s.learners.b"><p>If you are learning security, this advisory is a gift. It tells you exactly which skills matter:</p>
+<ul>
+<li>Secret scanning and safe handling of keys (start with your own GitHub, see our <a href="blog-cybersecurity-portfolio-github.html">portfolio guide</a>).</li>
+<li>Cloud IAM and least privilege (<a href="blog-cloud-security-basics.html">cloud security basics</a>).</li>
+<li>API inventory and logging.</li>
+<li>Patch management and attack surface reduction.</li>
+</ul>
+<p>None of these need fancy tools. They need discipline and understanding, which you can build in a home lab and free cloud tiers.</p></div>
+      </section>
+      <section class="bp-sec" id="individuals" aria-labelledby="individuals-h">
+        <h2 id="individuals-h" data-i18n="post.s.individuals.h">And for everyday users</h2>
+        <div data-i18n="post.s.individuals.b"><p>CERT-In's April 2026 advisory on frontier AI risks gives individuals simple advice: keep devices and apps updated, use strong unique passwords with MFA, be careful with unexpected links and attachments, and verify urgent calls and video messages. Those basics protect you from AI powered attacks just as they protect you from ordinary ones.</p></div>
+      </section>
+      <section class="bp-sec" id="takeaway" aria-labelledby="takeaway-h">
+        <h2 id="takeaway-h" data-i18n="post.s.takeaway.h">The real takeaway</h2>
+        <div data-i18n="post.s.takeaway.b"><p>AI does not make security basics obsolete. It makes them urgent. A leaked key that might have sat unnoticed for months can now be found and used within hours. <strong>"Basics strong, toh AI attacker bhi kamzor."</strong> Read the full advisory on the CERT-In website, it is short and very practical.</p></div>
+      </section>
+
+      <aside class="bp-glass bp-takeaways" aria-labelledby="take-h">
+        <h2 id="take-h">Key takeaways</h2>
+        <ul>
+          <li>CERT-In observed AI agents as the attacker in real incidents against Indian systems.</li>
+          <li>The weaknesses abused were ordinary: leaked keys, old APIs, weak cloud permissions.</li>
+          <li>AI made attacks faster and more thorough, shrinking days to hours.</li>
+          <li>Organisations should audit secrets, retire unused APIs, apply least privilege and log for 180 days.</li>
+        </ul>
+      </aside>
+      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
+        <h2 id="src-h">Sources</h2>
+        <ul>
+          <li><a href="https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&amp;pageid=PUBVLNOTES02" target="_blank" rel="noopener">CERT-In Advisory CIAD-2026-0049: AI agents as attack vectors (15 October 2026)</a></li>
+          <li><a href="https://www.cert-in.org.in/s2cMainServlet?pageid=PUBADVLIST02&amp;year=2026" target="_blank" rel="noopener">CERT-In advisories list, 2026</a></li>
+          <li><a href="https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0020&amp;pageid=PUBVLNOTES02" target="_blank" rel="noopener">CERT-In Advisory CIAD-2026-0020: Defending against frontier AI driven cyber risks</a></li>
+        </ul>
+        <p class="small muted">Links open the original sources, including official releases and news reports. Figures and rules can change, so check them before you rely on this post.</p>
+      </aside>
+
+      <aside class="bp-glass bp-author" aria-label="About the author">
+        <img src="assets/img/madhav-square.jpg" width="96" height="96" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="lazy" decoding="async">
+        <p data-i18n="blog.author"><strong>Madhav Pandya</strong> explains cybersecurity and scam awareness in plain English and Hinglish. He is the founder of CyberWithMadhav and is studying law and cloud security. <a href="about.html">About Madhav Pandya</a></p>
+      </aside>
+
+      <section class="bp-related" aria-labelledby="rel-h">
+        <h2 id="rel-h" data-i18n="blog.related">Related guides</h2>
+        <div class="bp-grid">
+        <article class="bp-card" data-cat="Cyber trends 2026">
+          <p class="bp-cat mono" data-i18n="cat.cyber-trends">Cyber trends 2026</p>
+          <h3 class="bp-card-t"><a href="blog-cloud-misconfiguration-leaked-secrets.html" data-i18n="blogpost.cloud-misconfiguration-leaked-secrets.t">Cloud Misconfiguration and Leaked Secrets: The Quiet Cause of Big Breaches</a></h3>
+          <p class="muted small" data-i18n="blogpost.cloud-misconfiguration-leaked-secrets.d">Many cloud breaches do not involve any clever hacking. A storage bucket is public, a key sits in a GitHub repository, or a role can do far more than it should. In 2026, AI tools started finding these mistakes faster than ever.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Cyber trends 2026">
+          <p class="bp-cat mono" data-i18n="cat.cyber-trends">Cyber trends 2026</p>
+          <h3 class="bp-card-t"><a href="blog-prompt-injection-shadow-ai.html" data-i18n="blogpost.prompt-injection-shadow-ai.t">Prompt Injection and Shadow AI: The New Security Risks of Everyday AI Tools</a></h3>
+          <p class="muted small" data-i18n="blogpost.prompt-injection-shadow-ai.d">AI chatbots and assistants are now part of daily work. They also bring new risks: tricking the AI with hidden instructions, and employees pasting company data into unapproved tools. Here is what both mean and how to stay safe.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Cyber trends 2026">
+          <p class="bp-cat mono" data-i18n="cat.cyber-trends">Cyber trends 2026</p>
+          <h3 class="bp-card-t"><a href="blog-vulnerability-exploitation-patching-2026.html" data-i18n="blogpost.vulnerability-exploitation-patching-2026.t">Exploits Overtook Stolen Passwords in 2026: Why Patching Is Now Urgent</a></h3>
+          <p class="muted small" data-i18n="blogpost.vulnerability-exploitation-patching-2026.d">For the first time in the 19 year history of Verizon&#x27;s breach report, exploiting software flaws beat stolen credentials as the top way into organisations. Here is why that happened and what good patching looks like.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        </div>
+        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="prompts.html">CyberPrompts: defensive AI prompts</a> · <a href="commands.html">Blue team commands</a></p>
+      </section>
+
+      <p class="small muted bp-disclaimer" data-i18n="blog.disclaimer">Educational content, not legal advice. Check official sources before you rely on it. If you have lost money, call <a href="tel:1930">1930</a> now. <a href="terms.html">Terms</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, not legal advice. Check official sources.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+  <script src="assets/js/blog.js" defer></script>
+  <script src="assets/js/i18n/post-ai-agents-cyber-attacks-cert-in-2026.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+=== what-is-cybersecurity-beginners
+title: What Is Cybersecurity? A Plain English Guide for Absolute Beginners
+short: What is cybersecurity
+desc: Cybersecurity explained from zero: what it protects, the CIA triad, common attacks and how defenders work. Part 1 of the CyberWithMadhav Beginner Journey.
+lead: Before tools, commands and certifications, you need a clear picture of what cybersecurity actually is. This first part of the Beginner Journey gives you that picture in simple words.
+cat: Beginner journey
+series: Beginner journey
+order: 1
+tags: beginners, CIA triad, basics
+kw: what is cybersecurity; cybersecurity for beginners; cyber security kya hai; CIA triad explained
+hi: Cybersecurity kya hai? Bilkul beginners ke liye simple guide
+related: cybersecurity-career-paths-india, networking-basics-for-cybersecurity, 90-day-cybersecurity-study-plan
+hubs: index.html#roadmap|Cybersecurity roadmap on the home page; scams.html|Scam Encyclopedia: 25 Indian scams explained
+src: NIST Computer Security Resource Center glossary: cybersecurity|https://csrc.nist.gov/glossary/term/cybersecurity
+src: CERT-In: Indian Computer Emergency Response Team|https://www.cert-in.org.in/
+quick: Cybersecurity is the work of protecting computers, networks, apps and data from people who want to steal, change or break them. Defenders try to keep information **confidential**, **accurate** and **available**. You do not need to be a genius coder to start. You need curiosity, basic networking and Linux, and a habit of practising legally on your own lab.
+takeaways:
+- Cybersecurity protects data, devices, networks and people, not just computers.
+- The CIA triad (confidentiality, integrity, availability) is the simplest way to think about what you are protecting.
+- Most real attacks start with people, weak passwords or unpatched software, not movie style hacking.
+- Start with fundamentals and practise only on systems you own or have permission to test.
+## simple-meaning | Cybersecurity in one simple picture
+Think of your phone. It holds your photos, your chats, your UPI app and your email. Now imagine three things a criminal might want: to **read** your private stuff, to **change** something (like the account number on a payment), or to **lock you out** so you cannot use it at all. Cybersecurity is everything we do to stop those three things.
+
+At a company, the same idea is just bigger. Instead of one phone, there are thousands of laptops, servers, cloud accounts and customer records. Instead of one person, there are teams whose full time job is protecting them.
+
+So when someone says "I work in cyber", they could be configuring firewalls, watching alerts in a security operations centre, testing apps for bugs, writing policies, investigating a hacked laptop or teaching staff how to spot phishing. It is a very wide field, and that is good news for beginners, because there is a place for many kinds of people.
+
+## cia-triad | The CIA triad: the three things we protect
+Security people use a short model called the **CIA triad**. It has nothing to do with the American agency.
+
+- **Confidentiality** means only the right people can see the data. Example: your bank statement should be visible to you and the bank, not to a stranger on the same WiFi.
+- **Integrity** means data is not changed without permission. Example: an invoice should not have its bank details quietly swapped by an attacker.
+- **Availability** means the system works when you need it. Example: a hospital system should not go down because of ransomware during an emergency.
+
+Whenever you learn a new attack or defence, ask yourself: which of these three does it hit or protect? This one habit will make concepts much easier to remember.
+
+## common-attacks | Common attacks you will hear about
+You will meet these names again and again in this series:
+
+- **Phishing:** fake emails, SMS or WhatsApp messages that trick you into clicking a link or sharing an OTP.
+- **Malware:** harmful software, such as spyware that reads your messages or ransomware that encrypts files and demands money.
+- **Password attacks:** guessing or reusing leaked passwords to break into accounts.
+- **Exploiting vulnerabilities:** using a bug in software that has not been updated.
+- **Social engineering:** manipulating people, for example by pretending to be police, bank staff or a boss.
+
+Notice that many of these target humans, not machines. That is why awareness matters as much as technology. Our [Scam Encyclopedia](scams.html) shows how these ideas look in real Indian scams.
+
+## defenders | What defenders actually do
+Defence is usually described in layers, because no single control is perfect:
+
+1. **Prevent:** strong passwords, two factor authentication, updates, firewalls and least privilege (give each person only the access they need).
+2. **Detect:** logs, alerts and monitoring tools that notice unusual activity, like a login from a new country at 3 am.
+3. **Respond:** contain the problem, remove the attacker, fix the root cause.
+4. **Recover:** restore from backups and get back to normal.
+
+Most beginners imagine cybersecurity as only "hacking". In reality, a large share of the jobs are on the defensive side, often called the **blue team**. Attack simulation roles, the **red team** and penetration testers, are exciting but they also need strong defensive knowledge.
+
+## mindset | The beginner mindset that works
+Here is the honest truth, yaar: there is no shortcut and no magic tool. People who do well in this field usually share a few habits.
+
+- They are curious and ask "how does this actually work?"
+- They practise a little every day instead of binge watching tutorials once a month.
+- They write notes in their own words.
+- They stay strictly legal. Testing a website, WiFi network or app that you do not own, without written permission, can be a crime under the IT Act in India.
+
+If you are coming from a non technical background, such as commerce, arts or law, you are not behind. Communication, writing and understanding rules are real strengths in security work.
+
+## next-steps | Your next step in this journey
+This series goes step by step. In Part 2 we look at career paths so you can see where you might fit. Then we cover networking, Linux and how the internet works, before moving to labs, certifications and CTFs.
+
+For now, do two small things today. First, turn on two factor authentication on your main email account. Second, open the [roadmap on the home page](index.html#roadmap) and just read it once. Bas itna. Small steps, every day.
+
+=== cybersecurity-career-paths-india
+title: Cybersecurity Career Paths in India: Which Role Fits You?
+short: Cybersecurity career paths
+desc: SOC analyst, pentester, cloud security, GRC, forensics and more. A beginner friendly map of cybersecurity career paths in India and how to choose one.
+lead: Cybersecurity is not one job. It is a family of roles with very different daily work. Here is a simple map, so you can pick a direction instead of trying to learn everything at once.
+cat: Beginner journey
+series: Beginner journey
+order: 2
+tags: careers, beginners, India
+kw: cybersecurity career path India; cyber security jobs for freshers; SOC analyst vs pentester; GRC career
+hi: India mein cybersecurity career paths: aapke liye kaunsa role sahi hai?
+related: what-is-cybersecurity-beginners, soc-analyst-day-in-life, free-cybersecurity-certifications-beginners
+hubs: index.html#roadmap|Cybersecurity roadmap; about.html|About Madhav Pandya
+src: NICE Workforce Framework for Cybersecurity (NIST)|https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+src: CERT-In: Indian Computer Emergency Response Team|https://www.cert-in.org.in/
+quick: The most common entry points are **SOC analyst** (monitoring alerts), **IT or network support with a security focus**, and **GRC** (governance, risk and compliance). Penetration testing, cloud security, forensics and application security usually come after you have strong basics. Pick one direction for six months, build small projects for it, and keep your fundamentals strong.
+takeaways:
+- Cybersecurity has many roles: defensive, offensive, cloud, governance and investigation.
+- SOC, IT support and GRC are realistic first roles for many freshers.
+- Choose one direction for a few months and build proof of skill for it.
+- Strong basics in networking, Linux and Windows help in every path.
+## why-map | Why you need a map first
+Many freshers watch one video on ethical hacking and decide they want to be a hacker. Then they jump between Kali tools, bug bounty, cloud and malware analysis, and after six months they feel lost. The problem is not effort. The problem is direction.
+
+The US based NICE Framework, published by NIST, lists dozens of distinct cybersecurity work roles. You do not need to memorise it, but it shows one important thing: security is a whole industry with many specialisations. Let us group them into a few families you can actually understand.
+
+## defensive | Defensive roles (blue team)
+These people protect and monitor systems.
+
+- **SOC analyst:** watches alerts from tools like SIEM and EDR, checks if they are real attacks and escalates. This is one of the most common first jobs. Part 12 of this series covers a typical day.
+- **Incident responder:** steps in when an attack is confirmed, contains it and figures out what happened.
+- **Threat hunter:** proactively searches logs for signs of attackers that tools missed.
+- **Security engineer:** builds and tunes defences such as firewalls, email filters and endpoint tools.
+
+Good fit if you like patterns, logs, puzzles and calm problem solving.
+
+## offensive | Offensive roles (red team)
+These people think like attackers, with permission.
+
+- **Penetration tester:** tests apps, networks or cloud setups under a signed scope and writes a report.
+- **Red teamer:** simulates a real attacker over weeks to test people, process and technology together.
+- **Bug bounty hunter:** finds bugs in programs that invite researchers, and gets rewarded under the program rules.
+
+Good fit if you enjoy breaking things, reading code and writing clear reports. Honest note: offensive roles usually need more experience and a strong portfolio. The report writing part is as important as the hacking part.
+
+## cloud-app | Cloud and application security
+Most companies now run on cloud platforms like AWS, Azure and Google Cloud, and build their own web and mobile apps.
+
+- **Cloud security engineer:** secures cloud accounts, identities, storage and networks. Part 13 introduces the basics.
+- **Application security (AppSec):** reviews code, runs scanners and helps developers fix bugs early.
+- **DevSecOps:** adds security checks into the build and deployment pipeline.
+
+Good fit if you like building things and have some coding or cloud interest.
+
+## grc-forensics | GRC, privacy and forensics
+Not every security job is deeply technical, and these roles are growing in India.
+
+- **GRC analyst:** works on policies, risk assessments, audits and standards like ISO 27001.
+- **Privacy and data protection:** helps companies follow laws like India's Digital Personal Data Protection Act, 2023. People with a law or commerce background can do very well here.
+- **Digital forensics:** collects and analyses evidence from devices, often supporting investigations.
+
+Good fit if you are organised, enjoy writing, and like understanding rules and how businesses work.
+
+## choose | How to choose your first direction
+Ask yourself three simple questions:
+
+1. Do I enjoy logs and puzzles (SOC), building and configuring (engineering or cloud), or reading and writing rules (GRC)?
+2. What do I already have? A networking background points to SOC or network security. A coding background points to AppSec. A law degree points to GRC and privacy.
+3. What can I prove in 90 days? A small home lab, a few CTF writeups, or a sample risk assessment.
+
+Pick one path for the next six months. You can always switch later, and the basics carry over. Mera suggestion: if you are fully confused, start with the SOC track, because it teaches networking, Linux, Windows and attacks together. The [90 day study plan](blog-90-day-cybersecurity-study-plan.html) gives you a ready schedule.
+
+## reality-check | A quick reality check
+Job titles vary a lot between companies. One company's "security analyst" is another company's "SOC L1". Read the actual responsibilities in job posts, not just the title. Also be careful with anyone who promises a guaranteed cybersecurity job after a short paid course. Real hiring depends on skills you can show, not on a certificate alone.
+
+=== networking-basics-for-cybersecurity
+title: Networking Basics for Cybersecurity: IP, Ports, DNS and More
+short: Networking basics
+desc: Learn the networking basics every cybersecurity beginner needs: IP addresses, subnets, ports, protocols, DNS, routers and firewalls, in plain English.
+lead: You cannot protect a network you do not understand. This part covers the networking ideas that show up in almost every security job, explained with everyday examples.
+cat: Beginner journey
+series: Beginner journey
+order: 3
+tags: networking, IP address, ports, DNS
+kw: networking basics for cybersecurity; IP address and ports explained; subnetting basics; networking for beginners hindi
+hi: Cybersecurity ke liye networking basics: IP, ports, DNS aur zyada
+related: how-the-internet-works, osi-tcp-ip-model-explained, wireshark-basics
+hubs: index.html#networking|Networking cards on the home page; index.html#subnet|Free subnet calculator; commands.html|Blue team commands
+src: Cisco Networking Academy: free networking courses|https://www.netacad.com/
+src: IANA: service name and port number registry|https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
+quick: A network is devices talking to each other. Each device has an **IP address** (like a house address), services listen on **ports** (like flat numbers in that building), **protocols** are the agreed language, and **DNS** turns names like example.com into IP addresses. Routers move traffic between networks and firewalls decide what is allowed.
+takeaways:
+- IP address is the device address, port is the service door on that device.
+- Private IP ranges are used inside homes and offices, public IPs face the internet.
+- Know the common ports: 22 SSH, 53 DNS, 80 HTTP, 443 HTTPS, 3389 RDP.
+- DNS, routers and firewalls appear in almost every security investigation.
+## ip | IP addresses: the address of a device
+Every device on a network gets an **IP address**. The common version, IPv4, looks like `192.168.1.10`: four numbers from 0 to 255 separated by dots.
+
+There are two kinds you must know:
+
+- **Private IPs** are used inside homes and offices. Ranges like `10.x.x.x`, `172.16.x.x to 172.31.x.x` and `192.168.x.x` are reserved for private use.
+- **Public IPs** are what the internet sees. Your home router usually has one public IP, and all your devices share it.
+
+There is also **IPv6**, which looks like `2001:db8::1`. It exists because the world ran out of IPv4 addresses. You will see both in logs.
+
+## subnet | Subnets in simple words
+A **subnet** is a group of addresses that belong together, like all flats on one floor. You will see notation like `192.168.1.0/24`. The `/24` means the first 24 bits are the network part, which gives 256 addresses, of which 254 are usable for devices.
+
+Why does this matter for security? Because firewalls rules, scanning scope and incident reports are all written in subnets. If an alert says "traffic from 10.0.5.0/24", you should know that means a whole range, not one machine. Practise with the free [subnet calculator on the home page](index.html#subnet) until it feels natural.
+
+## ports | Ports and protocols
+One device can run many services. **Ports** tell traffic which service it is meant for. Think of the IP as a building and the port as a flat number.
+
+Common ports to remember:
+
+- **22** SSH, remote login to Linux servers
+- **53** DNS, name lookups
+- **80** HTTP, unencrypted web
+- **443** HTTPS, encrypted web
+- **3389** RDP, Windows remote desktop
+- **25 and 587** email sending (SMTP)
+
+The two main transport protocols are **TCP**, which is reliable and connection based (web, email, SSH), and **UDP**, which is faster and connectionless (DNS lookups, video calls, games). An open port means a service is listening. An open port that should not be open, like RDP exposed to the whole internet, is a classic way attackers get in.
+
+## dns | DNS: the internet's phonebook
+Humans remember names, computers use numbers. **DNS** (Domain Name System) translates `www.example.com` into an IP address.
+
+Attackers love DNS. Phishing sites use lookalike domains such as an extra letter or a different ending. Malware sometimes talks to its controller using DNS. That is why SOC analysts often check DNS logs first when investigating a suspicious laptop. In India, banks moved their websites to the special `.bank.in` domain, which is a DNS level trust signal. We explain that in [our .bank.in guide](blog-bank-in-domain-india.html).
+
+## devices | Routers, switches and firewalls
+- **Switch:** connects devices inside the same local network.
+- **Router:** connects different networks, for example your home network to your internet provider.
+- **Firewall:** a gatekeeper that allows or blocks traffic based on rules, like "allow web traffic out, block remote desktop in".
+- **NAT** (network address translation): lets many private devices share one public IP. It is why your laptop's `192.168.x.x` address is not directly reachable from the internet.
+
+Your home WiFi router is usually all of these in one small box. That is a nice place to start learning. Log in to its admin page, look at connected devices, and change the default admin password if nobody did.
+
+## practise | How to practise networking safely
+- Run `ipconfig` (Windows) or `ip a` (Linux) and find your own IP, subnet and gateway.
+- Run `nslookup example.com` and see the IP that DNS returns.
+- Install Wireshark and watch your own traffic while you open a website. Our [Wireshark basics guide](blog-wireshark-basics.html) walks you through it.
+- Try the free Cisco Networking Academy courses for structured learning.
+
+Only look at traffic on your own network and devices. Capturing other people's traffic without permission is not okay, legally or ethically. Next, in Part 4, we move to Linux, the operating system you will use most in security work.
+
+=== linux-basics-for-cybersecurity
+title: Linux Basics for Cybersecurity: The Commands You Will Actually Use
+short: Linux basics
+desc: Why Linux matters in cybersecurity and the beginner commands you will use daily: files, permissions, users, processes, networking and logs.
+lead: Most servers, security tools and cloud machines run Linux. You do not need to master it in a week, but you do need to feel comfortable in a terminal. Here is a practical starting kit.
+cat: Beginner journey
+series: Beginner journey
+order: 4
+tags: Linux, terminal, commands
+kw: linux basics for cybersecurity; linux commands for beginners; linux file permissions explained; kali linux beginner
+hi: Cybersecurity ke liye Linux basics: commands jo aap sach mein use karoge
+related: networking-basics-for-cybersecurity, safe-home-lab-setup, linux-logs-for-beginners
+hubs: terminal.html|Free Linux terminal wargame; commands.html|Blue team commands cheat sheet; index.html#cheatsheets|Cheat sheets
+src: The Linux Documentation Project|https://tldp.org/
+src: Ubuntu documentation: command line for beginners|https://ubuntu.com/tutorials/command-line-for-beginners
+quick: Learn to move around the file system (`pwd`, `ls`, `cd`), read files (`cat`, `less`, `grep`), understand permissions (`chmod`, `ls -l`), manage processes (`ps`, `top`), check the network (`ip a`, `ss`) and read logs in `/var/log`. Practise in a virtual machine or a browser wargame, 20 minutes a day.
+takeaways:
+- Linux runs most servers and security tools, so terminal comfort is a core skill.
+- Master navigation, reading files, permissions, processes, networking and logs first.
+- Use a virtual machine or a browser wargame to practise without risk.
+- Never run commands you do not understand, especially with sudo.
+## why-linux | Why Linux matters so much
+When you work in security, you will meet Linux everywhere. Web servers, cloud instances, firewalls, routers and many security tools run on it. Attackers also love Linux servers because they often hold valuable data.
+
+Many beginners install Kali Linux on day one and feel like hackers. Kali is useful, but it is just a Linux distribution with security tools pre installed. If you do not understand basic Linux, Kali will only confuse you. Start with a normal distribution like Ubuntu, learn the basics, and then explore Kali in your lab.
+
+## navigation | Moving around the file system
+Linux organises everything in a tree starting at `/` (root). Key commands:
+
+```
+pwd            # where am I?
+ls -la         # list files, including hidden ones
+cd /var/log    # go to a folder
+cd ~           # go to your home folder
+mkdir notes    # make a folder
+cp a.txt b.txt # copy
+mv a.txt docs/ # move or rename
+```
+
+Important folders: `/etc` holds configuration, `/home` holds user folders, `/var/log` holds logs and `/tmp` holds temporary files. Attackers often drop files in `/tmp` because anyone can write there, so defenders check it.
+
+## reading | Reading and searching files
+Security work is mostly reading. These commands help:
+
+```
+cat file.txt               # print a file
+less /var/log/syslog       # scroll through a big file
+head -n 20 file.txt        # first 20 lines
+tail -f /var/log/auth.log  # follow new lines live
+grep "Failed password" /var/log/auth.log
+```
+
+`grep` is your best friend. Combined with `|` (pipe), you can filter huge logs in seconds, for example `grep "Failed password" auth.log | wc -l` counts failed SSH logins.
+
+## permissions | Users and permissions
+Every file has an owner, a group and permissions. Run `ls -l` and you will see something like `-rwxr-x---`. That means the owner can read, write and execute, the group can read and execute, and others can do nothing.
+
+```
+chmod 640 secret.txt   # owner rw, group r, others none
+chown madhav file.txt  # change owner
+whoami                 # which user am I?
+sudo command           # run as administrator
+```
+
+Wrong permissions are a common real world weakness, for example a configuration file with a password that every user can read. Be careful with `sudo`. Never paste a command from the internet with sudo unless you understand every part of it.
+
+## processes-network | Processes and networking
+```
+ps aux        # list running processes
+top           # live view of CPU and memory
+ip a          # show IP addresses
+ss -tulpn     # which ports are listening, and by which program
+ping 8.8.8.8  # basic connectivity test
+```
+
+`ss -tulpn` is very useful for defenders. If you see a strange program listening on an unusual port, that deserves a closer look. The networking ideas from Part 3 now become real.
+
+## logs | Logs: where the evidence lives
+On many Linux systems, logs live in `/var/log`. Files like `auth.log` (or `secure` on some distributions) record logins and sudo use. Newer systems also use `journalctl`. A SOC analyst who can quickly read these logs is valuable. We go deeper in [Linux logs for beginners](blog-linux-logs-for-beginners.html).
+
+## practise | A 14 day practice plan
+- Days 1 to 3: navigation and files, 20 minutes a day.
+- Days 4 to 6: grep, pipes and reading logs.
+- Days 7 to 9: users, groups and permissions.
+- Days 10 to 12: processes, services and networking commands.
+- Days 13 and 14: play the free [Linux terminal wargame](terminal.html) on this site and keep notes.
+
+Use a virtual machine on your own laptop so mistakes do not matter. Part 7 shows how to build that safe home lab. Next up, in Part 5, how the internet actually works end to end.
+
+=== how-the-internet-works
+title: How the Internet Works: From Typing a URL to Seeing a Page
+short: How the internet works
+desc: What really happens when you open a website: DNS, IP routing, TCP, TLS and HTTP explained simply, with the security angle at each step.
+lead: You open a website dozens of times a day. Understanding what happens in those few hundred milliseconds is one of the best foundations for a career in security.
+cat: Beginner journey
+series: Beginner journey
+order: 5
+tags: internet, DNS, HTTPS, TLS
+kw: how the internet works for beginners; what happens when you type a url; https explained; internet kaise kaam karta hai
+hi: Internet kaise kaam karta hai: URL type karne se page dikhne tak
+related: networking-basics-for-cybersecurity, osi-tcp-ip-model-explained, browser-devtools-for-security
+hubs: index.html#networking|Networking cards on the home page; index.html#link-tool|Free link checker
+src: Mozilla MDN: How does the web work?|https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works
+src: Cloudflare Learning Center: What is DNS?|https://www.cloudflare.com/learning/dns/what-is-dns/
+quick: When you type a website address, your device asks **DNS** for the server's IP address, opens a **TCP** connection to it, sets up encryption with **TLS** (the padlock in HTTPS), and then sends an **HTTP** request. The server sends back HTML, images and scripts, and your browser builds the page. Each step has its own security risks and protections.
+takeaways:
+- A web visit is DNS lookup, TCP connection, TLS handshake, then HTTP request and response.
+- HTTPS encrypts traffic, but a padlock does not prove a site is honest.
+- Phishing abuses the DNS and domain step, so always read the real domain name.
+- Browser developer tools let you watch all of this on your own machine.
+## step-dns | Step 1: Finding the address with DNS
+You type `www.example.com`. Your computer does not know where that is, so it asks a **DNS resolver**, usually run by your internet provider or a public service. The resolver finds the IP address and replies. Your device caches the answer for a while so the next visit is faster.
+
+**Security angle:** attackers register lookalike domains, for example swapping one letter, to fool people. Some malware also tampers with DNS settings to send you to fake sites. This is why you should always read the domain name carefully, especially for banking. Indian banks now use the `.bank.in` ending, explained in [this guide](blog-bank-in-domain-india.html).
+
+## step-route | Step 2: Routing packets across networks
+With the IP address known, your device sends data in small chunks called **packets**. They go to your home router, then your internet provider, then across many routers until they reach the server's network. Each router just looks at the destination IP and forwards the packet closer.
+
+**Security angle:** anyone who controls a network on the path, such as a fake public WiFi hotspot, could try to see or modify unencrypted traffic. This is the reason encryption matters so much.
+
+## step-tcp | Step 3: Opening a TCP connection
+Web traffic uses **TCP**, which makes sure data arrives complete and in order. Before sending real data, client and server do a quick greeting called the **three way handshake**: SYN, SYN-ACK, ACK. After that, the connection is open on the server's port, usually 443 for HTTPS.
+
+**Security angle:** port scanners like nmap use this handshake behaviour to discover which ports are open. Defenders watch for many half finished handshakes, which can signal scanning or a flood attack.
+
+## step-tls | Step 4: TLS, the padlock
+For HTTPS, the browser and server now set up **TLS** encryption. The server shows a **certificate** that proves it controls that domain name, signed by a trusted certificate authority. They agree on keys, and from here everything is encrypted.
+
+**Security angle, very important:** the padlock means the connection is encrypted and the domain matches the certificate. It does **not** mean the website is genuine or safe. Phishing sites also get free certificates. A padlock on `sbi-kyc-update-help.com` is still a scam site. Teach this to your family.
+
+## step-http | Step 5: HTTP request and response
+Inside the encrypted tunnel, your browser sends an **HTTP request**, like `GET /index.html`, along with headers such as cookies. The server replies with a status code (200 OK, 404 Not Found, 500 Server Error) and the content. Your browser then fetches more files for images, styles and scripts, and builds the page you see.
+
+**Security angle:** cookies often hold your logged in session. If an attacker steals that cookie, they may not need your password. Web attacks such as cross site scripting and SQL injection happen at this layer. You will learn them on practice sites in the [Burp Suite intro](blog-burp-suite-intro-practice.html).
+
+## see-it | See it yourself in five minutes
+1. Open any website in Chrome or Firefox.
+2. Press F12 to open developer tools and click the **Network** tab.
+3. Reload the page. You will see every request, its status code, size and timing.
+4. Click the padlock in the address bar and view the certificate details.
+5. In a terminal, run `nslookup example.com` to see the DNS step on its own.
+
+This is all on your own browser, so it is completely safe. Once you can explain these five steps to a friend in simple Hindi or English, you have a stronger foundation than many people who only know tool names. Part 6 maps these steps to the OSI and TCP/IP models.
+
+=== osi-tcp-ip-model-explained
+title: OSI and TCP/IP Models Explained in Plain Words (With Attack Examples)
+short: OSI and TCP/IP models
+desc: The OSI model and TCP/IP model explained in plain words with real attack and defence examples for each layer. Easy notes for cybersecurity beginners.
+lead: Every networking course starts with the OSI model, and many beginners just memorise seven names for the exam. Let us make it useful instead, by connecting every layer to a real attack and a real defence.
+cat: Beginner journey
+series: Beginner journey
+order: 6
+tags: OSI model, TCP/IP, networking
+kw: OSI model explained simply; TCP/IP model vs OSI; OSI model attacks each layer; OSI model in hindi
+hi: OSI aur TCP/IP model simple shabdon mein, attack examples ke saath
+related: how-the-internet-works, networking-basics-for-cybersecurity, wireshark-basics
+hubs: index.html#networking|Networking layers on the home page; index.html#cheatsheets|Cheat sheets
+src: Cloudflare Learning Center: What is the OSI model?|https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
+src: IETF RFC 1122: Requirements for Internet Hosts, Communication Layers|https://www.rfc-editor.org/rfc/rfc1122
+quick: The **OSI model** splits network communication into seven layers: Physical, Data Link, Network, Transport, Session, Presentation and Application. The **TCP/IP model**, which the real internet uses, groups them into four: Link, Internet, Transport and Application. Security people use these layers as a shared language: "this is a layer 7 attack" tells everyone it targets the application, like a website login.
+takeaways:
+- OSI has seven layers, TCP/IP has four, and both describe the same journey of data.
+- Use the layers as a vocabulary to describe where an attack or defence lives.
+- Lower layers deal with cables, MAC and IP addresses, upper layers with apps and data.
+- Wireshark shows the layers live, which is the best way to learn them.
+## why-layers | Why layers at all?
+Sending a message across the world is complicated. Layers split the problem into pieces, so each piece can be designed and fixed on its own. Your WiFi card does not need to know anything about WhatsApp, and WhatsApp does not need to know whether you are on WiFi or mobile data.
+
+For security, layers give us a common language. If someone in a SOC says "we are seeing a layer 3 flood", or "this is a layer 7 issue", everyone knows roughly where to look.
+
+A popular memory trick, from layer 1 up, is **"Please Do Not Throw Sausage Pizza Away"**: Physical, Data Link, Network, Transport, Session, Presentation, Application.
+
+## lower | Layers 1 to 3: getting bits from place to place
+- **Layer 1, Physical:** cables, radio signals, fibre. Attack example: someone plugs a rogue device into an open office network port. Defence: physical security and disabling unused ports.
+- **Layer 2, Data Link:** MAC addresses and switches inside a local network. Attack example: ARP spoofing, where an attacker on the same WiFi pretends to be the router to intercept traffic. Defence: switch security features, network segmentation and encrypted protocols.
+- **Layer 3, Network:** IP addresses and routing between networks. Attack example: IP spoofing or a flood of packets to overwhelm a link. Defence: firewalls, filtering and upstream DDoS protection.
+
+## middle | Layer 4: Transport
+This is where **TCP** and **UDP** live, along with **ports**. TCP gives reliable connections with the three way handshake you saw in Part 5. UDP is quicker but has no handshake.
+
+Attack examples: port scanning to find open services, and SYN floods that open many half connections to exhaust a server. Defence: closing unused ports, firewalls that track connection state, and rate limiting. When you scan your own lab with nmap later in this series, you are working mostly at this layer.
+
+## upper | Layers 5 to 7: sessions, formats and applications
+- **Layer 5, Session:** managing ongoing conversations between systems. In the real world, session handling is often done inside applications, for example login sessions using cookies or tokens. Attack example: session hijacking with a stolen cookie.
+- **Layer 6, Presentation:** data formats, character encoding and often encryption, such as TLS. Attack example: weak or outdated encryption settings. Defence: modern TLS configuration.
+- **Layer 7, Application:** the protocols apps speak, like HTTP, DNS, SMTP and SSH. Attack examples: SQL injection, phishing pages, credential stuffing and API abuse. Defence: secure coding, web application firewalls, strong authentication.
+
+Most of the attacks you read about in news stories live at layer 7, because that is where the valuable data and the humans are.
+
+## tcp-ip | The TCP/IP model the internet actually uses
+OSI is a teaching model. The real internet was built on the **TCP/IP model**, described in standards like RFC 1122. It has four layers:
+
+1. **Link:** roughly OSI layers 1 and 2.
+2. **Internet:** OSI layer 3, mainly IP.
+3. **Transport:** OSI layer 4, TCP and UDP.
+4. **Application:** OSI layers 5, 6 and 7 combined.
+
+Interviews often ask "difference between OSI and TCP/IP". A good simple answer: OSI is a seven layer reference model used for teaching and troubleshooting, TCP/IP is the four layer model that real internet protocols follow.
+
+## learn-it | How to really learn the layers
+Do not just memorise. Open Wireshark on your own computer, capture a few seconds of traffic while you load a website, and click one packet. You will see Ethernet or WiFi (layer 2), IP (layer 3), TCP (layer 4) and HTTP or TLS (upper layers) stacked like folders. Our [Wireshark basics guide](blog-wireshark-basics.html) shows exactly how.
+
+Make a one page table in your notes: layer, what it does, one attack, one defence. Revise it once a week. Ek baar samajh aa gaya, phir kabhi bhoologe nahi. Next, Part 7: building a safe home lab where you can practise all of this.
+
+=== safe-home-lab-setup
+title: How to Set Up a Safe Cybersecurity Home Lab on Your Laptop
+short: Safe home lab setup
+desc: Build a free, safe cybersecurity home lab with VirtualBox or VMware, a Linux VM and intentionally vulnerable targets, isolated from your home network.
+lead: A home lab is where you are allowed to break things. It lets you practise attacks and defences legally, on machines you own. Here is how to set one up without spending money or putting your home network at risk.
+cat: Beginner journey
+series: Beginner journey
+order: 7
+tags: home lab, VirtualBox, practice
+kw: cybersecurity home lab setup; virtualbox lab for beginners; how to practice ethical hacking legally; home lab kaise banaye
+hi: Laptop pe safe cybersecurity home lab kaise banayein
+related: linux-basics-for-cybersecurity, nmap-own-lab-guide, ctf-for-beginners
+hubs: ctf.html|CTF Arena on this site; terminal.html|Linux terminal wargame
+src: Oracle VirtualBox documentation|https://www.virtualbox.org/wiki/Documentation
+src: OWASP Juice Shop (intentionally insecure practice app)|https://owasp.org/www-project-juice-shop/
+src: Kali Linux documentation: virtualization|https://www.kali.org/docs/virtualization/
+quick: Install a free hypervisor such as **VirtualBox**, create one Linux virtual machine as your workstation, add one intentionally vulnerable target (for example **OWASP Juice Shop** or a deliberately vulnerable VM), and connect them on an **isolated host only or internal network**. Take snapshots before experiments. Never point lab tools at systems you do not own.
+takeaways:
+- A home lab lets you practise legally on systems you own.
+- Use a free hypervisor, a Linux workstation VM and an intentionally vulnerable target.
+- Keep vulnerable machines on an isolated network, never exposed to the internet.
+- Snapshots make mistakes cheap, so experiment freely.
+## why-lab | Why every beginner needs a lab
+Watching videos teaches you words. A lab teaches you skills. In a lab you can run scans, read logs, break a web app and fix it, all without asking anyone's permission, because every machine belongs to you.
+
+The legal point is serious. Scanning or attacking systems you do not own, without written permission, can be an offence under the Information Technology Act, 2000 in India, even if you "were just learning". A lab removes that risk completely.
+
+## hardware | What hardware do you need?
+You do not need a gaming PC. A practical minimum:
+
+- **RAM:** 8 GB works for one or two small VMs. 16 GB is comfortable.
+- **Storage:** 50 to 100 GB free space, ideally on an SSD.
+- **CPU:** any recent processor with virtualization support enabled in BIOS or UEFI (often called Intel VT-x or AMD-V).
+
+If your laptop is weaker, use lightweight Linux VMs, run one VM at a time, or use browser based practice platforms and CTFs for a while.
+
+## setup | Step by step setup
+1. **Install a hypervisor.** VirtualBox is free and runs on Windows, Linux and macOS hosts (check the official site for current Apple silicon support). VMware Workstation and Fusion also offer free personal use editions. Pick one.
+2. **Create a workstation VM.** Ubuntu is great for learning basics. Kali Linux provides ready made VM images if you want security tools pre installed.
+3. **Add a target.** Good beginner options are OWASP Juice Shop (a deliberately insecure web shop, run with Docker), DVWA (Damn Vulnerable Web Application) or vulnerable VMs from trusted training sources.
+4. **Configure an isolated network.** In VirtualBox, use a **Host only** adapter or an **Internal Network** for the target. This keeps vulnerable machines off your home WiFi and away from the internet.
+5. **Take a snapshot** of each VM in a clean state.
+
+## isolation | Network isolation, explained simply
+Intentionally vulnerable machines are, by design, easy to hack. If you connect one in **bridged** mode, it becomes a real device on your home network, visible to everything on your WiFi. In the worst case, a misconfigured setup could expose it further.
+
+The safe rule: the vulnerable target should only be able to talk to your attacker or workstation VM. Give your workstation a second adapter with NAT if it needs internet for updates. Disconnect the target from the internet entirely. Draw a small diagram of your lab network in your notes. Interviewers love it when freshers can explain this.
+
+## first-exercises | Your first five lab exercises
+1. Find the IP addresses of both VMs with `ip a` and ping one from the other.
+2. Scan your target with nmap and list its open ports. Our [nmap own lab guide](blog-nmap-own-lab-guide.html) explains the commands.
+3. Open the target's web app in the workstation browser and explore every page.
+4. Capture the traffic between the two VMs with Wireshark.
+5. Read the target's logs after your scan and see what your activity looked like from the defender side.
+
+That last step is gold. It teaches you both red and blue thinking at the same time.
+
+## habits | Good lab habits
+- Revert to a clean snapshot before each new exercise.
+- Keep a lab notebook: what you tried, what worked, what you learned.
+- Update your workstation VM regularly.
+- Never store real passwords, personal files or work data inside lab VMs.
+- Turn VMs off when you are not using them.
+
+Once your lab is ready, you are set for the rest of this journey. Next, Part 8 covers free certifications that are worth your time.
+
+=== free-cybersecurity-certifications-beginners
+title: Free and Low Cost Cybersecurity Certifications for Beginners (2026 Guide)
+short: Free certifications
+desc: Which beginner cybersecurity certifications and free courses are worth it, how to verify current offers, and how to avoid paying for useless certificates.
+lead: Certificates do not replace skills, but the right beginner ones give you structure and help your resume pass the first filter. Here is how to choose wisely and spend as little as possible.
+cat: Beginner journey
+series: Beginner journey
+order: 8
+tags: certifications, free courses, beginners
+kw: free cybersecurity certifications for beginners; ISC2 CC free; cisco intro to cybersecurity free; best cyber security certificate for freshers India
+hi: Beginners ke liye free aur sasti cybersecurity certifications
+related: cybersecurity-career-paths-india, cybersecurity-portfolio-github, 90-day-cybersecurity-study-plan
+hubs: index.html#roadmap|Cybersecurity roadmap; about.html|About Madhav Pandya
+src: Cisco Networking Academy: Introduction to Cybersecurity|https://www.netacad.com/courses/introduction-to-cybersecurity
+src: ISC2 Certified in Cybersecurity (CC)|https://www.isc2.org/certifications/cc
+src: Microsoft Learn: Security, Compliance, and Identity Fundamentals (SC-900)|https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/
+src: Fortinet Training Institute: free security awareness and fundamentals courses|https://training.fortinet.com/
+quick: Start with free, well known learning paths such as **Cisco Networking Academy's Introduction to Cybersecurity**, vendor fundamentals on **Microsoft Learn** and **Fortinet's** free courses, and check whether **ISC2 Certified in Cybersecurity (CC)** has a free training or exam offer running when you apply. Offers change, so always confirm on the official site. Pair every certificate with a small project you can show.
+takeaways:
+- Certificates help with structure and resume filters, skills get you hired.
+- Prefer recognised providers and confirm current prices on their official sites.
+- Free learning paths are often available even when the exam itself is paid.
+- Avoid expensive "guaranteed job" packages and always pair a certificate with a project.
+## truth | The honest truth about certificates
+A certificate shows that you studied a syllabus and passed a test. It does not prove you can investigate an alert or secure a server. Recruiters know this. Still, for freshers, a recognised beginner certificate can help your resume get past automated filters and show commitment.
+
+The smart approach: use certificates as a **study plan**, and use projects, labs and CTF writeups as **proof**.
+
+## free-paths | Free learning paths worth doing
+These are well known providers with free beginner material. Details change, so check each official page:
+
+- **Cisco Networking Academy:** offers free self paced courses such as Introduction to Cybersecurity and networking basics, with a completion badge.
+- **Microsoft Learn:** free learning paths for the SC-900 Security, Compliance and Identity Fundamentals exam. The learning is free, the exam usually has a fee, though Microsoft sometimes runs discount or free voucher events.
+- **Fortinet Training Institute:** free security awareness and fundamentals level courses.
+- **ISC2 Certified in Cybersecurity (CC):** an entry level certification. ISC2 has run programs offering free training and a free exam for this certification. Check the official ISC2 page for whether an offer is active and what the annual maintenance fee is.
+
+## cloud | Cloud fundamentals
+Cloud skills are in demand, and the big providers have beginner tracks:
+
+- AWS, Microsoft Azure, Google Cloud and Oracle Cloud all publish free training for their foundational certifications.
+- Oracle has at times offered free foundations exams for Oracle Cloud Infrastructure and related AI tracks. I have done the Oracle Cloud AI Associate myself, so I can say the free learning material is good, but check the official Oracle University site for the current offer before you plan.
+
+A fundamentals certificate plus a small cloud security project, such as locking down a storage bucket in a free tier account, makes a strong pair.
+
+## paid-later | Paid certificates to consider later
+Once you have basics and some savings or employer support, popular next steps include CompTIA Security+ and vendor specific security certifications. Hands on practical exams are highly respected in offensive security, but they are not beginner level. Do not buy an expensive exam in month one.
+
+## red-flags | Red flags when choosing a course
+- "100 percent job guarantee" after a short course.
+- Very high fees for a certificate nobody in job posts mentions.
+- No syllabus, no trainer details, no official accreditation information.
+- Pressure to pay today because "seats are filling".
+
+A quick test: search for the certificate name in real job posts on LinkedIn or Naukri. If almost nobody asks for it, think twice.
+
+## plan | A simple certificate plan for your first year
+1. Months 1 to 3: one free foundations course (networking or intro to cybersecurity).
+2. Months 3 to 6: one recognised entry level certificate, ideally free or discounted.
+3. Months 6 to 12: one cloud fundamentals certificate, or save up for a respected paid exam.
+
+Alongside, keep building your home lab, doing CTFs and publishing writeups on GitHub. That combination is far more convincing than a long list of certificates. Next, Part 9: CTFs for beginners.

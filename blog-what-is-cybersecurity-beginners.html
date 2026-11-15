@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Is Cybersecurity? A Plain English Guide for Absolute Beginners | CyberWithMadhav</title>
+  <meta name="description" content="Cybersecurity explained from zero: what it protects, the CIA triad, common attacks and how defenders work. Part 1 of the CyberWithMadhav Beginner Journey.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/blog-what-is-cybersecurity-beginners.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="What Is Cybersecurity? A Plain English Guide for Absolute Beginners">
+  <meta property="og:description" content="Cybersecurity explained from zero: what it protects, the CIA triad, common attacks and how defenders work. Part 1 of the CyberWithMadhav Beginner Journey.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/blog-what-is-cybersecurity-beginners.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/blog/what-is-cybersecurity-beginners.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Share card reading What Is Cybersecurity? A Plain English Guide for Absolute Beginners">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is Cybersecurity? A Plain English Guide for Absolute Beginners">
+  <meta name="twitter:description" content="Cybersecurity explained from zero: what it protects, the CIA triad, common attacks and how defenders work. Part 1 of the CyberWithMadhav Beginner Journey.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/blog/what-is-cybersecurity-beginners.png">
+  <meta name="twitter:image:alt" content="Share card reading What Is Cybersecurity? A Plain English Guide for Absolute Beginners">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/consent.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
+  <meta property="article:published_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:modified_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:author" content="https://www.cyberwithmadhav.com/about.html">
+  <meta property="article:section" content="Beginner journey">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.cyberwithmadhav.com/blog-what-is-cybersecurity-beginners.html#post", "mainEntityOfPage": "https://www.cyberwithmadhav.com/blog-what-is-cybersecurity-beginners.html", "headline": "What Is Cybersecurity? A Plain English Guide for Absolute Beginners", "description": "Cybersecurity explained from zero: what it protects, the CIA triad, common attacks and how defenders work. Part 1 of the CyberWithMadhav Beginner Journey.", "image": "https://www.cyberwithmadhav.com/assets/img/blog/what-is-cybersecurity-beginners.png", "datePublished": "2026-11-15T09:00:00+05:30", "dateModified": "2026-11-15T09:00:00+05:30", "inLanguage": "en-IN", "articleSection": "Beginner journey", "keywords": ["what is cybersecurity", "cybersecurity for beginners", "cyber security kya hai", "CIA triad explained"], "author": {"@type": "Person", "@id": "https://www.cyberwithmadhav.com/about.html#person", "name": "Madhav Pandya", "url": "https://www.cyberwithmadhav.com/about.html"}, "publisher": {"@type": "Organization", "@id": "https://www.cyberwithmadhav.com/#org", "name": "CyberWithMadhav", "logo": {"@type": "ImageObject", "url": "https://www.cyberwithmadhav.com/assets/img/apple-touch-icon.png"}}, "isPartOf": {"@id": "https://www.cyberwithmadhav.com/blog.html#blog"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cyberwithmadhav.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.cyberwithmadhav.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "What Is Cybersecurity? A Plain English Guide for Absolute Beginners"}]}]}
+  </script>
+</head>
+<body class="v3 blog-page bp-post-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog active"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="bp-post wrap" aria-labelledby="p-title">
+      <nav class="bp-crumbs small muted" aria-label="Breadcrumb">
+        <a href="index.html" data-i18n="blog.home">Home</a> <span aria-hidden="true">/</span> <a href="blog.html">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page" data-i18n="blogpost.what-is-cybersecurity-beginners.s">What is cybersecurity</span>
+      </nav>
+      <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+      <h1 id="p-title" data-i18n="post.title">What Is Cybersecurity? A Plain English Guide for Absolute Beginners</h1>
+      <p class="lead" data-i18n="post.lead">Before tools, commands and certifications, you need a clear picture of what cybersecurity actually is. This first part of the Beginner Journey gives you that picture in simple words.</p>
+      <div class="bp-byline small muted">
+        <img src="assets/img/madhav-square.jpg" width="40" height="40" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="eager" decoding="async">
+        <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="2026-11-15">15 November 2026</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+      </div>
+      <div class="tags tags-row bp-tags"><span class="tag">beginners</span><span class="tag">CIA triad</span><span class="tag">basics</span></div>
+
+      <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
+        <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
+        <p data-i18n="post.quick">Cybersecurity is the work of protecting computers, networks, apps and data from people who want to steal, change or break them. Defenders try to keep information <strong>confidential</strong>, <strong>accurate</strong> and <strong>available</strong>. You do not need to be a genius coder to start. You need curiosity, basic networking and Linux, and a habit of practising legally on your own lab.</p>
+      </aside>
+
+      <nav class="bp-glass bp-toc" aria-labelledby="toc-h">
+        <h2 id="toc-h" data-i18n="blog.contents">Contents</h2>
+        <ol>
+            <li><a href="#simple-meaning" data-i18n="post.s.simple-meaning.h">Cybersecurity in one simple picture</a></li>
+            <li><a href="#cia-triad" data-i18n="post.s.cia-triad.h">The CIA triad: the three things we protect</a></li>
+            <li><a href="#common-attacks" data-i18n="post.s.common-attacks.h">Common attacks you will hear about</a></li>
+            <li><a href="#defenders" data-i18n="post.s.defenders.h">What defenders actually do</a></li>
+            <li><a href="#mindset" data-i18n="post.s.mindset.h">The beginner mindset that works</a></li>
+            <li><a href="#next-steps" data-i18n="post.s.next-steps.h">Your next step in this journey</a></li>
+        </ol>
+      </nav>
+
+      <section class="bp-sec" id="simple-meaning" aria-labelledby="simple-meaning-h">
+        <h2 id="simple-meaning-h" data-i18n="post.s.simple-meaning.h">Cybersecurity in one simple picture</h2>
+        <div data-i18n="post.s.simple-meaning.b"><p>Think of your phone. It holds your photos, your chats, your UPI app and your email. Now imagine three things a criminal might want: to <strong>read</strong> your private stuff, to <strong>change</strong> something (like the account number on a payment), or to <strong>lock you out</strong> so you cannot use it at all. Cybersecurity is everything we do to stop those three things.</p>
+<p>At a company, the same idea is just bigger. Instead of one phone, there are thousands of laptops, servers, cloud accounts and customer records. Instead of one person, there are teams whose full time job is protecting them.</p>
+<p>So when someone says "I work in cyber", they could be configuring firewalls, watching alerts in a security operations centre, testing apps for bugs, writing policies, investigating a hacked laptop or teaching staff how to spot phishing. It is a very wide field, and that is good news for beginners, because there is a place for many kinds of people.</p></div>
+      </section>
+      <section class="bp-sec" id="cia-triad" aria-labelledby="cia-triad-h">
+        <h2 id="cia-triad-h" data-i18n="post.s.cia-triad.h">The CIA triad: the three things we protect</h2>
+        <div data-i18n="post.s.cia-triad.b"><p>Security people use a short model called the <strong>CIA triad</strong>. It has nothing to do with the American agency.</p>
+<ul>
+<li><strong>Confidentiality</strong> means only the right people can see the data. Example: your bank statement should be visible to you and the bank, not to a stranger on the same WiFi.</li>
+<li><strong>Integrity</strong> means data is not changed without permission. Example: an invoice should not have its bank details quietly swapped by an attacker.</li>
+<li><strong>Availability</strong> means the system works when you need it. Example: a hospital system should not go down because of ransomware during an emergency.</li>
+</ul>
+<p>Whenever you learn a new attack or defence, ask yourself: which of these three does it hit or protect? This one habit will make concepts much easier to remember.</p></div>
+      </section>
+      <section class="bp-sec" id="common-attacks" aria-labelledby="common-attacks-h">
+        <h2 id="common-attacks-h" data-i18n="post.s.common-attacks.h">Common attacks you will hear about</h2>
+        <div data-i18n="post.s.common-attacks.b"><p>You will meet these names again and again in this series:</p>
+<ul>
+<li><strong>Phishing:</strong> fake emails, SMS or WhatsApp messages that trick you into clicking a link or sharing an OTP.</li>
+<li><strong>Malware:</strong> harmful software, such as spyware that reads your messages or ransomware that encrypts files and demands money.</li>
+<li><strong>Password attacks:</strong> guessing or reusing leaked passwords to break into accounts.</li>
+<li><strong>Exploiting vulnerabilities:</strong> using a bug in software that has not been updated.</li>
+<li><strong>Social engineering:</strong> manipulating people, for example by pretending to be police, bank staff or a boss.</li>
+</ul>
+<p>Notice that many of these target humans, not machines. That is why awareness matters as much as technology. Our <a href="scams.html">Scam Encyclopedia</a> shows how these ideas look in real Indian scams.</p></div>
+      </section>
+      <section class="bp-sec" id="defenders" aria-labelledby="defenders-h">
+        <h2 id="defenders-h" data-i18n="post.s.defenders.h">What defenders actually do</h2>
+        <div data-i18n="post.s.defenders.b"><p>Defence is usually described in layers, because no single control is perfect:</p>
+<ol>
+<li><strong>Prevent:</strong> strong passwords, two factor authentication, updates, firewalls and least privilege (give each person only the access they need).</li>
+<li><strong>Detect:</strong> logs, alerts and monitoring tools that notice unusual activity, like a login from a new country at 3 am.</li>
+<li><strong>Respond:</strong> contain the problem, remove the attacker, fix the root cause.</li>
+<li><strong>Recover:</strong> restore from backups and get back to normal.</li>
+</ol>
+<p>Most beginners imagine cybersecurity as only "hacking". In reality, a large share of the jobs are on the defensive side, often called the <strong>blue team</strong>. Attack simulation roles, the <strong>red team</strong> and penetration testers, are exciting but they also need strong defensive knowledge.</p></div>
+      </section>
+      <section class="bp-sec" id="mindset" aria-labelledby="mindset-h">
+        <h2 id="mindset-h" data-i18n="post.s.mindset.h">The beginner mindset that works</h2>
+        <div data-i18n="post.s.mindset.b"><p>Here is the honest truth, yaar: there is no shortcut and no magic tool. People who do well in this field usually share a few habits.</p>
+<ul>
+<li>They are curious and ask "how does this actually work?"</li>
+<li>They practise a little every day instead of binge watching tutorials once a month.</li>
+<li>They write notes in their own words.</li>
+<li>They stay strictly legal. Testing a website, WiFi network or app that you do not own, without written permission, can be a crime under the IT Act in India.</li>
+</ul>
+<p>If you are coming from a non technical background, such as commerce, arts or law, you are not behind. Communication, writing and understanding rules are real strengths in security work.</p></div>
+      </section>
+      <section class="bp-sec" id="next-steps" aria-labelledby="next-steps-h">
+        <h2 id="next-steps-h" data-i18n="post.s.next-steps.h">Your next step in this journey</h2>
+        <div data-i18n="post.s.next-steps.b"><p>This series goes step by step. In Part 2 we look at career paths so you can see where you might fit. Then we cover networking, Linux and how the internet works, before moving to labs, certifications and CTFs.</p>
+<p>For now, do two small things today. First, turn on two factor authentication on your main email account. Second, open the <a href="index.html#roadmap">roadmap on the home page</a> and just read it once. Bas itna. Small steps, every day.</p></div>
+      </section>
+
+      <aside class="bp-glass bp-takeaways" aria-labelledby="take-h">
+        <h2 id="take-h">Key takeaways</h2>
+        <ul>
+          <li>Cybersecurity protects data, devices, networks and people, not just computers.</li>
+          <li>The CIA triad (confidentiality, integrity, availability) is the simplest way to think about what you are protecting.</li>
+          <li>Most real attacks start with people, weak passwords or unpatched software, not movie style hacking.</li>
+          <li>Start with fundamentals and practise only on systems you own or have permission to test.</li>
+        </ul>
+      </aside>
+      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
+        <h2 id="src-h" data-i18n="blog.sources">Official sources</h2>
+        <ul>
+          <li><a href="https://csrc.nist.gov/glossary/term/cybersecurity" target="_blank" rel="noopener">NIST Computer Security Resource Center glossary: cybersecurity</a></li>
+          <li><a href="https://www.cert-in.org.in/" target="_blank" rel="noopener">CERT-In: Indian Computer Emergency Response Team</a></li>
+        </ul>
+        <p class="small muted" data-i18n="blog.sources.note">Links open the official sites. Procedures and rules can change, so check them before you rely on this post.</p>
+      </aside>
+      <nav class="bp-glass bp-series" aria-label="Beginner journey series">
+        <p class="small mono bp-series-k">Beginner journey series, part 1 of 15</p>
+        <div class="bp-series-nav"><span></span><a class="bp-next" href="blog-cybersecurity-career-paths-india.html" rel="next"><span class="small muted">Next: Part 2</span><br>Cybersecurity Career Paths in India: Which Role Fits You?</a></div>
+      </nav>
+
+      <aside class="bp-glass bp-author" aria-label="About the author">
+        <img src="assets/img/madhav-square.jpg" width="96" height="96" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="lazy" decoding="async">
+        <p data-i18n="blog.author"><strong>Madhav Pandya</strong> explains cybersecurity and scam awareness in plain English and Hinglish. He is the founder of CyberWithMadhav and is studying law and cloud security. <a href="about.html">About Madhav Pandya</a></p>
+      </aside>
+
+      <section class="bp-related" aria-labelledby="rel-h">
+        <h2 id="rel-h" data-i18n="blog.related">Related guides</h2>
+        <div class="bp-grid">
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-cybersecurity-career-paths-india.html" data-i18n="blogpost.cybersecurity-career-paths-india.t">Cybersecurity Career Paths in India: Which Role Fits You?</a></h3>
+          <p class="muted small" data-i18n="blogpost.cybersecurity-career-paths-india.d">Cybersecurity is not one job. It is a family of roles with very different daily work. Here is a simple map, so you can pick a direction instead of trying to learn everything at once.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-networking-basics-for-cybersecurity.html" data-i18n="blogpost.networking-basics-for-cybersecurity.t">Networking Basics for Cybersecurity: IP, Ports, DNS and More</a></h3>
+          <p class="muted small" data-i18n="blogpost.networking-basics-for-cybersecurity.d">You cannot protect a network you do not understand. This part covers the networking ideas that show up in almost every security job, explained with everyday examples.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-90-day-cybersecurity-study-plan.html" data-i18n="blogpost.90-day-cybersecurity-study-plan.t">A 90 Day Cybersecurity Study Plan for Beginners (Free Resources)</a></h3>
+          <p class="muted small" data-i18n="blogpost.90-day-cybersecurity-study-plan.d">You have seen the whole map in this series. Now let us turn it into a schedule. This plan assumes about one to two hours a day, and it works whether you are a student or working somewhere else.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        </div>
+        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#roadmap">Cybersecurity roadmap on the home page</a> · <a href="scams.html">Scam Encyclopedia: 25 Indian scams explained</a></p>
+      </section>
+
+      <p class="small muted bp-disclaimer" data-i18n="blog.disclaimer">Educational content, not legal advice. Check official sources before you rely on it. If you have lost money, call <a href="tel:1930">1930</a> now. <a href="terms.html">Terms</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, not legal advice. Check official sources.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+  <script src="assets/js/blog.js" defer></script>
+  <script src="assets/js/i18n/post-what-is-cybersecurity-beginners.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</body>
+</html>

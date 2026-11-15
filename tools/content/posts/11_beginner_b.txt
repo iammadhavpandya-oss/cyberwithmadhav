@@ -1,0 +1,468 @@
+=== ctf-for-beginners
+title: CTFs for Beginners: How to Start Capture the Flag and Actually Learn
+short: CTFs for beginners
+desc: What capture the flag (CTF) contests are, the main challenge types, free places to practise, and a simple method to solve and write up your first flags.
+lead: Capture the flag challenges turn security skills into puzzles. They are legal, free and addictive in a good way. Here is how to start without feeling lost.
+cat: Beginner journey
+series: Beginner journey
+order: 9
+tags: CTF, practice, beginners
+kw: CTF for beginners; capture the flag kya hai; how to start CTF; beginner CTF practice sites
+hi: Beginners ke liye CTF: capture the flag kaise shuru karein
+related: safe-home-lab-setup, cybersecurity-portfolio-github, linux-basics-for-cybersecurity
+hubs: ctf.html|CTF Arena on this site; terminal.html|Linux terminal wargame; game.html|Scam ya Nahi? game
+src: picoCTF by Carnegie Mellon University|https://picoctf.org/
+src: OverTheWire wargames|https://overthewire.org/wargames/
+src: CTFtime: CTF event calendar and archive|https://ctftime.org/
+quick: A CTF is a set of security puzzles where each solution reveals a secret text called a **flag**. Beginner friendly options include **picoCTF**, **OverTheWire Bandit** and the [CTF Arena](ctf.html) on this site. Start with easy categories like general skills, web and forensics, keep notes, and write a short writeup for every challenge you solve.
+takeaways:
+- CTFs are legal, structured practice for real security skills.
+- Start with beginner platforms and easy categories, not hard live competitions.
+- Use a fixed method: read, research, try, take notes, then write up.
+- Writeups on GitHub or a blog become part of your portfolio.
+## what-ctf | What is a CTF?
+In a capture the flag event, organisers build intentionally vulnerable challenges. Each challenge hides a flag, usually a string like `flag{something_here}`. You find it by using a security skill: reading source code, analysing a file, decoding data, exploiting a web bug on the provided target and so on. You submit the flag and get points.
+
+There are two main formats:
+
+- **Jeopardy style:** a board of separate challenges in categories, each worth points. Best for beginners.
+- **Attack and defence:** teams defend their own services while attacking others. Exciting, but for later.
+
+The key point: CTF targets are built to be attacked, and the rules tell you exactly what is in scope. That is what makes them legal practice.
+
+## categories | Common challenge categories
+- **General skills:** Linux commands, encoding, basic scripting. Perfect starting point.
+- **Web:** finding bugs in practice websites, like hidden pages, weak logins or injection.
+- **Forensics:** analysing files, images, memory dumps or network captures for hidden data.
+- **Cryptography:** breaking weak or classical ciphers and spotting bad crypto use.
+- **Reverse engineering:** understanding what a program does without its source code.
+- **Binary exploitation (pwn):** exploiting memory bugs in programs. This is advanced, leave it for later.
+- **OSINT:** finding information from public sources, within the challenge rules.
+
+## where | Where to practise for free
+- **picoCTF**, run by Carnegie Mellon University, has a large archive of beginner challenges and is designed for students.
+- **OverTheWire Bandit** teaches Linux and SSH one level at a time. It is one of the best first steps.
+- **CTFtime** lists upcoming online events and archives of past ones, with writeups from teams.
+- The [CTF Arena](ctf.html) and [Linux terminal wargame](terminal.html) on CyberWithMadhav are made for beginners who prefer Hinglish explanations.
+
+## method | A method that works for every challenge
+1. **Read the description twice.** Hints are often hidden in the title or wording.
+2. **Identify the category and the file type.** Commands like `file`, `strings` and `xxd` help.
+3. **Search smart.** Look up the error, the file format or the concept, not "flag answer".
+4. **Try one idea at a time** and note what happened.
+5. **Time box it.** If you are stuck for 45 minutes, read a hint or a writeup for a similar challenge, then come back and solve it yourself.
+6. **Write it up** after solving: problem, approach, tools, what you learned.
+
+## stuck | When you get stuck (you will)
+Getting stuck is normal. Experienced players get stuck too. Some tips:
+
+- Explain the challenge out loud, or to a friend. Often you notice the missed detail.
+- Go back to basics. Many beginner flags are hidden in page source, cookies, file metadata or base64 text.
+- Read writeups for **past** challenges only. Never share or copy flags during a live event unless the rules allow it.
+- Join beginner communities, but do not ask people to solve challenges for you. Ask about concepts instead.
+
+## writeups | Turn CTFs into career proof
+A writeup is a short article explaining how you solved a challenge. Keep it simple: challenge name, category, what you saw, what you tried, the solution and a lesson. Put them in a GitHub repository or on a blog. Recruiters can see how you think, and you remember the technique much longer.
+
+Do not publish writeups for challenges from a live competition until it ends, and respect any platform rules about sharing solutions. Part 10 shows how to build a portfolio around these writeups.
+
+## goal | A realistic first month goal
+Week 1: finish the first 10 levels of OverTheWire Bandit. Week 2: solve five general skills challenges on picoCTF. Week 3: try three web and two forensics challenges. Week 4: write three clean writeups. Bas. That is already more practical work than many people do in a year.
+
+=== cybersecurity-portfolio-github
+title: How to Build a Cybersecurity Portfolio on GitHub as a Fresher
+short: Portfolio on GitHub
+desc: Build a simple cybersecurity portfolio on GitHub: what projects to include, how to write READMEs and writeups, and mistakes that make recruiters skip you.
+lead: When you have no job experience, your portfolio is your experience. A clean GitHub profile with a few honest, well explained projects can open more doors than another certificate.
+cat: Beginner journey
+series: Beginner journey
+order: 10
+tags: portfolio, GitHub, freshers
+kw: cybersecurity portfolio for freshers; github portfolio projects cyber security; cybersecurity projects for beginners; home lab project ideas
+hi: Fresher ke roop mein GitHub pe cybersecurity portfolio kaise banayein
+related: ctf-for-beginners, linkedin-for-cybersecurity-freshers, safe-home-lab-setup
+hubs: ctf.html|CTF Arena; prompts.html|CyberPrompts: defensive AI prompts
+src: GitHub Docs: managing your profile README|https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
+src: GitHub Docs: about secret scanning|https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning
+quick: Create a GitHub profile README that says who you are and what you are learning, then add three to five small but complete projects: a home lab writeup, CTF writeups, a log analysis script, a hardening checklist or a cloud security mini project. Each needs a clear README with the problem, steps, screenshots and what you learned. Never upload real passwords, keys or other people's data.
+takeaways:
+- Your portfolio is proof of skill when you have no experience yet.
+- Three to five complete, well documented projects beat twenty empty repositories.
+- Every project needs a README: problem, approach, result and lessons.
+- Never commit secrets, real credentials, or anything you are not allowed to share.
+## why | Why a portfolio matters so much
+Recruiters for entry level security roles see hundreds of resumes with the same certificates. A link to a GitHub profile with real work immediately sets you apart. It shows initiative, communication and the ability to finish things.
+
+It does not have to be fancy. A portfolio is simply a public collection of things you built, investigated or documented, explained clearly.
+
+## profile | Set up your profile properly
+1. Use a professional username, ideally close to your real name.
+2. Add a clear photo or avatar and a one line bio, for example "Cybersecurity learner, SOC and cloud security, Mumbai".
+3. Create a **profile README** (a repository with the same name as your username). Write three short sections: about me, what I am learning, featured projects.
+4. Pin your best four to six repositories.
+
+Keep it honest. If you are a student or fresher, say so. Do not claim experience you do not have.
+
+## projects | Project ideas that impress
+- **Home lab writeup:** your network diagram, VMs, what you configured and three exercises you did. See Part 7.
+- **CTF writeups:** organised by category, each with approach and lessons.
+- **Log analysis script:** a small Python or Bash script that reads an SSH auth log and reports failed logins by IP.
+- **Hardening checklist:** steps you used to secure a fresh Ubuntu server, with before and after screenshots.
+- **Phishing analysis:** take a phishing email you received, remove personal details, and explain every red flag in the headers and links.
+- **Cloud mini project:** in a free tier account, create a storage bucket, make it private, enable logging and document each setting.
+- **Awareness content:** a simple guide for families on spotting scams. This shows communication skill, which security teams value a lot.
+
+## readme | How to write a good README
+Every project repository should answer five questions:
+
+1. **What is this?** One or two sentences.
+2. **Why did I build it?** The problem or learning goal.
+3. **How does it work?** Steps, commands, architecture diagram.
+4. **What was the result?** Screenshots or sample output.
+5. **What did I learn and what would I improve?**
+
+Write in simple English. Short paragraphs, headings and bullet points. Recruiters often skim, so put the most important part first.
+
+## safety | Safety and ethics rules for your portfolio
+- **Never commit secrets.** API keys, passwords and tokens in public repositories get found and abused quickly. CERT-In's October 2026 advisory on AI agent attacks specifically lists credentials exposed in public repositories, including commit history, as a weakness attackers exploit. Use environment variables and a `.gitignore` file, and turn on GitHub secret scanning.
+- **No real targets.** Only document testing of your own lab, CTF targets or programs that permit it.
+- **No personal data.** Blur names, numbers and emails in screenshots.
+- **No malware uploads** or ready to use attack kits. Keep it educational and defensive.
+
+## mistakes | Mistakes that make recruiters skip you
+- Forked repositories with no changes, presented as your own work.
+- Twenty repositories named "test", "new" or "project1" with no README.
+- Copying someone else's writeups without credit.
+- Huge claims like "expert hacker" with nothing to back them up.
+
+Quality over quantity. Three strong projects are enough to start.
+
+## maintain | Keep it alive
+Add something small every two to four weeks: a new writeup, an improvement, a lessons learned note. Link your GitHub on your resume and LinkedIn. Part 11 covers how to present all of this on LinkedIn so the right people find you.
+
+=== linkedin-for-cybersecurity-freshers
+title: LinkedIn for Cybersecurity Freshers: Profile, Posts and Networking
+short: LinkedIn for freshers
+desc: LinkedIn guide for cybersecurity freshers in India: headline, About section, featured projects, posting ideas, networking and avoiding fake job offers.
+lead: LinkedIn is where many security recruiters and hiring managers look first. You do not need to be an influencer. You need a clear profile, a few useful posts and genuine connections.
+cat: Beginner journey
+series: Beginner journey
+order: 11
+tags: LinkedIn, careers, freshers
+kw: linkedin profile for cybersecurity fresher; linkedin headline cyber security student; how to get cybersecurity job India fresher; linkedin tips cybersecurity
+hi: Cybersecurity freshers ke liye LinkedIn: profile, posts aur networking
+related: cybersecurity-portfolio-github, soc-analyst-day-in-life, fake-job-offer-scams
+hubs: about.html|About Madhav Pandya; index.html#roadmap|Cybersecurity roadmap
+src: LinkedIn Help: create a good LinkedIn profile|https://www.linkedin.com/help/linkedin/answer/a554351
+src: CERT-In: Indian Computer Emergency Response Team|https://www.cert-in.org.in/
+quick: Write a specific headline (for example "Cybersecurity student, SOC and cloud security, home lab and CTF writeups"), a short About section in first person, and add your GitHub projects in **Featured**. Post once or twice a week about what you learned, comment thoughtfully on others' posts, and send personalised connection requests. Ignore anyone who asks for money to give you a job.
+takeaways:
+- A specific headline and honest About section matter more than buzzwords.
+- Feature your projects so visitors can see proof of skill.
+- Share what you learn in short, simple posts, regularly.
+- Network with personal messages and never pay for a job offer.
+## profile | Fix your profile basics
+- **Photo:** clear face, simple background. No need for a studio.
+- **Banner:** something simple related to security, or plain colour.
+- **Headline:** do not just write "Student" or "Aspiring". Be specific about your direction and proof. Example: "BCA student | Learning SOC and cloud security | Home lab and CTF writeups".
+- **Location:** your city. Recruiters often search by location.
+- **Open to work:** you can show it to recruiters only, if you prefer.
+
+## about | Write an About section people actually read
+Keep it to four short paragraphs:
+
+1. Who you are and what you are focused on.
+2. What you have built or practised (lab, CTFs, projects).
+3. Skills and tools, honestly listed.
+4. What you are looking for and how to contact you.
+
+Write in first person, simple English. If you come from a different field, like law, commerce or teaching, mention it as a strength. A law background, for example, is useful for GRC and privacy roles.
+
+## featured | Featured section and experience
+Use **Featured** to pin your GitHub profile, your best writeup and maybe a certificate. Under **Experience**, list internships, volunteer work, college club roles or freelance work only if they are real. Under **Projects**, add your lab and portfolio projects with a line on what you did.
+
+Never inflate titles. Background checks are common in security hiring, and trust is everything in this field.
+
+## posting | What to post as a fresher
+You do not need to post daily. Once or twice a week is great. Ideas:
+
+- "Today I learned" posts: one concept explained simply, like how DNS works.
+- A short summary of a CTF challenge you solved, without spoilers for live events.
+- A lesson from your home lab, with a screenshot.
+- Awareness tips for common people, like a scam pattern you noticed, with a link to the official reporting site.
+- A takeaway from a security advisory, linking to the original source such as CERT-In.
+
+Always credit sources. Avoid posting screenshots that show other people's personal data.
+
+## networking | Networking without being annoying
+- Send connection requests with a short personal note: why you want to connect.
+- Comment with real thoughts on posts by security professionals, not just "Great post".
+- Ask specific questions, like "What skill helped you most in your first SOC role?", not "Please give me a job".
+- Join and participate in genuine communities and local meetups.
+- Thank people who help you, and later help freshers who come after you.
+
+## scams | Watch out for fake job offers
+Job scams target freshers heavily, including on LinkedIn and WhatsApp. Red flags: a job offer without any interview, requests for a "registration" or "training" fee, pressure to pay quickly, and recruiters using personal email IDs for big company names. Real employers do not charge you to hire you. Read our guide on [fake job offer scams](blog-fake-job-offer-scams.html), and if you lose money, call [1930](tel:1930).
+
+## routine | A weekly LinkedIn routine
+Monday: update one project in Featured. Wednesday: write one learning post. Friday: send five personalised connection requests and leave five meaningful comments. Twenty to thirty minutes a week is enough. Consistency builds visibility over months.
+
+=== soc-analyst-day-in-life
+title: A Day in the Life of a SOC Analyst: What the Job Really Looks Like
+short: SOC analyst day in life
+desc: What a SOC analyst actually does all day: shifts, alert triage, SIEM, escalation and reporting, plus the skills you need to get your first SOC role.
+lead: The security operations centre (SOC) is one of the most common first jobs in cybersecurity. Here is a realistic picture of what the work feels like, without the movie drama.
+cat: Beginner journey
+series: Beginner journey
+order: 12
+tags: SOC, blue team, careers
+kw: SOC analyst day in life; what does a SOC analyst do; SOC L1 job responsibilities; SIEM alert triage beginners
+hi: SOC analyst ki ek din ki life: job asal mein kaisi hoti hai
+related: cybersecurity-career-paths-india, linux-logs-for-beginners, 90-day-cybersecurity-study-plan
+hubs: commands.html|Blue team commands; index.html#cheatsheets|Cheat sheets
+src: MITRE ATT&CK knowledge base|https://attack.mitre.org/
+src: CERT-In directions under Section 70B (incident reporting)|https://www.cert-in.org.in/Directions70B.jsp
+quick: A SOC analyst monitors security alerts from tools like **SIEM** and **EDR**, decides whether each alert is a real threat or a false positive (**triage**), investigates the real ones, escalates them with clear notes, and documents everything. L1 analysts focus on triage, L2 on deeper investigation, L3 and engineers on hunting and tuning. Many SOCs run 24x7 in shifts.
+takeaways:
+- SOC work is alert triage, investigation, escalation and documentation.
+- Tools vary, but SIEM, EDR and ticketing systems are common everywhere.
+- Strong basics in networking, Windows, Linux and phishing analysis matter most.
+- Clear notes and calm thinking are as important as technical skill.
+## what-soc | What is a SOC?
+A security operations centre is a team, sometimes in a dedicated room, that watches an organisation's systems for attacks. Some companies run their own SOC. Many use a **managed security service provider (MSSP)**, where one SOC monitors many client companies. India has many such SOCs, which is why SOC roles are a common entry point for freshers here.
+
+Typical tools include a **SIEM** (collects and correlates logs), **EDR** (watches laptops and servers), email security tools, firewalls and a ticketing system to track cases.
+
+## shift | Start of the shift
+Many SOCs run around the clock, so analysts often work rotating shifts, including nights and weekends. A shift usually starts with a **handover**: the previous shift explains open cases, ongoing incidents and anything to watch. Then you check the dashboard, the queue of new alerts, and any advisories that came in, such as a new critical vulnerability.
+
+## triage | Alert triage: the core of the job
+Most of the day is triage. An alert comes in, for example "multiple failed logins followed by a success from a new country". You ask:
+
+1. **What exactly triggered this?** Read the rule and the raw log.
+2. **Is it expected?** Maybe the user is travelling, or it is a known testing tool.
+3. **What else happened around it?** Check the user's other logins, the device, the IP reputation.
+4. **Verdict:** false positive, benign but notable, or true positive.
+
+A true positive is escalated with clear notes. A false positive is closed with a reason, and sometimes the rule is tuned so it does not fire again for the same harmless case. Speed matters, but accuracy matters more.
+
+## common-alerts | Alerts you will see often
+- Phishing emails reported by staff.
+- Suspicious logins: impossible travel, many failures, logins at strange hours.
+- Malware detections on laptops.
+- Unusual network traffic, like a laptop talking to a known bad domain.
+- Policy violations, such as USB storage use where it is not allowed.
+
+The MITRE ATT&CK knowledge base is a common reference to map what an attacker is doing, such as initial access, persistence or exfiltration.
+
+## escalation | Escalation and reporting
+When something is real, L1 escalates to L2 or the incident response team with a good summary: what happened, when, which user and device, evidence and actions taken. Good writing saves time during an incident.
+
+In India, organisations also have legal reporting duties. CERT-In's directions issued in April 2022 under Section 70B of the IT Act require specified types of cyber incidents to be reported to CERT-In within 6 hours of noticing them. SOC teams help their organisations meet this.
+
+## skills | Skills you need for your first SOC role
+- Networking basics: IPs, ports, DNS, common protocols (Parts 3 and 5).
+- Windows event logs and Linux logs.
+- Phishing email analysis: headers, links and attachments.
+- Basic understanding of malware types and attacker techniques.
+- Comfort with search queries in a SIEM. Many SIEMs have free training editions.
+- Calm communication and clear writing.
+
+## reality | The good and the hard parts
+The good: you see real attacks, learn fast and build a strong base for any future security role. The hard: shifts, repetitive alerts and occasional pressure during incidents. Many analysts move to L2, incident response, threat hunting, detection engineering or cloud security after one or two years. If you enjoy puzzles and patterns, SOC work can be very satisfying.
+
+=== cloud-security-basics
+title: Cloud Security Basics for Beginners: Shared Responsibility, IAM and More
+short: Cloud security basics
+desc: Cloud security basics in plain English: shared responsibility, IAM, storage, logging and the common misconfigurations behind cloud breaches.
+lead: Most companies now run at least part of their systems in the cloud. Cloud security skills are in demand, and the basics are easier to learn than people think.
+cat: Beginner journey
+series: Beginner journey
+order: 13
+tags: cloud security, IAM, AWS, Azure
+kw: cloud security basics for beginners; shared responsibility model explained; IAM least privilege; cloud misconfiguration
+hi: Beginners ke liye cloud security basics: shared responsibility, IAM aur zyada
+related: cloud-misconfiguration-leaked-secrets, zero-trust-explained, free-cybersecurity-certifications-beginners
+hubs: index.html#roadmap|Cybersecurity roadmap; prompts.html|CyberPrompts: defensive AI prompts
+src: AWS shared responsibility model|https://aws.amazon.com/compliance/shared-responsibility-model/
+src: Microsoft Learn: shared responsibility in the cloud|https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility
+src: CERT-In Advisory CIAD-2026-0049: AI agents as attack vectors|https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02
+quick: In the cloud, the provider secures the underlying infrastructure and you secure what you put on it: your accounts, identities, data, configurations and apps. This is the **shared responsibility model**. Most cloud incidents come from customer side mistakes such as over permissive access, public storage, exposed keys and missing logging, so learn **IAM**, **least privilege**, **encryption** and **logging** first.
+takeaways:
+- Shared responsibility: the provider secures the cloud, you secure what you build in it.
+- Identity is the new perimeter, so IAM and MFA come first.
+- Public storage, leaked keys and over permissive roles are classic cloud mistakes.
+- Turn on logging and practise in a free tier account with billing alerts.
+## what-cloud | What "the cloud" really means
+The cloud is simply someone else's data centres that you rent through the internet. Instead of buying servers, a company creates virtual machines, databases and storage in minutes on platforms like AWS, Microsoft Azure, Google Cloud or Oracle Cloud.
+
+There are three common service models:
+
+- **IaaS** (infrastructure as a service): you rent virtual machines and networks and manage the operating system yourself.
+- **PaaS** (platform as a service): you deploy code, the provider manages the servers.
+- **SaaS** (software as a service): you just use an app, like web email.
+
+## shared | The shared responsibility model
+Every major provider publishes a shared responsibility model. In simple words: the provider is responsible for the security **of** the cloud (physical data centres, hardware, core network), and the customer is responsible for security **in** the cloud (their data, identities, access settings, configurations and apps).
+
+The split changes with the service model. In IaaS you patch the operating system. In SaaS the provider does almost everything, but you still control who has access and how data is shared. The most common beginner misunderstanding is "it is in the cloud, so the provider secures it". No. A public storage bucket you created is your responsibility.
+
+## iam | Identity and access management (IAM)
+In the cloud, identity is everything. If an attacker gets a powerful account or access key, they do not need to "hack" anything else.
+
+- **Least privilege:** give each user, app and service only the permissions it needs, nothing more.
+- **MFA everywhere,** especially on the root or global admin account.
+- **Avoid long lived access keys.** Prefer roles and short lived credentials.
+- **Review regularly** and remove unused accounts and permissions.
+
+## mistakes | Common cloud misconfigurations
+- Storage buckets or blobs accidentally made public.
+- Access keys committed to public code repositories.
+- Admin consoles and databases reachable from the whole internet.
+- Over permissive roles, like giving every app full admin access.
+- Logging turned off, so nobody can investigate later.
+
+These are not theory. CERT-In's advisory CIAD-2026-0049 of October 2026 says that in recent AI agent driven incidents against Indian organisations, the root weaknesses were conventional ones, including exposed credentials and over permissive cloud and backend as a service roles. Our trends post on [cloud misconfiguration and leaked secrets](blog-cloud-misconfiguration-leaked-secrets.html) goes deeper.
+
+## data-logs | Protecting data and keeping logs
+- **Encryption:** most providers support encryption at rest and in transit. Turn it on and understand who controls the keys.
+- **Backups:** keep backups separate from production, and test restoring them.
+- **Logging:** enable audit logs that record who did what, such as AWS CloudTrail or Azure activity logs, and send them to a place attackers cannot easily delete.
+- **Alerts:** set alerts for risky actions like a storage bucket becoming public or a new admin being created.
+
+## practise | How to practise cloud security safely
+1. Create a free tier account on one provider. **Set a billing alert first,** so a mistake does not cost you money.
+2. Enable MFA on the root account, then create a separate admin user for daily work.
+3. Create a private storage bucket, upload a test file and confirm it cannot be opened publicly.
+4. Turn on audit logging and find your own actions in the logs.
+5. Delete everything when you finish.
+
+Document it as a portfolio project (Part 10). Pair it with a cloud fundamentals certificate and you have a strong story for interviews. Next, Part 14 introduces Indian cyber law, which every security professional here should know.
+
+=== cyber-law-india-intro
+title: Intro to Cyber Law in India: IT Act, BNS and DPDP for Beginners
+short: Cyber law in India intro
+desc: Beginner intro to Indian cyber law: key IT Act sections, the Bharatiya Nyaya Sanhita, CERT-In rules and the DPDP Act, and why they matter in security.
+lead: If you work in cybersecurity in India, the law affects what you can test, what you must report and how data must be handled. Here is a simple starting map, written by a law student who also works on security.
+cat: Beginner journey
+series: Beginner journey
+order: 14
+tags: cyber law, IT Act, DPDP, BNS
+kw: cyber law in India for beginners; IT Act sections list; section 66 IT Act; DPDP Act explained simply
+hi: India mein cyber law ka intro: beginners ke liye IT Act, BNS aur DPDP
+related: dpdp-rules-2025-timeline, report-cyber-fraud-india, cybersecurity-career-paths-india
+hubs: cyberlaw.html|Cyber Law India: FAQ, cases and timeline; terms.html|Terms of this site
+src: Information Technology Act, 2000 on India Code|https://www.indiacode.nic.in/handle/123456789/1999
+src: Bharatiya Nyaya Sanhita, 2023 on India Code|https://www.indiacode.nic.in/handle/123456789/20062
+src: Digital Personal Data Protection Act, 2023 (MeitY)|https://www.meity.gov.in/data-protection-framework
+src: CERT-In directions under Section 70B|https://www.cert-in.org.in/Directions70B.jsp
+quick: The main laws are the **Information Technology Act, 2000** (cyber offences like unauthorised access, identity theft and cheating by personation), the **Bharatiya Nyaya Sanhita, 2023** (the general criminal law that replaced the IPC from 1 July 2024), **CERT-In's directions** (incident reporting within 6 hours) and the **Digital Personal Data Protection Act, 2023** with its 2025 Rules. This is general education, not legal advice.
+takeaways:
+- The IT Act, 2000 covers core cyber offences and penalties.
+- The BNS, 2023 replaced the IPC and also applies to cheating, forgery and organised crime online.
+- CERT-In requires specified incidents to be reported within 6 hours.
+- The DPDP Act, 2023 governs personal data, with most duties applying from 13 May 2027.
+## why-law | Why security people need law basics
+Two reasons. First, **your own safety.** Testing a system without permission can be an offence, even if your intention was learning. Second, **your job.** Companies must report certain incidents, protect personal data and keep logs. Security teams make that happen, so knowing the rules makes you more valuable.
+
+This post is a simple map. For deeper reading, see the [Cyber Law India page](cyberlaw.html) on this site and always read the official text.
+
+## it-act | The Information Technology Act, 2000
+The IT Act is India's main cyber law. Some sections you will hear often:
+
+- **Section 43:** penalty and compensation for damage to a computer system, such as accessing it without permission, downloading data or introducing a virus.
+- **Section 66:** makes the acts in Section 43 a criminal offence when done dishonestly or fraudulently.
+- **Section 66C:** identity theft, such as using someone else's password or digital signature.
+- **Section 66D:** cheating by personation using a computer resource, which covers many online fraud calls and fake profiles.
+- **Section 66E:** violation of privacy by capturing or sharing private images without consent.
+- **Sections 67, 67A, 67B:** publishing obscene or sexually explicit material, with stricter rules for material involving children.
+- **Section 70B:** sets up CERT-In as the national agency for incident response.
+
+A historical note: Section 66A, about offensive messages, was struck down by the Supreme Court in Shreya Singhal v. Union of India in 2015, so it is no longer valid law.
+
+## bns | Bharatiya Nyaya Sanhita, 2023
+From 1 July 2024, the Bharatiya Nyaya Sanhita (BNS) replaced the Indian Penal Code as India's general criminal law. Many online frauds are charged under both the IT Act and the BNS. Relevant BNS provisions include cheating and cheating by personation, forgery and, for large fraud networks, organised crime. When you read news about scam arrests now, you will see BNS section numbers instead of old IPC numbers.
+
+## certin | CERT-In rules for organisations
+CERT-In's directions of April 2022 under Section 70B require service providers, intermediaries, data centres, companies and government organisations to report specified types of cyber incidents to CERT-In **within 6 hours** of noticing them. They also include requirements about maintaining logs for 180 days and synchronising system clocks. If you work in a SOC in India, you will help your organisation meet these duties.
+
+## dpdp | Digital Personal Data Protection Act, 2023
+The DPDP Act governs how organisations collect and use digital personal data. It gives individuals (data principals) rights and puts duties on organisations (data fiduciaries), such as giving clear notice, getting valid consent for many uses, protecting data with reasonable security safeguards and reporting personal data breaches.
+
+The DPDP Rules, 2025 were notified on 13 November 2025 with a phased rollout. Most core obligations come into force on 13 May 2027. Our [DPDP Rules timeline post](blog-dpdp-rules-2025-timeline.html) explains the phases with official sources.
+
+## ethical | What this means for you as a learner
+- Only test systems you own or have **written permission** to test. A bug bounty program's rules or a signed scope document count as permission. A friend saying "try hacking my college portal" does not.
+- Do not access, download or share other people's data, even if you find it exposed. Report it responsibly instead.
+- If you are a victim of cyber crime, report it on [cybercrime.gov.in](https://cybercrime.gov.in/) or call [1930](tel:1930) for financial fraud.
+
+Law and cybersecurity are a powerful combination, and privacy and GRC roles are growing. Next, the final part of the series: a 90 day study plan that ties everything together.
+
+=== 90-day-cybersecurity-study-plan
+title: A 90 Day Cybersecurity Study Plan for Beginners (Free Resources)
+short: 90 day study plan
+desc: A realistic 90 day cybersecurity study plan for beginners: weekly goals for networking, Linux, security basics, labs, CTFs and portfolio, using free resources.
+lead: You have seen the whole map in this series. Now let us turn it into a schedule. This plan assumes about one to two hours a day, and it works whether you are a student or working somewhere else.
+cat: Beginner journey
+series: Beginner journey
+order: 15
+tags: study plan, roadmap, beginners
+kw: 90 day cybersecurity study plan; cybersecurity roadmap for beginners; how to learn cybersecurity in 3 months; cyber security kaise seekhe
+hi: Beginners ke liye 90 din ka cybersecurity study plan
+related: what-is-cybersecurity-beginners, safe-home-lab-setup, cybersecurity-portfolio-github
+hubs: index.html#roadmap|Cybersecurity roadmap; ctf.html|CTF Arena; terminal.html|Linux terminal wargame
+src: Cisco Networking Academy|https://www.netacad.com/
+src: OverTheWire wargames|https://overthewire.org/wargames/
+src: picoCTF|https://picoctf.org/
+quick: Spend **days 1 to 30** on foundations (networking, Linux, how the internet works), **days 31 to 60** on security concepts and your home lab (attacks, defences, logs, Wireshark, nmap on your own lab), and **days 61 to 90** on a chosen direction plus proof (CTFs, writeups, a portfolio and one beginner certificate). Study one to two hours a day and keep notes.
+takeaways:
+- Days 1 to 30: networking, Linux and internet basics.
+- Days 31 to 60: security concepts, home lab, logs and tools on your own lab.
+- Days 61 to 90: choose a direction, do CTFs, build a portfolio and prepare for a certificate.
+- Consistency beats intensity: one to two focused hours a day is enough.
+## rules | Ground rules before you start
+- **Consistency over intensity.** One focused hour daily beats eight hours on Sunday.
+- **Notes in your own words.** A simple notebook or markdown files on GitHub.
+- **Practise legally.** Only your own lab, CTF platforms and sites built for practice.
+- **One weekly review.** Every Sunday, revise the week and plan the next.
+- **Rest.** Burnout helps nobody. Take one easy day per week.
+
+## month1 | Days 1 to 30: Foundations
+**Week 1: What security is, and how computers talk.** Read Parts 1 to 3 of this series. Learn IP addresses, ports and DNS. Use the [subnet calculator](index.html#subnet) daily for 10 minutes.
+
+**Week 2: How the internet works.** Read Parts 5 and 6. Use browser developer tools to watch requests. Explain the OSI model to a friend or family member in simple words.
+
+**Week 3: Linux basics.** Read Part 4. Practise navigation, files, grep and permissions every day. Start OverTheWire Bandit.
+
+**Week 4: Linux plus networking.** Finish at least 10 Bandit levels. Practise `ip a`, `ss`, `ping` and `nslookup`. Play the [terminal wargame](terminal.html) on this site.
+
+## month2 | Days 31 to 60: Security concepts and your lab
+**Week 5: Build the lab.** Follow Part 7. Set up one workstation VM and one vulnerable target on an isolated network. Take snapshots.
+
+**Week 6: Attacks and defences.** Learn phishing, malware types, password attacks and web basics. Read our [password hashing guide](blog-password-hashing-explained.html). Analyse one phishing email from your own inbox safely.
+
+**Week 7: Tools on your own lab.** Use Wireshark on lab traffic and nmap against your own target. Read the target's logs after each scan.
+
+**Week 8: Logs and detection.** Study Linux auth logs and Windows event logs. Write a tiny script that counts failed logins. Read about the MITRE ATT&CK framework at a high level.
+
+## month3 | Days 61 to 90: Direction and proof
+**Week 9: Choose a direction.** Re read Part 2. Pick SOC, cloud, AppSec or GRC for the next few months.
+
+**Week 10: CTFs.** Solve at least five beginner challenges on picoCTF or the [CTF Arena](ctf.html). Write three writeups.
+
+**Week 11: Portfolio.** Follow Part 10. Publish your lab writeup, CTF writeups and one small project on GitHub with good READMEs. Update LinkedIn as in Part 11.
+
+**Week 12: Certificate preparation.** Start one free or low cost beginner certificate from Part 8. Review all your notes. Read Part 14 so you know the legal basics.
+
+**Week 13 (days 85 to 90): Review and plan.** Take stock of what you learned and write a public "90 days of cybersecurity" post. Plan your next 90 days.
+
+## daily | What a typical day looks like
+- 10 minutes: revise yesterday's notes.
+- 40 minutes: learn one new topic (video, course module or article).
+- 30 minutes: hands on practice (lab, wargame or CTF).
+- 10 minutes: write notes and one line in your progress log.
+
+On busy days, do just the 10 minute revision and 20 minutes of practice. Chain mat todna, streak chalu rakho.
+
+## after | After 90 days
+You will not be an expert, and that is fine. You will have a working lab, real notes, solved challenges, a small portfolio and a clear direction. That is exactly what interviewers for entry level roles want to see. Keep going with deeper topics in your chosen path, and come back to the [CyberWithMadhav blog](blog.html) for new guides. All the best, aap kar sakte ho.

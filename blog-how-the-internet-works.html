@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How the Internet Works: From Typing a URL to Seeing a Page | CyberWithMadhav</title>
+  <meta name="description" content="What really happens when you open a website: DNS, IP routing, TCP, TLS and HTTP explained simply, with the security angle at each step.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/blog-how-the-internet-works.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="How the Internet Works: From Typing a URL to Seeing a Page">
+  <meta property="og:description" content="What really happens when you open a website: DNS, IP routing, TCP, TLS and HTTP explained simply, with the security angle at each step.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/blog-how-the-internet-works.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/blog/how-the-internet-works.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Share card reading How the Internet Works: From Typing a URL to Seeing a Page">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How the Internet Works: From Typing a URL to Seeing a Page">
+  <meta name="twitter:description" content="What really happens when you open a website: DNS, IP routing, TCP, TLS and HTTP explained simply, with the security angle at each step.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/blog/how-the-internet-works.png">
+  <meta name="twitter:image:alt" content="Share card reading How the Internet Works: From Typing a URL to Seeing a Page">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/consent.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
+  <meta property="article:published_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:modified_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:author" content="https://www.cyberwithmadhav.com/about.html">
+  <meta property="article:section" content="Beginner journey">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.cyberwithmadhav.com/blog-how-the-internet-works.html#post", "mainEntityOfPage": "https://www.cyberwithmadhav.com/blog-how-the-internet-works.html", "headline": "How the Internet Works: From Typing a URL to Seeing a Page", "description": "What really happens when you open a website: DNS, IP routing, TCP, TLS and HTTP explained simply, with the security angle at each step.", "image": "https://www.cyberwithmadhav.com/assets/img/blog/how-the-internet-works.png", "datePublished": "2026-11-15T09:00:00+05:30", "dateModified": "2026-11-15T09:00:00+05:30", "inLanguage": "en-IN", "articleSection": "Beginner journey", "keywords": ["how the internet works for beginners", "what happens when you type a url", "https explained", "internet kaise kaam karta hai"], "author": {"@type": "Person", "@id": "https://www.cyberwithmadhav.com/about.html#person", "name": "Madhav Pandya", "url": "https://www.cyberwithmadhav.com/about.html"}, "publisher": {"@type": "Organization", "@id": "https://www.cyberwithmadhav.com/#org", "name": "CyberWithMadhav", "logo": {"@type": "ImageObject", "url": "https://www.cyberwithmadhav.com/assets/img/apple-touch-icon.png"}}, "isPartOf": {"@id": "https://www.cyberwithmadhav.com/blog.html#blog"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cyberwithmadhav.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.cyberwithmadhav.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "How the Internet Works: From Typing a URL to Seeing a Page"}]}]}
+  </script>
+</head>
+<body class="v3 blog-page bp-post-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog active"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="bp-post wrap" aria-labelledby="p-title">
+      <nav class="bp-crumbs small muted" aria-label="Breadcrumb">
+        <a href="index.html" data-i18n="blog.home">Home</a> <span aria-hidden="true">/</span> <a href="blog.html">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page" data-i18n="blogpost.how-the-internet-works.s">How the internet works</span>
+      </nav>
+      <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+      <h1 id="p-title" data-i18n="post.title">How the Internet Works: From Typing a URL to Seeing a Page</h1>
+      <p class="lead" data-i18n="post.lead">You open a website dozens of times a day. Understanding what happens in those few hundred milliseconds is one of the best foundations for a career in security.</p>
+      <div class="bp-byline small muted">
+        <img src="assets/img/madhav-square.jpg" width="40" height="40" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="eager" decoding="async">
+        <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="2026-11-15">15 November 2026</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+      </div>
+      <div class="tags tags-row bp-tags"><span class="tag">internet</span><span class="tag">DNS</span><span class="tag">HTTPS</span><span class="tag">TLS</span></div>
+
+      <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
+        <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
+        <p data-i18n="post.quick">When you type a website address, your device asks <strong>DNS</strong> for the server's IP address, opens a <strong>TCP</strong> connection to it, sets up encryption with <strong>TLS</strong> (the padlock in HTTPS), and then sends an <strong>HTTP</strong> request. The server sends back HTML, images and scripts, and your browser builds the page. Each step has its own security risks and protections.</p>
+      </aside>
+
+      <nav class="bp-glass bp-toc" aria-labelledby="toc-h">
+        <h2 id="toc-h" data-i18n="blog.contents">Contents</h2>
+        <ol>
+            <li><a href="#step-dns" data-i18n="post.s.step-dns.h">Step 1: Finding the address with DNS</a></li>
+            <li><a href="#step-route" data-i18n="post.s.step-route.h">Step 2: Routing packets across networks</a></li>
+            <li><a href="#step-tcp" data-i18n="post.s.step-tcp.h">Step 3: Opening a TCP connection</a></li>
+            <li><a href="#step-tls" data-i18n="post.s.step-tls.h">Step 4: TLS, the padlock</a></li>
+            <li><a href="#step-http" data-i18n="post.s.step-http.h">Step 5: HTTP request and response</a></li>
+            <li><a href="#see-it" data-i18n="post.s.see-it.h">See it yourself in five minutes</a></li>
+            <li><a href="#faq" data-i18n="post.s.faq.h">Frequently asked questions</a></li>
+        </ol>
+      </nav>
+
+      <section class="bp-sec" id="step-dns" aria-labelledby="step-dns-h">
+        <h2 id="step-dns-h" data-i18n="post.s.step-dns.h">Step 1: Finding the address with DNS</h2>
+        <div data-i18n="post.s.step-dns.b"><p>You type <code>www.example.com</code>. Your computer does not know where that is, so it asks a <strong>DNS resolver</strong>, usually run by your internet provider or a public service. The resolver finds the IP address and replies. Your device caches the answer for a while so the next visit is faster.</p>
+<p><strong>Security angle:</strong> attackers register lookalike domains, for example swapping one letter, to fool people. Some malware also tampers with DNS settings to send you to fake sites. This is why you should always read the domain name carefully, especially for banking. Indian banks now use the <code>.bank.in</code> ending, explained in <a href="blog-bank-in-domain-india.html">this guide</a>.</p></div>
+      </section>
+      <section class="bp-sec" id="step-route" aria-labelledby="step-route-h">
+        <h2 id="step-route-h" data-i18n="post.s.step-route.h">Step 2: Routing packets across networks</h2>
+        <div data-i18n="post.s.step-route.b"><p>With the IP address known, your device sends data in small chunks called <strong>packets</strong>. They go to your home router, then your internet provider, then across many routers until they reach the server's network. Each router just looks at the destination IP and forwards the packet closer.</p>
+<p><strong>Security angle:</strong> anyone who controls a network on the path, such as a fake public WiFi hotspot, could try to see or modify unencrypted traffic. This is the reason encryption matters so much.</p></div>
+      </section>
+      <section class="bp-sec" id="step-tcp" aria-labelledby="step-tcp-h">
+        <h2 id="step-tcp-h" data-i18n="post.s.step-tcp.h">Step 3: Opening a TCP connection</h2>
+        <div data-i18n="post.s.step-tcp.b"><p>Web traffic uses <strong>TCP</strong>, which makes sure data arrives complete and in order. Before sending real data, client and server do a quick greeting called the <strong>three way handshake</strong>: SYN, SYN-ACK, ACK. After that, the connection is open on the server's port, usually 443 for HTTPS.</p>
+<p><strong>Security angle:</strong> port scanners like nmap use this handshake behaviour to discover which ports are open. Defenders watch for many half finished handshakes, which can signal scanning or a flood attack.</p></div>
+      </section>
+      <section class="bp-sec" id="step-tls" aria-labelledby="step-tls-h">
+        <h2 id="step-tls-h" data-i18n="post.s.step-tls.h">Step 4: TLS, the padlock</h2>
+        <div data-i18n="post.s.step-tls.b"><p>For HTTPS, the browser and server now set up <strong>TLS</strong> encryption. The server shows a <strong>certificate</strong> that proves it controls that domain name, signed by a trusted certificate authority. They agree on keys, and from here everything is encrypted.</p>
+<p><strong>Security angle, very important:</strong> the padlock means the connection is encrypted and the domain matches the certificate. It does <strong>not</strong> mean the website is genuine or safe. Phishing sites also get free certificates. A padlock on <code>sbi-kyc-update-help.com</code> is still a scam site. Teach this to your family.</p></div>
+      </section>
+      <section class="bp-sec" id="step-http" aria-labelledby="step-http-h">
+        <h2 id="step-http-h" data-i18n="post.s.step-http.h">Step 5: HTTP request and response</h2>
+        <div data-i18n="post.s.step-http.b"><p>Inside the encrypted tunnel, your browser sends an <strong>HTTP request</strong>, like <code>GET /index.html</code>, along with headers such as cookies. The server replies with a status code (200 OK, 404 Not Found, 500 Server Error) and the content. Your browser then fetches more files for images, styles and scripts, and builds the page you see.</p>
+<p><strong>Security angle:</strong> cookies often hold your logged in session. If an attacker steals that cookie, they may not need your password. Web attacks such as cross site scripting and SQL injection happen at this layer. You will learn them on practice sites in the <a href="blog-burp-suite-intro-practice.html">Burp Suite intro</a>.</p></div>
+      </section>
+      <section class="bp-sec" id="see-it" aria-labelledby="see-it-h">
+        <h2 id="see-it-h" data-i18n="post.s.see-it.h">See it yourself in five minutes</h2>
+        <div data-i18n="post.s.see-it.b"><ol>
+<li>Open any website in Chrome or Firefox.</li>
+<li>Press F12 to open developer tools and click the <strong>Network</strong> tab.</li>
+<li>Reload the page. You will see every request, its status code, size and timing.</li>
+<li>Click the padlock in the address bar and view the certificate details.</li>
+<li>In a terminal, run <code>nslookup example.com</code> to see the DNS step on its own.</li>
+</ol>
+<p>This is all on your own browser, so it is completely safe. Once you can explain these five steps to a friend in simple Hindi or English, you have a stronger foundation than many people who only know tool names. Part 6 maps these steps to the OSI and TCP/IP models.</p></div>
+      </section>
+      <section class="bp-sec" id="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h" data-i18n="post.s.faq.h">Frequently asked questions</h2>
+        <div data-i18n="post.s.faq.b"><p><strong>Is HTTPS enough to keep me safe?</strong> HTTPS protects data in transit from people on the network. It does not protect you from a fake website, a malicious download or a scammer on the phone. Always combine it with checking the domain and thinking before you share details.</p>
+<p><strong>What is a VPN in this picture?</strong> A VPN wraps your traffic in another encrypted tunnel to the VPN provider, who then sends it to the website. It changes who can see your traffic, it does not make every site safe. Our <a href="blog-vpn-myths.html">VPN myths post</a> explains more.</p>
+<p><strong>Why do some sites load slowly?</strong> Every step adds time: DNS lookup, distance to the server, TLS setup and many files. Developer tools show which step is slow, a skill that is also useful in troubleshooting jobs.</p></div>
+      </section>
+
+      <aside class="bp-glass bp-takeaways" aria-labelledby="take-h">
+        <h2 id="take-h">Key takeaways</h2>
+        <ul>
+          <li>A web visit is DNS lookup, TCP connection, TLS handshake, then HTTP request and response.</li>
+          <li>HTTPS encrypts traffic, but a padlock does not prove a site is honest.</li>
+          <li>Phishing abuses the DNS and domain step, so always read the real domain name.</li>
+          <li>Browser developer tools let you watch all of this on your own machine.</li>
+        </ul>
+      </aside>
+      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
+        <h2 id="src-h" data-i18n="blog.sources">Official sources</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works" target="_blank" rel="noopener">Mozilla MDN: How does the web work?</a></li>
+          <li><a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank" rel="noopener">Cloudflare Learning Center: What is DNS?</a></li>
+        </ul>
+        <p class="small muted" data-i18n="blog.sources.note">Links open the official sites. Procedures and rules can change, so check them before you rely on this post.</p>
+      </aside>
+      <nav class="bp-glass bp-series" aria-label="Beginner journey series">
+        <p class="small mono bp-series-k">Beginner journey series, part 5 of 15</p>
+        <div class="bp-series-nav"><a class="bp-prev" href="blog-linux-basics-for-cybersecurity.html" rel="prev"><span class="small muted">Previous: Part 4</span><br>Linux Basics for Cybersecurity: The Commands You Will Actually Use</a><a class="bp-next" href="blog-osi-tcp-ip-model-explained.html" rel="next"><span class="small muted">Next: Part 6</span><br>OSI and TCP/IP Models Explained in Plain Words (With Attack Examples)</a></div>
+      </nav>
+
+      <aside class="bp-glass bp-author" aria-label="About the author">
+        <img src="assets/img/madhav-square.jpg" width="96" height="96" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="lazy" decoding="async">
+        <p data-i18n="blog.author"><strong>Madhav Pandya</strong> explains cybersecurity and scam awareness in plain English and Hinglish. He is the founder of CyberWithMadhav and is studying law and cloud security. <a href="about.html">About Madhav Pandya</a></p>
+      </aside>
+
+      <section class="bp-related" aria-labelledby="rel-h">
+        <h2 id="rel-h" data-i18n="blog.related">Related guides</h2>
+        <div class="bp-grid">
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-networking-basics-for-cybersecurity.html" data-i18n="blogpost.networking-basics-for-cybersecurity.t">Networking Basics for Cybersecurity: IP, Ports, DNS and More</a></h3>
+          <p class="muted small" data-i18n="blogpost.networking-basics-for-cybersecurity.d">You cannot protect a network you do not understand. This part covers the networking ideas that show up in almost every security job, explained with everyday examples.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-osi-tcp-ip-model-explained.html" data-i18n="blogpost.osi-tcp-ip-model-explained.t">OSI and TCP/IP Models Explained in Plain Words (With Attack Examples)</a></h3>
+          <p class="muted small" data-i18n="blogpost.osi-tcp-ip-model-explained.d">Every networking course starts with the OSI model, and many beginners just memorise seven names for the exam. Let us make it useful instead, by connecting every layer to a real attack and a real defence.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Tools and labs">
+          <p class="bp-cat mono" data-i18n="cat.tools-and-labs">Tools and labs</p>
+          <h3 class="bp-card-t"><a href="blog-browser-devtools-for-security.html" data-i18n="blogpost.browser-devtools-for-security.t">Browser Developer Tools for Security Beginners: See What a Website Really Does</a></h3>
+          <p class="muted small" data-i18n="blogpost.browser-devtools-for-security.d">Every modern browser has a powerful set of developer tools built in. For security beginners, they are a free microscope for understanding how websites work, before you ever install a specialised tool.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        </div>
+        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#networking">Networking cards on the home page</a> · <a href="index.html#link-tool">Free link checker</a></p>
+      </section>
+
+      <p class="small muted bp-disclaimer" data-i18n="blog.disclaimer">Educational content, not legal advice. Check official sources before you rely on it. If you have lost money, call <a href="tel:1930">1930</a> now. <a href="terms.html">Terms</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, not legal advice. Check official sources.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+  <script src="assets/js/blog.js" defer></script>
+  <script src="assets/js/i18n/post-how-the-internet-works.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</body>
+</html>

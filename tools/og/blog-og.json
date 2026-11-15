@@ -13,5 +13,250 @@
   "slug": "upi-scams-india",
   "title": "UPI Scams Explained: Collect Requests, Fake QR Codes and Refund Tricks",
   "category": "Scam awareness"
+ },
+ {
+  "slug": "what-is-cybersecurity-beginners",
+  "title": "What Is Cybersecurity? A Plain English Guide for Absolute Beginners",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "cybersecurity-career-paths-india",
+  "title": "Cybersecurity Career Paths in India: Which Role Fits You?",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "networking-basics-for-cybersecurity",
+  "title": "Networking Basics for Cybersecurity: IP, Ports, DNS and More",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "linux-basics-for-cybersecurity",
+  "title": "Linux Basics for Cybersecurity: The Commands You Will Actually Use",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "how-the-internet-works",
+  "title": "How the Internet Works: From Typing a URL to Seeing a Page",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "osi-tcp-ip-model-explained",
+  "title": "OSI and TCP/IP Models Explained in Plain Words (With Attack Examples)",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "safe-home-lab-setup",
+  "title": "How to Set Up a Safe Cybersecurity Home Lab on Your Laptop",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "free-cybersecurity-certifications-beginners",
+  "title": "Free and Low Cost Cybersecurity Certifications for Beginners (2026 Guide)",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "ctf-for-beginners",
+  "title": "CTFs for Beginners: How to Start Capture the Flag and Actually Learn",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "cybersecurity-portfolio-github",
+  "title": "How to Build a Cybersecurity Portfolio on GitHub as a Fresher",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "linkedin-for-cybersecurity-freshers",
+  "title": "LinkedIn for Cybersecurity Freshers: Profile, Posts and Networking",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "soc-analyst-day-in-life",
+  "title": "A Day in the Life of a SOC Analyst: What the Job Really Looks Like",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "cloud-security-basics",
+  "title": "Cloud Security Basics for Beginners: Shared Responsibility, IAM and More",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "cyber-law-india-intro",
+  "title": "Intro to Cyber Law in India: IT Act, BNS and DPDP for Beginners",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "90-day-cybersecurity-study-plan",
+  "title": "A 90 Day Cybersecurity Study Plan for Beginners (Free Resources)",
+  "category": "Beginner journey"
+ },
+ {
+  "slug": "spot-phishing-sms-india",
+  "title": "How to Spot a Phishing SMS in India: KYC, Electricity Bill and Parcel Scams",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "safe-upi-habits",
+  "title": "Safe UPI Habits: 10 Simple Rules to Protect Your Money",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "whatsapp-account-takeover",
+  "title": "WhatsApp Account Takeover: How It Happens and How to Protect Yourself",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "otp-scams-india",
+  "title": "OTP Scams in India: Why You Should Never Share an OTP",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "fake-job-offer-scams",
+  "title": "Fake Job Offer Scams: Task Scams, Registration Fees and Fake Recruiters",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "loan-app-harassment-help",
+  "title": "Loan App Harassment: How to Check a Lending App and Get Help",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "secure-parents-phone",
+  "title": "How to Secure Your Parents' Phone: A 30 Minute Checklist",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "strong-passwords-password-managers",
+  "title": "Strong Passwords and Password Managers: A Simple Guide for Everyone",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "two-factor-authentication-guide",
+  "title": "Two Factor Authentication (2FA) Explained: Which Type Should You Use?",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "public-wifi-safety",
+  "title": "Is Public WiFi Safe? How to Use Free WiFi at Airports, Cafes and Stations",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "first-hour-after-cyber-fraud",
+  "title": "Lost Money to Cyber Fraud? What to Do in the First Hour",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "kids-online-safety-india",
+  "title": "Kids Online Safety: A Practical Guide for Indian Parents",
+  "category": "Everyday safety"
+ },
+ {
+  "slug": "wireshark-basics",
+  "title": "Wireshark Basics for Beginners: Capture and Read Your Own Network Traffic",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "nmap-own-lab-guide",
+  "title": "Nmap for Beginners: Scanning Your Own Home Lab, Legally and Safely",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "burp-suite-intro-practice",
+  "title": "Burp Suite Intro for Beginners: Learn Web Security on Practice Sites Only",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "password-hashing-explained",
+  "title": "Password Hashing Explained: Hashing vs Encryption, Salts and bcrypt",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "vpn-myths",
+  "title": "VPN Myths Busted: What a VPN Does and Does Not Protect You From",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "linux-logs-for-beginners",
+  "title": "Linux Logs for Beginners: Find Failed Logins, Sudo Use and Suspicious Activity",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "verify-downloads-sha256",
+  "title": "How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "browser-devtools-for-security",
+  "title": "Browser Developer Tools for Security Beginners: See What a Website Really Does",
+  "category": "Tools and labs"
+ },
+ {
+  "slug": "ransomware-trends-2026",
+  "title": "Ransomware in 2026: What the Latest Data Shows and How to Stay Ready",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "vulnerability-exploitation-patching-2026",
+  "title": "Exploits Overtook Stolen Passwords in 2026: Why Patching Is Now Urgent",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "cloud-misconfiguration-leaked-secrets",
+  "title": "Cloud Misconfiguration and Leaked Secrets: The Quiet Cause of Big Breaches",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "zero-trust-explained",
+  "title": "Zero Trust Explained Simply: Never Trust, Always Verify",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "bank-in-domain-india",
+  "title": "Why Indian Bank Websites Now End in .bank.in, and How It Helps You Spot Fakes",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "post-quantum-cryptography-explained",
+  "title": "Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "prompt-injection-shadow-ai",
+  "title": "Prompt Injection and Shadow AI: The New Security Risks of Everyday AI Tools",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "sanchar-saathi-guide",
+  "title": "Sanchar Saathi Guide: Report Fraud Calls, Check SIMs in Your Name and Block a Lost Phone",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "india-cyber-fraud-numbers-2025",
+  "title": "India's Cyber Fraud Numbers, 2021 to 2025: What the Official Data Shows",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "passkeys-2026-explained",
+  "title": "Passkeys in 2026: What They Are and Why Big Apps Are Switching",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "ai-agents-cyber-attacks-cert-in-2026",
+  "title": "AI Agents as Attackers: What CERT-In's October 2026 Advisory Means",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "dpdp-rules-2025-timeline",
+  "title": "DPDP Rules 2025 Timeline: What Applies Now and What Starts on 13 May 2027",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "sim-binding-whatsapp-india-2027",
+  "title": "SIM Binding for WhatsApp and Telegram in India: What Changes From 2027",
+  "category": "Cyber trends 2026"
+ },
+ {
+  "slug": "ai-voice-cloning-deepfake-scams-2026",
+  "title": "AI Voice Cloning and Deepfake Scams in 2026: How to Protect Your Family",
+  "category": "Cyber trends 2026"
  }
 ]

@@ -47,7 +47,35 @@ def fname(p): return f"blog-{p['slug']}.html"
 def by_slug(s): return next(p for p in POSTS if p["slug"] == s)
 
 
-POSTS_SORTED = sorted(POSTS, key=lambda p: (p["date"], p["slug"]), reverse=True)
+IDX = {p["slug"]: i for i, p in enumerate(POSTS)}
+POSTS_SORTED = sorted(POSTS, key=lambda p: (p["date"], IDX[p["slug"]]), reverse=True)
+# listing order: categories in this order, series posts by their number
+CAT_ORDER = ["Beginner journey", "Everyday safety", "Scam awareness", "Cyber trends 2026", "Tools and labs", "Cyber law India", "Learn cybersecurity"]
+
+
+def series_nav(p):
+    if not p.get("series"): return ""
+    sp = sorted((q for q in POSTS if q.get("series") == p["series"]), key=lambda q: q["order"])
+    i = next(k for k, q in enumerate(sp) if q["slug"] == p["slug"])
+    prev = f'<a class="bp-prev" href="{fname(sp[i-1])}" rel="prev"><span class="small muted">Previous: Part {sp[i-1]["order"]}</span><br>{E(sp[i-1]["title"])}</a>' if i > 0 else '<span></span>'
+    nxt = f'<a class="bp-next" href="{fname(sp[i+1])}" rel="next"><span class="small muted">Next: Part {sp[i+1]["order"]}</span><br>{E(sp[i+1]["title"])}</a>' if i + 1 < len(sp) else '<span></span>'
+    return f"""      <nav class="bp-glass bp-series" aria-label="{E(p['series'])} series">
+        <p class="small mono bp-series-k">{E(p['series'])} series, part {p['order']} of {len(sp)}</p>
+        <div class="bp-series-nav">{prev}{nxt}</div>
+      </nav>
+"""
+
+
+def takeaways(p):
+    if not p.get("takeaways"): return ""
+    li = "\n".join(f"          <li>{t}</li>" for t in p["takeaways"])
+    return f"""      <aside class="bp-glass bp-takeaways" aria-labelledby="take-h">
+        <h2 id="take-h">Key takeaways</h2>
+        <ul>
+{li}
+        </ul>
+      </aside>
+"""
 
 
 def card(p, level="h3"):
@@ -72,6 +100,18 @@ def post_main(p):
     src = "\n".join(f'          <li><a href="{E(u)}"{"" if u.startswith("tel:") else " target=\"_blank\" rel=\"noopener\""}>{E(t)}</a></li>' for t, u in p["sources"])
     rel = "\n".join(card(by_slug(s), "h3") for s in p["related"])
     hubs = " · ".join(f'<a href="{h}">{E(t)}</a>' for h, t in p["hubs"])
+    srch = p.get("sources_h", "Official sources")
+    note = ('<p class="small muted" data-i18n="blog.sources.note">Links open the official sites. Procedures and rules can change, so check them before you rely on this post.</p>'
+            if srch == "Official sources" else '<p class="small muted">Links open the original sources, including official releases and news reports. Figures and rules can change, so check them before you rely on this post.</p>')
+    srcblock = (f"""      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
+        <h2 id="src-h"{' data-i18n="blog.sources"' if srch == "Official sources" else ""}>{E(srch)}</h2>
+        <ul>
+{src}
+        </ul>
+        {note}
+      </aside>
+""") if p["sources"] else ""
+    upd = f'\n      <p class="small bp-updated mono">{E(p["updated"])}</p>' if p.get("updated") else ""
     tags = "".join(f'<span class="tag">{E(t)}</span>' for t in p["tags"])
     return f"""  <main id="main" tabindex="-1">
     <article class="bp-post wrap" aria-labelledby="p-title">
@@ -85,7 +125,7 @@ def post_main(p):
         {AUTHOR_IMG.format(s=40).replace('loading="lazy"', 'loading="eager"')}
         <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="{p['date']}">{nice(p['date'])}</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="{p['reviewed']}">{nice(p['reviewed'])}</time> · {minutes(p)} <span data-i18n="blog.min">min read</span></p>
       </div>
-      <div class="tags tags-row bp-tags">{tags}</div>
+      <div class="tags tags-row bp-tags">{tags}</div>{upd}
 
       <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
         <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
@@ -101,14 +141,7 @@ def post_main(p):
 
 {body}
 
-      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
-        <h2 id="src-h" data-i18n="blog.sources">Official sources</h2>
-        <ul>
-{src}
-        </ul>
-        <p class="small muted" data-i18n="blog.sources.note">Links open the official sites. Procedures and rules can change, so check them before you rely on this post.</p>
-      </aside>
-
+{takeaways(p)}{srcblock}{series_nav(p)}
       <aside class="bp-glass bp-author" aria-label="About the author">
         {AUTHOR_IMG.format(s=96)}
         <p data-i18n="blog.author"><strong>Madhav Pandya</strong> explains cybersecurity and scam awareness in plain English and Hinglish. He is the founder of CyberWithMadhav and is studying law and cloud security. <a href="about.html">About Madhav Pandya</a></p>
@@ -149,10 +182,17 @@ def post_head(p):
 
 
 def listing_main():
-    used = [c for c in dict.fromkeys(p["category"] for p in POSTS_SORTED)]
+    used = [c for c in CAT_ORDER if any(p["category"] == c for p in POSTS)] + [c for c in dict.fromkeys(p["category"] for p in POSTS) if c not in CAT_ORDER]
     chips = ['<button type="button" class="chip" data-cat="all" aria-pressed="true"><span data-i18n="blog.all">All</span> <span class="n">%d</span></button>' % len(POSTS)]
     chips += [f'<button type="button" class="chip" data-cat="{E(c)}" aria-pressed="false"><span data-i18n="{cat_key(c)}">{E(c)}</span> <span class="n">{sum(p["category"] == c for p in POSTS)}</span></button>' for c in used]
-    cards = "\n".join(card(p, "h2") for p in POSTS_SORTED)
+    def grp(c):
+        ps = [p for p in POSTS_SORTED if p["category"] == c]
+        if any(p.get("series") for p in ps): ps.sort(key=lambda p: p.get("order", 0))
+        gid = "g-" + cat_key(c)[4:]
+        return (f'        <section class="bp-group" data-cat="{E(c)}" aria-labelledby="{gid}">\n'
+                f'          <h2 id="{gid}" class="bp-group-h"><span data-i18n="{cat_key(c)}">{E(c)}</span> <span class="n muted small">{len(ps)}</span></h2>\n'
+                f'          <div class="bp-grid">\n' + "\n".join(card(p, "h3") for p in ps) + "\n          </div>\n        </section>")
+    cards = "\n".join(grp(c) for c in used)
     return f"""  <main id="main" tabindex="-1">
     <section class="page-hero bp-hero" aria-labelledby="p-title">
       <div class="wrap">
@@ -168,7 +208,7 @@ def listing_main():
           {"".join(chips)}
         </div>
         <p class="sr-only" id="bp-count" aria-live="polite"></p>
-        <div class="bp-grid" id="bp-grid">
+        <div id="bp-grid">
 {cards}
         </div>
         <p class="small muted bp-rss"><span data-i18n="blog.rss">Prefer a reader app? Subscribe to the</span> <a href="feed.xml">RSS feed</a>.</p>
@@ -186,8 +226,9 @@ def listing_head():
 
 
 def page_dict(p):
-    d = {"post.title": p["hi"]["title"], "post.lead": p["hi"]["lead"], "post.quick": p["hi"]["quick"]}
-    for (sid, _, _), (h, b) in zip(p["sections"], p["hi"]["sections"]):
+    hi = p.get("hi") or {}
+    d = {k2: hi[k] for k, k2 in (("title", "post.title"), ("lead", "post.lead"), ("quick", "post.quick")) if k in hi}
+    for (sid, _, _), (h, b) in zip(p["sections"], hi.get("sections", [])):
         d[f"post.s.{sid}.h"] = h; d[f"post.s.{sid}.b"] = b.strip()
     return d
 
@@ -195,8 +236,10 @@ def page_dict(p):
 def post_titles_dict():
     d = {}
     for p in POSTS:
-        d[f"blogpost.{p['slug']}.t"] = p["hi"]["title"]; d[f"blogpost.{p['slug']}.d"] = p["hi"]["lead"]
-        d[f"blogpost.{p['slug']}.s"] = p["hi"].get("short", p["short"])
+        hi = p.get("hi") or {}
+        if "title" in hi: d[f"blogpost.{p['slug']}.t"] = hi["title"]
+        if "lead" in hi: d[f"blogpost.{p['slug']}.d"] = hi["lead"]
+        if "short" in hi or "lead" in hi: d[f"blogpost.{p['slug']}.s"] = hi.get("short", p["short"])
     for c, h in CAT_HI.items(): d[cat_key(c)] = h
     return d
 
@@ -259,8 +302,11 @@ def main():
         write("index.html", s.replace('<link rel="stylesheet" href="assets/css/explore.css">', '<link rel="stylesheet" href="assets/css/explore.css">\n  <link rel="stylesheet" href="assets/css/blog.css">', 1))
 
     # hubs link down to their posts
-    rel = "\n".join(f'          <li><a href="{fname(p)}" data-i18n="blogpost.{p["slug"]}.t">{E(p["title"])}</a></li>' for p in POSTS_SORTED)
-    hub = f"""    <section class="section bp-hub" aria-labelledby="hub-rel-h">
+    HUB_PICK = {"scams.html": lambda p: p["category"] in ("Scam awareness", "Everyday safety") or "scam" in p["slug"],
+                "cyberlaw.html": lambda p: p["category"] == "Cyber law India" or "law" in p["slug"] or "dpdp" in p["slug"] or p["slug"] in ("report-cyber-fraud-india", "digital-arrest-scam-india", "sim-binding-whatsapp-india-2027")}
+    for page, pick in HUB_PICK.items():
+        rel = "\n".join(f'          <li><a href="{fname(p)}" data-i18n="blogpost.{p["slug"]}.t">{E(p["title"])}</a></li>' for p in POSTS_SORTED if pick(p))
+        hub = f"""    <section class="section bp-hub" aria-labelledby="hub-rel-h">
       <div class="wrap">
         <h2 id="hub-rel-h" class="h3" data-i18n="blog.related">Related guides</h2>
         <ul class="bp-hub-list">
@@ -269,7 +315,6 @@ def main():
         <p class="small"><a href="blog.html" data-i18n="home.blog.all">All blog posts →</a></p>
       </div>
     </section>"""
-    for page in ("scams.html", "cyberlaw.html"):
         splice(page, "<!-- blog-related:start -->", "<!-- blog-related:end -->", hub, anchor="  </main>")
 
     # post titles for the Hinglish dictionary

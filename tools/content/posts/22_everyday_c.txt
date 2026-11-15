@@ -1,0 +1,199 @@
+=== public-wifi-safety
+title: Is Public WiFi Safe? How to Use Free WiFi at Airports, Cafes and Stations
+short: Public WiFi safety
+desc: Is public WiFi safe in India? Risks of free WiFi at airports, cafes and railway stations, fake hotspots, and simple habits to stay safe on public networks.
+lead: Free WiFi at the airport or a cafe is convenient, but you do not know who runs it or who else is on it. You do not need to fear it. You just need a few smart habits.
+cat: Everyday safety
+tags: WiFi, travel, privacy
+kw: is public wifi safe; free wifi risks India; fake wifi hotspot; public wifi pe banking safe hai
+hi: Kya public WiFi safe hai? Airport, cafe aur station ka free WiFi kaise use karein
+related: vpn-myths, how-the-internet-works, two-factor-authentication-guide
+hubs: index.html#tools|Free security tools; index.html#networking|Networking basics
+src: CERT-In Advisory CIAD-2026-0020: defending against frontier AI driven cyber risks|https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0020&pageid=PUBVLNOTES02
+src: Cloudflare Learning Center: what is HTTPS?|https://www.cloudflare.com/learning/ssl/what-is-https/
+quick: Public WiFi is fine for browsing news or maps, especially on HTTPS sites, but avoid **banking and payments** on it when you can and use **mobile data** instead. Beware of **fake hotspots** with official sounding names, never install anything a WiFi login page asks for, turn off **auto connect**, and keep your phone updated. CERT-In advises avoiding public WiFi for sensitive transactions and using a VPN when necessary.
+takeaways:
+- Public WiFi is okay for low risk browsing, not ideal for banking.
+- Mobile data or your own hotspot is safer for payments.
+- Fake hotspots exist, so confirm the official network name with staff.
+- Turn off auto connect and forget networks after you use them.
+## risks | What can go wrong on public WiFi
+- **Fake hotspots ("evil twins").** Anyone can create a WiFi network named "Airport_Free_WiFi" or "Cafe_Guest". If you connect to the attacker's network, they control your connection.
+- **Snooping on unencrypted traffic.** Websites or apps that do not use encryption can expose what you send to others on the same network.
+- **Malicious login pages.** Some fake captive portals ask you to "install a certificate" or an app, or to enter your email password or card details.
+- **Attacks on your device.** On a shared network, other devices can try to reach yours, which is a bigger risk if your system is outdated or file sharing is open.
+
+## https-helps | Why HTTPS helps, and its limits
+Today most websites and apps use HTTPS, which encrypts the content between your device and the site. That means a snooper on the cafe WiFi usually cannot read your password or messages on those sites. This is a big improvement compared to a decade ago.
+
+But HTTPS does not stop you from landing on a fake site, does not protect apps that are badly built, and does not stop a fake hotspot from showing a phishing login page. So HTTPS reduces risk, it does not remove it.
+
+## safe-habits | Simple safe habits
+1. **Ask staff for the exact network name.** Do not just pick the one that sounds right.
+2. **Prefer mobile data for banking and UPI.** Indian mobile data is affordable, and it is your own connection.
+3. **Do not install anything** a WiFi page asks for, and never enter your email password to "unlock" WiFi.
+4. **Look for the padlock and the correct domain** before typing anything sensitive.
+5. **Turn off auto connect** to open networks and **forget** the network after use.
+6. **Keep sharing off.** On laptops, set the network as public, and turn off file and printer sharing.
+7. **Keep your device updated** so known bugs are fixed.
+
+## vpn | Do I need a VPN?
+A trustworthy VPN encrypts your traffic between your device and the VPN provider, which adds protection on networks you do not trust. CERT-In's 2026 advisory on AI driven risks says to avoid public WiFi for sensitive transactions and use a VPN when necessary.
+
+But a VPN is not magic. It does not stop phishing, malware or scam calls, and a shady free VPN can itself collect your data. Choose a reputable provider, or use your employer's VPN for work. Read our [VPN myths post](blog-vpn-myths.html) before you install one.
+
+## hotel-train | Hotels, trains and stations
+- **Hotel WiFi:** often shared across many rooms with weak isolation. Use it for streaming and browsing, use mobile data for payments.
+- **Railway station and airport WiFi:** official free services usually need an OTP on your mobile to log in. That OTP is only for the WiFi login on the official page. If any other page asks for an OTP, stop.
+- **Public charging points:** use your own charger plugged into a power socket when possible, rather than unknown USB cables or kiosks.
+
+## home-wifi | Bonus: secure your home WiFi too
+While you are thinking about WiFi, check your home router:
+
+- Change the default admin password.
+- Use WPA2 or, if available, WPA3 encryption with a long WiFi password. CERT-In's 2026 advisory recommends WPA3 where available.
+- Update the router firmware.
+- Turn off WPS if you do not use it.
+- Create a separate guest network for visitors.
+
+## summary | The one line summary
+Public WiFi for browsing, mobile data for money. **"Free WiFi pe reels dekho, banking nahi."** Simple, practical, and it protects you from most risks.
+
+=== first-hour-after-cyber-fraud
+title: Lost Money to Cyber Fraud? What to Do in the First Hour
+short: First hour after fraud
+desc: A calm first hour checklist after online fraud in India: call 1930, block cards and UPI, save evidence, file on cybercrime.gov.in and secure your accounts.
+lead: The first hour after a fraud matters most, because money moves quickly between accounts. Print this checklist or save it, and share it with your family before anyone needs it.
+cat: Everyday safety
+tags: 1930, fraud response, checklist
+kw: what to do after online fraud; cyber fraud first hour; 1930 helpline what to do; paise kat gaye kya kare
+hi: Cyber fraud mein paise gaye? Pehle ek ghante mein kya karein
+related: report-cyber-fraud-india, safe-upi-habits, otp-scams-india
+hubs: scams.html|Scam Encyclopedia; cyberlaw.html|Cyber Law India
+src: 1930: National Cyber Crime Helpline|tel:1930
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+src: PIB: MHA reply on cyber fraud complaints and CFCFRMS (2026)|https://www.pib.gov.in/PressReleasePage.aspx?PRID=2226441&lang=1&reg=1
+src: RBI circular on limiting customer liability in unauthorised electronic banking transactions (6 July 2017, PDF)|https://www.rbi.org.in/commonman/Upload/English/Notification/PDFs/NOTI1506072017.PDF
+quick: **Minute 0 to 10:** stop paying and call **1930**. **Minute 10 to 20:** call your bank's official number and block cards, UPI or net banking. **Minute 20 to 40:** save evidence (screenshots, transaction IDs, numbers, links). **Minute 40 to 60:** complete the complaint at **cybercrime.gov.in** and secure your email and phone. Speed gives the best chance that money can be put on hold.
+takeaways:
+- Call 1930 first, then your bank, as fast as possible.
+- Collect transaction IDs (UTR) and screenshots before deleting anything.
+- Complete the complaint on cybercrime.gov.in with the 1930 acknowledgement number.
+- Beware of "recovery agents" who promise to get your money back for a fee.
+## why-fast | Why the first hour matters
+In most financial frauds, the money is quickly moved from the first account to others, then withdrawn or converted. The **Citizen Financial Cyber Fraud Reporting and Management System (CFCFRMS)**, which works behind the 1930 helpline, connects police with banks and payment companies so that reported money still in the system can be put on hold.
+
+According to the Ministry of Home Affairs, in a reply in the Rajya Sabha, CFCFRMS had saved more than ₹8,189 crore in more than 23.61 lakh complaints by 31 December 2025. Quick reporting is what makes this possible.
+
+## min0 | Minutes 0 to 10: stop and call 1930
+- **Stop all payments.** Do not send more money, even if the scammer says it will "unlock" or "reverse" the first payment.
+- **Disconnect from the scammer.** Hang up, stop replying, exit any screen sharing app.
+- **Call [1930](tel:1930).** Give your details, bank, transaction amounts, dates and times, and the UPI IDs, account numbers or phone numbers the money went to.
+- **Note the acknowledgement number** you receive by SMS.
+
+## min10 | Minutes 10 to 20: call your bank
+Use the number on the back of your card or in the official banking app, never one from a search result or the scammer.
+
+- Ask to **block** the affected debit or credit card, UPI and net banking if they are at risk.
+- Report the unauthorised transactions and **note the complaint reference**.
+- Ask them to flag the beneficiary accounts.
+
+Under the RBI's 2017 customer liability circular, reporting an unauthorised transaction caused by a third party breach to your bank within three working days can mean zero liability for you. Reporting fast protects your rights.
+
+## min20 | Minutes 20 to 40: save the evidence
+Before you delete anything, collect:
+
+- Screenshots of chats, SMS, emails and call logs (with numbers visible).
+- Transaction IDs or **UTR numbers** for every payment.
+- The UPI IDs, account numbers, websites, app names and links used.
+- Any QR codes, fake documents or "offer letters" they sent.
+- A short written timeline in your own words: what happened, when.
+
+Save copies in your email or a cloud drive so they are not lost if your phone has problems.
+
+## min40 | Minutes 40 to 60: file the complaint and secure accounts
+- Go to [cybercrime.gov.in](https://cybercrime.gov.in/) (type the address yourself), register with your mobile number, and file the complaint with the 1930 acknowledgement number and all transaction details. Our [step by step reporting guide](blog-report-cyber-fraud-india.html) explains each screen.
+- If you installed any app on the scammer's instruction, uninstall it and run a security scan.
+- **Change passwords** for email, banking and social media from a safe device, and turn on two factor authentication.
+- If your phone lost network suddenly, call your operator about a possible SIM swap.
+
+## after | After the first hour
+- Follow up with your bank in writing, quoting your complaint number.
+- Track your complaint on the portal and keep all reference numbers in one place.
+- If needed, visit your local police station or cyber cell with printed evidence.
+- Tell family and friends, so they are alert to the same scam.
+
+## second-scam | Watch out for the second scam
+After a fraud, victims often get calls from people claiming to be "cyber police", lawyers or "recovery agents" who can get the money back for a fee. Real police do not charge a fee to recover money. Treat any such call as another scam and report it.
+
+Most importantly, be kind to yourself. Scammers are skilled professionals. **"Galti aapki nahi, unki hai."** Reporting quickly is the strongest thing you can do.
+
+=== kids-online-safety-india
+title: Kids Online Safety: A Practical Guide for Indian Parents
+short: Kids online safety
+desc: A practical guide for Indian parents on kids online safety: age appropriate settings, gaming and social media risks, grooming signs and how to report abuse.
+lead: Children today grow up online, for school, games and friends. Blocking everything rarely works. Open conversations, sensible settings and knowing where to report problems work much better.
+cat: Everyday safety
+tags: kids, parenting, gaming, social media
+kw: kids online safety tips India; parental controls for kids phone; child online safety parents; bachon ki online safety
+hi: Bachon ki online safety: Indian parents ke liye practical guide
+related: secure-parents-phone, strong-passwords-password-managers, spot-phishing-sms-india
+hubs: game.html|Scam ya Nahi? game for the family; scams.html|Scam Encyclopedia
+src: cybercrime.gov.in: report women and child related crime|https://cybercrime.gov.in/
+src: Google Family Link|https://families.google/familylink/
+src: Apple Support: set up parental controls on iPhone or iPad|https://support.apple.com/en-in/105121
+src: Information Security Education and Awareness (ISEA), MeitY|https://www.isea.gov.in/
+quick: Talk early and often, set up **parental controls** (Google Family Link or Apple Screen Time), keep devices in shared spaces for younger kids, review **game and social media privacy settings**, teach them never to share personal details or photos with online strangers, and make sure they know they can tell you anything without being punished. Report child abuse material or exploitation at **cybercrime.gov.in**.
+takeaways:
+- Conversation and trust matter more than any app.
+- Use built in parental controls and age appropriate settings.
+- Teach kids about strangers, oversharing and in game payment scams.
+- Report abuse or exploitation at cybercrime.gov.in, which offers sensitive reporting options.
+## talk | Start with conversation, not control
+The best protection is a child who comes to you when something feels wrong. If kids fear that telling you will mean losing their phone forever, they will hide problems. Tell them clearly: **"Kuch bhi ajeeb ho, mujhe batana. Daant nahi padegi."** Then keep that promise.
+
+Talk about online life the way you talk about school: which games, which friends, what videos they enjoyed. Curiosity, not interrogation.
+
+## settings | Set up controls by age
+- **Under 10:** use devices in shared spaces, with a child profile. Approve app downloads. Use kids versions of video apps where available.
+- **10 to 13:** parental controls with app approval and screen time limits. Explain why each rule exists.
+- **13 and above:** shift gradually from control to guidance. Agree on rules together, such as no phones at the dinner table or after a certain time.
+
+Free tools help: **Google Family Link** for Android and **Screen Time** on Apple devices let you approve apps, set time limits and see usage. Most social media platforms set minimum ages in their terms, often 13, so check before your child signs up.
+
+## gaming | Online gaming risks
+- **Chat with strangers:** many games have voice and text chat. Restrict chat to friends for younger children.
+- **In game purchases:** set purchase approvals and do not save cards on kids' accounts. Scams promise free coins or skins in exchange for login details.
+- **Fake mods and cheats:** downloading cheat tools from random links often installs malware.
+- **Account theft:** kids share passwords with friends. Teach them, like OTPs, passwords stay private.
+
+## social | Social media and oversharing
+Teach children to avoid posting:
+
+- School name with uniform photos, home address, location tags in real time.
+- Phone numbers and family details.
+- Photos they would not want a stranger or a future employer to see.
+
+Set accounts to **private**, review follower lists together, and turn off location sharing in apps.
+
+## grooming | Warning signs of grooming or exploitation
+Online predators often pretend to be someone of the same age, give compliments and gifts like game credits, and slowly ask for secrecy and photos. Warning signs in a child:
+
+- Secretive about a new online friend.
+- Gifts or game currency from unknown people.
+- Sudden anxiety around their phone, or switching screens quickly when you come near.
+- Mentions of an online friend asking them to keep secrets.
+
+Teach a simple rule: **anyone online who asks you to keep a secret from your parents, or asks for photos, is not a friend.** They should tell you immediately, and it is never the child's fault.
+
+## sextortion | If something bad has happened
+If a child is being threatened with photos or videos (sextortion), or has been shown or sent abusive material:
+
+1. Stay calm and reassure the child that they are not in trouble.
+2. Do not pay or negotiate with the person threatening them.
+3. Save evidence such as usernames and screenshots of messages, but **do not save, forward or share any sexual images of a child**, because doing that is itself illegal.
+4. Report at [cybercrime.gov.in](https://cybercrime.gov.in/), which has a dedicated section for women and child related crimes with sensitive reporting options, and contact the police.
+5. Report the account to the platform.
+
+## learn-together | Learn together
+Make safety a family activity. Play [Scam ya Nahi?](game.html) together, watch an awareness video, or explore the free child friendly material on the government's ISEA awareness portal. Kids often teach parents a thing or two about apps, and parents can teach kids about trust and judgement. Dono milke, internet safe.

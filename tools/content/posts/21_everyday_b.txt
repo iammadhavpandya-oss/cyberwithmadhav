@@ -1,0 +1,265 @@
+=== loan-app-harassment-help
+title: Loan App Harassment: How to Check a Lending App and Get Help
+short: Loan app harassment help
+desc: Fake instant loan apps, contact list misuse and recovery harassment in India: how to check an app on RBI's DLA directory and where to complain.
+lead: Instant loan apps promise money in minutes. Some are legitimate, but illegal ones grab your contacts and photos and then harass you and your family. Here is how to protect yourself, and what to do if it is already happening.
+cat: Everyday safety
+tags: loan apps, harassment, RBI
+kw: loan app harassment what to do; fake loan app India; RBI digital lending apps list; loan app complaint
+hi: Loan app harassment: lending app kaise check karein aur madad kahan milegi
+related: secure-parents-phone, first-hour-after-cyber-fraud, fake-job-offer-scams
+hubs: scams.html|Scam Encyclopedia; cyberlaw.html|Cyber Law India
+src: RBI press release on the Digital Lending Directions, 2025, including the public directory of DLAs (8 May 2025)|https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=60403
+src: RBI Sachet portal: report unauthorised entities|https://sachet.rbi.org.in/
+src: RBI Complaint Management System (Integrated Ombudsman)|https://cms.rbi.org.in/
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: Before installing a loan app, check that it is linked to an **RBI regulated bank or NBFC** and appears in the RBI's public **directory of Digital Lending Apps**, which the RBI said would be available on its website on or before 1 July 2025. Never give a loan app access to your contacts or gallery. If an app harasses you, do not pay extortion demands: save evidence, report on **cybercrime.gov.in**, inform the police, and complain to RBI if a regulated lender is involved.
+takeaways:
+- Check the lender and the app on the RBI's DLA directory before borrowing.
+- Deny contacts, photos and media permissions to loan apps.
+- Harassment, threats and morphed photos are crimes. Report them.
+- Do not pay extortion demands, and tell your family before scammers do.
+## how-it-works | How illegal loan apps work
+Illegal loan apps advertise on social media: "Instant loan, no documents, no CIBIL check." After you install the app, it asks for many permissions, including contacts, photos and sometimes location. You get a small amount, often much less than promised after hidden "processing fees", with a very short repayment period.
+
+Then the harassment begins. Recovery agents call repeatedly, threaten you, message your contacts saying you are a fraud, and sometimes send **morphed obscene images** to your friends and family. They demand far more than you borrowed.
+
+## check-app | How to check a lending app before using it
+1. **Find the lender behind the app.** Legitimate digital lending apps must clearly show the name of the RBI regulated bank or NBFC they work with.
+2. **Check the RBI's DLA directory.** Under its Digital Lending Directions, 2025, the RBI said a public list of digital lending apps deployed by regulated entities would be available on its website, under Citizen's Corner, on or before 1 July 2025. The RBI notes the list is meant to help customers verify an app's claimed link with a regulated lender. If an app is not linked to a regulated lender, avoid it.
+3. **Read the key fact statement.** Under the RBI's digital lending rules, regulated lenders must give a key fact statement with the total cost of the loan before you sign.
+4. **Check permissions.** A genuine lender does not need your entire contact list or photo gallery.
+5. **Install only from official app stores,** never from APK links shared on WhatsApp or Telegram.
+
+## protect | Protect yourself if you already installed one
+- Go to your phone settings and **remove contacts, photos, media and location permissions** from the app, then uninstall it.
+- Do not install apps that offer to "close" the loan or "clear" your record.
+- Change passwords for your email and social media if you shared them.
+- Tell your close family and friends that they may receive fake messages about you. When they hear it from you first, the threat loses its power.
+
+## harassment | If you are being harassed
+Harassment, threats, defamation and sharing morphed images are crimes. You are not alone, and you have options:
+
+1. **Do not pay extortion demands.** Paying once usually leads to more demands.
+2. **Save evidence:** screenshots of messages, call logs, numbers, app name, payment receipts and the messages sent to your contacts.
+3. **Report** on [cybercrime.gov.in](https://cybercrime.gov.in/). Crimes involving obscene or morphed images can be reported under the women and children related crimes section, which offers options for sensitive reporting.
+4. **Visit your local police station or cyber cell** with the evidence.
+5. **Report the numbers** on Sanchar Saathi Chakshu and block them.
+6. **Report the app** to the app store.
+
+## complain-rbi | Complaining to RBI and reporting illegal lenders
+- If the app is linked to an **RBI regulated lender**, first complain to the lender. If not resolved, you can file a complaint on the RBI's Complaint Management System under the Integrated Ombudsman Scheme.
+- If the app or entity is **not regulated**, you can report it on the RBI's **Sachet** portal, which is meant for reporting unauthorised entities collecting money or lending illegally.
+
+## mental-health | Take care of yourself
+Loan app harassment can feel humiliating and frightening. Please talk to someone you trust. The shame belongs to the criminals, not to you. If you ever feel overwhelmed or unsafe, reach out to family, friends or a mental health helpline immediately, and contact the police.
+
+## prevent | Prevention for the whole family
+Teach younger family members and parents: borrow only from banks or well known regulated lenders, never from an app found through a social media ad, and never give an app access to contacts. A small emergency fund within the family is often a safer option than an instant loan app at 2 am.
+
+=== secure-parents-phone
+title: How to Secure Your Parents' Phone: A 30 Minute Checklist
+short: Secure your parents' phone
+desc: A simple 30 minute checklist to secure your parents' smartphone: screen lock, updates, app cleanup, UPI limits, WhatsApp PIN and scam rules they will remember.
+lead: Parents are a big target for scammers, and they often trust messages and calls more than younger people do. One calm half hour with their phone can prevent a lot of trouble. Here is exactly what to do.
+cat: Everyday safety
+tags: parents, smartphone, family safety
+kw: secure parents phone; senior citizen phone safety; mobile security checklist for parents; mummy papa ka phone safe kaise kare
+hi: Mummy papa ka phone safe kaise karein: 30 minute checklist
+related: safe-upi-habits, whatsapp-account-takeover, spot-phishing-sms-india
+hubs: game.html|Scam ya Nahi? game in Hinglish; scams.html|Scam Encyclopedia
+src: Sanchar Saathi (DoT): Chakshu, mobile connections in your name, block lost phone|https://sancharsaathi.gov.in/
+src: Google Play Protect help|https://support.google.com/googleplay/answer/2812853
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: Set a **screen lock**, install **updates**, remove **unknown apps** (especially screen sharing and APK installs), turn on **Play Protect** on Android, set **WhatsApp two step verification**, lower **UPI limits**, save **1930** and the bank's official number as contacts, and teach three simple rules: no OTP, no PIN to receive money, and call you before acting on any scary message.
+takeaways:
+- Lock, update and clean up apps first.
+- Protect WhatsApp and UPI with PINs and sensible limits.
+- Save 1930 and official bank numbers as contacts.
+- Teach three simple rules and practise them with role play.
+## why | Why parents get targeted
+Scammers know that many elders are polite on the phone, respect anyone who sounds official, and may not be familiar with how apps work. Common scams aimed at parents include fake bank KYC calls, electricity bill disconnection messages, digital arrest calls, fake pension or insurance calls and "your son is in trouble" calls. None of this means our parents are not smart. It means scammers are professionals, and our parents deserve a simple safety setup.
+
+## step1 | Step 1: Lock and update (5 minutes)
+- Set a **screen lock**: PIN, pattern or fingerprint. Avoid simple patterns like an L shape.
+- Go to settings and install **system updates**. Then open the app store and update all apps.
+- On Android, make sure **Google Play Protect** is on. It scans apps for harmful behaviour.
+- Turn off **installing apps from unknown sources** if it was enabled.
+
+## step2 | Step 2: Clean up apps (10 minutes)
+Scroll through every app with them. Remove:
+
+- Apps they do not recognise or use.
+- **Screen sharing and remote access apps** unless you installed one deliberately for helping them.
+- Duplicate or suspicious "banking", "KYC" or "loan" apps.
+- Apps installed from APK files shared on WhatsApp.
+
+Then check **app permissions**. A torch or wallpaper app should not need contacts, SMS or location.
+
+## step3 | Step 3: Protect WhatsApp and UPI (10 minutes)
+- **WhatsApp:** turn on two step verification with a PIN, add a recovery email (yours, if they do not use email), and check Linked devices. See our [WhatsApp takeover guide](blog-whatsapp-account-takeover.html).
+- **UPI:** set a lower daily limit if their apps support it, and turn on transaction notifications.
+- **Banking alerts:** make sure SMS alerts go to their phone, and if they agree, to yours as well through a joint arrangement with the bank.
+- **SIM PIN:** consider setting a SIM PIN so a stolen SIM cannot be used easily in another phone. Note it down safely.
+
+## step4 | Step 4: Save the right numbers (5 minutes)
+Add these contacts:
+
+- **Cyber Fraud 1930** with the number [1930](tel:1930)
+- **Bank Official** with the number printed on the back of their card
+- **You**, at the top of favourites
+
+Also install the **Sanchar Saathi** app or bookmark the portal. It lets you report fraud calls and messages, check mobile connections taken in their name and block a lost phone.
+
+## rules | Three rules to teach (and repeat)
+Keep it short and in their language:
+
+1. **"OTP aur PIN kisi ko nahi batana."** Nobody genuine will ask for it.
+2. **"Paise lene ke liye PIN nahi lagta, scan nahi karna."** Receiving money never needs a PIN.
+3. **"Darr lage ya jaldi bole, toh pehle mujhe call karo."** Any message or call creating fear or urgency means pause and call family.
+
+Write them on paper and keep it near their charging point. Then do a quick role play: you pretend to be a "bank officer" and see how they respond. Laugh about it together, but make it stick.
+
+## digital-arrest | A special word on digital arrest calls
+Scammers pretending to be police, CBI or customs officials keep elders on video call for hours, claiming they are under "digital arrest". Tell your parents clearly: **there is no such thing as digital arrest in Indian law**, and real police do not demand money on video calls. Read and share our [digital arrest scam guide](blog-digital-arrest-scam-india.html).
+
+## check-in | Monthly check in
+Once a month, spend five minutes: check for new apps, pending updates and unusual SMS. Ask, "Koi ajeeb call ya message aaya?" Keep it friendly, not like an exam. If something goes wrong, they should feel comfortable telling you immediately, not hide it out of embarrassment.
+
+=== strong-passwords-password-managers
+title: Strong Passwords and Password Managers: A Simple Guide for Everyone
+short: Strong passwords
+desc: How to create strong passwords you can remember, why reusing passwords is dangerous, and how a password manager makes it easy. Simple steps for families.
+lead: Most account hacks do not need genius hackers. They use passwords that are short, guessable or reused from another site that was leaked. Here is a simple way to fix that for good.
+cat: Everyday safety
+tags: passwords, password manager, accounts
+kw: how to create strong password; password manager kya hai; password reuse risk; best practices passwords
+hi: Strong passwords aur password managers: sabke liye simple guide
+related: two-factor-authentication-guide, passkeys-2026-explained, password-hashing-explained
+hubs: index.html#pw-tool|Free password strength checker; index.html#tools|Free security tools
+src: NIST SP 800-63B: Digital Identity Guidelines, authentication|https://pages.nist.gov/800-63-4/sp800-63b.html
+src: Have I Been Pwned: check if your email appeared in a breach|https://haveibeenpwned.com/
+quick: Use **long passphrases** (four or more random words), a **different password for every important account**, and a **password manager** to remember them. Turn on two factor authentication for email, banking and social media. Change a password immediately if a site you use was breached, and never share passwords over chat or phone.
+takeaways:
+- Length beats complexity: a long passphrase is stronger and easier to remember.
+- Never reuse passwords, especially for email and banking.
+- A password manager stores unique passwords safely for you.
+- Add two factor authentication or passkeys wherever you can.
+## why-weak | Why weak and reused passwords get hacked
+Attackers rarely sit and guess your password by hand. They use automated tools:
+
+- **Credential stuffing:** when one website is breached, attackers try the leaked email and password combinations on other sites. If you reused the password, they get in.
+- **Guessing common passwords:** passwords like "123456", "password", names plus birth years, or cricket team names are tried first.
+- **Phishing:** fake login pages trick you into typing your password.
+
+Reuse is the biggest problem. One leak from a small shopping site can open your email, and your email can reset every other account.
+
+## passphrase | The passphrase method
+Modern guidance, including NIST's digital identity guidelines, focuses on password **length** and on blocking known compromised passwords, rather than forcing odd symbols and frequent changes.
+
+A practical way to make a strong, memorable password is a **passphrase**: four or more random words, for example `Tiffin-Monsoon-Guitar-Planet` (do not use this exact one). It is long, hard to guess and easy to remember. Avoid famous quotes, song lyrics or personal details like names and birthdays.
+
+Test the idea with the [password strength checker on the home page](index.html#pw-tool). It runs in your browser, but as a habit, do not type your real password into any website's checker, just try a similar pattern.
+
+## manager | What is a password manager?
+A password manager is an app that stores all your passwords in an encrypted vault. You remember **one strong master password**, and the manager remembers the rest. It can also generate random passwords and fill them in automatically on the right website, which helps protect against fake lookalike sites.
+
+Options include password managers built into Google, Apple and Microsoft accounts, browser managers, and dedicated apps. Many have free tiers. Choose a well known one, protect it with a strong master password and two factor authentication, and you are already ahead of most people.
+
+## migrate | How to switch without stress
+Do not try to change 100 passwords in one day. Go in order of importance:
+
+1. **Email** (the master key to everything)
+2. **Banking and UPI related accounts**
+3. **Phone account** (Google or Apple ID)
+4. **Social media and WhatsApp**
+5. **Shopping and other sites**, slowly, as you log in to each
+
+For each one, generate a new unique password in your manager and turn on two factor authentication. Our [2FA guide](blog-two-factor-authentication-guide.html) explains how.
+
+## breaches | Check if you were in a breach
+Websites like Have I Been Pwned let you check whether your email address appeared in known data breaches. If it did, change the password for that site and anywhere you reused it. Many password managers also warn you about reused or breached passwords automatically.
+
+## dont | Things to stop doing today
+- Writing passwords on paper stuck to your laptop.
+- Sharing passwords on WhatsApp, even with family. Use the manager's secure sharing feature if needed.
+- Saving passwords in a notes app or an unprotected spreadsheet.
+- Using the same password for office and personal accounts.
+- Telling anyone your password over the phone, whoever they claim to be.
+
+## future | Beyond passwords: passkeys
+Many big services now support **passkeys**, which let you sign in with your phone's fingerprint, face or screen lock instead of a password, and they resist phishing by design. Where available, they are worth turning on. Read our [passkeys 2026 explainer](blog-passkeys-2026-explained.html). Until every site supports them, a password manager plus unique passwords is your best defence.
+
+=== two-factor-authentication-guide
+title: Two Factor Authentication (2FA) Explained: Which Type Should You Use?
+short: Two factor authentication
+desc: Two factor authentication explained: SMS OTP, authenticator apps, passkeys and security keys, which is safest, and how to turn on 2FA for key accounts.
+lead: A strong password is a good lock. Two factor authentication adds a second lock that a thief does not have. It is one of the most effective security steps anyone can take, and it takes minutes.
+cat: Everyday safety
+tags: 2FA, MFA, OTP, passkeys
+kw: two factor authentication explained; 2FA kya hai; authenticator app vs SMS OTP; how to enable 2FA Gmail
+hi: Two factor authentication (2FA) samjho: kaunsa type use karein?
+related: strong-passwords-password-managers, passkeys-2026-explained, whatsapp-account-takeover
+hubs: index.html#tools|Free security tools; scams.html|Scam Encyclopedia
+src: CISA: More than a password (multifactor authentication)|https://www.cisa.gov/MFA
+src: Google Account Help: 2 Step Verification|https://support.google.com/accounts/answer/185839
+src: CERT-In Advisory CIAD-2026-0020: defending against frontier AI driven cyber risks|https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0020&pageid=PUBVLNOTES02
+quick: 2FA means logging in needs **something you know** (password) plus **something you have** (phone, app or key) or **something you are** (fingerprint). From weakest to strongest: SMS OTP, authenticator app codes, app push prompts with number matching, and **passkeys or hardware security keys**. Any 2FA is far better than none. Turn it on for email first, then banking, social media and WhatsApp.
+takeaways:
+- 2FA adds a second proof, so a stolen password alone is not enough.
+- Any 2FA beats none, but authenticator apps and passkeys beat SMS.
+- Save backup codes somewhere safe when you turn it on.
+- Never share 2FA codes and never approve login prompts you did not start.
+## what | What two factor authentication means
+Normally you log in with just a password. If someone steals it through phishing or a breach, they are in. With 2FA, after the password, the site asks for a second proof that only you have, usually from your phone.
+
+Security people call the general idea **multi factor authentication (MFA)**. The factors are:
+
+- **Something you know:** password or PIN
+- **Something you have:** your phone, an authenticator app or a security key
+- **Something you are:** fingerprint or face
+
+CERT-In's 2026 advisory on AI driven cyber risks advises individuals to use strong, unique passwords and enable MFA wherever available.
+
+## types | Types of 2FA, from weaker to stronger
+- **SMS OTP:** a code sent by text. Easy and familiar, but codes can be phished or intercepted through SIM swap. Still much better than nothing.
+- **Authenticator apps:** apps like Google Authenticator or Microsoft Authenticator generate a new six digit code every 30 seconds on your phone, without SMS. Safer against SIM swap.
+- **Push prompts:** your phone shows "Is this you trying to sign in?". Good when combined with **number matching**, where you type the number shown on the login screen. Never approve a prompt you did not start.
+- **Passkeys and hardware security keys:** these use cryptography tied to the real website, so a fake site cannot trick them. They are the strongest common option. See our [passkeys explainer](blog-passkeys-2026-explained.html).
+
+## priority | Which accounts to protect first
+1. **Main email account.** It can reset all your other passwords.
+2. **Phone account** (Google or Apple ID), because it controls backups and device access.
+3. **Banking and finance apps,** which in India already use OTPs and device binding for many actions.
+4. **WhatsApp two step verification** PIN.
+5. **Social media** like Instagram, Facebook, X and LinkedIn, which are often hijacked for scams.
+6. **Work accounts,** following your employer's policy.
+
+## enable | How to turn it on (general steps)
+Every service is slightly different, but the path is similar:
+
+1. Open account **Settings** and look for **Security**, **Login security** or **2 Step Verification**.
+2. Choose the method. Prefer an authenticator app or passkey over SMS where possible.
+3. Scan the QR code with your authenticator app, or follow the passkey setup prompts.
+4. **Save the backup codes** in your password manager or print them and keep them safe.
+5. Test logging in on another device.
+
+## fatigue | Beware of 2FA tricks
+Attackers who already have your password try to get past 2FA by:
+
+- Calling you as "support" and asking you to read out the code.
+- Sending many push prompts hoping you tap Approve to make them stop.
+- Sending you to a fake login page that also asks for the OTP in real time.
+
+The defence is simple: **never share a code**, **never approve a prompt you did not start**, and if you get unexpected prompts or codes, change your password immediately because someone has it.
+
+## lost-phone | What if I lose my phone?
+This is why backup matters. Before you need it:
+
+- Save backup codes.
+- Add a second method, such as a backup phone number or a second security key.
+- If your authenticator app supports secure cloud backup, consider turning it on.
+- If your phone is lost, block it through **Sanchar Saathi** and contact your operator to block the SIM.
+
+## family | Set it up for your family
+Pick one evening and help parents or younger siblings set up 2FA on their email and WhatsApp. It takes about 10 minutes per person. Explain it simply: **"Password chori ho gaya to bhi, doosra taala aapke phone mein hai."**

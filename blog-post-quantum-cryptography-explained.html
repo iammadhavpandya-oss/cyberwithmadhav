@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive | CyberWithMadhav</title>
+  <meta name="description" content="Post-quantum cryptography in plain English: why RSA is at risk, harvest now decrypt later, NIST&#x27;s 2024 standards and the IR 8547 transition timeline.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/blog-post-quantum-cryptography-explained.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive">
+  <meta property="og:description" content="Post-quantum cryptography in plain English: why RSA is at risk, harvest now decrypt later, NIST&#x27;s 2024 standards and the IR 8547 transition timeline.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/blog-post-quantum-cryptography-explained.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/blog/post-quantum-cryptography-explained.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Share card reading Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive">
+  <meta name="twitter:description" content="Post-quantum cryptography in plain English: why RSA is at risk, harvest now decrypt later, NIST&#x27;s 2024 standards and the IR 8547 transition timeline.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/blog/post-quantum-cryptography-explained.png">
+  <meta name="twitter:image:alt" content="Share card reading Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/consent.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
+  <meta property="article:published_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:modified_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:author" content="https://www.cyberwithmadhav.com/about.html">
+  <meta property="article:section" content="Cyber trends 2026">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.cyberwithmadhav.com/blog-post-quantum-cryptography-explained.html#post", "mainEntityOfPage": "https://www.cyberwithmadhav.com/blog-post-quantum-cryptography-explained.html", "headline": "Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive", "description": "Post-quantum cryptography in plain English: why RSA is at risk, harvest now decrypt later, NIST's 2024 standards and the IR 8547 transition timeline.", "image": "https://www.cyberwithmadhav.com/assets/img/blog/post-quantum-cryptography-explained.png", "datePublished": "2026-11-15T09:00:00+05:30", "dateModified": "2026-11-15T09:00:00+05:30", "inLanguage": "en-IN", "articleSection": "Cyber trends 2026", "keywords": ["post quantum cryptography explained", "harvest now decrypt later", "NIST PQC standards FIPS 203", "quantum computer encryption risk"], "author": {"@type": "Person", "@id": "https://www.cyberwithmadhav.com/about.html#person", "name": "Madhav Pandya", "url": "https://www.cyberwithmadhav.com/about.html"}, "publisher": {"@type": "Organization", "@id": "https://www.cyberwithmadhav.com/#org", "name": "CyberWithMadhav", "logo": {"@type": "ImageObject", "url": "https://www.cyberwithmadhav.com/assets/img/apple-touch-icon.png"}}, "isPartOf": {"@id": "https://www.cyberwithmadhav.com/blog.html#blog"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cyberwithmadhav.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.cyberwithmadhav.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive"}]}]}
+  </script>
+</head>
+<body class="v3 blog-page bp-post-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog active"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="bp-post wrap" aria-labelledby="p-title">
+      <nav class="bp-crumbs small muted" aria-label="Breadcrumb">
+        <a href="index.html" data-i18n="blog.home">Home</a> <span aria-hidden="true">/</span> <a href="blog.html">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page" data-i18n="blogpost.post-quantum-cryptography-explained.s">Post-quantum cryptography</span>
+      </nav>
+      <p class="bp-cat mono" data-i18n="cat.cyber-trends">Cyber trends 2026</p>
+      <h1 id="p-title" data-i18n="post.title">Post-Quantum Cryptography Explained: Why Encryption Is Changing Before Quantum Computers Arrive</h1>
+      <p class="lead" data-i18n="post.lead">Quantum computers that can break today&#x27;s encryption do not exist yet. So why are governments and big tech changing encryption now? Because data stolen today could be decrypted tomorrow. Here is the simple version.</p>
+      <div class="bp-byline small muted">
+        <img src="assets/img/madhav-square.jpg" width="40" height="40" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="eager" decoding="async">
+        <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="2026-11-15">15 November 2026</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+      </div>
+      <div class="tags tags-row bp-tags"><span class="tag">post-quantum</span><span class="tag">cryptography</span><span class="tag">NIST</span><span class="tag">encryption</span></div>
+      <p class="small bp-updated mono">Updated November 2026</p>
+
+      <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
+        <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
+        <p data-i18n="post.quick">A large enough quantum computer could break widely used public key algorithms like <strong>RSA</strong> and <strong>elliptic curve</strong> cryptography. Attackers can <strong>harvest encrypted data now and decrypt it later</strong>. NIST published three post-quantum standards in <strong>August 2024</strong> (FIPS 203, 204 and 205), and on <strong>27 October 2026</strong> released NISTIR 8547, its transition road map. Organisations should inventory their cryptography and plan migration now.</p>
+      </aside>
+
+      <nav class="bp-glass bp-toc" aria-labelledby="toc-h">
+        <h2 id="toc-h" data-i18n="blog.contents">Contents</h2>
+        <ol>
+            <li><a href="#why-worry" data-i18n="post.s.why-worry.h">Why worry about something that does not exist yet?</a></li>
+            <li><a href="#hndl" data-i18n="post.s.hndl.h">Harvest now, decrypt later</a></li>
+            <li><a href="#standards" data-i18n="post.s.standards.h">The new standards</a></li>
+            <li><a href="#timeline" data-i18n="post.s.timeline.h">The transition timeline</a></li>
+            <li><a href="#india" data-i18n="post.s.india.h">What about India?</a></li>
+            <li><a href="#orgs" data-i18n="post.s.orgs.h">What organisations should do now</a></li>
+            <li><a href="#individuals" data-i18n="post.s.individuals.h">Do individuals need to do anything?</a></li>
+            <li><a href="#faq" data-i18n="post.s.faq.h">Frequently asked questions</a></li>
+        </ol>
+      </nav>
+
+      <section class="bp-sec" id="why-worry" aria-labelledby="why-worry-h">
+        <h2 id="why-worry-h" data-i18n="post.s.why-worry.h">Why worry about something that does not exist yet?</h2>
+        <div data-i18n="post.s.why-worry.b"><p>Most secure communication today, such as HTTPS, VPNs and digital signatures, depends on public key algorithms like RSA and elliptic curve cryptography. These are safe against normal computers. But researchers have known for decades that a sufficiently powerful quantum computer could solve the maths behind them much faster.</p>
+<p>NIST calls such a machine a <strong>cryptanalytically relevant quantum computer</strong>. Nobody has one today. The concern is timing: changing cryptography across the world's systems takes many years, so the work must start long before the threat arrives.</p></div>
+      </section>
+      <section class="bp-sec" id="hndl" aria-labelledby="hndl-h">
+        <h2 id="hndl-h" data-i18n="post.s.hndl.h">Harvest now, decrypt later</h2>
+        <div data-i18n="post.s.hndl.b"><p>Imagine an attacker records encrypted traffic from a bank, a hospital or a government network today. They cannot read it now. But if they store it for ten or fifteen years and a capable quantum computer appears, they might decrypt it then. NIST's October 2026 announcement describes this "harvest now, decrypt later" threat as one of the main reasons the transition is urgent.</p>
+<p>Not all data matters in ten years. Your food delivery order does not. But medical records, government secrets, long term business plans and identity data might. That is why sensitive, long lived data gets priority.</p></div>
+      </section>
+      <section class="bp-sec" id="standards" aria-labelledby="standards-h">
+        <h2 id="standards-h" data-i18n="post.s.standards.h">The new standards</h2>
+        <div data-i18n="post.s.standards.b"><p>In August 2024, NIST approved three post-quantum Federal Information Processing Standards:</p>
+<ul>
+<li><strong>FIPS 203, ML-KEM:</strong> for key establishment, the part of encryption where two sides agree on a secret key.</li>
+<li><strong>FIPS 204, ML-DSA:</strong> for digital signatures.</li>
+<li><strong>FIPS 205, SLH-DSA:</strong> a different, hash based approach to digital signatures.</li>
+</ul>
+<p>These are designed to resist attacks from both normal and quantum computers.</p></div>
+      </section>
+      <section class="bp-sec" id="timeline" aria-labelledby="timeline-h">
+        <h2 id="timeline-h" data-i18n="post.s.timeline.h">The transition timeline</h2>
+        <div data-i18n="post.s.timeline.b"><p>On 27 October 2026, NIST released <strong>NISTIR 8547, Transition to Post-Quantum Cryptography Standards</strong>, its high level road map. According to NIST's announcement:</p>
+<ul>
+<li>US National Security Memorandum 10 set <strong>2035</strong> as the primary target for completing migration across federal systems.</li>
+<li>An executive order accelerated this for US federal high value assets and high impact systems, to <strong>2030 for key establishment</strong> and <strong>2031 for digital signatures</strong>.</li>
+<li>NIST suggests prioritising migration to FIPS 203 for particularly sensitive or long lived data because of harvest now, decrypt later.</li>
+<li>It also discusses a <strong>hybrid approach</strong>, combining conventional and post-quantum algorithms, like using two padlocks instead of one.</li>
+</ul>
+<p>These timelines are for US federal systems, but they shape what vendors, cloud providers and banks worldwide do, including in India.</p></div>
+      </section>
+      <section class="bp-sec" id="india" aria-labelledby="india-h">
+        <h2 id="india-h" data-i18n="post.s.india.h">What about India?</h2>
+        <div data-i18n="post.s.india.b"><p>CERT-In has published technical guidelines on bills of materials that include a <strong>QBOM</strong> and <strong>CBOM</strong> (often understood as quantum and cryptographic bills of materials) alongside SBOM, listed on its website as "Technical Guidelines on SBOM, QBOM &amp; CBOM, AIBOM and HBOM Version 2.0". The basic idea of a cryptography inventory, knowing which algorithms are used where, is exactly the first step NIST also emphasises.</p></div>
+      </section>
+      <section class="bp-sec" id="orgs" aria-labelledby="orgs-h">
+        <h2 id="orgs-h" data-i18n="post.s.orgs.h">What organisations should do now</h2>
+        <div data-i18n="post.s.orgs.b"><ol>
+<li><strong>Inventory cryptography:</strong> which systems use RSA, elliptic curves and other public key algorithms, including in vendor products.</li>
+<li><strong>Prioritise:</strong> sensitive, long lived data and systems that are hard to update.</li>
+<li><strong>Build crypto agility:</strong> design systems so algorithms can be swapped without rebuilding everything.</li>
+<li><strong>Talk to vendors</strong> about their PQC road maps.</li>
+<li><strong>Test hybrid modes</strong> where supported, such as in modern TLS libraries and browsers.</li>
+</ol></div>
+      </section>
+      <section class="bp-sec" id="individuals" aria-labelledby="individuals-h">
+        <h2 id="individuals-h" data-i18n="post.s.individuals.h">Do individuals need to do anything?</h2>
+        <div data-i18n="post.s.individuals.b"><p>Mostly no. The changes will arrive through software updates in browsers, operating systems, messaging apps and banking apps. Your job is the usual one: <strong>keep devices and apps updated.</strong> For learners, PQC is a great topic to understand at a conceptual level, and our <a href="blog-password-hashing-explained.html">password hashing post</a> is a good warm up on how cryptographic building blocks differ.</p></div>
+      </section>
+      <section class="bp-sec" id="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h" data-i18n="post.s.faq.h">Frequently asked questions</h2>
+        <div data-i18n="post.s.faq.b"><p><strong>Will quantum computers break all encryption?</strong> Not equally. The biggest risk is to public key algorithms like RSA and elliptic curve cryptography. Symmetric encryption like AES and hash functions are considered much less affected, generally needing larger key or output sizes rather than replacement.</p>
+<p><strong>When will a cryptanalytically relevant quantum computer exist?</strong> Nobody can say with certainty. That uncertainty, plus the long time migrations take, is why NIST and governments are planning now.</p></div>
+      </section>
+
+      <aside class="bp-glass bp-takeaways" aria-labelledby="take-h">
+        <h2 id="take-h">Key takeaways</h2>
+        <ul>
+          <li>Future quantum computers threaten RSA and elliptic curve public key cryptography.</li>
+          <li>Harvest now, decrypt later makes the risk real today for long lived secrets.</li>
+          <li>NIST published PQC standards in 2024 and a transition report in October 2026.</li>
+          <li>The first step for organisations is a cryptography inventory and crypto agility.</li>
+        </ul>
+      </aside>
+      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
+        <h2 id="src-h">Sources</h2>
+        <ul>
+          <li><a href="https://www.nist.gov/news-events/news/2024/08/announcing-approval-three-federal-information-processing-standards-fips" target="_blank" rel="noopener">NIST: Approval of three FIPS for post-quantum cryptography (August 2024)</a></li>
+          <li><a href="https://www.nist.gov/news-events/news/2026/10/nist-report-provides-guidelines-transition-post-quantum-cryptography" target="_blank" rel="noopener">NIST: report on transition to PQC standards, NISTIR 8547 (27 October 2026)</a></li>
+          <li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener">NIST CSRC: Post-Quantum Cryptography project</a></li>
+          <li><a href="https://www.cert-in.org.in/" target="_blank" rel="noopener">CERT-In: guidelines including SBOM, QBOM and CBOM</a></li>
+        </ul>
+        <p class="small muted">Links open the original sources, including official releases and news reports. Figures and rules can change, so check them before you rely on this post.</p>
+      </aside>
+
+      <aside class="bp-glass bp-author" aria-label="About the author">
+        <img src="assets/img/madhav-square.jpg" width="96" height="96" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="lazy" decoding="async">
+        <p data-i18n="blog.author"><strong>Madhav Pandya</strong> explains cybersecurity and scam awareness in plain English and Hinglish. He is the founder of CyberWithMadhav and is studying law and cloud security. <a href="about.html">About Madhav Pandya</a></p>
+      </aside>
+
+      <section class="bp-related" aria-labelledby="rel-h">
+        <h2 id="rel-h" data-i18n="blog.related">Related guides</h2>
+        <div class="bp-grid">
+        <article class="bp-card" data-cat="Tools and labs">
+          <p class="bp-cat mono" data-i18n="cat.tools-and-labs">Tools and labs</p>
+          <h3 class="bp-card-t"><a href="blog-password-hashing-explained.html" data-i18n="blogpost.password-hashing-explained.t">Password Hashing Explained: Hashing vs Encryption, Salts and bcrypt</a></h3>
+          <p class="muted small" data-i18n="blogpost.password-hashing-explained.d">When a company says passwords were stored &quot;securely&quot;, what does that actually mean? The answer is hashing, done properly. Here is how it works, why some methods fail, and what good practice looks like.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-how-the-internet-works.html" data-i18n="blogpost.how-the-internet-works.t">How the Internet Works: From Typing a URL to Seeing a Page</a></h3>
+          <p class="muted small" data-i18n="blogpost.how-the-internet-works.d">You open a website dozens of times a day. Understanding what happens in those few hundred milliseconds is one of the best foundations for a career in security.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Cyber trends 2026">
+          <p class="bp-cat mono" data-i18n="cat.cyber-trends">Cyber trends 2026</p>
+          <h3 class="bp-card-t"><a href="blog-zero-trust-explained.html" data-i18n="blogpost.zero-trust-explained.t">Zero Trust Explained Simply: Never Trust, Always Verify</a></h3>
+          <p class="muted small" data-i18n="blogpost.zero-trust-explained.d">Zero trust is one of the most used buzzwords in security, and also one of the most misunderstood. It is not a product you buy. It is a way of designing access so that being &quot;inside the network&quot; no longer means being trusted.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        </div>
+        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#tools">Free hash and security tools</a> · <a href="index.html#cheatsheets">Cheat sheets</a></p>
+      </section>
+
+      <p class="small muted bp-disclaimer" data-i18n="blog.disclaimer">Educational content, not legal advice. Check official sources before you rely on it. If you have lost money, call <a href="tel:1930">1930</a> now. <a href="terms.html">Terms</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, not legal advice. Check official sources.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+  <script src="assets/js/blog.js" defer></script>
+  <script src="assets/js/i18n/post-post-quantum-cryptography-explained.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</body>
+</html>

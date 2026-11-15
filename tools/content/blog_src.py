@@ -345,3 +345,8 @@ POSTS = [
  },
 },
 ]
+
+# Extra posts written in the light text format (tools/content/posts/*.txt), see blog_more.py
+from blog_more import MORE_POSTS, MORE_CAT_HI  # noqa: E402
+POSTS += MORE_POSTS
+CAT_HI.update(MORE_CAT_HI)

@@ -267,7 +267,10 @@ def robots():
 # ---------- 5: service worker and 404 ----------
 def service_worker():
     ps = pages() + ["404.html"]
-    assets = sorted({m for p in pages() for m in re.findall(r'(?:src|href)="((?:assets/(?:css|js|fonts)/)[^"?#]+)"', read(p))})
+    # precache the main pages and only the 6 newest blog posts; other posts are cached when visited (network first)
+    newest = [b["file"] for b in blog_posts()][:6]
+    pre = [p for p in ps if not p.startswith("blog-") or p in newest]
+    assets = sorted({m for p in pre if p != "404.html" for m in re.findall(r'(?:src|href)="((?:assets/(?:css|js|fonts)/)[^"?#]+)"', read(p))})
     fonts_css = ROOT / "assets/css/fonts.css"
     if fonts_css.exists():
         for name in re.findall(r'url\(\.\./fonts/([^)]+)\)', fonts_css.read_text(encoding="utf-8")):
@@ -277,7 +280,7 @@ def service_worker():
     for extra in ("assets/img/madhav.jpg", "assets/img/madhav-square.jpg", "assets/img/madhav.webp", "assets/img/madhav-square.webp"):
         if (ROOT / extra).exists():
             imgs.append(extra)
-    core = ["./"] + ps + assets + ["manifest.json", "favicon.svg"] + imgs + ["data/search.json"]
+    core = ["./"] + pre + assets + ["manifest.json", "favicon.svg"] + imgs + ["data/search.json"]
     h = hashlib.sha256()
     for f in sorted(set(ps + assets + ["manifest.json", "data/search.json"])):
         fp = ROOT / f

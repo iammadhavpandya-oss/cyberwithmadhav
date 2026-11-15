@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux) | CyberWithMadhav</title>
+  <meta name="description" content="Learn to verify software downloads with SHA-256 checksums on Windows, macOS and Linux, why it matters, and how signatures add even stronger trust.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/blog-verify-downloads-sha256.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)">
+  <meta property="og:description" content="Learn to verify software downloads with SHA-256 checksums on Windows, macOS and Linux, why it matters, and how signatures add even stronger trust.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/blog-verify-downloads-sha256.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/blog/verify-downloads-sha256.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Share card reading How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)">
+  <meta name="twitter:description" content="Learn to verify software downloads with SHA-256 checksums on Windows, macOS and Linux, why it matters, and how signatures add even stronger trust.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/blog/verify-downloads-sha256.png">
+  <meta name="twitter:image:alt" content="Share card reading How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/consent.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
+  <meta property="article:published_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:modified_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:author" content="https://www.cyberwithmadhav.com/about.html">
+  <meta property="article:section" content="Tools and labs">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.cyberwithmadhav.com/blog-verify-downloads-sha256.html#post", "mainEntityOfPage": "https://www.cyberwithmadhav.com/blog-verify-downloads-sha256.html", "headline": "How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)", "description": "Learn to verify software downloads with SHA-256 checksums on Windows, macOS and Linux, why it matters, and how signatures add even stronger trust.", "image": "https://www.cyberwithmadhav.com/assets/img/blog/verify-downloads-sha256.png", "datePublished": "2026-11-15T09:00:00+05:30", "dateModified": "2026-11-15T09:00:00+05:30", "inLanguage": "en-IN", "articleSection": "Tools and labs", "keywords": ["how to verify sha256 checksum", "sha256sum windows certutil", "verify download integrity", "checksum kya hota hai"], "author": {"@type": "Person", "@id": "https://www.cyberwithmadhav.com/about.html#person", "name": "Madhav Pandya", "url": "https://www.cyberwithmadhav.com/about.html"}, "publisher": {"@type": "Organization", "@id": "https://www.cyberwithmadhav.com/#org", "name": "CyberWithMadhav", "logo": {"@type": "ImageObject", "url": "https://www.cyberwithmadhav.com/assets/img/apple-touch-icon.png"}}, "isPartOf": {"@id": "https://www.cyberwithmadhav.com/blog.html#blog"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cyberwithmadhav.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.cyberwithmadhav.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)"}]}]}
+  </script>
+</head>
+<body class="v3 blog-page bp-post-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog active"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="bp-post wrap" aria-labelledby="p-title">
+      <nav class="bp-crumbs small muted" aria-label="Breadcrumb">
+        <a href="index.html" data-i18n="blog.home">Home</a> <span aria-hidden="true">/</span> <a href="blog.html">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page" data-i18n="blogpost.verify-downloads-sha256.s">Verify downloads with SHA-256</span>
+      </nav>
+      <p class="bp-cat mono" data-i18n="cat.tools-and-labs">Tools and labs</p>
+      <h1 id="p-title" data-i18n="post.title">How to Verify Downloads with SHA-256 Checksums (Windows, Mac and Linux)</h1>
+      <p class="lead" data-i18n="post.lead">When you download an ISO, a tool or an installer, how do you know it was not corrupted or tampered with? A checksum gives you a quick, free way to check. It takes one command.</p>
+      <div class="bp-byline small muted">
+        <img src="assets/img/madhav-square.jpg" width="40" height="40" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="eager" decoding="async">
+        <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="2026-11-15">15 November 2026</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+      </div>
+      <div class="tags tags-row bp-tags"><span class="tag">SHA-256</span><span class="tag">checksums</span><span class="tag">integrity</span><span class="tag">downloads</span></div>
+
+      <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
+        <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
+        <p data-i18n="post.quick">A SHA-256 checksum is a fingerprint of a file. Compute it on your downloaded file and compare it with the value the <strong>official</strong> website publishes. On Linux use <code>sha256sum file.iso</code>, on macOS <code>shasum -a 256 file.iso</code>, and on Windows PowerShell <code>Get-FileHash file.iso</code>. If even one character differs, do not use the file. For stronger trust, verify the developer's <strong>signature</strong> too.</p>
+      </aside>
+
+      <nav class="bp-glass bp-toc" aria-labelledby="toc-h">
+        <h2 id="toc-h" data-i18n="blog.contents">Contents</h2>
+        <ol>
+            <li><a href="#why" data-i18n="post.s.why.h">Why verify downloads at all?</a></li>
+            <li><a href="#how" data-i18n="post.s.how.h">How checksums work</a></li>
+            <li><a href="#linux" data-i18n="post.s.linux.h">On Linux</a></li>
+            <li><a href="#mac" data-i18n="post.s.mac.h">On macOS</a></li>
+            <li><a href="#windows" data-i18n="post.s.windows.h">On Windows</a></li>
+            <li><a href="#where-hash" data-i18n="post.s.where-hash.h">Where to get the official hash</a></li>
+            <li><a href="#signatures" data-i18n="post.s.signatures.h">Going further: signatures</a></li>
+            <li><a href="#habit" data-i18n="post.s.habit.h">Make it a habit</a></li>
+            <li><a href="#faq" data-i18n="post.s.faq.h">Frequently asked questions</a></li>
+            <li><a href="#try-now" data-i18n="post.s.try-now.h">Try it now in two minutes</a></li>
+        </ol>
+      </nav>
+
+      <section class="bp-sec" id="why" aria-labelledby="why-h">
+        <h2 id="why-h" data-i18n="post.s.why.h">Why verify downloads at all?</h2>
+        <div data-i18n="post.s.why.b"><p>Downloads can go wrong in two ways:</p>
+<ul>
+<li><strong>Corruption:</strong> a network glitch breaks the file. An ISO might fail to boot strangely.</li>
+<li><strong>Tampering:</strong> a malicious mirror or fake download site serves a modified file with malware inside.</li>
+</ul>
+<p>Checking a checksum against the official value catches both. For security tools and operating system images you plan to use in your <a href="blog-safe-home-lab-setup.html">home lab</a>, this is a good professional habit.</p></div>
+      </section>
+      <section class="bp-sec" id="how" aria-labelledby="how-h">
+        <h2 id="how-h" data-i18n="post.s.how.h">How checksums work</h2>
+        <div data-i18n="post.s.how.b"><p>A hash function like <strong>SHA-256</strong> turns any file into a fixed 64 character hexadecimal string. Change a single byte in the file, and the string changes completely. So if your computed hash matches the official one exactly, the file is the same as the one the publisher hashed. Our <a href="blog-password-hashing-explained.html">password hashing post</a> explains hash properties in more detail.</p></div>
+      </section>
+      <section class="bp-sec" id="linux" aria-labelledby="linux-h">
+        <h2 id="linux-h" data-i18n="post.s.linux.h">On Linux</h2>
+        <div data-i18n="post.s.linux.b"><pre class="bp-code"><code>sha256sum ubuntu.iso</code></pre>
+<p>If the publisher provides a checksum file, such as <code>SHA256SUMS</code>, put it in the same folder and run:</p>
+<pre class="bp-code"><code>sha256sum -c SHA256SUMS --ignore-missing</code></pre>
+<p>You should see <code>OK</code> next to your file name.</p></div>
+      </section>
+      <section class="bp-sec" id="mac" aria-labelledby="mac-h">
+        <h2 id="mac-h" data-i18n="post.s.mac.h">On macOS</h2>
+        <div data-i18n="post.s.mac.b"><pre class="bp-code"><code>shasum -a 256 ubuntu.iso</code></pre>
+<p>Compare the output with the official value.</p></div>
+      </section>
+      <section class="bp-sec" id="windows" aria-labelledby="windows-h">
+        <h2 id="windows-h" data-i18n="post.s.windows.h">On Windows</h2>
+        <div data-i18n="post.s.windows.b"><p>In PowerShell:</p>
+<pre class="bp-code"><code>Get-FileHash .\ubuntu.iso
+Get-FileHash .\ubuntu.iso -Algorithm SHA256</code></pre>
+<p>SHA-256 is the default algorithm for Get-FileHash. In Command Prompt you can also use:</p>
+<pre class="bp-code"><code>certutil -hashfile ubuntu.iso SHA256</code></pre>
+<p>To compare automatically in PowerShell:</p>
+<pre class="bp-code"><code>(Get-FileHash .\ubuntu.iso).Hash -eq "PASTE_OFFICIAL_HASH_HERE".ToUpper()</code></pre>
+<p>It prints <code>True</code> or <code>False</code>.</p></div>
+      </section>
+      <section class="bp-sec" id="where-hash" aria-labelledby="where-hash-h">
+        <h2 id="where-hash-h" data-i18n="post.s.where-hash.h">Where to get the official hash</h2>
+        <div data-i18n="post.s.where-hash.b"><ul>
+<li>From the <strong>official website</strong>, on the download page or a linked checksum file, ideally over HTTPS.</li>
+<li>Not from a random forum, a YouTube description or the same unofficial mirror you downloaded from. If an attacker controls the mirror, they can change both the file and the checksum shown there.</li>
+</ul></div>
+      </section>
+      <section class="bp-sec" id="signatures" aria-labelledby="signatures-h">
+        <h2 id="signatures-h" data-i18n="post.s.signatures.h">Going further: signatures</h2>
+        <div data-i18n="post.s.signatures.b"><p>A checksum proves the file matches a hash. But who published that hash? <strong>Digital signatures</strong> answer that. Many projects sign their checksum files with a GPG key or sign installers with code signing certificates. Kali Linux, for example, documents how to verify its images, including signed checksum files.</p>
+<p>On Windows, you can also right click an installer, open <strong>Properties</strong>, then <strong>Digital Signatures</strong> to see who signed it. An unsigned installer from an unknown source deserves extra caution.</p></div>
+      </section>
+      <section class="bp-sec" id="habit" aria-labelledby="habit-h">
+        <h2 id="habit-h" data-i18n="post.s.habit.h">Make it a habit</h2>
+        <div data-i18n="post.s.habit.b"><p>For OS images, security tools and anything you run with admin rights, verify the hash. It takes 30 seconds. Try it now with any file you downloaded recently, and also try the <a href="index.html#tools">hash tool on our home page</a> with a short text to see how small changes produce different hashes.</p></div>
+      </section>
+      <section class="bp-sec" id="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h" data-i18n="post.s.faq.h">Frequently asked questions</h2>
+        <div data-i18n="post.s.faq.b"><p><strong>Is MD5 or SHA-1 okay for checksums?</strong> They can still detect accidental corruption, but they have known weaknesses that make deliberate tampering possible in some cases. Prefer SHA-256 or stronger when the publisher offers it.</p>
+<p><strong>The hash does not match. What now?</strong> Delete the file and download again from the official source. If it still does not match, do not run it, and check the project's official announcements.</p>
+<p><strong>Uppercase and lowercase letters differ. Is that a mismatch?</strong> No. Hexadecimal hashes are not case sensitive. Compare the characters, not the case.</p>
+<p><strong>Do app stores verify downloads for me?</strong> Official app stores handle signature checks for apps installed through them. Checksums matter most for files you download directly, such as ISOs, installers and tools.</p>
+<p><strong>Does a matching checksum mean the software is safe?</strong> It means the file is the one the publisher released. If the publisher itself was compromised, the checksum would match a bad file too. That is why signatures, reputable sources and keeping software updated all matter together.</p></div>
+      </section>
+      <section class="bp-sec" id="try-now" aria-labelledby="try-now-h">
+        <h2 id="try-now-h" data-i18n="post.s.try-now.h">Try it now in two minutes</h2>
+        <div data-i18n="post.s.try-now.b"><p>Download any small official file, for example a release from an open source project you trust that publishes SHA-256 values. Compute its hash with the command for your system and compare. Then change one character in a copy of a text file and hash both versions to see the difference. Note the steps in your lab notebook, it is a nice small entry for your portfolio.</p></div>
+      </section>
+
+      <aside class="bp-glass bp-takeaways" aria-labelledby="take-h">
+        <h2 id="take-h">Key takeaways</h2>
+        <ul>
+          <li>A checksum is a fingerprint that changes completely if a file changes.</li>
+          <li>Compare the hash with the value on the official site, character by character.</li>
+          <li>Use sha256sum, shasum or Get-FileHash depending on your system.</li>
+          <li>Signatures add proof of who published the checksum.</li>
+        </ul>
+      </aside>
+      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
+        <h2 id="src-h" data-i18n="blog.sources">Official sources</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash" target="_blank" rel="noopener">Microsoft Learn: Get-FileHash (PowerShell)</a></li>
+          <li><a href="https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html" target="_blank" rel="noopener">GNU Coreutils: sha2 utilities</a></li>
+          <li><a href="https://www.kali.org/docs/introduction/download-official-kali-linux-images/" target="_blank" rel="noopener">Kali Linux docs: downloading Kali and verifying the image</a></li>
+        </ul>
+        <p class="small muted" data-i18n="blog.sources.note">Links open the official sites. Procedures and rules can change, so check them before you rely on this post.</p>
+      </aside>
+
+      <aside class="bp-glass bp-author" aria-label="About the author">
+        <img src="assets/img/madhav-square.jpg" width="96" height="96" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="lazy" decoding="async">
+        <p data-i18n="blog.author"><strong>Madhav Pandya</strong> explains cybersecurity and scam awareness in plain English and Hinglish. He is the founder of CyberWithMadhav and is studying law and cloud security. <a href="about.html">About Madhav Pandya</a></p>
+      </aside>
+
+      <section class="bp-related" aria-labelledby="rel-h">
+        <h2 id="rel-h" data-i18n="blog.related">Related guides</h2>
+        <div class="bp-grid">
+        <article class="bp-card" data-cat="Tools and labs">
+          <p class="bp-cat mono" data-i18n="cat.tools-and-labs">Tools and labs</p>
+          <h3 class="bp-card-t"><a href="blog-password-hashing-explained.html" data-i18n="blogpost.password-hashing-explained.t">Password Hashing Explained: Hashing vs Encryption, Salts and bcrypt</a></h3>
+          <p class="muted small" data-i18n="blogpost.password-hashing-explained.d">When a company says passwords were stored &quot;securely&quot;, what does that actually mean? The answer is hashing, done properly. Here is how it works, why some methods fail, and what good practice looks like.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-safe-home-lab-setup.html" data-i18n="blogpost.safe-home-lab-setup.t">How to Set Up a Safe Cybersecurity Home Lab on Your Laptop</a></h3>
+          <p class="muted small" data-i18n="blogpost.safe-home-lab-setup.d">A home lab is where you are allowed to break things. It lets you practise attacks and defences legally, on machines you own. Here is how to set one up without spending money or putting your home network at risk.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-linux-basics-for-cybersecurity.html" data-i18n="blogpost.linux-basics-for-cybersecurity.t">Linux Basics for Cybersecurity: The Commands You Will Actually Use</a></h3>
+          <p class="muted small" data-i18n="blogpost.linux-basics-for-cybersecurity.d">Most servers, security tools and cloud machines run Linux. You do not need to master it in a week, but you do need to feel comfortable in a terminal. Here is a practical starting kit.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        </div>
+        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#tools">Free hash tool on the home page</a> · <a href="commands.html">Blue team commands</a></p>
+      </section>
+
+      <p class="small muted bp-disclaimer" data-i18n="blog.disclaimer">Educational content, not legal advice. Check official sources before you rely on it. If you have lost money, call <a href="tel:1930">1930</a> now. <a href="terms.html">Terms</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, not legal advice. Check official sources.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+  <script src="assets/js/blog.js" defer></script>
+  <script src="assets/js/i18n/post-verify-downloads-sha256.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
++++ free-cybersecurity-certifications-beginners
+## portfolio-pair | Pair every certificate with proof
+For each certificate, build one matching mini project. Networking course: a home network diagram and a subnet plan. Cloud fundamentals: a locked down storage bucket with logging, documented step by step. Security fundamentals: a phishing email analysis. This pairing turns "I passed a test" into "I can do the work", which is what interviewers want to hear.
+
++++ safe-upi-habits
+## faq | Frequently asked questions
+**Is it safe to keep a large balance in my UPI linked account?** Many people prefer linking UPI to an account with a smaller balance for daily spending, and keeping savings in a separate account. It limits damage if something goes wrong.
+
+**Someone sent me money and now asks me to return it. What should I do?** First confirm in your bank app that money really arrived. If it did, ask the sender to raise it with their bank. Do not send money to a new number or UPI ID they give you.
+
++++ whatsapp-account-takeover
+## faq | Frequently asked questions
+**Can someone hack my WhatsApp just by knowing my number?** Knowing your number alone is not enough in normal cases. They usually need the registration code, access to your unlocked phone or a linked device session. That is why the code and your screen lock matter so much.
+
+**Will WhatsApp support call me?** Do not trust calls or messages claiming to be WhatsApp support asking for codes or PINs. Use the official Help Center inside the app.
+
++++ otp-scams-india
+## faq | Frequently asked questions
+**The caller already knew my name and account details. Is it real?** Not necessarily. Scammers often buy leaked data. Knowing your details does not make them genuine. The request for an OTP is what proves it is a scam.
+
+**Is it safe to share an OTP with family?** Avoid it. Even with family, it is better that each person enters their own OTP on their own device, so you build a strict habit that scammers cannot exploit.
+
++++ fake-job-offer-scams
+## faq | Frequently asked questions
+**The company name is real. Does that mean the job is real?** No. Scammers often use famous company names and logos. Check the role on the company's official careers page and confirm through official contact details.
+
+**I received small payments from the task job. Is it safe to continue?** Those early payments are bait to build trust. Stop before you are asked to deposit any money, and report the group.
+
+**Can I get my money back?** Reporting quickly on 1930 and cybercrime.gov.in gives the best chance for amounts to be put on hold. There is no guarantee, so prevention matters most.
+
+**Are internships with fees always scams?** Some genuine training programs charge fees, but a job or internship offer that requires payment before joining deserves serious verification. Check the organisation, read reviews and never pay through personal UPI IDs.
+
++++ loan-app-harassment-help
+## faq | Frequently asked questions
+**Should I repay an illegal loan app?** Take advice from police or a lawyer for your specific situation. Do not pay inflated or extortion amounts under threat, and keep records of everything you have paid.
+
+**Can recovery agents of regulated lenders harass me?** RBI rules require regulated lenders and their recovery agents to follow fair practices. Abuse, threats and calls at odd hours are not acceptable. Complain to the lender and then through the RBI's complaint system.
+
++++ secure-parents-phone
+## faq | Frequently asked questions
+**Should I install a security app on my parents' phone?** Built in protections like Google Play Protect, regular updates and app cleanup cover a lot. If you add a security app, choose a well known one from the official store, and avoid apps that ask for unnecessary permissions.
+
+**My parents get many spam calls. What helps?** Report fraud calls on Sanchar Saathi's Chakshu, use the phone's built in spam call filtering, and register for Do Not Disturb preferences through their telecom operator. Most importantly, teach them that it is fine to cut a call that feels wrong.
+
+**What if they already shared details on a call?** Act quickly: call the bank's official number to block cards or UPI, change passwords, and if money was lost, call 1930 at once. Reassure them that it is not their fault.
+
++++ strong-passwords-password-managers
+## faq | Frequently asked questions
+**Is it safe to keep all passwords in one place?** A reputable password manager encrypts your vault, and it is far safer than reusing passwords or writing them in a notes app. Protect the manager with a strong master password and two factor authentication.
+
+**Should I change my passwords every month?** Modern guidance, such as NIST's, discourages forced regular changes without a reason, because people then choose weaker patterns. Change a password when there is a sign of compromise or a breach.
+
+**What if I forget my master password?** Many managers cannot recover it, by design. Set up the recovery options offered when you create the vault, such as a recovery key, and store it safely offline.
+
+**Is the browser's built in password manager good enough?** For many people, yes, especially when it is tied to an account protected with two factor authentication. The most important thing is that every password is unique.
+
++++ two-factor-authentication-guide
+## faq | Frequently asked questions
+**Is SMS OTP still worth using?** Yes, if it is the only option. It stops most automated attacks. Upgrade to an authenticator app or passkey where the service allows it.
+
+**Do I need 2FA if I already use a strong password?** Yes. Strong passwords can still be phished or leaked from a breached website. 2FA protects you in exactly those cases.
+
+**Can I use one authenticator app for many accounts?** Yes. One app can hold codes for all your accounts. Just make sure you have a backup plan if you change phones.
+
++++ public-wifi-safety
+## faq | Frequently asked questions
+**Is it safe to check email on public WiFi?** Major email services use HTTPS, so content is encrypted. The bigger risk is a fake login page. Use the official app, check the domain, and keep two factor authentication on.
+
+**What about using my phone as a hotspot for my laptop?** Using your own mobile hotspot with a strong password is usually safer than public WiFi, because you control the network.
+
+**Is a "5G" or "Free" network name more trustworthy?** No. Anyone can choose any network name. Always confirm the exact name with the venue staff.
+
++++ first-hour-after-cyber-fraud
+## faq | Frequently asked questions
+**The fraud happened two days ago. Is it too late?** No. Report it now. Reporting later may reduce the chance of holding money, but it still matters for the investigation and for your rights with the bank.
+
+**I am embarrassed. Should I still report a small amount?** Yes. Small reports help police connect cases and block mule accounts, protecting others.
+
+**Can I file a complaint for a family member?** You can help them, but the complaint should ideally be filed with the victim's details and transactions. Sit with them and fill it together.
+
++++ kids-online-safety-india
+## faq | Frequently asked questions
+**What is the right age for a first smartphone?** There is no single answer. Many families start with a shared or limited device, then increase independence step by step as the child shows responsibility. Rules matter more than the exact age.
+
+**Should I read my teenager's chats?** Constant secret monitoring can damage trust. Agree on rules openly, explain the risks, and keep the door open for them to come to you. Step in more closely if you see warning signs.
+
+**Are kids' versions of apps fully safe?** They help a lot, but no filter is perfect. Supervision and conversation are still needed.
+
++++ ransomware-trends-2026
+## faq | Frequently asked questions
+**Can individuals get ransomware on phones?** Phone ransomware exists but is less common than on Windows computers. Installing apps only from official stores and keeping phones updated reduces the risk a lot.
+
+**Is cloud storage like Google Drive or OneDrive a backup?** Synced folders can also sync encrypted files. Use a service with version history or file recovery, and keep at least one separate backup that is not always connected.
+
+**Should small businesses buy cyber insurance?** It can help with recovery costs, but insurers usually expect basic controls like MFA and backups first. Fix the basics before anything else.
+
++++ vulnerability-exploitation-patching-2026
+## faq | Frequently asked questions
+**Why not just patch everything immediately?** Large organisations run thousands of systems, and some patches can break business critical software. That is why prioritisation and quick testing matter more than trying to patch everything at once.
+
+**What does "end of life" mean?** The vendor no longer releases security updates. Any new vulnerability will stay unfixed forever, so plan to replace such software or devices.
+
+**Are automatic updates safe to leave on at home?** For personal devices, yes. The risk of an unpatched device is much higher than the small chance of an update causing problems.
+
+**What is a zero day?** A vulnerability that attackers exploit before a patch is available. You cannot patch it yet, so defences like least privilege, segmentation and monitoring help limit the damage.
+
++++ cloud-misconfiguration-leaked-secrets
+## faq | Frequently asked questions
+**I accidentally pushed a key to GitHub and deleted it. Am I safe?** No. Treat the key as compromised. Rotate or revoke it immediately with the provider, check logs for misuse, and clean the repository history.
+
+**Are private repositories safe for secrets?** Safer than public, but still not a good place. Private repositories can be shared, cloned or leaked. Use a secret manager.
+
++++ zero-trust-explained
+## faq | Frequently asked questions
+**Does zero trust mean we do not trust our employees?** No. It means trust is not automatic based on network location. Every request is verified, which also protects employees whose accounts might be stolen.
+
+**Is zero trust only for large companies?** Small organisations can apply the same ideas: MFA for everyone, least privilege, updated devices and per app access through cloud identity tools.
+
+**Do we still need firewalls?** Yes. Zero trust adds identity and context based checks, but network controls and segmentation remain part of a layered defence.
+
+**How long does it take to adopt zero trust?** For most organisations it is a multi year journey done in stages. CISA's maturity model describes stages from traditional to optimal, so progress can be measured step by step.
+
++++ bank-in-domain-india
+## faq | Frequently asked questions
+**My bank's old website address still works. Is it fake?** Many banks redirect old addresses to the new .bank.in domain. After the page loads, check that the address bar shows a .bank.in domain.
+
+**Do bank apps also change?** The circular is about website domains. For apps, install only the official app from the Play Store or App Store, checking the developer name.
+
+**What about NBFCs, insurance companies and other financial firms?** RBI's February 2025 announcement also mentioned a fin.in domain for the wider financial sector. Until that is widely used, check domains carefully and use official apps.
+
+**Can a scam SMS contain a real looking .bank.in link?** Scammers may try tricks like `.bank.in` appearing in the middle of a longer address. Always read the end of the domain, and prefer typing the address yourself.
+
+**Is a .bank.in website automatically safe to enter my details on?** It is a strong signal that the site belongs to a bank. Still, use it only for your own bank, check the full domain and never share OTPs or PINs on a phone call.
+
++++ india-cyber-fraud-numbers-2025
+## faq | Frequently asked questions
+**Where can I find the latest official numbers?** Look for MHA replies in Parliament (published on sansad.in and PIB) and official I4C releases. Be careful with social media posts that do not cite a source.
+
+**Do these numbers include all cyber crime?** No. These figures are financial fraud complaints on NCRP and amounts reported through NCRP and CFCFRMS. Other cyber crimes and NCRB crime statistics are separate datasets.
+
++++ post-quantum-cryptography-explained
+## faq | Frequently asked questions
+**Will quantum computers break all encryption?** Not equally. The biggest risk is to public key algorithms like RSA and elliptic curve cryptography. Symmetric encryption like AES and hash functions are considered much less affected, generally needing larger key or output sizes rather than replacement.
+
+**When will a cryptanalytically relevant quantum computer exist?** Nobody can say with certainty. That uncertainty, plus the long time migrations take, is why NIST and governments are planning now.
+
++++ prompt-injection-shadow-ai
+## faq | Frequently asked questions
+**Can prompt injection be fully prevented?** OWASP's guidance focuses on reducing risk through layered controls, because no single filter is perfect. Limiting what the AI can access and do is one of the most reliable protections.
+
+**Is it okay to use AI tools for studying cybersecurity?** Yes, they can explain concepts well. Verify important facts with official documentation, and never use AI to attack systems you do not own.
+
++++ sanchar-saathi-guide
+## faq | Frequently asked questions
+**Is Sanchar Saathi the same as the 1930 helpline?** No. Sanchar Saathi is a DoT portal for telecom related fraud reporting and tools. The 1930 helpline and cybercrime.gov.in are for reporting cyber crime and financial fraud to police.
+
+**Will reporting on Chakshu get my money back?** Chakshu is for reporting suspected fraud communication. For money lost, call 1930 and file a complaint at cybercrime.gov.in.
+
+**Is the app safe to install?** Install it only from the official Play Store or App Store listings linked by DoT, and check the developer name before downloading.
+
++++ nmap-own-lab-guide
+## faq | Frequently asked questions
+**Can I scan my own home WiFi router?** Scanning devices you own on your own network is generally fine, and a good way to check for open services. Avoid scanning devices that belong to family members or neighbours without asking.
+
+**Is nmap a hacking tool?** It is a network discovery and auditing tool used widely by system administrators and defenders. Like any tool, the permission and purpose decide whether its use is legitimate.
+
+**Why are all my ports filtered?** A firewall is probably dropping packets. In your lab, check the target's firewall settings and remember that filtered results are also useful information.
+
++++ burp-suite-intro-practice
+## faq | Frequently asked questions
+**Do I need to know coding to use Burp?** Basic understanding of HTTP and HTML is enough to start. JavaScript and a backend language help later when you analyse more complex applications.
+
+**Why does my browser show certificate errors with Burp?** If you use your own browser, it needs to trust Burp's certificate. Using Burp's built in browser avoids this setup for beginners.
+
+**Can I use Burp on mobile apps?** Yes, with extra setup, but start with web applications in your lab first.
+
++++ password-hashing-explained
+## faq | Frequently asked questions
+**Is encryption ever used for passwords?** Websites should not store passwords with reversible encryption, because anyone with the key could recover them all. Password managers are different: they encrypt your vault so you can read your own passwords.
+
+**What is a rainbow table?** A large precomputed table of hashes for common passwords, used to reverse unsalted hashes quickly. Unique salts make rainbow tables ineffective.
+
+**Why do websites limit login attempts?** Rate limiting slows down online guessing. Hashing protects the stored passwords if the database leaks. Both work together.
+
++++ vpn-myths
+## faq | Frequently asked questions
+**Does a VPN slow my internet?** Often a little, because traffic takes an extra hop and is encrypted. A good provider and a nearby server keep it small.
+
+**Should I keep a VPN on all the time on my phone?** It depends on your needs. On trusted home WiFi and mobile data, many people do not need it. On untrusted networks, turning it on is reasonable.
+
+**Can a VPN stop scam calls?** No. Calls and SMS do not go through a VPN tunnel. Use Sanchar Saathi Chakshu to report fraud calls and messages.
+
++++ linux-logs-for-beginners
+## faq | Frequently asked questions
+**My system has no auth.log. Why?** Some distributions use only the systemd journal by default, or use a different file name like `secure`. Try `journalctl` instead.
+
+**Can I read logs without sudo?** Usually not for security logs, because they contain sensitive information. Some users in an admin group may have read access.
+
+**What is a SIEM?** A Security Information and Event Management system collects logs from many systems, correlates them and raises alerts. SOC analysts spend much of their time in a SIEM.
+
+**How do I practise without a server on the internet?** Use your home lab. Generate events yourself with failed logins, sudo use and scans, then find them in the logs.
+
++++ verify-downloads-sha256
+## faq | Frequently asked questions
+**Is MD5 or SHA-1 okay for checksums?** They can still detect accidental corruption, but they have known weaknesses that make deliberate tampering possible in some cases. Prefer SHA-256 or stronger when the publisher offers it.
+
+**The hash does not match. What now?** Delete the file and download again from the official source. If it still does not match, do not run it, and check the project's official announcements.
+
+**Uppercase and lowercase letters differ. Is that a mismatch?** No. Hexadecimal hashes are not case sensitive. Compare the characters, not the case.
+
+**Do app stores verify downloads for me?** Official app stores handle signature checks for apps installed through them. Checksums matter most for files you download directly, such as ISOs, installers and tools.
+
+**Does a matching checksum mean the software is safe?** It means the file is the one the publisher released. If the publisher itself was compromised, the checksum would match a bad file too. That is why signatures, reputable sources and keeping software updated all matter together.
+
+## try-now | Try it now in two minutes
+Download any small official file, for example a release from an open source project you trust that publishes SHA-256 values. Compute its hash with the command for your system and compare. Then change one character in a copy of a text file and hash both versions to see the difference. Note the steps in your lab notebook, it is a nice small entry for your portfolio.
+
++++ browser-devtools-for-security
+## faq | Frequently asked questions
+**Can a website detect that I opened DevTools?** Some sites try, but viewing what your own browser received is normal. Just do not use what you see to attack sites you do not own.
+
+**Is it safe to clear cookies in DevTools?** Yes. You will be logged out of sites, which is sometimes a useful troubleshooting step.
+
+**Which browser is best for learning?** Chrome, Edge and Firefox all have excellent developer tools. Use the one you are comfortable with.

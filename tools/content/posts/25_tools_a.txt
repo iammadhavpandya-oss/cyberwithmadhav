@@ -1,0 +1,297 @@
+=== wireshark-basics
+title: Wireshark Basics for Beginners: Capture and Read Your Own Network Traffic
+short: Wireshark basics
+desc: Learn Wireshark basics on your own network: install, capture, use display filters, follow a TCP stream and spot DNS and HTTP. Ethical, beginner friendly guide.
+lead: Wireshark lets you see what is actually travelling over a network, packet by packet. It is one of the best learning tools in cybersecurity, as long as you only capture traffic you are allowed to see.
+cat: Tools and labs
+tags: Wireshark, packets, networking, lab
+kw: wireshark tutorial for beginners; wireshark display filters; how to use wireshark; wireshark kaise use kare
+hi: Beginners ke liye Wireshark basics: apna network traffic capture karo aur padho
+related: networking-basics-for-cybersecurity, osi-tcp-ip-model-explained, nmap-own-lab-guide
+hubs: index.html#networking|Networking basics; commands.html|Blue team commands
+src: Wireshark User's Guide|https://www.wireshark.org/docs/wsug_html_chunked/
+src: Wireshark display filter reference|https://www.wireshark.org/docs/dfref/
+quick: Install Wireshark from the official site, pick your network interface, capture a few seconds while you load a website, then use **display filters** like `dns`, `http`, `tcp.port == 443` or `ip.addr == 192.168.1.10` to focus. Right click a packet and choose **Follow, TCP Stream** to read a conversation. **Only capture traffic on networks and devices you own or have permission to monitor.**
+takeaways:
+- Wireshark shows real packets, which makes networking concepts concrete.
+- Display filters are the key skill: dns, http, tcp.port, ip.addr.
+- Encrypted HTTPS content is not readable, but metadata like DNS and IPs still is.
+- Capture only your own or authorised traffic, and never share captures with private data.
+## legal | First, the legal and ethical rule
+Only test systems you own or have permission for. Capturing other people's network traffic, for example on a college or office network or a public WiFi, without authorisation can break the law and policies, and it invades privacy. Use Wireshark on your **own laptop and home network**, or inside your **home lab** between your own virtual machines. That is plenty to learn everything in this guide.
+
+## install | Install and first capture
+1. Download Wireshark from the official website, wireshark.org. Avoid third party download sites.
+2. On Windows, the installer offers **Npcap**, which is needed for capturing. On Linux, install from your distribution's package manager and follow the prompts about capture permissions.
+3. Open Wireshark. You will see a list of interfaces with small activity graphs. Pick the one with traffic, usually WiFi or Ethernet.
+4. Click the blue shark fin to start. Open a website in your browser. Wait five seconds. Click the red square to stop.
+
+You will see hundreds of lines. Do not panic. Each line is one packet.
+
+## layout | Understanding the three panes
+- **Packet list (top):** one row per packet with time, source, destination, protocol and a short info column.
+- **Packet details (middle):** the selected packet broken into layers: frame, Ethernet or WiFi, IP, TCP or UDP, then the application protocol. This is the OSI model from Part 6 of our [Beginner Journey](blog-osi-tcp-ip-model-explained.html), live.
+- **Packet bytes (bottom):** the raw bytes in hex and text.
+
+Click a packet and expand each layer in the middle pane. Find the source and destination IP, the ports and the protocol.
+
+## filters | Display filters: your superpower
+Type filters in the bar at the top and press Enter:
+
+```
+dns                         # only DNS lookups
+http                        # unencrypted web traffic
+tls                         # encrypted web handshakes
+tcp.port == 443             # traffic on port 443
+ip.addr == 192.168.1.10     # traffic to or from one IP
+tcp.flags.syn == 1 && tcp.flags.ack == 0   # new TCP connection attempts
+dns.qry.name contains "example"
+```
+
+Note that **display filters** (which hide packets in the view) use a different syntax from **capture filters** (which decide what gets recorded). Start with display filters.
+
+## exercises | Five beginner exercises
+1. **Watch DNS:** filter `dns`, visit a new website, and find the query and response with the IP address.
+2. **See the handshake:** filter `tcp.port == 443`, find the SYN, SYN-ACK and ACK packets at the start of a connection.
+3. **Find TLS server names:** filter `tls.handshake.type == 1` and look for the server name in the Client Hello. This shows which site was visited even though content is encrypted.
+4. **Follow a stream:** in your lab, open an HTTP (not HTTPS) test page on your vulnerable VM, then right click a packet and choose Follow, TCP Stream to read the request and response.
+5. **Lab scan from the defender side:** run an nmap scan from one lab VM to another and watch the burst of SYN packets. See our [nmap own lab guide](blog-nmap-own-lab-guide.html).
+
+## https | What you can and cannot see with HTTPS
+With HTTPS, the content of pages, passwords and cookies is encrypted, so Wireshark shows it as TLS application data. You can still see IP addresses, ports, DNS lookups (unless encrypted DNS is used), timing and often the server name. This is a good lesson in why encryption matters, and also why **metadata** can still reveal a lot.
+
+On unencrypted HTTP in your lab, you will see everything in plain text, including any login form data. That is exactly why websites moved to HTTPS.
+
+## tips | Tips and safety habits
+- Save captures with **File, Save As** in pcapng format for later practice.
+- Captures can contain private data. Do not upload them publicly. Use practice captures from trusted sources, like the sample captures linked in Wireshark's documentation, for sharing and writeups.
+- Use **Statistics, Conversations** and **Statistics, Protocol Hierarchy** to get a summary of a big capture.
+- Colour rules help: Wireshark highlights problems such as TCP retransmissions in different colours.
+
+Wireshark skills are directly useful in SOC, network and incident response roles. Twenty minutes of practice a few times a week will make you comfortable within a month.
+
+=== nmap-own-lab-guide
+title: Nmap for Beginners: Scanning Your Own Home Lab, Legally and Safely
+short: Nmap on your own lab
+desc: A beginner nmap guide for your own home lab: host discovery, port scans, service detection and reading results, with a clear legal note on permission.
+lead: Nmap is the classic network scanner, used by defenders and penetration testers to see which devices and services are on a network. Here is how to learn it the right way: on your own lab, with clear rules.
+cat: Tools and labs
+tags: nmap, port scanning, home lab
+kw: nmap tutorial for beginners; nmap commands list; port scanning home lab; nmap legal India
+hi: Beginners ke liye nmap: apne home lab ko legally aur safely scan karo
+related: safe-home-lab-setup, wireshark-basics, networking-basics-for-cybersecurity
+hubs: index.html#cheatsheets|Cheat sheets on the home page; commands.html|Blue team commands; ctf.html|CTF Arena
+src: Nmap Reference Guide (official)|https://nmap.org/book/man.html
+src: Nmap: legal issues (official book chapter)|https://nmap.org/book/legal-issues.html
+src: Information Technology Act, 2000 on India Code|https://www.indiacode.nic.in/handle/123456789/1999
+quick: Use nmap only on **your own lab or networks you have written permission to scan**. Start with host discovery (`nmap -sn 192.168.56.0/24`), then a basic port scan (`nmap 192.168.56.101`), then service and version detection (`nmap -sV`). Read results as open, closed or filtered ports, then check what the target's logs recorded. Scanning systems you do not own can be illegal.
+takeaways:
+- Only scan your own lab or networks with written permission.
+- Learn in order: host discovery, port scan, service detection, then output formats.
+- Open, closed and filtered mean different things. Learn to read them.
+- Always look at the defender side: logs and Wireshark show what your scan looked like.
+## legal | Legal note first
+Only test systems you own or have permission for. In India, accessing or scanning computer systems without the owner's permission can attract action under the Information Technology Act, 2000, and also breaks most internet providers' and cloud providers' terms. "I was just learning" is not a defence. The official Nmap book has a whole chapter on legal issues for this reason.
+
+Safe places to practise:
+
+- Your own home lab VMs on a **host only** network ([setup guide](blog-safe-home-lab-setup.html)).
+- `scanme.nmap.org`, which the Nmap project explicitly allows for light testing, as described on that page.
+- CTF and training platforms that provide targets and permission.
+
+## install | Install and check
+Nmap is available for Linux, Windows and macOS from nmap.org, and comes pre installed on Kali Linux. Check it works:
+
+```
+nmap --version
+```
+
+In the examples below, `192.168.56.0/24` is a typical VirtualBox host only lab network, and `192.168.56.101` is your vulnerable target VM. Replace them with your own lab addresses.
+
+## discovery | Step 1: Host discovery
+Find which machines are up in your lab network without scanning ports:
+
+```
+nmap -sn 192.168.56.0/24
+```
+
+You should see your own VMs. If you see unexpected devices, double check you are on the lab network and not your home WiFi range.
+
+## ports | Step 2: Port scanning
+A basic scan of the most common 1,000 TCP ports:
+
+```
+nmap 192.168.56.101
+```
+
+More options for your lab:
+
+```
+nmap -p 1-65535 192.168.56.101     # all TCP ports, slower
+nmap -p 22,80,443 192.168.56.101   # specific ports
+sudo nmap -sS 192.168.56.101       # SYN scan, needs admin rights
+sudo nmap -sU --top-ports 20 192.168.56.101   # top UDP ports, slow
+```
+
+Port states:
+
+- **open:** a service is listening and responding.
+- **closed:** the host replied, but nothing is listening on that port.
+- **filtered:** no clear reply, often because a firewall is dropping packets.
+
+## services | Step 3: Service and version detection
+Knowing a port is open is useful. Knowing what runs there is better:
+
+```
+nmap -sV 192.168.56.101
+nmap -sV -sC 192.168.56.101   # also run default safe scripts
+nmap -O 192.168.56.101        # guess the operating system (admin rights)
+```
+
+`-sC` runs the default set of Nmap Scripting Engine scripts, which gather extra information. On your lab target, compare the versions nmap reports with what you installed. Outdated versions are where vulnerabilities often hide, which connects to our post on [patching](blog-vulnerability-exploitation-patching-2026.html).
+
+## output | Save and read your results
+```
+nmap -sV -oN scan.txt 192.168.56.101    # normal text output
+nmap -sV -oA labscan 192.168.56.101     # all formats: text, XML, grepable
+```
+
+Write a short summary for each scan in your lab notebook: target, command, open ports, services, versions, and what you would fix if this were a real server. That summary is portfolio material.
+
+## defender | Look at it from the defender side
+This is the step most beginners skip. While you scan:
+
+1. Run Wireshark on the lab network and watch the SYN packets. See our [Wireshark guide](blog-wireshark-basics.html).
+2. On the target, check logs, for example web server access logs, or `sudo journalctl -f` on Linux.
+3. Try a slower timing option such as `-T2` and notice how it changes what defenders see.
+
+Understanding how scans look in logs is exactly what SOC analysts need. You are learning both sides at once.
+
+## next | Where to go next
+After the basics, learn about firewalls on your target (turn on `ufw` and scan again), read the official Nmap reference guide section by section, and practise on CTF targets. Keep the golden rule forever: **no permission, no scan.**
+
+=== burp-suite-intro-practice
+title: Burp Suite Intro for Beginners: Learn Web Security on Practice Sites Only
+short: Burp Suite intro
+desc: A beginner introduction to Burp Suite Community Edition: proxy setup, intercepting requests and Repeater, practised only on legal targets like Juice Shop.
+lead: Burp Suite is the standard toolkit for testing web applications. It lets you see and change the requests your browser sends. Here is how to start with the free edition, on practice sites built to be tested.
+cat: Tools and labs
+tags: Burp Suite, web security, Juice Shop, OWASP
+kw: burp suite tutorial for beginners; burp suite community edition; web application security practice; OWASP Juice Shop
+hi: Beginners ke liye Burp Suite intro: web security sirf practice sites pe seekho
+related: how-the-internet-works, browser-devtools-for-security, safe-home-lab-setup
+hubs: ctf.html|CTF Arena; index.html#roadmap|Cybersecurity roadmap
+src: PortSwigger: Burp Suite documentation|https://portswigger.net/burp/documentation
+src: PortSwigger Web Security Academy (free labs)|https://portswigger.net/web-security
+src: OWASP Juice Shop|https://owasp.org/www-project-juice-shop/
+src: OWASP Top 10 web application security risks|https://owasp.org/www-project-top-ten/
+quick: Install **Burp Suite Community Edition** (free), open its built in browser, and turn on **Intercept** in the Proxy tab to see each request. Send interesting requests to **Repeater** to modify and resend them. Practise only on targets made for it, like **PortSwigger's Web Security Academy** labs or **OWASP Juice Shop** in your own lab. Only test systems you own or have permission for.
+takeaways:
+- Burp Suite sits between your browser and a website so you can inspect and modify traffic.
+- Start with Proxy, HTTP history and Repeater in the free Community Edition.
+- Practise only on legal targets like Web Security Academy and Juice Shop.
+- Learn the OWASP Top 10 alongside, so you know what you are looking for.
+## legal | The rule before you start
+Only test systems you own or have permission for. Using Burp Suite to tamper with requests to a real website, such as your college portal, a shopping site or a government site, without permission can be illegal and harmful. Use:
+
+- **PortSwigger Web Security Academy:** free online labs from the makers of Burp, built to be attacked.
+- **OWASP Juice Shop** or **DVWA** running in your own [home lab](blog-safe-home-lab-setup.html).
+- Bug bounty programs, only within their published scope and rules, once you are more experienced.
+
+## what | What Burp Suite does
+Burp is an **intercepting proxy**. Normally, your browser talks directly to a website. With Burp, the browser sends traffic through Burp first, so you can:
+
+- See every request and response in full.
+- Pause a request, change it, then send it on.
+- Resend requests with small changes to see how the server reacts.
+
+This shows you what the website trusts from the browser, which is where many vulnerabilities live.
+
+## setup | Setting up the free edition
+1. Download **Burp Suite Community Edition** from PortSwigger's official site.
+2. Start a temporary project with default settings.
+3. Go to the **Proxy** tab and click **Open browser**. Burp's built in Chromium browser is already configured to use the proxy and trust Burp's certificate, which saves setup time.
+4. Visit your practice target, for example your Juice Shop VM's address.
+5. Look at **Proxy, HTTP history**. Every request you made is listed.
+
+## intercept | Intercept: pause and inspect
+Turn **Intercept on** in the Proxy tab. Now click something in the practice site. The request freezes in Burp. You can read the method (GET or POST), the path, headers like Cookie, and the body. Click **Forward** to send it, or edit a value first. Turn Intercept off when you just want to browse and record.
+
+Exercise on Juice Shop: add an item to the basket and look at the request. Which values are sent? Which ones could a user change? This is how you start thinking like a tester.
+
+## repeater | Repeater: change and resend
+Right click any request in HTTP history and choose **Send to Repeater**. In the Repeater tab, you can edit and resend the same request as many times as you want and compare responses. This is where much of manual testing happens: changing an ID, removing a parameter, or sending unexpected input to see how the application behaves.
+
+## what-to-look | What to look for: OWASP Top 10
+The **OWASP Top 10** lists the most critical web application security risk categories, such as broken access control, injection and security misconfiguration. Use it as your learning map. The Web Security Academy has free guided labs for topics like SQL injection, cross site scripting, access control and authentication. Do them in order, starting with apprentice level.
+
+## community | Community vs Professional edition
+The Community Edition is free and includes the proxy, HTTP history, Repeater and a limited version of Intruder, enough for learning. The paid Professional edition adds features like an automated scanner. You do not need it as a beginner.
+
+## writeups | Turn practice into portfolio
+For each lab you solve, write a short note: the vulnerability, how you found it with Burp, the request you changed, and how a developer should fix it. The "how to fix" part is what makes you valuable to teams, and it shows recruiters you understand both attack and defence. Add these notes to your [GitHub portfolio](blog-cybersecurity-portfolio-github.html).
+
+=== password-hashing-explained
+title: Password Hashing Explained: Hashing vs Encryption, Salts and bcrypt
+short: Password hashing explained
+desc: Password hashing explained simply: hashing vs encryption, why MD5 and SHA-256 alone are not enough, salts, and slow algorithms like bcrypt and Argon2.
+lead: When a company says passwords were stored "securely", what does that actually mean? The answer is hashing, done properly. Here is how it works, why some methods fail, and what good practice looks like.
+cat: Tools and labs
+tags: hashing, passwords, cryptography, bcrypt
+kw: password hashing explained; hashing vs encryption; what is salt in hashing; bcrypt vs argon2
+hi: Password hashing samjho: hashing vs encryption, salt aur bcrypt
+related: strong-passwords-password-managers, verify-downloads-sha256, post-quantum-cryptography-explained
+hubs: index.html#tools|Free hash and password tools on the home page; index.html#cheatsheets|Cheat sheets
+src: OWASP Password Storage Cheat Sheet|https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+src: NIST SP 800-63B: Digital Identity Guidelines, authentication|https://pages.nist.gov/800-63-4/sp800-63b.html
+quick: A **hash** is a one way fingerprint of data. Websites should store a **hash of your password**, not the password itself. Fast hashes like MD5 or plain SHA-256 are too quick to guess against, so good systems use a unique random **salt** per password and a deliberately **slow password hashing algorithm** such as **Argon2id**, **scrypt** or **bcrypt**, as the OWASP Password Storage Cheat Sheet recommends.
+takeaways:
+- Hashing is one way, encryption is two way. Passwords should be hashed.
+- Fast hashes like MD5 and SHA-256 alone are not suitable for passwords.
+- A unique salt per password stops precomputed table attacks.
+- Use slow algorithms such as Argon2id, scrypt or bcrypt for password storage.
+## hash-vs-enc | Hashing vs encryption
+- **Encryption** is two way. You lock data with a key and unlock it with a key. Good for messages and files you need to read later.
+- **Hashing** is one way. You put data in and get a fixed length output, like a fingerprint. You cannot turn the fingerprint back into the data.
+
+For passwords, a website does not need to know your password. It only needs to check that what you type matches. So it stores the hash, and at login it hashes what you typed and compares. If the database leaks, attackers get hashes, not passwords, at least in theory.
+
+## properties | Properties of a good hash function
+- The same input always gives the same output.
+- A tiny change in input gives a completely different output.
+- You cannot practically reverse it.
+- It is very hard to find two inputs with the same output.
+
+Try it yourself with the hash tool on our [home page tools section](index.html#tools), or on Linux:
+
+```
+echo -n "hello" | sha256sum
+echo -n "hellO" | sha256sum
+```
+
+The two outputs look nothing alike, even though only one letter changed.
+
+## why-fast-bad | Why fast hashes are bad for passwords
+SHA-256 is excellent for checking file integrity, see our [SHA-256 download guide](blog-verify-downloads-sha256.html). But it was designed to be **fast**. If attackers steal a database of SHA-256 password hashes, they can try enormous numbers of guesses per second on graphics cards, hashing common passwords and comparing. Weak passwords fall quickly.
+
+MD5 and SHA-1 are worse: they are fast and also have known cryptographic weaknesses. They should not be used for passwords.
+
+## salt | Salts: making every hash unique
+If two users have the password "Mumbai@123", a plain hash would be identical for both, and attackers could use precomputed tables of hashes for common passwords. A **salt** is a random value generated for each password and stored alongside the hash. The system hashes salt plus password. Now identical passwords produce different hashes, and precomputed tables become useless.
+
+Salts are not secret. Their job is uniqueness, not hiding.
+
+## slow | Slow algorithms: Argon2id, scrypt, bcrypt
+Password hashing algorithms are designed to be **deliberately slow and costly**, with a work factor you can tune. One login check taking a fraction of a second is fine for a user, but it makes billions of guesses very expensive for an attacker.
+
+The OWASP Password Storage Cheat Sheet recommends **Argon2id** as the first choice, with **scrypt** and **bcrypt** as alternatives in suitable cases, and PBKDF2 where compliance requires it, each with appropriate parameters. Some systems also add a **pepper**, a secret value stored separately from the database, as an extra layer.
+
+## users | What this means for you as a user
+You cannot see how a website stores your password. That is exactly why:
+
+- Use a **unique password for every site**, so one weakly protected site cannot expose others.
+- Make passwords **long**, since long passphrases resist guessing even when hashes leak.
+- Turn on **2FA or passkeys**, which protect you even if the password is cracked. See our [passkeys explainer](blog-passkeys-2026-explained.html).
+
+## practise | Practise safely
+In your lab, write a small Python script that hashes passwords with a salt using a library such as `bcrypt` or `argon2-cffi`, and verifies them. Notice how changing the work factor changes the time taken. Never test password cracking against real accounts or leaked databases of real people. Use only your own test hashes or CTF challenges built for this purpose.

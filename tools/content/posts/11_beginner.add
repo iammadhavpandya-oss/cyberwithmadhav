@@ -1,0 +1,103 @@
++++ cybersecurity-career-paths-india
+## faq | Frequently asked questions
+**Do I need a computer science degree?** No. A degree helps with some employers, but many people enter security from BCA, BSc, commerce, law or even non graduate backgrounds by showing skills through labs, projects and certificates.
+
+**Is coding compulsory?** Not for every role. SOC and GRC roles need little coding at the start. Basic scripting in Python or Bash becomes very useful over time, and AppSec needs real coding comfort.
+
+**Which path pays the most?** Pay depends on skill, city, company and experience far more than on the title. Choose the path you will enjoy practising every day, because that is what makes you good at it.
+
++++ linux-basics-for-cybersecurity
+## faq | Frequently asked questions
+**Which distribution should I start with?** Ubuntu or Debian are friendly for beginners and widely used on servers. Move to Kali or Parrot inside your lab once the basics feel easy.
+
+**Can I learn Linux on Windows?** Yes. Windows Subsystem for Linux (WSL) gives you a real Linux shell on Windows, which is great for practising commands. For security tools that need network access, a virtual machine is better.
+
+**How do I remember so many commands?** You do not need to memorise all of them. Use `man command` or `command --help`, keep a personal cheat sheet, and use the [cheat sheets on the home page](index.html#cheatsheets). Repetition does the rest.
+
++++ how-the-internet-works
+## faq | Frequently asked questions
+**Is HTTPS enough to keep me safe?** HTTPS protects data in transit from people on the network. It does not protect you from a fake website, a malicious download or a scammer on the phone. Always combine it with checking the domain and thinking before you share details.
+
+**What is a VPN in this picture?** A VPN wraps your traffic in another encrypted tunnel to the VPN provider, who then sends it to the website. It changes who can see your traffic, it does not make every site safe. Our [VPN myths post](blog-vpn-myths.html) explains more.
+
+**Why do some sites load slowly?** Every step adds time: DNS lookup, distance to the server, TLS setup and many files. Developer tools show which step is slow, a skill that is also useful in troubleshooting jobs.
+
++++ osi-tcp-ip-model-explained
+## faq | Frequently asked questions
+**Which model should I use in interviews?** Know both. Explain using OSI layers, because most people know them, and mention that real protocols follow the TCP/IP model.
+
+**Where does HTTPS fit?** HTTP is an application layer protocol. TLS, which adds encryption, is often placed at the presentation layer in OSI terms, and inside the application layer in TCP/IP terms. Interviewers mainly want to see that you understand what TLS does.
+
++++ safe-home-lab-setup
+## faq | Frequently asked questions
+**Can I use a cloud VM instead of my laptop?** You can, but be careful. Running intentionally vulnerable machines on the public internet is risky, and many cloud providers have rules about scanning and security testing. For beginners, a local isolated lab is safer and cheaper.
+
+**Is it okay to practise on my college or office network?** Only with written permission from whoever owns that network. Without it, even a simple scan can get you into serious trouble. Keep your practice inside your own lab.
+
+**My laptop only has 8 GB RAM. What should I run?** One lightweight Linux workstation and one small target at a time. Close the browser while the VMs run, and use browser based wargames on lighter days.
+
++++ free-cybersecurity-certifications-beginners
+## faq | Frequently asked questions
+**Are free certificates respected?** It depends on the provider. Badges from well known organisations such as Cisco, Microsoft or ISC2 are recognised as proof of learning. Unknown certificates from random websites carry little weight.
+
+**Should I do many certificates quickly?** No. Two or three meaningful certificates with matching projects are better than ten badges collected in a month. Interviewers will ask about the content, so make sure you actually understood it.
+
+**How do I check if an offer is real?** Go directly to the provider's official website, not through a link in a WhatsApp group or an ad. Fake "free certification" pages are also used to collect personal data, so never pay or share documents on an unofficial site.
+
++++ ctf-for-beginners
+## faq | Frequently asked questions
+**Do I need to know programming for CTFs?** Not at the start. General skills, web and forensics challenges can be solved with Linux commands and careful thinking. Learning basic Python later will unlock many more challenges.
+
+**Should I play alone or in a team?** Both are fine. Playing alone teaches you to push through, and a team teaches you to share and learn faster. Many college clubs run CTF teams.
+
+**Are CTF skills useful for jobs?** Yes, especially when you write up your solutions. They show problem solving, persistence and communication, which every security role needs.
+
++++ cybersecurity-portfolio-github
+## faq | Frequently asked questions
+**Do I need to be good at coding to use GitHub?** No. GitHub is also great for documentation. Many strong security portfolios are mostly writeups, checklists and diagrams written in Markdown.
+
+**Should I make my lab repository public?** Yes, as long as it contains no secrets or personal data. Public work is what recruiters can see. Keep private experiments private.
+
+**How many projects before I apply for jobs?** Start applying once you have two or three complete projects. Keep adding more while you apply. Waiting for the "perfect" portfolio only delays you.
+
++++ linkedin-for-cybersecurity-freshers
+## faq | Frequently asked questions
+**Should I write posts in Hinglish?** You can, if your audience is Indian and you are comfortable. Many people enjoy simple Hinglish explanations. For your headline and About section, clear English usually works best for recruiters.
+
+**Is LinkedIn Premium necessary?** Not for freshers. A complete profile, regular posts and genuine networking matter much more. Try the free features fully before you pay for anything.
+
+**How do I handle messages offering paid "placement support"?** Politely decline. Paying for job promises is risky. Real recruiters do not ask candidates for money, and you can verify a recruiter by checking the company's official careers page.
+
+**What if I have no projects yet?** Start posting about what you are learning anyway, and link your first project as soon as it is ready. Showing steady progress is itself a good signal.
+
++++ soc-analyst-day-in-life
+## faq | Frequently asked questions
+**Do SOC analysts need to code?** Not much at L1. Being able to read and tweak search queries in a SIEM is more important at the start. Scripting in Python or PowerShell helps a lot as you grow.
+
+**Is night shift compulsory?** It depends on the company. Many SOCs that offer 24x7 monitoring use rotating shifts. Ask about the shift pattern during the interview so there are no surprises.
+
+**What should I practise to get a SOC job?** Analyse phishing emails, read Windows and Linux logs in your lab, learn the basics of one SIEM through free training editions, and write clear incident style notes for everything you investigate.
+
++++ cloud-security-basics
+## faq | Frequently asked questions
+**Which cloud should I learn first?** Pick the one most common in job posts in your city, often AWS or Azure. Concepts like IAM, least privilege, logging and encryption transfer across all providers.
+
+**Can I learn cloud security without spending money?** Mostly yes, using free tier accounts, free training and careful cleanup. Always set billing alerts and delete resources after practice.
+
+**Is cloud security only for big companies?** No. Small businesses using cloud email, storage or website hosting also face the same risks, such as weak passwords and public files.
+
++++ cyber-law-india-intro
+## faq | Frequently asked questions
+**Is ethical hacking legal in India?** Security testing is legal when you have authorisation from the owner of the system. Without permission, the same actions can be offences under the IT Act. Your intention does not change that.
+
+**Where should I report a cyber crime?** Use [cybercrime.gov.in](https://cybercrime.gov.in/), and call [1930](tel:1930) quickly for financial fraud. You can also approach your local police station or cyber cell.
+
+**Is this legal advice?** No. This post is general education. For a specific situation, speak to a qualified lawyer.
+
++++ 90-day-cybersecurity-study-plan
+## faq | Frequently asked questions
+**I am working full time. Can I still follow this?** Yes. Stretch it to 120 or 150 days if needed. The order matters more than the speed.
+
+**Do I need to buy any course?** No. Every step in this plan can be done with free resources: Cisco Networking Academy, OverTheWire, picoCTF, official documentation and this site. Paid courses are optional.
+
+**What if I miss a week?** Do not restart from zero. Do a quick revision day, then continue from where you stopped. Progress is not a straight line, and that is perfectly normal.

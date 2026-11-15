@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Day in the Life of a SOC Analyst: What the Job Really Looks Like | CyberWithMadhav</title>
+  <meta name="description" content="What a SOC analyst actually does all day: shifts, alert triage, SIEM, escalation and reporting, plus the skills you need to get your first SOC role.">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/blog-soc-analyst-day-in-life.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="A Day in the Life of a SOC Analyst: What the Job Really Looks Like">
+  <meta property="og:description" content="What a SOC analyst actually does all day: shifts, alert triage, SIEM, escalation and reporting, plus the skills you need to get your first SOC role.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/blog-soc-analyst-day-in-life.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/blog/soc-analyst-day-in-life.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Share card reading A Day in the Life of a SOC Analyst: What the Job Really Looks Like">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A Day in the Life of a SOC Analyst: What the Job Really Looks Like">
+  <meta name="twitter:description" content="What a SOC analyst actually does all day: shifts, alert triage, SIEM, escalation and reporting, plus the skills you need to get your first SOC role.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/blog/soc-analyst-day-in-life.png">
+  <meta name="twitter:image:alt" content="Share card reading A Day in the Life of a SOC Analyst: What the Job Really Looks Like">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/consent.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
+  <meta property="article:published_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:modified_time" content="2026-11-15T09:00:00+05:30">
+  <meta property="article:author" content="https://www.cyberwithmadhav.com/about.html">
+  <meta property="article:section" content="Beginner journey">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.cyberwithmadhav.com/blog-soc-analyst-day-in-life.html#post", "mainEntityOfPage": "https://www.cyberwithmadhav.com/blog-soc-analyst-day-in-life.html", "headline": "A Day in the Life of a SOC Analyst: What the Job Really Looks Like", "description": "What a SOC analyst actually does all day: shifts, alert triage, SIEM, escalation and reporting, plus the skills you need to get your first SOC role.", "image": "https://www.cyberwithmadhav.com/assets/img/blog/soc-analyst-day-in-life.png", "datePublished": "2026-11-15T09:00:00+05:30", "dateModified": "2026-11-15T09:00:00+05:30", "inLanguage": "en-IN", "articleSection": "Beginner journey", "keywords": ["SOC analyst day in life", "what does a SOC analyst do", "SOC L1 job responsibilities", "SIEM alert triage beginners"], "author": {"@type": "Person", "@id": "https://www.cyberwithmadhav.com/about.html#person", "name": "Madhav Pandya", "url": "https://www.cyberwithmadhav.com/about.html"}, "publisher": {"@type": "Organization", "@id": "https://www.cyberwithmadhav.com/#org", "name": "CyberWithMadhav", "logo": {"@type": "ImageObject", "url": "https://www.cyberwithmadhav.com/assets/img/apple-touch-icon.png"}}, "isPartOf": {"@id": "https://www.cyberwithmadhav.com/blog.html#blog"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cyberwithmadhav.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.cyberwithmadhav.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "A Day in the Life of a SOC Analyst: What the Job Really Looks Like"}]}]}
+  </script>
+</head>
+<body class="v3 blog-page bp-post-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog active"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="bp-post wrap" aria-labelledby="p-title">
+      <nav class="bp-crumbs small muted" aria-label="Breadcrumb">
+        <a href="index.html" data-i18n="blog.home">Home</a> <span aria-hidden="true">/</span> <a href="blog.html">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page" data-i18n="blogpost.soc-analyst-day-in-life.s">SOC analyst day in life</span>
+      </nav>
+      <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+      <h1 id="p-title" data-i18n="post.title">A Day in the Life of a SOC Analyst: What the Job Really Looks Like</h1>
+      <p class="lead" data-i18n="post.lead">The security operations centre (SOC) is one of the most common first jobs in cybersecurity. Here is a realistic picture of what the work feels like, without the movie drama.</p>
+      <div class="bp-byline small muted">
+        <img src="assets/img/madhav-square.jpg" width="40" height="40" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="eager" decoding="async">
+        <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="2026-11-15">15 November 2026</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+      </div>
+      <div class="tags tags-row bp-tags"><span class="tag">SOC</span><span class="tag">blue team</span><span class="tag">careers</span></div>
+
+      <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
+        <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
+        <p data-i18n="post.quick">A SOC analyst monitors security alerts from tools like <strong>SIEM</strong> and <strong>EDR</strong>, decides whether each alert is a real threat or a false positive (<strong>triage</strong>), investigates the real ones, escalates them with clear notes, and documents everything. L1 analysts focus on triage, L2 on deeper investigation, L3 and engineers on hunting and tuning. Many SOCs run 24x7 in shifts.</p>
+      </aside>
+
+      <nav class="bp-glass bp-toc" aria-labelledby="toc-h">
+        <h2 id="toc-h" data-i18n="blog.contents">Contents</h2>
+        <ol>
+            <li><a href="#what-soc" data-i18n="post.s.what-soc.h">What is a SOC?</a></li>
+            <li><a href="#shift" data-i18n="post.s.shift.h">Start of the shift</a></li>
+            <li><a href="#triage" data-i18n="post.s.triage.h">Alert triage: the core of the job</a></li>
+            <li><a href="#common-alerts" data-i18n="post.s.common-alerts.h">Alerts you will see often</a></li>
+            <li><a href="#escalation" data-i18n="post.s.escalation.h">Escalation and reporting</a></li>
+            <li><a href="#skills" data-i18n="post.s.skills.h">Skills you need for your first SOC role</a></li>
+            <li><a href="#reality" data-i18n="post.s.reality.h">The good and the hard parts</a></li>
+            <li><a href="#faq" data-i18n="post.s.faq.h">Frequently asked questions</a></li>
+        </ol>
+      </nav>
+
+      <section class="bp-sec" id="what-soc" aria-labelledby="what-soc-h">
+        <h2 id="what-soc-h" data-i18n="post.s.what-soc.h">What is a SOC?</h2>
+        <div data-i18n="post.s.what-soc.b"><p>A security operations centre is a team, sometimes in a dedicated room, that watches an organisation's systems for attacks. Some companies run their own SOC. Many use a <strong>managed security service provider (MSSP)</strong>, where one SOC monitors many client companies. India has many such SOCs, which is why SOC roles are a common entry point for freshers here.</p>
+<p>Typical tools include a <strong>SIEM</strong> (collects and correlates logs), <strong>EDR</strong> (watches laptops and servers), email security tools, firewalls and a ticketing system to track cases.</p></div>
+      </section>
+      <section class="bp-sec" id="shift" aria-labelledby="shift-h">
+        <h2 id="shift-h" data-i18n="post.s.shift.h">Start of the shift</h2>
+        <div data-i18n="post.s.shift.b"><p>Many SOCs run around the clock, so analysts often work rotating shifts, including nights and weekends. A shift usually starts with a <strong>handover</strong>: the previous shift explains open cases, ongoing incidents and anything to watch. Then you check the dashboard, the queue of new alerts, and any advisories that came in, such as a new critical vulnerability.</p></div>
+      </section>
+      <section class="bp-sec" id="triage" aria-labelledby="triage-h">
+        <h2 id="triage-h" data-i18n="post.s.triage.h">Alert triage: the core of the job</h2>
+        <div data-i18n="post.s.triage.b"><p>Most of the day is triage. An alert comes in, for example "multiple failed logins followed by a success from a new country". You ask:</p>
+<ol>
+<li><strong>What exactly triggered this?</strong> Read the rule and the raw log.</li>
+<li><strong>Is it expected?</strong> Maybe the user is travelling, or it is a known testing tool.</li>
+<li><strong>What else happened around it?</strong> Check the user's other logins, the device, the IP reputation.</li>
+<li><strong>Verdict:</strong> false positive, benign but notable, or true positive.</li>
+</ol>
+<p>A true positive is escalated with clear notes. A false positive is closed with a reason, and sometimes the rule is tuned so it does not fire again for the same harmless case. Speed matters, but accuracy matters more.</p></div>
+      </section>
+      <section class="bp-sec" id="common-alerts" aria-labelledby="common-alerts-h">
+        <h2 id="common-alerts-h" data-i18n="post.s.common-alerts.h">Alerts you will see often</h2>
+        <div data-i18n="post.s.common-alerts.b"><ul>
+<li>Phishing emails reported by staff.</li>
+<li>Suspicious logins: impossible travel, many failures, logins at strange hours.</li>
+<li>Malware detections on laptops.</li>
+<li>Unusual network traffic, like a laptop talking to a known bad domain.</li>
+<li>Policy violations, such as USB storage use where it is not allowed.</li>
+</ul>
+<p>The MITRE ATT&amp;CK knowledge base is a common reference to map what an attacker is doing, such as initial access, persistence or exfiltration.</p></div>
+      </section>
+      <section class="bp-sec" id="escalation" aria-labelledby="escalation-h">
+        <h2 id="escalation-h" data-i18n="post.s.escalation.h">Escalation and reporting</h2>
+        <div data-i18n="post.s.escalation.b"><p>When something is real, L1 escalates to L2 or the incident response team with a good summary: what happened, when, which user and device, evidence and actions taken. Good writing saves time during an incident.</p>
+<p>In India, organisations also have legal reporting duties. CERT-In's directions issued in April 2022 under Section 70B of the IT Act require specified types of cyber incidents to be reported to CERT-In within 6 hours of noticing them. SOC teams help their organisations meet this.</p></div>
+      </section>
+      <section class="bp-sec" id="skills" aria-labelledby="skills-h">
+        <h2 id="skills-h" data-i18n="post.s.skills.h">Skills you need for your first SOC role</h2>
+        <div data-i18n="post.s.skills.b"><ul>
+<li>Networking basics: IPs, ports, DNS, common protocols (Parts 3 and 5).</li>
+<li>Windows event logs and Linux logs.</li>
+<li>Phishing email analysis: headers, links and attachments.</li>
+<li>Basic understanding of malware types and attacker techniques.</li>
+<li>Comfort with search queries in a SIEM. Many SIEMs have free training editions.</li>
+<li>Calm communication and clear writing.</li>
+</ul></div>
+      </section>
+      <section class="bp-sec" id="reality" aria-labelledby="reality-h">
+        <h2 id="reality-h" data-i18n="post.s.reality.h">The good and the hard parts</h2>
+        <div data-i18n="post.s.reality.b"><p>The good: you see real attacks, learn fast and build a strong base for any future security role. The hard: shifts, repetitive alerts and occasional pressure during incidents. Many analysts move to L2, incident response, threat hunting, detection engineering or cloud security after one or two years. If you enjoy puzzles and patterns, SOC work can be very satisfying.</p></div>
+      </section>
+      <section class="bp-sec" id="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h" data-i18n="post.s.faq.h">Frequently asked questions</h2>
+        <div data-i18n="post.s.faq.b"><p><strong>Do SOC analysts need to code?</strong> Not much at L1. Being able to read and tweak search queries in a SIEM is more important at the start. Scripting in Python or PowerShell helps a lot as you grow.</p>
+<p><strong>Is night shift compulsory?</strong> It depends on the company. Many SOCs that offer 24x7 monitoring use rotating shifts. Ask about the shift pattern during the interview so there are no surprises.</p>
+<p><strong>What should I practise to get a SOC job?</strong> Analyse phishing emails, read Windows and Linux logs in your lab, learn the basics of one SIEM through free training editions, and write clear incident style notes for everything you investigate.</p></div>
+      </section>
+
+      <aside class="bp-glass bp-takeaways" aria-labelledby="take-h">
+        <h2 id="take-h">Key takeaways</h2>
+        <ul>
+          <li>SOC work is alert triage, investigation, escalation and documentation.</li>
+          <li>Tools vary, but SIEM, EDR and ticketing systems are common everywhere.</li>
+          <li>Strong basics in networking, Windows, Linux and phishing analysis matter most.</li>
+          <li>Clear notes and calm thinking are as important as technical skill.</li>
+        </ul>
+      </aside>
+      <aside class="bp-glass bp-sources" aria-labelledby="src-h">
+        <h2 id="src-h" data-i18n="blog.sources">Official sources</h2>
+        <ul>
+          <li><a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&amp;CK knowledge base</a></li>
+          <li><a href="https://www.cert-in.org.in/Directions70B.jsp" target="_blank" rel="noopener">CERT-In directions under Section 70B (incident reporting)</a></li>
+        </ul>
+        <p class="small muted" data-i18n="blog.sources.note">Links open the official sites. Procedures and rules can change, so check them before you rely on this post.</p>
+      </aside>
+      <nav class="bp-glass bp-series" aria-label="Beginner journey series">
+        <p class="small mono bp-series-k">Beginner journey series, part 12 of 15</p>
+        <div class="bp-series-nav"><a class="bp-prev" href="blog-linkedin-for-cybersecurity-freshers.html" rel="prev"><span class="small muted">Previous: Part 11</span><br>LinkedIn for Cybersecurity Freshers: Profile, Posts and Networking</a><a class="bp-next" href="blog-cloud-security-basics.html" rel="next"><span class="small muted">Next: Part 13</span><br>Cloud Security Basics for Beginners: Shared Responsibility, IAM and More</a></div>
+      </nav>
+
+      <aside class="bp-glass bp-author" aria-label="About the author">
+        <img src="assets/img/madhav-square.jpg" width="96" height="96" alt="Madhav Pandya, cybersecurity educator from Mumbai" loading="lazy" decoding="async">
+        <p data-i18n="blog.author"><strong>Madhav Pandya</strong> explains cybersecurity and scam awareness in plain English and Hinglish. He is the founder of CyberWithMadhav and is studying law and cloud security. <a href="about.html">About Madhav Pandya</a></p>
+      </aside>
+
+      <section class="bp-related" aria-labelledby="rel-h">
+        <h2 id="rel-h" data-i18n="blog.related">Related guides</h2>
+        <div class="bp-grid">
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-cybersecurity-career-paths-india.html" data-i18n="blogpost.cybersecurity-career-paths-india.t">Cybersecurity Career Paths in India: Which Role Fits You?</a></h3>
+          <p class="muted small" data-i18n="blogpost.cybersecurity-career-paths-india.d">Cybersecurity is not one job. It is a family of roles with very different daily work. Here is a simple map, so you can pick a direction instead of trying to learn everything at once.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Tools and labs">
+          <p class="bp-cat mono" data-i18n="cat.tools-and-labs">Tools and labs</p>
+          <h3 class="bp-card-t"><a href="blog-linux-logs-for-beginners.html" data-i18n="blogpost.linux-logs-for-beginners.t">Linux Logs for Beginners: Find Failed Logins, Sudo Use and Suspicious Activity</a></h3>
+          <p class="muted small" data-i18n="blogpost.linux-logs-for-beginners.d">Logs are where attacks leave footprints. If you can read Linux logs quickly, you can answer the most important question in any investigation: what happened, and when? Here is a practical start on your own lab machine.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Beginner journey">
+          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
+          <h3 class="bp-card-t"><a href="blog-90-day-cybersecurity-study-plan.html" data-i18n="blogpost.90-day-cybersecurity-study-plan.t">A 90 Day Cybersecurity Study Plan for Beginners (Free Resources)</a></h3>
+          <p class="muted small" data-i18n="blogpost.90-day-cybersecurity-study-plan.d">You have seen the whole map in this series. Now let us turn it into a schedule. This plan assumes about one to two hours a day, and it works whether you are a student or working somewhere else.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        </div>
+        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="commands.html">Blue team commands</a> · <a href="index.html#cheatsheets">Cheat sheets</a></p>
+      </section>
+
+      <p class="small muted bp-disclaimer" data-i18n="blog.disclaimer">Educational content, not legal advice. Check official sources before you rely on it. If you have lost money, call <a href="tel:1930">1930</a> now. <a href="terms.html">Terms</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Educational content, not legal advice. Check official sources.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+  <script src="assets/js/blog.js" defer></script>
+  <script src="assets/js/i18n/post-soc-analyst-day-in-life.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</body>
+</html>
