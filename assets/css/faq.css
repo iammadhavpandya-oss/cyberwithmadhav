@@ -1,0 +1,31 @@
+/* FAQ page (tools/build_faq.py). Accordion look comes from pages.css .faq; this file adds jump links, search and guide links. */
+.faq-page .faq-wrap{max-width:780px}
+.faq-hero{padding-bottom:12px}
+.faq-hero .bp-crumbs{margin-bottom:.8rem}
+.faq-tools{margin:1.2rem 0 .8rem;max-width:520px}
+.faq-tools input[type=search]{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--glass-border);background:var(--glass);color:var(--text);font:400 1rem/1.4 var(--font);-webkit-backdrop-filter:blur(var(--blur));backdrop-filter:blur(var(--blur))}
+.faq-tools input[type=search]:focus{outline:2px solid var(--purple-2);outline-offset:2px;border-color:transparent}
+.faq-tools #faq-count{margin:.45rem 0 0}
+.faq-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 .4rem}
+.faq-jump .chip{text-decoration:none}
+.faq-sec{scroll-margin-top:90px;padding-top:1.4rem;padding-bottom:0}
+.faq-sec h2{margin:0 0 1rem;font-size:clamp(1.25rem,3vw,1.6rem)}
+.faq-page .faq details{scroll-margin-top:90px}
+.faq-page .faq summary h3{display:inline;margin:0;font:inherit;color:inherit}
+.faq-page .faq summary:focus-visible{outline:2px solid var(--purple-2);outline-offset:2px}
+.faq-page .faq .ans p{white-space:normal}
+.faq-guide{margin:.2rem 0 .4rem}
+.faq-guide a{font-weight:600}
+.faq-more{margin:0}
+.faq-more a{margin-right:.15rem}
+.faq-end{padding-top:2rem;padding-bottom:3rem}
+.faq-page .faq details.is-hidden{display:none}
+.faq-sec.is-empty{display:none}
+.faq-empty{margin:0 0 1rem}
+.faq-callout{display:block;margin:0 0 1.4rem;padding:1rem 1.2rem;border-radius:16px;background:var(--glass);border:1px solid var(--glass-border);text-decoration:none;color:var(--text)}
+.faq-callout:hover,.faq-callout:focus-visible{border-color:color-mix(in srgb,var(--purple) 55%,transparent)}
+.faq-callout strong{color:var(--purple-2)}
+.bp-faq-link{margin:1.2rem 0 0}
+@media (prefers-reduced-motion:reduce){
+  .faq-page .faq summary::after{transition:none}
+}

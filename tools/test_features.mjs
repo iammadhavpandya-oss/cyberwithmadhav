@@ -40,9 +40,9 @@ const contrastFn = () => (sel) => {
   const a = lum(getComputedStyle(e).color), b = lum(bg); return +((Math.max(a, b) + .05) / (Math.min(a, b) + .05)).toFixed(2);
 };
 
-const ALL = ['index.html', 'explore.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', 'commands.html', 'scams.html', 'game.html', 'soc.html', 'owasp.html', 'terminal.html', 'daily.html', 'progress.html'].filter(has);
+const ALL = ['index.html', 'explore.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'terms.html', 'privacy.html', 'commands.html', 'scams.html', 'game.html', 'faq.html', 'soc.html', 'owasp.html', 'terminal.html', 'daily.html', 'progress.html'].filter(has);
 // ---------- short top nav on every page: Home, Explore, CTF, search, theme ----------
-const NAV = 'index.html,explore.html,blog.html,ctf.html';
+const NAV = 'index.html,explore.html,blog.html,faq.html,ctf.html';
 for (const pg of ALL) {
   for (const w of [1000, 1280]) {
     const p = await open(pg, { width: w, height: 800 });
@@ -54,8 +54,8 @@ for (const pg of ALL) {
         pal: !!nav.querySelector('.pal-btn'), theme: !!nav.querySelector('.theme-toggle'), more: !!document.querySelector('.nav-more'),
         cur: (nav.querySelector('[aria-current="page"]') || {}).textContent || '' };
     });
-    const wantCur = { 'index.html': 'Home', 'explore.html': 'Explore', 'ctf.html': 'CTF' }[pg] || '';
-    ok(`${pg} @${w}: short nav in one row (Home, Explore, Blog, CTF, search, language, theme)`, n.rows === 1 && n.over <= 0 && n.links === NAV && n.pal && n.theme && !n.more && n.cur.trim() === wantCur, JSON.stringify(n));
+    const wantCur = { 'index.html': 'Home', 'explore.html': 'Explore', 'faq.html': 'FAQ', 'ctf.html': 'CTF' }[pg] || '';
+    ok(`${pg} @${w}: short nav in one row (Home, Explore, Blog, FAQ, CTF, search, language, theme)`, n.rows === 1 && n.over <= 0 && n.links === NAV && n.pal && n.theme && !n.more && n.cur.trim() === wantCur, JSON.stringify(n));
     if (w === 1000) ok(`${pg}: no console errors`, p.errors.length === 0, p.errors.join(' | '));
     await p.ctx.close();
   }

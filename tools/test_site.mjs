@@ -18,7 +18,7 @@ const fetch = u => new Promise((res, rej) => (u.startsWith('https') ? https : ht
 const results = [];
 const ok = (name, cond, extra = '') => { results.push(`${cond ? 'PASS' : 'FAIL'}  ${name}${extra ? '  : ' + extra : ''}`); };
 const POSTS = JSON.parse(fs.readFileSync(SITE + 'data/blog.json', 'utf8')).map(b => b.file); // every blog post, newest first
-const PAGES = ['index.html', 'explore.html', 'commands.html', 'scams.html', 'game.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'blog.html'].concat(POSTS, ['about.html', 'terms.html', 'privacy.html'])
+const PAGES = ['index.html', 'explore.html', 'commands.html', 'scams.html', 'game.html', 'terminal.html', 'ctf.html', 'prompts.html', 'cyberlaw.html', 'blog.html', 'faq.html'].concat(POSTS, ['about.html', 'terms.html', 'privacy.html'])
   .concat(['soc.html'].filter(p => fs.existsSync(SITE + p)));
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 async function open(url, { scheme = 'dark', width = 1440, height = 900 } = {}) {
@@ -64,7 +64,7 @@ ok('LICENSE is MIT', !LIVE ? /^MIT License/.test(fs.readFileSync(SITE + 'LICENSE
 // 3. search index and palette
 const idx = await (await fetch(BASE + 'data/search.json')).json();
 { const kinds = new Set(idx.map(i => i.k));
-  ok('search.json covers pages, sections, sheets, commands, CTF, prompts, law and legal', ['Page', 'Section', 'Sheet', 'Command', 'CTF', 'Prompt', 'Law term', 'Law FAQ', 'Case', 'Legal'].every(k => kinds.has(k)), idx.length + ' entries');
+  ok('search.json covers pages, sections, sheets, commands, CTF, prompts, law, legal and FAQ', ['Page', 'Section', 'Sheet', 'Command', 'CTF', 'Prompt', 'Law term', 'Law FAQ', 'Case', 'Legal', 'FAQ'].every(k => kinds.has(k)), idx.length + ' entries');
   const pagesOk = await Promise.all([...new Set(idx.map(i => i.u.split(/[?#]/)[0]))].map(u => fetch(BASE + u).then(r => r.ok)));
   ok('every search result points at a page that exists', pagesOk.every(Boolean)); }
 for (const pg of ['prompts.html', 'cyberlaw.html', 'terms.html']) {

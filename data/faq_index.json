@@ -1,0 +1,275 @@
+[
+ {
+  "k": "FAQ",
+  "t": "What should I do if I lose money to a UPI scam?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-upi-lost-money",
+  "x": "Call 1930 as soon as you notice the fraud, then report on cybercrime.gov.in and tell your bank through its official helpline. You only enter your UPI PIN to send money, never to receive it, and you never need to scan a QR code to get paid. The faster you report, the better the chance that the money "
+ },
+ {
+  "k": "FAQ",
+  "t": "What should I do in the first hour after cyber fraud?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-first-hour",
+  "x": "In the first 10 minutes, stop paying and call 1930 . Next, call your bank's official number and block cards, UPI or net banking, then save evidence such as screenshots, transaction IDs, numbers and links. Before the hour is over, complete the complaint at cybercrime.gov.in and secure your email and "
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I report cyber fraud in India, and what is 1930?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-report-1930",
+  "x": "1930 is the National Cyber Crime Helpline. Call it as soon as you notice the fraud and you will get an acknowledgement number by SMS. Then log in at cybercrime.gov.in , complete the full complaint with that number, and tell your bank through its official helpline."
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I file a complaint on cybercrime.gov.in?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-cybercrime-portal",
+  "x": "First call 1930 so you have an acknowledgement number, then open cybercrime.gov.in and log in to complete the full complaint with that number. Keep the complaint number safe, attach the evidence you saved, and also tell your bank. Reporting quickly, ideally within hours, improves the chance of freez"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is a digital arrest scam?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-digital-arrest",
+  "x": "Digital arrest is a scam, not a legal procedure. The Indian Cyber Crime Coordination Centre (I4C) says there is no concept of digital arrest under any Indian law, and real police, CBI, ED or RBI officials do not arrest anyone on a video call or ask for money to settle a case. Hang up, tell a family "
+ },
+ {
+  "k": "FAQ",
+  "t": "Why should I never share an OTP?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-otp",
+  "x": "An OTP approves an action, like a payment, a login, a SIM change or a new device. Read the full OTP message: it usually says what it is for. If anyone asks you to read out or forward an OTP, it is a scam, no matter how official they sound. If you shared one, call your bank and 1930 right away."
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I spot a fake job offer?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-fake-job",
+  "x": "Real employers do not charge you to get a job. Offers that come without an interview, ask for a registration, training or security fee, or promise easy money for liking videos, rating hotels or completing tasks are scams. Verify every recruiter on the company's official careers page. If you paid, st"
+ },
+ {
+  "k": "FAQ",
+  "t": "What should I do if a loan app harasses me?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-loan-app",
+  "x": "Before installing a loan app, check that it is linked to an RBI regulated bank or NBFC and appears in the RBI's public directory of Digital Lending Apps. Never give a loan app access to your contacts or gallery. If an app harasses you, do not pay extortion demands: save evidence, report on cybercrim"
+ },
+ {
+  "k": "FAQ",
+  "t": "How can someone take over my WhatsApp, and how do I stop it?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-whatsapp",
+  "x": "Most WhatsApp takeovers happen when someone tricks you into sharing the six digit registration code sent by SMS, or gets your account opened on a linked device. Turn on two step verification (a PIN that WhatsApp asks for when your number is registered on a new phone), add an email for recovery, and "
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I spot a phishing SMS in India?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-phishing-sms",
+  "x": "A phishing SMS creates urgency, such as a power cut tonight or an account blocked today, and pushes you to click a link, call a number or share an OTP. Real banks, electricity boards and couriers do not ask for your PIN, OTP or card details by SMS. Do not click. Open the official app or website your"
+ },
+ {
+  "k": "FAQ",
+  "t": "What are simple safe UPI habits?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-safe-upi",
+  "x": "Enter your UPI PIN only to send money, never to receive it. Read the payee name before you pay, never install screen sharing apps on a caller's request, keep your phone locked and updated, and turn on transaction alerts. If money is lost, call 1930 and your bank immediately."
+ },
+ {
+  "k": "FAQ",
+  "t": "What is Sanchar Saathi and when should I use it?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-sanchar-saathi",
+  "x": "Sanchar Saathi, from the Department of Telecommunications, lets you report suspected fraud calls and messages (Chakshu), see mobile connections in your name, block a lost or stolen phone across all networks, check a phone's IMEI before buying, and verify bank customer care contacts. It is available "
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I create a strong password and remember it?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-passwords",
+  "x": "Use long passphrases of four or more random words, a different password for every important account, and a password manager to remember them. Turn on two factor authentication for email, banking and social media. Change a password immediately if a site you use was breached, and never share passwords"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is two factor authentication, and which type is best?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-twofa",
+  "x": "2FA means logging in needs something you know (a password) plus something you have (a phone, app or key) or something you are (a fingerprint). From weakest to strongest: SMS OTP, authenticator app codes, app push prompts with number matching, and passkeys or hardware security keys. Any 2FA is far be"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is a passkey, and why are apps switching to it?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-passkeys",
+  "x": "A passkey is a login credential stored on your device or in your password manager that uses public key cryptography. You unlock it with your fingerprint, face or screen lock. Because it is tied to the real website, a fake site cannot use it, so passkeys resist phishing. The FIDO Alliance's Passkey I"
+ },
+ {
+  "k": "FAQ",
+  "t": "Is public WiFi safe to use?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-public-wifi",
+  "x": "Public WiFi is fine for browsing news or maps, especially on HTTPS sites, but avoid banking and payments on it when you can and use mobile data instead. Beware of fake hotspots with official sounding names, never install anything a WiFi login page asks for, turn off auto connect, and keep your phone"
+ },
+ {
+  "k": "FAQ",
+  "t": "Does a VPN protect me from every online threat?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-vpn",
+  "x": "A VPN creates an encrypted tunnel from your device to the VPN provider's server. It hides your traffic from the local network, like cafe WiFi, and hides your real IP from websites. It does not stop phishing, malware, scam calls, weak passwords or tracking by accounts you are logged into. It also shi"
+ },
+ {
+  "k": "FAQ",
+  "t": "How can I keep my kids safe online in India?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-kids",
+  "x": "Talk early and often, set up parental controls such as Google Family Link or Apple Screen Time, and keep devices in shared spaces for younger kids. Review game and social media privacy settings, teach them never to share personal details or photos with online strangers, and make sure they know they "
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I secure my parents' phone?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-parents-phone",
+  "x": "Set a screen lock, install updates, remove unknown apps (especially screen sharing and APK installs), turn on Play Protect on Android, and set WhatsApp two step verification. Lower UPI limits, save 1930 and the bank's official number as contacts, and teach three simple rules: no OTP, no PIN to recei"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is cybersecurity, in plain English?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-what-is-cyber",
+  "x": "Cybersecurity is the work of protecting computers, networks, apps and data from people who want to steal, change or break them. Defenders try to keep information confidential, accurate and available. You do not need to be a genius coder to start. You need curiosity, basic networking and Linux, and a"
+ },
+ {
+  "k": "FAQ",
+  "t": "Which cybersecurity roles can I start with in India?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-career-paths",
+  "x": "The most common entry points are SOC analyst (monitoring alerts), IT or network support with a security focus, and GRC (governance, risk and compliance). Penetration testing, cloud security, forensics and application security usually come after you have strong basics. Pick one direction for six mont"
+ },
+ {
+  "k": "FAQ",
+  "t": "Which free or low cost certifications should a beginner take?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-certs",
+  "x": "Start with free, well known learning paths such as Cisco Networking Academy's Introduction to Cybersecurity, vendor fundamentals on Microsoft Learn and Fortinet's free courses, and check whether ISC2 Certified in Cybersecurity (CC) has a free training or exam offer running when you apply. Offers cha"
+ },
+ {
+  "k": "FAQ",
+  "t": "How should I study cybersecurity in 90 days?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-study-plan",
+  "x": "Spend days 1 to 30 on foundations (networking, Linux, how the internet works), days 31 to 60 on security concepts and your home lab (attacks, defences, logs, Wireshark, and nmap on your own lab), and days 61 to 90 on a chosen direction plus proof (CTFs, writeups, a portfolio and one beginner certifi"
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I set up a safe cybersecurity home lab?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-home-lab",
+  "x": "Install a free hypervisor such as VirtualBox, create one Linux virtual machine as your workstation, add one intentionally vulnerable target (for example OWASP Juice Shop or a deliberately vulnerable VM), and connect them on an isolated host-only or internal network. Take snapshots before experiments"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is a CTF, and how do I start?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-ctf",
+  "x": "A CTF is a set of security puzzles where each solution reveals a secret text called a flag. Beginner friendly options include picoCTF, OverTheWire Bandit and the CTF Arena on this site. Start with easy categories like general skills, web and forensics, keep notes, and write a short writeup for every"
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I build a cybersecurity portfolio on GitHub?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-portfolio",
+  "x": "Create a GitHub profile README that says who you are and what you are learning, then add three to five small but complete projects: a home lab writeup, CTF writeups, a log analysis script, a hardening checklist or a cloud security mini project. Each needs a clear README with the problem, steps, scre"
+ },
+ {
+  "k": "FAQ",
+  "t": "How should a cybersecurity fresher use LinkedIn?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-linkedin",
+  "x": "Write a specific headline, a short About section in first person, and add your GitHub projects in Featured. Post once or twice a week about what you learned, comment thoughtfully on other people's posts, and send personalised connection requests. Ignore anyone who asks for money to give you a job."
+ },
+ {
+  "k": "FAQ",
+  "t": "What does a SOC analyst do all day?",
+  "s": "FAQ · Starting a cybersecurity career",
+  "u": "faq.html#q-soc",
+  "x": "A SOC analyst monitors security alerts from tools like SIEM and EDR, decides whether each alert is a real threat or a false positive (triage), investigates the real ones, escalates them with clear notes, and documents everything. L1 analysts focus on triage, L2 on deeper investigation, and L3 and en"
+ },
+ {
+  "k": "FAQ",
+  "t": "What are the main cyber laws in India?",
+  "s": "FAQ · Cyber law in India",
+  "u": "faq.html#q-cyber-law-intro",
+  "x": "The main laws are the Information Technology Act, 2000 (cyber offences such as unauthorised access, identity theft and cheating by personation), the Bharatiya Nyaya Sanhita, 2023 (the general criminal law that replaced the IPC from 1 July 2024), CERT-In's directions (incident reporting within 6 hour"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is the Information Technology Act, 2000?",
+  "s": "FAQ · Cyber law in India",
+  "u": "faq.html#q-it-act",
+  "x": "The Information Technology Act, 2000 is India's main law for cyber offences and electronic records. It covers issues such as unauthorised access, identity theft and cheating by personation. It is often read together with the Bharatiya Nyaya Sanhita, 2023 and with CERT-In directions. For a plain walk"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is the Bharatiya Nyaya Sanhita, and how does it relate to cyber crime?",
+  "s": "FAQ · Cyber law in India",
+  "u": "faq.html#q-bns",
+  "x": "The Bharatiya Nyaya Sanhita, 2023 is the general criminal law that replaced the Indian Penal Code from 1 July 2024. Many cyber crimes are still charged under the Information Technology Act, 2000, and some conduct can also fall under BNS provisions. The two laws are often used together. This is gener"
+ },
+ {
+  "k": "FAQ",
+  "t": "When do the DPDP Rules start applying?",
+  "s": "FAQ · Cyber law in India",
+  "u": "faq.html#q-dpdp",
+  "x": "The DPDP Rules, 2025 were notified on 13 November 2025 with an 18 month phased rollout. Phase 1, from 13 November 2025, set up the Data Protection Board. Phase 2, from 13 November 2026, started the Consent Manager registration framework, with the portal dpbi.gov.in. Phase 3, from 13 May 2027, brings"
+ },
+ {
+  "k": "FAQ",
+  "t": "How do AI voice cloning and deepfake scams work, and how do I protect my family?",
+  "s": "FAQ · Trends 2026",
+  "u": "faq.html#q-voice-clone",
+  "x": "AI tools can copy a voice or face from public videos and voice notes. Scammers use this to impersonate family members, bosses or officials and demand urgent money or OTPs. CERT-In's April 2026 advisory tells individuals to verify voice calls, video messages and urgent requests, especially those invo"
+ },
+ {
+  "k": "FAQ",
+  "t": "What is SIM binding for WhatsApp and Telegram in India?",
+  "s": "FAQ · Trends 2026",
+  "u": "faq.html#q-sim-binding",
+  "x": "On 28 November 2025, the Department of Telecommunications issued directions under the Telecom Cyber Security Rules, 2024 (as amended) to app based communication services that use Indian mobile numbers, including WhatsApp, Telegram, Signal and others. Apps must stay continuously linked to the active "
+ },
+ {
+  "k": "FAQ",
+  "t": "Why do Indian bank websites now end in .bank.in?",
+  "s": "FAQ · Trends 2026",
+  "u": "faq.html#q-bank-in",
+  "x": "RBI's circular of 22 April 2025 told commercial banks and cooperative banks to move their websites to the exclusive .bank.in domain by 31 October 2025. Only eligible banks can register it, through IDRBT as the exclusive registrar. A bank website that does not end in .bank.in deserves suspicion. Alwa"
+ },
+ {
+  "k": "FAQ",
+  "t": "What should I know about ransomware in 2026?",
+  "s": "FAQ · Trends 2026",
+  "u": "faq.html#q-ransomware",
+  "x": "Ransomware usually starts with exploited vulnerabilities, stolen credentials or phishing, then locks files or steals data and demands payment. Verizon's 2026 DBIR, as reported by CyberScoop, found ransomware in 48% of breaches in its dataset, up from 44%, while 69% of victims did not pay. The best p"
+ },
+ {
+  "k": "FAQ",
+  "t": "Who is Madhav Pandya?",
+  "s": "FAQ · About CyberWithMadhav",
+  "u": "faq.html#q-who-madhav",
+  "x": "Madhav Pandya is a cybersecurity educator in Mumbai and the founder of CyberWithMadhav, where he explains cybersecurity and scam awareness in plain English and Hinglish. He is studying for a BA LLB at KES Shri J.P. Law College and a BCA with a specialisation in Cloud Computing and Cyber Security. Yo"
+ },
+ {
+  "k": "FAQ",
+  "t": "What does CyberWithMadhav offer?",
+  "s": "FAQ · About CyberWithMadhav",
+  "u": "faq.html#q-what-site",
+  "x": "CyberWithMadhav is a free website that explains cybersecurity, scam awareness and Indian cyber law in plain English and Hinglish. You will find step by step blog guides with official sources, a scam encyclopedia, a spot-the-scam game, CTF practice, cyber law notes, cheat sheets and prompts. Everythi"
+ },
+ {
+  "k": "FAQ",
+  "t": "How can I contact Madhav, or get help after a scam?",
+  "s": "FAQ · About CyberWithMadhav",
+  "u": "faq.html#q-contact",
+  "x": "For questions, corrections or a topic idea, write to madhavpandya@zohomail.in , or reach Madhav on LinkedIn, Instagram, YouTube or GitHub from the About page. If you have lost money to a scam, do not wait for an email reply: call 1930 and report at cybercrime.gov.in first."
+ }
+]

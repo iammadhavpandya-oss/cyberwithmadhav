@@ -105,7 +105,7 @@ for (const [page, n, h1] of [['terms.html', 18, 'Terms and Conditions'], ['priva
     });
     ok(`${page} ${scheme}: not gated, ${n} sections, contents sidebar matches, sticky glass, last updated, no dashes`, !r.gate && r.h1 === h1 && r.secs === n && r.toc.join() === r.ids.join() && r.sticky === 'sticky' && /blur/.test(r.blur) && r.updated && !r.dash && r.theme === scheme && r.overflow <= 0,
       JSON.stringify(Object.assign({}, r, { text: undefined })));
-    ok(`${page} ${scheme}: footer carries Terms and Privacy, short nav (Home, Explore, Blog, CTF), no errors`, r.legal === 'terms.html,privacy.html' && r.navLegal === 'index.html,explore.html,blog.html,ctf.html' && p.errors.length === 0, r.legal + ' | ' + r.navLegal + ' ' + p.errors);
+    ok(`${page} ${scheme}: footer carries Terms and Privacy, short nav (Home, Explore, Blog, FAQ, CTF), no errors`, r.legal === 'terms.html,privacy.html' && r.navLegal === 'index.html,explore.html,blog.html,faq.html,ctf.html' && p.errors.length === 0, r.legal + ' | ' + r.navLegal + ' ' + p.errors);
     if (page === 'terms.html' && scheme === 'dark') {
       const need = ['Section 43', 'Section 66', 'Bharatiya Nyaya Sanhita', 'brute force', 'OTPs, passwords', 'client data', 'watermark', 'resell', 'Madhav Pandya for CyberWithMadhav', 'privacy.html', 'theme', 'CTF practice progress', 'indemnify', 'laws of India', 'courts at Mumbai, Maharashtra', 'User responsibility and lawful use', 'under 18', 'madhavpandya@zohomail.in'];
       const miss = need.filter(k => !r.text.includes(k) && !(k === 'privacy.html' && true));

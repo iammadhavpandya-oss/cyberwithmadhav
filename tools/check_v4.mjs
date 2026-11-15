@@ -17,7 +17,7 @@ async function open(path, { w = 1440, h = 900, scheme = 'dark', mobile = false, 
   await p.goto(BASE + path, { waitUntil: 'networkidle0' }); await sleep(600);
   return p;
 }
-const pages = ['index.html', 'about.html', 'blog.html', 'blog-report-cyber-fraud-india.html', 'blog-digital-arrest-scam-india.html', 'blog-upi-scams-india.html', 'terms.html', 'privacy.html', 'scams.html', 'cyberlaw.html', 'explore.html', 'prompts.html', 'commands.html', 'game.html', 'terminal.html', 'ctf.html', '404.html'];
+const pages = ['index.html', 'about.html', 'blog.html', 'faq.html', 'blog-report-cyber-fraud-india.html', 'blog-digital-arrest-scam-india.html', 'blog-upi-scams-india.html', 'terms.html', 'privacy.html', 'scams.html', 'cyberlaw.html', 'explore.html', 'prompts.html', 'commands.html', 'game.html', 'terminal.html', 'ctf.html', '404.html'];
 for (const pg of pages) for (const [lang, mobile] of [['en', false], ['hi', false], ['en', true]]) {
   const p = await open(pg, mobile ? { w: 390, h: 844, mobile: true, lang } : { lang });
   const r = await p.evaluate(() => {

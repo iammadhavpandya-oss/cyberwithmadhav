@@ -155,6 +155,8 @@ def post_main(p):
         <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> {hubs}</p>
       </section>
 
+      <p class="small bp-faq-link"><a href="faq.html" data-i18n="blog.faq">Have a question? See the FAQ</a></p>
+
       <p class="small muted bp-disclaimer" data-i18n="blog.disclaimer">Educational content, not legal advice. Check official sources before you rely on it. If you have lost money, call <a href="tel:1930">1930</a> now. <a href="terms.html">Terms</a></p>
     </article>
   </main>"""
@@ -204,6 +206,7 @@ def listing_main():
     </section>
     <section class="section bp-list" aria-label="Posts">
       <div class="wrap">
+        <a class="faq-callout" href="faq.html"><strong data-i18n="blog.quickans">Quick answers</strong><span data-i18n="blog.quickans.p"> Start with short, plain answers on scams, safety, careers and cyber law. Each one links to a full guide.</span></a>
         <div class="chips bp-chips" role="group" aria-label="Filter posts by category" data-i18n-attr="aria-label:blog.filter">
           {"".join(chips)}
         </div>
