@@ -94,6 +94,8 @@ Object.assign(window.CWM_I18N.hi, {
  "foot.now": "Abhi",
  "foot.kit": "Toolkit",
  "foot.collab": "Collaborate",
+ "foot.shop": "Shop",
+ "nav.shop": "Shop",
  "home.start.btn": "Naye ho? Yahan se shuru karo",
  "home.collab": "Awareness session ya collab chahiye? <a href=\"collaborate.html\">Collaborate</a> dekho."
 });

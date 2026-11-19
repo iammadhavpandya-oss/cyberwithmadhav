@@ -222,6 +222,114 @@ def kit_main():
   </main>"""
 
 
+# ---------------- Shop (manual sales by email) ----------------
+# Madhav sells two PDFs by hand: the visitor opens a pre filled email, Madhav replies with payment details,
+# and sends the watermarked PDF himself. No prices, QR code, UPI ID or payment gateway on the site. Only the covers and the
+# free preview PDFs are published; the full PDFs must never be copied into this repo.
+from urllib.parse import quote  # noqa: E402
+
+PRODUCTS = [
+    {"id": "kit", "name": "Scam-Proof Family Kit", "img": "scam-proof-family-kit-cover-600.jpg", "pdf": "assets/pdf/scam-proof-family-kit-preview.pdf",
+     "pages": 25, "prev_pages": 4, "alt": "Cover of the Scam-Proof Family Kit PDF by CyberWithMadhav",
+     "tag": ("India's cyber safety playbook for families", "Families ke liye India ka cyber safety playbook"),
+     "desc": ("A plain-language PDF for families: how the common Indian scams work and what to do about them, written so parents and students can read it together.",
+              "Families ke liye simple bhasha mein PDF: Indian scams kaise kaam karte hain aur unka kya karein, taaki parents aur students saath padh sakein."),
+     "inside": [("15 common Indian scams, each with red flags and what to do", "15 common Indian scams, har ek ke red flags aur kya karna hai"),
+                ("The first 60 minutes after a scam", "Scam hone ke baad ke pehle 60 minutes"),
+                ("Phone, UPI and WhatsApp security checklists", "Phone, UPI aur WhatsApp security checklists"),
+                ("A printable fridge card for parents", "Parents ke liye printable fridge card"),
+                ("Kids' online safety", "Bachon ki online safety"),
+                ("Cyber law basics, the DPDP Act and helplines", "Cyber law basics, DPDP Act aur helplines")]},
+    {"id": "nmap", "name": "Nmap Field Guide", "img": "nmap-field-guide-cover-600.jpg", "pdf": "assets/pdf/nmap-field-guide-preview.pdf",
+     "pages": 30, "prev_pages": 4, "alt": "Cover of the Nmap Field Guide PDF by CyberWithMadhav",
+     "tag": ("From zero to confident scanner", "Zero se confident scanner tak"),
+     "desc": ("An ethics-first, practical guide to Nmap for beginners and students: learn it step by step on your own home lab, with the legal side explained first.",
+              "Beginners aur students ke liye ethics-first, practical Nmap guide: apne home lab pe step by step seekho, aur legal side pehle samjho."),
+     "inside": [("Ethics and the law first, then lab setup", "Pehle ethics aur law, phir lab setup"),
+                ("Scan types, ports and how to read results", "Scan types, ports aur results kaise padhein"),
+                ("Version and OS detection, timing and output formats", "Version aur OS detection, timing aur output formats"),
+                ("The Nmap Scripting Engine (NSE)", "Nmap Scripting Engine (NSE)"),
+                ("Firewalls and the defender's view", "Firewalls aur defender ka view"),
+                ("10 hands-on labs, a one page cheat sheet and a glossary", "10 hands-on labs, ek page ka cheat sheet aur glossary")],
+     "note": ("Sample outputs are labelled as real runs or example output. Use it only on systems you own or have written permission to test.",
+              "Sample outputs pe likha hai ki real run hai ya example output. Sirf apne systems pe ya likhit permission ke saath hi use karo.")},
+]
+
+
+def _size(path):
+    n = (ROOT / path).stat().st_size
+    return f"{n / 1048576:.1f} MB" if n >= 1048576 else f"{round(n / 1024)} KB"
+
+
+def _mailto(name):
+    body = (f"Hi Madhav,\n\nI would like to buy: {name} (PDF), price ₹99\n\nName:\nEmail for delivery:\nPhone (optional):\n\n"
+            "Please share the payment details.\n\nThank you")
+    return f"mailto:{EMAIL}?subject={quote('Buy: ' + name + ' (PDF) ₹99')}&body={quote(body)}"
+
+
+def shop_main():
+    cards = []
+    for pr in PRODUCTS:
+        k = "shop." + pr["id"]
+        HI[k + ".tag"] = pr["tag"][1]; HI[k + ".desc"] = pr["desc"][1]
+        inside = "\n".join(f'              <li>{t(f"{k}.i{i}", en, hi, "span")}</li>' for i, (en, hi) in enumerate(pr["inside"], 1))
+        note = ""
+        if pr.get("note"): note = "\n            " + t(k + ".note", pr["note"][0], pr["note"][1], "p", "small muted")
+        cards.append(f"""        <article class="card shop-card" aria-labelledby="{k.replace('.', '-')}-h">
+          <img class="shop-cover" src="assets/img/shop/{pr["img"]}" alt="{E(pr["alt"])}" width="600" height="750" decoding="async">
+          <div class="shop-body">
+            <p class="shop-tag mono small">{t(k + ".tag", E(pr["tag"][0]), pr["tag"][1], "span")}</p>
+            <h3 class="h3" id="{k.replace('.', '-')}-h">{E(pr["name"])}</h3>
+            {t(k + ".desc", E(pr["desc"][0]), pr["desc"][1], "p")}
+            <ul class="shop-facts small" aria-label="Details">
+              <li>PDF, {pr["pages"]} A4 pages</li>
+              <li>{t("shop.price", "Price: ₹99", "Price: ₹99", "span")}</li>
+            </ul>
+            <h4 class="h4">{t("shop.inside", "What is inside", "Andar kya hai", "span")}</h4>
+            <ul class="xp-list">
+{inside}
+            </ul>{note}
+            <div class="xp-btns">
+              <a class="btn btn-primary" href="{_mailto(pr["name"])}" rel="nofollow">{t("shop.buy", "Buy via email", "Email se kharidein", "span")}</a>
+              <a class="btn btn-ghost" href="{pr["pdf"]}" target="_blank" rel="noopener">{t("shop.prev", "Download free preview", "Free preview download karo", "span")}</a>
+            </div>
+            <p class="small muted">{t("shop.prevmeta", "Free preview", "Free preview", "span")}: PDF, {pr["prev_pages"]} pages, {_size(pr["pdf"])}.</p>
+          </div>
+        </article>""")
+    steps = [("shop.s1", "Click <strong>Buy via email</strong> on the PDF you want. Your email app opens with a message ready to send. Add your name and the email address where the PDF should be delivered.",
+              "Jo PDF chahiye uspe <strong>Email se kharidein</strong> dabao. Aapka email app ek ready message ke saath khulega. Apna naam aur jis email pe PDF chahiye woh likh do."),
+             ("shop.s2", "I reply with the payment details. The price is ₹99 per PDF.", "Main payment details ke saath reply karta hoon. Price ₹99 per PDF hai."),
+             ("shop.s3", "After I confirm your payment, I email you the watermarked PDF, usually within 24 hours.",
+              "Payment confirm hone ke baad main watermark wala PDF email kar deta hoon, aam taur pe 24 ghante ke andar.")]
+    sl = "\n".join(f'          <li>{t(k, en, hi, "span")}</li>' for k, en, hi in steps)
+    lic = t("shop.lic", "Each PDF is a personal licensed copy for you and your own family or study. It carries a CyberWithMadhav watermark. Please do not share, resell or upload it anywhere. The free previews are fine to share.",
+            "Har PDF aapke aur aapke apne family ya study ke liye ek personal licensed copy hai. Us pe CyberWithMadhav ka watermark hota hai. Please isse share, resell ya kahin upload mat karo. Free previews share kar sakte ho.", "p", "small")
+    return f"""  <main id="main" tabindex="-1">
+{hero("shop", "./shop --list", "Shop", "Two PDF guides by Madhav Pandya, made for Indian families and beginners. Read the free preview first. If you want the full PDF, buy it by email. Each PDF is ₹99.", "Madhav Pandya ke do PDF guides, Indian families aur beginners ke liye. Pehle free preview padho. Poora PDF chahiye to email se kharido. Har PDF ₹99 ka hai.", crumbs("Shop"))}
+
+    <section class="section xp-sec" aria-label="PDF guides">
+      <div class="wrap">
+        <div class="shop-grid">
+{chr(10).join(cards)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section xp-sec" id="how-buying-works" aria-labelledby="shop-how-h">
+      <div class="wrap">
+        <div class="card xp-narrow">
+          {t("shop.how.h", "How buying works", "Kharidna kaise kaam karta hai", "h2", "h3").replace("<h2", '<h2 id="shop-how-h"', 1)}
+          <ol class="xp-list shop-steps">
+{sl}
+          </ol>
+          {lic}
+          <p class="small muted">{t("shop.q", "Questions first? Email", "Pehle kuch poochna hai? Email karo", "span")} <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>"""
+
+
 # ---------------- Collaborate / media kit ----------------
 def collab_main():
     topics = [("col.t1", "Scam awareness for families and senior citizens", "Families aur senior citizens ke liye scam awareness"),
@@ -290,7 +398,7 @@ def collab_main():
 
 
 def i18n_block():
-    HI.update({"foot.start": "Yahan se shuru karo", "foot.now": "Abhi", "foot.kit": "Toolkit", "foot.collab": "Collaborate",
+    HI.update({"foot.start": "Yahan se shuru karo", "foot.now": "Abhi", "foot.kit": "Toolkit", "foot.collab": "Collaborate", "foot.shop": "Shop", "nav.shop": "Shop",
                "col.bio.h": "Short bio", "col.bio.note": "Free use karo, bas link dena", "col.brand.h": "Brand aur photo",
                "col.photo": "Profile photo (JPG)", "col.logo": "Logo mark (SVG)", "col.where.h": "Main kahan milunga",
                "sh.safe.game": "Practice: Scam ya Nahi? khelo", "sh.safe.enc": "Scam encyclopedia", "sh.safe.faq": "Quick answers",
@@ -299,10 +407,10 @@ def i18n_block():
                "home.start.btn": "Naye ho? Yahan se shuru karo", "home.collab": "Awareness session ya collab chahiye? <a href=\"collaborate.html\">Collaborate</a> dekho."})
     # site wide strings (footer, home) go in the shared dictionary; strings for the four pages go in their own
     # deferred file, so the render blocking i18n-dict.js stays small on every other page
-    shared = {k: v for k, v in HI.items() if k.startswith(("foot.", "home."))}
+    shared = {k: v for k, v in HI.items() if k.startswith(("foot.", "home.", "nav."))}
     page = {k: v for k, v in HI.items() if k not in shared}
     pf = ROOT / "assets/js/i18n/page-extras.js"
-    pjs = ("/* Hinglish strings for start-here, uses, collaborate and now. Generated by tools/build_extras.py. */\n"
+    pjs = ("/* Hinglish strings for start-here, uses, collaborate, shop and now. Generated by tools/build_extras.py. */\n"
            "window.CWM_I18N_PAGE = Object.assign(window.CWM_I18N_PAGE || {}, %s);\n" % json.dumps(page, ensure_ascii=False, indent=1))
     if not pf.exists() or pf.read_text(encoding="utf-8") != pjs:
         pf.write_text(pjs, encoding="utf-8"); print("wrote assets/js/i18n/page-extras.js")
@@ -374,6 +482,10 @@ SPECS = [
      "desc": "Invite Madhav Pandya for cyber awareness sessions, interviews or collaborations. Topics, a short bio, brand colours, photo and contact details.",
      "og": "Collaborate with CyberWithMadhav", "ogdesc": "Cyber awareness sessions, interviews and collabs. Topics, short bio, media kit and contact.",
      "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css"], "js": ["i18n/page-extras.js"], "main_fn": collab_main, "ldtype": "ContactPage", "ldname": "Collaborate"},
+    {"file": "shop.html", "title": "Shop | CyberWithMadhav",
+     "desc": "Two PDF guides by Madhav Pandya: the Scam-Proof Family Kit and the Nmap Field Guide. Download a free preview, then buy by email for ₹99 each.",
+     "og": "Shop | CyberWithMadhav", "ogdesc": "The Scam-Proof Family Kit and the Nmap Field Guide: free previews, and the full PDFs by email.",
+     "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css", "shop.css"], "js": ["i18n/page-extras.js"], "main_fn": shop_main, "ldtype": "CollectionPage", "ldname": "Shop"},
 ]
 
 
@@ -386,7 +498,7 @@ def main():
         make_page.build(s, *parts)
     i18n_block()
     text_files()
-    for f in [s["file"] for s in SPECS] + ["humans.txt", ".well-known/security.txt", "assets/js/i18n-dict.js", "assets/js/i18n/page-extras.js"]:
+    for f in [s["file"] for s in SPECS] + ["assets/css/shop.css", "humans.txt", ".well-known/security.txt", "assets/js/i18n-dict.js", "assets/js/i18n/page-extras.js"]:
         txt = (ROOT / f).read_text(encoding="utf-8")
         assert "\u2014" not in txt and "\u2013" not in txt, f
 

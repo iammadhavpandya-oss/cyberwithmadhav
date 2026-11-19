@@ -81,8 +81,8 @@ def build(spec, head, nav, foot, tail):
         h = h.replace("\n</head>\n", "\n" + (ROOT / "tools" / "pages" / spec["head"]).read_text(encoding="utf-8").rstrip() + "\n</head>\n", 1)
     if spec.get("head_html"):  # extra head tags passed directly (blog)
         h = h.replace("\n</head>\n", "\n" + spec["head_html"].rstrip() + "\n</head>\n", 1)
-    h = h.replace('  <link rel="stylesheet" href="assets/css/pages.css">\n',
-                  "".join(f'  <link rel="stylesheet" href="assets/css/{c}">\n' for c in spec["css"]))
+    h = re.sub(r'  <link rel="stylesheet" href="assets/css/pages\.css(?:\?v=[0-9a-f]+)?">\n',
+               lambda m: "".join(f'  <link rel="stylesheet" href="assets/css/{c}">\n' for c in spec["css"]), h, count=1)
     n = nav.replace(f'<a href="{spec["file"]}">', f'<a href="{spec["file"]}" class="active" aria-current="page">')
     f = foot.replace("Prompts are for learning and defensive or authorised work only. Check every AI answer yourself.",
                      spec.get("foot", "For learning and defensive or authorised work only."))

@@ -34,7 +34,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=83887da26d"></script>
+  <script src="assets/js/i18n-dict.js?v=b33e505d82"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=489e6f7920"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -108,6 +108,7 @@
         <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
         <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
         <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
+        <a href="shop.html" class="nav-shop"><span data-i18n="nav.shop">Shop</span></a>
         <a href="ctf.html" class="nav-ctf active" aria-current="page"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
         <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
@@ -409,7 +410,7 @@
       <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is. Puzzles are self-contained: no live targets.</p>
-        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>
