@@ -47,7 +47,7 @@ Tests: `cd tools && node test_ctf.mjs` (45 browser checks, also run at the end o
 - `cyberlaw.html`: hero (Sec 43 civil vs Sec 66 crime), History of Indian Cyber Law timeline (`data/cyberlaw_timeline.json`, 26 entries), IT Act table (28 rows), BNS to IPC map (17 rows), DPDP penalties, procedure (7 steps), Where to File (`data/cyberlaw_reporting.json`, 9 forums, NCRP and 1930 first), 12 case files, FAQ in English and Hinglish (15), glossary (40), PDF downloads (`assets/pdf/`). Educational, not legal advice.
 - Tags: `verify` (solid) = open question; `being verified` (dashed) = fact-check item still being confirmed against the linked primary source.
 
-Build order (content lives in `/workspace/cwm-content`, outside the repo):
+Build order (content lives in a separate `cwm-content` folder, outside the repo):
 
 ```bash
 python3 tools/build_pages_data.py   # writes data/*.json, applies tools/content/factcheck.py (fact-check corrections override raw content), copies the reporting guide forums, then tools/content/seo.py (titles, meta, og, keywords, JSON-LD for prompts, cyberlaw, ctf)

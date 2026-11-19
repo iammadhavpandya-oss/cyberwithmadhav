@@ -121,7 +121,7 @@ def post_main(p):
       <p class="bp-cat mono" data-i18n="{cat_key(p['category'])}">{E(p['category'])}</p>
       <h1 id="p-title" data-i18n="post.title">{E(p['title'])}</h1>
       <p class="lead" data-i18n="post.lead">{E(p['lead'])}</p>
-      <div class="bp-byline small muted">
+{HI_NOTE if not (p.get("hi") or {}).get("sections") else ""}      <div class="bp-byline small muted">
         {AUTHOR_IMG.format(s=40).replace('loading="lazy"', 'loading="eager"')}
         <p><span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a> · <span data-i18n="blog.published">Published</span> <time datetime="{p['date']}">{nice(p['date'])}</time> · <span data-i18n="blog.reviewed">Last reviewed</span> <time datetime="{p['reviewed']}">{nice(p['reviewed'])}</time> · {minutes(p)} <span data-i18n="blog.min">min read</span></p>
       </div>
@@ -228,6 +228,10 @@ def listing_head():
           "blogPost": [{"@type": "BlogPosting", "@id": BASE + fname(p) + "#post", "headline": p["title"], "url": BASE + fname(p), "datePublished": iso_ts(p["date"])} for p in POSTS_SORTED]}
     return ('  <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">\n'
             f'  <script type="application/ld+json">\n  {json.dumps(ld, ensure_ascii=False)}\n  </script>')
+
+
+# Shown only in Hinglish mode on posts whose body has not been translated yet, so the switch never looks broken.
+HI_NOTE = '      <p class="small muted bp-hi-note" data-lang-only="hi">Is guide ka poora Hinglish version abhi taiyaar ho raha hai. Tab tak ise English mein padho.</p>\n'
 
 
 def page_dict(p):

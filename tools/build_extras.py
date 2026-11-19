@@ -279,13 +279,13 @@ def shop_main():
           <img class="shop-cover" src="assets/img/shop/{pr["img"]}" alt="{E(pr["alt"])}" width="600" height="750" decoding="async">
           <div class="shop-body">
             <p class="shop-tag mono small">{t(k + ".tag", E(pr["tag"][0]), pr["tag"][1], "span")}</p>
-            <h3 class="h3" id="{k.replace('.', '-')}-h">{E(pr["name"])}</h3>
+            <h2 class="h3" id="{k.replace('.', '-')}-h">{E(pr["name"])}</h2>
             {t(k + ".desc", E(pr["desc"][0]), pr["desc"][1], "p")}
             <ul class="shop-facts small" aria-label="Details">
               <li>PDF, {pr["pages"]} A4 pages</li>
               <li>{t("shop.price", "Price: ₹99", "Price: ₹99", "span")}</li>
             </ul>
-            <h4 class="h4">{t("shop.inside", "What is inside", "Andar kya hai", "span")}</h4>
+            <h3 class="h4">{t("shop.inside", "What is inside", "Andar kya hai", "span")}</h3>
             <ul class="xp-list">
 {inside}
             </ul>{note}

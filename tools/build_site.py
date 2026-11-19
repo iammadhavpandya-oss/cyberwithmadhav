@@ -210,13 +210,21 @@ def version_eggs():
 def short_title(t): return re.split(r"\s+\|\s+|:\s", t)[0].strip()
 
 
+def clip(s, n):
+    """Shorten a visible search snippet at a word boundary and mark the cut with an ellipsis."""
+    s = s.strip()
+    if len(s) <= n: return s
+    cut = s[:n - 1].rsplit(" ", 1)[0].rstrip(" ,;:.(")
+    return cut + "\u2026"
+
+
 def search_index():
     out, seen = [], set()
 
     def add(k, t, s, u, x=""):
         key = (k, t, u)
         if key in seen: return
-        seen.add(key); item = {"k": k, "t": t, "s": s[:110], "u": u}
+        seen.add(key); item = {"k": k, "t": t, "s": clip(s, 110), "u": u}
         if x: item["x"] = x[:300]
         out.append(item)
 
@@ -344,14 +352,14 @@ self.addEventListener('fetch', e => {
   if (req.method !== 'GET' || url.origin !== self.location.origin) return;
   if (req.mode === 'navigate') {
     e.respondWith(fetch(req).then(res => {
-      if (res.ok) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
+      if (res.status === 200) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
       return res;
     }).catch(() => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match('404.html'))));
     return;
   }
   e.respondWith(caches.match(req).then(hit => {
     const net = fetch(req).then(res => {
-      if (res.ok && res.type === 'basic') { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
+      if (res.status === 200 && res.type === 'basic') { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
       return res;
     });
     return hit ? (net.catch(() => hit), hit) : net;
@@ -426,6 +434,7 @@ def not_found():
   <script src="assets/js/nav.js" defer></script>
   <script src="assets/js/search.js" defer></script>
   <script src="assets/js/pwa.js" defer></script>
+  {FLAG}
 </body>
 </html>
 """

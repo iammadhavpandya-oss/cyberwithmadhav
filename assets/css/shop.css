@@ -5,8 +5,8 @@
 .shop-body{min-width:0}
 .shop-body > *:first-child{margin-top:0}
 .shop-tag{margin:0 0 4px;color:var(--green-2);letter-spacing:.02em}
-.shop-body h3{margin:0 0 8px}
-.shop-body h4{margin:16px 0 0}
+.shop-body .h3{margin:0 0 8px}
+.shop-body .h4{margin:16px 0 0}
 .shop-body p{line-height:1.55}
 .shop-facts{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .shop-facts li{padding:4px 10px;border:1px solid var(--border);border-radius:999px}

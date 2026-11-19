@@ -64,8 +64,8 @@
     },
     {
       "when": "Certified",
-      "title": "Oracle Virtualization, Jetking",
-      "body": "Certification in Oracle Virtualization from Jetking.",
+      "title": "Oracle Virtualization",
+      "body": "Certification in Oracle Virtualization.",
       "metric": ""
     },
     {
@@ -117,8 +117,5 @@
       "GRC: turning these rules into policies, risk registers and audits"
     ]
   },
-  "_todo": [
-    "Add real numbers only if Madhav provides them: set timeline[].metric (e.g. followers, videos published, users supported). Empty metric = hidden."
-  ],
   "photo": "assets/img/madhav.jpg"
 }

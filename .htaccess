@@ -18,6 +18,11 @@ RewriteRule ^ https://www.cyberwithmadhav.com%{REQUEST_URI} [L,R=301]
 
 ErrorDocument 404 /404.html
 
+# Developer files that are not part of the public site.
+<IfModule mod_alias.c>
+RedirectMatch 404 ^/README\.md$
+</IfModule>
+
 <IfModule mod_expires.c>
 ExpiresActive On
 ExpiresDefault "access plus 1 hour"
