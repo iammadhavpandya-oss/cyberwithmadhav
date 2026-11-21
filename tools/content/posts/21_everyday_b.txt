@@ -7,7 +7,7 @@ cat: Everyday safety
 tags: loan apps, harassment, RBI
 kw: loan app harassment what to do; fake loan app India; RBI digital lending apps list; loan app complaint
 hi: Loan app harassment: lending app kaise check karein aur madad kahan milegi
-related: secure-parents-phone, first-hour-after-cyber-fraud, fake-job-offer-scams
+related: secure-parents-phone, first-hour-after-cyber-fraud, fake-job-offer-scams, report-cyber-fraud-india
 hubs: scams.html|Scam Encyclopedia; cyberlaw.html|Cyber Law India
 src: RBI press release on the Digital Lending Directions, 2025, including the public directory of DLAs (8 May 2025)|https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=60403
 src: RBI Sachet portal: report unauthorised entities|https://sachet.rbi.org.in/

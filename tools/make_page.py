@@ -26,7 +26,7 @@ SPECS = [
      "keywords": "cyber fraud india, digital arrest scam, upi fraud, kyc scam sms, 1930 helpline, cybercrime.gov.in, scam awareness hindi",
      "body": "scam-page", "css": ["pages.css", "features.css"], "js": ["scams.js"]},
     {"file": "game.html", "title": "Scam ya Nahi? Spot the Scam Game in Hinglish | CyberWithMadhav",
-     "desc": "30 made up SMS, WhatsApp, call and email messages from Indian scams and real alerts. Tap Scam or Safe, see the red flags, the Hinglish explanation and when to call 1930.",
+     "desc": "30 made up SMS, WhatsApp, call and email examples from Indian scams and real alerts. Tap Scam or Safe, see the red flags in Hinglish, and when to call 1930.",
      "og": "Scam ya Nahi? Spot the scam in 30 messages",
      "ogdesc": "Swipe or tap Scam or Safe on SMS, WhatsApp, call and email examples. Easy, medium and hard levels, red flags explained in Hinglish, best score saved in your browser.",
      "keywords": "scam ya nahi, spot the scam game, cyber fraud quiz india, sms scam test, whatsapp scam quiz, 1930 helpline, scam awareness hinglish",

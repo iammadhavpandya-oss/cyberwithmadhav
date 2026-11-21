@@ -8,7 +8,7 @@ tags: Wireshark, packets, networking, lab
 kw: wireshark tutorial for beginners; wireshark display filters; how to use wireshark; wireshark kaise use kare
 hi: Beginners ke liye Wireshark basics: apna network traffic capture karo aur padho
 related: networking-basics-for-cybersecurity, osi-tcp-ip-model-explained, nmap-own-lab-guide
-hubs: index.html#networking|Networking basics; commands.html|Blue team commands
+hubs: index.html#networking|Networking basics; commands.html|Blue team commands; uses.html|Free cybersecurity toolkit
 src: Wireshark User's Guide|https://www.wireshark.org/docs/wsug_html_chunked/
 src: Wireshark display filter reference|https://www.wireshark.org/docs/dfref/
 quick: Install Wireshark from the official site, pick your network interface, capture a few seconds while you load a website, then use **display filters** like `dns`, `http`, `tcp.port == 443` or `ip.addr == 192.168.1.10` to focus. Right click a packet and choose **Follow, TCP Stream** to read a conversation. **Only capture traffic on networks and devices you own or have permission to monitor.**
@@ -80,7 +80,7 @@ tags: nmap, port scanning, home lab
 kw: nmap tutorial for beginners; nmap commands list; port scanning home lab; nmap legal India
 hi: Beginners ke liye nmap: apne home lab ko legally aur safely scan karo
 related: safe-home-lab-setup, wireshark-basics, networking-basics-for-cybersecurity
-hubs: index.html#cheatsheets|Cheat sheets on the home page; commands.html|Blue team commands; ctf.html|CTF Arena
+hubs: index.html#cheatsheets|Cheat sheets on the home page; commands.html|Blue team commands; ctf.html|CTF Arena; uses.html|Free cybersecurity toolkit
 src: Nmap Reference Guide (official)|https://nmap.org/book/man.html
 src: Nmap: legal issues (official book chapter)|https://nmap.org/book/legal-issues.html
 src: Information Technology Act, 2000 on India Code|https://www.indiacode.nic.in/handle/123456789/1999
@@ -180,7 +180,7 @@ tags: Burp Suite, web security, Juice Shop, OWASP
 kw: burp suite tutorial for beginners; burp suite community edition; web application security practice; OWASP Juice Shop
 hi: Beginners ke liye Burp Suite intro: web security sirf practice sites pe seekho
 related: how-the-internet-works, browser-devtools-for-security, safe-home-lab-setup
-hubs: ctf.html|CTF Arena; index.html#roadmap|Cybersecurity roadmap
+hubs: ctf.html|CTF Arena; index.html#roadmap|Cybersecurity roadmap; uses.html|Free cybersecurity toolkit
 src: PortSwigger: Burp Suite documentation|https://portswigger.net/burp/documentation
 src: PortSwigger Web Security Academy (free labs)|https://portswigger.net/web-security
 src: OWASP Juice Shop|https://owasp.org/www-project-juice-shop/

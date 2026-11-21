@@ -3,4 +3,7 @@
 # Found a security issue? /.well-known/security.txt
 User-agent: *
 Allow: /
+Disallow: /tools/
+Disallow: /backend/
+Disallow: /docs/
 Sitemap: https://www.cyberwithmadhav.com/sitemap.xml

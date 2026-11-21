@@ -291,7 +291,7 @@ def page(fname, title, h1, kicker, desc, lead, sections, other):
 
 
 page("terms.html", "Terms and Conditions", "Terms and Conditions", "<span class=\"prompt\">$</span> cat terms.md",
-     "Terms and Conditions for CyberWithMadhav: educational use only, authorised and ethical use under the IT Act and BNS, CTF fair play, AI prompt safety, PDFs, liability and governing law.",
+     "CyberWithMadhav terms: educational use only, authorised use under the IT Act and BNS, CTF fair play, AI prompt safety, PDF licences, liability and Indian law.",
      "Please read these terms before using CyberWithMadhav. They explain what the site is for, how you may use its content, and the limits of our responsibility.",
      TERMS, ("privacy.html", "Read the Privacy Policy"))
 page("privacy.html", "Privacy Policy", "Privacy Policy", "<span class=\"prompt\">$</span> cat privacy.md",

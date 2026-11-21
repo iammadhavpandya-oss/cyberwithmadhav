@@ -206,7 +206,7 @@ srch: Sources
 tags: Sanchar Saathi, Chakshu, DoT, lost phone
 kw: Sanchar Saathi how to use; Chakshu report fraud call; how many SIM in my name; block lost phone CEIR
 hi: Sanchar Saathi guide: fraud calls report karo, apne naam ke SIM check karo, khoya phone block karo
-related: spot-phishing-sms-india, sim-binding-whatsapp-india-2027, india-cyber-fraud-numbers-2025
+related: spot-phishing-sms-india, sim-binding-whatsapp-india-2027, india-cyber-fraud-numbers-2025, report-cyber-fraud-india
 hubs: scams.html|Scam Encyclopedia; game.html|Scam ya Nahi? game
 src: PIB: Sanchar Saathi portal crosses 30 crore visits (5 October 2026)|https://www.pib.gov.in/PressReleasePage.aspx?PRID=2319087&lang=1&reg=3
 src: Sanchar Saathi (DoT)|https://sancharsaathi.gov.in/

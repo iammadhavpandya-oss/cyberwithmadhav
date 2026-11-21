@@ -238,7 +238,7 @@ tags: DevTools, web security, browser, cookies
 kw: browser developer tools security; chrome devtools network tab; inspect cookies browser; web security for beginners
 hi: Security beginners ke liye browser developer tools: website asal mein kya karti hai dekho
 related: how-the-internet-works, burp-suite-intro-practice, spot-phishing-sms-india
-hubs: index.html#link-tool|Free link checker; ctf.html|CTF Arena
+hubs: index.html#link-tool|Free link checker; ctf.html|CTF Arena; uses.html|Free cybersecurity toolkit
 src: Chrome DevTools documentation|https://developer.chrome.com/docs/devtools
 src: Firefox DevTools user docs|https://firefox-source-docs.mozilla.org/devtools-user/
 src: Mozilla MDN: HTTP cookies|https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies

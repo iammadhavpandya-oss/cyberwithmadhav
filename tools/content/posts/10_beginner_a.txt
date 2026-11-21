@@ -229,7 +229,7 @@ tags: Linux, terminal, commands
 kw: linux basics for cybersecurity; linux commands for beginners; linux file permissions explained; kali linux beginner
 hi: Cybersecurity ke liye Linux basics: commands jo aap sach mein use karoge
 related: networking-basics-for-cybersecurity, safe-home-lab-setup, linux-logs-for-beginners
-hubs: terminal.html|Free Linux terminal wargame; commands.html|Blue team commands cheat sheet; index.html#cheatsheets|Cheat sheets
+hubs: terminal.html|Free Linux terminal wargame; commands.html|Blue team commands cheat sheet; index.html#cheatsheets|Cheat sheets; uses.html|Free cybersecurity toolkit
 src: The Linux Documentation Project|https://tldp.org/
 src: Ubuntu documentation: command line for beginners|https://ubuntu.com/tutorials/command-line-for-beginners
 quick: Learn to move around the file system (`pwd`, `ls`, `cd`), read files (`cat`, `less`, `grep`), understand permissions (`chmod`, `ls -l`), manage processes (`ps`, `top`), check the network (`ip a`, `ss`) and read logs in `/var/log`. Practise in a virtual machine or a browser wargame, 20 minutes a day.
@@ -433,7 +433,7 @@ tags: home lab, VirtualBox, practice
 kw: cybersecurity home lab setup; virtualbox lab for beginners; how to practice ethical hacking legally; home lab kaise banaye
 hi: Laptop pe safe cybersecurity home lab kaise banayein
 related: linux-basics-for-cybersecurity, nmap-own-lab-guide, ctf-for-beginners
-hubs: ctf.html|CTF Arena on this site; terminal.html|Linux terminal wargame
+hubs: ctf.html|CTF Arena on this site; terminal.html|Linux terminal wargame; uses.html|Free cybersecurity toolkit
 src: Oracle VirtualBox documentation|https://www.virtualbox.org/wiki/Documentation
 src: OWASP Juice Shop (intentionally insecure practice app)|https://owasp.org/www-project-juice-shop/
 src: Kali Linux documentation: virtualization|https://www.kali.org/docs/virtualization/

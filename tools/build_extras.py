@@ -467,7 +467,7 @@ Canonical: https://www.cyberwithmadhav.com/.well-known/security.txt
 
 SPECS = [
     {"file": "start-here.html", "title": "Start Here: Cybersecurity and Scam Safety Guides for Beginners | CyberWithMadhav",
-     "desc": "New to CyberWithMadhav? Three simple paths: stay safe from scams, learn cybersecurity from zero with the 15 part Beginner Journey, or understand cyber law in India.",
+     "desc": "New to CyberWithMadhav? Three paths: stay safe from scams, learn cybersecurity from zero with the 15 part Beginner Journey, or understand cyber law in India.",
      "og": "Start here: pick your cybersecurity path", "ogdesc": "Stay safe from scams, learn cybersecurity from zero, or understand cyber law in India. Free guides in English and Hinglish.",
      "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css"], "js": ["i18n/page-extras.js"], "main_fn": start_main, "ldtype": "CollectionPage", "ldname": "Start here"},
     {"file": "now.html", "title": "Now: What Madhav Pandya Is Focused On | CyberWithMadhav",
@@ -475,16 +475,16 @@ SPECS = [
      "og": "What I am doing now | Madhav Pandya", "ogdesc": "A short, honest snapshot of what Madhav Pandya is focused on this month.",
      "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css"], "js": ["i18n/page-extras.js"], "main_fn": now_main, "ldtype": "AboutPage", "ldname": "Now"},
     {"file": "uses.html", "title": "Free Cybersecurity Toolkit for Beginners: Nmap, Wireshark, Burp and More | CyberWithMadhav",
-     "desc": "Free tools for learning cybersecurity and staying safe: VirtualBox, Linux, Nmap, Wireshark, Burp Suite Community, DevTools, password managers and Sanchar Saathi, each with a guide.",
+     "desc": "Free tools to learn cybersecurity: VirtualBox, Linux, Nmap, Wireshark, Burp Suite, DevTools, password managers and Sanchar Saathi, each with a guide.",
      "og": "Free cybersecurity toolkit for beginners", "ogdesc": "The free tools the CyberWithMadhav guides teach, with official links and step by step guides.",
      "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css"], "js": ["i18n/page-extras.js"], "main_fn": kit_main, "ldtype": "CollectionPage", "ldname": "Toolkit"},
     {"file": "collaborate.html", "title": "Collaborate and Media Kit: Cyber Awareness Sessions | CyberWithMadhav",
      "desc": "Invite Madhav Pandya for cyber awareness sessions, interviews or collaborations. Topics, a short bio, brand colours, photo and contact details.",
      "og": "Collaborate with CyberWithMadhav", "ogdesc": "Cyber awareness sessions, interviews and collabs. Topics, short bio, media kit and contact.",
      "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css"], "js": ["i18n/page-extras.js"], "main_fn": collab_main, "ldtype": "ContactPage", "ldname": "Collaborate"},
-    {"file": "shop.html", "title": "Shop | CyberWithMadhav",
+    {"file": "shop.html", "title": "Shop: Scam-Proof Family Kit and Nmap Field Guide | CyberWithMadhav",
      "desc": "Two PDF guides by Madhav Pandya: the Scam-Proof Family Kit and the Nmap Field Guide. Download a free preview, then buy by email for ₹99 each.",
-     "og": "Shop | CyberWithMadhav", "ogdesc": "The Scam-Proof Family Kit and the Nmap Field Guide: free previews, and the full PDFs by email.",
+     "og": "Shop: two PDF guides for families and beginners", "ogdesc": "The Scam-Proof Family Kit and the Nmap Field Guide: free previews, and the full PDFs by email.",
      "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css", "shop.css"], "js": ["i18n/page-extras.js"], "main_fn": shop_main, "ldtype": "CollectionPage", "ldname": "Shop"},
 ]
 

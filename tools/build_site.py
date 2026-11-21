@@ -7,6 +7,7 @@ It is idempotent and does five things:
   3. data/search.json: the Ctrl+K search index built from every page and the data files.
   4. sitemap.xml (every public page) and feed.xml (RSS 2.0).
   5. sw.js (offline cache with a content hash version) and 404.html.
+It also writes robots.txt (and keeps /tools/, /backend/ and /docs/ out of search) and adds basic JSON-LD on pages that still have none.
 CSP is also patched so GoatCounter can load (https://gc.zgo.at) and send a count (https://cyberwithmadhav.goatcounter.com).
 """
 import hashlib, html, json, re, subprocess
@@ -338,7 +339,9 @@ def robots():
     write("robots.txt", "# Hello, curious human. Robots read this file, and so do future defenders.\n"
           "# Nothing is hidden here. The flags live in the CTF Arena: /ctf.html\n"
           "# Found a security issue? /.well-known/security.txt\n"
-          "User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n" % BASE)
+          "User-agent: *\nAllow: /\n"
+          "Disallow: /tools/\nDisallow: /backend/\nDisallow: /docs/\n"
+          "Sitemap: %ssitemap.xml\n" % BASE)
 
 
 # ---------- 5: service worker and 404 ----------
@@ -406,6 +409,7 @@ def not_found():
     head = t[:t.index("<body")]
     head = re.sub(r"<title>.*?</title>", f"<title>{NOT_FOUND_TITLE}</title>", head)
     head = re.sub(r'\n\s*<(?:meta property="og:[^"]*"|meta name="twitter:[^"]*"|link rel="canonical")[^>]*>', "", head)
+    head = re.sub(r'\n\s*<script type="application/ld\+json">.*?</script>', "", head, flags=re.S)
     head = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="This page does not exist on CyberWithMadhav.">\n  <meta name="robots" content="noindex">', head)
     head = head.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  <base href="/">', 1)
     head = head.replace("base-uri 'none'", "base-uri 'self'")
@@ -483,9 +487,38 @@ def share_jpegs():
             Image.open(png).convert("RGB").save(jpg, "JPEG", quality=84, optimize=True, progressive=True); print("wrote", jpg.relative_to(ROOT))
 
 
+
+def ensure_basic_schema():
+    """Add WebPage or CollectionPage plus breadcrumbs on public pages that still have no JSON-LD."""
+    types = {"explore.html": "CollectionPage", "game.html": "LearningResource",
+             "shop.html": "CollectionPage"}
+    for p in pages():
+        s = read(p)
+        if "application/ld+json" in s:
+            continue
+        url = BASE if p == "index.html" else BASE + p
+        title = title_of(s)
+        name = title.split(" | ")[0].strip() or title
+        desc = meta(s, "name", "description") or name
+        typ = types.get(p, "WebPage")
+        graph = [{"@type": typ, "@id": url + "#page", "url": url, "name": name,
+                  "description": desc, "inLanguage": "en-IN",
+                  "isPartOf": {"@id": BASE + "#website"}},
+                 {"@type": "BreadcrumbList", "itemListElement": [
+                     {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE},
+                     {"@type": "ListItem", "position": 2, "name": name, "item": url}]}]
+        block = '  <script type="application/ld+json">\n  ' + json.dumps(
+            {"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + "\n  </script>\n"
+        if "</head>" not in s:
+            raise SystemExit("no </head> in " + p)
+        write(p, s.replace("</head>", block + "</head>", 1))
+        print("schema added:", p)
+
+
 def main():
     share_jpegs()
     version_eggs()
+    ensure_basic_schema()
     for p in pages(): patch_page(p)
     not_found()
     search_index()
