@@ -25,14 +25,14 @@
   <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
   <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
   <meta name="color-scheme" content="dark light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0='; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0=' https://gc.zgo.at; style-src 'self'; font-src 'self'; img-src 'self' data: https://cyberwithmadhav.goatcounter.com; connect-src 'self' https://cyberwithmadhav.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'self'">
   <script>
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=b33e505d82"></script>
+  <script src="assets/js/i18n-dict.js?v=a6608326ae"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
-  <script src="assets/js/consent.js?v=489e6f7920"></script>
+  <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -86,7 +86,7 @@
         <p class="kicker mono"><span class="prompt">$</span> cat terms.md</p>
         <h1 id="legal-title">Terms and Conditions</h1>
         <p class="lead">Please read these terms before using CyberWithMadhav. They explain what the site is for, how you may use its content, and the limits of our responsibility.</p>
-        <p class="legal-meta small muted">Last updated: <time datetime="2026-11-12">12 November 2026</time> · Version 4 · <a href="privacy.html">Read the Privacy Policy</a></p>
+        <p class="legal-meta small muted">Last updated: <time datetime="2026-11-21">21 November 2026</time> · Version 5 · <a href="privacy.html">Read the Privacy Policy</a></p>
         <p class="legal-hi-note small" data-lang-only="hi">Ye page sirf English mein hai. Hinglish mode sirf baaki site ke liye hai, aur agar kisi bhi translation aur is English text mein fark ho, to English version hi maana jayega.</p>
       </div>
     </section>
@@ -183,7 +183,7 @@
         </section>
         <section class="legal-sec" id="privacy" aria-labelledby="privacy-h">
           <h2 id="privacy-h"><span class="legal-n mono" aria-hidden="true">12</span>Privacy</h2>
-          <p>We do not use analytics, advertising or tracking scripts, and the site does not set cookies.</p>
+          <p>The site does not set cookies and does not run advertising. We use GoatCounter, a cookieless visitor counter, to count page views.</p>
           <p>Your browser's local storage keeps a few settings on your own device: your light or dark theme choice, your language choice, your CTF practice progress and preferences, prompt favourites, cheat sheet lab values, and a record that you accepted these Terms (with the version number). You can clear them at any time through your browser's site data settings.</p>
           <p>Full details, including the services the site relies on, are in our <a href="privacy.html">Privacy Policy</a>.</p>
         </section>
@@ -244,5 +244,6 @@
   <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
   <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
   <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
+  <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

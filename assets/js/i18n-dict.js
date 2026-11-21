@@ -80,7 +80,7 @@ window.CWM_I18N = { hi: {
  "consent.li1": "Sirf education aur awareness ke liye. Yahan kuch bhi legal, security ya professional advice nahi hai. Kisi bhi cheez pe rely karne se pehle official sources check karo.",
  "consent.li2": "Sirf wahi systems, networks aur accounts test karo jo aapke hain ya jinke liye likhit permission hai. Bina permission access IT Act s.43 ke under civil wrong hai, aur agar dishonestly ya fraudulently kiya to s.66 ke under offence. BNS jaise doosre laws bhi lag sakte hain.",
  "consent.li3": "Jo seekhte ho uska use kaise karte ho, uski zimmedari aapki hai. Sab kuch as is diya gaya hai, bina kisi warranty ke.",
- "consent.li4": "Koi trackers ya analytics nahi. Aapka theme, language, progress aur ye choice aapke browser mein hi rehte hain.",
+ "consent.li4": "Koi cookies ya ads nahi. Cookieless visitor counter (GoatCounter) page views record karta hai, taaki humein pata chale kaun se pages useful hain. Aapka theme, language, progress aur ye choice aapke browser mein hi rehte hain.",
  "consent.agree1": "Meri age 18 ya usse zyada hai, ya mere parent ya guardian ki permission hai. Maine ",
  "consent.agree2": " aur ",
  "consent.agree3": " padh liye hain, mujhe manzoor hain, aur is site ka use sirf legal, authorised learning ke liye hoga.",

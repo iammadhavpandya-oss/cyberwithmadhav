@@ -6,139 +6,139 @@
     <atom:link href="https://www.cyberwithmadhav.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Cybersecurity in plain English and Hinglish: roadmap, cheat sheets, CTF practice, prompts, cyber law and scam alerts for India.</description>
     <language>en-in</language>
-    <lastBuildDate>Thu, 19 Nov 2026 12:08:37 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0530</lastBuildDate>
+    <item>
+      <title>CyberWithMadhav: Cybersecurity in Hinglish by Madhav Pandya</title>
+      <link>https://www.cyberwithmadhav.com/</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Learn cybersecurity in plain English and Hinglish with Madhav Pandya. Free roadmap, CTF practice, cheat sheets, Indian cyber law and scam alerts.</description>
+    </item>
     <item>
       <title>Mission Control: every CyberWithMadhav page in one place</title>
       <link>https://www.cyberwithmadhav.com/explore.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/explore.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>One hub for everything on CyberWithMadhav: cyber law, commands, roadmap, CTF, terminal wargame, browser tools, scams, AI prompts, terms and privacy.</description>
     </item>
     <item>
       <title>Command Reference: 60 blue team commands with safety notes</title>
       <link>https://www.cyberwithmadhav.com/commands.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/commands.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>60 defensive commands for Linux, Windows, Cisco IOS and cross platform triage, with examples, typical output, blue team use, safety notes and official docs.</description>
     </item>
     <item>
       <title>Scam Encyclopedia India: 25 frauds decoded</title>
       <link>https://www.cyberwithmadhav.com/scams.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/scams.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Digital arrest, UPI collect, KYC SMS, APK wedding cards and 21 more Indian scams: how each works, red flags, what to do and the law.</description>
     </item>
     <item>
       <title>Scam ya Nahi? Spot the scam in 30 messages</title>
       <link>https://www.cyberwithmadhav.com/game.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/game.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>30 made up SMS, WhatsApp, call and email messages from Indian scams and real alerts. Tap Scam or Safe, see the red flags, the Hinglish explanation and when to call 1930.</description>
     </item>
     <item>
       <title>Terminal Wargame: Learn Linux by Hacking Your Way Up</title>
       <link>https://www.cyberwithmadhav.com/terminal.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/terminal.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Learn Linux in your browser: 20 levels of ls, find, grep, chmod, pipes and base64 in a safe simulated shell. Find each password to unlock the next level.</description>
     </item>
     <item>
       <title>CTF Arena: Capture the Flag, Learn the Concept</title>
       <link>https://www.cyberwithmadhav.com/ctf.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/ctf.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free browser CTF practice: 7 tracks from Networking and Linux to Cloud, Pentesting and Blue Team, 3 levels each, with flags, hints and quizzes.</description>
     </item>
     <item>
       <title>CyberPrompts: Defensive AI Prompt Sheets for India</title>
       <link>https://www.cyberwithmadhav.com/prompts.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/prompts.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>90 free defensive AI prompts in 19 categories, including Defensive Analysis, SOC, victim help, compliance and cyber law, plus 12 scenario cards. India focused.</description>
     </item>
     <item>
       <title>Cyber Law India: FAQs, Glossary, Cases and Timeline</title>
       <link>https://www.cyberwithmadhav.com/cyberlaw.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyberlaw.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Indian cyber law in plain English and Hinglish: 15 FAQs, 40 term glossary, 12 landmark cases and a timeline from the IT Act 2000. Not legal advice.</description>
-    </item>
-    <item>
-      <title>Start here: pick your cybersecurity path</title>
-      <link>https://www.cyberwithmadhav.com/start-here.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/start-here.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
-      <description>New to CyberWithMadhav? Three simple paths: stay safe from scams, learn cybersecurity from zero with the 15 part Beginner Journey, or understand cyber law in India.</description>
-    </item>
-    <item>
-      <title>Free cybersecurity toolkit for beginners</title>
-      <link>https://www.cyberwithmadhav.com/uses.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/uses.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
-      <description>Free tools for learning cybersecurity and staying safe: VirtualBox, Linux, Nmap, Wireshark, Burp Suite Community, DevTools, password managers and Sanchar Saathi, each with a guide.</description>
-    </item>
-    <item>
-      <title>Collaborate with CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/collaborate.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/collaborate.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
-      <description>Invite Madhav Pandya for cyber awareness sessions, interviews or collaborations. Topics, a short bio, brand colours, photo and contact details.</description>
-    </item>
-    <item>
-      <title>What I am doing now | Madhav Pandya</title>
-      <link>https://www.cyberwithmadhav.com/now.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/now.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
-      <description>What Madhav Pandya is working on right now: studying law and cloud security, writing cybersecurity guides, a book coming soon, and free practice tools.</description>
-    </item>
-    <item>
-      <title>Terms and Conditions | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/terms.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/terms.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
-      <description>Terms and Conditions for CyberWithMadhav: educational use only, authorised and ethical use under the IT Act and BNS, CTF fair play, AI prompt safety, PDFs, liability and governing law.</description>
-    </item>
-    <item>
-      <title>Privacy Policy | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/privacy.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/privacy.html</guid>
-      <pubDate>Thu, 19 Nov 2026 12:08:37 +0530</pubDate>
-      <description>Privacy Policy for CyberWithMadhav: no trackers, no analytics, no cookies. What the site keeps in your browser and which services it relies on.</description>
-    </item>
-    <item>
-      <title>CyberWithMadhav: Cybersecurity in Hinglish by Madhav Pandya</title>
-      <link>https://www.cyberwithmadhav.com/</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/</guid>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 +0530</pubDate>
-      <description>Learn cybersecurity in plain English and Hinglish with Madhav Pandya. Free roadmap, CTF practice, cheat sheets, Indian cyber law and scam alerts.</description>
     </item>
     <item>
       <title>CyberWithMadhav Blog: scams, cyber law and cybersecurity in Hinglish</title>
       <link>https://www.cyberwithmadhav.com/blog.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/blog.html</guid>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Scam alerts, Indian cyber law explained and beginner cybersecurity guides in plain English and Hinglish, by Madhav Pandya.</description>
     </item>
     <item>
       <title>FAQ: Scams, Safety and Cyber Careers in India</title>
       <link>https://www.cyberwithmadhav.com/faq.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/faq.html</guid>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Plain answers on UPI fraud, 1930, passwords, cybersecurity careers and Indian cyber law. Each answer links to a full guide on CyberWithMadhav.</description>
+    </item>
+    <item>
+      <title>Start here: pick your cybersecurity path</title>
+      <link>https://www.cyberwithmadhav.com/start-here.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/start-here.html</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
+      <description>New to CyberWithMadhav? Three simple paths: stay safe from scams, learn cybersecurity from zero with the 15 part Beginner Journey, or understand cyber law in India.</description>
+    </item>
+    <item>
+      <title>Free cybersecurity toolkit for beginners</title>
+      <link>https://www.cyberwithmadhav.com/uses.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/uses.html</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free tools for learning cybersecurity and staying safe: VirtualBox, Linux, Nmap, Wireshark, Burp Suite Community, DevTools, password managers and Sanchar Saathi, each with a guide.</description>
+    </item>
+    <item>
+      <title>Collaborate with CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/collaborate.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/collaborate.html</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Invite Madhav Pandya for cyber awareness sessions, interviews or collaborations. Topics, a short bio, brand colours, photo and contact details.</description>
     </item>
     <item>
       <title>Shop | CyberWithMadhav</title>
       <link>https://www.cyberwithmadhav.com/shop.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/shop.html</guid>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Two PDF guides by Madhav Pandya: the Scam-Proof Family Kit and the Nmap Field Guide. Download a free preview, then buy by email for ₹99 each.</description>
+    </item>
+    <item>
+      <title>What I am doing now | Madhav Pandya</title>
+      <link>https://www.cyberwithmadhav.com/now.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/now.html</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
+      <description>What Madhav Pandya is working on right now: studying law and cloud security, writing cybersecurity guides, a book coming soon, and free practice tools.</description>
     </item>
     <item>
       <title>Madhav Pandya | Cybersecurity Educator, Mumbai, India</title>
       <link>https://www.cyberwithmadhav.com/about.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/about.html</guid>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
       <description>Madhav Pandya is a cybersecurity educator in Mumbai and founder of CyberWithMadhav. Scams, cyber law and online safety in plain English and Hinglish.</description>
+    </item>
+    <item>
+      <title>Terms and Conditions | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/terms.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/terms.html</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Terms and Conditions for CyberWithMadhav: educational use only, authorised and ethical use under the IT Act and BNS, CTF fair play, AI prompt safety, PDFs, liability and governing law.</description>
+    </item>
+    <item>
+      <title>Privacy Policy | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/privacy.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/privacy.html</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Privacy Policy for CyberWithMadhav: no cookies, no ads, and a cookieless visitor counter. What the site keeps in your browser and which services it relies on.</description>
     </item>
     <item>
       <title>AI Voice Cloning and Deepfake Scams in 2026: How to Protect Your Family</title>

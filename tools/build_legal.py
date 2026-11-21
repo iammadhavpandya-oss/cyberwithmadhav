@@ -8,9 +8,9 @@ from html import escape
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://www.cyberwithmadhav.com/"
-UPDATED = "12 November 2026"
-UPDATED_ISO = "2026-11-12"
-VERSION = 4  # keep equal to VERSION in assets/js/consent.js
+UPDATED = "21 November 2026"
+UPDATED_ISO = "2026-11-21"
+VERSION = 5  # keep equal to VERSION in assets/js/consent.js
 EMAIL = "madhavpandya@zohomail.in"
 
 THEME_JS = """
@@ -98,7 +98,7 @@ TERMS = [
   "The site links to other websites, such as government portals, courts, learning platforms and tool vendors, because they are useful sources. We do not control those sites and are not responsible for their content, availability, security or privacy practices.",
   "A link does not mean we endorse the site or its owner. Your use of any linked site is governed by that site's own terms."]),
  ("privacy", "Privacy", [
-  "We do not use analytics, advertising or tracking scripts, and the site does not set cookies.",
+  "The site does not set cookies and does not run advertising. We use GoatCounter, a cookieless visitor counter, to count page views.",
   "Your browser's local storage keeps a few settings on your own device: your light or dark theme choice, your language choice, your CTF practice progress and preferences, prompt favourites, cheat sheet lab values, and a record that you accepted these Terms (with the version number). You can clear them at any time through your browser's site data settings.",
   "Full details, including the services the site relies on, are in our <a href=\"privacy.html\">Privacy Policy</a>."]),
  ("liability", "Limitation of liability and indemnity", [
@@ -136,9 +136,9 @@ STORAGE = [
 ]
 PRIVACY = [
  ("summary", "Summary", [
-  "CyberWithMadhav is a static website. We do not run analytics, advertising or tracking scripts, we do not set cookies, and you do not need an account to use the site.",
+  "CyberWithMadhav is a static website. We do not set cookies, we do not run advertising, and you do not need an account to use the site.",
   "A few settings are kept in your own browser so the site remembers your choices. They never leave your device unless you use an optional feature described below.",
-  "The pages load nothing from third party servers: fonts, scripts, styles and images all come from this site. Links to other websites open only when you click them."]),
+  "Fonts, styles and the site's own scripts all come from this site. One third-party script loads: GoatCounter, a cookieless visitor counter described below. Links to other websites open only when you click them."]),
  ("who", "Who we are", [
   "The site is run by Madhav Pandya under the name CyberWithMadhav. You can reach us at <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL)]),
  ("browser", "What is stored in your browser", [
@@ -147,8 +147,9 @@ PRIVACY = [
   "You can remove all of it at any time by clearing site data for this site in your browser settings. If you clear the consent record, you will see the welcome screen again."]),
  ("services", "Services the site relies on", [
   ["<strong>Hostinger</strong> hosts the site. Like any web host, Hostinger receives technical information such as your IP address and browser details when your browser requests a page, and may keep it in server logs. See the <a href=\"https://www.hostinger.com/legal/privacy-policy\" target=\"_blank\" rel=\"noopener\">Hostinger Privacy Policy</a>.",
-   "<strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN."],
-  "We do not receive any personal information from the host."]),
+   "<strong>Fonts</strong> are self-hosted on this site (Inter, Space Grotesk and JetBrains Mono). Your browser loads them from our own assets, not from a third-party font CDN.",
+   "<strong>GoatCounter</strong> is a cookieless visitor counter. When you open a page, your browser loads a small script from gc.zgo.at and sends a page-view count to cyberwithmadhav.goatcounter.com. GoatCounter does not set cookies and does not store a tracker in your browser. It keeps aggregate counts of the page viewed, the referrer, the country, and technical details such as the browser and screen size. It does not store your IP address. We use this only to see how many people visit each page. See the <a href=\"https://www.goatcounter.com/help/privacy\" target=\"_blank\" rel=\"noopener\">GoatCounter privacy policy</a>."],
+  "We do not receive any personal information from the host. We can view the aggregate page-view counts in GoatCounter."]),
  ("optional", "Contact and optional leaderboard", [
   "The site has no newsletter. The contact form on the home page does not send anything to a server: it opens your own email app with your message filled in, and you decide whether to send it. If you email us, we receive what you write and your email address, and use them only to reply to you. We keep emails only as long as needed to reply and for a reasonable period afterwards, and then delete them.",
   "The CTF leaderboard works only when an optional backend is connected. At the time of writing, no backend is connected on the live site, so CTF progress stays in your browser.",
@@ -205,7 +206,7 @@ def page(fname, title, h1, kicker, desc, lead, sections, other):
   <meta property="og:url" content="{BASE}{fname}">
   <meta property="og:locale" content="en_IN">
   <meta name="color-scheme" content="dark light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self'; font-src 'self'; img-src 'self' data: https://cyberwithmadhav.goatcounter.com; connect-src 'self' https://cyberwithmadhav.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'self'">
   <script>{THEME_JS}</script>
   <script src="assets/js/consent.js"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -294,6 +295,6 @@ page("terms.html", "Terms and Conditions", "Terms and Conditions", "<span class=
      "Please read these terms before using CyberWithMadhav. They explain what the site is for, how you may use its content, and the limits of our responsibility.",
      TERMS, ("privacy.html", "Read the Privacy Policy"))
 page("privacy.html", "Privacy Policy", "Privacy Policy", "<span class=\"prompt\">$</span> cat privacy.md",
-     "Privacy Policy for CyberWithMadhav: no trackers, no analytics, no cookies. What the site keeps in your browser and which services it relies on.",
-     "Short version: no trackers, no analytics, no cookies and no account. Here is exactly what stays in your browser and which services the site relies on.",
+     "Privacy Policy for CyberWithMadhav: no cookies, no ads, and a cookieless visitor counter. What the site keeps in your browser and which services it relies on.",
+     "Short version: no cookies, no ads, no account, and a cookieless visitor counter (GoatCounter). Here is exactly what stays in your browser and which services the site relies on.",
      PRIVACY, ("terms.html", "Read the Terms and Conditions"))

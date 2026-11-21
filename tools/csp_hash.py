@@ -11,6 +11,7 @@ for p in sorted(ROOT.glob("*.html")):
   if "Content-Security-Policy" not in html: continue
   hashes = ["'sha256-%s'" % base64.b64encode(hashlib.sha256(m.encode()).digest()).decode()
           for m in re.findall(r"<script>(.*?)</script>", html, re.S)]
-  html, n = re.subn(r"script-src 'self'( 'sha256-[^']+')*", "script-src 'self' " + " ".join(hashes), html)
+  # Replace only 'self' and the hashes; leave any extra script-src hosts (GoatCounter: https://gc.zgo.at)
+  html, n = re.subn(r"script-src 'self'(?: 'sha256-[^']+')*", "script-src 'self' " + " ".join(hashes), html)
   p.write_text(html, encoding="utf-8")
   print(f"{name}: updated {n} CSP meta with {len(hashes)} hash(es)")

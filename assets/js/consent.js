@@ -7,7 +7,7 @@
  */
 (function () {
   'use strict';
-  var VERSION = 4;
+  var VERSION = 5;
   var KEY = 'cwm-consent';
   var root = document.documentElement;
 
@@ -56,7 +56,7 @@
           el('li', { text: T('li1', 'Education and awareness only. Nothing here is legal, security or professional advice. Check official sources before you rely on anything.') }),
           el('li', { text: T('li2', 'Test only systems, networks and accounts you own or have written permission to test. Unauthorised access is a civil wrong under IT Act s.43 and, if done dishonestly or fraudulently, an offence under s.66. Other laws, including the BNS, can also apply.') }),
           el('li', { text: T('li3', 'You are responsible for how you use what you learn. Everything is provided as is, with no warranty.') }),
-          el('li', { text: T('li4', 'No trackers or analytics. Your theme, language, progress and this choice stay in your browser.') })
+          el('li', { text: T('li4', 'No cookies or ads. A cookieless visitor counter (GoatCounter) records page views so we can see which pages are useful. Your theme, language, progress and this choice stay in your browser.') })
         ])
       ]),
       el('label', { class: 'cg-check', for: 'cg-agree' }, [cb, el('span', {}, [T('agree1', 'I am 18 or older, or I have a parent or guardian\'s permission. I have read and agree to the '), terms, T('agree2', ' and '), priv, T('agree3', ', and I will use this site only for lawful, authorised learning.')])]),

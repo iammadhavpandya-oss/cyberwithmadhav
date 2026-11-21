@@ -101,6 +101,8 @@ def build(spec, head, nav, foot, tail):
 def _norm(s):
     s = re.sub(r"\n\s*<(?:meta (?:property|name)=\"(?:og:image[^\"]*|twitter:[^\"]*)\"|link rel=\"(?:manifest|apple-touch-icon)\")[^>]*>", "", s)
     s = re.sub(r"\n\s*<script src=\"assets/js/(?:pwa|search|nav)\.js\" defer></script>", "", s)
+    s = re.sub(r"\n\s*<script data-goatcounter=\"[^\"]+\"[^>]*></script>", "", s)
+    s = re.sub(r" https://gc\.zgo\.at| https://cyberwithmadhav\.goatcounter\.com", "", s)
     s = re.sub(r"\s*<!-- more:start -->.*?<!-- more:end -->", "", s, flags=re.S)
     s = re.sub(r"'sha256-[^']+'", "", s)
     return s
