@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=a6608326ae"></script>
+  <script src="assets/js/i18n-dict.js?v=26b91c321f"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -137,7 +137,8 @@
 <li>A sticker pasted over a shop's real QR code, so your payment goes to someone else. Before you enter the PIN, check that the name shown in your app is the shop's name.</li>
 <li>QR codes in emails, posters or messages that open a fake payment or login page.</li>
 </ul>
-<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p></div>
+<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p>
+<p>For a closer look at stickers on shop counters, petrol pumps and parking machines, and a 10-second check before you pay, see our <a href="blog-fake-qr-code-shops-petrol-pumps.html">guide to fake QR codes at shops and petrol pumps</a>.</p></div>
       </section>
       <section class="bp-sec" id="refund" aria-labelledby="refund-h">
         <h2 id="refund-h" data-i18n="post.s.refund.h">Refund and &quot;sent by mistake&quot; tricks</h2>
@@ -195,11 +196,17 @@
           <p class="muted small" data-i18n="blogpost.report-cyber-fraud-india.d">If money has left your account because of a scam, the order of steps matters. Here is what to do, in order, with the official links.</p>
           <p class="bp-meta small muted"><time datetime="2026-11-11">11 November 2026</time> · 5 <span data-i18n="blog.min">min read</span></p>
         </article>
+        <article class="bp-card" data-cat="Everyday safety">
+          <p class="bp-cat mono" data-i18n="cat.everyday-safety">Everyday safety</p>
+          <h3 class="bp-card-t"><a href="blog-fake-qr-code-shops-petrol-pumps.html" data-i18n="blogpost.fake-qr-code-shops-petrol-pumps.t">Fake QR Codes at Shops and Petrol Pumps</a></h3>
+          <p class="muted small" data-i18n="blogpost.fake-qr-code-shops-petrol-pumps.d">Our main UPI guide covers QR codes sent on chat. This one is about the QR code printed or pasted at a counter: at a shop, petrol pump, parking lot or stall. It needs its own quick habit.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-21">21 November 2026</time> · 2 <span data-i18n="blog.min">min read</span></p>
+        </article>
         <article class="bp-card" data-cat="Scam awareness">
           <p class="bp-cat mono" data-i18n="cat.scam-awareness">Scam awareness</p>
-          <h3 class="bp-card-t"><a href="blog-digital-arrest-scam-india.html" data-i18n="blogpost.digital-arrest-scam-india.t">Digital Arrest Scam: What It Is and What To Do</a></h3>
-          <p class="muted small" data-i18n="blogpost.digital-arrest-scam-india.d">There is no such thing as a digital arrest in Indian law. Here is how the scam works, how to spot it, and what to do if you or a family member gets the call.</p>
-          <p class="bp-meta small muted"><time datetime="2026-11-11">11 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+          <h3 class="bp-card-t"><a href="blog-upi-pin-overlay-malware.html" data-i18n="blogpost.upi-pin-overlay-malware.t">Fake Apps That Steal Your UPI PIN</a></h3>
+          <p class="muted small" data-i18n="blogpost.upi-pin-overlay-malware.d">Not every UPI fraud starts with you sharing a PIN. Some fake apps, once installed, can watch you type it. The good news is that they almost always need you to install them first.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-21">21 November 2026</time> · 3 <span data-i18n="blog.min">min read</span></p>
         </article>
         </div>
         <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#link-tool">Is this link suspicious? Free link checker</a> · <a href="scams.html">Scam Encyclopedia: UPI and 24 more scams</a> · <a href="game.html">Scam ya Nahi? Spot the scam game</a></p>
@@ -229,7 +236,7 @@
   <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
   <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
   <script src="assets/js/blog.js?v=b11bf6fe15" defer></script>
-  <script src="assets/js/i18n/post-upi-scams-india.js?v=4e570d4e23" defer></script>
+  <script src="assets/js/i18n/post-upi-scams-india.js?v=d08cbda4df" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>
   <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
   <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>

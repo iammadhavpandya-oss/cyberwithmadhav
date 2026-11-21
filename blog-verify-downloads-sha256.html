@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=a6608326ae"></script>
+  <script src="assets/js/i18n-dict.js?v=26b91c321f"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -228,11 +228,11 @@ Get-FileHash .\ubuntu.iso -Algorithm SHA256</code></pre>
           <p class="muted small" data-i18n="blogpost.safe-home-lab-setup.d">A home lab is where you are allowed to break things. It lets you practise attacks and defences legally, on machines you own. Here is how to set one up without spending money or putting your home network at risk.</p>
           <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
         </article>
-        <article class="bp-card" data-cat="Beginner journey">
-          <p class="bp-cat mono" data-i18n="cat.beginner-journey">Beginner journey</p>
-          <h3 class="bp-card-t"><a href="blog-linux-basics-for-cybersecurity.html" data-i18n="blogpost.linux-basics-for-cybersecurity.t">Linux Basics for Cybersecurity: The Commands You Will Actually Use</a></h3>
-          <p class="muted small" data-i18n="blogpost.linux-basics-for-cybersecurity.d">Most servers, security tools and cloud machines run Linux. You do not need to master it in a week, but you do need to feel comfortable in a terminal. Here is a practical starting kit.</p>
-          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        <article class="bp-card" data-cat="Everyday safety">
+          <p class="bp-cat mono" data-i18n="cat.everyday-safety">Everyday safety</p>
+          <h3 class="bp-card-t"><a href="blog-check-app-apk-before-install.html" data-i18n="blogpost.check-app-apk-before-install.t">How to Check an App Before You Install It</a></h3>
+          <p class="muted small" data-i18n="blogpost.check-app-apk-before-install.d">Many scams now begin with one step: &quot;install this app&quot;. Here is a two minute checklist that works for any app, so you and your family can say no to the dangerous ones.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-21">21 November 2026</time> · 2 <span data-i18n="blog.min">min read</span></p>
         </article>
         </div>
         <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#tools">Free hash tool on the home page</a> · <a href="commands.html">Blue team commands</a></p>

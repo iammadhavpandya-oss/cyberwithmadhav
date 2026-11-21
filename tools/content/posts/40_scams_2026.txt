@@ -1,0 +1,533 @@
+=== fake-mparivahan-echallan-apk
+title: Fake mParivahan and e-Challan APK Scam
+short: Fake mParivahan APK
+desc: Got a traffic challan SMS with an app link? It may be a fake mParivahan APK. How the scam works, how to check a challan safely, and what to do.
+lead: A message says you have a pending traffic challan and asks you to install an "mParivahan" app from a link. That file is often malware. Here is how to spot it and check your challan the safe way.
+cat: Scam awareness
+date: 2026-11-21
+tags: e-challan, APK, malware, traffic
+kw: fake mParivahan APK; e-challan SMS scam; fake traffic challan link; challan APK fraud
+hi: Nakli mParivahan aur e-Challan APK scam
+related: spot-phishing-sms-india, check-app-apk-before-install, upi-pin-overlay-malware, report-cyber-fraud-india
+hubs: scams.html|Scam Encyclopedia: fake e-challan and more; game.html|Scam ya Nahi? game
+src: Times of India: Hyderabad police warn about fake mParivahan APK (20 November 2026)|https://timesofindia.indiatimes.com/city/hyderabad/beware-fraudsters-push-malicious-mparivahan-app-with-fake-challan-links-warn-hyderabad-police/articleshow/136002858.cms
+src: TechNadu: GhostBat RAT spreads through fake mParivahan and eChallan apps (16 October 2026)|https://www.technadu.com/ghostbat-rat-targets-indian-android-users-with-fake-mparivahan-and-echallan-apps/642363/
+src: Official e-Challan portal (MoRTH)|https://echallan.parivahan.gov.in/
+src: NextGen mParivahan on Google Play (National Informatics Centre)|https://play.google.com/store/apps/details?id=com.nic.mparivahan
+src: Sanchar Saathi Chakshu: report suspected fraud communication|https://sancharsaathi.gov.in/sfc/
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: Never install an app from a link in a challan SMS or WhatsApp message. Check challans yourself on the official portal **echallan.parivahan.gov.in**, or in the **NextGen mParivahan** app installed from the Play Store or App Store, published by National Informatics Centre. If you already installed a file, turn on airplane mode, uninstall it and call your bank. If money is lost, call **1930**.
+takeaways:
+- A real challan never needs you to install an app from a message link.
+- Check challans only on echallan.parivahan.gov.in or the official NextGen mParivahan app.
+- A file ending in .apk sent on SMS or WhatsApp is a big red flag.
+- If you installed it, go offline, uninstall, secure your bank and report on 1930.
+## how | How the scam works
+1. You get an SMS or WhatsApp message saying a traffic challan has been issued against your vehicle. Some messages include a vehicle number or a fine amount to look real.
+2. The message has a link that looks like a government site, or directly sends a file named something like "mParivahan.apk".
+3. Once installed, the fake app asks for many permissions, such as reading SMS, notifications and accessibility. Some versions hide their icon.
+4. It can read your OTPs and bank alerts, and may show a fake payment page to steal UPI or card details.
+
+In November 2026, Hyderabad police registered a case after such SMS messages led people to an APK made to look like the real mParivahan app, as [reported by the Times of India](https://timesofindia.indiatimes.com/city/hyderabad/beware-fraudsters-push-malicious-mparivahan-app-with-fake-challan-links-warn-hyderabad-police/articleshow/136002858.cms). Security researchers have also described malware spread through fake mParivahan and eChallan apps that captures UPI PINs, as [covered by TechNadu](https://www.technadu.com/ghostbat-rat-targets-indian-android-users-with-fake-mparivahan-and-echallan-apps/642363/).
+
+## red-flags | Red flags in a challan message
+- It comes from an ordinary 10 digit mobile number.
+- It pushes you to download or install something.
+- It threatens extra fines or court action "today".
+- The link address is not on parivahan.gov.in. Look carefully, because fake addresses often add extra words or letters.
+- You do not even remember driving there.
+
+## check-safely | How to check a challan the safe way
+- Type **echallan.parivahan.gov.in** yourself in the browser, and search with your vehicle number or challan number.
+- Or open the **NextGen mParivahan** app that you installed from the official Play Store or App Store. Check that the developer name is **National Informatics Centre**.
+- Never use a link or phone number from the message itself.
+
+Message se kuch install mat karo. Challan check karna hai, to khud official site kholo.
+
+## if-installed | What to do if it already happened
+1. Turn on **airplane mode** straight away, so the app cannot send more data.
+2. Go to Settings, Apps, find the unknown app and **uninstall** it. If uninstall is blocked, check Settings for device admin apps and remove it there first.
+3. From a different, safe phone, call your bank on the number printed on your card and block UPI, net banking and cards if needed.
+4. Change your email and banking passwords from a safe device.
+5. If money left your account, call **[1930](tel:1930)** and file at [cybercrime.gov.in](https://cybercrime.gov.in/). Our [first hour guide](blog-first-hour-after-cyber-fraud.html) has the full checklist.
+6. Report the SMS or WhatsApp number on [Sanchar Saathi Chakshu](https://sancharsaathi.gov.in/sfc/), even if you did not lose money.
+
+## family | Tell your family in one line
+"Challan ka SMS aaye to link mat kholo, app install mat karo. Mujhe dikhao, ya official site pe khud check karo." For a wider habit on app safety, read [how to check an app before you install it](blog-check-app-apk-before-install.html).
+
+=== hsrp-number-plate-scam
+title: HSRP Number Plate Booking Scams
+short: HSRP booking scam
+desc: Fake HSRP number plate booking sites and "verification apps" steal money and OTPs. How the scam works, how to book safely, and what to do if you paid.
+lead: Many vehicle owners search online to book a High Security Registration Plate. Scammers know this, and run fake booking sites, ads and messages that look official.
+cat: Scam awareness
+date: 2026-11-21
+tags: HSRP, vehicle, fake website, payments
+kw: HSRP scam India; fake HSRP booking website; HSRP number plate fraud; HSRP booking kaise kare safely
+hi: HSRP number plate booking scam se kaise bachein
+related: fake-mparivahan-echallan-apk, online-shopping-refund-scams-india, check-app-apk-before-install, report-cyber-fraud-india
+hubs: scams.html|Scam Encyclopedia; index.html#link-tool|Free link checker
+src: Seqrite India Cyber Threat Report 2026 (PDF, HSRP scam section)|https://www.seqrite.com/documents/en/threat-reports/india-cyber-threat-report-2026.pdf
+src: Rajasthan Transport Department: HSRP on old vehicles (example of an official state page)|https://transport.rajasthan.gov.in/content/transportportal/en/transport/howtoget/vehicle-registration/hsrp-on-old-vehicle.html
+src: Parivahan Sewa (MoRTH)|https://parivahan.gov.in/
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: Book HSRP only through the link given on your **state transport department's official website** or your vehicle dealer, never through an ad, an SMS link or a WhatsApp forward. No genuine booking needs a separate "verification app" that reads your SMS. If you paid a fake site, call your bank and **1930** right away.
+takeaways:
+- Start from your state transport department's official website, not from a search ad.
+- Fake sites copy logos and colours, so check the web address carefully.
+- Never install an "HSRP app" from a link, and never share an OTP for booking.
+- If you paid a fake site, block your card or UPI and report on 1930.
+## what-is | What HSRP is, in one paragraph
+HSRP stands for High Security Registration Plate. It is a tamper proof number plate with security features such as a hologram and a laser branded number, fixed with snap locks. Many states have asked owners of older vehicles to fit one, which is why so many people search for "HSRP booking" online.
+
+## how | How the HSRP scam works
+According to the [Seqrite India Cyber Threat Report 2026](https://www.seqrite.com/documents/en/threat-reports/india-cyber-threat-report-2026.pdf), HSRP scams copy official booking portals and promote them through search ads, SMS and WhatsApp forwards. Common patterns:
+
+- A look alike website takes your vehicle details and payment, but no plate is ever fitted.
+- The site charges more than the real fee, or adds fake "urgent fitment" charges.
+- A message pushes you to install an "HSRP verification app" that asks for SMS or call permissions, so it can read OTPs and misuse UPI.
+- Messages threaten heavy fines "from tomorrow" to rush you.
+
+## book-safely | How to book safely
+1. Open your **state transport department's official website** by typing the address yourself, or go through [parivahan.gov.in](https://parivahan.gov.in/).
+2. Follow the HSRP link that the official site gives. For example, the [Rajasthan transport department page](https://transport.rajasthan.gov.in/content/transportportal/en/transport/howtoget/vehicle-registration/hsrp-on-old-vehicle.html) explains its own process.
+3. If you are unsure, ask your vehicle dealer or the local RTO which booking site is official in your state.
+4. Before paying, read the address bar again. Pay only on the page you reached from the official site.
+5. Keep the receipt and booking slip.
+
+Ad pe click karke booking mat karo. Pehle state transport site, phir wahan diya hua link.
+
+## red-flags | Red flags
+- The site came from a sponsored search result or a forwarded message.
+- It asks you to install an app or share an OTP for "verification".
+- It asks for payment by personal UPI ID or a QR code sent on chat.
+- Prices or deadlines look very different from what your state's official page says.
+
+## already-paid | What to do if it already happened
+1. Call your bank on the number printed on your card and block the card or UPI if details were shared.
+2. Call **[1930](tel:1930)** and then complete the complaint on [cybercrime.gov.in](https://cybercrime.gov.in/) with the transaction ID.
+3. If you installed an app, follow the steps in our [fake mParivahan APK guide](blog-fake-mparivahan-echallan-apk.html): airplane mode, uninstall, change passwords.
+4. Save screenshots of the website, the address bar and the payment screen.
+
+=== upi-pin-overlay-malware
+title: Fake Apps That Steal Your UPI PIN
+short: UPI PIN stealing apps
+desc: Some fake Android apps sit over your UPI app and quietly record your PIN. How this overlay malware works, the warning signs, and what to do right away.
+lead: Not every UPI fraud starts with you sharing a PIN. Some fake apps, once installed, can watch you type it. The good news is that they almost always need you to install them first.
+cat: Scam awareness
+date: 2026-11-21
+tags: UPI, malware, Android, APK
+kw: UPI PIN stealing app; overlay malware Android India; fake APK UPI fraud; accessibility permission scam
+hi: UPI PIN churane wale fake apps se kaise bachein
+related: check-app-apk-before-install, fake-mparivahan-echallan-apk, safe-upi-habits, report-cyber-fraud-india
+hubs: scams.html|Scam Encyclopedia; index.html#tools|Free security tools
+src: TechNadu: GhostBat RAT overlay attacks on Indian UPI apps (16 October 2026)|https://www.technadu.com/ghostbat-rat-targets-indian-android-users-with-fake-mparivahan-and-echallan-apps/642363/
+src: The Economic Times: NPCI and UPI apps approach Google on Android fraud|https://economictimes.indiatimes.com/industry/banking/finance/fight-against-cyber-frauds-npci-upi-apps-tap-google-to-fix-android-chinks/articleshow/135900825.cms
+src: Google Android Help: Use Google Play Protect|https://support.google.com/android/answer/2812853?hl=en
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: These apps usually arrive as an **APK file** sent on SMS or WhatsApp, often pretending to be a challan, KYC, wedding invite or bank app. They ask for **accessibility** or **display over other apps** permission, then record taps on your UPI keypad. Install apps only from the Play Store or App Store, keep **Google Play Protect** on, and never grant accessibility to an app you do not fully trust.
+takeaways:
+- These attacks usually start with you installing an unknown APK.
+- Accessibility and "display over other apps" permissions are powerful. Grant them rarely.
+- Keep Google Play Protect on and your phone updated.
+- If you suspect it, go offline, uninstall, call your bank and 1930 from another phone.
+## how | How PIN stealing apps work
+Security researchers have described Android malware that places an invisible layer over the PIN keypad of real UPI apps. You see your normal app and type your PIN as usual, but the hidden layer records each tap and sends it to the criminal. [TechNadu's report on GhostBat](https://www.technadu.com/ghostbat-rat-targets-indian-android-users-with-fake-mparivahan-and-echallan-apps/642363/) says this campaign spread through fake mParivahan and eChallan apps and targeted many popular payment apps.
+
+The [Economic Times reported](https://economictimes.indiatimes.com/industry/banking/finance/fight-against-cyber-frauds-npci-upi-apps-tap-google-to-fix-android-chinks/articleshow/135900825.cms) that NPCI and payment apps have approached Google about adding stronger protections in Android itself, because some of these attacks misuse normal phone features rather than your mistakes.
+
+## entry | How they get onto your phone
+- An APK file sent on WhatsApp or SMS: "traffic challan", "KYC update", "wedding card", "bank reward", "electricity bill".
+- A fake customer care agent who asks you to install an app "to help you".
+- Links to download apps from outside the Play Store.
+
+## permissions | The two permissions to be careful with
+- **Accessibility:** meant for people who need help using the phone. In the wrong hands, it lets an app read your screen and tap for you.
+- **Display over other apps:** lets an app draw on top of other apps. Scammers use it to cover your real UPI screen.
+
+Very few everyday apps need these. If a new app asks for them straight away, stop.
+
+## protect | Simple protection steps
+1. Install apps only from the **Google Play Store** or **Apple App Store**.
+2. Keep **Google Play Protect** turned on. [Google says](https://support.google.com/android/answer/2812853?hl=en) it checks apps, including ones from other sources, and can warn about or remove harmful apps.
+3. Keep "install unknown apps" turned off for WhatsApp, your browser and file manager.
+4. Check Settings, Accessibility once a month. Turn off anything you do not recognise.
+5. Update your phone and UPI apps.
+6. Set a lower daily UPI limit in your banking app if it offers one.
+
+## signs | Warning signs on your phone
+- An app you do not remember installing, or an app with no icon.
+- Unknown apps listed under Accessibility or device admin.
+- OTP or bank SMS you never see, or debits you did not make.
+- The phone behaves on its own, such as screens opening or taps happening.
+
+## already-happened | What to do if it already happened
+1. Turn on **airplane mode** immediately.
+2. From another phone, call your bank on the number printed on your card and block UPI, cards and net banking.
+3. Call **[1930](tel:1930)** and file the complaint on [cybercrime.gov.in](https://cybercrime.gov.in/) with transaction IDs.
+4. Uninstall the unknown app. If it will not uninstall, remove its device admin access first, or ask a trusted mobile shop or service centre to help reset the phone.
+5. After cleaning the phone, change your UPI PIN and passwords. Our [first hour guide](blog-first-hour-after-cyber-fraud.html) has the full list.
+
+=== online-shopping-refund-scams-india
+title: Online Shopping and Refund Scams in India
+short: Shopping and refund scams
+desc: Fake shopping sites, too good to be true deals and fake refund calls. How online shopping scams work in India and what to do if you already paid.
+lead: Online shopping scams are among the most common scams Indians face. They use fake sites, social media ads and fake refund calls. A few habits keep you safe.
+cat: Scam awareness
+date: 2026-11-21
+tags: shopping, fake website, refund, ads
+kw: online shopping scam India; fake shopping website India; refund scam call; fake customer care number
+hi: Online shopping aur refund scams se kaise bachein
+related: upi-scams-india, spot-phishing-sms-india, first-hour-after-cyber-fraud, report-cyber-fraud-india
+hubs: scams.html|Scam Encyclopedia; index.html#link-tool|Free link checker; game.html|Scam ya Nahi? game
+src: GSMA India Consumer Scam Report 2026 (PDF)|https://www.gsma.com/about-us/regions/asia-pacific/wp-content/uploads/2026/10/GSMA-India-Consumer-Scam-Report-2026-FINAL.pdf
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+src: 1930: National Cyber Crime Helpline|tel:1930
+quick: Buy from sites you already know, typed in yourself, not from a social media ad with a huge discount. Prefer cash on delivery or card on known sites. For a refund, use only the help section inside the official app. No genuine refund needs your UPI PIN, a QR scan or a screen sharing app. If you paid a scam, call **1930**.
+takeaways:
+- Huge discounts on unknown sites, especially from social media ads, are the main trap.
+- Refunds never need your PIN, a QR scan or remote access apps.
+- Get customer care numbers only from the official app or website.
+- Report fast on 1930 if money is lost.
+## scale | How common it is
+The [GSMA India Consumer Scam Report 2026](https://www.gsma.com/about-us/regions/asia-pacific/wp-content/uploads/2026/10/GSMA-India-Consumer-Scam-Report-2026-FINAL.pdf) found online shopping scams were the most common type reported by Indian victims in its survey, at 33%. The same report says messaging apps and social media were the most common ways scams reached people.
+
+## types | Common shopping scams
+- **Fake store:** a smart looking site sells phones, shoes or sarees at very low prices. You pay, nothing arrives, or a cheap item arrives.
+- **Social media ad shop:** an Instagram or Facebook page with a "70% off, today only" deal and payment only by UPI.
+- **Fake courier fee:** a message says your parcel is held and asks for a small fee through a link.
+- **Fake refund call:** someone says your order failed and a refund is pending, then asks you to approve a request or install an app.
+- **Fake customer care:** numbers found in search results or comments that pretend to be the shopping site's helpline.
+
+## check | Checks before you pay
+1. Type the shop's address yourself. Do not trust the ad's link.
+2. Search the site's name plus words like "review" or "fraud", and read recent results.
+3. Be extra careful if the only payment option is UPI to a personal ID or QR code.
+4. Check the address bar spelling. Look alike names are common.
+5. If the deal is far better than every known store, treat that as the warning.
+
+Itna sasta hai? To ruko aur check karo.
+
+## refunds | How real refunds work
+On known shopping apps, refunds go back to your original payment method, and you track them inside the app's order page. You do not need to share an OTP, enter a UPI PIN, scan a QR code or install AnyDesk type apps. PIN daala matlab paisa gaya, aaya nahi.
+
+## already-paid | What to do if it already happened
+1. Call **[1930](tel:1930)** quickly and keep the acknowledgement number.
+2. Complete the complaint at [cybercrime.gov.in](https://cybercrime.gov.in/) with the transaction ID, website link and screenshots.
+3. Tell your bank or card issuer and ask about disputing the payment.
+4. Save the website address, ad screenshots, chat and payment proof before the page disappears.
+5. Report the ad or page to the social media platform.
+
+Our [step by step reporting guide](blog-report-cyber-fraud-india.html) walks through each screen.
+
+=== lottery-prize-whatsapp-scam
+title: Lottery and Prize Scams on WhatsApp
+short: Lottery and prize scams
+desc: "You have won a prize" messages on WhatsApp and SMS ask for a fee first. How lottery and prize scams work in India, red flags and what to do.
+lead: You never entered a lucky draw, yet a message says you won a car, cash or a KBC prize. You just need to pay a small fee first. That fee is the scam.
+cat: Scam awareness
+date: 2026-11-21
+tags: lottery, prize, WhatsApp, fee fraud
+kw: lottery scam WhatsApp India; KBC lottery fraud; prize winner fee scam; lucky draw fraud message
+hi: Lottery aur prize scams WhatsApp pe: jaldi pehchano
+related: spot-phishing-sms-india, online-shopping-refund-scams-india, otp-scams-india, report-cyber-fraud-india
+hubs: game.html|Scam ya Nahi? game; scams.html|Scam Encyclopedia
+src: GSMA India Consumer Scam Report 2026 (PDF)|https://www.gsma.com/about-us/regions/asia-pacific/wp-content/uploads/2026/10/GSMA-India-Consumer-Scam-Report-2026-FINAL.pdf
+src: Sanchar Saathi Chakshu: report suspected fraud communication|https://sancharsaathi.gov.in/sfc/
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: If you did not enter a contest, you did not win it. Any "prize" that asks you to pay tax, processing, GST or delivery fees first is a scam. Do not pay, do not share documents or OTPs, and report the number on **Sanchar Saathi Chakshu**. If you already paid, call **1930**.
+takeaways:
+- No entry means no prize.
+- A real prize never asks you to pay first.
+- Famous show or company names and logos do not make a message real.
+- Report on Chakshu; call 1930 if you paid.
+## scale | How common it is
+In the [GSMA India Consumer Scam Report 2026](https://www.gsma.com/about-us/regions/asia-pacific/wp-content/uploads/2026/10/GSMA-India-Consumer-Scam-Report-2026-FINAL.pdf), prize, lottery and inheritance scams were the second most common type among Indian victims surveyed, at 31%.
+
+## how | How it works
+1. A WhatsApp message, call or SMS says you won a lucky draw, often using a famous TV show, brand or company name.
+2. It may include a photo of a cheque, a "certificate" or a person in a suit.
+3. To "release" the prize, you must pay a fee: tax, GST, processing, courier or bank charges.
+4. After the first payment, new fees keep appearing until you stop.
+
+## red-flags | Red flags
+- You never entered any contest.
+- Payment is needed before you receive anything.
+- They ask for Aadhaar, PAN or bank details on chat.
+- The number has a foreign code, or a normal mobile number pretends to be a company.
+- "Keep this secret" or "offer ends today".
+
+Lottery lagi hai? Pehle socho, ticket liya tha kya?
+
+## do | What to do with such a message
+- Do not reply, click or call back.
+- Report it on [Sanchar Saathi Chakshu](https://sancharsaathi.gov.in/sfc/). Chakshu accepts calls, SMS and WhatsApp messages.
+- Block and report the number inside WhatsApp.
+- Warn elderly family members, who are often targeted.
+
+## already-paid | What to do if it already happened
+1. Stop paying. More fees will never unlock a prize.
+2. Call **[1930](tel:1930)** and complete the complaint at [cybercrime.gov.in](https://cybercrime.gov.in/).
+3. If you shared ID documents, watch for misuse, and check the mobile connections in your name on [Sanchar Saathi](blog-sanchar-saathi-guide.html).
+4. Save chats, numbers and payment receipts.
+
+=== check-app-apk-before-install
+title: How to Check an App Before You Install It
+short: Check an app before install
+desc: A simple checklist to check any Android app before you install it: where it came from, the developer, permissions, and why APK files on WhatsApp are risky.
+lead: Many scams now begin with one step: "install this app". Here is a two minute checklist that works for any app, so you and your family can say no to the dangerous ones.
+cat: Everyday safety
+date: 2026-11-21
+tags: apps, APK, Android, permissions
+kw: is this APK safe; how to check app before installing; APK file WhatsApp danger; app permissions check
+hi: Koi bhi app ya APK install karne se pehle kaise check karein
+related: upi-pin-overlay-malware, fake-mparivahan-echallan-apk, secure-parents-phone, verify-downloads-sha256
+hubs: uses.html|Free cybersecurity toolkit; index.html#tools|Free security tools
+src: Google Android Help: Download apps to your Android device|https://support.google.com/android/answer/9457058?hl=en
+src: Google Android Help: Use Google Play Protect|https://support.google.com/android/answer/2812853?hl=en
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: Install apps only from the **Google Play Store** or **Apple App Store**, and check the **developer name** before you tap install. Never install an **.apk file** sent on WhatsApp, SMS or email. If a new app asks for **accessibility**, **SMS** or **display over other apps** permission without a clear reason, deny it and uninstall.
+takeaways:
+- Source first: official app stores only.
+- Check the developer, downloads and recent reviews.
+- APK files sent on chat are the biggest red flag.
+- Question every sensitive permission.
+## why | Why this matters
+Fake challan, KYC, bank and wedding invite apps are common ways criminals get onto phones. Google's own help page says that if you download apps from unknown sources, "your device and personal information can be at risk" ([Android Help](https://support.google.com/android/answer/9457058?hl=en)).
+
+## checklist | The two minute checklist
+1. **Where did it come from?** If it came as a file or link on WhatsApp, SMS or email, stop. Search for the app yourself in the official store.
+2. **Who made it?** On the store page, check the developer name. Government apps usually show a government developer, such as National Informatics Centre for mParivahan. Banks publish apps under their own name.
+3. **Does it look popular and real?** Check the number of downloads and read recent reviews, especially low ratings.
+4. **Is the name exactly right?** Fake apps use look alike names and logos.
+5. **What permissions does it want?** A torch app does not need your SMS. A wallpaper app does not need accessibility.
+6. **Why now?** If a stranger or "customer care" is pushing you to install it while on a call, do not.
+
+## permissions | Permissions to think twice about
+- **SMS:** can read OTPs and bank alerts.
+- **Accessibility:** can read your screen and tap for you.
+- **Display over other apps:** can cover your real screen with a fake one.
+- **Device admin:** can make the app hard to uninstall.
+- **Screen sharing or remote access:** lets someone see and control your phone.
+
+## settings | Phone settings to keep safe
+- Keep **Google Play Protect** on. [Google says](https://support.google.com/android/answer/2812853?hl=en) it is on by default and checks apps for harmful behaviour.
+- Keep "install unknown apps" off for WhatsApp, your browser and file manager.
+- Keep your phone updated.
+- Remove apps you no longer use.
+
+For downloads on a computer, you can also learn to [verify files with SHA-256 checksums](blog-verify-downloads-sha256.html).
+
+## already-installed | What to do if you already installed something risky
+1. Turn on airplane mode.
+2. Uninstall the app. If it refuses, remove it from device admin first.
+3. From a safe device, change your email and banking passwords, and call your bank if any payment app is on the phone.
+4. If money is lost, call **[1930](tel:1930)** and file at [cybercrime.gov.in](https://cybercrime.gov.in/).
+5. Read [fake apps that steal your UPI PIN](blog-upi-pin-overlay-malware.html) for the warning signs.
+
+=== dpdp-checklist-small-business
+title: DPDP Checklist for Small Shops and Startups
+short: DPDP checklist for small business
+desc: A plain checklist for small shops and startups on India's DPDP Act and Rules: what personal data you hold, notices, security, breaches and timelines.
+lead: You do not need a big legal team to start getting ready for India's data protection law. This is a practical, plain language checklist for small businesses. It is general information, not legal advice.
+cat: Cyber trends 2026
+date: 2026-11-21
+tags: DPDP, privacy, small business, compliance
+kw: DPDP Act compliance small business India; DPDP checklist startups; DPDP Rules 2025 small business; data protection checklist India
+hi: Chhoti dukaan aur startups ke liye DPDP checklist
+related: dpdp-rules-2025-timeline, cyber-law-india-intro, cloud-misconfiguration-leaked-secrets
+hubs: cyberlaw.html|Cyber Law India: IT Act, BNS and DPDP explained; privacy.html|Privacy policy of this site
+src: MeitY: Digital Personal Data Protection Rules, 2025 and enforcement timeline|https://www.meity.gov.in/documents/act-and-policies/digital-personal-data-protection-rules-2025-gDOxUjMtQWa
+src: Gazette notification G.S.R. 843(E), 13 November 2025 (PDF)|https://egazette.gov.in/WriteReadData/2025/267647.pdf
+src: PIB: Government notifies DPDP Rules (14 November 2025)|https://www.pib.gov.in/PressReleasePage.aspx?PRID=2190014&lang=1&reg=3
+quick: Start now with five steps: **list** the personal data you collect, **cut** what you do not need, write a **clear notice** for customers, put basic **security** in place, and plan **what to do in a breach**. Most duties under the DPDP Act start on **13 May 2027**, eighteen months after the Rules were notified on 13 November 2025.
+takeaways:
+- Most business duties start 18 months after the 13 November 2025 notification.
+- Know what personal data you hold, why, and where.
+- Clear notices, easy consent withdrawal and contact details matter.
+- Basic security and a breach plan protect both you and your customers.
+## who | Does this apply to me?
+If your shop, clinic, coaching class or startup collects personal data in digital form, such as customer phone numbers, WhatsApp chats, delivery addresses, online forms or a customer database, the DPDP framework is relevant to you. The Act calls you a **Data Fiduciary** and your customer a **Data Principal**. For the bigger picture, read our [DPDP Rules timeline](blog-dpdp-rules-2025-timeline.html).
+
+## timeline | The timeline in one line
+The [Gazette notification of 13 November 2025](https://egazette.gov.in/WriteReadData/2025/267647.pdf) brought some provisions into force at once, some after one year, and most of the duties for businesses after eighteen months. That is why many guides, including ours, point to **13 May 2027**. Always check the latest official documents on the [MeitY DPDP page](https://www.meity.gov.in/documents/act-and-policies/digital-personal-data-protection-rules-2025-gDOxUjMtQWa).
+
+## checklist | The practical checklist
+1. **Map your data.** Write down what personal data you collect (names, phone numbers, addresses, ID copies), why, where it is stored (phone, Excel, Google Sheet, billing software) and who can see it.
+2. **Collect less.** Stop collecting what you do not need. If you do not need Aadhaar copies, do not keep them.
+3. **Write a clear notice.** [PIB's summary](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2190014&lang=1&reg=3) says notices must be standalone, clear and simple, and explain the specific purpose. Use plain language your customers understand.
+4. **Make withdrawal easy.** Customers should be able to withdraw consent as easily as they gave it, for example stop marketing messages.
+5. **Show a contact.** PIB says data fiduciaries must display clear contact information for data questions. A named person and an email address is a good start.
+6. **Lock it down.** Strong passwords and two factor login on email, cloud and billing tools. Give staff access only to what they need. Keep backups. See our [password guide](blog-strong-passwords-password-managers.html).
+7. **Check your vendors.** If a software company or agency handles your customer data, ask how they protect it.
+8. **Plan for a breach.** PIB says affected people must be informed promptly in plain language. Decide now who will act, how you will inform customers, and how you will contact the Data Protection Board.
+9. **Delete on time.** Do not keep old customer data forever without a reason.
+10. **Train your team.** One short talk on phishing and passwords prevents many leaks.
+
+## rights | Requests from customers
+The DPDP framework gives people rights to access, correct, update or erase their personal data. PIB says fiduciaries must respond to such requests within a maximum of **90 days**. Keep a simple register of requests and your replies.
+
+## not-legal-advice | A note on this guide
+This is a simplified, general guide based on official MeitY and PIB documents, not legal advice. Exemptions and details for specific businesses can differ, so read the official Rules or speak to a lawyer for your case. Our [intro to cyber law](blog-cyber-law-india-intro.html) explains how DPDP fits with the IT Act and BNS.
+
+## if-breach | If a data leak already happened
+1. Contain it: change passwords, remove exposed links, and close public sharing on files.
+2. Write down what happened, when, and what data was involved.
+3. Inform affected customers in plain language, and follow the official breach reporting process in the DPDP Rules.
+4. If the leak involves a cyber crime such as hacking or fraud, report at [cybercrime.gov.in](https://cybercrime.gov.in/). If customers lost money, they should call **[1930](tel:1930)**.
+
+=== where-to-report-cyber-fraud-india
+title: Where to Report Cyber Fraud in India
+short: Where to report cyber fraud
+desc: Confused where to report? When to call 1930, when to use cybercrime.gov.in, Sanchar Saathi Chakshu, or your bank. A simple guide for every situation.
+lead: India has several official ways to report fraud, and each one has a different job. Using the right one first can make a real difference, especially when money is involved.
+cat: Everyday safety
+date: 2026-11-21
+tags: 1930, reporting, Chakshu, bank
+kw: Chakshu vs 1930; where to report cyber fraud India; 1930 or cybercrime.gov.in; how to report fraud call India
+hi: 1930, cybercrime.gov.in, Chakshu ya bank: kahan report karein
+related: report-cyber-fraud-india, first-hour-after-cyber-fraud, sanchar-saathi-guide
+hubs: faq.html#scams|Quick answers on scams; scams.html|Scam Encyclopedia
+src: Department of Financial Services: Cyber security and fintech (1930, NCRP, Chakshu)|https://www.financialservices.gov.in/beta/en/page/csft
+src: Sanchar Saathi: Chakshu, report suspected fraud communication|https://sancharsaathi.gov.in/sfc/
+src: PIB: Chakshu facility on Sanchar Saathi (4 March 2024)|https://www.pib.gov.in/PressReleasePage.aspx?PRID=2011383&lang=2&reg=3
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+quick: **Lost money?** Call **1930** first, then your bank, then complete the complaint on **cybercrime.gov.in**. **Only got a suspicious call, SMS or WhatsApp?** Report it on **Sanchar Saathi Chakshu**. **Hacked account, fake profile or harassment, no money lost?** File on **cybercrime.gov.in**.
+takeaways:
+- Money lost: 1930, then bank, then cybercrime.gov.in.
+- Suspicious call or message, no loss: Chakshu.
+- Non money cyber crimes: cybercrime.gov.in.
+- All of these are free. Never pay a "recovery agent".
+## quick-table | Which one, when?
+- **1930 (National Cyber Crime Helpline):** call immediately when money has been lost to online fraud.
+- **cybercrime.gov.in (National Cyber Crime Reporting Portal):** file the full complaint, for both financial fraud and other cyber crimes.
+- **Chakshu on Sanchar Saathi:** report suspicious calls, SMS or WhatsApp messages, even if you lost nothing.
+- **Your bank or payment app:** block cards or UPI and raise your own complaint about the transaction.
+
+## money-lost | If you lost money
+1. Call **[1930](tel:1930)**. You give your details and transaction details, and get an acknowledgement number by SMS.
+2. Call your bank on the number printed on your card or in its official app. Block what is at risk and note the complaint number.
+3. Complete the complaint at [cybercrime.gov.in](https://cybercrime.gov.in/). The [Department of Financial Services](https://www.financialservices.gov.in/beta/en/page/csft) says complainants should do this within **24 hours** using the acknowledgement number.
+
+Speed matters, because money moves quickly between accounts. Our [first hour guide](blog-first-hour-after-cyber-fraud.html) has a minute by minute plan.
+
+## no-loss | If you only got a suspicious call or message
+Use **Chakshu** on [Sanchar Saathi](https://sancharsaathi.gov.in/sfc/). It accepts fraud attempts by call, SMS or WhatsApp, such as fake KYC, electricity or gas disconnection, government impersonation and fake offers. The Sanchar Saathi site clearly says Chakshu is **not** for reporting money already lost. For that, use 1930 and cybercrime.gov.in. The site also asks you to report within 30 days for action.
+
+## other-crimes | Hacked accounts, fake profiles and harassment
+For crimes without money loss, such as a hacked social media account, a fake profile using your photos, or online harassment, file on [cybercrime.gov.in](https://cybercrime.gov.in/). Also use the report tools inside the app, and secure your accounts with [two factor authentication](blog-two-factor-authentication-guide.html).
+
+## bank | Why your bank still needs its own complaint
+The police complaint and the bank complaint are separate. Your bank needs to know quickly so it can block your accounts and look at the transaction. Our [reporting guide](blog-report-cyber-fraud-india.html) explains the RBI's customer liability rules and why reporting quickly matters.
+
+## safety | Stay safe while reporting
+- Dial 1930 yourself and type cybercrime.gov.in and sancharsaathi.gov.in yourself.
+- Do not use numbers from search ads or social media comments.
+- Real police do not charge to recover money. Anyone asking for a fee is running a second scam.
+
+=== deepfake-video-call-family-scam
+title: Deepfake Video Calls Asking Family for Money
+short: Deepfake family video call scam
+desc: A video call shows a relative in trouble asking for money urgently. It may be a deepfake. How the scam works, a family code word plan and what to do.
+lead: Scammers can now fake a face and voice on a short video call. The story is always urgent: an accident, an arrest, a hospital bill. A simple family plan beats the technology.
+cat: Scam awareness
+date: 2026-11-21
+tags: deepfake, video call, family, AI
+kw: deepfake video call scam India; fake relative video call money; AI video call fraud; family emergency scam
+hi: Deepfake video call scam: family ke naam pe paise maangna
+related: ai-voice-cloning-deepfake-scams-2026, digital-arrest-scam-india, whatsapp-account-takeover, report-cyber-fraud-india
+hubs: scams.html|Scam Encyclopedia; game.html|Scam ya Nahi? game
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+src: Sanchar Saathi Chakshu: report suspected fraud communication|https://sancharsaathi.gov.in/sfc/
+src: 1930: National Cyber Crime Helpline|tel:1930
+quick: If a video or voice call from a "relative" asks for money urgently, **hang up and call them back on the number you already have saved**. Ask a question only the real person would know, or use a family **code word**. Never pay because of a short, shaky video call. If you already paid, call **1930** now.
+takeaways:
+- Urgency plus secrecy plus money equals stop.
+- Hang up and call back on the saved number.
+- Agree a family code word today.
+- Short, blurry, "bad network" video calls are a warning sign.
+## how | How the scam works
+1. You get a WhatsApp video or voice call. The face or voice looks like your son, daughter, sibling or friend.
+2. The call is short, often blurry, with "bad network" excuses.
+3. They say there is an emergency: accident, police case, hospital, stuck abroad.
+4. They ask you to send money now, to a UPI ID or account you do not know, and not to tell anyone.
+
+Sometimes the call comes from an unknown number, and sometimes from the relative's real account after it was taken over. Our guide on [WhatsApp account takeover](blog-whatsapp-account-takeover.html) explains how that happens.
+
+## why | Why it feels so real
+Short clips of people's faces and voices are easy to find on social media. AI tools can turn them into a fake face or voice. Read more in our [AI voice cloning guide](blog-ai-voice-cloning-deepfake-scams-2026.html). Scammers add fear and hurry, so you do not stop to check.
+
+## red-flags | Red flags
+- Money is needed right now, and you must keep it secret.
+- The video is very short, frozen, blurry or the lips do not match.
+- They refuse to switch to a normal call or let you call back.
+- Payment goes to a stranger's UPI ID or account.
+- Someone else "takes over" the call, claiming to be police, doctor or lawyer.
+
+## family-plan | A simple family plan
+1. **Code word:** pick a word only your family knows. Ask for it on any emergency call.
+2. **Call back rule:** always hang up and call the person back on the number already saved in your phone, or call another family member.
+3. **No secrets rule:** agree that nobody in the family will ever say "don't tell anyone" about money.
+4. **Lock your WhatsApp:** turn on two step verification, so it is harder to steal accounts.
+
+Sabse pehle call kaato, phir khud call karo. Asli emergency mein 2 minute ka check kuch nahi bigaadta.
+
+## already-paid | What to do if it already happened
+1. Call **[1930](tel:1930)** immediately and then your bank.
+2. Complete the complaint at [cybercrime.gov.in](https://cybercrime.gov.in/) with the UPI ID, account number and call details.
+3. Save screenshots of the call log, chats and payment.
+4. Report the calling number on [Sanchar Saathi Chakshu](https://sancharsaathi.gov.in/sfc/), and inside WhatsApp.
+5. Tell the real relative so they can secure their account and warn others.
+
+=== fake-qr-code-shops-petrol-pumps
+title: Fake QR Codes at Shops and Petrol Pumps
+short: Fake QR codes at shops
+desc: Swapped or pasted QR codes at shops, petrol pumps, parking and toll counters send your money to scammers. A 10 second check before you pay at a counter.
+lead: Our main UPI guide covers QR codes sent on chat. This one is about the QR code printed or pasted at a counter: at a shop, petrol pump, parking lot or stall. It needs its own quick habit.
+cat: Everyday safety
+date: 2026-11-21
+tags: QR code, UPI, shops, payments
+kw: fake QR code at shop; QR code sticker scam; petrol pump QR fraud; parking QR code scam India
+hi: Dukaan, petrol pump aur parking pe fake QR code: 10 second check
+related: upi-scams-india, safe-upi-habits, online-shopping-refund-scams-india, report-cyber-fraud-india
+hubs: scams.html|Scam Encyclopedia; game.html|Scam ya Nahi? game
+src: GSMA India Consumer Scam Report 2026 (PDF)|https://www.gsma.com/about-us/regions/asia-pacific/wp-content/uploads/2026/10/GSMA-India-Consumer-Scam-Report-2026-FINAL.pdf
+src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
+src: 1930: National Cyber Crime Helpline|tel:1930
+quick: After scanning a counter QR, **read the payee name on your screen** and say it out loud to the cashier before you enter your PIN. If the name is a random person, a different business or looks odd, stop and ask. Shop owners should check their QR stand daily and use the payment sound box or app alerts.
+takeaways:
+- Read the payee name before you enter the PIN, every time.
+- Confirm the name with the cashier.
+- A QR on a loose sticker, a new poster or a parking meter deserves extra care.
+- Shop owners: check your QR daily and watch every payment alert.
+## different | How this is different from other QR scams
+Our [UPI scams guide](blog-upi-scams-india.html) explains the "scan to receive money" trick and fake QR codes sent on chat. This post is only about **physical QR codes in public places**, where you really do intend to pay, but your money may go to the wrong person.
+
+The [GSMA India Consumer Scam Report 2026](https://www.gsma.com/about-us/regions/asia-pacific/wp-content/uploads/2026/10/GSMA-India-Consumer-Scam-Report-2026-FINAL.pdf) says offline QR codes and payment links were involved in 21% of Indian scam victims' cases in its survey, which shows physical QR tricks are a real concern.
+
+## where | Where swapped QR codes show up
+- A sticker pasted over the shop's real QR code on the counter or stand.
+- Parking lots, toll style counters and unattended kiosks with a printed "pay here" QR.
+- Petrol pumps and busy stalls, where people pay quickly and do not read the screen.
+- Temporary posters for events, donations or fees.
+
+## check | The 10 second check for customers
+1. Scan the QR.
+2. **Read the payee name** shown in your UPI app before typing the amount or PIN.
+3. Ask the cashier: "Ye naam sahi hai?" If it is the shop or the owner's name, go ahead.
+4. Check the amount once more, then enter your PIN.
+5. Show the payment success screen to the cashier, and check that they got the alert.
+
+If there is no one to ask, such as an unattended parking QR, and the name looks unrelated, pay by another method.
+
+## shop-owners | For shop owners and petrol pump staff
+- Check your QR stand and stickers every morning. Look for anything pasted on top.
+- Keep the QR behind the counter or under clear, fixed cover, where customers can scan but strangers cannot easily stick something on.
+- Turn on the payment sound box or app alerts, and confirm every payment before handing over goods.
+- If a customer says the name looked wrong, check your QR immediately.
+
+## already-paid | What to do if it already happened
+1. If you paid the wrong payee, tell the shop at once and note the time, amount and payee name.
+2. Call **[1930](tel:1930)** and complete the complaint on [cybercrime.gov.in](https://cybercrime.gov.in/) with the UTR number.
+3. Raise a complaint with your bank and inside your UPI app.
+4. If you are the shop owner, remove the fake sticker, photograph it as evidence, and report it as well.

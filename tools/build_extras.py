@@ -79,8 +79,9 @@ def ld_page(file, name, desc, typ="WebPage", extra=None):
 
 # ---------------- Start here ----------------
 SAFE = ["first-hour-after-cyber-fraud", "upi-scams-india", "safe-upi-habits", "otp-scams-india", "spot-phishing-sms-india",
-        "digital-arrest-scam-india", "whatsapp-account-takeover", "secure-parents-phone", "two-factor-authentication-guide", "strong-passwords-password-managers"]
-LAW = ["cyber-law-india-intro", "report-cyber-fraud-india", "dpdp-rules-2025-timeline", "loan-app-harassment-help"]
+        "digital-arrest-scam-india", "whatsapp-account-takeover", "secure-parents-phone", "two-factor-authentication-guide", "strong-passwords-password-managers",
+        "where-to-report-cyber-fraud-india", "check-app-apk-before-install", "fake-qr-code-shops-petrol-pumps"]
+LAW = ["cyber-law-india-intro", "report-cyber-fraud-india", "dpdp-rules-2025-timeline", "loan-app-harassment-help", "dpdp-checklist-small-business"]
 
 
 def start_main():

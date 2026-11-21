@@ -1,5 +1,115 @@
 [
  {
+  "slug": "fake-qr-code-shops-petrol-pumps",
+  "file": "blog-fake-qr-code-shops-petrol-pumps.html",
+  "title": "Fake QR Codes at Shops and Petrol Pumps",
+  "desc": "Swapped or pasted QR codes at shops, petrol pumps, parking and toll counters send your money to scammers. A 10 second check before you pay at a counter.",
+  "category": "Everyday safety",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading Fake QR Codes at Shops and Petrol Pumps",
+  "minutes": 2
+ },
+ {
+  "slug": "deepfake-video-call-family-scam",
+  "file": "blog-deepfake-video-call-family-scam.html",
+  "title": "Deepfake Video Calls Asking Family for Money",
+  "desc": "A video call shows a relative in trouble asking for money urgently. It may be a deepfake. How the scam works, a family code word plan and what to do.",
+  "category": "Scam awareness",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading Deepfake Video Calls Asking Family for Money",
+  "minutes": 3
+ },
+ {
+  "slug": "where-to-report-cyber-fraud-india",
+  "file": "blog-where-to-report-cyber-fraud-india.html",
+  "title": "Where to Report Cyber Fraud in India",
+  "desc": "Confused where to report? When to call 1930, when to use cybercrime.gov.in, Sanchar Saathi Chakshu, or your bank. A simple guide for every situation.",
+  "category": "Everyday safety",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading Where to Report Cyber Fraud in India",
+  "minutes": 2
+ },
+ {
+  "slug": "dpdp-checklist-small-business",
+  "file": "blog-dpdp-checklist-small-business.html",
+  "title": "DPDP Checklist for Small Shops and Startups",
+  "desc": "A plain checklist for small shops and startups on India's DPDP Act and Rules: what personal data you hold, notices, security, breaches and timelines.",
+  "category": "Cyber trends 2026",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading DPDP Checklist for Small Shops and Startups",
+  "minutes": 3
+ },
+ {
+  "slug": "check-app-apk-before-install",
+  "file": "blog-check-app-apk-before-install.html",
+  "title": "How to Check an App Before You Install It",
+  "desc": "A simple checklist to check any Android app before you install it: where it came from, the developer, permissions, and why APK files on WhatsApp are risky.",
+  "category": "Everyday safety",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading How to Check an App Before You Install It",
+  "minutes": 2
+ },
+ {
+  "slug": "lottery-prize-whatsapp-scam",
+  "file": "blog-lottery-prize-whatsapp-scam.html",
+  "title": "Lottery and Prize Scams on WhatsApp",
+  "desc": "\"You have won a prize\" messages on WhatsApp and SMS ask for a fee first. How lottery and prize scams work in India, red flags and what to do.",
+  "category": "Scam awareness",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading Lottery and Prize Scams on WhatsApp",
+  "minutes": 2
+ },
+ {
+  "slug": "online-shopping-refund-scams-india",
+  "file": "blog-online-shopping-refund-scams-india.html",
+  "title": "Online Shopping and Refund Scams in India",
+  "desc": "Fake shopping sites, too good to be true deals and fake refund calls. How online shopping scams work in India and what to do if you already paid.",
+  "category": "Scam awareness",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading Online Shopping and Refund Scams in India",
+  "minutes": 3
+ },
+ {
+  "slug": "upi-pin-overlay-malware",
+  "file": "blog-upi-pin-overlay-malware.html",
+  "title": "Fake Apps That Steal Your UPI PIN",
+  "desc": "Some fake Android apps sit over your UPI app and quietly record your PIN. How this overlay malware works, the warning signs, and what to do right away.",
+  "category": "Scam awareness",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading Fake Apps That Steal Your UPI PIN",
+  "minutes": 3
+ },
+ {
+  "slug": "hsrp-number-plate-scam",
+  "file": "blog-hsrp-number-plate-scam.html",
+  "title": "HSRP Number Plate Booking Scams",
+  "desc": "Fake HSRP number plate booking sites and \"verification apps\" steal money and OTPs. How the scam works, how to book safely, and what to do if you paid.",
+  "category": "Scam awareness",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading HSRP Number Plate Booking Scams",
+  "minutes": 3
+ },
+ {
+  "slug": "fake-mparivahan-echallan-apk",
+  "file": "blog-fake-mparivahan-echallan-apk.html",
+  "title": "Fake mParivahan and e-Challan APK Scam",
+  "desc": "Got a traffic challan SMS with an app link? It may be a fake mParivahan APK. How the scam works, how to check a challan safely, and what to do.",
+  "category": "Scam awareness",
+  "date": "2026-11-21",
+  "reviewed": "2026-11-21",
+  "og_alt": "Share card reading Fake mParivahan and e-Challan APK Scam",
+  "minutes": 3
+ },
+ {
   "slug": "ai-voice-cloning-deepfake-scams-2026",
   "file": "blog-ai-voice-cloning-deepfake-scams-2026.html",
   "title": "AI Voice Cloning and Deepfake Scams in 2026: How to Protect Your Family",

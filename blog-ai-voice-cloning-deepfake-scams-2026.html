@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=a6608326ae"></script>
+  <script src="assets/js/i18n-dict.js?v=26b91c321f"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -106,7 +106,7 @@
 
       <aside class="bp-glass bp-quick" aria-labelledby="quick-h">
         <h2 id="quick-h" data-i18n="blog.quick">Quick answer</h2>
-        <p data-i18n="post.quick">AI tools can copy a voice or face from public videos and voice notes. Scammers use this to impersonate <strong>family members, bosses or officials</strong> and demand urgent money or OTPs. CERT-In's April 2026 advisory tells individuals to <strong>verify voice calls, video messages and urgent requests</strong>, especially those involving money. The best family defence is simple: <strong>hang up, call back on a saved number, and use a family safe word.</strong></p>
+        <p data-i18n="post.quick">AI tools can copy a voice or face from public videos and voice notes. Scammers use this to impersonate <strong>family members, bosses or officials</strong> and demand urgent money or OTPs. CERT-In's April 2026 advisory tells individuals to <strong>verify voice calls, video messages and urgent requests</strong>, especially those involving money. The best family defence is simple: <strong>hang up, call back on a saved number, and use a family safe word.</strong> A live video call can be faked too. See our <a href="blog-deepfake-video-call-family-scam.html">guide to deepfake video calls asking family for money</a>.</p>
       </aside>
 
       <nav class="bp-glass bp-toc" aria-labelledby="toc-h">
@@ -224,11 +224,11 @@
           <p class="muted small" data-i18n="blogpost.whatsapp-account-takeover.d">When a scammer takes over a WhatsApp account, they do not just read chats. They message every contact asking for urgent money. Here is how it happens and how to lock your account in two minutes.</p>
           <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
         </article>
-        <article class="bp-card" data-cat="Cyber trends 2026">
-          <p class="bp-cat mono" data-i18n="cat.cyber-trends">Cyber trends 2026</p>
-          <h3 class="bp-card-t"><a href="blog-ai-agents-cyber-attacks-cert-in-2026.html" data-i18n="blogpost.ai-agents-cyber-attacks-cert-in-2026.t">AI Agents as Attackers: What CERT-In&#x27;s October 2026 Advisory Means</a></h3>
-          <p class="muted small" data-i18n="blogpost.ai-agents-cyber-attacks-cert-in-2026.d">In October 2026, CERT-In issued a critical advisory about cyber incidents where the attacker was an AI agent. The surprising part is not the AI. It is that the weaknesses abused were the same old basics.</p>
-          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
+        <article class="bp-card" data-cat="Scam awareness">
+          <p class="bp-cat mono" data-i18n="cat.scam-awareness">Scam awareness</p>
+          <h3 class="bp-card-t"><a href="blog-deepfake-video-call-family-scam.html" data-i18n="blogpost.deepfake-video-call-family-scam.t">Deepfake Video Calls Asking Family for Money</a></h3>
+          <p class="muted small" data-i18n="blogpost.deepfake-video-call-family-scam.d">Scammers can now fake a face and voice on a short video call. The story is always urgent: an accident, an arrest, a hospital bill. A simple family plan beats the technology.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-21">21 November 2026</time> · 3 <span data-i18n="blog.min">min read</span></p>
         </article>
         </div>
         <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="scams.html">Scam Encyclopedia</a> · <a href="game.html">Scam ya Nahi? game</a> · <a href="prompts.html">CyberPrompts: defensive AI prompts</a></p>

@@ -77,8 +77,8 @@ def validate():
         words = len(aa.split())
         if words < 20 or words > 140:
             print("warn: answer length", it["id"], words, "words")
-    if n < 30 or n > 40:
-        raise SystemExit(f"need 30 to 40 questions, got {n}")
+    if n < 30 or n > 50:
+        raise SystemExit(f"need 30 to 50 questions, got {n}")
     if len(TITLE) > 70:
         raise SystemExit("title too long: %d" % len(TITLE))
     left = TITLE.split(" | ")[0]

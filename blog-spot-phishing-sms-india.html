@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=a6608326ae"></script>
+  <script src="assets/js/i18n-dict.js?v=26b91c321f"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -133,7 +133,7 @@
 <li><strong>Electricity bill:</strong> "Your power connection will be disconnected tonight at 9:30 pm as previous bill was not updated. Call this officer." The number goes to a scammer, who may ask you to install a screen sharing app.</li>
 <li><strong>Parcel held:</strong> "Your parcel is on hold due to incomplete address. Pay a small fee." The small fee page steals card details.</li>
 <li><strong>Reward points expiring:</strong> "Your credit card reward points worth a large amount expire today. Redeem now."</li>
-<li><strong>Traffic challan:</strong> fake e-challan links that look like government sites.</li>
+<li><strong>Traffic challan:</strong> fake e-challan links that look like government sites, or a file to install. Check only on official Parivahan sites. See our <a href="blog-fake-mparivahan-echallan-apk.html">fake mParivahan APK guide</a>.</li>
 <li><strong>Job or part time income:</strong> "Earn from home by liking videos." This usually ends in a task scam.</li>
 </ul></div>
       </section>
@@ -216,17 +216,17 @@
           <p class="muted small" data-i18n="blogpost.first-hour-after-cyber-fraud.d">The first hour after a fraud matters most, because money moves quickly between accounts. Print this checklist or save it, and share it with your family before anyone needs it.</p>
           <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
         </article>
-        <article class="bp-card" data-cat="Everyday safety">
-          <p class="bp-cat mono" data-i18n="cat.everyday-safety">Everyday safety</p>
-          <h3 class="bp-card-t"><a href="blog-secure-parents-phone.html" data-i18n="blogpost.secure-parents-phone.t">How to Secure Your Parents&#x27; Phone: A 30 Minute Checklist</a></h3>
-          <p class="muted small" data-i18n="blogpost.secure-parents-phone.d">Parents are a big target for scammers, and they often trust messages and calls more than younger people do. One calm half hour with their phone can prevent a lot of trouble. Here is exactly what to do.</p>
-          <p class="bp-meta small muted"><time datetime="2026-11-15">15 November 2026</time> · 4 <span data-i18n="blog.min">min read</span></p>
-        </article>
         <article class="bp-card" data-cat="Scam awareness">
           <p class="bp-cat mono" data-i18n="cat.scam-awareness">Scam awareness</p>
           <h3 class="bp-card-t"><a href="blog-report-cyber-fraud-india.html" data-i18n="blogpost.report-cyber-fraud-india.t">How to Report Cyber Fraud in India: 1930 and cybercrime.gov.in, Step by Step</a></h3>
           <p class="muted small" data-i18n="blogpost.report-cyber-fraud-india.d">If money has left your account because of a scam, the order of steps matters. Here is what to do, in order, with the official links.</p>
           <p class="bp-meta small muted"><time datetime="2026-11-11">11 November 2026</time> · 5 <span data-i18n="blog.min">min read</span></p>
+        </article>
+        <article class="bp-card" data-cat="Scam awareness">
+          <p class="bp-cat mono" data-i18n="cat.scam-awareness">Scam awareness</p>
+          <h3 class="bp-card-t"><a href="blog-fake-mparivahan-echallan-apk.html" data-i18n="blogpost.fake-mparivahan-echallan-apk.t">Fake mParivahan and e-Challan APK Scam</a></h3>
+          <p class="muted small" data-i18n="blogpost.fake-mparivahan-echallan-apk.d">A message says you have a pending traffic challan and asks you to install an &quot;mParivahan&quot; app from a link. That file is often malware. Here is how to spot it and check your challan the safe way.</p>
+          <p class="bp-meta small muted"><time datetime="2026-11-21">21 November 2026</time> · 3 <span data-i18n="blog.min">min read</span></p>
         </article>
         </div>
         <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="game.html">Scam ya Nahi? Practise spotting scam messages</a> · <a href="index.html#link-tool">Free link checker</a> · <a href="scams.html">Scam Encyclopedia</a></p>

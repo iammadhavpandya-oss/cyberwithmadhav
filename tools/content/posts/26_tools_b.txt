@@ -152,7 +152,7 @@ cat: Tools and labs
 tags: SHA-256, checksums, integrity, downloads
 kw: how to verify sha256 checksum; sha256sum windows certutil; verify download integrity; checksum kya hota hai
 hi: SHA-256 checksum se downloads kaise verify karein (Windows, Mac, Linux)
-related: password-hashing-explained, safe-home-lab-setup, linux-basics-for-cybersecurity
+related: password-hashing-explained, safe-home-lab-setup, check-app-apk-before-install
 hubs: index.html#tools|Free hash tool on the home page; commands.html|Blue team commands
 src: Microsoft Learn: Get-FileHash (PowerShell)|https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash
 src: GNU Coreutils: sha2 utilities|https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html

@@ -113,7 +113,7 @@ def parse(text):
 
 def to_post(p, date):
     d = {
-        "slug": p["slug"], "date": date, "reviewed": date, "category": p["cat"],
+        "slug": p["slug"], "date": p.get("date") or date, "reviewed": p.get("reviewed") or p.get("date") or date, "category": p["cat"],
         "tags": [t.strip() for t in p.get("tags", "").split(",") if t.strip()],
         "keywords": [k.strip() for k in p.get("kw", "").split(";") if k.strip()],
         "title": p["title"], "short": p["short"], "desc": p["desc"], "lead": p["lead"],

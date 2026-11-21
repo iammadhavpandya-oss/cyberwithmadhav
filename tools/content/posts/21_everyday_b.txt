@@ -66,7 +66,7 @@ cat: Everyday safety
 tags: parents, smartphone, family safety
 kw: secure parents phone; senior citizen phone safety; mobile security checklist for parents; mummy papa ka phone safe kaise kare
 hi: Mummy papa ka phone safe kaise karein: 30 minute checklist
-related: safe-upi-habits, whatsapp-account-takeover, spot-phishing-sms-india
+related: safe-upi-habits, whatsapp-account-takeover, spot-phishing-sms-india, check-app-apk-before-install
 hubs: game.html|Scam ya Nahi? game in Hinglish; scams.html|Scam Encyclopedia
 src: Sanchar Saathi (DoT): Chakshu, mobile connections in your name, block lost phone|https://sancharsaathi.gov.in/
 src: Google Play Protect help|https://support.google.com/googleplay/answer/2812853

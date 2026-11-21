@@ -9,13 +9,13 @@ srch: Sources
 tags: AI scams, deepfake, voice cloning, CERT-In
 kw: AI voice cloning scam India; deepfake scam 2026; CERT-In deepfake advisory; AI awaaz scam se kaise bache
 hi: 2026 mein AI voice cloning aur deepfake scams: family ko kaise bachayein
-related: digital-arrest-scam-india, whatsapp-account-takeover, ai-agents-cyber-attacks-cert-in-2026
+related: digital-arrest-scam-india, whatsapp-account-takeover, deepfake-video-call-family-scam
 hubs: scams.html|Scam Encyclopedia; game.html|Scam ya Nahi? game; prompts.html|CyberPrompts: defensive AI prompts
 src: CERT-In Advisory CIAD-2024-0060: Deepfakes, threats and countermeasures (27 November 2024)|https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2024-0060&pageid=PUBVLNOTES02
 src: CERT-In Advisory CIAD-2026-0020: Defending against frontier AI driven cyber risks (26 April 2026)|https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0020&pageid=PUBVLNOTES02
 src: Verizon 2026 Data Breach Investigations Report, news release (19 May 2026)|https://www.verizon.com/about/news/breach-industry-wide-dbir-finds
 src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
-quick: AI tools can copy a voice or face from public videos and voice notes. Scammers use this to impersonate **family members, bosses or officials** and demand urgent money or OTPs. CERT-In's April 2026 advisory tells individuals to **verify voice calls, video messages and urgent requests**, especially those involving money. The best family defence is simple: **hang up, call back on a saved number, and use a family safe word.**
+quick: AI tools can copy a voice or face from public videos and voice notes. Scammers use this to impersonate **family members, bosses or officials** and demand urgent money or OTPs. CERT-In's April 2026 advisory tells individuals to **verify voice calls, video messages and urgent requests**, especially those involving money. The best family defence is simple: **hang up, call back on a saved number, and use a family safe word.** A live video call can be faked too. See our [guide to deepfake video calls asking family for money](blog-deepfake-video-call-family-scam.html).
 takeaways:
 - Deepfake voice and video make impersonation scams far more convincing.
 - CERT-In advises verifying urgent calls and video messages, especially about money.

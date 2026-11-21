@@ -9,7 +9,7 @@ srch: Sources
 tags: DPDP, data protection, privacy, cyber law
 kw: DPDP Rules 2025 timeline; DPDP Act implementation date; consent manager registration DPDP; DPDP 13 May 2027
 hi: DPDP Rules 2025 timeline: abhi kya lagu hai aur 13 May 2027 se kya shuru hoga
-related: cyber-law-india-intro, india-cyber-fraud-numbers-2025, cloud-misconfiguration-leaked-secrets
+related: cyber-law-india-intro, dpdp-checklist-small-business, cloud-misconfiguration-leaked-secrets
 hubs: cyberlaw.html|Cyber Law India: IT Act, BNS and DPDP explained; privacy.html|Privacy policy of this site
 src: Gazette notification G.S.R. 843(E), 13 November 2025 (commencement of DPDP Act provisions, PDF)|https://egazette.gov.in/WriteReadData/2025/267647.pdf
 src: PIB: DPDP Rules, 2025 notified (November 2025)|https://www.pib.gov.in/PressReleasePage.aspx?PRID=2190014&lang=2&reg=48
@@ -58,6 +58,8 @@ Six months is not a lot of time. A practical checklist:
 4. **Prepare a breach response plan** with a 72 hour reporting track for the Board.
 5. **Review vendors** who process data for you.
 6. **Train staff.** Most data incidents involve people and processes, not just technology.
+
+For a more detailed, plain language checklist aimed at small shops and startups, see our [DPDP checklist for small shops and startups](blog-dpdp-checklist-small-business.html).
 
 ## students | For law and security students
 DPDP sits exactly where law meets security, and it creates real jobs in privacy, GRC and security engineering. If you are studying law like me, or cybersecurity, learn both sides: read the Act and Rules on official sites, and understand how security controls make compliance possible. Our [intro to cyber law](blog-cyber-law-india-intro.html) is a good starting point. This post is general information, not legal advice.

@@ -85,6 +85,41 @@
  },
  {
   "k": "FAQ",
+  "t": "How do I stay safe from a fake mParivahan or e-Challan app?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-fake-mparivahan",
+  "x": "Do not install an APK from a WhatsApp, SMS or search-ad link that claims you have a pending challan. Open the official mParivahan app from Google Play, whose developer is National Informatics Centre, or check a challan on echallan.parivahan.gov.in and parivahan.gov.in . If you already installed a fa"
+ },
+ {
+  "k": "FAQ",
+  "t": "How do I check a QR code at a shop or petrol pump before I pay?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-fake-qr-shops",
+  "x": "Look at the stand or machine, not only the code. A loose, fresh or slightly raised sticker over an older printed code is a warning. In your UPI app, read the payee name, and if it does not match the shop, cancel. You never need to scan a QR code to receive money. If you have already paid the wrong p"
+ },
+ {
+  "k": "FAQ",
+  "t": "Should I use 1930, cybercrime.gov.in, Chakshu or my bank?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-where-to-report",
+  "x": "If money has left your account, call 1930 first, then complete the complaint on cybercrime.gov.in and tell your bank on its official helpline. Chakshu on Sanchar Saathi is for suspected fraud calls, SMS or WhatsApp when money has not been lost. The portal also covers other cybercrimes such as a hack"
+ },
+ {
+  "k": "FAQ",
+  "t": "I got a WhatsApp message saying I won a lottery or prize. Is it real?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-lottery-whatsapp",
+  "x": "Treat it as a scam if you did not enter a contest you trust. Real prizes do not arrive as a surprise from an unknown number, and you are not asked to pay a fee, tax or GST, or to share an OTP or UPI PIN, to collect winnings. Do not click the link or scan any QR code they send. Report the number on C"
+ },
+ {
+  "k": "FAQ",
+  "t": "What should I do if a video call of a family member asks for emergency money?",
+  "s": "FAQ · Scams and fraud help",
+  "u": "faq.html#q-deepfake-family-call",
+  "x": "Hang up and call back on a number you already have saved. Do not trust the face or voice on the live call alone, and do not send money, gift cards or crypto while the call is still connected. Agree a family safe word in advance. If you have already paid, call 1930 and complete a complaint on cybercr"
+ },
+ {
+  "k": "FAQ",
   "t": "How do I create a strong password and remember it?",
   "s": "FAQ · Staying safe online",
   "u": "faq.html#q-passwords",
@@ -131,6 +166,13 @@
   "s": "FAQ · Staying safe online",
   "u": "faq.html#q-parents-phone",
   "x": "Set a screen lock, install updates, remove unknown apps (especially screen sharing and APK installs), turn on Play Protect on Android, and set WhatsApp two step verification. Lower UPI limits, save 1930 and the bank's official number as contacts, and teach three simple rules: no OTP, no PIN to recei"
+ },
+ {
+  "k": "FAQ",
+  "t": "How should I check an app or APK before I install it?",
+  "s": "FAQ · Staying safe online",
+  "u": "faq.html#q-check-apk",
+  "x": "Prefer the official store: on Android, open Google Play yourself and confirm the developer name. Turn on Play Protect and be careful with apps that ask for SMS, call logs, accessibility or to install from unknown sources. Avoid APK files sent on WhatsApp, Telegram or email. If you already installed "
  },
  {
   "k": "FAQ",
@@ -222,6 +264,13 @@
   "s": "FAQ · Cyber law in India",
   "u": "faq.html#q-dpdp",
   "x": "The DPDP Rules, 2025 were notified on 13 November 2025 with an 18 month phased rollout. Phase 1, from 13 November 2025, set up the Data Protection Board. Phase 2, from 13 November 2026, started the Consent Manager registration framework, with the portal dpbi.gov.in. Phase 3, from 13 May 2027, brings"
+ },
+ {
+  "k": "FAQ",
+  "t": "What should a small shop or startup do to prepare for the DPDP Rules?",
+  "s": "FAQ · Cyber law in India",
+  "u": "faq.html#q-dpdp-small-shop",
+  "x": "This is general information, not legal advice. Know what personal data you collect and why, keep notices and consent clear, store only what you need, and plan how you will tell affected people if a breach happens. The Digital Personal Data Protection Rules, 2025 were notified on 13 November 2025, an"
  },
  {
   "k": "FAQ",

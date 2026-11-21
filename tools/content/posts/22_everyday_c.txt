@@ -68,7 +68,7 @@ cat: Everyday safety
 tags: 1930, fraud response, checklist
 kw: what to do after online fraud; cyber fraud first hour; 1930 helpline what to do; paise kat gaye kya kare
 hi: Cyber fraud mein paise gaye? Pehle ek ghante mein kya karein
-related: report-cyber-fraud-india, safe-upi-habits, otp-scams-india
+related: report-cyber-fraud-india, where-to-report-cyber-fraud-india, otp-scams-india
 hubs: scams.html|Scam Encyclopedia; cyberlaw.html|Cyber Law India
 src: 1930: National Cyber Crime Helpline|tel:1930
 src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/

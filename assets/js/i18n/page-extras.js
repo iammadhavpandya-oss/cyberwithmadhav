@@ -11,7 +11,7 @@ window.CWM_I18N_PAGE = Object.assign(window.CWM_I18N_PAGE || {}, {
  "sh.follow.h": "Agla guide miss mat karo",
  "sh.follow.p": "Abhi newsletter nahi hai. Inme se kahin bhi follow karo, ya RSS feed apne reader app mein add karo. Naye guides wahan sabse pehle aate hain.",
  "now.study": "<strong>Padhai.</strong> BCA (Cloud Computing and Cyber Security) aur KES Shri J.P. Law College se BA LLB. Isi law side ki wajah se yahan IT Act aur DPDP Act baar baar samjhaye jaate hain.",
- "now.write": "<strong>Likhna.</strong> Is site pe guides, abhi tak 52, har ek official sources ke saath. <a href=\"start-here.html#learn\">Beginner Journey</a> series poori ho gayi hai.",
+ "now.write": "<strong>Likhna.</strong> Is site pe guides, abhi tak 62, har ek official sources ke saath. <a href=\"start-here.html#learn\">Beginner Journey</a> series poori ho gayi hai.",
  "now.book": "<strong>Ek cybersecurity book.</strong> Jaldi aa rahi hai. Ready hone pe yahan update milega.",
  "now.share": "<strong>Share karna.</strong> <a href=\"https://www.linkedin.com/in/pandyamadhav/\" target=\"_blank\" rel=\"me noopener\">LinkedIn</a> pe chhote posts: cyber awareness, networking, careers aur India ka cyber law.",
  "now.build": "<strong>Banana.</strong> Is site pe free practice: <a href=\"ctf.html\">CTF Arena</a>, <a href=\"game.html\">Scam ya Nahi?</a> game aur <a href=\"faq.html\">FAQ</a>.",

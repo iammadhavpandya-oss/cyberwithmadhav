@@ -77,13 +77,14 @@ POSTS = [
 <p>The Reserve Bank of India has rules on how much of an unauthorised electronic banking loss a customer has to bear. Under the RBI's 2017 circular on limiting customer liability, how quickly you tell the bank affects your liability, and in some cases reporting within three working days can mean zero liability. If you shared your OTP or PIN yourself, the rules treat it differently. Check the RBI circular linked below, and ask your bank which rule it is applying to your case.</p>"""),
   ("no-loss", "No money lost? Still report it", """
 <p>If you only received a fraud call, SMS or WhatsApp message and did not lose money, you can report the number on <strong>Chakshu</strong>, a facility on the Department of Telecommunications' Sanchar Saathi portal. If money is lost, use 1930 and cybercrime.gov.in instead.</p>
+<p>If you are unsure which door to use, our <a href="blog-where-to-report-cyber-fraud-india.html">guide to 1930, cybercrime.gov.in, Chakshu and your bank</a> walks through the choice.</p>
 <p>For non financial cybercrimes such as a hacked account, a fake profile using your photos or online harassment, file on cybercrime.gov.in and also use the reporting tools of the app involved.</p>"""),
   ("recovery-scams", "Beware of fake recovery agents", """
 <p>After a fraud, many people search online for help and land on "recovery experts", fake helplines or fake lawyers who ask for a fee to get the money back. This is a second scam. The 1930 helpline and cybercrime.gov.in are free. Dial 1930 directly and type cybercrime.gov.in yourself.</p>
 <p>Ek baar jo dhokha hua, uske baad doosra mat hone do.</p>"""),
  ],
  "sources": [S_1930, S_NCRP, S_I4C, S_RBI, S_CHAKSHU],
- "related": ["digital-arrest-scam-india", "upi-scams-india"],
+ "related": ["digital-arrest-scam-india", "upi-scams-india", "where-to-report-cyber-fraud-india"],
  "hubs": [("scams.html", "Scam Encyclopedia: 25 Indian scams explained"), ("index.html#awareness", "Scam awareness for every family"), ("cyberlaw.html", "Cyber Law India: IT Act, BNS and DPDP explained")],
  "hi": {
   "title": "India mein cyber fraud kaise report karein: 1930 aur cybercrime.gov.in, step by step",
@@ -135,6 +136,7 @@ POSTS = [
 <p>Reserve Bank of India ke rules hain ki unauthorised electronic banking loss ka kitna hissa customer ko bharna padega. RBI ke 2017 wale circular ke hisaab se, aap bank ko kitni jaldi batate ho isse aapki liability badalti hai, aur kuch cases mein teen working days ke andar report karne par liability zero ho sakti hai. Agar OTP ya PIN aapne khud share kiya tha, to rule alag lagta hai. Neeche diya RBI circular dekho, aur bank se poocho ki aapke case mein kaunsa rule laga rahe hain.</p>"""),
    ("Paisa nahi gaya? Fir bhi report karo", """
 <p>Agar sirf fraud call, SMS ya WhatsApp message aaya aur paisa nahi gaya, to number ko <strong>Chakshu</strong> pe report kar sakte ho. Ye Department of Telecommunications ke Sanchar Saathi portal ki facility hai. Paisa gaya hai to 1930 aur cybercrime.gov.in hi use karo.</p>
+<p>Kaunsa door use karna hai, isme confusion ho to hamara <a href="blog-where-to-report-cyber-fraud-india.html">1930, cybercrime.gov.in, Chakshu aur bank wala guide</a> dekho.</p>
 <p>Non financial cybercrime, jaise hacked account, aapki photos wali fake profile ya online harassment, ke liye cybercrime.gov.in pe file karo aur us app ke reporting tools bhi use karo.</p>"""),
    ("Fake recovery agents se bacho", """
 <p>Fraud ke baad bahut log online help dhoondhte hain aur "recovery experts", fake helplines ya fake lawyers tak pahunch jaate hain jo paisa wapas dilane ke liye fee maangte hain. Ye doosra scam hai. 1930 helpline aur cybercrime.gov.in free hain. 1930 seedha dial karo aur cybercrime.gov.in khud type karo.</p>
@@ -273,7 +275,8 @@ POSTS = [
 <li>A sticker pasted over a shop's real QR code, so your payment goes to someone else. Before you enter the PIN, check that the name shown in your app is the shop's name.</li>
 <li>QR codes in emails, posters or messages that open a fake payment or login page.</li>
 </ul>
-<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p>"""),
+<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p>
+<p>For a closer look at stickers on shop counters, petrol pumps and parking machines, and a 10-second check before you pay, see our <a href="blog-fake-qr-code-shops-petrol-pumps.html">guide to fake QR codes at shops and petrol pumps</a>.</p>"""),
   ("refund", "Refund and \"sent by mistake\" tricks", """
 <ul>
 <li><strong>Fake credit SMS.</strong> You get an SMS that looks like a bank alert saying money was credited, then a call: "I sent it by mistake, please send it back." The SMS is fake. Open your bank or UPI app and check your actual balance and history, not the SMS.</li>
@@ -298,7 +301,7 @@ POSTS = [
 <p>The full steps are in <a href="blog-report-cyber-fraud-india.html">how to report cyber fraud in India</a>. To check a suspicious link someone sent you without opening it, try the <a href="index.html#link-tool">link checker</a> on the home page.</p>"""),
  ],
  "sources": [S_1930, S_NCRP, S_NPCI, S_RBI, S_I4C, S_CERTIN],
- "related": ["report-cyber-fraud-india", "digital-arrest-scam-india"],
+ "related": ["report-cyber-fraud-india", "fake-qr-code-shops-petrol-pumps", "upi-pin-overlay-malware"],
  "hubs": [("index.html#link-tool", "Is this link suspicious? Free link checker"), ("scams.html", "Scam Encyclopedia: UPI and 24 more scams"), ("game.html", "Scam ya Nahi? Spot the scam game")],
  "hi": {
   "title": "UPI scams samjho: collect requests, fake QR codes aur refund tricks",
@@ -318,7 +321,8 @@ POSTS = [
 <li>Dukaan ke asli QR ke upar chipka sticker, taaki payment kisi aur ko jaye. PIN daalne se pehle check karo ki app mein dukaan ka hi naam dikh raha hai.</li>
 <li>Emails, posters ya messages ke QR codes jo fake payment ya login page kholte hain.</li>
 </ul>
-<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p>"""),
+<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p>
+<p>Shop counter, petrol pump aur parking machine ke stickers, aur pay karne se pehle 10-second check, ke liye hamara <a href="blog-fake-qr-code-shops-petrol-pumps.html">shops aur petrol pumps pe fake QR codes wala guide</a> dekho.</p>"""),
    ("Refund aur \"galti se bhej diya\" tricks", """
 <ul>
 <li><strong>Fake credit SMS.</strong> Bank alert jaisa SMS aata hai ki paise credit hue, fir call: "Galti se bhej diya, please wapas bhej do." SMS fake hota hai. Bank ya UPI app kholke asli balance aur history dekho, SMS nahi.</li>

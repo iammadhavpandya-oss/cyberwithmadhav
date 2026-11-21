@@ -7,7 +7,7 @@ cat: Everyday safety
 tags: SMS, phishing, KYC, family
 kw: how to identify fake SMS India; KYC update SMS scam; electricity bill SMS fraud; phishing SMS kaise pehchane
 hi: India mein phishing SMS kaise pehchanein: KYC, bijli bill aur parcel scams
-related: otp-scams-india, first-hour-after-cyber-fraud, secure-parents-phone, report-cyber-fraud-india
+related: otp-scams-india, first-hour-after-cyber-fraud, report-cyber-fraud-india, fake-mparivahan-echallan-apk
 hubs: game.html|Scam ya Nahi? Practise spotting scam messages; index.html#link-tool|Free link checker; scams.html|Scam Encyclopedia
 src: Sanchar Saathi (DoT): Chakshu, report suspected fraud messages|https://sancharsaathi.gov.in/
 src: cybercrime.gov.in: National Cyber Crime Reporting Portal|https://cybercrime.gov.in/
@@ -28,7 +28,7 @@ The goal of almost every phishing SMS is one of three things: get you to **open 
 - **Electricity bill:** "Your power connection will be disconnected tonight at 9:30 pm as previous bill was not updated. Call this officer." The number goes to a scammer, who may ask you to install a screen sharing app.
 - **Parcel held:** "Your parcel is on hold due to incomplete address. Pay a small fee." The small fee page steals card details.
 - **Reward points expiring:** "Your credit card reward points worth a large amount expire today. Redeem now."
-- **Traffic challan:** fake e-challan links that look like government sites.
+- **Traffic challan:** fake e-challan links that look like government sites, or a file to install. Check only on official Parivahan sites. See our [fake mParivahan APK guide](blog-fake-mparivahan-echallan-apk.html).
 - **Job or part time income:** "Earn from home by liking videos." This usually ends in a task scam.
 
 ## red-flags | Five second red flag check
@@ -71,7 +71,7 @@ cat: Everyday safety
 tags: UPI, payments, family
 kw: UPI safety tips; how to use UPI safely; UPI fraud se kaise bache; UPI PIN safety
 hi: Safe UPI habits: paise bachane ke 10 simple rules
-related: upi-scams-india, otp-scams-india, first-hour-after-cyber-fraud, report-cyber-fraud-india
+related: upi-scams-india, otp-scams-india, first-hour-after-cyber-fraud, fake-qr-code-shops-petrol-pumps
 hubs: scams.html|Scam Encyclopedia: UPI and 24 more scams; game.html|Scam ya Nahi? game
 src: NPCI: UPI|https://www.npci.org.in/
 src: RBI circular on limiting customer liability in unauthorised electronic banking transactions (6 July 2017, PDF)|https://www.rbi.org.in/commonman/Upload/English/Notification/PDFs/NOTI1506072017.PDF
@@ -133,7 +133,7 @@ cat: Everyday safety
 tags: WhatsApp, OTP, account security
 kw: WhatsApp account hacked what to do; WhatsApp two step verification; WhatsApp OTP scam; WhatsApp hack se kaise bache
 hi: WhatsApp account takeover: kaise hota hai aur kaise bachein
-related: otp-scams-india, two-factor-authentication-guide, sim-binding-whatsapp-india-2027, report-cyber-fraud-india
+related: otp-scams-india, two-factor-authentication-guide, report-cyber-fraud-india, deepfake-video-call-family-scam
 hubs: scams.html|Scam Encyclopedia; game.html|Scam ya Nahi? game
 src: WhatsApp Help Center: how to manage two step verification settings|https://faq.whatsapp.com/1920866721452534
 src: WhatsApp Help Center: about linked devices|https://faq.whatsapp.com/378279804439436
@@ -193,7 +193,7 @@ cat: Everyday safety
 tags: OTP, bank fraud, phone scams
 kw: OTP fraud India; OTP scam kya hai; never share OTP; shared OTP by mistake what to do
 hi: India mein OTP scams: OTP kabhi share kyon nahi karna chahiye
-related: spot-phishing-sms-india, safe-upi-habits, whatsapp-account-takeover, report-cyber-fraud-india
+related: spot-phishing-sms-india, safe-upi-habits, report-cyber-fraud-india, upi-pin-overlay-malware
 hubs: scams.html|Scam Encyclopedia; game.html|Scam ya Nahi? game
 src: RBI circular on limiting customer liability in unauthorised electronic banking transactions (6 July 2017, PDF)|https://www.rbi.org.in/commonman/Upload/English/Notification/PDFs/NOTI1506072017.PDF
 src: Sanchar Saathi (DoT): Chakshu|https://sancharsaathi.gov.in/

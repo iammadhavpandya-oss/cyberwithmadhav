@@ -31,7 +31,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=a6608326ae"></script>
+  <script src="assets/js/i18n-dict.js?v=26b91c321f"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -422,6 +422,7 @@
       <div class="wrap">
         <h2 id="hub-rel-h" class="h3" data-i18n="blog.related">Related guides</h2>
         <ul class="bp-hub-list">
+          <li><a href="blog-dpdp-checklist-small-business.html" data-i18n="blogpost.dpdp-checklist-small-business.t">DPDP Checklist for Small Shops and Startups</a></li>
           <li><a href="blog-sim-binding-whatsapp-india-2027.html" data-i18n="blogpost.sim-binding-whatsapp-india-2027.t">SIM Binding for WhatsApp and Telegram in India: What Changes From 2027</a></li>
           <li><a href="blog-dpdp-rules-2025-timeline.html" data-i18n="blogpost.dpdp-rules-2025-timeline.t">DPDP Rules 2025 Timeline: What Applies Now and What Starts on 13 May 2027</a></li>
           <li><a href="blog-cyber-law-india-intro.html" data-i18n="blogpost.cyber-law-india-intro.t">Intro to Cyber Law in India: IT Act, BNS and DPDP for Beginners</a></li>
