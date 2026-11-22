@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=26b91c321f"></script>
+  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -39,9 +39,9 @@
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
-<link rel="stylesheet" href="assets/css/style.css?v=7112eb35b0">
+<link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
   <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
-  <link rel="stylesheet" href="assets/css/extras.css?v=c4907ab4b2">
+  <link rel="stylesheet" href="assets/css/extras.css?v=4a1cc943ad">
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://www.cyberwithmadhav.com/uses.html#page", "url": "https://www.cyberwithmadhav.com/uses.html", "name": "Toolkit", "description": "Free tools to learn cybersecurity: VirtualBox, Linux, Nmap, Wireshark, Burp Suite, DevTools, password managers and Sanchar Saathi, each with a guide.", "inLanguage": "en-IN", "isPartOf": {"@id": "https://www.cyberwithmadhav.com/#website"}, "author": {"@id": "https://www.cyberwithmadhav.com/about.html#person"}, "dateModified": "2026-11-16T09:00:00+05:30"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cyberwithmadhav.com/"}, {"@type": "ListItem", "position": 2, "name": "Toolkit", "item": "https://www.cyberwithmadhav.com/uses.html"}]}]}
   </script>
@@ -67,6 +67,7 @@
         <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
         <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
         <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
+        <a href="cybersecurity-awareness-sessions.html" class="nav-sessions"><span class="nav-sessions-full" data-i18n="nav.sessions">Book a session</span><span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span></a>
         <a href="shop.html" class="nav-shop"><span data-i18n="nav.shop">Shop</span></a>
         <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
         <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
@@ -201,7 +202,7 @@
       <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. For learning and defensive or authorised work only.</p>
-        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="cybersecurity-awareness-sessions.html" data-i18n="foot.sessions">Book a session</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>
@@ -213,7 +214,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
   <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
-  <script src="assets/js/i18n/page-extras.js?v=10bfe2ecdb" defer></script>
+  <script src="assets/js/i18n/page-extras.js?v=e1eb76c2e0" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>
   <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
   <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>

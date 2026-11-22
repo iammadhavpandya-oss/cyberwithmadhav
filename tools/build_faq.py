@@ -57,12 +57,19 @@ def validate():
         for key in ("q", "a", "hi_q", "hi_a", "h", "hi"):
             val = it[key] if key in it else sec[key if key != "hi" else "hi"]
             dash_ok(val, f"{it['id']}.{key}")
-        guide = it["guide"]
-        if guide not in G:
-            raise SystemExit("missing guide title " + guide)
-        path = ROOT / blog(guide)
-        if not path.exists():
-            raise SystemExit("missing guide file " + blog(guide))
+        guide = it.get("guide")
+        if guide:
+            if guide not in G:
+                raise SystemExit("missing guide title " + guide)
+            path = ROOT / blog(guide)
+            if not path.exists():
+                raise SystemExit("missing guide file " + blog(guide))
+        elif not it.get("page"):
+            raise SystemExit("missing guide or page " + it["id"])
+        if it.get("page"):
+            href = it["page"].split("#")[0]
+            if not href.startswith(("https:", "mailto:", "tel:")) and not (ROOT / href).exists():
+                raise SystemExit("missing page " + href)
         for rel in it["related"]:
             if rel not in G:
                 raise SystemExit("missing related title " + rel)
@@ -96,6 +103,14 @@ def guide_link(slug, cls="faq-guide"):
             f'<span data-i18n="blogpost.{slug}.t">{E(title)}</span></a></p>')
 
 
+def page_link(it, cls="faq-guide"):
+    cta = it.get("page_cta", "Open the page")
+    title = it.get("page_title", "")
+    label = f"{cta}: {title}" if title else cta
+    return (f'<p class="{cls}"><a href="{E(it["page"])}">'
+            f'<span data-i18n="faq.page.{it["id"]}">{E(label)}</span></a></p>')
+
+
 def related_html(it):
     links = []
     for slug in it["related"]:
@@ -115,7 +130,8 @@ def details_html(it):
             </summary>
             <div class="ans">
               <p data-i18n="faq.a.{it['id']}">{it['a']}</p>
-              {guide_link(it['guide'])}
+              {page_link(it) if it.get("page") else ""}
+              {guide_link(it["guide"]) if it.get("guide") else ""}
               {related_html(it)}
             </div>
           </details>"""
@@ -207,6 +223,9 @@ def i18n_dict():
         "faq.search.lbl": "Sawaal dhoondho",
         "faq.search.ph": "Sawaal dhoondho...",
         "faq.read": "Poori guide padho",
+        "faq.page.book-session": "Session book karo: Cybersecurity awareness sessions",
+        "faq.page.session-online-mumbai": "Session book karo: Cybersecurity awareness sessions",
+        "faq.page.session-legal-advice": "Session book karo: Cybersecurity awareness sessions",
         "faq.more": "Related guides:",
         "faq.browse": "Lamba padhna hai? <a href=\"blog.html\">Blog</a> dekho ya <a href=\"explore.html\">har page explore karo</a>.",
         "faq.empty": "Is search se koi sawaal nahi mila. Alag words try karo, ya saare sawaal dekhne ke liye search saaf karo.",

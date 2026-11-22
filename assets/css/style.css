@@ -848,3 +848,14 @@ html[data-lang="hi"] [data-lang-only="en"]{display:none}
 @keyframes nl-blink{0%{opacity:1}100%{opacity:.15}}
 @media (max-width:720px){.nl-card{grid-template-columns:1fr;gap:16px;padding:16px}}
 @media (prefers-reduced-motion:reduce){.nl-p,.nl-g,.nl-bulb,.nl-dot{animation:none}}
+
+/* Book a session: full label on mobile and wide desktops, short label in the mid-width top bar */
+#nav-links a.nav-sessions .nav-sessions-short{display:none}
+@media (min-width:821px) and (max-width:1280px){
+  #nav-links a.nav-sessions .nav-sessions-full{display:none}
+  #nav-links a.nav-sessions .nav-sessions-short{display:inline}
+}
+@media (max-width:820px){
+  #nav-links a.nav-sessions .nav-sessions-full{display:inline}
+  #nav-links a.nav-sessions .nav-sessions-short{display:none}
+}

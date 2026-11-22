@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Build the "best personal site" pages: start-here.html, now.html, uses.html (toolkit) and collaborate.html,
-plus humans.txt and .well-known/security.txt. Run from the repo root after build_blog.py and before build_site.py:
+"""Build the "best personal site" pages: start-here.html, now.html, uses.html (toolkit), collaborate.html
+and cybersecurity-awareness-sessions.html, plus humans.txt and .well-known/security.txt.
+Run from the repo root after build_blog.py and before build_site.py:
     python3 tools/build_extras.py && python3 tools/build_site.py
 Uses the shared shell from make_page.py. Hinglish UI strings go into assets/js/i18n-dict.js between the
 extras:start and extras:end markers. Facts here must stay true: no follower counts, clients, awards or employer."""
@@ -11,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools")); sys.path.insert(0, str(ROOT / "tools" / "content"))
 import make_page  # noqa: E402
 from blog_src import POSTS  # noqa: E402
+import sessions_src  # noqa: E402
 
 BASE = make_page.BASE
 E = lambda s: html.escape(s, quote=True)
@@ -128,6 +130,16 @@ def start_main():
           </ol>
           <p class="xp-more small"><a href="faq.html#law" data-i18n="sh.law.faq">Cyber law quick answers</a></p>
         </article>
+      </div>
+    </section>
+
+    <section class="section xp-sec" id="book-a-session" aria-labelledby="sh-sess-h">
+      <div class="wrap">
+        <div class="card xp-follow">
+          {t("sh.sess.h", "Book a session", "Session book karo", "h2", "h3").replace("<h2", '<h2 id="sh-sess-h"', 1)}
+          {t("sh.sess.p", "If you run a school, college, institute, company or society and want a cybersecurity awareness session for your people: online across India, in person in Mumbai.", "Agar aap school, college, institute, company ya society chalate ho aur apne logon ke liye cybersecurity awareness session chahiye: online poore India mein, in person Mumbai mein.", "p", "muted")}
+          <p class="xp-more small"><a href="cybersecurity-awareness-sessions.html" data-i18n="sh.sess.a">Book a session</a></p>
+        </div>
       </div>
     </section>
 
@@ -350,7 +362,7 @@ def collab_main():
            "scam awareness and Indian cyber law in plain English and Hinglish. He is studying for a BCA in Cloud Computing and "
            "Cyber Security and a BA LLB at KES Shri J.P. Law College.")
     return f"""  <main id="main" tabindex="-1">
-{hero("col", "./collaborate --hello", "Collaborate with CyberWithMadhav", "Want a cyber awareness session, an interview or a collab? Here is what I talk about, a short bio you can use, and how to reach me.", "Cyber awareness session, interview ya collab chahiye? Yahan hai main kin topics pe baat karta hoon, ek short bio jo aap use kar sakte ho, aur contact kaise karein.", crumbs("Collaborate") + f'        <div class="xp-btns"><a class="btn btn-primary" href="mailto:{EMAIL}?subject=Collaboration%20with%20CyberWithMadhav">Email {EMAIL}</a><a class="btn btn-ghost" href="https://www.linkedin.com/in/pandyamadhav/" target="_blank" rel="me noopener">Message on LinkedIn</a></div>\n')}
+{hero("col", "./collaborate --hello", "Collaborate with CyberWithMadhav", "Want a cyber awareness session, an interview or a collab? Here is what I talk about, a short bio you can use, and how to reach me.", "Cyber awareness session, interview ya collab chahiye? Yahan hai main kin topics pe baat karta hoon, ek short bio jo aap use kar sakte ho, aur contact kaise karein.", crumbs("Collaborate") + f'        <div class="xp-btns"><a class="btn btn-primary" href="cybersecurity-awareness-sessions.html">Book a session</a><a class="btn btn-ghost" href="mailto:{EMAIL}?subject=Collaboration%20with%20CyberWithMadhav">Email {EMAIL}</a><a class="btn btn-ghost" href="https://www.linkedin.com/in/pandyamadhav/" target="_blank" rel="me noopener">Message on LinkedIn</a></div>\n')}
 
     <section class="section xp-sec" aria-label="Topics and ways to collaborate">
       <div class="wrap xp-grid2">
@@ -365,7 +377,7 @@ def collab_main():
           <ul class="xp-list">
 {wl}
           </ul>
-          {t("col.ways.p", "Send the date, the audience and the language you prefer (English, Hindi or Hinglish). I reply by email.", "Date, audience aur language (English, Hindi ya Hinglish) bhejo. Main email pe reply karta hoon.", "p", "small muted")}
+          {t("col.ways.p", "For a cybersecurity awareness session (online across India, in person in Mumbai), use the <a href=\"cybersecurity-awareness-sessions.html\">Book a session</a> page. For interviews and other collabs, send the date, the audience and the language you prefer (English, Hindi or Hinglish). I reply by email.", "Cybersecurity awareness session (online poore India, in person Mumbai) ke liye <a href=\"cybersecurity-awareness-sessions.html\">Book a session</a> page use karo. Interview aur doosre collabs ke liye date, audience aur language (English, Hindi ya Hinglish) bhejo. Main email pe reply karta hoon.", "p", "small muted")}
         </article>
       </div>
     </section>
@@ -399,19 +411,20 @@ def collab_main():
 
 
 def i18n_block():
-    HI.update({"foot.start": "Yahan se shuru karo", "foot.now": "Abhi", "foot.kit": "Toolkit", "foot.collab": "Collaborate", "foot.shop": "Shop", "nav.shop": "Shop",
+    HI.update(sessions_src.HI)
+    HI.update({"foot.start": "Yahan se shuru karo", "foot.now": "Abhi", "foot.kit": "Toolkit", "foot.collab": "Collaborate", "foot.sessions": "Session book karo", "foot.shop": "Shop", "nav.shop": "Shop", "nav.sessions": "Session book karo", "nav.sessions.short": "Sessions", "sh.sess.a": "Session book karo",
                "col.bio.h": "Short bio", "col.bio.note": "Free use karo, bas link dena", "col.brand.h": "Brand aur photo",
                "col.photo": "Profile photo (JPG)", "col.logo": "Logo mark (SVG)", "col.where.h": "Main kahan milunga",
                "sh.safe.game": "Practice: Scam ya Nahi? khelo", "sh.safe.enc": "Scam encyclopedia", "sh.safe.faq": "Quick answers",
                "sh.learn.ctf": "Phir CTF Arena mein practice", "sh.learn.cmd": "Command reference", "sh.learn.kit": "Free toolkit",
                "sh.law.page": "Cyber Law India: poora guide", "sh.law.faq": "Cyber law quick answers",
-               "home.start.btn": "Naye ho? Yahan se shuru karo", "home.collab": "Awareness session ya collab chahiye? <a href=\"collaborate.html\">Collaborate</a> dekho."})
+               "home.start.btn": "Naye ho? Yahan se shuru karo", "home.collab": "School, college, company ya society ke liye awareness session chahiye? <a href=\"cybersecurity-awareness-sessions.html\">Session book karo</a>. Interview aur doosre collabs ke liye <a href=\"collaborate.html\">Collaborate</a> dekho."})
     # site wide strings (footer, home) go in the shared dictionary; strings for the four pages go in their own
     # deferred file, so the render blocking i18n-dict.js stays small on every other page
     shared = {k: v for k, v in HI.items() if k.startswith(("foot.", "home.", "nav."))}
     page = {k: v for k, v in HI.items() if k not in shared}
     pf = ROOT / "assets/js/i18n/page-extras.js"
-    pjs = ("/* Hinglish strings for start-here, uses, collaborate, shop and now. Generated by tools/build_extras.py. */\n"
+    pjs = ("/* Hinglish strings for start-here, uses, collaborate, shop, now and sessions. Generated by tools/build_extras.py. */\n"
            "window.CWM_I18N_PAGE = Object.assign(window.CWM_I18N_PAGE || {}, %s);\n" % json.dumps(page, ensure_ascii=False, indent=1))
     if not pf.exists() or pf.read_text(encoding="utf-8") != pjs:
         pf.write_text(pjs, encoding="utf-8"); print("wrote assets/js/i18n/page-extras.js")
@@ -483,6 +496,12 @@ SPECS = [
      "desc": "Invite Madhav Pandya for cyber awareness sessions, interviews or collaborations. Topics, a short bio, brand colours, photo and contact details.",
      "og": "Collaborate with CyberWithMadhav", "ogdesc": "Cyber awareness sessions, interviews and collabs. Topics, short bio, media kit and contact.",
      "keywords": "", "body": "xp-page", "css": ["pages.css", "extras.css"], "js": ["i18n/page-extras.js"], "main_fn": collab_main, "ldtype": "ContactPage", "ldname": "Collaborate"},
+    {"file": "cybersecurity-awareness-sessions.html", "title": sessions_src.SPEC["title"],
+     "desc": sessions_src.SPEC["desc"],
+     "og": sessions_src.SPEC["og"], "ogdesc": sessions_src.SPEC["ogdesc"],
+     "keywords": "", "body": sessions_src.SPEC["body"], "css": sessions_src.SPEC["css"], "js": sessions_src.SPEC["js"],
+     "main_fn": sessions_src.sessions_main, "ldtype": "WebPage", "ldname": "Cybersecurity awareness sessions",
+     "foot": sessions_src.SPEC["foot"], "ld_fn": lambda s: sessions_src.sessions_ld(s["desc"])},
     {"file": "shop.html", "title": "Shop: Scam-Proof Family Kit and Nmap Field Guide | CyberWithMadhav",
      "desc": "Two PDF guides by Madhav Pandya: the Scam-Proof Family Kit and the Nmap Field Guide. Download a free preview, then buy by email for ₹99 each.",
      "og": "Shop: two PDF guides for families and beginners", "ogdesc": "The Scam-Proof Family Kit and the Nmap Field Guide: free previews, and the full PDFs by email.",
@@ -495,7 +514,8 @@ def main():
     for spec in SPECS:
         s = dict(spec)
         s["main"] = s.pop("main_fn")()
-        s["head_html"] = ld_page(s["file"], s["ldname"], s["desc"], s["ldtype"])
+        ld_fn = s.pop("ld_fn", None)
+        s["head_html"] = ld_fn(s) if ld_fn else ld_page(s["file"], s["ldname"], s["desc"], s["ldtype"])
         make_page.build(s, *parts)
     i18n_block()
     text_files()

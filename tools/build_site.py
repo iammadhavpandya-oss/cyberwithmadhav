@@ -23,9 +23,10 @@ OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
 PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
-         "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "faq.html", "start-here.html", "uses.html", "collaborate.html", "shop.html", "now.html",
+         "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "faq.html", "start-here.html", "uses.html", "collaborate.html",
+         "cybersecurity-awareness-sessions.html", "shop.html", "now.html",
          "about.html", "terms.html", "privacy.html"]
-PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "now.html": "0.5", "terms.html": "0.3", "privacy.html": "0.3"}
+PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "cybersecurity-awareness-sessions.html": "0.9", "now.html": "0.5", "terms.html": "0.3", "privacy.html": "0.3"}
 
 
 def blog_posts():
@@ -85,6 +86,7 @@ NAV = [("index.html", "Home", "nav-home", ""),
         '<svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>'),
        ("blog.html", "Blog", "nav-blog", ""),
        ("faq.html", "FAQ", "nav-faq", ""),
+       ("cybersecurity-awareness-sessions.html", "Book a session", "nav-sessions", "", "nav.sessions"),
        ("shop.html", "Shop", "nav-shop", ""),
        ("ctf.html", "CTF", "nav-ctf", '<span class="nav-ctf-dot" aria-hidden="true"></span>')]
 LANG_BTN = ('<button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish">'
@@ -96,15 +98,22 @@ FOOT_LINKS = [("terms.html", "Terms and Conditions", "foot.terms"), ("privacy.ht
 
 def nav_links(p):
     post = p.startswith("blog-")  # blog posts live under Blog
-    hub = p not in [f for f, _, _, _ in NAV] and p != "404.html" and not post  # every other page lives inside Explore
+    nav_files = [item[0] for item in NAV]
+    hub = p not in nav_files and p != "404.html" and not post  # every other page lives inside Explore
     out = []
-    for f, label, cls, ico in NAV:
+    for item in NAV:
+        f, label, cls, ico = item[:4]
+        key = item[4] if len(item) > 4 else "nav." + label.lower()
         if not (ROOT / f).exists(): continue
         on = f == p or (hub and f == "explore.html") or (post and f == "blog.html")
         attrs = f' class="{cls}{" active" if on else ""}"'
         if f == p: attrs += ' aria-current="page"'
-        key = "nav." + label.lower()
-        out.append(f'\n        <a href="{f}"{attrs}>{ico}<span data-i18n="{key}">{label}</span></a>')
+        if cls == "nav-sessions":
+            label_html = (f'<span class="nav-sessions-full" data-i18n="{key}">{label}</span>'
+                          f'<span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span>')
+        else:
+            label_html = f'<span data-i18n="{key}">{label}</span>'
+        out.append(f'\n        <a href="{f}"{attrs}>{ico}{label_html}</a>')
     return "".join(out)
 
 
@@ -123,9 +132,10 @@ def patch_footer(s):
     m = re.search(r'<footer class="footer">.*?</footer>', s, re.S)
     if not m: return s
     f = m.group(0)
-    f = re.sub(r'<a href="about\.html"(?: data-i18n="foot\.about")?>About Madhav Pandya</a>(?: · <a href="blog\.html" data-i18n="foot\.blog">Blog</a>)?(?: · <a href="faq\.html" data-i18n="foot\.faq">FAQ</a>)?(?: · <a href="start-here\.html" data-i18n="foot\.start">Start here</a>)?(?: · <a href="collaborate\.html" data-i18n="foot\.collab">Collaborate</a>)?(?: · <a href="shop\.html" data-i18n="foot\.shop">Shop</a>)?',
+    f = re.sub(r'<a href="about\.html"(?: data-i18n="foot\.about")?>About Madhav Pandya</a>(?: · <a href="blog\.html" data-i18n="foot\.blog">Blog</a>)?(?: · <a href="faq\.html" data-i18n="foot\.faq">FAQ</a>)?(?: · <a href="start-here\.html" data-i18n="foot\.start">Start here</a>)?(?: · <a href="collaborate\.html" data-i18n="foot\.collab">Collaborate</a>)?(?: · <a href="cybersecurity-awareness-sessions\.html" data-i18n="foot\.sessions">Book a session</a>)?(?: · <a href="shop\.html" data-i18n="foot\.shop">Shop</a>)?',
                '<a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a>'
-               ' · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a>', f)
+               ' · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a>'
+               ' · <a href="cybersecurity-awareness-sessions.html" data-i18n="foot.sessions">Book a session</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a>', f)
     for href, text, key in FOOT_LINKS:
         f = re.sub(r'<a href="%s"(?: data-i18n="[^"]*")?>%s</a>' % (re.escape(href), re.escape(text)), f'<a href="{href}" data-i18n="{key}">{text}</a>', f)
     return s[:m.start()] + f + s[m.end():]
@@ -447,6 +457,7 @@ def not_found():
       </div>
       <ul class="nf-links clean">
         <li><a href="start-here.html">Start here</a></li>
+        <li><a href="cybersecurity-awareness-sessions.html">Book a session</a></li>
         <li><a href="explore.html">Explore all pages</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog.html">Blog</a></li>

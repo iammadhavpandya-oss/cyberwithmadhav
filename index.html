@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=26b91c321f"></script>
+  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -39,7 +39,7 @@
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
-  <link rel="stylesheet" href="assets/css/style.css?v=7112eb35b0">
+  <link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
   <link rel="stylesheet" href="assets/css/explore.css?v=d50548b43a">
   <link rel="stylesheet" href="assets/css/blog.css?v=efe350f417">
   <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
@@ -75,6 +75,7 @@
         <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
         <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
         <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
+        <a href="cybersecurity-awareness-sessions.html" class="nav-sessions"><span class="nav-sessions-full" data-i18n="nav.sessions">Book a session</span><span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span></a>
         <a href="shop.html" class="nav-shop"><span data-i18n="nav.shop">Shop</span></a>
         <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
         <button class="pal-btn" type="button" id="palette-open" title="Search everything (Ctrl+K)"><span aria-hidden="true">⌘K</span><span class="sr-only">Open command palette (Ctrl+K)</span></button>
@@ -494,7 +495,7 @@
               <li><a href="https://www.youtube.com/@cyberwithmadhav" target="_blank" rel="me noopener"><span>Follow on YouTube</span><span class="muted small">youtube.com/@cyberwithmadhav</span></a></li>
             </ul>
             <p class="small muted">Prefer a reader app? Subscribe to the <a href="feed.xml">RSS feed</a>.</p>
-            <p class="small muted" data-i18n="home.collab">Want an awareness session or a collab? See <a href="collaborate.html">Collaborate</a>.</p>
+            <p class="small muted" data-i18n="home.collab">Want an awareness session for your school, college, company or society? <a href="cybersecurity-awareness-sessions.html">Book a session</a>. For interviews and other collabs, see <a href="collaborate.html">Collaborate</a>.</p>
           </div>
         </div>
       </div>
@@ -510,7 +511,7 @@
       <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
       <div class="foot-row">
         <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. Content is educational and provided as-is.</p>
-        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="cybersecurity-awareness-sessions.html" data-i18n="foot.sessions">Book a session</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
       </div>
     </div>
   </footer>
