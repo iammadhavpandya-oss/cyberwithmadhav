@@ -99,6 +99,41 @@ FAQS = [
         "a": "Only if the institute asks, and only after attendees are informed. There is no default recording.",
         "hi_a": "Sirf tab, jab institute maange, aur attendees ko pehle bata diya jaye. Default mein recording nahi hoti.",
     },
+    {
+        "id": "how-to-book",
+        "q": "How do we book a cyber security workshop or guest lecture?",
+        "hi_q": "Cyber security workshop ya guest lecture kaise book karein?",
+        "a": "Email madhavpandya@zohomail.in with the institute name, audience, city, preferred dates and whether you want an online session or an in-person session in Mumbai. I reply personally with a plan and a clear fee before anything is booked. Please write at least 2 weeks ahead where possible.",
+        "hi_a": "madhavpandya@zohomail.in pe email karo: institute ka naam, audience, city, preferred dates, aur online chahiye ya Mumbai mein in-person. Main personally plan aur clear fee ke saath reply karta hoon, book hone se pehle. Jahan ho sake, kam se kam 2 hafte pehle likho.",
+    },
+    {
+        "id": "college-topics",
+        "q": "What topics do you cover in a cyber security workshop for students?",
+        "hi_q": "Students ke cyber security workshop mein kaunse topics aate hain?",
+        "a": "For college and coaching students the usual starting point is UPI fraud, fake job offers, phishing, account takeover, public or campus Wi-Fi, two-factor authentication, and digital arrest awareness. For school students the session stays age-appropriate: passwords and PINs, what not to share, fake game or study apps, phishing SMS, and when to tell a teacher or parent. Tell me what your group is worried about and I will shape the session around that.",
+        "hi_a": "College aur coaching students ke liye usual starting point hai UPI fraud, fake job offers, phishing, account takeover, public ya campus Wi-Fi, two-factor authentication, aur digital arrest awareness. School students ke liye session age-appropriate rehti hai: passwords aur PINs, kya share nahi karna, fake game ya study apps, phishing SMS, aur teacher ya parent ko kab batana hai. Batao aapka group kis cheez se worried hai, main session usi ke around shape karunga.",
+    },
+    {
+        "id": "online-vs-offline",
+        "q": "What is the difference between an online session and an offline session in Mumbai?",
+        "hi_q": "Online session aur Mumbai ki offline session mein kya fark hai?",
+        "a": "Online sessions are open to institutes anywhere in India, and abroad if the time works. We agree the video platform over email, for example Google Meet or Zoom. Offline, in-person sessions are only within Mumbai. I come to your venue. Please share the address, the room setup, and facilities such as a projector, a microphone and internet.",
+        "hi_a": "Online sessions India ke kisi bhi sheher se book ho sakte hain, aur bahar se bhi agar time match kare. Video platform email pe decide karte hain, jaise Google Meet ya Zoom. Offline, in-person sessions sirf Mumbai ke andar hote hain. Main aapke venue pe aata hoon. Address, room setup, aur projector, microphone aur internet jaise facilities bata dena.",
+    },
+    {
+        "id": "clubs",
+        "q": "Can a Rotary, Lions or student club book a cyber awareness session?",
+        "hi_q": "Kya Rotary, Lions ya student club cyber awareness session book kar sakta hai?",
+        "a": "Yes. Rotary and Lions chapters, NSS units, student clubs, housing societies, NGOs and other community groups can email to book. Online across India, or in person if your venue is in Mumbai. Tell me who will be in the room and roughly how many people will attend.",
+        "hi_a": "Haan. Rotary aur Lions chapters, NSS units, student clubs, housing societies, NGOs aur doosre community groups email karke book kar sakte hain. Online poore India mein, ya in person agar venue Mumbai mein hai. Bata dena room mein kaun hoga aur lagbhag kitne log aayenge.",
+    },
+    {
+        "id": "school-cost",
+        "q": "How much does a cyber safety seminar for a school cost?",
+        "hi_q": "School ke cyber safety seminar ki fees kitni hai?",
+        "a": "The fee is shared on request, based on audience size, length and whether the session is online or in person in Mumbai. Email the details and I will reply with a clear fee before anything is booked. There is no published rate card on this site.",
+        "hi_a": "Fee request pe share ki jaati hai, audience size, duration, aur session online hai ya Mumbai mein in person, iske hisaab se. Details email karo, book hone se pehle main clear fee ke saath reply karunga. Is site pe koi published rate card nahi hai.",
+    },
 ]
 
 
@@ -135,11 +170,12 @@ def sessions_main():
         ("sess.w4", "Companies", "Companies", "Staff who handle email, payments, customer data or vendor links."),
         ("sess.w5", "Housing societies", "Housing societies", "Residents and committee members who want a clear briefing for the building."),
         ("sess.w6", "NGOs and community groups", "NGOs aur community groups", "Groups that work with families, women, seniors or first-time smartphone users."),
+        ("sess.w7", "Clubs and societies", "Clubs aur societies", "Rotary, Lions, NSS, student clubs and other groups that want a practical cyber awareness talk."),
     ]
     who_html = "\n".join(
         f'          <article class="card sess-card">\n'
         f'            {t(k + ".h", en, hi, "h3")}\n'
-        f'            {t(k + ".p", p, {"sess.w1": "Teachers jo chahte hain students click, share ya install se pehle sochen.", "sess.w2": "Students jo har din UPI, job portals aur campus Wi-Fi use karte hain.", "sess.w3": "Batches jo jobs, internships ya tech ki pehli role ke liye prepare ho rahe hain.", "sess.w4": "Staff jo email, payments, customer data ya vendor links handle karte hain.", "sess.w5": "Residents aur committee members jo building ke liye clear briefing chahte hain.", "sess.w6": "Groups jo families, women, seniors ya pehli baar smartphone use karne walon ke saath kaam karte hain."}[k], "p", "muted")}\n'
+        f'            {t(k + ".p", p, {"sess.w1": "Teachers jo chahte hain students click, share ya install se pehle sochen.", "sess.w2": "Students jo har din UPI, job portals aur campus Wi-Fi use karte hain.", "sess.w3": "Batches jo jobs, internships ya tech ki pehli role ke liye prepare ho rahe hain.", "sess.w4": "Staff jo email, payments, customer data ya vendor links handle karte hain.", "sess.w5": "Residents aur committee members jo building ke liye clear briefing chahte hain.", "sess.w6": "Groups jo families, women, seniors ya pehli baar smartphone use karne walon ke saath kaam karte hain.", "sess.w7": "Rotary, Lions, NSS, student clubs aur doosre groups jo practical cyber awareness talk chahte hain."}[k], "p", "muted")}\n'
         f'          </article>'
         for k, en, hi, p in who
     )
@@ -270,16 +306,21 @@ def sessions_main():
 """
 
     HI.update({
+        "sess.h1": "Colleges, schools aur clubs ke liye cyber security awareness sessions",
         "sess.cta": "Session book karne ke liye email karo",
         "sess.spk.about": "About page pe aur padho",
         "sess.spk.collab": "Media kit aur doosre collaborations",
+        "sess.more.col": "College workshop page",
+        "sess.more.sch": "School seminar page",
+        "sess.more.mum": "Mumbai speaker page",
+        "sess.aud.more": "In pages pe audience ke hisaab se aur padho",
     })
     return f"""  <main id="main" tabindex="-1">
     <section class="page-hero xp-hero" aria-labelledby="p-title">
       <div class="wrap">
         <p class="kicker mono"><span class="prompt">$</span> ./book --session</p>
-        <h1 id="p-title">Cybersecurity awareness sessions your people will actually remember.</h1>
-        {t("sess.lead", "Practical, jargon-free sessions on UPI fraud, phishing, fake apps and account safety. Online across India. In person across Mumbai.", "UPI fraud, phishing, fake apps aur account safety pe practical, bina jargon ke sessions. Online poore India mein. In person Mumbai mein.", "p", "lead")}
+        <h1 id="p-title" data-i18n="sess.h1">Cyber security awareness sessions for colleges, schools and clubs</h1>
+        {t("sess.lead", "Guest lectures and workshops on UPI fraud, phishing, fake apps and account safety. Online across India. In person in Mumbai. By Madhav Pandya.", "College, school aur clubs ke liye guest lecture aur workshop: UPI fraud, phishing, fake apps aur account safety. Online poore India mein. In person Mumbai mein. Madhav Pandya ke saath.", "p", "lead")}
 {extra}      </div>
     </section>
 
@@ -290,6 +331,42 @@ def sessions_main():
         <div class="xp-grid sess-grid">
 {who_html}
         </div>
+      </div>
+    </section>
+
+
+    <section class="section xp-sec" id="colleges" aria-labelledby="sess-col-h">
+      <div class="wrap xp-narrow">
+        {t("sess.col.h", "For colleges and universities", "Colleges aur universities ke liye", "h2").replace("<h2", '<h2 id="sess-col-h"', 1)}
+        {t("sess.col.p1", "A guest lecture or cyber security workshop for college students works best when it talks about the scams they actually see: UPI collect requests, fake internship or job offers, phishing on campus Wi-Fi, account takeover and digital arrest calls. I keep the language plain, and I leave time for questions.", "College students ke liye guest lecture ya cyber security workshop tab best chalti hai jab un scams ki baat ho jo wo actually dekhte hain: UPI collect requests, fake internship ya job offers, campus Wi-Fi pe phishing, account takeover aur digital arrest calls. Language simple rakhata hoon, aur sawaal ke liye time chhodta hoon.", "p")}
+        {t("sess.col.p2", "The usual length is 60 to 90 minutes. Online sessions are open to colleges anywhere in India. In-person sessions are for Mumbai campuses only. Student councils, NSS units and faculty can email to book. This is an awareness session, not a placement workshop and not legal advice.", "Usual duration 60 se 90 minutes hai. Online sessions India ke kisi bhi college se book ho sakte hain. In-person sessions sirf Mumbai campuses ke liye hain. Student councils, NSS units aur faculty email karke book kar sakte hain. Ye awareness session hai, placement workshop nahi, legal advice bhi nahi.", "p")}
+        <p class="small"><a href="cyber-security-workshop-for-colleges.html" data-i18n="sess.more.col">College workshop page</a></p>
+      </div>
+    </section>
+
+    <section class="section xp-sec" id="schools" aria-labelledby="sess-sch-h">
+      <div class="wrap xp-narrow">
+        {t("sess.sch.h", "For schools", "Schools ke liye", "h2").replace("<h2", '<h2 id="sess-sch-h"', 1)}
+        {t("sess.sch.p1", "A cyber safety seminar for school students stays age-appropriate. Typical topics are passwords and PINs, what not to share, fake game or study apps, phishing SMS, and when to tell a teacher or parent. A teacher or school staff member must be present throughout.", "School students ke cyber safety seminar age-appropriate rehti hai. Typical topics hain passwords aur PINs, kya share nahi karna, fake game ya study apps, phishing SMS, aur teacher ya parent ko kab batana hai. Poori session ke dauran ek teacher ya school staff present hona zaroori hai.", "p")}
+        {t("sess.sch.p2", "I do not collect personal data from students. Any hands-on demo runs only on my own test devices. You can also ask for a short teacher or admin briefing, and a one-page handout with 1930 and cybercrime.gov.in. Online across India, or in person at schools in Mumbai.", "Main students ka personal data nahi leta. Koi bhi hands-on demo sirf meri apni test devices pe hota hai. Aap chhoti teacher ya admin briefing bhi maang sakte ho, aur ek page ka handout 1930 aur cybercrime.gov.in ke saath. Online poore India mein, ya Mumbai ke schools mein in person.", "p")}
+        <p class="small"><a href="cyber-awareness-session-for-schools.html" data-i18n="sess.more.sch">School seminar page</a></p>
+      </div>
+    </section>
+
+    <section class="section xp-sec" id="clubs" aria-labelledby="sess-club-h">
+      <div class="wrap xp-narrow">
+        {t("sess.club.h", "For clubs and NGOs", "Clubs aur NGOs ke liye", "h2").replace("<h2", '<h2 id="sess-club-h"', 1)}
+        {t("sess.club.p1", "Rotary and Lions chapters, NSS units, student clubs, housing societies and NGOs often want a practical talk that families can take home. I cover common Indian scams, QR codes at shops and gates, WhatsApp group safety, and where to report, including 1930 and cybercrime.gov.in.", "Rotary aur Lions chapters, NSS units, student clubs, housing societies aur NGOs aksar aisi practical baat chahte hain jo family ghar le ja sake. Main common Indian scams, shops aur gates pe QR codes, WhatsApp group safety, aur report kahan karein, 1930 aur cybercrime.gov.in ke saath, cover karta hoon.", "p")}
+        {t("sess.club.p2", "Sessions can be in English, Hindi, Hinglish or Marathi. Online for clubs anywhere in India, or in person if your venue is in Mumbai. Tell me who will be in the room: students, residents, seniors, a women group, or a mixed audience.", "Sessions English, Hindi, Hinglish ya Marathi mein ho sakti hain. India ke kisi bhi club ke liye online, ya in person agar venue Mumbai mein hai. Bata dena room mein kaun hoga: students, residents, seniors, women group, ya mixed audience.", "p")}
+        <p class="small"><a href="cyber-awareness-speaker-mumbai.html" data-i18n="sess.more.mum">Mumbai speaker page</a></p>
+      </div>
+    </section>
+
+    <section class="section xp-sec" id="institutes" aria-labelledby="sess-inst-h">
+      <div class="wrap xp-narrow">
+        {t("sess.inst.h", "For coaching institutes and corporates", "Coaching institutes aur corporates ke liye", "h2").replace("<h2", '<h2 id="sess-inst-h"', 1)}
+        {t("sess.inst.p1", "Coaching and IT institutes can book a longer session for batches preparing for jobs or a first role in tech. Along with the college topics, we can cover checking an app before you install it, internships that ask for fees, password managers, and safe habits for a first tech job.", "Coaching aur IT institutes un batches ke liye lambi session book kar sakte hain jo jobs ya tech ki pehli role ke liye prepare ho rahe hain. College wale topics ke saath, app install karne se pehle check karna, internships jo fees maange, password managers, aur pehli tech job ke safe habits bhi cover ho sakte hain.", "p")}
+        {t("sess.inst.p2", "For company staff the usual focus is work email phishing, passwords and 2FA, QR and UPI risks, vendor and attachment caution, how to report, and a short, plain note on the DPDP Act. This is awareness only, not legal advice and not a full compliance audit. Online across India, or in person at Mumbai offices.", "Company staff ke liye usual focus hai work email phishing, passwords aur 2FA, QR aur UPI ke risks, vendor aur attachment ki caution, report kaise karein, aur DPDP Act pe ek chhota, simple note. Ye sirf awareness hai, legal advice nahi, aur poora compliance audit bhi nahi. Online poore India mein, ya Mumbai ke offices mein in person.", "p")}
       </div>
     </section>
 
@@ -411,6 +488,20 @@ def sessions_main():
 
 def sessions_ld(desc):
     url = BASE + FILE
+    person = {
+        "@type": "Person",
+        "@id": BASE + "about.html#person",
+        "name": "Madhav Pandya",
+        "url": BASE + "about.html",
+        "jobTitle": "Cybersecurity Educator and Founder, CyberWithMadhav",
+        "email": "mailto:" + EMAIL,
+        "sameAs": [
+            "https://www.linkedin.com/in/pandyamadhav/",
+            "https://www.instagram.com/cyberwithmadhav/",
+            "https://www.youtube.com/@cyberwithmadhav",
+            "https://github.com/iammadhavpandya-oss",
+        ],
+    }
     service = {
         "@type": "Service",
         "@id": url + "#service",
@@ -418,14 +509,18 @@ def sessions_ld(desc):
         "serviceType": "Cybersecurity awareness training",
         "description": desc,
         "url": url,
-        "provider": {
-            "@type": "Person",
-            "name": "Madhav Pandya",
-            "@id": BASE + "about.html#person",
-        },
+        "provider": person,
         "areaServed": [
             {"@type": "Country", "name": "India"},
-            {"@type": "City", "name": "Mumbai"},
+            {"@type": "City", "name": "Mumbai", "containedInPlace": {"@type": "State", "name": "Maharashtra"}},
+        ],
+        "audience": [
+            {"@type": "EducationalAudience", "educationalRole": "student", "audienceType": "College students, school students and coaching institute batches"},
+            {"@type": "BusinessAudience", "audienceType": "Corporate staff, clubs, NGOs and housing societies"},
+        ],
+        "availableChannel": [
+            {"@type": "ServiceChannel", "name": "Online session", "serviceLocation": {"@type": "Country", "name": "India"}},
+            {"@type": "ServiceChannel", "name": "In-person session", "serviceLocation": {"@type": "City", "name": "Mumbai"}},
         ],
         "email": EMAIL,
         "isPartOf": {"@id": BASE + "#website"},
@@ -456,10 +551,10 @@ def sessions_ld(desc):
 
 SPEC = {
     "file": FILE,
-    "title": "Cybersecurity Awareness Sessions in India | CyberWithMadhav",
-    "desc": "Book a cyber safety awareness session for your school, college, company or society. Online across India, in person in Mumbai. By Madhav Pandya.",
-    "og": "Cybersecurity Awareness Sessions in India | CyberWithMadhav",
-    "ogdesc": "Book a cyber safety awareness session for your school, college, company or society. Online across India, in person in Mumbai.",
+    "title": "Cyber Security Awareness Session Mumbai | CyberWithMadhav",
+    "desc": "Book a cyber security awareness session or workshop for colleges, schools, clubs and corporates. Online across India, offline in Mumbai. By Madhav Pandya.",
+    "og": "Cyber Security Awareness Session Mumbai | CyberWithMadhav",
+    "ogdesc": "Book a cyber security awareness session or workshop for colleges, schools, clubs and corporates. Online across India, offline in Mumbai.",
     "keywords": "",
     "body": "xp-page sess-page",
     "css": ["pages.css", "extras.css"],

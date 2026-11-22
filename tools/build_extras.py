@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build the "best personal site" pages: start-here.html, now.html, uses.html (toolkit), collaborate.html
-and cybersecurity-awareness-sessions.html, plus humans.txt and .well-known/security.txt.
+and cybersecurity-awareness-sessions.html, plus three session landing pages, humans.txt and .well-known/security.txt.
 Run from the repo root after build_blog.py and before build_site.py:
     python3 tools/build_extras.py && python3 tools/build_site.py
 Uses the shared shell from make_page.py. Hinglish UI strings go into assets/js/i18n-dict.js between the
@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "tools")); sys.path.insert(0, str(ROOT / "tools" /
 import make_page  # noqa: E402
 from blog_src import POSTS  # noqa: E402
 import sessions_src  # noqa: E402
+import session_landings_src  # noqa: E402
 
 BASE = make_page.BASE
 E = lambda s: html.escape(s, quote=True)
@@ -138,7 +139,7 @@ def start_main():
         <div class="card xp-follow">
           {t("sh.sess.h", "Book a session", "Session book karo", "h2", "h3").replace("<h2", '<h2 id="sh-sess-h"', 1)}
           {t("sh.sess.p", "If you run a school, college, institute, company or society and want a cybersecurity awareness session for your people: online across India, in person in Mumbai.", "Agar aap school, college, institute, company ya society chalate ho aur apne logon ke liye cybersecurity awareness session chahiye: online poore India mein, in person Mumbai mein.", "p", "muted")}
-          <p class="xp-more small"><a href="cybersecurity-awareness-sessions.html" data-i18n="sh.sess.a">Book a session</a></p>
+          <p class="xp-more small"><a href="cybersecurity-awareness-sessions.html" data-i18n="sh.sess.a">Book a cyber security awareness session</a></p>
         </div>
       </div>
     </section>
@@ -377,7 +378,7 @@ def collab_main():
           <ul class="xp-list">
 {wl}
           </ul>
-          {t("col.ways.p", "For a cybersecurity awareness session (online across India, in person in Mumbai), use the <a href=\"cybersecurity-awareness-sessions.html\">Book a session</a> page. For interviews and other collabs, send the date, the audience and the language you prefer (English, Hindi or Hinglish). I reply by email.", "Cybersecurity awareness session (online poore India, in person Mumbai) ke liye <a href=\"cybersecurity-awareness-sessions.html\">Book a session</a> page use karo. Interview aur doosre collabs ke liye date, audience aur language (English, Hindi ya Hinglish) bhejo. Main email pe reply karta hoon.", "p", "small muted")}
+          {t("col.ways.p", "For a cybersecurity awareness session (online across India, in person in Mumbai), use the <a href=\"cybersecurity-awareness-sessions.html\">book a cyber security awareness session</a> page. For interviews and other collabs, send the date, the audience and the language you prefer (English, Hindi or Hinglish). I reply by email.", "Cybersecurity awareness session (online poore India, in person Mumbai) ke liye <a href=\"cybersecurity-awareness-sessions.html\">cyber security awareness session book karo</a> page use karo. Interview aur doosre collabs ke liye date, audience aur language (English, Hindi ya Hinglish) bhejo. Main email pe reply karta hoon.", "p", "small muted")}
         </article>
       </div>
     </section>
@@ -412,7 +413,8 @@ def collab_main():
 
 def i18n_block():
     HI.update(sessions_src.HI)
-    HI.update({"foot.start": "Yahan se shuru karo", "foot.now": "Abhi", "foot.kit": "Toolkit", "foot.collab": "Collaborate", "foot.sessions": "Session book karo", "foot.shop": "Shop", "nav.shop": "Shop", "nav.sessions": "Session book karo", "nav.sessions.short": "Sessions", "sh.sess.a": "Session book karo",
+    HI.update(session_landings_src.HI)
+    HI.update({"foot.start": "Yahan se shuru karo", "foot.now": "Abhi", "foot.kit": "Toolkit", "foot.collab": "Collaborate", "foot.sessions": "Session book karo", "foot.shop": "Shop", "nav.shop": "Shop", "nav.sessions": "Session book karo", "nav.sessions.short": "Sessions", "sh.sess.a": "Cyber security awareness session book karo",
                "col.bio.h": "Short bio", "col.bio.note": "Free use karo, bas link dena", "col.brand.h": "Brand aur photo",
                "col.photo": "Profile photo (JPG)", "col.logo": "Logo mark (SVG)", "col.where.h": "Main kahan milunga",
                "sh.safe.game": "Practice: Scam ya Nahi? khelo", "sh.safe.enc": "Scam encyclopedia", "sh.safe.faq": "Quick answers",
@@ -502,6 +504,7 @@ SPECS = [
      "keywords": "", "body": sessions_src.SPEC["body"], "css": sessions_src.SPEC["css"], "js": sessions_src.SPEC["js"],
      "main_fn": sessions_src.sessions_main, "ldtype": "WebPage", "ldname": "Cybersecurity awareness sessions",
      "foot": sessions_src.SPEC["foot"], "ld_fn": lambda s: sessions_src.sessions_ld(s["desc"])},
+    *session_landings_src.SPECS,
     {"file": "shop.html", "title": "Shop: Scam-Proof Family Kit and Nmap Field Guide | CyberWithMadhav",
      "desc": "Two PDF guides by Madhav Pandya: the Scam-Proof Family Kit and the Nmap Field Guide. Download a free preview, then buy by email for ₹99 each.",
      "og": "Shop: two PDF guides for families and beginners", "ogdesc": "The Scam-Proof Family Kit and the Nmap Field Guide: free previews, and the full PDFs by email.",

@@ -24,9 +24,24 @@ OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 # Public pages in nav order. Pages that do not exist yet are skipped.
 PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
          "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "faq.html", "start-here.html", "uses.html", "collaborate.html",
-         "cybersecurity-awareness-sessions.html", "shop.html", "now.html",
+         "cybersecurity-awareness-sessions.html",
+         "cyber-security-workshop-for-colleges.html", "cyber-awareness-session-for-schools.html",
+         "cyber-awareness-speaker-mumbai.html", "shop.html", "now.html",
          "about.html", "terms.html", "privacy.html"]
-PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "cybersecurity-awareness-sessions.html": "0.9", "now.html": "0.5", "terms.html": "0.3", "privacy.html": "0.3"}
+PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "cybersecurity-awareness-sessions.html": "0.9",
+            "cyber-security-workshop-for-colleges.html": "0.8", "cyber-awareness-session-for-schools.html": "0.8",
+            "cyber-awareness-speaker-mumbai.html": "0.8", "now.html": "0.5", "terms.html": "0.3", "privacy.html": "0.3"}
+SESSION_LANDINGS = {
+    "cyber-security-workshop-for-colleges.html",
+    "cyber-awareness-session-for-schools.html",
+    "cyber-awareness-speaker-mumbai.html",
+}
+OG_ALT_BY_PAGE = {
+    "cybersecurity-awareness-sessions.html": "CyberWithMadhav: book a cyber security awareness session, online in India or in person in Mumbai.",
+    "cyber-security-workshop-for-colleges.html": "CyberWithMadhav: cyber security workshop and guest lecture for college students in India and Mumbai.",
+    "cyber-awareness-session-for-schools.html": "CyberWithMadhav: cyber safety seminar for school students in India, online or in person in Mumbai.",
+    "cyber-awareness-speaker-mumbai.html": "Madhav Pandya, cyber awareness speaker in Mumbai, for clubs, corporates and institutes.",
+}
 
 
 def blog_posts():
@@ -99,13 +114,13 @@ FOOT_LINKS = [("terms.html", "Terms and Conditions", "foot.terms"), ("privacy.ht
 def nav_links(p):
     post = p.startswith("blog-")  # blog posts live under Blog
     nav_files = [item[0] for item in NAV]
-    hub = p not in nav_files and p != "404.html" and not post  # every other page lives inside Explore
+    hub = p not in nav_files and p != "404.html" and not post and p not in SESSION_LANDINGS  # every other page lives inside Explore
     out = []
     for item in NAV:
         f, label, cls, ico = item[:4]
         key = item[4] if len(item) > 4 else "nav." + label.lower()
         if not (ROOT / f).exists(): continue
-        on = f == p or (hub and f == "explore.html") or (post and f == "blog.html")
+        on = f == p or (hub and f == "explore.html") or (post and f == "blog.html") or (p in SESSION_LANDINGS and f == "cybersecurity-awareness-sessions.html")
         attrs = f' class="{cls}{" active" if on else ""}"'
         if f == p: attrs += ' aria-current="page"'
         if cls == "nav-sessions":
@@ -163,7 +178,7 @@ def patch_page(p):
     elif post and (ROOT / f"assets/img/blog/{post['slug']}.png").exists():
         og_img, og_w, og_h, og_alt = BASE + f"assets/img/blog/{post['slug']}.png", "1200", "630", post["og_alt"]
     else:
-        og_img, og_w, og_h, og_alt = (BASE + "assets/img/og-image.jpg" if (ROOT / "assets/img/og-image.jpg").exists() else OG_IMG), "1200", "630", OG_ALT
+        og_img, og_w, og_h, og_alt = (BASE + "assets/img/og-image.jpg" if (ROOT / "assets/img/og-image.jpg").exists() else OG_IMG), "1200", "630", OG_ALT_BY_PAGE.get(p, OG_ALT)
     social = (f'\n  <meta property="og:image" content="{og_img}">'
               f'\n  <meta property="og:image:width" content="{og_w}">\n  <meta property="og:image:height" content="{og_h}">'
               f'\n  <meta property="og:image:alt" content="{html.escape(og_alt)}">')
