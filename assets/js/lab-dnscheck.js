@@ -63,9 +63,20 @@
     }
 
     // DKIM selector probe
-    const found = [];
-    await Promise.all(SELECTORS.map(async sel => { try { const r = await L.txt(sel + '._domainkey.' + domain); if (r.answers.some(x => /k=|p=/.test(x))) found.push(sel); } catch (e) { } }));
+    // A selector counts only if its record has a non-empty p= public key. An empty p= means the key was revoked (RFC 6376).
+    const found = [], revoked = [];
+    const dkimKey = rec => { const m = String(rec).replace(/"/g, '').split(';').map(x => x.trim()).find(x => /^p\s*=/i.test(x)); return m === undefined ? null : m.replace(/^p\s*=/i, '').replace(/\s+/g, ''); };
+    await Promise.all(SELECTORS.map(async sel => { try {
+      const r = await L.txt(sel + '._domainkey.' + domain);
+      const keys = r.answers.map(dkimKey).filter(k => k !== null);
+      if (keys.some(k => k.length > 0)) found.push(sel); else if (keys.length) revoked.push(sel);
+    } catch (e) { } }));
+    found.sort(); revoked.sort();
     out.raw.push(['DKIM selectors found', found.map(x => x + '._domainkey')]);
+    if (revoked.length) {
+      out.raw.push(['DKIM selectors with revoked/empty key', revoked.map(x => x + '._domainkey')]);
+      add('dkimrev', 'info', 0, 0, 'DKIM revoked/empty key (selector: ' + revoked.join(', ') + ')', 'These selectors publish an empty p= value, which means the key is revoked or unused. Mail signed with them will not pass DKIM.');
+    }
     if (found.length) add('dkim', 'pass', 10, 10, 'DKIM key found (selector: ' + found.join(', ') + ')', 'Messages can be signed so receivers can check they were not altered.');
     else add('dkim', out.sendsMail ? 'warn' : 'info', 0, out.sendsMail ? 10 : 0, 'No DKIM key at ' + SELECTORS.length + ' common selectors', 'DKIM selectors cannot be listed from DNS, so a key may exist under another name. Check a real email from this domain: the DKIM-Signature header shows s=selector.', 'Turn on DKIM signing in your mail provider and publish its key');
 
