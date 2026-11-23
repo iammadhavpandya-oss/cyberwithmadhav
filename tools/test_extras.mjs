@@ -86,7 +86,7 @@ for (const pg of NEW) for (const scheme of ['dark', 'light']) {
   const h = await fetch(BASE + 'humans.txt'), s = await fetch(BASE + '.well-known/security.txt'), r = await (await fetch(BASE + 'robots.txt')).text();
   const st = await s.text();
   ok('humans.txt served', h.ok && /Madhav Pandya/.test(await h.text()));
-  ok('security.txt has Contact, Expires in the future, Canonical', s.ok && /^Contact: mailto:madhavpandya@zohomail\.in$/m.test(st) && new Date(st.match(/^Expires: (.+)$/m)[1]) > new Date() && /^Canonical: https:\/\/www\.cyberwithmadhav\.com\/\.well-known\/security\.txt$/m.test(st));
+  ok('security.txt has Contact, Expires in the future, Canonical', s.ok && /^Contact: mailto:contact@cyberwithmadhav\.com$/m.test(st) && new Date(st.match(/^Expires: (.+)$/m)[1]) > new Date() && /^Canonical: https:\/\/www\.cyberwithmadhav\.com\/\.well-known\/security\.txt$/m.test(st));
   ok('robots.txt still allows everything and lists the sitemap', /^User-agent: \*$/m.test(r) && /^Allow: \/$/m.test(r) && !/^Disallow/m.test(r) && /^Sitemap: https:\/\/www\.cyberwithmadhav\.com\/sitemap\.xml$/m.test(r));
   const nf = await (await fetch(BASE + '404.html')).text();
   ok('404 is themed as packet lost with traceroute', /packet lost/.test(nf) && /TTL expired in transit/.test(nf) && /traceroute home/.test(nf));

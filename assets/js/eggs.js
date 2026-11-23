@@ -28,7 +28,7 @@
     console.log('Side quest: there is a flag hidden in this page source, a note in /robots.txt and the team in /humans.txt.\n' +
       'Then test yourself for real at https://www.cyberwithmadhav.com/ctf.html\n' +
       'Found a security issue? Please report it: https://www.cyberwithmadhav.com/.well-known/security.txt\n' +
-      'Not hiring, always learning. Say hi: madhavpandya@zohomail.in');
+      'Not hiring, always learning. Say hi: contact@cyberwithmadhav.com');
   } catch (e) {}
 
   /* lazy stylesheet, loaded when the browser is idle so it never blocks first paint */

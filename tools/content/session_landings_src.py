@@ -184,7 +184,7 @@ def colleges_main():
     <section class="section xp-sec" id="book-college" aria-labelledby="colp-book-h">
       <div class="wrap xp-narrow">
         {t("colp.book.h", "How a college can book this guest lecture", "College ye guest lecture kaise book kare", "h2").replace("<h2", '<h2 id="colp-book-h"', 1)}
-        {t("colp.book.p", "Email madhavpandya@zohomail.in with the college name, department or club, city, audience size, preferred dates, language (English, Hindi, Hinglish or Marathi), and whether you want the session online or in person in Mumbai. I reply personally with a plan and a clear fee. No booking form and no mailing list.", "madhavpandya@zohomail.in pe email karo: college ka naam, department ya club, city, audience size, preferred dates, language (English, Hindi, Hinglish ya Marathi), aur session online chahiye ya Mumbai mein in person. Main personally plan aur clear fee ke saath reply karta hoon. Koi booking form nahi, koi mailing list nahi.", "p")}
+        {t("colp.book.p", "Email contact@cyberwithmadhav.com with the college name, department or club, city, audience size, preferred dates, language (English, Hindi, Hinglish or Marathi), and whether you want the session online or in person in Mumbai. I reply personally with a plan and a clear fee. No booking form and no mailing list.", "contact@cyberwithmadhav.com pe email karo: college ka naam, department ya club, city, audience size, preferred dates, language (English, Hindi, Hinglish ya Marathi), aur session online chahiye ya Mumbai mein in person. Main personally plan aur clear fee ke saath reply karta hoon. Koi booking form nahi, koi mailing list nahi.", "p")}
         <div class="xp-btns">
           <a class="btn btn-primary" href="{MAILTO}" data-i18n="sess.cta">Email to book a session</a>
         </div>
@@ -296,7 +296,7 @@ def schools_main():
     <section class="section xp-sec" id="book-school" aria-labelledby="schp-book-h">
       <div class="wrap xp-narrow">
         {t("schp.book.h", "How a school can book this seminar", "School ye seminar kaise book kare", "h2").replace("<h2", '<h2 id="schp-book-h"', 1)}
-        {t("schp.book.p", "Email madhavpandya@zohomail.in with the school name, city, class or age group, about how many students will attend, preferred dates, language, and whether you want the session online or in person in Mumbai. Mention if you also want a teacher briefing or a handout. I reply personally with a plan and a clear fee.", "madhavpandya@zohomail.in pe email karo: school ka naam, city, class ya age group, lagbhag kitne students aayenge, preferred dates, language, aur session online chahiye ya Mumbai mein in person. Agar teacher briefing ya handout bhi chahiye to likh dena. Main personally plan aur clear fee ke saath reply karta hoon.", "p")}
+        {t("schp.book.p", "Email contact@cyberwithmadhav.com with the school name, city, class or age group, about how many students will attend, preferred dates, language, and whether you want the session online or in person in Mumbai. Mention if you also want a teacher briefing or a handout. I reply personally with a plan and a clear fee.", "contact@cyberwithmadhav.com pe email karo: school ka naam, city, class ya age group, lagbhag kitne students aayenge, preferred dates, language, aur session online chahiye ya Mumbai mein in person. Agar teacher briefing ya handout bhi chahiye to likh dena. Main personally plan aur clear fee ke saath reply karta hoon.", "p")}
         <div class="xp-btns">
           <a class="btn btn-primary" href="{MAILTO}" data-i18n="sess.cta">Email to book a session</a>
         </div>
@@ -348,8 +348,8 @@ MUM_FAQS = [
         "id": "book",
         "q": "How do we invite you as a cyber awareness speaker in Mumbai?",
         "hi_q": "Mumbai mein cyber awareness speaker ke roop mein aapko kaise invite karein?",
-        "a": "Email madhavpandya@zohomail.in with the organisation name, venue area in Mumbai, audience, preferred dates and the length you have. I reply personally with a plan and a clear fee before anything is booked. Please write at least 2 weeks ahead where possible.",
-        "hi_a": "madhavpandya@zohomail.in pe email karo: organisation ka naam, Mumbai mein venue area, audience, preferred dates aur kitni der ka slot hai. Main personally plan aur clear fee ke saath reply karta hoon, book hone se pehle. Jahan ho sake, kam se kam 2 hafte pehle likho.",
+        "a": "Email contact@cyberwithmadhav.com with the organisation name, venue area in Mumbai, audience, preferred dates and the length you have. I reply personally with a plan and a clear fee before anything is booked. Please write at least 2 weeks ahead where possible.",
+        "hi_a": "contact@cyberwithmadhav.com pe email karo: organisation ka naam, Mumbai mein venue area, audience, preferred dates aur kitni der ka slot hai. Main personally plan aur clear fee ke saath reply karta hoon, book hone se pehle. Jahan ho sake, kam se kam 2 hafte pehle likho.",
     },
 ]
 
@@ -404,7 +404,7 @@ def mumbai_main():
     <section class="section xp-sec" id="book-mumbai" aria-labelledby="mump-book-h">
       <div class="wrap xp-narrow">
         {t("mump.book.h", "How to invite a cyber awareness speaker in Mumbai", "Mumbai mein cyber awareness speaker ko kaise invite karein", "h2").replace("<h2", '<h2 id="mump-book-h"', 1)}
-        {t("mump.book.p", "Email madhavpandya@zohomail.in with the organisation name, venue area, audience, preferred dates and the length you have. I reply personally with a plan and a clear fee before anything is booked. Please write at least 2 weeks ahead where possible.", "madhavpandya@zohomail.in pe email karo: organisation ka naam, venue area, audience, preferred dates aur kitni der ka slot hai. Main personally plan aur clear fee ke saath reply karta hoon, book hone se pehle. Jahan ho sake, kam se kam 2 hafte pehle likho.", "p")}
+        {t("mump.book.p", "Email contact@cyberwithmadhav.com with the organisation name, venue area, audience, preferred dates and the length you have. I reply personally with a plan and a clear fee before anything is booked. Please write at least 2 weeks ahead where possible.", "contact@cyberwithmadhav.com pe email karo: organisation ka naam, venue area, audience, preferred dates aur kitni der ka slot hai. Main personally plan aur clear fee ke saath reply karta hoon, book hone se pehle. Jahan ho sake, kam se kam 2 hafte pehle likho.", "p")}
         <div class="xp-btns">
           <a class="btn btn-primary" href="{MAILTO}" data-i18n="sess.cta">Email to book a session</a>
         </div>

@@ -2,7 +2,7 @@
 import html, json
 from urllib.parse import quote
 
-EMAIL = "madhavpandya@zohomail.in"
+EMAIL = "contact@cyberwithmadhav.com"
 BASE = "https://www.cyberwithmadhav.com/"
 FILE = "cybersecurity-awareness-sessions.html"
 E = lambda s: html.escape(s, quote=True)
@@ -103,8 +103,8 @@ FAQS = [
         "id": "how-to-book",
         "q": "How do we book a cyber security workshop or guest lecture?",
         "hi_q": "Cyber security workshop ya guest lecture kaise book karein?",
-        "a": "Email madhavpandya@zohomail.in with the institute name, audience, city, preferred dates and whether you want an online session or an in-person session in Mumbai. I reply personally with a plan and a clear fee before anything is booked. Please write at least 2 weeks ahead where possible.",
-        "hi_a": "madhavpandya@zohomail.in pe email karo: institute ka naam, audience, city, preferred dates, aur online chahiye ya Mumbai mein in-person. Main personally plan aur clear fee ke saath reply karta hoon, book hone se pehle. Jahan ho sake, kam se kam 2 hafte pehle likho.",
+        "a": "Email contact@cyberwithmadhav.com with the institute name, audience, city, preferred dates and whether you want an online session or an in-person session in Mumbai. I reply personally with a plan and a clear fee before anything is booked. Please write at least 2 weeks ahead where possible.",
+        "hi_a": "contact@cyberwithmadhav.com pe email karo: institute ka naam, audience, city, preferred dates, aur online chahiye ya Mumbai mein in-person. Main personally plan aur clear fee ke saath reply karta hoon, book hone se pehle. Jahan ho sake, kam se kam 2 hafte pehle likho.",
     },
     {
         "id": "college-topics",

@@ -18,7 +18,7 @@ import session_landings_src  # noqa: E402
 BASE = make_page.BASE
 E = lambda s: html.escape(s, quote=True)
 UPDATED = ("2026-11-16", "16 November 2026")
-EMAIL = "madhavpandya@zohomail.in"
+EMAIL = "contact@cyberwithmadhav.com"
 SOCIALS = [("LinkedIn", "https://www.linkedin.com/in/pandyamadhav/"), ("YouTube", "https://www.youtube.com/@cyberwithmadhav"),
            ("Instagram", "https://www.instagram.com/cyberwithmadhav/"), ("GitHub", "https://github.com/iammadhavpandya-oss")]
 HI = {}  # Hinglish strings for data-i18n keys

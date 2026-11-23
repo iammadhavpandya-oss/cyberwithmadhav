@@ -755,9 +755,9 @@
       const name = form.name.value.trim(), subject = form.subject.value.trim(), msg = form.message.value.trim();
       const bad = !name ? ['name', 'Please enter your name.'] : msg.length < 10 ? ['message', 'Message should be at least 10 characters.'] : null;
       if (bad) { status.textContent = bad[1]; status.classList.add('err'); const f = form.elements[bad[0]]; f.setAttribute('aria-invalid', 'true'); f.focus(); return; }
-      const href = 'mailto:madhavpandya@zohomail.in?subject=' + encodeURIComponent(subject || 'Hello from CyberWithMadhav') + '&body=' + encodeURIComponent(msg + '\n\n' + name);
+      const href = 'mailto:contact@cyberwithmadhav.com?subject=' + encodeURIComponent(subject || 'Hello from CyberWithMadhav') + '&body=' + encodeURIComponent(msg + '\n\n' + name);
       form.dataset.mailto = href;
-      status.textContent = 'Opening your email app. If nothing opens, email madhavpandya@zohomail.in directly.'; status.classList.add('ok');
+      status.textContent = 'Opening your email app. If nothing opens, email contact@cyberwithmadhav.com directly.'; status.classList.add('ok');
       if (!navigator.webdriver) location.href = href;
     });
   })($('#contact-form'));

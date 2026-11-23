@@ -11,7 +11,7 @@ BASE = "https://www.cyberwithmadhav.com/"
 UPDATED = "21 November 2026"
 UPDATED_ISO = "2026-11-21"
 VERSION = 5  # keep equal to VERSION in assets/js/consent.js
-EMAIL = "madhavpandya@zohomail.in"
+EMAIL = "contact@cyberwithmadhav.com"
 
 THEME_JS = """
     /* v3: theme before first paint. Saved choice wins, else follow the system. */

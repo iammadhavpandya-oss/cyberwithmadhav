@@ -1,6 +1,6 @@
 /* TEAM */
   Founder, writer and builder: Madhav Pandya
-  Contact: madhavpandya@zohomail.in
+  Contact: contact@cyberwithmadhav.com
   From: Mumbai, India
   LinkedIn: https://www.linkedin.com/in/pandyamadhav/
   YouTube: https://www.youtube.com/@cyberwithmadhav
@@ -10,7 +10,7 @@
   Everyone who reports a scam at 1930 and cybercrime.gov.in. You protect the next person.
 
 /* SITE */
-  Last update: 2026/11/16
+  Last update: 2026/11/23
   Language: English, Hinglish
   Standards: HTML5, CSS3, RSS 2.0, schema.org
   Components: plain HTML, CSS and JavaScript, no framework, no trackers

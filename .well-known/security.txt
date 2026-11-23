@@ -1,7 +1,7 @@
 # Security contact for www.cyberwithmadhav.com (RFC 9116).
 # This is a static educational website. There is no bug bounty, but every good faith report is read and credited if you want.
 # Please do not run automated scanners against the live site; describe the issue and how to reproduce it.
-Contact: mailto:madhavpandya@zohomail.in
+Contact: mailto:contact@cyberwithmadhav.com
 Expires: 2027-11-16T00:00:00+05:30
 Preferred-Languages: en, hi
 Canonical: https://www.cyberwithmadhav.com/.well-known/security.txt
