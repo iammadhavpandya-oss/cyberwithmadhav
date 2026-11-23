@@ -807,6 +807,8 @@
   def(IFM, 'ip ospf priority <n>', function (a) { if (a[0] > 255) { this.say("% Invalid input detected at '^' marker."); return; } ix('opri', 'ip ospf priority ' + a[0]).call(this); this.each(function (i) { os(i).pri = a[0]; }); }, 'DR election priority (0 to 255, default 1)');
   def(IFM, 'ip ospf cost <n>', function (a) { ix('ocost', 'ip ospf cost ' + a[0]).call(this); this.each(function (i) { os(i).cost = a[0]; }); }, 'Fixed OSPF cost');
   def(IFM, 'ip ospf hello-interval <n>', function (a) { ix('ohel', 'ip ospf hello-interval ' + a[0]).call(this); this.each(function (i) { os(i).hello = a[0]; }); }, 'Seconds between hellos (default 10)');
+  def(IFM, 'no ip ospf priority', function () { ix('opri', null).call(this); this.each(function (i) { delete os(i).pri; }); }, '');
+  def(IFM, 'no ip ospf cost', function () { ix('ocost', null).call(this); this.each(function (i) { delete os(i).cost; }); }, '');
   def(IFM, 'no ip ospf hello-interval', function () { ix('ohel', null).call(this); this.each(function (i) { delete os(i).hello; }); }, '');
   def(IFM, 'ip ospf dead-interval <n>', function (a) { ix('odead', 'ip ospf dead-interval ' + a[0]).call(this); this.each(function (i) { os(i).dead = a[0]; }); }, 'Seconds before a silent neighbour is dead');
   def(IFM, 'no ip ospf dead-interval', function () { ix('odead', null).call(this); this.each(function (i) { delete os(i).dead; }); }, '');
@@ -933,7 +935,7 @@
   };
   def('priv', 'show ip dhcp binding', function () {
     var o = ['Bindings from all pools not associated with VRF:', 'IP address          Client-ID/              Lease expiration        Type', '                    Hardware address/', '                    User name'], exp = fmtDate(new Date(Date.now() + 864e5));
-    this.leases().forEach(function (l) { o.push(pad(l.ip, 20) + pad('01' + l.mac.replace(/\./g, '').replace(/(..)(?=.)/g, '$1.').slice(0, 14), 24) + pad(exp, 24) + 'Automatic'); });
+    this.leases().forEach(function (l) { o.push(pad(l.ip, 20) + pad(('01' + l.mac.replace(/\./g, '')).replace(/(.{4})(?=.)/g, '$1.'), 24) + pad(exp, 24) + 'Automatic'); });
     this.say(o.join('\n'));
   }, 'Leases this router has handed out');
   def('priv', 'show ip dhcp pool', function () {
@@ -959,7 +961,8 @@
     var st = this.st, self = this, rows = [], ins = st.order.filter(function (n) { return natOn(st.ifs[n]) === 'inside'; }), outs = st.order.filter(function (n) { return natOn(st.ifs[n]) === 'outside'; });
     Object.keys(st.natst || {}).forEach(function (k) { rows.push(['---', st.natst[k], k, '---', '---']); });
     var s = st.natsrc, A = s && st.acls && st.acls[s.list];
-    if (s && A && ins.length && outs.length && !st.natclr) {
+    var clr = st.natclr; st.natclr = false;
+    if (s && A && ins.length && outs.length && !clr) {
       var permits = function (ip) { var hit = null; A.ents.forEach(function (e) { if (hit || /^remark/.test(e.txt)) return; var t = e.txt.split(' '), ad = aclAddr(t, 1) || { s: t[1] }; var src = t[1] === 'any' ? true : t[1] === 'host' ? t[2] === ip : (function () { var w = ip2n(t[2] || '0.0.0.0'); return ((ip2n(ip) & ~w) >>> 0) === ip2n(t[1]); })(); if (src) hit = t[0]; }); return hit === 'permit'; };
       var pool = s.pool && st.natpool && st.natpool[s.pool], pAddr = [], used = {};
       if (pool) for (var x = ip2n(pool[0]); x <= ip2n(pool[1]); x++) pAddr.push(n2ip(x));
