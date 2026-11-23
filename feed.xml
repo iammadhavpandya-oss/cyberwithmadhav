@@ -316,6 +316,55 @@
       <description>Free CCNA lesson: read a routing table, see why longest prefix match beats administrative distance, and configure IPv4 and IPv6 network, default, host and floating static routes, with a route game, IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
+      <title>Single Area OSPFv2: Neighbours, DR/BDR, Cost and Troubleshooting | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-ccna-ospf.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-ospf.html</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free CCNA lesson on single area OSPFv2: link state basics, neighbour states and must-match rules, router ID, DR and BDR election, point to point links, cost and reference bandwidth, with an IOS simulator and Packet Tracer lab.</description>
+    </item>
+    <item>
+      <title>Access Control Lists: Standard, Extended, Named and VTY Protection | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-ccna-access-control-lists.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-access-control-lists.html</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free CCNA lesson on IPv4 access control lists: first match and the implicit deny, wildcard masks, standard and extended syntax, placement, named ACL sequence numbers and VTY access-class, with an ACL rule tester, IOS simulator and Packet Tracer lab.</description>
+    </item>
+    <item>
+      <title>DHCP, DNS and NAT/PAT: Addresses, Names and the Internet Edge | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-ccna-dhcp-dns-nat.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-dhcp-dns-nat.html</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free CCNA lesson: how DHCP&#x27;s DORA exchange works, DHCP relay with ip helper-address, DNS records and ports, NAT address terms, static NAT, dynamic NAT and PAT overload, with an IOS simulator and Packet Tracer lab.</description>
+    </item>
+    <item>
+      <title>Network Operations: NTP, Syslog, SNMP, QoS and Config Backups | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-ccna-network-operations.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-network-operations.html</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free CCNA lesson on network operations: NTP and stratum, syslog severity levels, SNMP polling, traps and SNMPv3, QoS classification, queuing, policing and shaping, and TFTP, FTP and SCP backups, with an IOS simulator and Packet Tracer lab.</description>
+    </item>
+    <item>
+      <title>Layer 2 Security and AAA: Port Security, DHCP Snooping, DAI, TACACS+ and RADIUS | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-ccna-layer2-security-aaa.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-layer2-security-aaa.html</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free CCNA lesson on access layer security: threats and mitigations, port security violation modes, DHCP snooping, Dynamic ARP Inspection, AAA with TACACS+ and RADIUS, and IPsec VPN concepts, with an IOS simulator and Packet Tracer lab.</description>
+    </item>
+    <item>
+      <title>Wireless LANs: RF Basics, WLC and Lightweight APs, WPA2 and WPA3 | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-ccna-wireless-lans.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-wireless-lans.html</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free CCNA lesson on wireless LANs: 2.4, 5 and 6 GHz, non-overlapping channels, autonomous, lightweight and cloud APs, AP modes, CAPWAP, switch ports for APs and WLCs, building a WPA2 PSK WLAN in the WLC GUI, and WPA3, with an IOS simulator and Packet Tracer lab.</description>
+    </item>
+    <item>
+      <title>Network Automation and Programmability: Controllers, REST, JSON, Ansible and AI | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-ccna-network-automation.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-network-automation.html</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free CCNA lesson on automation and programmability: data, control and management planes, controller based networking and SDN, REST verbs, status codes and authentication, reading JSON, Ansible, Terraform and AI in network operations, with a JSON reader and Packet Tracer controller lab.</description>
+    </item>
+    <item>
       <title>Fake QR Codes at Shops and Petrol Pumps</title>
       <link>https://www.cyberwithmadhav.com/blog-fake-qr-code-shops-petrol-pumps.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/blog-fake-qr-code-shops-petrol-pumps.html</guid>

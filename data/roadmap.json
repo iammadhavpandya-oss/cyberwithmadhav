@@ -30,6 +30,10 @@
               "label": "Lesson 3.2"
             },
             {
+              "href": "learn-ccna-dhcp-dns-nat.html",
+              "label": "Lesson 3.10"
+            },
+            {
               "href": "learn.html#stage-3",
               "label": "CCNA path"
             }
@@ -120,11 +124,29 @@
         },
         {
           "t": "Network security: Nmap, Wireshark, firewalls, VPNs, IDS/IPS concepts",
-          "soon": true
+          "learn": [
+            {
+              "href": "learn-ccna-access-control-lists.html",
+              "label": "Lesson 3.9"
+            },
+            {
+              "href": "learn-ccna-layer2-security-aaa.html",
+              "label": "Lesson 3.12"
+            }
+          ]
         },
         {
           "t": "Blue team: logs, SIEM basics (Splunk / Elastic / Wazuh), alert triage",
-          "soon": true
+          "learn": [
+            {
+              "href": "learn-linux-logging-auditing-hardening.html",
+              "label": "Lesson 2.4"
+            },
+            {
+              "href": "learn-ccna-network-operations.html",
+              "label": "Lesson 3.11"
+            }
+          ]
         },
         {
           "t": "Active Directory fundamentals: domains, Kerberos, Group Policy",

@@ -1,0 +1,76 @@
+CyberWithMadhav Learn: lesson 3.12 lab checklist
+Packet Tracer lab 3.12: lock down the access layer and centralise logins
+https://www.cyberwithmadhav.com/learn-ccna-layer2-security-aaa.html
+
+Time: 60 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 1 x 2960, 1 x ISR4331, 3 x Server-PT (Server-DHCP, Rogue-Server, Server-AAA), 3 x PC-PT. All SW1 user ports in VLAN 10.
+
+ADDRESSING
+  R1 | Gi0/0/0 / Gi0/0/1 | 192.168.10.1/24 / 10.0.0.1/24 | 
+  SW1 | VLAN 10 | 192.168.10.2/24 | gateway 192.168.10.1
+  Server-DHCP | Fa0 | 192.168.10.5/24 | pool from .100, gateway .1
+  Rogue-Server | Fa0 | 192.168.10.6/24 | pool from .200, gateway .6 (the bad gateway)
+  Server-AAA | Fa0 | 10.0.0.20/24 | gateway 10.0.0.1, TACACS+ and RADIUS
+  Admin-PC | Fa0 | 192.168.10.50/24 | static
+
+STEPS (tick each box when done)
+[ ] 1. See the problem
+      Note: With no protection, release and renew DHCP on PC1 and PC2 a few times (IP Configuration, switch to Static and back to DHCP). Some leases may come from the rogue server: a .200 address with gateway .6.
+[ ] 2. DHCP snooping
+      SW1(config)# ip dhcp snooping
+      SW1(config)# ip dhcp snooping vlan 10
+      SW1(config)# no ip dhcp snooping information option
+      SW1(config)# interface Fa0/24
+      SW1(config-if)# ip dhcp snooping trust
+      SW1(config)# interface range Fa0/1 - 10
+      SW1(config-if-range)# ip dhcp snooping limit rate 10
+      Note: Renew on the PCs: only the real server's addresses should appear now.
+[ ] 3. Dynamic ARP Inspection
+      SW1(config)# ip arp inspection vlan 10
+      SW1(config)# interface Fa0/24
+      SW1(config-if)# ip arp inspection trust
+      SW1(config)# interface Gi0/1
+      SW1(config-if)# ip arp inspection trust
+      Note: On real gear, Admin-PC with its static address would also need trust or an ARP ACL.
+[ ] 4. Port security
+      SW1(config)# interface range Fa0/1 - 2
+      SW1(config-if-range)# switchport mode access
+      SW1(config-if-range)# switchport access vlan 10
+      SW1(config-if-range)# switchport port-security
+      SW1(config-if-range)# switchport port-security maximum 2
+      SW1(config-if-range)# switchport port-security mac-address sticky
+      SW1(config-if-range)# switchport port-security violation restrict
+      SW1(config)# interface Fa0/3
+      SW1(config-if)# switchport mode access
+      SW1(config-if)# switchport port-security
+      SW1(config-if)# switchport port-security violation shutdown
+      Note: Put a hub on Fa0/3 with two devices behind it, or swap the device on the port, and send traffic to trigger the violation.
+[ ] 5. AAA on R1
+      R1(config)# username backup secret <a long local password>
+      R1(config)# tacacs-server host 10.0.0.20 key <the key>
+      R1(config)# aaa new-model
+      R1(config)# aaa authentication login default group tacacs+ local
+      R1(config)# line vty 0 4
+      R1(config-line)# login authentication default
+      R1(config-line)# transport input ssh
+      Note: On Server-AAA, Services, AAA: add client R1 (10.0.0.1, key of your choice, type TACACS) and a user. SSH from Admin-PC with the server account. Then turn off the AAA service on the server and confirm the backup account still works. Optional: repeat with radius-server host and group radius local.
+[ ] 6. Verify
+      SW1# show ip dhcp snooping
+      SW1# show ip dhcp snooping binding
+      SW1# show ip arp inspection vlan 10
+      SW1# show port-security
+      SW1# show port-security interface Fa0/1
+      SW1# show interfaces status err-disabled
+      SW1# show running-config | include sticky
+      R1# show users
+
+DONE WHEN: PCs only get .100 and up after snooping; the binding table lists PC1 and PC2; show port-security shows Fa0/1 and Fa0/2 with maximum 2 and Fa0/3 err-disabled after the violation; SSH to R1 works with the server account and, with the server off, with the backup account.
+
+PACKET TRACER LIMITS AND NOTES
+  - DHCP snooping works on the 2960 in Packet Tracer, but the binding table output can be sporadic, per Wendell Odom's CCNA lab notes for PT 8.0 (certskills.com). The same notes say it could be configured on the 3650 but only worked on 2960s in their testing.
+  - Dynamic ARP Inspection: per the same source, Packet Tracer 8.0 accepts the DAI commands but does not actually filter bad ARP, and may show the VLAN as inactive. Treat DAI as configuration practice, not a working defence demo. Whether newer builds behave better is UNVERIFIED.
+  - Port security works on the 2960 in Packet Tracer in the outline author's experience. AAA with TACACS+ and RADIUS against Server-PT is supported in that experience too; the newer named syntax (tacacs server NAME) is UNVERIFIED, so this lab uses tacacs-server host. show aaa servers is also UNVERIFIED.
+  - IPsec VPN configuration is outside CCNA scope and Packet Tracer's depth of support is UNVERIFIED, so VPNs stay conceptual.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

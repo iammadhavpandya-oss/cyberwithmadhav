@@ -346,3 +346,13 @@ a.lh-l:hover{transform:translateY(-3px);border-color:var(--purple-2);color:var(-
 .lx-acl-trace li.err{border-color:var(--amber);background:color-mix(in srgb,var(--amber) 10%,transparent)}
 .lx-t7 output{font-weight:600;color:var(--green)}
 @media (max-width:760px){.lx-aclgrid{grid-template-columns:1fr}.lx-acl-trace li{grid-template-columns:1fr}.lx-acl fieldset label{grid-template-columns:1fr}}
+.lx-json-ta{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--muted)}
+.lx-json textarea,.lx-json input[type=text]{font:500 .9rem var(--mono);padding:8px 10px;border-radius:9px;border:1px solid var(--glass-border);background:var(--surface);color:var(--text);width:100%;box-sizing:border-box;min-width:0}
+.lx-json textarea{resize:vertical;line-height:1.5}
+.lx-json-pre{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.lx-json-path{display:flex;flex-wrap:wrap;gap:8px;align-items:end}
+.lx-json-path label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--muted);flex:1 1 240px}
+.lx-json-res.ok,.lx-json-val.ok,.lx-json-qs li.ok{color:var(--green)}
+.lx-json-res.no,.lx-json-val.no{color:var(--danger)}
+.lx-json-val{font-family:var(--mono);font-size:.9rem;word-break:break-word}
+.lx-json-qs{padding-left:1.3em;display:grid;gap:4px;font-size:.92rem}

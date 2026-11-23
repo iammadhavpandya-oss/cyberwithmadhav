@@ -7,9 +7,12 @@ from content.learn_s2b import lesson_bash, lesson_logging
 from content.learn_ccna_a import lesson_ccna_1, lesson_ccna_2
 from content.learn_ccna_b import lesson_ccna_3, lesson_ccna_4
 from content.learn_ccna_c import lesson_ccna_5, lesson_ccna_6, lesson_ccna_7
+from content.learn_ccna_d import lesson_ccna_8, lesson_ccna_9, lesson_ccna_10
+from content.learn_ccna_e import lesson_ccna_11, lesson_ccna_12, lesson_ccna_13, lesson_ccna_14
 
 LESSONS = [lesson_computer(), lesson_os(), lesson_windows(), lesson_network(), lesson_linux_theory(), lesson_linux_lab(), lesson_bash(), lesson_logging(),
-           lesson_ccna_1(), lesson_ccna_2(), lesson_ccna_3(), lesson_ccna_4(), lesson_ccna_5(), lesson_ccna_6(), lesson_ccna_7()]
+           lesson_ccna_1(), lesson_ccna_2(), lesson_ccna_3(), lesson_ccna_4(), lesson_ccna_5(), lesson_ccna_6(), lesson_ccna_7(),
+           lesson_ccna_8(), lesson_ccna_9(), lesson_ccna_10(), lesson_ccna_11(), lesson_ccna_12(), lesson_ccna_13(), lesson_ccna_14()]
 BY_SLUG = {l["slug"]: l for l in LESSONS}
 
 def soon(n, title, goals, tags=()):
@@ -37,13 +40,13 @@ STAGES = [
          "learn-ccna-stp-etherchannel",
          "learn-ccna-inter-vlan-routing-hsrp",
          "learn-ccna-static-routing",
-         soon("3.8", "Single-Area OSPFv2", ["Explain neighbours, adjacencies and the LSDB", "Configure OSPF with router IDs and passive interfaces", "Troubleshoot neighbours stuck below FULL"], ["PT lab"]),
-         soon("3.9", "Access Control Lists: Standard, Extended, Named", ["Write wildcard masks", "Configure standard and extended ACLs in the right place and direction", "Lock VTY access to an admin subnet"], ["PT lab"]),
-         soon("3.10", "DHCP, DNS and NAT/PAT", ["Describe DHCP DORA and DNS resolution", "Configure DHCP server, relay and client on a router", "Configure static NAT, dynamic NAT and PAT"], ["PT lab"]),
-         soon("3.11", "Network Operations: NTP, SNMP, Syslog, QoS, TFTP/FTP", ["Set up NTP and explain why time matters for logs", "Compare SNMPv2c and SNMPv3", "Send logs to syslog and back up configs with TFTP"], ["PT lab"]),
-         soon("3.12", "Layer 2 Security, AAA and Security Fundamentals", ["Configure port security and DHCP snooping", "Explain Dynamic ARP Inspection", "Compare TACACS+ and RADIUS and configure AAA with local fallback"], ["PT lab"]),
-         soon("3.13", "Wireless LANs: Architectures, WLC GUI, WPA2 and WPA3", ["Explain RF bands, channels, SSIDs and BSSIDs", "Compare autonomous, lightweight and cloud APs", "Create a WPA2 PSK WLAN on a controller and compare WPA3"], ["PT lab"]),
-         soon("3.14", "Network Automation and Programmability", ["Compare traditional and controller based networking", "Describe SDN planes and APIs", "Read JSON and use a REST API"], ["PT lab"])]),
+         "learn-ccna-ospf",
+         "learn-ccna-access-control-lists",
+         "learn-ccna-dhcp-dns-nat",
+         "learn-ccna-network-operations",
+         "learn-ccna-layer2-security-aaa",
+         "learn-ccna-wireless-lans",
+         "learn-ccna-network-automation"]),
   dict(n=4, id="stage-4", name="Security Fundamentals", hi_name="Security fundamentals", tag="core concepts",
        desc="The ideas every security role shares: risk, cryptography, identity and a little code.",
        hi_desc="Wo ideas jo har security role mein kaam aate hain: risk, cryptography, identity aur thoda code.",
@@ -72,8 +75,10 @@ STAGES = [
 # Home page roadmap topics mapped to lessons. Keys are the exact topic strings in data/roadmap.json.
 ROADMAP_LINKS = {
   "How computers work: CPU, RAM, storage, OS, processes": [("learn-how-computers-work.html", "Lesson 1.1"), ("learn-operating-system-fundamentals.html", "Lesson 1.2")],
-  "Networking basics: OSI & TCP/IP, IP addressing, subnetting, DNS, DHCP, common ports": [("learn-networking-basics.html", "Lesson 1.4"), ("learn-ccna-ip-addressing-subnetting.html", "Lesson 3.2"), ("learn.html#stage-3", "CCNA path")],
+  "Networking basics: OSI & TCP/IP, IP addressing, subnetting, DNS, DHCP, common ports": [("learn-networking-basics.html", "Lesson 1.4"), ("learn-ccna-ip-addressing-subnetting.html", "Lesson 3.2"), ("learn-ccna-dhcp-dns-nat.html", "Lesson 3.10"), ("learn.html#stage-3", "CCNA path")],
   "Linux command line: files, permissions, users, processes, package managers": [("learn-linux-fundamentals.html", "Lesson 2.1"), ("learn-linux-hands-on-lab.html", "Lab 2.2")],
   "Basic scripting: Bash and Python (variables, loops, files)": [("learn-bash-scripting-for-security.html", "Lesson 2.3")],
+  "Network security: Nmap, Wireshark, firewalls, VPNs, IDS/IPS concepts": [("learn-ccna-access-control-lists.html", "Lesson 3.9"), ("learn-ccna-layer2-security-aaa.html", "Lesson 3.12")],
+  "Blue team: logs, SIEM basics (Splunk / Elastic / Wazuh), alert triage": [("learn-linux-logging-auditing-hardening.html", "Lesson 2.4"), ("learn-ccna-network-operations.html", "Lesson 3.11")],
   "Windows basics: PowerShell, users & groups, services, Event Viewer": [("learn-windows-for-security.html", "Lesson 1.3")],
 }

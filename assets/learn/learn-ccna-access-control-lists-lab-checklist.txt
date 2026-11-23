@@ -1,0 +1,42 @@
+CyberWithMadhav Learn: lesson 3.9 lab checklist
+Packet Tracer lab 3.9: segment guests and lock down management
+https://www.cyberwithmadhav.com/learn-ccna-access-control-lists.html
+
+Time: 50 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Start from your lesson 3.6 router on a stick file, or build it: 1 x ISR4331, 2 x 2960, 3 x PC-PT, 1 x Server-PT. SSH from lesson 3.3 should already work on R1 and SW1.
+
+ADDRESSING
+  R1 | Gi0/0/0.10 / .20 / .99 | 192.168.10.1 / 192.168.20.1 / 192.168.99.1 (/24) | gateways for each VLAN
+  R1 | Gi0/0/1 | 10.10.10.1/24 | server LAN
+  SW1 | VLAN 99 | 192.168.99.2/24 | gateway 192.168.99.1
+  PC-Staff / PC-Guest / Admin-PC | Fa0 | 192.168.10.10 / 192.168.20.10 / 192.168.99.10 | gateway .1
+  Server-Web | Fa0 | 10.10.10.10/24 | gateway 10.10.10.1, HTTP and DNS on
+
+STEPS (tick each box when done)
+[ ] 1. Guest policy, close to the source
+[ ] 2. Management lockdown (R1 and SW1)
+      Note: On SW1 apply it to line vty 0 15 if that range exists in your model.
+[ ] 3. Insert a line without retyping
+      R1(config)# ip access-list extended GUEST-IN
+      R1(config-ext-nacl)# 15 permit icmp 192.168.20.0 0.0.0.255 host 10.10.10.10 echo
+[ ] 4. Standard ACL near the destination
+      R1(config)# access-list 10 deny host 192.168.10.10
+      R1(config)# access-list 10 permit any
+      R1(config)# interface GigabitEthernet0/0/1
+      R1(config-if)# ip access-group 10 out
+[ ] 5. Test from each PC
+      Note: From PC-Guest: browse http://10.10.10.10 (works), ping 10.10.10.10 (works after step 3), ping 192.168.10.10 (fails), SSH to 192.168.99.1 (fails). From PC-Staff: browse the server (fails after step 4). From Admin-PC: SSH to R1 (works).
+[ ] 6. Verify
+      R1# show access-lists
+      R1# show ip interface GigabitEthernet0/0/0.20
+      R1# show running-config | section vty
+
+DONE WHEN: show access-lists shows every line with a sequence number and match counters that rise only on the lines your tests hit. show ip interface for Gi0/0/0.20 reports GUEST-IN as the inbound list. The VTY section shows access-class MGMT-ONLY in. PC-Staff cannot reach the server but PC-Guest can, because ACL 10 filters by source only.
+
+PACKET TRACER LIMITS AND NOTES
+  - Numbered and named standard and extended ACLs, sequence numbers and access-class work in Packet Tracer in the outline author's experience, but test in your own build.
+  - The log keyword is accepted, but whether Packet Tracer actually generates log messages for ACL hits is UNVERIFIED. Rely on the match counters.
+  - IPv6 ACLs (ipv6 access-list with ipv6 traffic-filter) follow the same ideas but are not part of this lab.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

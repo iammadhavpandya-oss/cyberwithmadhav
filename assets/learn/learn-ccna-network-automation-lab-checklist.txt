@@ -1,0 +1,45 @@
+CyberWithMadhav Learn: lesson 3.14 lab checklist
+Packet Tracer lab 3.14: talk to the Packet Tracer Network Controller with REST
+https://www.cyberwithmadhav.com/learn-ccna-network-automation.html
+
+Time: 50 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Packet Tracer 8.2 and later include a Network Controller device that, per Cisco's PT FAQ, offers a web GUI and APIs reachable from a browser, Python or Postman. That FAQ page could not be opened directly when this was written (it was read from a search result), so treat the details as UNVERIFIED. Devices: Network Controller, 2 x ISR4331, 1 x 2960, 1 x PC-PT.
+
+ADDRESSING
+  Controller | Gi0 | 192.168.1.200/24 | gateway 192.168.1.1
+  R1 | Gi0/0/0 / Gi0/0/1 | 192.168.1.1/24 / 10.0.12.1/30 | 
+  R2 | Gi0/0/1 | 10.0.12.2/30 | static route to 192.168.1.0/24 via 10.0.12.1
+  SW1 | VLAN 1 | 192.168.1.2/24 | gateway .1
+  Admin-PC | Fa0 | 192.168.1.50/24 | gateway .1
+
+STEPS (tick each box when done)
+[ ] 1. Prepare the devices
+      R1(config)# hostname R1
+      R1(config)# ip domain-name cwm.lab
+      R1(config)# username admin secret <a long password>
+      R1(config)# crypto key generate rsa modulus 2048
+      R1(config)# line vty 0 4
+      R1(config-line)# login local
+      R1(config-line)# transport input ssh
+      R2(config)# ip route 192.168.1.0 255.255.255.0 10.0.12.1
+      Note: Repeat the SSH setup on R2 and SW1.
+[ ] 2. Controller GUI
+      Note: From Admin-PC's browser open http://192.168.1.200 (or https, depending on the build), create the admin account, and add R1, R2 and SW1 with their SSH credentials. The section is called something like Provisioning or Discovery; names vary by build and are UNVERIFIED.
+[ ] 3. Compare views
+      Note: Read the controller's inventory and topology views and compare them with show cdp neighbors on R1.
+[ ] 4. REST from Admin-PC
+      Note: Open Desktop, Programming (Packet Tracer's Python environment). The controller is commonly documented with APIC-EM style endpoints: POST /api/v1/ticket to get a token and GET /api/v1/network-device with an X-Auth-Token header. These paths, the header name and the Python modules available inside Packet Tracer are UNVERIFIED for your build: open the controller's own API documentation page and Packet Tracer's sample programs first, then write the script.
+[ ] 5. Read the reply
+      Note: In the JSON you get back, find an object, an array, a string and a number, and write down the path to each device's hostname, as in the JSON reader in this lesson.
+[ ] 6. Paper exercise
+      Note: Outside Packet Tracer: write a short Ansible playbook outline that sets the NTP server on all routers (like the one above), then describe the same intent as a Terraform outline. What would --check and terraform plan show you before anything changes?
+
+DONE WHEN: The controller lists R1, R2 and SW1 as managed and reachable; your script prints a successful (200) reply for the token request and for the device list, and a wrong password gives an authentication error (a 401 style code; the exact code in Packet Tracer is UNVERIFIED).
+
+PACKET TRACER LIMITS AND NOTES
+  - Ansible, Terraform, NETCONF and RESTCONF do not run inside Packet Tracer. Practise them later on a Linux machine (Stage 2 of this path prepares you).
+  - Packet Tracer's Programming environment supports a subset of Python with its own HTTP helper modules; exact module names are UNVERIFIED, so start from its sample programs.
+  - Field names in a real controller reply may differ from the illustration in this lesson. The AI and machine learning topic has no Packet Tracer lab: as a discussion exercise, take a syslog excerpt and an AI generated root cause, and check whether the logs really support it.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

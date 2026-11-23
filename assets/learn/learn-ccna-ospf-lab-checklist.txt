@@ -1,0 +1,62 @@
+CyberWithMadhav Learn: lesson 3.8 lab checklist
+Packet Tracer lab 3.8: OSPF with DR election and a point to point link
+https://www.cyberwithmadhav.com/learn-ccna-ospf.html
+
+Time: 55 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 3 x ISR4331, 4 x 2960 (SW0 for the shared LAN plus one per LAN), 3 x PC-PT.
+
+ADDRESSING
+  R1 | Gi0/0/0 / Gi0/0/1 / Gi0/0/2 | 172.16.100.1/24 / 192.168.1.1/24 / 10.0.13.1/30 | Lo0 1.1.1.1/32
+  R2 | Gi0/0/0 / Gi0/0/1 | 172.16.100.2/24 / 192.168.2.1/24 | Lo0 2.2.2.2/32
+  R3 | Gi0/0/0 / Gi0/0/1 / Gi0/0/2 | 172.16.100.3/24 / 192.168.3.1/24 / 10.0.13.2/30 | Lo0 3.3.3.3/32
+  PC1 / PC2 / PC3 | Fa0 | 192.168.1.10 / 192.168.2.10 / 192.168.3.10 (/24) | gateway .1 in each LAN
+
+STEPS (tick each box when done)
+[ ] 1. Address everything, including loopbacks
+      Note: Use the table. Bring every router interface up with no shutdown and ping across each link before touching OSPF.
+[ ] 2. OSPF on R1 (adapt the networks for R2 and R3)
+      R1(config)# router ospf 1
+      R1(config-router)# router-id 1.1.1.1
+      R1(config-router)# network 172.16.100.0 0.0.0.255 area 0
+      R1(config-router)# network 10.0.13.0 0.0.0.3 area 0
+      R1(config-router)# network 192.168.1.0 0.0.0.255 area 0
+      R1(config-router)# network 1.1.1.1 0.0.0.0 area 0
+      R1(config-router)# passive-interface GigabitEthernet0/0/1
+      R1(config-router)# auto-cost reference-bandwidth 10000
+      R1(config)# interface GigabitEthernet0/0/2
+      R1(config-if)# ip ospf network point-to-point
+      Note: Use the same reference bandwidth on all three routers and set point to point on R3's Gi0/0/2 too.
+[ ] 3. Make R2 the DR
+      R2(config)# interface GigabitEthernet0/0/0
+      R2(config-if)# ip ospf priority 200
+      R1# clear ip ospf process
+      Note: Run clear ip ospf process on all three routers, because the election is not preemptive.
+[ ] 4. Share a default route from R1
+      R1(config)# interface Loopback1
+      R1(config-if)# ip address 203.0.113.1 255.255.255.255
+      R1(config-if)# exit
+      R1(config)# ip route 0.0.0.0 0.0.0.0 Loopback1
+      R1(config)# router ospf 1
+      R1(config-router)# default-information originate
+[ ] 5. Break and fix
+      R3(config)# interface GigabitEthernet0/0/0
+      R3(config-if)# ip ospf hello-interval 5
+      R3(config-if)# no ip ospf hello-interval
+[ ] 6. Verify
+      R1# show ip ospf neighbor
+      R1# show ip ospf interface brief
+      R1# show ip protocols
+      R2# show ip route ospf
+      R1# show ip ospf database
+
+DONE WHEN: On R1, show ip ospf neighbor lists R2 as FULL/DR and R3 as FULL/BDR on Gi0/0/0, and R3 again as FULL/ - on Gi0/0/2. R2 and R3 show O routes to the other LANs and an O*E2 default route. PC1 pings PC2 and PC3.
+
+PACKET TRACER LIMITS AND NOTES
+  - You will not see 2WAY/DROTHER with only three routers. Add a fourth router to SW0 if you want to see two DROTHERs at 2-Way with each other.
+  - show ip ospf interface brief is reported by a third party site as added in Packet Tracer 8.2. UNVERIFIED against Cisco release notes; use show ip ospf interface if it is missing.
+  - ip ospf network point-to-point on Packet Tracer Ethernet interfaces is UNVERIFIED. If it is rejected, leave that link as broadcast: the two routers will elect a DR and BDR, and everything else still works.
+  - The interface form ip ospf 1 area 0 is UNVERIFIED on every Packet Tracer image. The network statements above are the reliable way.
+  - OSPF authentication in Packet Tracer is UNVERIFIED and outside this lesson's depth.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

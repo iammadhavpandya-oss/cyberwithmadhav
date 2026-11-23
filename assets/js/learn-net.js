@@ -207,8 +207,62 @@
     if (c.presets && c.presets[0]) set(c.presets[0]); else { sync(); test(); }
   }
 
+  /* JSON reader: validate with friendly hints, then read values by path (no eval) */
+  function jsonHint(t) {
+    var bare = t.replace(/"(?:[^"\\]|\\.)*"/g, '""');
+    if (/\/\/|\/\*/.test(t.replace(/"(?:[^"\\]|\\.)*"/g, '""'))) return 'Standard JSON has no comments. Remove the // or /* */ text.';
+    if (/'[^']*'\s*:/.test(t) || /:\s*'/.test(t)) return 'Strings and keys need double quotes. Single quotes are not allowed in JSON.';
+    if (/,\s*[}\]]/.test(bare)) return 'There is a comma right before a closing } or ]. JSON does not allow a trailing comma.';
+    if (/[{,]\s*[A-Za-z_][\w-]*\s*:/.test(bare)) return 'Every key must be a string in double quotes, for example "hostname".';
+    if (/\b(True|False|None|NULL|TRUE|FALSE)\b/.test(t.replace(/"(?:[^"\\]|\\.)*"/g, '""'))) return 'JSON literals are lowercase: true, false and null.';
+    return '';
+  }
+  function jtype(v) { return v === null ? 'null' : Array.isArray(v) ? 'array' : typeof v === 'object' ? 'object' : typeof v; }
+  function jpath(obj, p) {
+    var re = /^(?:\.?([A-Za-z_$][\w$-]*)|\[(\d+)\]|\["([^"]+)"\])/, cur = obj, rest = p.trim(), steps = 0;
+    if (!rest) return { err: 'Type a path first.' };
+    while (rest.length) {
+      var m = re.exec(rest); if (!m) return { err: 'Could not read the path near "' + rest + '". Use .key, [0] or ["key"].' };
+      var k = m[1] != null ? m[1] : m[2] != null ? +m[2] : m[3];
+      if (cur === null || typeof cur !== 'object') return { err: 'Cannot go inside a ' + jtype(cur) + '.' };
+      if (typeof k === 'number' && !Array.isArray(cur)) return { err: '[' + k + '] needs an array, but this is an ' + jtype(cur) + '.' };
+      if (typeof k === 'string' && Array.isArray(cur)) return { err: '"' + k + '" is a key, but this is an array. Use [0], [1] and so on.' };
+      if (!Object.prototype.hasOwnProperty.call(cur, k)) return { err: 'No ' + (typeof k === 'number' ? 'item [' + k + ']' : 'key "' + k + '"') + ' here.' };
+      cur = cur[k]; rest = rest.slice(m[0].length); steps++;
+    }
+    return { v: cur };
+  }
+  function jsonLab(w) {
+    var c = cfgOf(w, 'lx-json-cfg'), ta = $('[data-i="json"]', w), pin = $('[data-i="path"]', w), res = $('.lx-json-res', w), val = $('.lx-json-val', w), qs = $('.lx-json-qs', w), pre = $('.lx-json-pre', w);
+    ta.value = c.json || '';
+    var mk = function (label, fn) { var b = document.createElement('button'); b.type = 'button'; b.className = 'lx-wbtn'; b.textContent = label; b.addEventListener('click', fn); pre.appendChild(b); };
+    mk(T('lx.json.good', 'Valid example'), function () { ta.value = c.json || ''; check(); });
+    (c.broken || []).forEach(function (x) { mk(x.label, function () { ta.value = x.json; check(); }); });
+    var done = {};
+    (c.qs || []).forEach(function (q, i) { var li = document.createElement('li'); li.innerHTML = esc(q.q); li.setAttribute('data-q', i); qs.appendChild(li); });
+    function parse() { try { return { ok: true, v: JSON.parse(ta.value) }; } catch (e) { return { ok: false, e: e }; } }
+    function check() {
+      var r = parse();
+      if (r.ok) {
+        var cnt = {}; (function walk(v) { var t = jtype(v); cnt[t] = (cnt[t] || 0) + 1; if (t === 'array') v.forEach(walk); else if (t === 'object') Object.keys(v).forEach(function (k) { walk(v[k]); }); })(r.v);
+        res.className = 'lx-json-res ok'; res.textContent = T('lx.json.ok', 'Valid JSON.') + ' ' + Object.keys(cnt).map(function (k) { return cnt[k] + ' ' + k + (cnt[k] > 1 ? 's' : ''); }).join(', ') + '.';
+      } else { res.className = 'lx-json-res no'; res.textContent = T('lx.json.bad', 'Not valid JSON.') + ' ' + (jsonHint(ta.value) || String(r.e.message || r.e)); }
+      return r;
+    }
+    function read() {
+      var r = parse(); if (!r.ok) { check(); val.className = 'lx-json-val no'; val.textContent = T('lx.json.fix', 'Fix the JSON first.'); return; }
+      var o = jpath(r.v, pin.value);
+      if (o.err) { val.className = 'lx-json-val no'; val.textContent = o.err; return; }
+      val.className = 'lx-json-val ok'; val.textContent = jtype(o.v) + ': ' + JSON.stringify(o.v);
+      (c.qs || []).forEach(function (q, i) { if (!done[i] && JSON.stringify(q.v) === JSON.stringify(o.v)) { done[i] = 1; var li = $('[data-q="' + i + '"]', qs); li.className = 'ok'; li.appendChild(document.createTextNode(' ' + T('lx.json.got', 'Found:') + ' ' + pin.value.trim())); } });
+    }
+    $('[data-check]', w).addEventListener('click', check); $('[data-read]', w).addEventListener('click', read);
+    pin.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); read(); } });
+    check();
+  }
+
   function init() {
-    $$('.lx-subnet').forEach(subnet); $$('.lx-route').forEach(route); $$('.lx-acl').forEach(acl);
+    $$('.lx-subnet').forEach(subnet); $$('.lx-route').forEach(route); $$('.lx-acl').forEach(acl); $$('.lx-json').forEach(jsonLab);
   }
   window.CWMNet = { calc: calc, parseAcl: parseAcl, evalAcl: evalAcl, ip2n: ip2n };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();

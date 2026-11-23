@@ -1,0 +1,46 @@
+CyberWithMadhav Learn: lesson 3.11 lab checklist
+Packet Tracer lab 3.11: time, logs, SNMP and backups
+https://www.cyberwithmadhav.com/learn-ccna-network-operations.html
+
+Time: 45 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 1 x ISR4331, 1 x 2960, 1 x Server-PT (Server-Ops), 1 x PC-PT (NMS-PC).
+
+ADDRESSING
+  R1 | Gi0/0/0 | 192.168.1.1/24 | 
+  SW1 | VLAN 1 | 192.168.1.2/24 | default gateway 192.168.1.1
+  Server-Ops | Fa0 | 192.168.1.100/24 | NTP, syslog, TFTP, FTP
+  NMS-PC | Fa0 | 192.168.1.50/24 | MIB Browser
+
+STEPS (tick each box when done)
+[ ] 1. Server services
+      Note: On Server-Ops, open Services and turn on NTP, Syslog, TFTP and FTP. Add an FTP user with write permission.
+[ ] 2. NTP on R1 and SW1
+      Note: Sync can take a minute or more of simulated time; use the fast forward button.
+[ ] 3. Syslog on R1 and SW1
+      Note: If logging host is rejected, try the older form logging 192.168.1.100.
+[ ] 4. Make some logs
+      Note: Shut and unshut an interface, enter and leave configuration mode, then open Services, Syslog on Server-Ops and find the entries from 192.168.1.1 and 192.168.1.2.
+[ ] 5. SNMP on R1 (v2c, lab only)
+      R1(config)# access-list 20 permit host 192.168.1.50
+      R1(config)# snmp-server community CwmLabRO ro 20
+      Note: On NMS-PC open Desktop, MIB Browser: target 192.168.1.1, community CwmLabRO, then GET sysName or sysUpTime.
+[ ] 6. Back up the config
+      R1# copy running-config tftp:
+      Note: Check the TFTP file list on Server-Ops. Optionally try ip ftp username, ip ftp password and copy running-config ftp:.
+[ ] 7. Verify
+      R1# show ntp status
+      R1# show ntp associations
+      R1# show clock detail
+      R1# show logging
+
+DONE WHEN: show ntp status says synchronised with reference 192.168.1.100, show clock detail names NTP as the source, show logging shows trap level informational and host 192.168.1.100, Server-Ops lists syslog entries from both devices, the MIB Browser GET returns a value, and r1-confg appears in the TFTP list.
+
+PACKET TRACER LIMITS AND NOTES
+  - SNMPv3 commands (snmp-server group, snmp-server user ... auth sha ... priv aes) in Packet Tracer are UNVERIFIED. If rejected, treat SNMPv3 as concept.
+  - ntp master and NTP authentication on Packet Tracer routers are UNVERIFIED. The Server-PT NTP service is the dependable time source.
+  - Whether logging host, logging <ip> or both are accepted depends on the image: UNVERIFIED.
+  - QoS configuration (class-map, policy-map, service-policy) support in Packet Tracer is partial and UNVERIFIED, so QoS stays conceptual here.
+  - FTP copy from IOS in Packet Tracer is UNVERIFIED; TFTP copy works in the outline author's experience. show snmp community is also UNVERIFIED.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

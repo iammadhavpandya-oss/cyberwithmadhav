@@ -1,0 +1,62 @@
+CyberWithMadhav Learn: lesson 3.10 lab checklist
+Packet Tracer lab 3.10: central DHCP with relay, DNS, and PAT to the internet
+https://www.cyberwithmadhav.com/learn-ccna-dhcp-dns-nat.html
+
+Time: 55 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 2 x ISR4331 (R1 and ISP), 2 x 2960, 2 x PC-PT, 2 x Server-PT. 203.0.113.0/24 and 198.51.100.0/24 are documentation ranges (RFC 5737) standing in for public space.
+
+ADDRESSING
+  R1 | Gi0/0/0 | 192.168.10.1/24 | ip nat inside, ip helper-address 10.0.0.10
+  R1 | Gi0/0/1 | 10.0.0.1/24 | ip nat inside
+  R1 | Gi0/0/2 | 203.0.113.2/29 | ip nat outside
+  ISP | Gi0/0/0 / Gi0/0/1 | 203.0.113.1/29 / 198.51.100.1/24 | no route to 192.168.10.0 needed
+  Server-DHCP-DNS | Fa0 | 10.0.0.10/24 | gateway 10.0.0.1
+  Web-Internet | Fa0 | 198.51.100.10/24 | gateway 198.51.100.1, HTTP on
+
+STEPS (tick each box when done)
+[ ] 1. Server services
+      Note: On Server-DHCP-DNS, open Services, DHCP: create a pool for 192.168.10.0/24 starting at 192.168.10.100 with default gateway 192.168.10.1 and DNS server 10.0.0.10, and turn the service on. Then Services, DNS: turn it on and add an A record web.cwm.lab pointing to 198.51.100.10.
+[ ] 2. Relay
+      R1(config)# interface GigabitEthernet0/0/0
+      R1(config-if)# ip helper-address 10.0.0.10
+      Note: Set both PCs to DHCP in their IP Configuration and confirm they receive .100 and up.
+[ ] 3. Optional: router as the DHCP server instead
+      R1(config)# ip dhcp excluded-address 192.168.10.1 192.168.10.99
+      R1(config)# ip dhcp pool LAN10
+      Note: Remove the helper address if you try this, or you will have two servers answering.
+[ ] 4. PAT for the LAN
+      R1(config)# access-list 1 permit 192.168.10.0 0.0.0.255
+      R1(config)# ip nat inside source list 1 interface GigabitEthernet0/0/2 overload
+      R1(config)# interface GigabitEthernet0/0/0
+      R1(config-if)# ip nat inside
+      R1(config)# interface GigabitEthernet0/0/1
+      R1(config-if)# ip nat inside
+      R1(config)# interface GigabitEthernet0/0/2
+      R1(config-if)# ip nat outside
+      R1(config)# ip route 0.0.0.0 0.0.0.0 203.0.113.1
+      Note: The ISP has no route back to 192.168.10.0/24, and needs none. That is the point of NAT.
+[ ] 5. Static NAT for the DNS server (demo only)
+      R1(config)# ip nat inside source static 10.0.0.10 203.0.113.3
+      Note: From Web-Internet, ping 203.0.113.3 or run nslookup web.cwm.lab 203.0.113.3. In real life publish only the ports you need and filter with an ACL.
+[ ] 6. Dynamic NAT with a pool (in a copy of the file)
+      R1(config)# no ip nat inside source list 1 interface GigabitEthernet0/0/2 overload
+      R1(config)# ip nat pool PUBLIC 203.0.113.4 203.0.113.6 netmask 255.255.255.248
+      R1(config)# ip nat inside source list 1 pool PUBLIC
+      Note: With three pool addresses, a fourth inside host cannot get out until a translation times out. Adding overload to the pool line turns it into PAT over the pool.
+[ ] 7. Test and verify
+      PC1> ipconfig /all
+      R1# show ip nat translations
+      R1# show ip nat statistics
+      R1# show ip dhcp binding
+      R1# show ip dhcp pool
+      Note: From PC1, browse http://web.cwm.lab. Briefly try debug ip nat, then turn it off with undebug all.
+
+DONE WHEN: PC1 ipconfig /all shows an address from .100 up, gateway 192.168.10.1 and DNS 10.0.0.10. show ip nat translations lists entries with inside global 203.0.113.2 and different ports for different inside locals, plus the static entry for 10.0.0.10. PC1 opens http://web.cwm.lab.
+
+PACKET TRACER LIMITS AND NOTES
+  - Server-PT DHCP and DNS services work for simple pools and A records. How Packet Tracer matches a Server-PT pool to the relay address in every version is UNVERIFIED; if a PC gets no lease, check that the pool's gateway sits in the PC's subnet.
+  - Packet Tracer's show ip nat statistics output is shorter than real IOS.
+  - Which DNS record types beyond A and CNAME Packet Tracer's DNS server supports is UNVERIFIED for every version.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

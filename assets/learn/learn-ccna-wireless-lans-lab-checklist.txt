@@ -1,0 +1,59 @@
+CyberWithMadhav Learn: lesson 3.13 lab checklist
+Packet Tracer lab 3.13: WLC-2504 with lightweight APs and a WPA2 PSK WLAN
+https://www.cyberwithmadhav.com/learn-ccna-wireless-lans.html
+
+Time: 60 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 1 x WLC-2504, 1 x 3650-24PS (PoE for the APs; add a power supply in its Physical tab if it stays off), 2 x lightweight APs (model names vary by version, for example LAP-PT or 3702i; UNVERIFIED for your build), 1 x Server-PT, 1 x PC-PT, 1 x Laptop-PT with a wireless module, 1 x Smartphone-PT.
+
+ADDRESSING
+  Management | VLAN 99 | 192.168.99.0/24 | DSW1 SVI .1, WLC .10, DHCP server .5, AP pool from .100
+  Wireless clients | VLAN 50 | 192.168.50.0/24 | DSW1 SVI .1, WLC dynamic interface .10, client pool
+  Server-DHCP | Fa0 | 192.168.99.5/24 | pools for VLAN 99 and VLAN 50
+
+STEPS (tick each box when done)
+[ ] 1. DSW1
+      DSW1(config)# vlan 50
+      DSW1(config-vlan)# name WIFI-CLIENTS
+      DSW1(config)# vlan 99
+      DSW1(config-vlan)# name MGMT
+      DSW1(config)# ip routing
+      DSW1(config)# interface Vlan99
+      DSW1(config-if)# ip address 192.168.99.1 255.255.255.0
+      DSW1(config)# interface Vlan50
+      DSW1(config-if)# ip address 192.168.50.1 255.255.255.0
+      DSW1(config-if)# ip helper-address 192.168.99.5
+      DSW1(config)# interface range Gi1/0/2 - 3
+      DSW1(config-if-range)# switchport mode access
+      DSW1(config-if-range)# switchport access vlan 99
+      DSW1(config-if-range)# spanning-tree portfast
+      DSW1(config)# interface Gi1/0/1
+      DSW1(config-if)# switchport mode trunk
+      DSW1(config-if)# switchport trunk allowed vlan 50,99
+[ ] 2. DHCP server pools
+      Note: On Server-DHCP, Services, DHCP: one pool for 192.168.99.0/24 (gateway .1, start .100) for the APs, and one for 192.168.50.0/24 (gateway .1) for clients.
+[ ] 3. WLC management
+      Note: Set the WLC management interface to 192.168.99.10/24, gateway 192.168.99.1, VLAN 99. Whether Packet Tracer expects that VLAN tagged or untagged by default is UNVERIFIED; if the WLC is unreachable, try the other choice to match the switch trunk's native VLAN.
+[ ] 4. WLC GUI
+      Note: From Admin-PC, browse to https://192.168.99.10 and log in. Follow the stepper in this lesson: dynamic interface for VLAN 50 (192.168.50.10, gateway .1, DHCP 192.168.99.5), WLAN CWM-Staff on that interface, WPA2 with AES and PSK, a passphrase of at least 12 characters, QoS Silver, enabled.
+[ ] 5. APs and clients
+      Note: Wait for both APs to get VLAN 99 addresses and join (Wireless, All APs). On Laptop1 and Smartphone1, connect to CWM-Staff with WPA2-Personal, AES and the passphrase. They should get 192.168.50.x addresses.
+[ ] 6. Discuss
+      Note: Without Packet Tracer: what would change for WPA3-Personal (SAE, PMF required) and for WPA3-Enterprise (802.1X against RADIUS)? Where would Platinum QoS be used?
+[ ] 7. Verify
+      DSW1# show interfaces trunk
+      DSW1# show power inline
+      DSW1# show vlan brief
+      Laptop1> ipconfig
+      Laptop1> ping 192.168.50.1
+      Note: On the WLC: Monitor, Summary for AP and client counts; Monitor, Clients for each client's SSID and address.
+
+DONE WHEN: Both APs show as registered under Wireless, All APs; Laptop1 and Smartphone1 are associated to CWM-Staff with 192.168.50.x addresses and can ping 192.168.50.1; DSW1 shows PoE on Gi1/0/2 and Gi1/0/3 and a trunk on Gi1/0/1 allowing 50 and 99.
+
+PACKET TRACER LIMITS AND NOTES
+  - The APs must reach the WLC: here they share its subnet, which avoids needing DHCP option 43 or DNS discovery.
+  - The WLC-2504 GUI exists in Packet Tracer and supports WLAN creation with WPA2 PSK in the outline author's experience, but some menus are greyed out or missing compared with real AireOS. Which ones, per version, is UNVERIFIED.
+  - WPA3 in Packet Tracer is UNVERIFIED and probably unsupported on its end devices and the WLC-2504, so WPA3 is taught as concept here. Rogue detection, PMF settings and LAG on the Packet Tracer WLC are also UNVERIFIED.
+  - Whether Packet Tracer's WLC-2504 offers a CLI for these steps is UNVERIFIED; the GUI is what the exam topics ask for. Some 8.x builds have also offered a WLC-3504 and Meraki devices: UNVERIFIED.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

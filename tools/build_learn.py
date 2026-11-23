@@ -16,7 +16,8 @@ BASE = "https://www.cyberwithmadhav.com/"
 AUTHOR = {"@type": "Person", "name": "Madhav Pandya", "url": BASE + "about.html"}
 PUB = {"@type": "Organization", "name": "CyberWithMadhav", "url": BASE}
 TODAY = "2026-11-24"
-PUBLISHED = {"learn-how-computers-work": "2026-11-23", "learn-operating-system-fundamentals": "2026-11-23", "learn-windows-for-security": "2026-11-23", "learn-networking-basics": "2026-11-23", "learn-linux-fundamentals": "2026-11-23", "learn-linux-hands-on-lab": "2026-11-23"}
+PUBLISHED = {"learn-how-computers-work": "2026-11-23", "learn-operating-system-fundamentals": "2026-11-23", "learn-windows-for-security": "2026-11-23", "learn-networking-basics": "2026-11-23", "learn-linux-fundamentals": "2026-11-23", "learn-linux-hands-on-lab": "2026-11-23",
+             "learn-bash-scripting-for-security": "2026-11-24", "learn-linux-logging-auditing-hardening": "2026-11-24", "learn-ccna-network-building-blocks": "2026-11-24", "learn-ccna-ip-addressing-subnetting": "2026-11-24", "learn-ccna-switching-secure-access": "2026-11-24", "learn-ccna-vlans-trunks": "2026-11-24", "learn-ccna-stp-etherchannel": "2026-11-24", "learn-ccna-inter-vlan-routing-hsrp": "2026-11-24", "learn-ccna-static-routing": "2026-11-24", "learn-ccna-ospf": "2026-11-24", "learn-ccna-access-control-lists": "2026-11-24", "learn-ccna-dhcp-dns-nat": "2026-11-24", "learn-ccna-network-operations": "2026-11-24", "learn-ccna-layer2-security-aaa": "2026-11-24", "learn-ccna-wireless-lans": "2026-11-24", "learn-ccna-network-automation": "2026-11-24"}
 FEATS = {}
 
 def ver(rel):
@@ -233,7 +234,7 @@ def lesson_page(L):
     page_js = f"learn-{L['slug'][6:]}.js"
     write_dict(page_js, d, L["slug"] + ".html")
     has_term = 'class="lx-term"' in main
-    has_net = any(f'lx-widget {c}"' in main for c in ("lx-subnet", "lx-route", "lx-acl"))
+    has_net = any(f'lx-widget {c}"' in main for c in ("lx-subnet", "lx-route", "lx-acl", "lx-json"))
     has_ios = 'class="lx-ios"' in main or 'lx-widget lx-t7"' in main
     f = []
     if has_term: f.append("browser terminal")
@@ -241,6 +242,7 @@ def lesson_page(L):
     if 'lx-widget lx-subnet"' in main: f.append("subnet calculator")
     if 'lx-widget lx-route"' in main: f.append("route game")
     if 'lx-widget lx-acl"' in main: f.append("ACL tester")
+    if 'lx-widget lx-json"' in main: f.append("JSON reader")
     if pt: f.append("Packet Tracer")
     FEATS[L["slug"]] = f
     shell(L["slug"] + ".html", L["seo_title"], L["desc"], L["title"] + " | Free lesson", L["short"], L["kw"], schema, main,

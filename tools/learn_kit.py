@@ -157,6 +157,19 @@ def acl_tester(cfg, title="ACL rule tester"):
             '<p class="lx-acl-res" aria-live="polite"></p><ol class="lx-acl-trace" aria-label="How the packet was checked"></ol>'
             f'<script type="application/json" class="lx-acl-cfg">{data}</script></div>')
 
+def json_lab(cfg, title="JSON reader"):
+    """cfg: {json, broken:[{label, json}], qs:[{q, v}]} where v is the expected value (any JSON type)."""
+    data = json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/")
+    return (f'<div class="card lx-widget lx-json"><h3>{title}</h3>'
+            '<p class="hint">Edit the JSON and check it, or load a broken example and find the mistake. Then type a path such as <code>response[0].hostname</code> to pull out one value.</p>'
+            '<label class="lx-json-ta">JSON<textarea data-i="json" rows="12" spellcheck="false" autocomplete="off"></textarea></label>'
+            '<p class="lx-json-pre" aria-label="Examples"></p>'
+            '<p><button type="button" class="lx-wbtn" data-check>Check JSON</button></p><p class="lx-json-res" aria-live="polite"></p>'
+            '<div class="lx-json-path"><label>Path <input data-i="path" type="text" autocomplete="off" spellcheck="false" placeholder="response[0].hostname"></label>'
+            '<button type="button" class="lx-wbtn" data-read>Read value</button></div><p class="lx-json-val" aria-live="polite"></p>'
+            '<ol class="lx-json-qs" aria-label="Path challenges"></ol>'
+            f'<script type="application/json" class="lx-json-cfg">{data}</script></div>')
+
 def type7_decoder():
     return ('<div class="card lx-widget lx-t7"><h3>Type 7 decoder: see why it is not encryption</h3>'
             '<p class="hint">Paste a type 7 string from a config (the part after <code>password 7</code>). The algorithm and its key are public, so anyone can reverse it. Only paste lab strings, never a real device\'s.</p>'
