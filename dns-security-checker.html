@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DNS and Email Security Checker: SPF, DKIM, DMARC, DNSSEC Grade | CyberWithMadhav</title>
+  <meta name="description" content="Free A to F grade for any domain's email and DNS security: SPF lookups, DMARC policy, DKIM, DNSSEC, CAA, MTA-STS and TLS-RPT, with exact fixes.">
+  <meta name="keywords" content="spf checker, dmarc checker, dkim lookup, dnssec check, email security grade, mta-sts check, college domain email security">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/dns-security-checker.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="DNS and Email Security Checker: grade SPF, DKIM, DMARC and DNSSEC">
+  <meta property="og:description" content="Type a domain and get an A to F grade with the exact DNS records to fix. Only the domain name is sent, to Cloudflare DNS.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/dns-security-checker.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DNS and Email Security Checker: grade SPF, DKIM, DMARC and DNSSEC">
+  <meta name="twitter:description" content="Type a domain and get an A to F grade with the exact DNS records to fix. Only the domain name is sent, to Cloudflare DNS.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0=' https://gc.zgo.at; style-src 'self'; font-src 'self'; img-src 'self' data: blob: https://cyberwithmadhav.goatcounter.com; connect-src 'self' https://cyberwithmadhav.goatcounter.com https://cloudflare-dns.com; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
+  <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
+<link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
+  <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
+  <link rel="stylesheet" href="assets/css/features.css?v=e695d1ea11">
+  <link rel="stylesheet" href="assets/css/lab.css?v=2">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"DNS and Email Security Checker","url":"https://www.cyberwithmadhav.com/dns-security-checker.html","applicationCategory":"SecurityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en-IN","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Grades a domain's SPF, DMARC, DKIM, DNSSEC, CAA, MTA-STS and TLS-RPT records using DNS over HTTPS, with fixes.","author":{"@type":"Person","name":"Madhav Pandya","url":"https://www.cyberwithmadhav.com/about.html"},"publisher":{"@type":"Organization","name":"CyberWithMadhav","url":"https://www.cyberwithmadhav.com/"}}
+  </script>
+</head>
+<body class="v3 lab-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
+        <a href="cybersecurity-awareness-sessions.html" class="nav-sessions"><span class="nav-sessions-full" data-i18n="nav.sessions">Book a session</span><span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span></a>
+        <a href="shop.html" class="nav-shop"><span data-i18n="nav.shop">Shop</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="p-title">
+      <div class="wrap">
+        <p class="lab-crumb"><a href="security-lab.html">Security Lab</a> / DNS and Email Security Checker</p>
+        <p class="kicker mono"><span class="prompt">$</span> dig +dnssec TXT _dmarc.yourdomain</p>
+        <h1 id="p-title">DNS and Email Security Checker</h1>
+        <p class="lead">Can someone send email pretending to be your college, company or bank? Type a domain and get an A to F grade for its email and DNS security, with the exact record to add for every problem.</p>
+        <p class="lab-privacy" role="note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span><strong>What leaves your browser:</strong> only the domain name, sent to Cloudflare's public DNS resolver (cloudflare-dns.com) to read public DNS records. Nothing is sent to CyberWithMadhav and nothing is stored.</span></p>
+      </div>
+    </section>
+    <section class="section lab-sec" aria-label="Checker">
+      <div class="wrap">
+        <div class="card lab-tool">
+          <form id="dc-form" class="lab-row" novalidate>
+            <label class="sr-only" for="dc-domain">Domain or email address</label>
+            <input id="dc-domain" class="lab-input" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="example.com or name@example.com" maxlength="253" required>
+            <button id="dc-go" class="btn btn-primary" type="submit" data-goatcounter-click="lab-dns-check">Check domain</button>
+          </form>
+          <div class="lab-try"><span>Try:</span><button type="button" data-dc-try="cyberwithmadhav.com">cyberwithmadhav.com</button><button type="button" data-dc-try="gmail.com">gmail.com</button><button type="button" data-dc-try="vjti.ac.in">vjti.ac.in</button><button type="button" data-dc-try="rbi.org.in">rbi.org.in</button></div>
+          <p class="lab-status" id="dc-status" aria-live="polite"></p>
+          <div class="lab-result" id="dc-result" hidden aria-live="polite"></div>
+          <p><button type="button" class="btn btn-ghost small" id="dc-copy" hidden data-goatcounter-click="lab-dns-copy-report">Copy report</button></p>
+          <noscript><p class="lab-empty">This checker needs JavaScript.</p></noscript>
+        </div>
+      </div>
+    </section>
+    <section class="section lab-method" aria-labelledby="m-h">
+      <div class="wrap">
+        <h2 id="m-h">What is checked and how it is graded</h2>
+        <p>Each record earns points; the grade is the share of points earned. Email checks weigh the most because spoofed email is the most common way attacks start.</p>
+        <ul>
+          <li><strong>SPF (35 points):</strong> one valid v=spf1 record, no more than 10 DNS lookups across all includes (RFC 7208), and an ending of ~all or -all.</li>
+          <li><strong>DMARC (35 points):</strong> a v=DMARC1 record, policy quarantine or reject, and a rua reporting address.</li>
+          <li><strong>DKIM (10 points):</strong> a public key at one of 16 common selectors. Selectors cannot be listed from DNS, so "not found" can mean "not guessed".</li>
+          <li><strong>DNSSEC (5), CAA (5), MTA-STS (3) and TLS-RPT (2).</strong> BIMI is shown for information only.</li>
+          <li>Domains with no MX record are graded on whether they clearly say they send no email (v=spf1 -all and DMARC reject), which stops spoofing of unused domains.</li>
+        </ul>
+        <h3>Limits</h3>
+        <ul>
+          <li>HTTP security headers (CSP, HSTS and others) are not graded: browsers block reading another site's headers (CORS), and this site has no server to do it.</li>
+          <li>Results reflect what Cloudflare's resolver sees at that moment. DNS changes can take time to appear.</li>
+          <li>A good grade means spoofing your domain is hard. It does not mean your mailboxes or website are secure.</li>
+        </ul>
+        <p class="lab-more"><a class="btn btn-ghost small" href="email-header-analyzer.html">Email Header Forensics</a> <a class="btn btn-ghost small" href="url-forensics.html">Phishing URL Forensics</a></p>
+        <div class="card lab-cta">
+          <h2>Email security and phishing workshop for your institute</h2>
+          <p class="muted">For colleges, schools and IT teams: how spoofed mail gets through, how to read headers and links like an analyst, and a live check of your own domain's SPF, DKIM and DMARC. Online across India, in person in Mumbai.</p>
+          <p><a class="btn btn-primary" href="cybersecurity-awareness-sessions.html" data-goatcounter-click="lab-book-session">Book a session for your institute</a> <a class="btn btn-ghost" href="security-lab.html">All lab tools</a></p>
+        </div>
+        <div class="s-help" role="note" aria-label="Emergency help">
+          <a class="s-call" href="tel:1930"><span>Lost money? Call <b>1930</b></span></a>
+          <p>National Cyber Crime Helpline. Then report on <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer">cybercrime.gov.in</a><span class="sr-only"> (opens in a new tab)</span>. Report fraud calls and SMS on Chakshu at <a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener noreferrer">sancharsaathi.gov.in</a><span class="sr-only"> (opens in a new tab)</span>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. For learning and defensive or authorised work only.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="cybersecurity-awareness-sessions.html" data-i18n="foot.sessions">Book a session</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
+  <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
+  <script src="assets/js/lab-core.js?v=2" defer></script>
+  <script src="assets/js/lab-dnscheck.js?v=2" defer></script>
+  <script src="assets/js/nav.js?v=a2320ad677" defer></script>
+  <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
+  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
+  <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

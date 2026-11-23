@@ -1,0 +1,89 @@
+/* Email and Link Security Lab (security-lab.html and its three tools). Mobile first, both themes. */
+.lab-crumb{font-size:.85rem;color:var(--muted);margin:0 0 10px}
+.lab-crumb a{color:var(--purple-2)}
+.lab-privacy{display:flex;gap:10px;align-items:flex-start;max-width:720px;margin:0;padding:12px 14px;border-radius:14px;border:1px solid color-mix(in srgb,var(--green) 45%,transparent);background:color-mix(in srgb,var(--green) 9%,transparent);font-size:.95rem}
+.lab-privacy svg{flex:none;margin-top:2px;color:var(--green-2)}
+.lab-sec{padding-top:20px}
+.lab-tool{display:flex;flex-direction:column;gap:12px}
+.lab-tool h2,.lab-h{font:600 1.15rem var(--font-head);margin:0}
+.lab-row{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.lab-row .lab-input{flex:1 1 220px}
+.lab-input{width:100%;max-width:100%;min-width:0;box-sizing:border-box;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font:400 1rem var(--mono)}
+textarea.lab-input{font-size:.85rem;line-height:1.45;min-height:220px;resize:vertical}
+.lab-input:focus-visible,.lab-tool .btn:focus-visible,.lab-try button:focus-visible{outline:3px solid var(--purple-2);outline-offset:2px}
+.lab-try{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem;color:var(--muted)}
+.lab-try button{font:500 .8rem var(--mono);padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer}
+.lab-try button:hover{border-color:var(--purple)}
+.lab-status{min-height:1.2em;margin:0;font:500 .88rem var(--mono);color:var(--muted)}
+.lab-result{margin-top:20px;display:flex;flex-direction:column;gap:14px}
+.lab-result[hidden]{display:none}
+.lab-summary{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.lab-grade{width:92px;height:92px;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:var(--shadow)}
+.lab-grade span{font:700 2.6rem/1 var(--font-head)}
+.lab-grade small{font:500 .8rem var(--mono);opacity:.92;margin-top:4px}
+.g-A{background:#15803D}.g-B{background:#4D7C0F}.g-C{background:#B45309}.g-D{background:#C2410C}.g-F{background:#B91C1C}
+.lab-sub{font:600 1rem var(--font-head);margin:8px 0 0;letter-spacing:.01em}
+.lab-findings{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.lab-f{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:12px;border:1px solid var(--border);border-left-width:4px;background:color-mix(in srgb,var(--surface) 70%,transparent)}
+.lab-f-body{min-width:0;flex:1}
+.lab-f p{margin:0}
+.lab-f-t{font-weight:600}
+.lab-f-d{color:var(--muted);font-size:.9rem;margin-top:3px!important;overflow-wrap:anywhere}
+.lab-f-fix{font-size:.85rem;margin-top:6px!important}
+.lab-f-fix code{font:400 .8rem var(--mono);overflow-wrap:anywhere;background:var(--surface-2);padding:2px 6px;border-radius:6px}
+.lab-badge{flex:none;font:600 .7rem var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:4px 8px;border-radius:6px;min-width:58px;text-align:center;color:#fff}
+.lab-high,.lab-fail{border-left-color:#DC2626}.lab-high .lab-badge,.lab-fail .lab-badge{background:#B91C1C}
+.lab-med,.lab-warn{border-left-color:#D97706}.lab-med .lab-badge,.lab-warn .lab-badge{background:#B45309}
+.lab-low{border-left-color:#CA8A04}.lab-low .lab-badge{background:#854D0E}
+.lab-info{border-left-color:var(--purple)}.lab-info .lab-badge{background:#6D28D9}
+.lab-pass{border-left-color:#16A34A}.lab-pass .lab-badge{background:#15803D}
+.lab-verdict{padding:14px 16px;border-radius:12px;font-size:1rem;border:1px solid}
+.v-high{background:color-mix(in srgb,#DC2626 14%,transparent);border-color:#DC2626}
+.v-med{background:color-mix(in srgb,#D97706 14%,transparent);border-color:#D97706}
+.v-low{background:color-mix(in srgb,#16A34A 12%,transparent);border-color:#16A34A}
+.lab-auth{display:flex;flex-wrap:wrap;gap:8px}
+.lab-pill{font:500 .82rem var(--mono);padding:6px 12px;border-radius:999px;border:1px solid var(--border)}
+.p-ok{border-color:#16A34A;color:var(--green-2)}.p-bad{border-color:#DC2626;color:var(--danger)}.p-na{color:var(--muted)}
+.lab-kv{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;margin:0}
+.lab-kv dt{font:600 .8rem var(--mono);color:var(--muted);margin-top:6px}
+.lab-kv dd{margin:0}
+.lab-kv code,.lab-raw code{font:400 .82rem var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.lab-raw{border:1px solid var(--border);border-radius:12px;padding:10px 14px}
+.lab-raw summary{cursor:pointer;font-weight:600}
+.lab-raw dl{margin:8px 0 0}
+.lab-raw dt{font:600 .8rem var(--mono);color:var(--muted);margin-top:8px}
+.lab-raw dd{margin:2px 0 0}
+.lab-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px}
+.lab-table{width:100%;border-collapse:collapse;font-size:.82rem;min-width:640px}
+.lab-table th,.lab-table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.lab-table th{font:600 .75rem var(--mono);text-transform:uppercase;color:var(--muted)}
+.lab-table code{font:400 .78rem var(--mono);overflow-wrap:anywhere}
+.lab-defang{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0}
+.lab-defang code{font:400 .85rem var(--mono);overflow-wrap:anywhere;background:var(--surface-2);padding:4px 8px;border-radius:6px}
+.lab-block{display:flex;flex-direction:column;gap:10px}
+.lab-empty{padding:12px 14px;border:1px dashed var(--border);border-radius:12px;color:var(--muted)}
+.lab-dns{border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.lab-dns[hidden]{display:none}
+.lab-cards{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+.lab-card{display:flex;flex-direction:column;gap:10px}
+.lab-card h2{font:600 1.2rem var(--font-head);margin:0}
+.lab-card h2 a{color:var(--text);text-decoration:none}
+.lab-card h2 a::after{content:"";position:absolute;inset:0}
+.lab-card{position:relative}
+.lab-card ul{margin:0;padding-left:18px;color:var(--muted);font-size:.92rem}
+.lab-tag{font:500 .75rem var(--mono);color:var(--purple-2);text-transform:uppercase;letter-spacing:.05em}
+.lab-note{font-size:.9rem;color:var(--muted)}
+.lab-method h2{font:700 clamp(1.3rem,3vw,1.8rem)/1.2 var(--font-head);margin:0 0 12px}
+.lab-method h3{font:600 1.05rem var(--font-head);margin:18px 0 6px}
+.lab-method p,.lab-method li{color:var(--muted)}
+.lab-method p a:not(.btn),.lab-method li a,.lab-note a,.s-help p a{color:var(--purple-2)}
+.lab-method{padding-top:24px}
+.lab-sec + .lab-method{padding-top:8px}
+.lab-cta{margin:24px 0 16px}
+.lab-cta h2{font:600 1.2rem var(--font-head);margin:0 0 8px}
+.lab-cta p:last-child{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:0}
+.lab-more{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 0}
+@media (min-width:760px){.lab-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-kv{grid-template-columns:200px minmax(0,1fr)}.lab-kv dt{margin-top:0}}
+@media print{.lab-tool form,.lab-try,.lab-cta,.lab-privacy{display:none}.lab-f{break-inside:avoid}}
+.lab-actions{margin:12px 0 0}
+textarea.lab-input[data-short]{min-height:110px;margin-top:8px}

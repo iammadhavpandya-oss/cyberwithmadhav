@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phishing URL Checker: Offline Link Forensics for Indian Scams | CyberWithMadhav</title>
+  <meta name="description" content="Dissect a suspicious link without opening it: punycode and lookalike domains, fake bank and gov.in names, redirect wrappers, @ tricks, IP hosts and APK files.">
+  <meta name="keywords" content="phishing url checker, check suspicious link, fake bank website check india, punycode domain, homoglyph attack, typosquatting check, apk link">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/url-forensics.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="Phishing URL Forensics: dissect a link without opening it">
+  <meta property="og:description" content="Lookalike domains of Indian banks, UPI apps and gov.in, hidden redirects and APK traps, checked offline in your browser.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/url-forensics.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Phishing URL Forensics: dissect a link without opening it">
+  <meta name="twitter:description" content="Lookalike domains of Indian banks, UPI apps and gov.in, hidden redirects and APK traps, checked offline in your browser.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0=' https://gc.zgo.at; style-src 'self'; font-src 'self'; img-src 'self' data: blob: https://cyberwithmadhav.goatcounter.com; connect-src 'self' https://cyberwithmadhav.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
+  <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
+<link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
+  <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
+  <link rel="stylesheet" href="assets/css/features.css?v=e695d1ea11">
+  <link rel="stylesheet" href="assets/css/lab.css?v=2">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Phishing URL Forensics","url":"https://www.cyberwithmadhav.com/url-forensics.html","applicationCategory":"SecurityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en-IN","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Offline analysis of a URL's structure for phishing signs, including lookalike domains of Indian banks and government portals, without opening it.","author":{"@type":"Person","name":"Madhav Pandya","url":"https://www.cyberwithmadhav.com/about.html"},"publisher":{"@type":"Organization","name":"CyberWithMadhav","url":"https://www.cyberwithmadhav.com/"}}
+  </script>
+</head>
+<body class="v3 lab-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
+        <a href="cybersecurity-awareness-sessions.html" class="nav-sessions"><span class="nav-sessions-full" data-i18n="nav.sessions">Book a session</span><span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span></a>
+        <a href="shop.html" class="nav-shop"><span data-i18n="nav.shop">Shop</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="p-title">
+      <div class="wrap">
+        <p class="lab-crumb"><a href="security-lab.html">Security Lab</a> / Phishing URL Forensics</p>
+        <p class="kicker mono"><span class="prompt">$</span> echo "$URL" | ./dissect --no-follow</p>
+        <h1 id="p-title">Phishing URL Forensics</h1>
+        <p class="lead">Paste a link, or the whole SMS or WhatsApp message that contains it. See who really owns the domain, whether it imitates an Indian bank, UPI app or government portal, and what is hidden inside redirects and encoding.</p>
+        <p class="lab-privacy" role="note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span><strong>Fully offline. The link is never opened.</strong> Nothing is fetched, previewed or expanded, and nothing leaves your browser. That is why short links like bit.ly stay hidden here: expanding them would mean contacting the shortener.</span></p>
+      </div>
+    </section>
+    <section class="section lab-sec" aria-label="Analyser">
+      <div class="wrap">
+        <div class="card lab-tool">
+          <form id="uf-form" novalidate>
+            <label class="lab-h" for="uf-input">Link or message</label>
+            <textarea id="uf-input" class="lab-input" rows="4" spellcheck="false" autocomplete="off" placeholder="https://... or paste the whole message" data-short></textarea>
+            <p class="lab-row lab-actions"><button class="btn btn-primary" type="submit" data-goatcounter-click="lab-url-analyse">Dissect link</button></p>
+          </form>
+          <div class="lab-try"><span>Samples:</span>
+            <button type="button" data-uf-try="https://hdfcbank.com.secure-login.example/netbanking">brand as subdomain</button>
+            <button type="button" data-uf-try="https://www.icicibank.com@203.0.113.9/login">@ trick</button>
+            <button type="button" data-uf-try="https://www.google.com/url?q=https%3A%2F%2Fparivahan-echallan.example%2Fpay.apk">hidden APK</button>
+            <button type="button" data-uf-try="https://paytn.com/kyc/update">typosquat</button>
+            <button type="button" data-uf-try="https://xn--bi-doc.co.in/">homoglyph</button>
+            <button type="button" data-uf-try="https://www.onlinesbi.sbi/">real SBI</button>
+          </div>
+          <div class="lab-result" id="uf-result" hidden aria-live="polite"></div>
+          <noscript><p class="lab-empty">This analyser needs JavaScript.</p></noscript>
+        </div>
+      </div>
+    </section>
+    <section class="section lab-method" aria-labelledby="m-h">
+      <div class="wrap">
+        <h2 id="m-h">Read a link like an analyst</h2>
+        <ul>
+          <li><strong>Find the registrable domain</strong>: read the host from right to left. In hdfcbank.com.secure-login.example the owner is secure-login.example, not HDFC Bank.</li>
+          <li><strong>Banks now use .bank.in</strong>, which only RBI-regulated banks can register through IDRBT (RBI circular of 22 April 2025). Government portals end in .gov.in or .nic.in. Read more in <a href="blog-bank-in-domain-india.html">the .bank.in guide</a>.</li>
+          <li><strong>Lookalike characters</strong>: Cyrillic "а" and Latin "a" look the same. Browsers show such domains as punycode (xn--) in many cases, which this tool decodes.</li>
+          <li><strong>APK links</strong> install apps outside the Play Store. Fake e-challan, KYC and wedding invite APKs are used to steal OTPs.</li>
+        </ul>
+        <h3>Limits</h3>
+        <ul>
+          <li>The tool judges the text of the link only. It cannot see the page, and a clean result does not mean a site is safe.</li>
+          <li>Lookalike detection compares against a list of official domains of common Indian banks, payment apps, government portals and big brands. Unlisted brands are not covered.</li>
+        </ul>
+        <p class="lab-more"><a class="btn btn-ghost small" href="dns-security-checker.html">DNS and Email Security Checker</a> <a class="btn btn-ghost small" href="email-header-analyzer.html">Email Header Forensics</a></p>
+        <div class="card lab-cta">
+          <h2>Email security and phishing workshop for your institute</h2>
+          <p class="muted">For colleges, schools and IT teams: how spoofed mail gets through, how to read headers and links like an analyst, and a live check of your own domain's SPF, DKIM and DMARC. Online across India, in person in Mumbai.</p>
+          <p><a class="btn btn-primary" href="cybersecurity-awareness-sessions.html" data-goatcounter-click="lab-book-session">Book a session for your institute</a> <a class="btn btn-ghost" href="security-lab.html">All lab tools</a></p>
+        </div>
+        <div class="s-help" role="note" aria-label="Emergency help">
+          <a class="s-call" href="tel:1930"><span>Lost money? Call <b>1930</b></span></a>
+          <p>National Cyber Crime Helpline. Then report on <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer">cybercrime.gov.in</a><span class="sr-only"> (opens in a new tab)</span>. Report fraud calls and SMS on Chakshu at <a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener noreferrer">sancharsaathi.gov.in</a><span class="sr-only"> (opens in a new tab)</span>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. For learning and defensive or authorised work only.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="cybersecurity-awareness-sessions.html" data-i18n="foot.sessions">Book a session</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
+  <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
+  <script src="assets/js/lab-core.js?v=2" defer></script>
+  <script src="assets/js/lab-url.js?v=2" defer></script>
+  <script src="assets/js/nav.js?v=a2320ad677" defer></script>
+  <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
+  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
+  <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

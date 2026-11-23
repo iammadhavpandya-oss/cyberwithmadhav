@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email and Link Security Lab: Free DNS, Header and URL Analysis Tools | CyberWithMadhav</title>
+  <meta name="description" content="Free analyst tools that run in your browser: grade a domain's SPF, DKIM, DMARC and DNSSEC, analyse email headers for spoofing, and dissect phishing links.">
+  <meta name="keywords" content="email security tools, spf dkim dmarc checker, email header analyzer, phishing url checker, dns security, security lab india">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/security-lab.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="Email and Link Security Lab: DNS posture, header forensics, URL forensics">
+  <meta property="og:description" content="Three free, privacy-first security tools by CyberWithMadhav. Built for students, IT teams and anyone checking a suspicious email or link.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/security-lab.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Email and Link Security Lab: DNS posture, header forensics, URL forensics">
+  <meta name="twitter:description" content="Three free, privacy-first security tools by CyberWithMadhav. Built for students, IT teams and anyone checking a suspicious email or link.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0=' https://gc.zgo.at; style-src 'self'; font-src 'self'; img-src 'self' data: blob: https://cyberwithmadhav.goatcounter.com; connect-src 'self' https://cyberwithmadhav.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
+  <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
+<link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
+  <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
+  <link rel="stylesheet" href="assets/css/features.css?v=e695d1ea11">
+  <link rel="stylesheet" href="assets/css/lab.css?v=2">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Email and Link Security Lab","url":"https://www.cyberwithmadhav.com/security-lab.html","inLanguage":"en-IN","isAccessibleForFree":true,"description":"Three browser-based security tools: DNS and email security posture checker, email header forensics and phishing URL forensics.","author":{"@type":"Person","name":"Madhav Pandya","url":"https://www.cyberwithmadhav.com/about.html"},"publisher":{"@type":"Organization","name":"CyberWithMadhav","url":"https://www.cyberwithmadhav.com/"},"hasPart":[{"@type":"WebApplication","name":"DNS and Email Security Checker","url":"https://www.cyberwithmadhav.com/dns-security-checker.html","applicationCategory":"SecurityApplication","operatingSystem":"Any"},{"@type":"WebApplication","name":"Email Header Forensics","url":"https://www.cyberwithmadhav.com/email-header-analyzer.html","applicationCategory":"SecurityApplication","operatingSystem":"Any"},{"@type":"WebApplication","name":"Phishing URL Forensics","url":"https://www.cyberwithmadhav.com/url-forensics.html","applicationCategory":"SecurityApplication","operatingSystem":"Any"}]}
+  </script>
+</head>
+<body class="v3 lab-page">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
+        <a href="cybersecurity-awareness-sessions.html" class="nav-sessions"><span class="nav-sessions-full" data-i18n="nav.sessions">Book a session</span><span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span></a>
+        <a href="shop.html" class="nav-shop"><span data-i18n="nav.shop">Shop</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="p-title">
+      <div class="wrap">
+        <p class="kicker mono"><span class="prompt">$</span> ./lab --dns --headers --links</p>
+        <h1 id="p-title">Email and Link Security Lab</h1>
+        <p class="lead">Three analyst tools for the way most attacks in India start: an email or a link. Grade any domain's email security, take apart the headers of a suspicious email, and dissect a phishing URL without ever opening it.</p>
+        <p class="lab-privacy" role="note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span><strong>Privacy first.</strong> Header and URL analysis run fully offline in your browser. The DNS checker sends only the domain name you type to Cloudflare's public DNS resolver. No accounts, no cookies, nothing stored on our side.</span></p>
+      </div>
+    </section>
+    <section class="section lab-sec" aria-label="Tools">
+      <div class="wrap">
+        <div class="lab-cards">
+          <article class="card lab-card">
+            <span class="lab-tag">DNS over HTTPS</span>
+            <h2><a href="dns-security-checker.html" data-goatcounter-click="lab-hub-dns">DNS and Email Security Checker</a></h2>
+            <p class="muted">An A to F grade for any domain, with the exact record to fix each problem.</p>
+            <ul><li>SPF with recursive lookup count (limit 10)</li><li>DMARC policy, pct and reporting</li><li>DKIM at common selectors</li><li>DNSSEC, CAA, MTA-STS, TLS-RPT, BIMI</li></ul>
+          </article>
+          <article class="card lab-card">
+            <span class="lab-tag">Fully offline</span>
+            <h2><a href="email-header-analyzer.html" data-goatcounter-click="lab-hub-headers">Email Header Forensics</a></h2>
+            <p class="muted">Paste raw headers and see who really sent the message and how it travelled.</p>
+            <ul><li>SPF, DKIM and DMARC verdicts</li><li>Hop by hop route with delays</li><li>Reply-To and Return-Path mismatches</li><li>Indian bank and government impersonation</li></ul>
+          </article>
+          <article class="card lab-card">
+            <span class="lab-tag">Fully offline</span>
+            <h2><a href="url-forensics.html" data-goatcounter-click="lab-hub-url">Phishing URL Forensics</a></h2>
+            <p class="muted">Peel a suspicious link layer by layer. It is never opened or expanded.</p>
+            <ul><li>Punycode and homoglyph detection</li><li>Typosquats of Indian banks, UPI and gov.in</li><li>Redirect wrappers and hidden destinations</li><li>@ tricks, IP hosts, APK downloads</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section lab-method" aria-labelledby="m-h">
+      <div class="wrap">
+        <h2 id="m-h">Who it is for</h2>
+        <p><strong>Students and freshers</strong> learning blue team and SOC skills: these are the same checks an analyst runs during phishing triage. <strong>IT teams at colleges and schools</strong>: see in one minute whether anyone can send email as your principal or your exam cell. <strong>Everyone else</strong>: get a second opinion on a scary email or link before you click.</p>
+        <h3>Method and honest limits</h3>
+        <ul>
+          <li>Results come from public DNS data and from the text you paste. The tools do not open links, log in anywhere or scan servers.</li>
+          <li>A browser cannot read another website's HTTP security headers (CORS blocks it), so there is no header grade here. Use a server-side scanner for that.</li>
+          <li>Official domain lists cover common Indian banks, payment apps, government portals and big brands. A domain missing from the list is not automatically fake.</li>
+          <li>No tool can prove a message is safe. When money or passwords are involved, contact the organisation through its official app or a number you already have.</li>
+        </ul>
+        <div class="card lab-cta">
+          <h2>Email security and phishing workshop for your institute</h2>
+          <p class="muted">For colleges, schools and IT teams: how spoofed mail gets through, how to read headers and links like an analyst, and a live check of your own domain's SPF, DKIM and DMARC. Online across India, in person in Mumbai.</p>
+          <p><a class="btn btn-primary" href="cybersecurity-awareness-sessions.html" data-goatcounter-click="lab-book-session">Book a session for your institute</a> <a class="btn btn-ghost" href="security-lab.html">All lab tools</a></p>
+        </div>
+        <div class="s-help" role="note" aria-label="Emergency help">
+          <a class="s-call" href="tel:1930"><span>Lost money? Call <b>1930</b></span></a>
+          <p>National Cyber Crime Helpline. Then report on <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer">cybercrime.gov.in</a><span class="sr-only"> (opens in a new tab)</span>. Report fraud calls and SMS on Chakshu at <a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener noreferrer">sancharsaathi.gov.in</a><span class="sr-only"> (opens in a new tab)</span>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. For learning and defensive or authorised work only.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="cybersecurity-awareness-sessions.html" data-i18n="foot.sessions">Book a session</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
+  <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
+  <script src="assets/js/nav.js?v=a2320ad677" defer></script>
+  <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
+  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
+  <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

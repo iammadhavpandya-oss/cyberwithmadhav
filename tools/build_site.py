@@ -22,7 +22,7 @@ OG_IMG = BASE + "assets/img/og-image.png"
 OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
-PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
+PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "security-lab.html", "dns-security-checker.html", "email-header-analyzer.html", "url-forensics.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
          "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "faq.html", "start-here.html", "uses.html", "collaborate.html",
          "cybersecurity-awareness-sessions.html",
          "cyber-security-workshop-for-colleges.html", "cyber-awareness-session-for-schools.html",
