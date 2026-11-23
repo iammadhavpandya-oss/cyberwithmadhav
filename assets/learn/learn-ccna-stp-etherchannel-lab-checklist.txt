@@ -1,0 +1,63 @@
+CyberWithMadhav Learn: lesson 3.5 lab checklist
+Packet Tracer lab 3.5: Rapid PVST+, guards and an LACP EtherChannel
+https://www.cyberwithmadhav.com/learn-ccna-stp-etherchannel.html
+
+Time: 50 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 2 x 3650-24PS, 1 x 2960-24TT, 2 x PC-PT. Create VLANs 10, 20 and 99 on all three switches and trunk every inter-switch link (native 99, allowed 10,20,99) as in lesson 3.4.
+
+ADDRESSING
+  PC1 | Fa0 | 192.168.10.11/24 | VLAN 10
+  PC2 | Fa0 | 192.168.20.11/24 | VLAN 20
+  Switches |  | no IP needed for this lab | Layer 2 only
+
+STEPS (tick each box when done)
+[ ] 1. Before you change anything
+      DSW1# show spanning-tree vlan 10
+      DSW1# show spanning-tree vlan 20
+      Note: Write down who is root and which port blocks. Expect the parallel DSW link and one ASW1 uplink to show blocking somewhere.
+[ ] 2. Rapid PVST+ and the roots
+      DSW1(config)# spanning-tree mode rapid-pvst
+      DSW1(config)# spanning-tree vlan 10,99 root primary
+      DSW1(config)# spanning-tree vlan 20 root secondary
+      DSW2(config)# spanning-tree mode rapid-pvst
+      DSW2(config)# spanning-tree vlan 20 root primary
+      DSW2(config)# spanning-tree vlan 10,99 root secondary
+      ASW1(config)# spanning-tree mode rapid-pvst
+[ ] 3. Protect the edge (ASW1)
+      ASW1(config)# interface range Fa0/1 - 24
+      ASW1(config-if-range)# spanning-tree portfast
+      ASW1(config-if-range)# spanning-tree bpduguard enable
+[ ] 4. Root Guard toward the access layer (both DSWs)
+      DSW1(config)# interface Gi1/0/3
+      DSW1(config-if)# spanning-tree guard root
+[ ] 5. LACP EtherChannel (both DSWs)
+      DSW1(config)# interface range Gi1/0/1 - 2
+      DSW1(config-if-range)# channel-group 1 mode active
+      DSW1(config-if-range)# interface Port-channel1
+      DSW1(config-if)# switchport mode trunk
+      DSW1(config-if)# switchport trunk native vlan 99
+      DSW1(config-if)# switchport trunk allowed vlan 10,20,99
+      DSW2(config)# interface range Gi1/0/1 - 2
+      DSW2(config-if-range)# channel-group 1 mode passive
+      Note: On 3650s you may need switchport trunk encapsulation dot1q before switchport mode trunk, depending on the image.
+[ ] 6. Fail a link
+      Note: Start a continuous ping from PC1 to another VLAN 10 host (ping -t), then delete or shut the DSW1 to ASW1 link. Watch the alternate port on ASW1 take over and count the lost pings.
+[ ] 7. Trip BPDU Guard
+      Note: Connect a spare 2960 to ASW1 Fa0/5. The port should go err-disabled. Remove the switch, then recover with shutdown and no shutdown on Fa0/5.
+[ ] 8. Verify
+      DSW1# show spanning-tree vlan 10
+      DSW1# show spanning-tree summary
+      DSW1# show etherchannel summary
+      DSW1# show interfaces trunk
+      ASW1# show interfaces status err-disabled
+
+DONE WHEN: DSW1 is root for VLANs 10 and 99 and DSW2 for VLAN 20; show etherchannel summary shows Po1(SU) with both members (P); ASW1 Fa0/5 went err-disabled when a switch was attached.
+
+PACKET TRACER LIMITS AND NOTES
+  - In some Packet Tracer versions a 3650 starts without a power supply and stays off until you add one in its Physical tab. UNVERIFIED for every version.
+  - Root Guard, Loop Guard and errdisable recovery cause bpduguard are real IOS features; their support on Packet Tracer's switch images is UNVERIFIED. If a command is rejected, note it and read about it instead.
+  - Convergence timing in Packet Tracer is simulated and does not match real hardware; treat lost ping counts as rough.
+  - Layer 3 EtherChannel on the 3650 in Packet Tracer is UNVERIFIED; this lab uses a Layer 2 bundle. Cisco NetAcad publishes official Packet Tracer activities for Rapid PVST+ and EtherChannel if you want more practice.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

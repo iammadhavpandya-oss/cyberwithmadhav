@@ -1,0 +1,37 @@
+CyberWithMadhav Learn: lesson 2.4 lab checklist
+Lab: log, attack, detect and harden your own VM
+https://www.cyberwithmadhav.com/learn-linux-logging-auditing-hardening.html
+
+Time: 60 minutes
+You need: Your Ubuntu lab VM (snapshot first) and your own PC on the host-only network.
+
+STEPS (tick each box when done)
+[ ] 1. Make the journal persistent and check rsyslog
+      $ ls -ld /var/log/journal || sudo mkdir -p /var/log/journal && sudo systemctl restart systemd-journald
+      $ journalctl --disk-usage
+      $ systemctl status rsyslog --no-pager
+      $ sudo tail -5 /var/log/auth.log
+      Note: Reboot, then confirm journalctl -b -1 shows the previous boot.
+[ ] 2. Install auditd and add rules
+      $ sudo apt install -y auditd
+      $ sudo nano /etc/audit/rules.d/cwm.rules
+      $ sudo augenrules --load && sudo auditctl -l
+      Note: Use the five rules from the auditd section, plus -w /etc/systemd/system -p wa -k systemd.
+[ ] 3. Simulate the attacker safely
+      $ sudo useradd -m -s /bin/bash labsvc && sudo passwd labsvc
+      $ echo '*/10 * * * * /bin/true' | sudo crontab -u labsvc -
+      $ printf '[Service]\nExecStart=/bin/sleep infinity\n[Install]\nWantedBy=multi-user.target\n' | sudo tee /etc/systemd/system/labtest.service
+      $ sudo systemctl enable --now labtest
+      Note: These are harmless stand-ins (/bin/true and sleep) for a backdoor. From your PC, log in once as labsvc over SSH.
+[ ] 4. Hunt it with the checklist
+      Note: Run every command from the persistence hunt section. Find the cron job, the service, the login in auth.log and last, and the audit events with sudo ausearch -k systemd -i. Write a five line incident note with times and evidence.
+[ ] 5. Clean up and harden
+      $ sudo systemctl disable --now labtest && sudo rm /etc/systemd/system/labtest.service
+      $ sudo crontab -r -u labsvc && sudo userdel -r labsvc
+      $ sudo apt install -y lynis fail2ban unattended-upgrades
+      $ sudo lynis audit system | tee ~/lynis-before.txt
+      Note: Fix three warnings or suggestions from Lynis, run it again into ~/lynis-after.txt, and compare the hardening index.
+
+DONE WHEN: Your hunt found every planted item from its logs, the audit trail shows who created them, and your second Lynis report scores higher than the first.
+
+Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000.

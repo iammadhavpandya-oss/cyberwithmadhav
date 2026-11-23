@@ -1,0 +1,34 @@
+CyberWithMadhav Learn: lesson 1.1 lab checklist
+Lab: look inside your own machine
+https://www.cyberwithmadhav.com/learn-how-computers-work.html
+
+Time: 30 to 45 minutes
+You need: A laptop or PC with VirtualBox installed, and an Ubuntu 24.04 LTS ISO (free from ubuntu.com). Windows steps use your own Windows PC.
+
+STEPS (tick each box when done)
+[ ] 1. Create a VM and choose the firmware type
+      Note: In VirtualBox click New, pick the Ubuntu ISO, and give it 2 CPUs, 4 GB RAM and a 25 GB disk. Before the first boot open Settings, System, Motherboard (switch to Expert mode if you do not see it) and note whether Enable EFI is ticked. Install Ubuntu.
+[ ] 2. Take a snapshot
+      Note: With the VM powered off, open the VM's Snapshots view and click Take. Name it clean-install. You can now break anything and roll back in seconds.
+[ ] 3. Check BIOS or UEFI from inside Linux
+      $ [ -d /sys/firmware/efi ] && echo UEFI || echo 'Legacy BIOS'
+      $ sudo mokutil --sb-state
+      Note: mokutil reports whether Secure Boot is on (install it with sudo apt install mokutil if missing). Now power off, flip the EFI setting, and try booting again. A system installed in UEFI mode will not boot in legacy mode: you just saw why the firmware type matters.Flip it back before continuing.
+[ ] 4. Inspect CPU, RAM and disks
+      $ lscpu | head -20
+      $ free -h
+      $ lsblk -f
+      $ sudo fdisk -l /dev/sda | head
+      Note: Find the architecture (x86_64), number of CPUs, total RAM, and whether the disk label type is gpt or dos (MBR).
+[ ] 5. Read magic bytes
+      $ head -c 4 /bin/ls | xxd
+      $ cp /bin/ls ~/holiday.pdf
+      $ file ~/holiday.pdf
+      $ head -c 4 ~/holiday.pdf | xxd
+      Note: The copy is named like a PDF but file and the bytes 7f45 4c46 say ELF program. Delete it after: rm ~/holiday.pdf.
+[ ] 6. Check your real Windows PC
+      Note: On your own Windows machine press Win + R, run msinfo32, and read BIOS Mode (UEFI or Legacy) and Secure Boot State. Turn on File name extensions in File Explorer if it is off.
+
+DONE WHEN: You can say your VM's firmware type, Secure Boot state, CPU architecture and partition table type, and you identified a file by its bytes instead of its name.
+
+Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000.

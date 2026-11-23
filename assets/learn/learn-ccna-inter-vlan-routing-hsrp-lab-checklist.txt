@@ -1,0 +1,79 @@
+CyberWithMadhav Learn: lesson 3.6 lab checklist
+Packet Tracer lab 3.6: router on a stick, SVIs and HSRP
+https://www.cyberwithmadhav.com/learn-ccna-inter-vlan-routing-hsrp.html
+
+Time: 60 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Part A: 1 x ISR4331, 1 x 2960, 2 x PC. Part B: 1 x 3650, 2 x PC. Part C: 2 x 2911, 1 x 2960, 1 x PC. Reuse the VLANs from lesson 3.4.
+
+ADDRESSING
+  R1 (A) | Gi0/0/0.10 / .20 | 192.168.10.1/24, 192.168.20.1/24 | .99 native, no IP
+  DSW1 (B) | VLAN 10 / VLAN 20 SVIs | 192.168.10.1/24, 192.168.20.1/24 | Gi1/0/24 routed 10.0.0.1/30
+  PCs | Fa0 | 192.168.10.11 and 192.168.20.11 | gw .1 of their VLAN
+  R-A (C) | G0/1 | 192.168.100.2/24 | HSRP active, priority 110
+  R-B (C) | G0/1 | 192.168.100.3/24 | HSRP standby
+  PC (C) | Fa0 | 192.168.100.10/24 | gw 192.168.100.1 (virtual)
+
+STEPS (tick each box when done)
+[ ] 1. Part A: switch side
+      SW1(config)# interface Gi0/1
+      SW1(config-if)# switchport mode trunk
+      SW1(config-if)# switchport trunk native vlan 99
+      SW1(config-if)# switchport trunk allowed vlan 10,20,99
+[ ] 2. Part A: router subinterfaces
+      R1(config)# interface Gi0/0/0
+      R1(config-if)# no shutdown
+      R1(config-if)# interface Gi0/0/0.10
+      R1(config-subif)# encapsulation dot1Q 10
+      R1(config-subif)# ip address 192.168.10.1 255.255.255.0
+      R1(config-subif)# interface Gi0/0/0.20
+      R1(config-subif)# encapsulation dot1Q 20
+      R1(config-subif)# ip address 192.168.20.1 255.255.255.0
+      R1(config-subif)# interface Gi0/0/0.99
+      R1(config-subif)# encapsulation dot1Q 99 native
+      Note: Ping PC-Guest from PC-Staff. It should work now, which is exactly why lesson 3.9 adds an ACL.
+[ ] 3. Part B: Layer 3 switch
+      DSW1(config)# ip routing
+      DSW1(config)# interface vlan 10
+      DSW1(config-if)# ip address 192.168.10.1 255.255.255.0
+      DSW1(config-if)# no shutdown
+      DSW1(config-if)# interface vlan 20
+      DSW1(config-if)# ip address 192.168.20.1 255.255.255.0
+      DSW1(config-if)# no shutdown
+      DSW1(config-if)# interface Gi1/0/24
+      DSW1(config-if)# no switchport
+      DSW1(config-if)# ip address 10.0.0.1 255.255.255.252
+      Note: Then remove ip routing and test again, to see the classic failure for yourself. Put it back.
+[ ] 4. Part C: HSRP on R-A
+      R-A(config)# interface G0/1
+      R-A(config-if)# ip address 192.168.100.2 255.255.255.0
+      R-A(config-if)# no shutdown
+      R-A(config-if)# standby version 2
+      R-A(config-if)# standby 1 ip 192.168.100.1
+      R-A(config-if)# standby 1 priority 110
+      R-A(config-if)# standby 1 preempt
+[ ] 5. Part C: HSRP on R-B
+      R-B(config)# interface G0/1
+      R-B(config-if)# ip address 192.168.100.3 255.255.255.0
+      R-B(config-if)# no shutdown
+      R-B(config-if)# standby version 2
+      R-B(config-if)# standby 1 ip 192.168.100.1
+      R-B(config-if)# standby 1 preempt
+[ ] 6. Fail over
+      Note: From the PC run ping -t 192.168.100.1, then shut R-A's G0/1. Watch R-B become active, then bring R-A back and watch it preempt. Run arp -a on the PC: the gateway's MAC is the HSRP virtual MAC, not a router's own.
+[ ] 7. Verify
+      R1# show ip interface brief
+      R1# show ip route
+      DSW1# show ip route
+      DSW1# show interfaces vlan 10
+      R-A# show standby brief
+      R-A# show standby
+
+DONE WHEN: PCs in VLAN 10 and 20 ping each other through R1 and then through DSW1; show standby brief shows R-A Active and R-B Standby, and the roles swap and swap back when R-A's link is shut and restored.
+
+PACKET TRACER LIMITS AND NOTES
+  - Some Packet Tracer guides use encapsulation dot1Q 99 native on the ISR4331; support on every image is UNVERIFIED. If rejected, leave VLAN 99 off the router.
+  - HSRP on the Packet Tracer 3650 is UNVERIFIED, which is why Part C uses 2911 routers. VRRP and GLBP are UNVERIFIED in Packet Tracer and are theory only here.
+  - Cisco NetAcad publishes official Packet Tracer activities for router on a stick inter-VLAN routing if you want more practice.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

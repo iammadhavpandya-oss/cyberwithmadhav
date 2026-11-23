@@ -1,0 +1,42 @@
+CyberWithMadhav Learn: lesson 1.2 lab checklist
+Lab: watch the OS at work
+https://www.cyberwithmadhav.com/learn-operating-system-fundamentals.html
+
+Time: 40 minutes
+You need: Your Ubuntu VM from lesson 1.1 (restore the clean-install snapshot if you broke it). Optional: your own Windows PC.
+
+STEPS (tick each box when done)
+[ ] 1. See the process tree
+      $ ps -ef --forest | less
+      $ pstree -p | head -30
+      $ echo $$
+      Note: $$ is your shell's PID. Find it in the tree and follow the parents up to PID 1. What is PID 1 called?
+[ ] 2. Trace system calls
+      $ sudo apt install -y strace
+      $ strace -c ls /etc > /dev/null
+      $ strace -e trace=openat cat /etc/hostname
+      Note: The -c summary shows how many calls of each type a tiny command makes. Note how many files cat opens before it reaches the one you asked for (libraries and locale files).
+[ ] 3. Look at a process's memory map
+      $ cat /proc/self/maps | head -20
+      $ cat /proc/sys/kernel/randomize_va_space
+      $ cat /proc/self/maps | grep stack; cat /proc/self/maps | grep stack
+      Note: Run the last line twice: the stack address changes each run. That is ASLR working. Find the pages marked r-xp (code) and rw-p (data).
+[ ] 4. Inodes, links and timestamps
+      $ cd ~ && echo hello > a.txt
+      $ ln a.txt b.txt && ls -li a.txt b.txt
+      $ stat a.txt
+      $ touch -d '2020-01-01 10:00' a.txt && stat a.txt
+      Note: Both names share one inode number. The touch -d line is a harmless timestomp on your own file: notice which timestamp changed and which one (Change) still shows the real time. Investigators use exactly that mismatch.
+[ ] 5. Users and permissions
+      $ id
+      $ sudo useradd -m labuser
+      $ sudo -u labuser cat /home/student/a.txt
+      $ chmod 600 ~/a.txt && sudo -u labuser cat /home/student/a.txt
+      $ sudo userdel -r labuser
+      Note: Notice the second read fails with Permission denied (if your home folder is not readable by others the first may fail too, which is also a lesson). Replace student with your own user name.
+[ ] 6. Windows: the same ideas
+      Note: On your own Windows PC open Task Manager, Details tab, right click a column header, Select columns, and add Command line and Elevated. Then download Process Explorer from Microsoft Sysinternals (learn.microsoft.com/sysinternals) and view the process tree. Find lsass.exe and check its parent.
+
+DONE WHEN: You can name PID 1, show ASLR changing addresses, explain why two file names had one inode, and point to a process's parent on both Linux and Windows.
+
+Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000.

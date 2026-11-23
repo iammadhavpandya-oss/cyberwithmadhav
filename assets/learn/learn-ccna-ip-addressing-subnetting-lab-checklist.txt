@@ -1,0 +1,58 @@
+CyberWithMadhav Learn: lesson 3.2 lab checklist
+Packet Tracer lab 3.2: VLSM plan plus a dual stack link
+https://www.cyberwithmadhav.com/learn-ccna-ip-addressing-subnetting.html
+
+Time: 45 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 2 x ISR4331, 3 x 2960, 3 x PC-PT. Work out the VLSM table yourself before you read the answer in section 3.
+
+ADDRESSING
+  R1 | Gi0/0/0 | 192.168.50.1/25, 2001:db8:acad:a::1/64, fe80::1 | LAN-A gateway
+  R1 | Gi0/0/2 | 192.168.50.129/26, 2001:db8:acad:b::1/64, fe80::1 | LAN-B gateway
+  R1 | Gi0/0/1 | 192.168.50.225/30, 2001:db8:acad:12::1/64 | link to R2
+  R2 | Gi0/0/1 | 192.168.50.226/30, 2001:db8:acad:12::2/64 | link to R1
+  R2 | Gi0/0/0 | 192.168.50.193/27, 2001:db8:acad:c::1/64, fe80::2 | LAN-C gateway
+  PC-A | Fa0 | 192.168.50.10/25 | gw .1, IPv6 by SLAAC
+  PC-B | Fa0 | 192.168.50.140/26 | gw .129, IPv6 by SLAAC
+  PC-C | Fa0 | 192.168.50.200/27 | gw .193, IPv6 by SLAAC
+
+STEPS (tick each box when done)
+[ ] 1. IPv4 on every router interface
+      R1(config)# interface GigabitEthernet0/0/0
+      R1(config-if)# ip address 192.168.50.1 255.255.255.128
+      R1(config-if)# no shutdown
+[ ] 2. IPv6 routing and addresses
+      R1(config)# ipv6 unicast-routing
+      R1(config)# interface GigabitEthernet0/0/0
+      R1(config-if)# ipv6 address 2001:db8:acad:a::1/64
+      R1(config-if)# ipv6 address fe80::1 link-local
+[ ] 3. See EUI-64 for yourself
+      R1(config)# interface loopback 0
+      R1(config-if)# ipv6 address 2001:db8:acad:99::/64 eui-64
+      R1(config-if)# end
+      R1# show ipv6 interface brief
+      Note: Find FF:FE in the middle of the host part.
+[ ] 4. Clients
+      Note: Set each PC's IPv4 statically and IPv6 to Automatic (SLAAC) in IP Configuration.
+[ ] 5. Routes so the LANs meet (a preview of lesson 3.7)
+      R1(config)# ip route 192.168.50.192 255.255.255.224 192.168.50.226
+      R1(config)# ipv6 route 2001:db8:acad:c::/64 2001:db8:acad:12::2
+      R2(config)# ip route 192.168.50.0 255.255.255.128 192.168.50.225
+      R2(config)# ip route 192.168.50.128 255.255.255.192 192.168.50.225
+      R2(config)# ipv6 route 2001:db8:acad:a::/64 2001:db8:acad:12::1
+      R2(config)# ipv6 route 2001:db8:acad:b::/64 2001:db8:acad:12::1
+[ ] 6. Verify
+      R1# show ip interface brief
+      R1# show ipv6 interface brief
+      R1# show ipv6 interface GigabitEthernet0/0/0
+      R1# show ip route
+      R1# show ipv6 route
+      Note: Then ping PC-C from PC-A over IPv4 and IPv6, and run ipconfig on PC-A: its IPv6 gateway should be R1's link-local fe80::1.
+
+DONE WHEN: All three LANs reach each other over IPv4 and IPv6, your own VLSM table matches the one in section 3, and you found the FFFE in the EUI-64 address.
+
+PACKET TRACER LIMITS AND NOTES
+  - Whether Packet Tracer PCs build their SLAAC interface ID with EUI-64 or a random value can vary by version. UNVERIFIED.
+  - ipconfig /all on Packet Tracer PCs shows less detail than real Windows.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

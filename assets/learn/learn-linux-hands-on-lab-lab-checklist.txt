@@ -1,0 +1,26 @@
+CyberWithMadhav Learn: lesson 2.2 lab checklist
+Lab checklist: track your VM work
+https://www.cyberwithmadhav.com/learn-linux-hands-on-lab.html
+
+Time: 90 minutes in total
+You need: VirtualBox, the Ubuntu 24.04 LTS ISO, and your own PC for the SSH steps. Tick each step as you finish it; progress stays in this browser.
+
+STEPS (tick each box when done)
+[ ] 1. Build the VM
+      Note: Create the VM with the settings in section 1: NAT on adapter 1, host-only on adapter 2. Install Ubuntu and all updates.
+[ ] 2. Snapshot: clean
+      Note: Power off and take a snapshot named clean.
+[ ] 3. Finish the nine browser missions
+      Note: Complete every mission in the practice shell above.
+[ ] 4. Complete the eight drills
+      Note: Work through all eight drills on the VM and keep your notes.
+[ ] 5. Investigate the SSH failures
+      Note: Generate failures from your PC, find them in the logs and write the three line incident note.
+[ ] 6. Harden and verify
+      Note: Apply the hardening steps, then confirm every row of the checklist table shows the good result.
+[ ] 7. Snapshot: hardened
+      Note: Take a second snapshot named hardened. This is your base for the next stages.
+
+DONE WHEN: You have a hardened Ubuntu VM with two snapshots, notes from eight drills, and an incident note about a brute force you detected yourself.
+
+Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000.

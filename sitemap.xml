@@ -2,107 +2,152 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.cyberwithmadhav.com/</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/learn.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/learn-how-computers-work.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/learn-operating-system-fundamentals.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/learn-windows-for-security.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/learn-networking-basics.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/learn-linux-fundamentals.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/learn-linux-hands-on-lab.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-bash-scripting-for-security.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-linux-logging-auditing-hardening.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-ccna-network-building-blocks.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-ccna-ip-addressing-subnetting.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-ccna-switching-secure-access.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-ccna-vlans-trunks.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-ccna-stp-etherchannel.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-ccna-inter-vlan-routing-hsrp.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cyberwithmadhav.com/learn-ccna-static-routing.html</loc>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/explore.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/commands.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/scams.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/game.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/security-lab.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/dns-security-checker.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/email-header-analyzer.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/url-forensics.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/terminal.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/ctf.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/prompts.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/cyberlaw.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/blog.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -417,72 +462,72 @@
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/faq.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/start-here.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/uses.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/collaborate.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/cybersecurity-awareness-sessions.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/cyber-security-workshop-for-colleges.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/cyber-awareness-session-for-schools.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/cyber-awareness-speaker-mumbai.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/shop.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/now.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/about.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/terms.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/privacy.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.cyberwithmadhav.com/verify.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <priority>0.4</priority>
   </url>
 </urlset>

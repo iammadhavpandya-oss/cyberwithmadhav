@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routing Table and Static Routes for CCNA: Longest Match, AD, Floating Static | CyberWithMadhav</title>
+  <meta name="description" content="Free CCNA lesson: read a routing table, see why longest prefix match beats administrative distance, and configure IPv4 and IPv6 network, default, host and floating static routes, with a route game, IOS simulator and Packet Tracer lab.">
+  <meta name="keywords" content="ccna static routing, longest prefix match, administrative distance table, floating static route, default route 0.0.0.0, host route /32, ipv6 static route, show ip route explained, packet tracer static routing lab">
+  <meta name="author" content="Madhav Pandya">
+  <meta name="theme-color" content="#0D0B14">
+  <meta name="cwm-version" content="3">
+  <link rel="canonical" href="https://www.cyberwithmadhav.com/learn-ccna-static-routing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CyberWithMadhav">
+  <meta property="og:title" content="The Routing Table and Static Routing (IPv4 and IPv6) | Free lesson">
+  <meta property="og:description" content="Reading the routing table, longest prefix match, administrative distance, and default, host and floating static routes.">
+  <meta property="og:url" content="https://www.cyberwithmadhav.com/learn-ccna-static-routing.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Routing Table and Static Routing (IPv4 and IPv6) | Free lesson">
+  <meta name="twitter:description" content="Reading the routing table, longest prefix match, administrative distance, and default, host and floating static routes.">
+  <meta name="twitter:image" content="https://www.cyberwithmadhav.com/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="CyberWithMadhav: Cybersecurity in plain English and Hinglish.">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TjeCoHGdqgJi6FH/Jzpbb0OFrcJlW/iIFgzEhmhc7Y0=' https://gc.zgo.at; style-src 'self'; font-src 'self'; img-src 'self' data: blob: https://cyberwithmadhav.goatcounter.com; connect-src 'self' https://cyberwithmadhav.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <script>
+    /* v3: theme before first paint. Saved choice wins, else follow the system. */
+    (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
+  </script>
+  <script src="assets/js/i18n-dict.js?v=b001616f91"></script>
+  <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
+  <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
+<link rel="stylesheet" href="assets/css/style.css?v=0726e86d33">
+  <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
+  <link rel="stylesheet" href="assets/css/features.css?v=e695d1ea11">
+  <link rel="stylesheet" href="assets/css/learn.css?v=431f1cc225">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","@id":"https://www.cyberwithmadhav.com/learn-ccna-static-routing.html#lesson","name":"The Routing Table and Static Routing (IPv4 and IPv6)","headline":"The Routing Table and Static Routing (IPv4 and IPv6)","url":"https://www.cyberwithmadhav.com/learn-ccna-static-routing.html","description":"Free CCNA lesson: read a routing table, see why longest prefix match beats administrative distance, and configure IPv4 and IPv6 network, default, host and floating static routes, with a route game, IOS simulator and Packet Tracer lab.","learningResourceType":"Lesson","educationalLevel":"Intermediate","timeRequired":"PT60M","inLanguage":"en-IN","isAccessibleForFree":true,"teaches":["Read every field of a routing table entry","Pick the winning route using longest prefix match, then AD, then metric","Configure IPv4 and IPv6 network, default, host and floating static routes","Troubleshoot missing return routes with show ip route and traceroute"],"author":{"@type":"Person","name":"Madhav Pandya","url":"https://www.cyberwithmadhav.com/about.html"},"publisher":{"@type":"Organization","name":"CyberWithMadhav","url":"https://www.cyberwithmadhav.com/"},"datePublished":"2026-11-24","dateModified":"2026-11-24","isPartOf":{"@type":"Course","@id":"https://www.cyberwithmadhav.com/learn.html#course","name":"CyberWithMadhav Learn Path","url":"https://www.cyberwithmadhav.com/learn.html"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.cyberwithmadhav.com/"},{"@type":"ListItem","position":2,"name":"Learn","item":"https://www.cyberwithmadhav.com/learn.html"},{"@type":"ListItem","position":3,"name":"The Routing Table and Static Routing (IPv4 and IPv6)","item":"https://www.cyberwithmadhav.com/learn-ccna-static-routing.html"}]}]}
+  </script>
+</head>
+<body class="v3 learn-page" data-lesson="learn-ccna-static-routing">
+  <div class="space" aria-hidden="true">
+    <div class="nebula"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+    <canvas id="starfield"></canvas>
+  </div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="CyberWithMadhav home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Cyber<b>With</b>Madhav</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="learn.html" class="nav-learn active"><span data-i18n="nav.learn">Learn</span></a>
+        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
+        <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
+        <a href="cybersecurity-awareness-sessions.html" class="nav-sessions"><span class="nav-sessions-full" data-i18n="nav.sessions">Book a session</span><span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span></a>
+        <a href="shop.html" class="nav-shop"><span data-i18n="nav.shop">Shop</span></a>
+        <a href="ctf.html" class="nav-ctf"><span class="nav-ctf-dot" aria-hidden="true"></span><span data-i18n="nav.ctf">CTF</span></a>
+        <button class="lang-toggle" type="button" aria-pressed="false" aria-label="Language: English. Switch to Hinglish" title="Switch to Hinglish"><span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <span class="tt-track" aria-hidden="true">
+            <span class="tt-knob">
+              <svg class="tt-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+              <svg class="tt-moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+            </span>
+          </span>
+          <span class="tt-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="p-title">
+      <div class="wrap">
+        <p class="lx-crumb"><a href="learn.html">Learn</a> / <a href="learn.html#stage-3">Stage 3: Networking and CCNA</a> / Lesson 3.7</p>
+        <div class="lx-hero-grid">
+          <div>
+            <p class="kicker mono">$ lesson 3.7 --track ccna --domain routing</p>
+            <h1 id="p-title" data-i18n="lx.title">The Routing Table and Static Routing (IPv4 and IPv6)</h1>
+            <p class="lead" data-i18n="lx.lead">Every packet a router forwards is a lookup in one table. Learn to read that table line by line, predict which route wins, and build static routes, including the backup kind that waits quietly until the primary path fails.</p>
+            <ul class="lx-meta" aria-label="Lesson facts"><li>Stage <b>3</b> Networking and CCNA</li><li>Level <b>Intermediate</b></li><li><b>60</b> min</li><li><b>5</b> sections, quiz, lab</li></ul>
+            <p><a class="btn btn-primary" href="#table" data-i18n="lx.start">Start the lesson</a> <a class="btn btn-ghost" href="#lab" data-i18n="lx.jump">Jump to the lab</a></p>
+          </div>
+          <div class="lx-ring" aria-hidden="true"><span><b>0%</b><small>complete</small></span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section lx-sec" aria-label="Lesson">
+      <div class="wrap lx-layout">
+        <nav class="card lx-toc" aria-label="In this lesson"><h2 data-i18n="lx.toc">In this lesson</h2><ol><li><a href="#table"><i></i><span data-i18n="s.table.h">Reading a routing table</span></a></li><li><a href="#decision"><i></i><span data-i18n="s.decision.h">How a router picks a route</span></a></li><li><a href="#static"><i></i><span data-i18n="s.static.h">Static routes: network, default, host and floating</span></a></li><li><a href="#return-path"><i></i><span data-i18n="s.return-path.h">Troubleshooting: it is always the way back</span></a></li><li><a href="#practice"><i></i><span data-i18n="s.practice.h">Practise on R1</span></a></li><li><a href="#flashcards"><i></i><span data-i18n="lx.h.cards">Flashcards</span></a></li><li><a href="#quiz"><i></i><span data-i18n="lx.h.quiz">Quick quiz</span></a></li><li><a href="#lab"><i></i><span data-i18n="lx.h.lab">Hands-on lab</span></a></li><li><a href="#takeaways"><i></i><span data-i18n="lx.h.take">Key takeaways</span></a></li></ol></nav>
+        <article class="lx-article" data-sections="5">
+        <div class="card lx-goals"><h2 data-i18n="lx.h.goals">By the end of this lesson you can</h2><ul><li>Read every field of a routing table entry</li><li>Pick the winning route using longest prefix match, then AD, then metric</li><li>Configure IPv4 and IPv6 network, default, host and floating static routes</li><li>Troubleshoot missing return routes with show ip route and traceroute</li></ul></div>
+        <section id="table" aria-labelledby="table-h">
+          <span class="lx-num mono">3.7.01</span>
+          <h2 id="table-h" data-i18n="s.table.h">Reading a routing table</h2>
+          <div class="lx-code lx-ioscode"><pre tabindex="0" aria-label="A routing table"><code><span class="p">R1#</span><span class="cmd">show ip route</span>
+<span class="o">Codes: L - local, C - connected, S - static, O - OSPF</span>
+<span class="o">       * - candidate default</span>
+<span class="o"></span>
+<span class="o">Gateway of last resort is not set</span>
+<span class="o"></span>
+<span class="o">C        10.0.12.0/30 is directly connected, GigabitEthernet0/0/1</span>
+<span class="o">L        10.0.12.1/32 is directly connected, GigabitEthernet0/0/1</span>
+<span class="o">S        192.168.3.0/24 [1/0] via 10.0.12.2</span>
+<span class="o">O        10.20.0.0/16 [110/20] via 10.0.12.2, 00:01:12, GigabitEthernet0/0/1</span></code></pre></div>
+<ul><li><strong>Code</strong>: C connected, L local (the router's own address as a /32), S static, O OSPF, and an asterisk marks a candidate default route.</li>
+<li><strong>Prefix and length</strong>: the destination network.</li><li><strong>[AD/metric]</strong>: administrative distance (how much the router trusts the source) and the protocol's metric (how far).</li>
+<li><strong>via</strong>: the next hop, then for dynamic routes the age and the exit interface.</li>
+<li><strong>Gateway of last resort</strong>: the default route, used when nothing more specific matches.</li></ul>
+          <aside class="lx-call lx-hi" role="note" data-lang-only="hi"><b>Hinglish mein samjho</b><div><p>Routing table mein code (C connected, L local, S static, O OSPF, * default), prefix, [AD/metric], next hop aur exit interface hota hai. Gateway of last resort matlab default route.</p></div></aside>
+          <button type="button" class="lx-got" data-sec="table" aria-pressed="false"><i aria-hidden="true"></i><span data-i18n="lx.got">I understood this section</span></button>
+        </section>
+        <section id="decision" aria-labelledby="decision-h">
+          <span class="lx-num mono">3.7.02</span>
+          <h2 id="decision-h" data-i18n="s.decision.h">How a router picks a route</h2>
+          <ol><li><strong>Longest prefix match first.</strong> Of all routes that contain the destination, the most specific wins. A /32 beats a /24, which beats a /16, which beats the /0 default. This happens no matter what the AD is.</li>
+<li><strong>AD only for identical prefixes.</strong> When two sources offer the same prefix and length, only the lowest AD enters the table.</li>
+<li><strong>Metric</strong> breaks ties within one routing protocol.</li></ol>
+<div class="lx-tbl" tabindex="0" role="region" aria-label="Administrative distance"><table><caption class="sr-only">Administrative distance</caption><thead><tr><th scope="col">Source</th><th scope="col">Default AD</th></tr></thead><tbody><tr><th scope="row">Connected</th><td>0</td></tr><tr><th scope="row">Static</th><td>1</td></tr><tr><th scope="row">eBGP</th><td>20</td></tr><tr><th scope="row">EIGRP (internal)</th><td>90</td></tr><tr><th scope="row">OSPF</th><td>110</td></tr><tr><th scope="row">RIP</th><td>120</td></tr><tr><th scope="row">EIGRP (external)</th><td>170</td></tr><tr><th scope="row">iBGP</th><td>200</td></tr><tr><th scope="row">Unusable</th><td>255</td></tr></tbody></table></div>
+<p>Practise with the game. This router has no default route, so a packet that matches nothing is dropped.</p>
+<div class="card lx-widget lx-route"><h3>Which route wins?</h3><p class="hint">These are all the routes this router learned, from every source. Only the best source for each prefix goes into the routing table, then the longest matching prefix forwards the packet. Pick the route that forwards each packet, or drop it.</p><p class="lx-rq" aria-live="polite"></p><div class="lx-tbl" tabindex="0" role="region" aria-label="Candidate routes"><table><caption class="sr-only">Candidate routes</caption><thead><tr><th scope="col">Source</th><th scope="col">Prefix</th><th scope="col">AD</th><th scope="col">Metric</th><th scope="col">Next hop</th><th scope="col"><span class="sr-only">Choose</span></th></tr></thead><tbody></tbody></table></div><p><button type="button" class="lx-wbtn" data-drop>Drop it: no route matches</button> <button type="button" class="lx-wbtn" data-next hidden>Next packet</button> <span class="lx-rscore small muted"></span></p><p class="lx-rfb" aria-live="polite"></p><script type="application/json" class="lx-route-cfg">{"routes": [{"c": "C", "src": "connected", "p": "192.168.1.0/24", "ad": 0, "m": 0, "via": "Gi0/0/0"}, {"c": "S", "src": "static", "p": "192.168.3.0/24", "ad": 1, "m": 0, "via": "10.0.12.2"}, {"c": "S", "src": "static (floating)", "p": "192.168.3.0/24", "ad": 5, "m": 0, "via": "10.0.13.2"}, {"c": "S", "src": "static", "p": "192.168.3.100/32", "ad": 1, "m": 0, "via": "10.0.13.2"}, {"c": "O", "src": "OSPF", "p": "10.20.0.0/16", "ad": 110, "m": 20, "via": "10.0.12.2"}, {"c": "R", "src": "RIP", "p": "10.20.30.0/24", "ad": 120, "m": 2, "via": "10.0.13.2"}, {"c": "D", "src": "EIGRP", "p": "10.20.0.0/16", "ad": 90, "m": 3072, "via": "10.0.13.2"}], "dests": ["192.168.3.100", "192.168.3.50", "10.20.30.5", "10.20.99.1", "192.168.1.20", "172.16.5.5", "10.21.0.1"]}</script></div>
+          <aside class="lx-call lx-hi" role="note" data-lang-only="hi"><b>Hinglish mein samjho</b><div><p>Pehle longest prefix match: /32 /24 se jeetega, /24 /16 se, chahe AD kuch bhi ho. AD sirf same prefix ke beech decide karta hai: connected 0, static 1, EIGRP 90, OSPF 110, RIP 120. Metric ek protocol ke andar tie todta hai. Game khelo: is router pe default route nahi hai.</p></div></aside>
+          <button type="button" class="lx-got" data-sec="decision" aria-pressed="false"><i aria-hidden="true"></i><span data-i18n="lx.got">I understood this section</span></button>
+        </section>
+        <section id="static" aria-labelledby="static-h">
+          <span class="lx-num mono">3.7.03</span>
+          <h2 id="static-h" data-i18n="s.static.h">Static routes: network, default, host and floating</h2>
+          <div class="lx-code lx-ioscode"><pre tabindex="0" aria-label="Static routes"><code><span class="c">! network route via a next hop (recursive: the router then looks up how to reach 10.0.12.2)</span>
+<span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.0 255.255.255.0 10.0.12.2</span>
+<span class="c">! exit interface only: fine on point to point links, avoid on Ethernet</span>
+<span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.0 255.255.255.0 GigabitEthernet0/0/1</span>
+<span class="c">! fully specified: both</span>
+<span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.0 255.255.255.0 GigabitEthernet0/0/1 10.0.12.2</span>
+<span class="c">! default route</span>
+<span class="p">R2(config)#</span><span class="cmd">ip route 0.0.0.0 0.0.0.0 10.0.12.1</span>
+<span class="c">! host route</span>
+<span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.100 255.255.255.255 10.0.13.2</span>
+<span class="c">! floating static: AD 5, only used if the AD 1 route disappears</span>
+<span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.0 255.255.255.0 10.0.13.2 5</span>
+<span class="c">! IPv6 equivalents</span>
+<span class="p">R1(config)#</span><span class="cmd">ipv6 route 2001:db8:1:3::/64 2001:db8:12::2</span>
+<span class="p">R1(config)#</span><span class="cmd">ipv6 route ::/0 2001:db8:12::2</span></code></pre></div>
+<ul><li>A floating static sits in the running config but stays out of the routing table while the primary route is installed.</li>
+<li>A static route via a next hop stays installed as long as the router can still reach that next hop through an up interface. If the far router dies but your local interface stays up, the route usually stays too, and traffic is black holed. That is why real networks pair statics with tracking or use a routing protocol.</li>
+<li>For IPv6, if the next hop is a link-local address (fe80::), you must also name the exit interface.</li></ul>
+          <aside class="lx-call lx-hi" role="note" data-lang-only="hi"><b>Hinglish mein samjho</b><div><p>Static route next hop IP se (recursive lookup), exit interface se (sirf point to point pe) ya dono se. Default 0.0.0.0/0, host route /32, floating static higher AD ke saath (jaise 5), jo primary girne pe hi table mein aata hai. Local interface up rahe aur door ka router mar jaaye toh route rehta hai aur traffic black hole hota hai.</p></div></aside>
+          <button type="button" class="lx-got" data-sec="static" aria-pressed="false"><i aria-hidden="true"></i><span data-i18n="lx.got">I understood this section</span></button>
+        </section>
+        <section id="return-path" aria-labelledby="return-path-h">
+          <span class="lx-num mono">3.7.04</span>
+          <h2 id="return-path-h" data-i18n="s.return-path.h">Troubleshooting: it is always the way back</h2>
+          <p>A ping needs a route there <em>and</em> a route back. Most static routing tickets are a forgotten return route on the far router. Work hop by hop: <code>show ip route</code> on each router for the destination and for the source, then <code>traceroute</code> (on a PC: <code>tracert</code>) to see where packets stop.</p>
+<div class="lx-code lx-ioscode"><pre tabindex="0" aria-label="Which route is used for one destination"><code><span class="p">R1#</span><span class="cmd">show ip route 192.168.3.100</span>
+<span class="o">Routing entry for 192.168.3.100/32</span>
+<span class="o">  Known via &quot;static&quot;, distance 1, metric 0</span>
+<span class="o">  Routing Descriptor Blocks:</span>
+<span class="o">  * 10.0.13.2</span>
+<span class="o">      Route metric is 0, traffic share count is 1</span></code></pre></div>
+<aside class="lx-call lx-attack" role="note"><b data-i18n="lx.c.attack">How attackers abuse this</b><div><p>Routers are not usually attacked through static routes over the wire, but a compromised admin account can add one quietly: send a subnet's traffic through a capture box, or black hole a monitoring server so alerts never arrive. Asymmetric paths also break stateful firewalls, which see only half of each session and drop it.</p></div></aside>
+<aside class="lx-call lx-defend" role="note"><b data-i18n="lx.c.defend">Defender move</b><div><p>Strong AAA and MFA for device logins (lesson 3.12), configuration change logging to syslog (lesson 3.11), regular config backups you can diff, and a review of <code>show ip route</code> after every change. Null routes are a defensive tool too: <code>ip route 198.51.100.0 255.255.255.0 Null0</code> silently drops traffic to a known bad prefix.</p></div></aside>
+          <aside class="lx-call lx-hi" role="note" data-lang-only="hi"><b>Hinglish mein samjho</b><div><p>Ping ko jaane aur wapas aane dono ka route chahiye. Zyada tar problem far router pe return route bhoolna hota hai. Har hop pe show ip route aur traceroute. Compromised admin chupke se route daal ke traffic capture ya monitoring black hole kar sakta hai: AAA, MFA, change logging aur config backups se bachav. Null0 route bad prefix ko drop karta hai.</p></div></aside>
+          <button type="button" class="lx-got" data-sec="return-path" aria-pressed="false"><i aria-hidden="true"></i><span data-i18n="lx.got">I understood this section</span></button>
+        </section>
+        <section id="practice" aria-labelledby="practice-h">
+          <span class="lx-num mono">3.7.05</span>
+          <h2 id="practice-h" data-i18n="s.practice.h">Practise on R1</h2>
+          <div class="lx-ios" role="region" aria-label="R1 static routes"><div class="lx-term-bar"><i></i><i></i><i></i>console: R1 (R1 static routes)</div><div class="lx-term-grid"><div><div class="lx-term-out" role="log" aria-live="polite" tabindex="0"></div><div class="lx-term-in"><label for="io-l37"></label><input id="io-l37" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type an IOS command and press Enter"></div></div><div class="lx-missions"><h4>Missions <span class="lx-mcount">0/9</span></h4><ol></ol></div></div><div class="lx-term-foot"><span>Simplified IOS simulator in your browser. It teaches the commands; Packet Tracer and real gear have many more.</span><button type="button" data-reset>Reset device</button></div><script type="application/json" class="lx-ios-cfg">{"id": "l37", "kind": "router", "host": "R1", "ifaces": ["GigabitEthernet0/0/0", "GigabitEthernet0/0/1", "GigabitEthernet0/0/2"], "up": ["GigabitEthernet0/0/0", "GigabitEthernet0/0/1", "GigabitEthernet0/0/2"], "init": {"GigabitEthernet0/0/0": {"shut": false, "ip": "192.168.1.1", "mask": "255.255.255.0"}, "GigabitEthernet0/0/1": {"shut": false, "ip": "10.0.12.1", "mask": "255.255.255.252"}, "GigabitEthernet0/0/2": {"shut": false, "ip": "10.0.13.1", "mask": "255.255.255.252"}}, "intro": ["R1 from the lab, interfaces already addressed. R2 is 10.0.12.2, R3 is 10.0.13.2, LAN3 is 192.168.3.0/24 behind R2."], "missions": [{"t": "Look at the routing table. How many connected (C) networks does R1 have? Type <code>answer N<\/code>.", "hint": "enable, show ip route", "c": {"type": "answer", "v": "3"}}, {"t": "Add the primary route to LAN3 via R2.", "hint": "configure terminal, ip route 192.168.3.0 255.255.255.0 10.0.12.2", "c": {"type": "run", "re": "^ip route 192\\.168\\.3\\.0 255\\.255\\.255\\.0 10\\.0\\.12\\.2$"}}, {"t": "Add a floating backup to LAN3 via R3 with AD 5.", "hint": "ip route 192.168.3.0 255.255.255.0 10.0.13.2 5", "c": {"type": "run", "re": "^ip route 192\\.168\\.3\\.0 255\\.255\\.255\\.0 10\\.0\\.13\\.2 5$"}}, {"t": "Is the floating route in the routing table right now? Type <code>answer yes<\/code> or <code>answer no<\/code>.", "hint": "do show ip route", "c": {"type": "answer", "v": "no"}, "ok": "No. Only the AD 1 route is installed; the AD 5 route waits in the running config."}, {"t": "Send traffic for Server3 (192.168.3.100) via R3 with a host route.", "hint": "ip route 192.168.3.100 255.255.255.255 10.0.13.2", "c": {"type": "run", "re": "^ip route 192\\.168\\.3\\.100 255\\.255\\.255\\.255 10\\.0\\.13\\.2$"}}, {"t": "Ask R1 which route it uses for 192.168.3.100.", "hint": "do show ip route 192.168.3.100", "c": {"type": "out", "re": "Routing entry for 192\\.168\\.3\\.100/32"}}, {"t": "Add the IPv6 route to LAN3 via R2.", "hint": "ipv6 unicast-routing, then ipv6 route 2001:db8:1:3::/64 2001:db8:12::2", "c": {"type": "run", "re": "^ipv6 route 2001:DB8:1:3::/64 2001:DB8:12::2$"}}, {"t": "Simulate losing the R2 link: shut Gi0/0/1, then look at the routing table again.", "hint": "interface g0/0/1, shutdown, end, show ip route", "c": {"type": "out", "re": "S\\s+192\\.168\\.3\\.0/24 \\[5/0\\] via 10\\.0\\.13\\.2"}, "ok": "The floating route took over as [5/0] via R3."}, {"t": "Restore Gi0/0/1 and save.", "hint": "interface g0/0/1, no shutdown, end, copy running-config startup-config", "c": {"type": "saved"}}]}</script></div>
+          <aside class="lx-call lx-hi" role="note" data-lang-only="hi"><b>Hinglish mein samjho</b><div><p>Simulator mein R1: connected routes gino, primary route R2 se, floating AD 5 R3 se, host route Server3 ke liye, show ip route 192.168.3.100, IPv6 route, Gi0/0/1 shut karke floating route ko kaam karte dekho, phir restore aur save.</p></div></aside>
+          <button type="button" class="lx-got" data-sec="practice" aria-pressed="false"><i aria-hidden="true"></i><span data-i18n="lx.got">I understood this section</span></button>
+        </section>
+        <section id="flashcards" aria-labelledby="fc-h">
+          <h2 id="fc-h" data-i18n="lx.h.cards">Flashcards: do you remember?</h2>
+          <p class="muted" data-i18n="lx.cards.p">Tap a card to flip it. Try to answer in your head first; recalling is what makes it stick.</p>
+          <div class="lx-cards"><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 1</small><b>What decides first, prefix length or AD?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>Prefix length (longest match).</span></span></span></button><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 2</small><b>AD of static?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>1</span></span></span></button><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 3</small><b>AD of OSPF?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>110</span></span></span></button><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 4</small><b>AD of EIGRP internal?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>90</span></span></span></button><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 5</small><b>What is a floating static?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>A static with a higher AD that is only used if the primary disappears.</span></span></span></button><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 6</small><b>Default route?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>ip route 0.0.0.0 0.0.0.0 <next hop></span></span></span></button><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 7</small><b>Code L in show ip route?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>The router's own interface address as a /32.</span></span></span></button><button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card 8</small><b>IPv6 static via link-local next hop needs?</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>The exit interface too.</span></span></span></button></div>
+          <p><button type="button" class="lx-wbtn" id="lx-flipall" data-i18n="lx.flipall">Flip all cards</button></p>
+        </section>
+        <section id="quiz" aria-labelledby="qz-h">
+          <h2 id="qz-h" data-i18n="lx.h.quiz">Quick quiz</h2>
+          <p class="muted" data-i18n="lx.quiz.p">Instant feedback on every answer. Score 70% or more to pass this lesson's quiz.</p>
+          <div class="lx-quiz"><div class="card lx-q" data-a="1"><h3><span>Q1</span>Routes: OSPF 10.1.0.0/16 and RIP 10.1.1.0/24. Destination 10.1.1.9 uses?</h3><ul class="lx-opts"><li><button type="button"><i>A</i><span>OSPF, lower AD</span></button></li><li><button type="button"><i>B</i><span>RIP, longer prefix</span></button></li><li><button type="button"><i>C</i><span>Both, load shared</span></button></li><li><button type="button"><i>D</i><span>Neither</span></button></li></ul><p class="lx-why" hidden aria-live="polite"><b></b>Longest prefix match comes before AD.</p></div><div class="card lx-q" data-a="1"><h3><span>Q2</span>Which line adds a floating backup default route?</h3><ul class="lx-opts"><li><button type="button"><i>A</i><span>ip route 0.0.0.0 0.0.0.0 203.0.113.1</span></button></li><li><button type="button"><i>B</i><span>ip route 0.0.0.0 0.0.0.0 203.0.113.9 200</span></button></li><li><button type="button"><i>C</i><span>ip default-gateway 203.0.113.9</span></button></li><li><button type="button"><i>D</i><span>ip route 0.0.0.0 255.255.255.255 203.0.113.9</span></button></li></ul><p class="lx-why" hidden aria-live="polite"><b></b>A higher AD makes it float.</p></div><div class="card lx-q" data-a="1"><h3><span>Q3</span>Ping from LAN1 to LAN3 fails. R1 has a route to LAN3. What is the next thing to check?</h3><ul class="lx-opts"><li><button type="button"><i>A</i><span>R1's banner</span></button></li><li><button type="button"><i>B</i><span>That R2 has a route back to LAN1</span></button></li><li><button type="button"><i>C</i><span>DNS</span></button></li><li><button type="button"><i>D</i><span>VLAN 1</span></button></li></ul><p class="lx-why" hidden aria-live="polite"><b></b>Traffic needs a path back.</p></div><div class="card lx-q" data-a="1"><h3><span>Q4</span>Two static routes for 192.168.3.0/24 with AD 1 and AD 5. What is in the routing table?</h3><ul class="lx-opts"><li><button type="button"><i>A</i><span>Both</span></button></li><li><button type="button"><i>B</i><span>Only the AD 1 route</span></button></li><li><button type="button"><i>C</i><span>Only the AD 5 route</span></button></li><li><button type="button"><i>D</i><span>Neither</span></button></li></ul><p class="lx-why" hidden aria-live="polite"><b></b>Only the best AD for the same prefix is installed.</p></div><div class="card lx-q" data-a="1"><h3><span>Q5</span>Why avoid an exit interface only static on Ethernet?</h3><ul class="lx-opts"><li><button type="button"><i>A</i><span>It is not supported</span></button></li><li><button type="button"><i>B</i><span>The router must ARP for every destination on that segment</span></button></li><li><button type="button"><i>C</i><span>It disables CDP</span></button></li><li><button type="button"><i>D</i><span>It changes the AD to 0</span></button></li></ul><p class="lx-why" hidden aria-live="polite"><b></b>It relies on proxy ARP and wastes resources.</p></div><div class="card lx-q" data-a="1"><h3><span>Q6</span>What does <code>ip route 198.51.100.0 255.255.255.0 Null0</code> do?</h3><ul class="lx-opts"><li><button type="button"><i>A</i><span>Routes to the internet</span></button></li><li><button type="button"><i>B</i><span>Drops traffic to that prefix</span></button></li><li><button type="button"><i>C</i><span>Creates a loop</span></button></li><li><button type="button"><i>D</i><span>Enables NAT</span></button></li></ul><p class="lx-why" hidden aria-live="polite"><b></b>A black hole route.</p></div>
+            <div class="card lx-score" id="lx-score" aria-live="polite"><b>0 / 6</b><span class="msg"></span><button type="button" class="lx-wbtn" id="lx-retry" data-i18n="lx.retry">Retry the quiz</button></div>
+          </div>
+        </section>
+        <section id="lab" aria-labelledby="lab-h">
+          <h2 id="lab-h" data-i18n="lx.h.lab">Hands-on lab</h2>
+          <div class="card lx-lab">
+            <div class="lx-lab-top"><span class="tag g">Cisco Packet Tracer lab</span><span class="tag">50 minutes</span><span class="tag">simulated network</span></div>
+            <h3>Packet Tracer lab 3.7: static, host and floating routes</h3>
+            <p><strong data-i18n="lx.need">You need:</strong> Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 3 x ISR4331, 2 x 2960, PC1, PC3, Server3. Enable <code>ipv6 unicast-routing</code> on every router.</p>
+            <div class="lx-legal" role="note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg><p data-i18n="lx.pt.legal"><strong>Simulator lab, zero risk.</strong> This lab runs inside Cisco Packet Tracer, so it touches no real network. Packet Tracer is free with a Cisco Networking Academy account (netacad.com). It simulates a subset of Cisco IOS, so where support for a feature is uncertain we say so instead of promising it works.</p></div>
+            <div class="lx-pt-pre"><h4 data-i18n="lx.pt.topo">Topology and addressing</h4><figure class="lx-fig" role="group" aria-label="Lab topology"><svg viewBox="0 0 760 300" role="img" aria-label="Lab 3.7 topology: R1 reaches LAN3 behind R2 directly or through R3" xmlns="http://www.w3.org/2000/svg"><title>Lab 3.7 topology: R1 reaches LAN3 behind R2 directly or through R3</title><line x1="50" y1="70" x2="230" y2="70" class="ln" stroke-width="2"/><text x="181" y="64" font-size="10.5" text-anchor="middle" class="t-m lx-tl">Gi0/0/0</text><line x1="230" y1="70" x2="530" y2="70" class="ln-p" stroke-width="3"/><text x="311" y="64" font-size="10.5" text-anchor="middle" class="t-m lx-tl">Gi0/0/1 .1</text><text x="449" y="64" font-size="10.5" text-anchor="middle" class="t-m lx-tl">.2 Gi0/0/1</text><line x1="230" y1="70" x2="380" y2="230" class="ln" stroke-width="2"/><text x="270" y="107" font-size="10.5" text-anchor="middle" class="t-m lx-tl">Gi0/0/2 .1</text><text x="340" y="181" font-size="10.5" text-anchor="middle" class="t-m lx-tl">.2 Gi0/0/1</text><line x1="530" y1="70" x2="380" y2="230" class="ln" stroke-width="2"/><text x="490" y="107" font-size="10.5" text-anchor="middle" class="t-m lx-tl">Gi0/0/2 .1</text><text x="420" y="181" font-size="10.5" text-anchor="middle" class="t-m lx-tl">.2 Gi0/0/0</text><line x1="530" y1="70" x2="710" y2="40" class="ln" stroke-width="2"/><text x="579" y="56" font-size="10.5" text-anchor="middle" class="t-m lx-tl">Gi0/0/0</text><line x1="530" y1="70" x2="710" y2="130" class="ln" stroke-width="2"/><rect x="33" y="56" width="34" height="23" rx="3" class="s-n" stroke-width="1.5"/><path d="M44 85h12M50 79v6" class="ln" stroke-width="1.5"/><text x="50" y="94" font-size="12.5" font-weight="600" text-anchor="middle">PC1</text><text x="50" y="108" font-size="10.5" text-anchor="middle" class="t-m">192.168.1.10</text><circle cx="230" cy="70" r="22" class="s-p" stroke-width="1.6"/><path d="M219 66h22M235 61l6 5-6 5M219 75h22M225 70l-6 5 6 5" class="ln-p" stroke-width="1.6" fill="none"/><text x="230" y="106" font-size="12.5" font-weight="600" text-anchor="middle">R1</text><circle cx="530" cy="70" r="22" class="s-p" stroke-width="1.6"/><path d="M519 66h22M535 61l6 5-6 5M519 75h22M525 70l-6 5 6 5" class="ln-p" stroke-width="1.6" fill="none"/><text x="530" y="106" font-size="12.5" font-weight="600" text-anchor="middle">R2</text><circle cx="380" cy="230" r="22" class="s-p" stroke-width="1.6"/><path d="M369 226h22M385 221l6 5-6 5M369 235h22M375 230l-6 5 6 5" class="ln-p" stroke-width="1.6" fill="none"/><text x="380" y="266" font-size="12.5" font-weight="600" text-anchor="middle">R3</text><rect x="693" y="26" width="34" height="23" rx="3" class="s-n" stroke-width="1.5"/><path d="M704 55h12M710 49v6" class="ln" stroke-width="1.5"/><text x="710" y="64" font-size="12.5" font-weight="600" text-anchor="middle">PC3</text><text x="710" y="78" font-size="10.5" text-anchor="middle" class="t-m">192.168.3.10</text><rect x="696" y="110" width="28" height="40" rx="3" class="s-n" stroke-width="1.5"/><path d="M702 120h16M702 128h16M702 136h16" class="ln" stroke-width="1.3"/><text x="710" y="166" font-size="12.5" font-weight="600" text-anchor="middle">Server3</text><text x="710" y="180" font-size="10.5" text-anchor="middle" class="t-m">192.168.3.100</text></svg><figcaption>R1 to R2 on 10.0.12.0/30, R1 to R3 on 10.0.13.0/30, R2 to R3 on 10.0.23.0/30. LAN1 behind R1, LAN3 (PC3 and Server3) behind R2.</figcaption></figure><div class="lx-tbl" tabindex="0" role="region" aria-label="Addressing table"><table><caption class="sr-only">Addressing table</caption><thead><tr><th scope="col">Device</th><th scope="col">Interface</th><th scope="col">IPv4 address / prefix</th><th scope="col">Default gateway or note</th></tr></thead><tbody><tr><th scope="row">R1</th><td>Gi0/0/0</td><td>192.168.1.1/24, 2001:db8:1:1::1/64</td><td>LAN1</td></tr><tr><th scope="row">R1</th><td>Gi0/0/1</td><td>10.0.12.1/30, 2001:db8:12::1/64</td><td>to R2</td></tr><tr><th scope="row">R1</th><td>Gi0/0/2</td><td>10.0.13.1/30, 2001:db8:13::1/64</td><td>to R3</td></tr><tr><th scope="row">R2</th><td>Gi0/0/1</td><td>10.0.12.2/30, 2001:db8:12::2/64</td><td>to R1</td></tr><tr><th scope="row">R2</th><td>Gi0/0/2</td><td>10.0.23.1/30, 2001:db8:23::2/64</td><td>to R3</td></tr><tr><th scope="row">R2</th><td>Gi0/0/0</td><td>192.168.3.1/24, 2001:db8:1:3::1/64</td><td>LAN3</td></tr><tr><th scope="row">R3</th><td>Gi0/0/1</td><td>10.0.13.2/30, 2001:db8:13::3/64</td><td>to R1</td></tr><tr><th scope="row">R3</th><td>Gi0/0/0</td><td>10.0.23.2/30, 2001:db8:23::3/64</td><td>to R2</td></tr><tr><th scope="row">PC1</th><td>Fa0</td><td>192.168.1.10/24</td><td>gw 192.168.1.1</td></tr><tr><th scope="row">PC3</th><td>Fa0</td><td>192.168.3.10/24</td><td>gw 192.168.3.1</td></tr><tr><th scope="row">Server3</th><td>Fa0</td><td>192.168.3.100/24</td><td>gw 192.168.3.1</td></tr></tbody></table></div></div>
+            <ol class="lx-labsteps"><li><h4>Address everything</h4><p>Use the table. Check every router with <code>show ip interface brief</code> before adding a single route: half of all routing problems are an interface that is still shut.</p><label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li><li><h4>R1: primary, floating and host routes</h4><div class="lx-code lx-ioscode"><pre tabindex="0" aria-label="R1"><code><span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.0 255.255.255.0 10.0.12.2</span>
+<span class="p">R1(config)#</span><span class="cmd">ipv6 route 2001:db8:1:3::/64 2001:db8:12::2</span>
+<span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.0 255.255.255.0 10.0.13.2 5</span>
+<span class="p">R1(config)#</span><span class="cmd">ipv6 route 2001:db8:1:3::/64 2001:db8:13::3 5</span>
+<span class="p">R1(config)#</span><span class="cmd">ip route 192.168.3.100 255.255.255.255 10.0.13.2</span></code></pre></div><label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li><li><h4>R2: default route back, plus a floating default</h4><div class="lx-code lx-ioscode"><pre tabindex="0" aria-label="R2"><code><span class="p">R2(config)#</span><span class="cmd">ip route 0.0.0.0 0.0.0.0 10.0.12.1</span>
+<span class="p">R2(config)#</span><span class="cmd">ipv6 route ::/0 2001:db8:12::1</span>
+<span class="p">R2(config)#</span><span class="cmd">ip route 0.0.0.0 0.0.0.0 10.0.23.2 5</span></code></pre></div><label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li><li><h4>R3: routes to both LANs</h4><div class="lx-code lx-ioscode"><pre tabindex="0" aria-label="R3"><code><span class="p">R3(config)#</span><span class="cmd">ip route 192.168.1.0 255.255.255.0 10.0.13.1</span>
+<span class="p">R3(config)#</span><span class="cmd">ip route 192.168.3.0 255.255.255.0 10.0.23.1</span>
+<span class="p">R3(config)#</span><span class="cmd">ipv6 route 2001:db8:1:1::/64 2001:db8:13::1</span>
+<span class="p">R3(config)#</span><span class="cmd">ipv6 route 2001:db8:1:3::/64 2001:db8:23::2</span></code></pre></div><label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li><li><h4>Compare paths</h4><p>From PC1: <code>tracert 192.168.3.10</code> should go R1, R2. <code>tracert 192.168.3.100</code> should go R1, R3, R2, because the /32 host route wins over the /24.</p><label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li><li><h4>Fail the primary</h4><p>Shut R1 Gi0/0/1 and run <code>show ip route</code> on R1: the floating route appears as [5/0] via 10.0.13.2. Ping PC3 again. Then bring Gi0/0/1 back.</p><label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li><li><h4>Verify</h4><div class="lx-code lx-ioscode"><pre tabindex="0" aria-label="Verify"><code><span class="p">R1#</span><span class="cmd">show ip route</span>
+<span class="p">R1#</span><span class="cmd">show ip route static</span>
+<span class="p">R1#</span><span class="cmd">show ip route 192.168.3.100</span>
+<span class="p">R1#</span><span class="cmd">show ipv6 route static</span>
+<span class="p">R1#</span><span class="cmd">show running-config | include ip route</span></code></pre></div><label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li></ol>
+            <p class="mt-12"><strong data-i18n="lx.verify">You are done when:</strong> R1 shows S 192.168.3.0/24 [1/0] via 10.0.12.2 and S 192.168.3.100/32 [1/0] via 10.0.13.2; the AD 5 route appears only while Gi0/0/1 is shut; tracert to the server goes through R3.</p>
+            <div class="lx-limits" role="note"><h4 data-i18n="lx.pt.limits">Packet Tracer limits and notes</h4><ul><li>This lab corrects one detail you may see in other guides: on a /30 only .1 and .2 are usable, so R3 uses 10.0.13.2 and R2 uses 10.0.23.1.</li><li>As on real IOS, a static route via a next hop usually stays installed when the far router fails but your local interface stays up. That is why this lab shuts the local interface to test failover.</li><li>Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.</li></ul></div>
+            <p class="lx-dl"><a class="btn btn-ghost" href="assets/learn/learn-ccna-static-routing-lab-checklist.txt" download><span data-i18n="lx.pt.dl">Download the lab checklist (.txt)</span></a> <span class="small muted" data-i18n="lx.pt.dlp">Print it or keep it open beside Packet Tracer.</span></p>
+          </div>
+        </section>
+        <section id="takeaways" aria-labelledby="tk-h">
+          <h2 id="tk-h" data-i18n="lx.h.take">Key takeaways</h2>
+          <div class="card lx-take"><ul><li>Longest prefix first, then AD, then metric.</li><li>Static routes: network, default, host, floating.</li><li>Floating statics wait in the config until the primary disappears.</li><li>Every path needs a return path.</li><li>Log and review route changes like any security relevant change.</li></ul></div>
+          <div class="card lx-complete"><p class="muted" data-i18n="lx.complete.p">Finished the sections, quiz and lab? Mark the lesson complete. Progress is saved only in this browser.</p><button type="button" class="btn btn-primary" id="lx-done" aria-pressed="false">Mark the whole lesson complete</button></div>
+          <nav class="lx-pager" aria-label="Lesson navigation"><a href="learn-ccna-inter-vlan-routing-hsrp.html"><small data-i18n="lx.prev">Previous</small>3.6 Inter-VLAN Routing and First Hop Redundancy: Router on a Stick, SVIs, HSRP</a><a class="nx" href="learn.html#stage-4"><small data-i18n="lx.next">Next</small>Stage 4: Security Fundamentals (coming soon)</a></nav>
+        </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="foot-legal" aria-label="Legal"><a href="terms.html" data-i18n="foot.terms">Terms and Conditions</a><a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a></nav>
+      <div class="foot-row">
+        <p class="small muted">© <span id="year">2026</span> CyberWithMadhav · Madhav Pandya. For learning and defensive or authorised work only.</p>
+        <p class="small"><a href="about.html" data-i18n="foot.about">About Madhav Pandya</a> · <a href="blog.html" data-i18n="foot.blog">Blog</a> · <a href="faq.html" data-i18n="foot.faq">FAQ</a> · <a href="start-here.html" data-i18n="foot.start">Start here</a> · <a href="collaborate.html" data-i18n="foot.collab">Collaborate</a> · <a href="cybersecurity-awareness-sessions.html" data-i18n="foot.sessions">Book a session</a> · <a href="shop.html" data-i18n="foot.shop">Shop</a> · <a href="index.html" data-i18n="foot.home">Back to home</a> · <a href="#top" data-i18n="foot.top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Back to top" hidden>
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20" pathLength="100"/></svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
+  <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
+  <script src="assets/js/i18n/learn-ccna-static-routing.js?v=8f71311daa" defer></script>
+  <script src="assets/js/learn.js?v=318ac36b38" defer></script>
+  <script src="assets/js/learn-net.js?v=625c171328" defer></script>
+  <script src="assets/js/learn-ios.js?v=ed7a242e7a" defer></script>
+  <script src="assets/js/nav.js?v=a2320ad677" defer></script>
+  <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
+  <script src="assets/js/pwa.js?v=e94a53f8b7" defer></script>
+  <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
+  <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

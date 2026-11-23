@@ -1,0 +1,35 @@
+CyberWithMadhav Learn: lesson 1.3 lab checklist
+Lab: create evidence on your own Windows VM, then find it
+https://www.cyberwithmadhav.com/learn-windows-for-security.html
+
+Time: 45 to 60 minutes
+You need: A Windows VM in VirtualBox. Microsoft offers free time limited evaluation copies of Windows 11 Enterprise and Windows Server at microsoft.com/evalcenter. Use a VM, not your main PC, because you will create accounts and settings.
+
+STEPS (tick each box when done)
+[ ] 1. Snapshot first
+      Note: Install Windows in the VM, then take a snapshot called clean. Everything below can be undone by restoring it.
+[ ] 2. Turn on the useful logging
+      C:\> auditpol /set /subcategory:"Process Creation" /success:enable
+      C:\> reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f
+      C:\> auditpol /get /category:"Logon/Logoff"
+      Note: Run these in an administrator Command Prompt. The second line adds command lines to event 4688.
+[ ] 3. Make some events
+      PS> $p = Read-Host -AsSecureString 'Password for labuser'
+      PS> New-LocalUser -Name labuser -Password $p
+      PS> Add-LocalGroupMember -Group Administrators -Member labuser
+      C:\> runas /user:labuser cmd
+      Note: Use an administrator PowerShell. At the runas prompt type a wrong password twice. You just created events 4720, 4732 and 4625.
+[ ] 4. Find them in Event Viewer and PowerShell
+      PS> Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4720,4732,4625} -MaxEvents 20 | Format-Table TimeCreated, Id, Message -Wrap
+      Note: Open eventvwr.msc, Windows Logs, Security, and use Filter Current Log with 4720,4732,4625. Read who did what and when.
+[ ] 5. Plant and hunt a harmless persistence entry
+      C:\> reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v LabNotepad /t REG_SZ /d notepad.exe /f
+      C:\> reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+      Note: Sign out and in: Notepad opens. Now download Autoruns from Microsoft Sysinternals and find LabNotepad in the Logon tab. Delete it there or with reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v LabNotepad /f.
+[ ] 6. Clean up
+      PS> Remove-LocalUser -Name labuser
+      Note: Or simply restore the clean snapshot.
+
+DONE WHEN: You created a user, an admin group change, failed logons and a Run key, and found every one of them in the logs or in Autoruns.
+
+Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000.

@@ -1,0 +1,48 @@
+CyberWithMadhav Learn: lesson 3.1 lab checklist
+Packet Tracer lab 3.1: build, cable and read interfaces
+https://www.cyberwithmadhav.com/learn-ccna-network-building-blocks.html
+
+Time: 30 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 1 x 2960-24TT switch, 1 x ISR4331 router, 2 x PC-PT, copper straight-through cables.
+
+ADDRESSING
+  R1 | Gi0/0/0 | 192.168.10.1/24 | n/a
+  PC1 | Fa0 | 192.168.10.11/24 | 192.168.10.1
+  PC2 | Fa0 | 192.168.10.12/24 | 192.168.10.1
+
+STEPS (tick each box when done)
+[ ] 1. Place and cable
+      Note: Add the devices and cable them as in the diagram. Watch the link lights: switch ports often show orange for a short time before turning green, because they pass through spanning tree states first (lesson 3.5).
+[ ] 2. Configure R1
+      Router> enable
+      Router# configure terminal
+      Router(config)# hostname R1
+      R1(config)# interface GigabitEthernet0/0/0
+      R1(config-if)# ip address 192.168.10.1 255.255.255.0
+      R1(config-if)# no shutdown
+      R1(config-if)# end
+[ ] 3. Address the PCs
+      Note: On each PC open Desktop, then IP Configuration, and enter the address, mask and gateway from the table.
+[ ] 4. Test and watch the layers
+      Note: From PC1's Command Prompt run ping 192.168.10.1 and ping 192.168.10.12. Then switch to Simulation mode, filter for ICMP and ARP, and step through one ping. Open a PDU and match each part to a layer: Ethernet header (L2), IP header (L3), ICMP (the payload).
+[ ] 5. Verify
+      R1# show ip interface brief
+      R1# show interfaces GigabitEthernet0/0/0
+      SW1# show interfaces status
+      Note: On PC1: ipconfig and arp -a. The first ping may lose one reply while ARP finds R1's MAC address; that is normal.
+[ ] 6. Force a mismatch and look
+      SW1(config)# interface FastEthernet0/1
+      SW1(config-if)# duplex half
+      SW1(config-if)# speed 10
+      SW1(config-if)# end
+      SW1# show interfaces FastEthernet0/1
+      Note: Read the duplex and speed lines, then set the port back with duplex auto and speed auto.
+
+DONE WHEN: R1 Gi0/0/0 is up/up with 192.168.10.1, both PCs ping R1 and each other, and you can point to the L2, L3 and ICMP parts of a PDU in Simulation mode.
+
+PACKET TRACER LIMITS AND NOTES
+  - Packet Tracer does not reliably produce realistic CRC errors or late collisions from a duplex mismatch, so treat step 6 as a where to look exercise, not proof of real error behaviour. UNVERIFIED how the counters react in your version.
+  - Fibre cables exist in Packet Tracer, but the device needs a fibre capable port or module, and module names vary by model. UNVERIFIED per device.
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/

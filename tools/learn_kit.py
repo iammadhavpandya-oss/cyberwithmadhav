@@ -93,3 +93,105 @@ def arrow(x1, y1, x2, y2, cls="ln", flow=False):
     return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" class="{cls}{" flow" if flow else ""}" stroke-width="2" marker-end="url(#ah)"/>'
 
 ARROWDEF = '<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="currentColor" class="t-m"/></marker></defs>'
+
+# ---------------------------------------------------------------- CCNA track helpers
+_IOS_P = re.compile(r'^([A-Za-z][\w-]*(?:\((?:config[\w-]*)\))?[#>])\s?(.*)$')
+def ios(lines, title=None):
+    """IOS transcript. 'R1(config)# cmd' = prompt + command, '! text' = comment, anything else = output."""
+    out = []
+    for ln in lines:
+        m = _IOS_P.match(ln)
+        if ln.startswith("!"): out.append(f'<span class="c">{e(ln)}</span>')
+        elif m and m.group(2) is not None and not ln.startswith(" "): out.append(f'<span class="p">{e(m.group(1))}</span><span class="cmd">{e(m.group(2))}</span>')
+        else: out.append(f'<span class="o">{e(ln)}</span>')
+    lab = f' aria-label="{e(title)}"' if title else ''
+    return '<div class="lx-code lx-ioscode"><pre tabindex="0"' + lab + '><code>' + "\n".join(out) + '</code></pre></div>'
+
+def ios_sim(cfg, title="IOS practice console"):
+    data = json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/")
+    n = len(cfg.get("missions", []))
+    host = cfg.get("host") or ("Router" if cfg.get("kind") == "router" else "Switch")
+    return (f'<div class="lx-ios" role="region" aria-label="{e(title)}">'
+            f'<div class="lx-term-bar"><i></i><i></i><i></i>console: {e(host)} ({e(title)})</div>'
+            '<div class="lx-term-grid"><div><div class="lx-term-out" role="log" aria-live="polite" tabindex="0"></div>'
+            f'<div class="lx-term-in"><label for="io-{e(cfg["id"])}"></label><input id="io-{e(cfg["id"])}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type an IOS command and press Enter"></div></div>'
+            f'<div class="lx-missions"><h4>Missions <span class="lx-mcount">0/{n}</span></h4><ol></ol></div></div>'
+            '<div class="lx-term-foot"><span>Simplified IOS simulator in your browser. It teaches the commands; Packet Tracer and real gear have many more.</span><button type="button" data-reset>Reset device</button></div>'
+            f'<script type="application/json" class="lx-ios-cfg">{data}</script></div>')
+
+def subnet_calc(ip="192.168.50.130", pfx=26):
+    return ('<div class="card lx-widget lx-subnet"><h3>Subnet calculator</h3>'
+            '<p class="hint">Type any IPv4 address and prefix, or drag the slider. Purple bits are the network part, green bits are the host part.</p>'
+            '<div class="lx-snin"><label>IPv4 address <input data-i="ip" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="' + e(ip) + '"></label>'
+            f'<label>Prefix length / <input data-i="pfx" type="number" min="0" max="32" value="{pfx}"></label></div>'
+            f'<label class="lx-snsl"><span class="sr-only">Prefix length slider</span><input data-i="slide" type="range" min="0" max="32" value="{pfx}"></label>'
+            '<div class="lx-snbits mono" aria-hidden="true"></div><dl class="lx-snout" aria-live="polite"></dl>'
+            '<div class="lx-snq"><p><button type="button" class="lx-wbtn" data-q>Give me a practice question</button></p><p class="q" aria-live="polite"></p>'
+            '<p class="row" hidden><label><span class="sr-only">Your answer</span><input data-i="ans" type="text" autocomplete="off" spellcheck="false" placeholder="your answer"></label> <button type="button" class="lx-wbtn" data-check>Check</button></p>'
+            '<p class="fb" aria-live="polite"></p></div></div>')
+
+def route_game(cfg, title="Which route wins?"):
+    data = json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/")
+    return (f'<div class="card lx-widget lx-route"><h3>{title}</h3>'
+            '<p class="hint">These are all the routes this router learned, from every source. Only the best source for each prefix goes into the routing table, then the longest matching prefix forwards the packet. Pick the route that forwards each packet, or drop it.</p>'
+            '<p class="lx-rq" aria-live="polite"></p>'
+            '<div class="lx-tbl" tabindex="0" role="region" aria-label="Candidate routes"><table><caption class="sr-only">Candidate routes</caption><thead><tr><th scope="col">Source</th><th scope="col">Prefix</th><th scope="col">AD</th><th scope="col">Metric</th><th scope="col">Next hop</th><th scope="col"><span class="sr-only">Choose</span></th></tr></thead><tbody></tbody></table></div>'
+            '<p><button type="button" class="lx-wbtn" data-drop>Drop it: no route matches</button> <button type="button" class="lx-wbtn" data-next hidden>Next packet</button> <span class="lx-rscore small muted"></span></p>'
+            '<p class="lx-rfb" aria-live="polite"></p>'
+            f'<script type="application/json" class="lx-route-cfg">{data}</script></div>')
+
+def acl_tester(cfg, title="ACL rule tester"):
+    data = json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/")
+    return (f'<div class="card lx-widget lx-acl"><h3>{title}</h3>'
+            '<p class="hint">Edit the ACL, describe a packet, and watch it walk the list top to bottom. The first matching line decides. If nothing matches, the invisible deny at the end drops it.</p>'
+            '<div class="lx-aclgrid"><label class="lx-acl-ta">ACL lines<textarea data-i="acl" rows="8" spellcheck="false" autocomplete="off"></textarea></label>'
+            '<div class="lx-acl-pk"><fieldset><legend>Packet</legend>'
+            '<label>Protocol <select data-i="proto"><option value="tcp">tcp</option><option value="udp">udp</option><option value="icmp">icmp</option></select></label>'
+            '<label>Source IP <input data-i="src" type="text" inputmode="decimal" autocomplete="off" spellcheck="false"></label>'
+            '<label>Destination IP <input data-i="dst" type="text" inputmode="decimal" autocomplete="off" spellcheck="false"></label>'
+            '<label class="pt">Destination port <input data-i="dport" type="number" min="0" max="65535"></label>'
+            '<label class="pt">Source port <input data-i="sport" type="number" min="0" max="65535" value="50123"></label>'
+            '<label class="pt tcp"><input data-i="ack" type="checkbox"> ACK set (a reply in an existing connection)</label>'
+            '<label class="ic">ICMP type <select data-i="icmp"><option value="echo">echo (ping request)</option><option value="echo-reply">echo-reply</option><option value="unreachable">unreachable</option><option value="time-exceeded">time-exceeded</option></select></label>'
+            '</fieldset><p class="lx-acl-pre" aria-label="Example packets"></p><p><button type="button" class="lx-wbtn" data-test>Test this packet</button></p></div></div>'
+            '<p class="lx-acl-res" aria-live="polite"></p><ol class="lx-acl-trace" aria-label="How the packet was checked"></ol>'
+            f'<script type="application/json" class="lx-acl-cfg">{data}</script></div>')
+
+def type7_decoder():
+    return ('<div class="card lx-widget lx-t7"><h3>Type 7 decoder: see why it is not encryption</h3>'
+            '<p class="hint">Paste a type 7 string from a config (the part after <code>password 7</code>). The algorithm and its key are public, so anyone can reverse it. Only paste lab strings, never a real device\'s.</p>'
+            '<p class="lx-permout"><label class="small muted" for="t7-in">Type 7 string</label><input id="t7-in" type="text" autocomplete="off" spellcheck="false" value="0822455D0A16"> <button type="button" class="lx-wbtn">Decode</button></p>'
+            '<p>Plain text: <output class="mono" for="t7-in" aria-live="polite"></output></p></div>')
+
+# topology drawing: nodes {id: (x, y, kind, label, sub)}, links [(a, b, label_a, label_b, style)]
+_ICON = {
+  "router": lambda x, y: f'<circle cx="{x}" cy="{y}" r="22" class="s-p" stroke-width="1.6"/><path d="M{x-11} {y-4}h22M{x+5} {y-9}l6 5-6 5M{x-11} {y+5}h22M{x-5} {y}l-6 5 6 5" class="ln-p" stroke-width="1.6" fill="none"/>',
+  "switch": lambda x, y: f'<rect x="{x-28}" y="{y-15}" width="56" height="30" rx="6" class="s-g" stroke-width="1.6"/><path d="M{x-16} {y-5}h32M{x+10} {y-9}l6 4-6 4M{x+16} {y+5}h-32M{x-10} {y+1}l-6 4 6 4" class="ln-g" stroke-width="1.5" fill="none"/>',
+  "l3switch": lambda x, y: f'<rect x="{x-28}" y="{y-15}" width="56" height="30" rx="6" class="s-a" stroke-width="1.6"/><path d="M{x-16} {y-5}h32M{x+10} {y-9}l6 4-6 4M{x+16} {y+5}h-32M{x-10} {y+1}l-6 4 6 4" class="ln" stroke-width="1.5" fill="none"/><text x="{x+22}" y="{y-18}" font-size="10" class="t-m">L3</text>',
+  "pc": lambda x, y: f'<rect x="{x-17}" y="{y-14}" width="34" height="23" rx="3" class="s-n" stroke-width="1.5"/><path d="M{x-6} {y+15}h12M{x} {y+9}v6" class="ln" stroke-width="1.5"/>',
+  "server": lambda x, y: f'<rect x="{x-14}" y="{y-20}" width="28" height="40" rx="3" class="s-n" stroke-width="1.5"/><path d="M{x-8} {y-10}h16M{x-8} {y-2}h16M{x-8} {y+6}h16" class="ln" stroke-width="1.3"/>',
+  "ap": lambda x, y: f'<rect x="{x-18}" y="{y-6}" width="36" height="14" rx="7" class="s-n" stroke-width="1.5"/><path d="M{x-9} {y-12}q9-9 18 0M{x-14} {y-17}q14-13 28 0" class="ln-p" stroke-width="1.5" fill="none"/>',
+  "wlc": lambda x, y: f'<rect x="{x-26}" y="{y-14}" width="52" height="28" rx="4" class="s-a" stroke-width="1.5"/><text x="{x}" y="{y+4}" font-size="10" text-anchor="middle">WLC</text>',
+  "cloud": lambda x, y: f'<path d="M{x-26} {y+12}h50a12 12 0 0 0 0-24a16 16 0 0 0-30-6a12 12 0 0 0-20 12a9 9 0 0 0 0 18z" class="s-n" stroke-width="1.5"/>',
+  "phone": lambda x, y: f'<rect x="{x-12}" y="{y-12}" width="24" height="22" rx="4" class="s-n" stroke-width="1.5"/><path d="M{x-6} {y-6}h12M{x-6} {y}h12" class="ln" stroke-width="1.3"/>',
+}
+def topo(w, h, nodes, links, title):
+    g = []
+    for a, b, la, lb, *st in links:
+        x1, y1 = nodes[a][0], nodes[a][1]; x2, y2 = nodes[b][0], nodes[b][1]
+        cls = (st[0] if st else "ln")
+        dash = ' stroke-dasharray="6 5"' if cls == "dash" else ''
+        g.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" class="{"ln" if cls == "dash" else cls}" stroke-width="{3 if cls == "ln-p" else 2}"{dash}/>')
+        for lab, t in ((la, 0.27), (lb, 0.73)):
+            if lab:
+                lx, ly = x1 + (x2 - x1) * t, y1 + (y2 - y1) * t
+                g.append(f'<text x="{lx:.0f}" y="{ly - 6:.0f}" font-size="10.5" text-anchor="middle" class="t-m lx-tl">{e(lab)}</text>')
+    for k, (x, y, kind, label, *sub) in nodes.items():
+        g.append(_ICON[kind](x, y))
+        dy = 24 if kind in ("pc", "phone") else 36 if kind in ("router", "server") else 30
+        g.append(f'<text x="{x}" y="{y + dy}" font-size="12.5" font-weight="600" text-anchor="middle">{e(label)}</text>')
+        if sub and sub[0]: g.append(f'<text x="{x}" y="{y + dy + 14}" font-size="10.5" text-anchor="middle" class="t-m">{e(sub[0])}</text>')
+    return svg(w, h, "".join(g), title)
+
+def addr_table(rows, caption="Addressing table"):
+    return table(["Device", "Interface", "IPv4 address / prefix", "Default gateway or note"], rows, caption)

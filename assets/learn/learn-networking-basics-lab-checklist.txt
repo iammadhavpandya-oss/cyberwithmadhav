@@ -1,0 +1,40 @@
+CyberWithMadhav Learn: lesson 1.4 lab checklist
+Lab: see your own network
+https://www.cyberwithmadhav.com/learn-networking-basics.html
+
+Time: 40 minutes
+You need: Your Ubuntu VM (NAT adapter is fine), and Wireshark (free, wireshark.org) on the VM or your own PC. Capture only on networks and devices you own.
+
+STEPS (tick each box when done)
+[ ] 1. Find your addresses
+      $ ip -br addr
+      $ ip route
+      $ resolvectl status | grep -A2 'DNS Servers'
+      Note: Write down your IP, prefix length, default gateway and DNS server. On Windows the same information is in ipconfig /all. In VirtualBox NAT mode you will usually see 10.0.2.15/24 with gateway 10.0.2.2.
+[ ] 2. Test the path
+      $ ping -c 3 10.0.2.2
+      $ ping -c 3 1.1.1.1
+      $ tracepath -n 1.1.1.1
+      Note: If the gateway answers but 1.1.1.1 does not, the problem is beyond your machine. If 1.1.1.1 answers but names fail, it is DNS. That split is the start of all network troubleshooting.
+[ ] 3. Query DNS by hand
+      $ sudo apt install -y dnsutils
+      $ dig cyberwithmadhav.com A
+      $ dig cyberwithmadhav.com MX
+      $ dig cyberwithmadhav.com TXT
+      $ dig +trace cyberwithmadhav.com
+      Note: Find the TTL of the A record and the SPF entry in the TXT records. In the trace, spot the root, the .com servers and the authoritative servers.
+[ ] 4. Read HTTP headers
+      $ curl -sI http://example.com
+      $ curl -sI https://example.com
+      $ curl -v https://example.com -o /dev/null 2>&1 | grep -E 'Connected|SSL|subject|issuer'
+      Note: Note the status code and the certificate subject and issuer.
+[ ] 5. Capture a handshake in Wireshark
+      Note: Start a capture on your own interface, then run curl https://example.com. Stop and apply the display filter dns || tcp.flags.syn==1. Find the DNS query and response, then the SYN, SYN-ACK and ACK. Next filter tls.handshake and find the Client Hello and the server name (SNI) it carries.
+[ ] 6. List your listening ports
+      $ ss -tuln
+      $ sudo ss -tulnp
+      Note: For each listening port, name the service. Anything you cannot explain is worth investigating, on your own machine.
+
+DONE WHEN: You can name your IP, gateway and DNS server, explain a ping or DNS failure, and point to a DNS exchange and a TCP handshake in your own capture.
+
+Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000.

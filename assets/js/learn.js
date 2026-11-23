@@ -82,7 +82,7 @@
   function quiz(onScore) {
     var box = $('.lx-quiz'); if (!box) return;
     var qs = $$('.lx-q', box), out = $('#lx-score');
-    function update() {
+    function update(quiet) {
       var answered = $$('.lx-q.answered', box).length, right = $$('.lx-q.correct', box).length;
       if (!out) return;
       $('b', out).textContent = right + ' / ' + qs.length;
@@ -91,7 +91,7 @@
       else {
         var s = right / qs.length;
         msg.textContent = s >= 0.9 ? T('lx.q.top', 'Excellent. You really know this.') : s >= 0.7 ? T('lx.q.pass', 'Passed. Re-read the ones you missed, then move on.') : T('lx.q.fail', 'Not yet. Go back to the sections behind the wrong answers and try again.');
-        if (onScore) onScore(s);
+        if (onScore && quiet !== true) onScore(s);
       }
     }
     qs.forEach(function (q) {
@@ -119,6 +119,13 @@
       update(); var f = $('.lx-opts button', box); if (f) f.focus();
     });
     update();
+    document.addEventListener('cwm:lang', function () {
+      update(true);
+      qs.forEach(function (q) {
+        var w = $('.lx-why', q), b = w && $('b', w);
+        if (b && !w.hidden) b.textContent = q.classList.contains('correct') ? T('lx.q.right', 'Correct. ') : T('lx.q.wrong', 'Not quite. ');
+      });
+    });
   }
 
   /* ---------------- flashcards ---------------- */

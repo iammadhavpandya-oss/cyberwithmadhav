@@ -26,6 +26,10 @@
               "label": "Lesson 1.4"
             },
             {
+              "href": "learn-ccna-ip-addressing-subnetting.html",
+              "label": "Lesson 3.2"
+            },
+            {
               "href": "learn.html#stage-3",
               "label": "CCNA path"
             }
@@ -59,7 +63,12 @@
         },
         {
           "t": "Basic scripting: Bash and Python (variables, loops, files)",
-          "soon": true
+          "learn": [
+            {
+              "href": "learn-bash-scripting-for-security.html",
+              "label": "Lesson 2.3"
+            }
+          ]
         },
         {
           "t": "Cyber hygiene: passwords, phishing, updates, backups",

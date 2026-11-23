@@ -1,0 +1,35 @@
+CyberWithMadhav Learn: lesson 2.3 lab checklist
+Lab: automate three security checks on your VM
+https://www.cyberwithmadhav.com/learn-bash-scripting-for-security.html
+
+Time: 45 minutes
+You need: Your Ubuntu lab VM from lesson 2.2 (take a snapshot first) and sudo apt install -y shellcheck.
+
+STEPS (tick each box when done)
+[ ] 1. Write the failed login counter
+      $ mkdir -p ~/scripts && nano ~/scripts/failed_logins.sh
+      $ chmod u+x ~/scripts/failed_logins.sh
+      $ shellcheck ~/scripts/failed_logins.sh
+      $ sudo ~/scripts/failed_logins.sh /var/log/auth.log
+      Note: Fix anything ShellCheck reports. If your VM has no failures yet, create some from your PC as in lesson 2.2.
+[ ] 2. Write and test the backup script
+      $ sudo nano /usr/local/sbin/backup_etc.sh
+      $ sudo chown root:root /usr/local/sbin/backup_etc.sh && sudo chmod 700 /usr/local/sbin/backup_etc.sh
+      $ sudo /usr/local/sbin/backup_etc.sh
+      $ ls -l /var/backups/etc
+      $ cd /var/backups/etc && sudo sha256sum -c etc-*.tar.gz.sha256
+      Note: The check must print OK. Then change one byte of the archive copy in /tmp and see it fail.
+[ ] 3. Schedule it
+      $ sudo crontab -e
+      $ sudo crontab -l
+      Note: For a quick test use */2 * * * *, wait two minutes, check the log, then set it back.
+[ ] 4. Write a SUID watcher
+      $ sudo find / -perm -4000 -type f 2>/dev/null | sort > ~/suid-baseline.txt
+      $ nano ~/scripts/suid_diff.sh
+      Note: Make it print NEW SUID FILE and exit 1 when the lists differ, and exit 0 when they match. Test it by creating a SUID copy in your home folder, then delete that copy.
+[ ] 5. Audit a real install script
+      Note: Download (do not pipe) an install script from a project you know, for example curl -fsSLo install.sh followed by the URL from its official docs. Read it and list every download, file it writes and command it runs as root. Do not run it.
+
+DONE WHEN: ShellCheck reports nothing on your scripts, the backup runs from cron and its checksum verifies, and the SUID watcher catches the test file.
+
+Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000.

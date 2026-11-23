@@ -3,8 +3,13 @@ Stage 3 follows the CCNA-aligned outline (Cisco CCNA 200-301 v1.1 exam topics), 
 from content.learn_s1a import lesson_computer, lesson_os
 from content.learn_s1b import lesson_windows, lesson_network
 from content.learn_s2 import lesson_linux_theory, lesson_linux_lab
+from content.learn_s2b import lesson_bash, lesson_logging
+from content.learn_ccna_a import lesson_ccna_1, lesson_ccna_2
+from content.learn_ccna_b import lesson_ccna_3, lesson_ccna_4
+from content.learn_ccna_c import lesson_ccna_5, lesson_ccna_6, lesson_ccna_7
 
-LESSONS = [lesson_computer(), lesson_os(), lesson_windows(), lesson_network(), lesson_linux_theory(), lesson_linux_lab()]
+LESSONS = [lesson_computer(), lesson_os(), lesson_windows(), lesson_network(), lesson_linux_theory(), lesson_linux_lab(), lesson_bash(), lesson_logging(),
+           lesson_ccna_1(), lesson_ccna_2(), lesson_ccna_3(), lesson_ccna_4(), lesson_ccna_5(), lesson_ccna_6(), lesson_ccna_7()]
 BY_SLUG = {l["slug"]: l for l in LESSONS}
 
 def soon(n, title, goals, tags=()):
@@ -19,19 +24,19 @@ STAGES = [
        desc="Theory first, then the terminal. Understand the system, then drill it in a browser shell and on your own VM.",
        hi_desc="Pehle theory, phir terminal. System samjho, phir browser shell aur apne VM pe practice karo.",
        items=["learn-linux-fundamentals", "learn-linux-hands-on-lab",
-              soon("2.3", "Bash Scripting for Security", ["Write scripts with variables, loops, conditions and functions", "Automate log triage and backups safely", "Read and audit other people's scripts before running them"], ["lab"]),
-              soon("2.4", "Linux Logging, Auditing and Hardening", ["Use journald, rsyslog and auditd to record what matters", "Apply CIS style hardening and check it", "Detect common persistence with a repeatable checklist"], ["lab"])]),
+              "learn-bash-scripting-for-security",
+              "learn-linux-logging-auditing-hardening"]),
   dict(n=3, id="stage-3", name="Networking and CCNA", hi_name="Networking aur CCNA", tag="Packet Tracer labs",
        desc="Fourteen lessons mapped to the Cisco CCNA 200-301 v1.1 exam topics, each with a Cisco Packet Tracer lab and a defensive security angle.",
        hi_desc="Cisco CCNA 200-301 v1.1 ke topics pe 14 lessons, har ek mein Packet Tracer lab aur security angle.",
        items=[
-         soon("3.1", "Network Building Blocks: OSI, TCP/IP, Devices, Cabling, Interfaces", ["Map OSI layers to the TCP/IP model", "Name the job of routers, switches, APs, WLCs, firewalls and servers", "Spot duplex, speed and CRC problems in show interfaces"], ["PT lab"]),
-         soon("3.2", "IP Addressing: IPv4 Subnetting, VLSM, Private Ranges, IPv6 Basics", ["Work out network, broadcast and host range for any prefix", "Design a VLSM plan without overlap", "Write, shorten and classify IPv6 addresses"], ["PT lab"]),
-         soon("3.3", "Switching Fundamentals and Secure Device Access", ["Explain MAC learning, flooding and aging", "Do a secure baseline: enable secret, banners, local users", "Configure SSH version 2 and block Telnet"], ["PT lab"]),
-         soon("3.4", "VLANs and Trunks: 802.1Q, Native VLAN, DTP, Voice VLAN", ["Create VLANs and assign data and voice ports", "Build 802.1Q trunks and change the native VLAN", "Explain VLAN hopping and apply the standard defences"], ["PT lab"]),
-         soon("3.5", "Redundant Switch Links: STP, Rapid PVST+, PortFast, BPDU Guard, EtherChannel", ["Explain loops and broadcast storms and how STP stops them", "Predict root bridge and port roles", "Bundle uplinks with LACP EtherChannel"], ["PT lab"]),
-         soon("3.6", "Inter-VLAN Routing and First Hop Redundancy", ["Configure router-on-a-stick and SVIs", "Compare HSRP, VRRP and GLBP", "Configure and verify basic HSRP"], ["PT lab"]),
-         soon("3.7", "The Routing Table and Static Routing (IPv4 and IPv6)", ["Read every part of a routing table entry", "Explain longest prefix match, AD and metric", "Configure default, host and floating static routes"], ["PT lab"]),
+         "learn-ccna-network-building-blocks",
+         "learn-ccna-ip-addressing-subnetting",
+         "learn-ccna-switching-secure-access",
+         "learn-ccna-vlans-trunks",
+         "learn-ccna-stp-etherchannel",
+         "learn-ccna-inter-vlan-routing-hsrp",
+         "learn-ccna-static-routing",
          soon("3.8", "Single-Area OSPFv2", ["Explain neighbours, adjacencies and the LSDB", "Configure OSPF with router IDs and passive interfaces", "Troubleshoot neighbours stuck below FULL"], ["PT lab"]),
          soon("3.9", "Access Control Lists: Standard, Extended, Named", ["Write wildcard masks", "Configure standard and extended ACLs in the right place and direction", "Lock VTY access to an admin subnet"], ["PT lab"]),
          soon("3.10", "DHCP, DNS and NAT/PAT", ["Describe DHCP DORA and DNS resolution", "Configure DHCP server, relay and client on a router", "Configure static NAT, dynamic NAT and PAT"], ["PT lab"]),
@@ -67,7 +72,8 @@ STAGES = [
 # Home page roadmap topics mapped to lessons. Keys are the exact topic strings in data/roadmap.json.
 ROADMAP_LINKS = {
   "How computers work: CPU, RAM, storage, OS, processes": [("learn-how-computers-work.html", "Lesson 1.1"), ("learn-operating-system-fundamentals.html", "Lesson 1.2")],
-  "Networking basics: OSI & TCP/IP, IP addressing, subnetting, DNS, DHCP, common ports": [("learn-networking-basics.html", "Lesson 1.4"), ("learn.html#stage-3", "CCNA path")],
+  "Networking basics: OSI & TCP/IP, IP addressing, subnetting, DNS, DHCP, common ports": [("learn-networking-basics.html", "Lesson 1.4"), ("learn-ccna-ip-addressing-subnetting.html", "Lesson 3.2"), ("learn.html#stage-3", "CCNA path")],
   "Linux command line: files, permissions, users, processes, package managers": [("learn-linux-fundamentals.html", "Lesson 2.1"), ("learn-linux-hands-on-lab.html", "Lab 2.2")],
+  "Basic scripting: Bash and Python (variables, loops, files)": [("learn-bash-scripting-for-security.html", "Lesson 2.3")],
   "Windows basics: PowerShell, users & groups, services, Event Viewer": [("learn-windows-for-security.html", "Lesson 1.3")],
 }

@@ -15,7 +15,9 @@ from content.learn_path import LESSONS, BY_SLUG, STAGES, ROADMAP_LINKS
 BASE = "https://www.cyberwithmadhav.com/"
 AUTHOR = {"@type": "Person", "name": "Madhav Pandya", "url": BASE + "about.html"}
 PUB = {"@type": "Organization", "name": "CyberWithMadhav", "url": BASE}
-TODAY = "2026-11-23"
+TODAY = "2026-11-24"
+PUBLISHED = {"learn-how-computers-work": "2026-11-23", "learn-operating-system-fundamentals": "2026-11-23", "learn-windows-for-security": "2026-11-23", "learn-networking-basics": "2026-11-23", "learn-linux-fundamentals": "2026-11-23", "learn-linux-hands-on-lab": "2026-11-23"}
+FEATS = {}
 
 def ver(rel):
     return hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()[:10]
@@ -39,11 +41,54 @@ UI_HI = {
   "lx.need": "Aapko chahiye:", "lx.verify": "Kaam tab poora jab:", "lx.prev": "Pichla", "lx.next": "Agla", "lx.hub": "Saare lessons",
   "lx.complete.p": "Sab sections, quiz aur lab ho gaye? Lesson complete mark karo. Progress sirf is browser mein save hota hai.",
   "lx.stepdone": "Ho gaya", "lx.legal": "<strong>Sirf apni machines pe.</strong> Ye lab apne VM ya apne computer pe karo. Kisi aur ke system ko bina likhit permission ke scan, test ya access karna IT Act, 2000 (jaise Sections 43 aur 66) ke under offence ho sakta hai.",
+  "lx.hint": "Hint", "lx.pt.legal": "<strong>Simulator lab, zero risk.</strong> Ye lab Cisco Packet Tracer ke andar chalta hai, koi real network touch nahi hota. Packet Tracer Cisco Networking Academy (netacad.com) ke free account se free milta hai. Packet Tracer IOS ka ek subset simulate karta hai, isliye jahan kisi feature ka support pakka nahi, wahan humne clearly likha hai.",
+  "lx.pt.topo": "Topology aur addressing", "lx.pt.limits": "Packet Tracer limits aur notes", "lx.pt.dl": "Lab checklist download karo (.txt)", "lx.pt.dlp": "Checklist print karo ya Packet Tracer ke saath side mein kholo.",
+  "lx.sn.bad": "Address check karo", "lx.sn.badd": "0 se 255 tak ke chaar numbers likho, jaise 192.168.50.130",
+  "lx.rt.pick": "Ye use karo", "lx.rt.next": "Agla packet", "lx.rt.again": "Phir se khelo",
+  "lx.acl.ip": "Valid source aur destination IPv4 address daalo.", "lx.acl.imp": "kuch match nahi hua, isliye end ka chhupa hua deny ise drop karta hai",
+  "lx.t7.bad": "Type 7 string paste karo, jaise 0822455D0A16",
   "lh.done": "Done", "lh.new": "Start", "lh.cont": "Continue: ", "lh.begin": "Lesson 1 se shuru karo", "lh.reset.q": "Is browser se lesson progress clear karein?",
 }
 
 LEGAL = ('<div class="lx-legal" role="note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v5M12 18h.01"/></svg>'
          '<p data-i18n="lx.legal"><strong>Only on machines you own.</strong> Do this lab on your own VM or computer. Scanning, testing or accessing anyone else\'s system without written permission can be an offence under the Information Technology Act, 2000 (for example Sections 43 and 66).</p></div>')
+PT_NOTE = ('<div class="lx-legal" role="note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>'
+         '<p data-i18n="lx.pt.legal"><strong>Simulator lab, zero risk.</strong> This lab runs inside Cisco Packet Tracer, so it touches no real network. Packet Tracer is free with a Cisco Networking Academy account (netacad.com). It simulates a subset of Cisco IOS, so where support for a feature is uncertain we say so instead of promising it works.</p></div>')
+
+def strip(h):
+    return html.unescape(re.sub(r"<[^>]+>", "", h)).strip()
+
+def checklist(L, url):
+    lab = L["lab"]; o = []
+    o += [f"CyberWithMadhav Learn: lesson {L['n']} lab checklist", strip(lab["title"]), url, ""]
+    o += ["Time: " + strip(lab["time"]), "You need: " + strip(lab["needs"]), ""]
+    if lab.get("addr"):
+        o.append("ADDRESSING")
+        for r in lab["addr"]: o.append("  " + " | ".join(strip(c) for c in r))
+        o.append("")
+    o.append("STEPS (tick each box when done)")
+    for k, (h, c) in enumerate(lab["steps"]):
+        o.append(f"[ ] {k + 1}. {strip(h)}")
+        for pre in re.findall(r"<pre[^>]*>(.*?)</pre>", c, flags=re.S):
+            for ln in pre.split("\n"):
+                m = re.search(r'<span class="p">(.*?)</span><span class="cmd">(.*?)</span>', ln)
+                if m: o.append("      " + strip(m.group(1)) + " " + strip(m.group(2)))
+        rest = strip(re.sub(r"<div class=\"lx-code.*?</div>", " ", c, flags=re.S))
+        rest = re.sub(r"\s+", " ", rest).strip()
+        if rest: o.append("      Note: " + rest)
+    o += ["", "DONE WHEN: " + strip(lab["verify"])]
+    if lab.get("limits"):
+        o += ["", "PACKET TRACER LIMITS AND NOTES"] + ["  - " + strip(x) for x in lab["limits"]]
+    if lab.get("kind") == "pt":
+        o += ["", "Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/"]
+    else:
+        o += ["", "Only on machines you own. Testing systems without written permission can be an offence under the IT Act, 2000."]
+    txt = "\n".join(o) + "\n"
+    txt = txt.replace("\u2014", "-").replace("\u2013", "-").replace("\u2192", "->").replace("\u00a0", " ")
+    assert "\u2014" not in txt and "\u2013" not in txt
+    d = ROOT / "assets/learn"; d.mkdir(exist_ok=True)
+    (d / f"{L['slug']}-lab-checklist.txt").write_text(txt, encoding="utf-8")
+    return f"assets/learn/{L['slug']}-lab-checklist.txt"
 
 def shell(file, title, desc, og, ogd, kw, schema, main, body_attrs, extra_js, page_dict_js):
     src = (ROOT / "scams.html").read_text(encoding="utf-8")
@@ -104,10 +149,19 @@ def lesson_page(L):
         </section>''')
     cards = "".join(f'<button type="button" class="lx-card" aria-pressed="false"><span class="in"><span class="f"><small>Card {n + 1}</small><b>{q}</b><small>Tap to reveal</small></span><span class="b"><small>Answer</small><span>{a}</span></span></span></button>' for n, (q, a) in enumerate(L["cards"]))
     quiz = "".join(f'''<div class="card lx-q" data-a="{ans}"><h3><span>Q{n + 1}</span>{q}</h3><ul class="lx-opts">{"".join(f'<li><button type="button"><i>{"ABCD"[j]}</i><span>{o}</span></button></li>' for j, o in enumerate(opts))}</ul><p class="lx-why" hidden aria-live="polite"><b></b>{why}</p></div>''' for n, (q, opts, ans, why) in enumerate(L["quiz"]))
-    lab = L["lab"]
+    lab = L["lab"]; pt = lab.get("kind") == "pt"
+    ck = checklist(L, BASE + L["slug"] + ".html")
+    pre = ""
+    if lab.get("topo") or lab.get("addr"):
+        from learn_kit import addr_table
+        pre = '<div class="lx-pt-pre"><h4 data-i18n="lx.pt.topo">Topology and addressing</h4>' + (lab.get("topo") or "") + (addr_table(lab["addr"]) if lab.get("addr") else "") + '</div>'
+    lim = ('<div class="lx-limits" role="note"><h4 data-i18n="lx.pt.limits">Packet Tracer limits and notes</h4><ul>' + "".join(f"<li>{x}</li>" for x in lab["limits"]) + '</ul></div>') if lab.get("limits") else ""
+    dl = f'<p class="lx-dl"><a class="btn btn-ghost" href="{ck}" download><span data-i18n="lx.pt.dl">Download the lab checklist (.txt)</span></a> <span class="small muted" data-i18n="lx.pt.dlp">Print it or keep it open beside Packet Tracer.</span></p>' if pt else f'<p class="lx-dl"><a class="btn btn-ghost" href="{ck}" download><span>Download the lab checklist (.txt)</span></a></p>'
     steps = "".join(f'<li><h4>{h}</h4>{c}<label class="lx-check"><input type="checkbox"> <span data-i18n="lx.stepdone">Done</span></label></li>' for h, c in lab["steps"])
     pager = (f'<a href="{prev["slug"]}.html"><small data-i18n="lx.prev">Previous</small>{prev["n"]} {prev["title"]}</a>' if prev else '<a href="learn.html"><small data-i18n="lx.hub">All lessons</small>Learn hub</a>')
-    pager += (f'<a class="nx" href="{nxt["slug"]}.html"><small data-i18n="lx.next">Next</small>{nxt["n"]} {nxt["title"]}</a>' if nxt else '<a class="nx" href="learn.html#stage-3"><small data-i18n="lx.next">Next</small>Stage 3: Networking and CCNA (coming soon)</a>')
+    nst = next((x for x in STAGES if x["n"] > st["n"] and any(not isinstance(it, str) for it in x["items"])), None)
+    pager += (f'<a class="nx" href="{nxt["slug"]}.html"><small data-i18n="lx.next">Next</small>{nxt["n"]} {nxt["title"]}</a>' if nxt else
+              (f'<a class="nx" href="learn.html#{nst["id"]}"><small data-i18n="lx.next">Next</small>Stage {nst["n"]}: {nst["name"]} (coming soon)</a>' if nst else '<a class="nx" href="learn.html"><small data-i18n="lx.hub">All lessons</small>Learn hub</a>'))
     main = f'''    <section class="page-hero" aria-labelledby="p-title">
       <div class="wrap">
         <p class="lx-crumb"><a href="learn.html">Learn</a> / <a href="learn.html#{st["id"]}">Stage {st["n"]}: {st["name"]}</a> / Lesson {L["n"]}</p>
@@ -145,12 +199,15 @@ def lesson_page(L):
         <section id="lab" aria-labelledby="lab-h">
           <h2 id="lab-h" data-i18n="lx.h.lab">Hands-on lab</h2>
           <div class="card lx-lab">
-            <div class="lx-lab-top"><span class="tag g">lab</span><span class="tag">{lab["time"]}</span><span class="tag">your own machines only</span></div>
+            <div class="lx-lab-top"><span class="tag g">{"Cisco Packet Tracer lab" if pt else "lab"}</span><span class="tag">{lab["time"]}</span><span class="tag">{"simulated network" if pt else "your own machines only"}</span></div>
             <h3>{lab["title"]}</h3>
             <p><strong data-i18n="lx.need">You need:</strong> {lab["needs"]}</p>
-            {LEGAL}
+            {PT_NOTE if pt else LEGAL}
+            {pre}
             <ol class="lx-labsteps">{steps}</ol>
             <p class="mt-12"><strong data-i18n="lx.verify">You are done when:</strong> {lab["verify"]}</p>
+            {lim}
+            {dl}
           </div>
         </section>
         <section id="takeaways" aria-labelledby="tk-h">
@@ -167,7 +224,7 @@ def lesson_page(L):
     schema = {"@context": "https://schema.org", "@graph": [
       {"@type": "LearningResource", "@id": url + "#lesson", "name": L["title"], "headline": L["title"], "url": url, "description": L["desc"],
        "learningResourceType": "Lesson", "educationalLevel": L["level"], "timeRequired": f"PT{L['minutes']}M", "inLanguage": "en-IN", "isAccessibleForFree": True,
-       "teaches": [re.sub("<[^>]+>", "", g) for g in L["goals"]], "author": AUTHOR, "publisher": PUB, "datePublished": TODAY, "dateModified": TODAY,
+       "teaches": [re.sub("<[^>]+>", "", g) for g in L["goals"]], "author": AUTHOR, "publisher": PUB, "datePublished": PUBLISHED.get(L["slug"], TODAY), "dateModified": TODAY,
        "isPartOf": {"@type": "Course", "@id": BASE + "learn.html#course", "name": "CyberWithMadhav Learn Path", "url": BASE + "learn.html"}},
       {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE},
@@ -175,9 +232,19 @@ def lesson_page(L):
         {"@type": "ListItem", "position": 3, "name": L["title"], "item": url}]}]}
     page_js = f"learn-{L['slug'][6:]}.js"
     write_dict(page_js, d, L["slug"] + ".html")
-    has_term = "lx-term" in main
+    has_term = 'class="lx-term"' in main
+    has_net = any(f'lx-widget {c}"' in main for c in ("lx-subnet", "lx-route", "lx-acl"))
+    has_ios = 'class="lx-ios"' in main or 'lx-widget lx-t7"' in main
+    f = []
+    if has_term: f.append("browser terminal")
+    if has_ios: f.append("IOS simulator")
+    if 'lx-widget lx-subnet"' in main: f.append("subnet calculator")
+    if 'lx-widget lx-route"' in main: f.append("route game")
+    if 'lx-widget lx-acl"' in main: f.append("ACL tester")
+    if pt: f.append("Packet Tracer")
+    FEATS[L["slug"]] = f
     shell(L["slug"] + ".html", L["seo_title"], L["desc"], L["title"] + " | Free lesson", L["short"], L["kw"], schema, main,
-          f' data-lesson="{L["slug"]}"', ["learn.js"] + (["learn-term.js"] if has_term else []), page_js)
+          f' data-lesson="{L["slug"]}"', ["learn.js"] + (["learn-term.js"] if has_term else []) + (["learn-net.js"] if has_net else []) + (["learn-ios.js"] if has_ios else []), page_js)
 
 # ---------------------------------------------------------------- hub
 def units(L):
@@ -200,7 +267,7 @@ def hub():
         for it in st["items"]:
             if isinstance(it, str):
                 L = BY_SLUG[it]; s, q, lab = units(L)
-                cards.append(f'''<li><a class="lh-l" href="{it}.html" data-slug="{it}" data-s="{s}" data-q="1" data-lab="{lab}"><span class="top"><span class="n mono">{L["n"]}</span><span class="lh-st">Start</span></span><h3>{L["title"]}</h3><p>{L["short"]}</p><span class="foot"><span>{L["minutes"]} min</span><span>{s} sections</span><span>quiz</span><span>lab</span>{'<span>browser terminal</span>' if it in ("learn-linux-fundamentals", "learn-linux-hands-on-lab") else ''}</span></a></li>''')
+                cards.append(f'''<li><a class="lh-l" href="{it}.html" data-slug="{it}" data-s="{s}" data-q="1" data-lab="{lab}"><span class="top"><span class="n mono">{L["n"]}</span><span class="lh-st">Start</span></span><h3>{L["title"]}</h3><p>{L["short"]}</p><span class="foot"><span>{L["minutes"]} min</span><span>{s} sections</span><span>quiz</span><span>lab</span>{"".join(f"<span>{x}</span>" for x in FEATS.get(it, []))}</span></a></li>''')
             else:
                 gl = "".join(f"<li>{g}</li>" for g in it["goals"])
                 tg = "".join(f"<span>{t}</span>" for t in it["tags"])
@@ -214,6 +281,9 @@ def hub():
           <ul class="lh-lessons">{"".join(cards)}</ul>
         </section>''')
     total = sum(len(st["items"]) for st in STAGES)
+    s3 = next(x for x in STAGES if x["n"] == 3); s3live = sum(1 for x in s3["items"] if isinstance(x, str))
+    ccna_txt = ("The CCNA track has all 14 lessons live, each with a Cisco Packet Tracer lab." if s3live == len(s3["items"]) else
+                f"The 14 lesson CCNA track has {s3live} lessons live, each with a Cisco Packet Tracer lab." if s3live else "That includes a 14 lesson CCNA track with Packet Tracer labs.")
     main = f'''    <section class="page-hero" aria-labelledby="p-title">
       <div class="wrap">
         <p class="kicker mono"><span class="prompt">$</span> ./learn --from zero --to job-ready</p>
@@ -221,7 +291,7 @@ def hub():
         <p class="lead" data-i18n="lh.lead">Not a list of topics to Google. Full lessons, with the depth of a paid course: theory you can follow, diagrams, how attackers abuse each idea and how defenders respond, flashcards, quizzes and labs on your own VM. Free.</p>
         <div class="lh-overall" id="lh-all"><span class="small muted" data-i18n="lh.prog">Your progress</span><span class="lh-bar" aria-hidden="true"><span></span></span><b>0%</b>
           <a class="btn btn-primary" id="lh-continue" href="learn-how-computers-work.html"><span>Start with lesson 1</span></a></div>
-        <p class="small muted mt-12">{len(ORDER)} lessons live now, {total - len(ORDER)} more mapped out below, including a 14 lesson CCNA track with Packet Tracer labs.</p>
+        <p class="small muted mt-12">{len(ORDER)} lessons live now and {total - len(ORDER)} more mapped out below. {ccna_txt}</p>
       </div>
     </section>
     <section class="section" aria-labelledby="how-h" id="how">
@@ -248,13 +318,13 @@ def hub():
        "description": "A free, structured cybersecurity learning path: computer and OS fundamentals, Windows, networking, Linux with labs, then CCNA, security fundamentals and specialisations.",
        "provider": PUB, "author": AUTHOR, "inLanguage": "en-IN", "isAccessibleForFree": True, "educationalLevel": "Beginner",
        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "category": "Free"},
-       "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT6H"},
+       "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online", "courseWorkload": f"PT{max(1, round(sum(BY_SLUG[x]['minutes'] for x in ORDER) / 60))}H"},
        "hasPart": [{"@type": "LearningResource", "name": BY_SLUG[s]["title"], "url": BASE + s + ".html"} for s in ORDER]},
       {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": BASE}, {"@type": "ListItem", "position": 2, "name": "Learn", "item": url}]}]}
     write_dict("learn-hub.js", d, "learn.html")
     shell("learn.html", "Learn Cybersecurity Free: Step by Step Path with Labs | CyberWithMadhav",
           "Free cybersecurity lessons from zero: how computers and operating systems work, Windows, networking, Linux with hands-on labs, then a CCNA track with Packet Tracer labs.",
-          "Learn cybersecurity from zero: free lessons with labs", "Computer and OS fundamentals, Windows, networking and Linux with labs, with a CCNA track coming next.",
+          "Learn cybersecurity from zero: free lessons with labs", "Computer and OS fundamentals, Windows, networking, Linux with labs, and a CCNA track with Cisco Packet Tracer labs.",
           "learn cybersecurity free, cybersecurity course for beginners india, linux lab, ccna packet tracer labs, windows security basics, networking basics",
           schema, main, "", ["learn.js"], "learn-hub.js")
 

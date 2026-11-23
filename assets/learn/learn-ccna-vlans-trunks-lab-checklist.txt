@@ -1,0 +1,68 @@
+CyberWithMadhav Learn: lesson 3.4 lab checklist
+Packet Tracer lab 3.4: two switch VLANs with a hardened trunk
+https://www.cyberwithmadhav.com/learn-ccna-vlans-trunks.html
+
+Time: 40 minutes
+You need: Cisco Packet Tracer (free with a Cisco Networking Academy account; version 9.0.1 was the current download on the NetAcad Resource Hub when this lesson was written). Devices: 2 x 2960-24TT, 4 x PC-PT, and optionally 1 x IP Phone (7960).
+
+ADDRESSING
+  PC-Staff1 | Fa0 | 192.168.10.11/24 | VLAN 10, no gateway yet
+  PC-Staff2 | Fa0 | 192.168.10.12/24 | VLAN 10
+  PC-Guest1 | Fa0 | 192.168.20.11/24 | VLAN 20
+  PC-Guest2 | Fa0 | 192.168.20.12/24 | VLAN 20
+
+STEPS (tick each box when done)
+[ ] 1. Create the VLANs on both switches
+      SW1(config)# vlan 10
+      SW1(config-vlan)# name STAFF
+      SW1(config-vlan)# vlan 20
+      SW1(config-vlan)# name GUEST
+      SW1(config-vlan)# vlan 30
+      SW1(config-vlan)# name VOICE
+      SW1(config-vlan)# vlan 99
+      SW1(config-vlan)# name NATIVE
+      SW1(config-vlan)# vlan 999
+      SW1(config-vlan)# name PARKING
+[ ] 2. Access, voice and parking ports
+      SW1(config)# interface range Fa0/1 - 10
+      SW1(config-if-range)# switchport mode access
+      SW1(config-if-range)# switchport access vlan 10
+      SW1(config-if-range)# switchport nonegotiate
+      SW1(config-if-range)# interface Fa0/3
+      SW1(config-if)# switchport voice vlan 30
+      SW1(config-if)# interface range Fa0/11 - 20
+      SW1(config-if-range)# switchport mode access
+      SW1(config-if-range)# switchport access vlan 20
+      SW1(config-if-range)# switchport nonegotiate
+      SW1(config-if-range)# interface range Fa0/21 - 24
+      SW1(config-if-range)# switchport mode access
+      SW1(config-if-range)# switchport access vlan 999
+      SW1(config-if-range)# shutdown
+[ ] 3. See what DTP did by default
+      SW1# show interfaces Gi0/1 switchport
+      Note: Read Administrative Mode and Operational Mode before you change anything.
+[ ] 4. Harden the trunk (both switches)
+      SW1(config)# interface Gi0/1
+      SW1(config-if)# switchport mode trunk
+      SW1(config-if)# switchport trunk native vlan 99
+      SW1(config-if)# switchport trunk allowed vlan 10,20,30,99
+      SW1(config-if)# switchport nonegotiate
+[ ] 5. Test
+      Note: PC-Staff1 pings PC-Staff2: it works. PC-Staff1 pings PC-Guest2: it fails, because they are in different VLANs and subnets and there is no router yet (lesson 3.6).
+[ ] 6. Break it on purpose
+      Note: On SW2 only, set switchport trunk native vlan 1. Watch the console for the native VLAN mismatch message, then set it back to 99.
+[ ] 7. Verify
+      SW1# show vlan brief
+      SW1# show interfaces trunk
+      SW1# show interfaces Gi0/1 switchport
+      SW1# show interfaces Fa0/3 switchport
+
+DONE WHEN: show interfaces trunk shows Gi0/1 in mode on, 802.1q, native VLAN 99 and allowed 10,20,30,99; staff PCs reach each other across the trunk; guests cannot reach staff.
+
+PACKET TRACER LIMITS AND NOTES
+  - Packet Tracer does not let you craft double tagged frames or DTP attacks, so the hopping attacks stay theory here. That is fine for a defence first course.
+  - vlan dot1q tag native (tagging the native VLAN) is UNVERIFIED in Packet Tracer and likely not supported on the 2960 image.
+  - The exact text of the CDP native VLAN mismatch message in Packet Tracer is UNVERIFIED; on real IOS it reads like %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on ....
+  - Packet Tracer simulates a subset of IOS. If a command here is rejected in your version, note it, skip that step and carry on; the concept still applies to real Cisco gear.
+
+Packet Tracer is free with a Cisco Networking Academy account: https://www.netacad.com/
