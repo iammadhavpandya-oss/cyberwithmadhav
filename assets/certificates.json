@@ -1,0 +1,26 @@
+{
+  "note": "Public verification list for www.cyberwithmadhav.com/verify. Fields are only id, name, institution, session and date. Do not add phone numbers or email addresses. Rows labelled sample are not real people.",
+  "certificates": [
+    {
+      "id": "CWM-2026-7XW4",
+      "name": "Sample Participant One",
+      "institution": "Sample Arts and Science College Mumbai",
+      "session": "Cyber Awareness Session for Students (sample)",
+      "date": "23 November 2026"
+    },
+    {
+      "id": "CWM-2026-F7RU",
+      "name": "Sample Participant Two",
+      "institution": "Sample Institute of Technology Mumbai",
+      "session": "Cyber Awareness Session for Students (sample)",
+      "date": "23 November 2026"
+    },
+    {
+      "id": "CWM-2026-S6BW",
+      "name": "Sample Participant Three",
+      "institution": "Sample Law College Mumbai",
+      "session": "Cyber Awareness Session for Students (sample)",
+      "date": "23 November 2026"
+    }
+  ]
+}

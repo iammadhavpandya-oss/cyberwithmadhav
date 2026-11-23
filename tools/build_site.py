@@ -27,10 +27,10 @@ PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html
          "cybersecurity-awareness-sessions.html",
          "cyber-security-workshop-for-colleges.html", "cyber-awareness-session-for-schools.html",
          "cyber-awareness-speaker-mumbai.html", "shop.html", "now.html",
-         "about.html", "terms.html", "privacy.html"]
+         "about.html", "terms.html", "privacy.html", "verify.html"]
 PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "cybersecurity-awareness-sessions.html": "0.9",
             "cyber-security-workshop-for-colleges.html": "0.8", "cyber-awareness-session-for-schools.html": "0.8",
-            "cyber-awareness-speaker-mumbai.html": "0.8", "now.html": "0.5", "terms.html": "0.3", "privacy.html": "0.3"}
+            "cyber-awareness-speaker-mumbai.html": "0.8", "now.html": "0.5", "verify.html": "0.4", "terms.html": "0.3", "privacy.html": "0.3"}
 SESSION_LANDINGS = {
     "cyber-security-workshop-for-colleges.html",
     "cyber-awareness-session-for-schools.html",
