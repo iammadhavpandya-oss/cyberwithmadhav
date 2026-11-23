@@ -73,7 +73,7 @@
   Sim.prototype.say = function (t) { this.buf.push(t); };
   Sim.prototype.prompt = function () {
     if (this.pending) { this.label.textContent = this.pending.q; this.ps = esc(this.pending.q); return; }
-    var m = { user: '>', priv: '#', config: '(config)#', 'if': '(config-if)#', range: '(config-if-range)#', subif: '(config-subif)#', line: '(config-line)#', vlan: '(config-vlan)#' }[this.mode];
+    var m = { user: '>', priv: '#', config: '(config)#', 'if': '(config-if)#', range: '(config-if-range)#', subif: '(config-subif)#', line: '(config-line)#', vlan: '(config-vlan)#', router: '(config-router)#', sacl: '(config-std-nacl)#', eacl: '(config-ext-nacl)#', dhcp: '(dhcp-config)#' }[this.mode];
     this.label.textContent = this.st.host + m; this.ps = esc(this.st.host + m);
   };
   Sim.prototype.renderMissions = function () {
@@ -200,6 +200,7 @@
       if (usedMode === 'config' && this.mode !== 'config' && !this.doing) { this.mode = 'config'; this.ctx = null; }
       this.lastCmd = f.c.s.map(function (s, i) { return s; }).join(' ');
       f.c.fn.call(this, f.a, raw, tk);
+      if (this.st.ospf && this.ospfTick) this.ospfTick();
     } else if (r.full.length > 1 || this.ambiguous(usedMode, tk, raw)) this.say('% Ambiguous command:  "' + line.trim() + '"');
     else if (r.far.inc && r.far.at >= tk.length) this.say('% Incomplete command.');
     else {
@@ -224,7 +225,7 @@
   };
   Sim.prototype.flush = function () {
     var txt = this.buf.join('\n'); this.lastOut = txt;
-    this.buf.forEach(function (l) { this.print(l, /^%(LINK|LINEPROTO|SYS|SSH)/.test(l) ? 'ok' : (/^% ?\S/.test(l) && !/^% (Access VLAN|Voice VLAN|The key|Generating)/.test(l)) || /^(Command rejected|Please create|\s+\^$)/.test(l) ? 'er' : ''); }, this);
+    this.buf.forEach(function (l) { this.print(l, /^%(LINK|LINEPROTO|SYS|SSH)/.test(l) || (/^%OSPF/.test(l) && !/to DOWN/.test(l)) ? 'ok' : (/^% ?\S/.test(l) && !/^% (Access VLAN|Voice VLAN|The key|Generating)/.test(l)) || /^(Command rejected|Please create|\s+\^$)/.test(l) ? 'er' : ''); }, this);
     this.buf = [];
   };
   Sim.prototype.ambiguous = function (mode, tk, raw) {
@@ -252,7 +253,7 @@
     return st.order.some(function (n) { var i = st.ifs[n]; return i.sp && !i.shut && up.indexOf(n) > -1 && (i.mode === 'trunk' || i.av === v); });
   };
   Sim.prototype.ifUp = function (n) {
-    var i = this.st.ifs[n]; if (!i || i.shut) return false;
+    var i = this.st.ifs[n]; if (!i || i.shut || i.errd) return false;
     var vm = /^Vlan(\d+)$/.exec(n); if (vm) return !!this.st.vlans[+vm[1]] && this.vlanHasUp(+vm[1]);
     var base = n.split('.')[0]; if (n.indexOf('.') > -1) return this.ifUp(base);
     var pm = /^Port-channel(\d+)$/.exec(n), st = this.st, self = this; if (pm) return st.order.some(function (x) { return st.ifs[x].cg && st.ifs[x].cg.n === +pm[1] && self.ifUp(x); });
@@ -287,6 +288,8 @@
     if (!st.cdp) o.push('no cdp run', '!');
     var gk = Object.keys(st.gx); gk.forEach(function (k) { o.push(st.gx[k]); }); if (gk.length) o.push('!');
     if (st.lldp) o.push('lldp run', '!');
+    o = o.concat(this.runHook(0));
+    var me = this;
     var sw = this.isSw();
     st.order.forEach(function (n) {
       var i = st.ifs[n]; o.push('interface ' + n);
@@ -300,18 +303,22 @@
         else if (i.mode === 'dynamic desirable') o.push(' switchport mode dynamic desirable');
         if (i.nonego) o.push(' switchport nonegotiate');
         if (i.voice) o.push(' switchport voice vlan ' + i.voice);
-      } else if (i.ip) o.push(' ip address ' + i.ip + ' ' + i.mask);
+      } else if (i.dhcp) o.push(' ip address dhcp');
+      else if (i.ip) o.push(' ip address ' + i.ip + ' ' + i.mask);
       else if (!i.sp) o.push(' no ip address');
       Object.keys(i.x || {}).forEach(function (k) { o.push(' ' + i.x[k]); });
       if (!i.cdp && i.cdp !== undefined) o.push(' no cdp enable');
+      if (i.ps && i.ps.sticky && !i.errd) me.psMacs(n).slice(0, i.ps.max || 1).forEach(function (m) { o.push(' switchport port-security mac-address sticky ' + m[1]); });
       if (i.shut) o.push(' shutdown');
       o.push('!');
     });
+    o = o.concat(this.runHook(1));
     if (st.gw) o.push('ip default-gateway ' + st.gw, '!');
     (st.routes || []).forEach(function (r) { o.push('ip route ' + r.txt); });
     (st.v6r || []).forEach(function (r) { o.push('ipv6 route ' + r); });
+    o = o.concat(this.runHook(2));
     if (st.banner) o.push('banner motd ^C' + st.banner + '^C', '!');
-    var ln = function (k) { var x = st.lines[k], r = []; if (x.ac) r.push(' access-class ' + x.ac + ' in'); if (x.to) r.push(' exec-timeout ' + x.to); if (x.pw) r.push(' password ' + (st.spe ? '7 ' + type7(x.pw, 9) : x.pw)); if (x.login) r.push(' ' + x.login); if (x.tin) r.push(' transport input ' + x.tin); return r; };
+    var ln = function (k) { var x = st.lines[k], r = []; if (x.ac) r.push(' access-class ' + x.ac + ' in'); if (x.to) r.push(' exec-timeout ' + x.to); if (x.pw) r.push(' password ' + (st.spe ? '7 ' + type7(x.pw, 9) : x.pw)); if (x.la) r.push(' login authentication ' + x.la); if (x.login) r.push(' ' + x.login); if (x.tin) r.push(' transport input ' + x.tin); return r; };
     o.push('line con 0'); o = o.concat(ln('con 0'));
     var vt = Object.keys(st.lines).filter(function (k) { return k.indexOf('vty') === 0; }).map(function (k) { return +k.slice(4); }).sort(function (a, b) { return a - b; });
     var start = 0;
@@ -347,7 +354,7 @@
   };
 
   /* ---------- commands ---------- */
-  var CFGS = 'config if range subif line vlan';
+  var CFGS = 'config if range subif line vlan router sacl eacl dhcp';
   def('user', 'enable', function () {
     if (this.st.ens || this.st.enp) this.ask('Password: ', function (v) { if (v === (this.st.ens || this.st.enp)) this.mode = 'priv'; else this.say('% Bad secrets'); }, true);
     else this.mode = 'priv';
@@ -408,7 +415,7 @@
     var st = this.st, self = this, o = ['', 'Port      Name               Status       Vlan       Duplex  Speed Type'];
     st.order.forEach(function (n) {
       var i = st.ifs[n]; if (!i.sp) return;
-      var s = i.shut ? 'disabled' : self.ifUp(n) ? 'connected' : 'notconnect';
+      var s = i.errd ? 'err-disabled' : i.shut ? 'disabled' : self.ifUp(n) ? 'connected' : 'notconnect';
       o.push((shortIf(n) + '          ').slice(0, 10) + ((i.desc || '') + '                   ').slice(0, 19) + (s + '             ').slice(0, 13) + ((i.mode === 'trunk' ? 'trunk' : String(i.av)) + '           ').slice(0, 11) + (self.ifUp(n) ? 'a-full  a-100 ' : '  auto   auto ') + (/^Gi/.test(shortIf(n)) ? '10/100/1000BaseTX' : '10/100BaseTX'));
     });
     this.say(o.join('\n'));
@@ -423,14 +430,16 @@
     st.order.forEach(function (n) {
       var i = st.ifs[n]; if (!i.ip || !self.ifUp(n)) return;
       var len = maskLen(i.mask), nn = (ip2n(i.ip) & (len ? (0xFFFFFFFF << (32 - len)) >>> 0 : 0)) >>> 0;
-      ent.push({ nn: nn, len: len, k: 0, code: 'C', ad: 0, oif: n, line: 'C        ' + n2ip(nn) + '/' + len + ' is directly connected, ' + n }, { nn: ip2n(i.ip), len: 32, k: 1, code: 'L', ad: 0, oif: n, line: 'L        ' + i.ip + '/32 is directly connected, ' + n });
+      ent.push({ nn: nn, len: len, k: 0, code: 'C', ad: 0, oif: n, line: 'C        ' + n2ip(nn) + '/' + len + ' is directly connected, ' + n }); if (len < 32) ent.push({ nn: ip2n(i.ip), len: 32, k: 1, code: 'L', ad: 0, oif: n, line: 'L        ' + i.ip + '/32 is directly connected, ' + n });
     });
+    if (this.ospfEnts) ent = ent.concat(this.ospfEnts());
     this.installed().forEach(function (r) { ent.push({ nn: ip2n(r.net), len: maskLen(r.mask), k: 2, code: 'S', ad: r.ad, nh: r.nh, oif: r.oif, line: (r.net === '0.0.0.0' ? 'S*       ' : 'S        ') + r.net + '/' + maskLen(r.mask) + (r.nh ? ' [' + r.ad + '/0] via ' + r.nh + (r.oif ? ', ' + r.oif : '') : ' is directly connected, ' + r.oif) }); });
     return ent.sort(function (a, b) { return a.nn - b.nn || a.len - b.len || a.k - b.k; });
   };
   Sim.prototype.routeHead = function () {
     var df = this.installed().filter(function (r) { return r.net === '0.0.0.0' && r.mask === '0.0.0.0'; })[0];
-    return ['Codes: L - local, C - connected, S - static, O - OSPF', '       * - candidate default', '', df ? 'Gateway of last resort is ' + (df.nh || '0.0.0.0') + ' to network 0.0.0.0' : 'Gateway of last resort is not set', ''];
+    var od = !df && this.ospfEnts ? this.ospfEnts().filter(function (e) { return e.dflt; })[0] : null; if (od) df = { nh: od.nh };
+    return ['Codes: L - local, C - connected, S - static, O - OSPF', '       E2 - OSPF external type 2, * - candidate default', '', df ? 'Gateway of last resort is ' + (df.nh || '0.0.0.0') + ' to network 0.0.0.0' : 'Gateway of last resort is not set', ''];
   };
   def('priv', 'show ip route', function () { this.say(this.routeHead().concat(this.routeEnts().map(function (e) { return e.line; })).join('\n')); }, 'IP routing table');
   def('priv', 'show ip route static', function () { this.say(this.routeHead().concat(this.routeEnts().filter(function (e) { return e.code === 'S'; }).map(function (e) { return e.line; })).join('\n')); }, 'Static routes only');
@@ -547,7 +556,7 @@
   def(IFM, 'shutdown', function () { this.each(function (i, n) { if (!i.shut) { var was = this.ifUp(n); i.shut = true; this.say('%LINK-5-CHANGED: Interface ' + n + ', changed state to administratively down'); if (was) this.say('%LINEPROTO-5-UPDOWN: Line protocol on Interface ' + n + ', changed state to down'); } }); }, 'Shut down the interface');
   def(IFM, 'no shutdown', function () {
     this.each(function (i, n) {
-      if (!i.shut) return; i.shut = false;
+      if (!i.shut) return; i.shut = false; i.errd = false;
       if (this.ifUp(n)) { this.say((/^Vlan/.test(n) ? '%LINK-5-CHANGED: Interface ' + n + ', changed state to up' : '%LINK-3-UPDOWN: Interface ' + n + ', changed state to up')); this.say('%LINEPROTO-5-UPDOWN: Line protocol on Interface ' + n + ', changed state to up'); }
       else if (/^Vlan/.test(n)) this.say('%LINK-5-CHANGED: Interface ' + n + ', changed state to up');
     });
@@ -702,6 +711,415 @@
       '     ' + (e.outp || (up ? 1620 : 0)) + ' packets output, ' + ((e.outp || (up ? 1620 : 0)) * 90) + ' bytes, 0 underruns', '     0 output errors, ' + (e.col || 0) + ' collisions, ' + (e.resets || 1) + ' interface resets', '     ' + (e.late || 0) + ' late collision, 0 deferred');
     this.say(o.join('\n'));
   }, 'Status and counters for one interface');
+
+  /* ---------- batch 2: OSPF, ACLs, DHCP, NAT, NTP, syslog, SNMP, port security, snooping, AAA, PoE ---------- */
+  var BLK = 'router sacl eacl dhcp';
+  function gp(slot, key, text) { return function (a) { var t = typeof text === 'function' ? text(a) : text, k = typeof key === 'function' ? key(a) : key, st = this.st; st[slot] = st[slot] || {}; if (t === null) delete st[slot][k]; else st[slot][k] = t; }; }
+  function os(i) { i.os = i.os || {}; return i.os; }
+  function fmtDate(d) { var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], h = d.getHours(), ap = h < 12 ? 'AM' : 'PM'; h = h % 12 || 12; return M[d.getMonth()] + ' ' + ('0' + d.getDate()).slice(-2) + ' ' + d.getFullYear() + ' ' + ('0' + h).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2) + ' ' + ap; }
+  function pad(s, n) { s = String(s); while (s.length < n) s += ' '; return s; }
+
+  /* ACL text parsing (normalised the way IOS stores it) */
+  function aclAddr(t, i) {
+    if (t[i] === 'any') return { n: 1, s: 'any' };
+    if (t[i] === 'host' && ipOk(t[i + 1] || '')) return { n: 2, s: 'host ' + t[i + 1] };
+    if (ipOk(t[i] || '') && ipOk(t[i + 1] || '')) { var w = ip2n(t[i + 1]), a = n2ip((ip2n(t[i]) & ~w) >>> 0); return { n: 2, s: w === 0 ? 'host ' + a : a + ' ' + t[i + 1] }; }
+    return null;
+  }
+  function aclPort(t, i) {
+    if (['eq', 'neq', 'gt', 'lt', 'range'].indexOf(t[i]) < 0) return 0;
+    var ok = function (x) { return (/^\d+$/.test(x || '') && +x < 65536) || /^(www|domain|ftp|ftp-data|telnet|smtp|pop3|ntp|snmp|snmptrap|tftp|bootps|bootpc|syslog|tacacs|isakmp|22|443)$/.test(x || ''); };
+    if (!ok(t[i + 1])) return -1; if (t[i] === 'range') return ok(t[i + 2]) ? 3 : -1; return 2;
+  }
+  function aclParse(type, rest) {
+    var t = rest.toLowerCase().trim().split(/\s+/), act = t[0], i = 1, out = [act];
+    if (act !== 'permit' && act !== 'deny') return null;
+    if (type === 'standard') {
+      var a = ipOk(t[1] || '') && !ipOk(t[2] || '') ? { n: 1, s: 'host ' + t[1] } : aclAddr(t, 1);
+      if (!a) return null; out.push(a.s); i += a.n;
+    } else {
+      var pr = t[1]; if (!/^(ip|tcp|udp|icmp|ospf|esp|gre)$/.test(pr || '')) return null; out.push(pr); i = 2;
+      var s = aclAddr(t, i); if (!s) return null; out.push(s.s); i += s.n;
+      var sp = aclPort(t, i); if (sp < 0 || (sp && !/^(tcp|udp)$/.test(pr))) return null; if (sp) { out = out.concat(t.slice(i, i + sp)); i += sp; }
+      var d = aclAddr(t, i); if (!d) return null; out.push(d.s); i += d.n;
+      var dp = aclPort(t, i); if (dp < 0 || (dp && !/^(tcp|udp)$/.test(pr))) return null; if (dp) { out = out.concat(t.slice(i, i + dp)); i += dp; }
+      if (pr === 'icmp' && /^(echo|echo-reply|unreachable|time-exceeded|ttl-exceeded)$/.test(t[i] || '')) { out.push(t[i]); i++; }
+      if (t[i] === 'established' && pr === 'tcp') { out.push(t[i]); i++; }
+    }
+    if (t[i] === 'log') { out.push('log'); i++; }
+    return i === t.length ? out.join(' ') : null;
+  }
+  Sim.prototype.aclGet = function (name, type, named) {
+    var st = this.st; st.acls = st.acls || {}; st.aclOrder = st.aclOrder || [];
+    if (!st.acls[name]) { st.acls[name] = { type: type, named: named, ents: [] }; st.aclOrder.push(name); }
+    return st.acls[name];
+  };
+  Sim.prototype.aclAdd = function (A, seq, raw) {
+    var txt = /^remark /.test(raw) ? raw : aclParse(A.type, raw);
+    if (!txt) { this.say("% Invalid input detected at '^' marker."); return; }
+    if (seq == null) seq = (A.ents.length ? A.ents[A.ents.length - 1].seq : 0) + 10;
+    if (A.ents.some(function (e) { return e.seq === seq; })) { this.say('% Duplicate sequence number'); return; }
+    A.ents.push({ seq: seq, txt: txt }); A.ents.sort(function (x, y) { return x.seq - y.seq; });
+  };
+  function numType(n) { return (n >= 1 && n <= 99) || (n >= 1300 && n <= 1999) ? 'standard' : (n >= 100 && n <= 199) || (n >= 2000 && n <= 2699) ? 'extended' : null; }
+  def('config', 'access-list <n> permit|deny <rest>', function (a) { var ty = numType(a[0]); if (!ty) { this.say("% Invalid input detected at '^' marker."); return; } this.aclAdd(this.aclGet(String(a[0]), ty, false), null, a[1] + ' ' + a[2]); }, 'Numbered ACL entry (1-99 standard, 100-199 extended)');
+  def('config', 'access-list <n> remark <rest>', function (a) { var ty = numType(a[0]); if (ty) this.aclAdd(this.aclGet(String(a[0]), ty, false), null, 'remark ' + a[1]); }, 'ACL comment');
+  def('config', 'no access-list <n>', function (a) { var st = this.st, k = String(a[0]); if (st.acls && st.acls[k]) { delete st.acls[k]; st.aclOrder.splice(st.aclOrder.indexOf(k), 1); } }, '');
+  def('config', 'ip access-list standard|extended <w>', function (a) { var A = this.aclGet(a[1], a[0], true); if (A.type !== a[0]) { this.say('% A ' + A.type + ' access list with this name already exists'); return; } this.mode = a[0] === 'standard' ? 'sacl' : 'eacl'; this.ctx = [a[1]]; }, 'Named access list');
+  def('config', 'no ip access-list standard|extended <w>', function (a) { var st = this.st; if (st.acls && st.acls[a[1]]) { delete st.acls[a[1]]; st.aclOrder.splice(st.aclOrder.indexOf(a[1]), 1); } }, '');
+  def('sacl eacl', 'permit|deny <rest>', function (a) { this.aclAdd(this.st.acls[this.ctx[0]], null, a[0] + ' ' + a[1]); }, 'Add an entry at the end');
+  def('sacl eacl', '<n> permit|deny <rest>', function (a) { this.aclAdd(this.st.acls[this.ctx[0]], a[0], a[1] + ' ' + a[2]); }, 'Add an entry with this sequence number');
+  def('sacl eacl', 'remark <rest>', function (a) { this.aclAdd(this.st.acls[this.ctx[0]], null, 'remark ' + a[0]); }, 'Comment');
+  def('sacl eacl', 'no <n>', function (a) { var A = this.st.acls[this.ctx[0]]; A.ents = A.ents.filter(function (e) { return e.seq !== a[0]; }); }, 'Delete one entry by sequence number');
+  def(IFM, 'ip access-group <w> in|out', function (a) { ix('acg' + a[1], 'ip access-group ' + a[0] + ' ' + a[1]).call(this); this.each(function (i) { i.acg = i.acg || {}; i.acg[a[1]] = a[0]; }); }, 'Filter traffic on this interface');
+  def(IFM, 'no ip access-group <w> in|out', function (a) { ix('acg' + a[1], null).call(this); this.each(function (i) { if (i.acg) delete i.acg[a[1]]; }); }, '');
+  def('priv', 'show access-lists', function () { this.showAcl(null); }, 'All access lists with match counters');
+  def('priv', 'show access-lists <w>', function (a) { this.showAcl(a[0]); }, 'One access list');
+  def('priv', 'show ip access-lists', function () { this.showAcl(null); }, 'IPv4 access lists');
+  Sim.prototype.showAcl = function (only) {
+    var st = this.st, hits = this.cfg.hits || {}, o = [];
+    (st.aclOrder || []).forEach(function (k) {
+      if (only && only !== k) return; var A = st.acls[k];
+      o.push((A.type === 'standard' ? 'Standard' : 'Extended') + ' IP access list ' + k);
+      A.ents.forEach(function (e) { if (/^remark /.test(e.txt)) return; var h = (hits[k] || {})[e.seq]; o.push('    ' + e.seq + ' ' + e.txt + (h ? ' (' + h + ' match' + (h > 1 ? 'es' : '') + ')' : '')); });
+    });
+    this.say(o.join('\n'));
+  };
+  def('priv', 'show ip interface <if>', function (a) {
+    var n = a[0], i = this.st.ifs[n]; if (!i) { this.say("% Invalid input detected at '^' marker."); return; }
+    var up = this.ifUp(n), g = i.acg || {};
+    this.say([n + ' is ' + (i.shut ? 'administratively down' : up ? 'up' : 'down') + ', line protocol is ' + (up ? 'up' : 'down'), i.ip ? '  Internet address is ' + i.ip + '/' + maskLen(i.mask) : '  Internet protocol processing disabled', '  Broadcast address is 255.255.255.255', '  MTU is 1500 bytes',
+      (i.x && i.x.helper ? '  Helper address is ' + i.x.helper.split(' ').pop() : '  Helper address is not set'), '  Outgoing access list is ' + (g.out || 'not set'), '  Inbound  access list is ' + (g['in'] || 'not set'), '  Proxy ARP is enabled'].join('\n'));
+  }, 'IP settings of one interface, including ACLs');
+
+  /* OSPF */
+  def('config', 'router ospf <n>', function (a) { var st = this.st; if (st.ospf && st.ospf.pid !== a[0]) { this.say('% This simulator runs one OSPF process; use router ospf ' + st.ospf.pid); return; } st.ospf = st.ospf || { pid: a[0], nets: [], pas: {}, npas: {}, ref: 0, dio: false, rid: '', ridAct: '' }; this.mode = 'router'; this.ctx = []; }, 'OSPF routing process (the number is local only)');
+  def('config', 'no router ospf <n>', function () { this.st.ospf = null; }, '');
+  def('router', 'router-id <ip>', function (a) { var o = this.st.ospf; o.rid = a[0]; if (this.ospfNbrs().length && o.ridAct !== a[0]) this.say('% OSPF: Reload or use "clear ip ospf process" command, for this to take effect'); else o.ridAct = a[0]; }, 'Fixed router ID');
+  def('router', 'network <ip> <ip> area <n>', function (a) { var o = this.st.ospf; if (!o.nets.some(function (x) { return x.ip === a[0] && x.w === a[1]; })) o.nets.push({ ip: n2ip((ip2n(a[0]) & ~ip2n(a[1])) >>> 0), w: a[1], area: a[2] }); }, 'Run OSPF on interfaces in this range (wildcard mask)');
+  def('router', 'no network <ip> <ip> area <n>', function (a) { var o = this.st.ospf; o.nets = o.nets.filter(function (x) { return !(x.ip === n2ip((ip2n(a[0]) & ~ip2n(a[1])) >>> 0) && x.w === a[1]); }); }, '');
+  def('router', 'passive-interface <if>', function (a) { if (!this.st.ifs[a[0]]) { this.say("% Invalid input detected at '^' marker."); return; } this.st.ospf.pas[a[0]] = true; delete this.st.ospf.npas[a[0]]; }, 'Advertise the subnet but send no hellos');
+  def('router', 'no passive-interface <if>', function (a) { delete this.st.ospf.pas[a[0]]; this.st.ospf.npas[a[0]] = true; }, '');
+  def('router', 'passive-interface default', function () { this.st.ospf.pasDef = true; this.st.ospf.npas = {}; }, 'Make every interface passive');
+  def('router', 'auto-cost reference-bandwidth <n>', function (a) { this.st.ospf.ref = a[0] === 100 ? 0 : a[0]; this.say('% OSPF: Reference bandwidth is changed.'); this.say('        Please ensure reference bandwidth is consistent across all routers.'); }, 'Reference bandwidth in Mb/s (default 100)');
+  def('router', 'default-information originate', function () { this.st.ospf.dio = true; }, 'Advertise this router\'s default route');
+  def('router', 'no default-information originate', function () { this.st.ospf.dio = false; }, '');
+  def(IFM, 'ip ospf priority <n>', function (a) { if (a[0] > 255) { this.say("% Invalid input detected at '^' marker."); return; } ix('opri', 'ip ospf priority ' + a[0]).call(this); this.each(function (i) { os(i).pri = a[0]; }); }, 'DR election priority (0 to 255, default 1)');
+  def(IFM, 'ip ospf cost <n>', function (a) { ix('ocost', 'ip ospf cost ' + a[0]).call(this); this.each(function (i) { os(i).cost = a[0]; }); }, 'Fixed OSPF cost');
+  def(IFM, 'ip ospf hello-interval <n>', function (a) { ix('ohel', 'ip ospf hello-interval ' + a[0]).call(this); this.each(function (i) { os(i).hello = a[0]; }); }, 'Seconds between hellos (default 10)');
+  def(IFM, 'no ip ospf hello-interval', function () { ix('ohel', null).call(this); this.each(function (i) { delete os(i).hello; }); }, '');
+  def(IFM, 'ip ospf dead-interval <n>', function (a) { ix('odead', 'ip ospf dead-interval ' + a[0]).call(this); this.each(function (i) { os(i).dead = a[0]; }); }, 'Seconds before a silent neighbour is dead');
+  def(IFM, 'no ip ospf dead-interval', function () { ix('odead', null).call(this); this.each(function (i) { delete os(i).dead; }); }, '');
+  def(IFM, 'ip ospf network point-to-point|broadcast', function (a) { ix('onet', a[0] === 'broadcast' ? null : 'ip ospf network point-to-point').call(this); this.each(function (i) { os(i).p2p = a[0] !== 'broadcast'; }); }, 'OSPF network type');
+  def(IFM, 'no ip ospf network', function () { ix('onet', null).call(this); this.each(function (i) { os(i).p2p = false; }); }, '');
+  def(IFM, 'ip ospf <n> area <n>', function (a) { ix('oarea', 'ip ospf ' + a[0] + ' area ' + a[1]).call(this); this.each(function (i) { os(i).area = a[1]; }); }, 'Enable OSPF on this interface directly');
+  def('priv', 'clear ip ospf process', function () { this.ask('Reset ALL OSPF processes? [no]: ', function (v) { var o = this.st.ospf; if (/^y/i.test(v) && o) { o.ridAct = o.rid || ''; this.st.odr = {}; this.st.oprev = {}; this.ospfTick(true); } }); this.pending.cmd = 'clear ip ospf process'; }, 'Restart OSPF (applies a new router ID, reruns DR election)');
+  Sim.prototype.ospfArea = function (n) {
+    var o = this.st.ospf, i = this.st.ifs[n]; if (!o || !i || !i.ip || !this.ifUp(n)) return null;
+    if (i.os && i.os.area != null) return i.os.area;
+    var ip = ip2n(i.ip), hit = null;
+    o.nets.forEach(function (nt) { var w = ip2n(nt.w); if (hit == null && ((ip & ~w) >>> 0) === ((ip2n(nt.ip) & ~w) >>> 0)) hit = nt.area; });
+    return hit;
+  };
+  Sim.prototype.ospfPassive = function (n) { var o = this.st.ospf; return o.pasDef ? !o.npas[n] : !!o.pas[n]; };
+  Sim.prototype.ospfRid = function () {
+    var o = this.st.ospf, st = this.st, self = this; if (o.ridAct) return o.ridAct;
+    var best = function (re) { var b = null; st.order.forEach(function (n) { var i = st.ifs[n]; if (re.test(n) && i.ip && self.ifUp(n) && (!b || ip2n(i.ip) > ip2n(b))) b = i.ip; }); return b; };
+    return best(/^Loopback/) || best(/^(?!Loopback)/) || '0.0.0.0';
+  };
+  Sim.prototype.ospfCost = function (n) { var i = this.st.ifs[n], c = i.os && i.os.cost; if (c) return c; var ref = this.st.ospf.ref || 100, bw = /^Gig/.test(n) ? 1000 : /^Loop/.test(n) ? 8000000 : 100; return Math.max(1, Math.floor(ref / bw)); };
+  Sim.prototype.ospfNbrs = function () {
+    var self = this, o = this.st.ospf, out = []; if (!o) return out;
+    ((this.cfg.ospf || {}).nbrs || []).forEach(function (nb) {
+      var n = nb.iface, i = self.st.ifs[n], ar = self.ospfArea(n); if (ar == null || ar !== (nb.area || 0) || self.ospfPassive(n)) return;
+      var h = (i.os && i.os.hello) || 10, d = (i.os && i.os.dead) || h * 4, nh = nb.hello || 10;
+      if (h !== nh || d !== (nb.dead || nh * 4)) return;
+      out.push(nb);
+    });
+    return out;
+  };
+  Sim.prototype.ospfRoles = function (n) {
+    var i = this.st.ifs[n]; if (i.os && i.os.p2p) return null;
+    var me = { rid: this.ospfRid(), pri: i.os && i.os.pri != null ? i.os.pri : 1, me: true };
+    var all = [me].concat(this.ospfNbrs().filter(function (x) { return x.iface === n; }).map(function (x) { return { rid: x.rid, pri: x.pri == null ? 1 : x.pri }; }));
+    var el = all.filter(function (x) { return x.pri > 0; }).sort(function (a, b) { return b.pri - a.pri || ip2n(b.rid) - ip2n(a.rid); });
+    var ids = all.map(function (x) { return x.rid; }), st = this.st; st.odr = st.odr || {};
+    var c = st.odr[n], has = function (r) { return r !== '0.0.0.0' && ids.indexOf(r) > -1; };
+    /* DR election is not preemptive: keep the elected DR and BDR while they are still present */
+    if (!c || c.alone && all.length > 1 || !has(c.dr)) c = { dr: el[0] ? el[0].rid : '0.0.0.0', bdr: el[1] ? el[1].rid : '0.0.0.0', alone: all.length === 1 };
+    else if (!has(c.bdr)) { var rest = el.filter(function (x) { return x.rid !== c.dr; }); c = { dr: c.dr, bdr: rest[0] ? rest[0].rid : '0.0.0.0', alone: all.length === 1 }; }
+    st.odr[n] = c;
+    return { dr: c.dr, bdr: c.bdr, me: me };
+  };
+  Sim.prototype.nbrState = function (nb) {
+    var r = this.ospfRoles(nb.iface); if (!r) return 'FULL/  -';
+    if (nb.rid === r.dr) return 'FULL/DR'; if (nb.rid === r.bdr) return 'FULL/BDR';
+    return r.me.rid === r.dr || r.me.rid === r.bdr ? 'FULL/DROTHER' : '2WAY/DROTHER';
+  };
+  Sim.prototype.ospfTick = function (restart) {
+    var o = this.st.ospf; if (!o) return;
+    var now = {}, prev = this.st.oprev || {}, self = this;
+    this.ospfNbrs().forEach(function (nb) { now[nb.rid + '@' + nb.iface] = nb; });
+    Object.keys(prev).forEach(function (k) { if (!now[k]) { var nb = prev[k]; self.say('%OSPF-5-ADJCHG: Process ' + o.pid + ', Nbr ' + nb.rid + ' on ' + nb.iface + ' from FULL to DOWN, Neighbor Down: ' + (self.ifUp(nb.iface) && self.ospfArea(nb.iface) != null && !self.ospfPassive(nb.iface) ? 'Dead timer expired' : 'Interface down or detached')); } });
+    Object.keys(now).forEach(function (k) { if (!prev[k]) { var nb = now[k]; if (self.nbrState(nb).indexOf('FULL') === 0) self.say('%OSPF-5-ADJCHG: Process ' + o.pid + ', Nbr ' + nb.rid + ' on ' + nb.iface + ' from LOADING to FULL, Loading Done'); } });
+    this.st.oprev = now;
+  };
+  Sim.prototype.ospfEnts = function () {
+    var o = this.st.ospf, self = this, ent = [], by = {}; if (!o) return ent;
+    var up = {}; this.ospfNbrs().forEach(function (nb) { up[nb.ip] = nb; });
+    var lc = Math.max(1, Math.floor((o.ref || 100) / 1000));
+    ((this.cfg.ospf || {}).routes || []).forEach(function (r) {
+      var nb = up[r.via]; if (!nb) return;
+      var p = r.p.split('/'), cost = r.e2 ? 1 : self.ospfCost(nb.iface) + (r.rc != null ? r.rc : (r.links || 1) * lc);
+      var k = r.p; if (!by[k] || cost < by[k].cost) by[k] = { cost: cost, p: p, e2: r.e2, hops: [[r.via, nb.iface]] }; else if (cost === by[k].cost) by[k].hops.push([r.via, nb.iface]);
+    });
+    Object.keys(by).forEach(function (k) {
+      var b = by[k], code = b.e2 ? (b.p[0] === '0.0.0.0' ? 'O*E2     ' : 'O E2     ') : 'O        ', head = code + b.p[0] + '/' + b.p[1] + ' ', ln = [];
+      b.hops.forEach(function (h, j) { var t = '[110/' + b.cost + '] via ' + h[0] + ', 00:00:12, ' + h[1]; ln.push(j ? new Array(head.length + 1).join(' ') + t : head + t); });
+      ent.push({ nn: ip2n(b.p[0]), len: +b.p[1], k: 3, code: 'O', ad: 110, nh: b.hops[0][0], oif: b.hops[0][1], line: ln.join('\n'), dflt: b.p[0] === '0.0.0.0' });
+    });
+    return ent;
+  };
+  def('priv', 'show ip ospf neighbor', function () {
+    var self = this, o = ['', 'Neighbor ID     Pri   State           Dead Time   Address         Interface'];
+    this.ospfNbrs().forEach(function (nb) { var r = self.ospfRoles(nb.iface); o.push(pad(nb.rid, 16) + pad(String(r ? (nb.pri == null ? 1 : nb.pri) : 0), 6) + pad(self.nbrState(nb), 16) + pad('00:00:3' + (nb.rid.length % 9), 12) + pad(nb.ip, 16) + nb.iface); });
+    this.say(o.join('\n'));
+  }, 'OSPF neighbours and their state');
+  def('priv', 'show ip ospf interface brief', function () {
+    var st = this.st, self = this, o = ['Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C']; if (!st.ospf) { this.say(''); return; }
+    st.order.forEach(function (n) {
+      var ar = self.ospfArea(n), i = st.ifs[n]; if (ar == null) return;
+      var nbs = self.ospfNbrs().filter(function (x) { return x.iface === n; }), r = self.ospfRoles(n), full = nbs.filter(function (x) { return self.nbrState(x).indexOf('FULL') === 0; }).length;
+      var stt = r ? (r.me.rid === r.dr ? 'DR' : r.me.rid === r.bdr ? 'BDR' : 'DROTH') : 'P2P';
+      if (/^Loopback/.test(n)) stt = 'LOOP';
+      o.push(pad(shortIf(n), 13) + pad(st.ospf.pid, 6) + pad(ar, 16) + pad(i.ip + '/' + maskLen(i.mask), 19) + pad(self.ospfCost(n), 6) + pad(stt, 6) + full + '/' + nbs.length);
+    });
+    this.say(o.join('\n'));
+  }, 'OSPF interfaces, cost and DR role');
+  def('priv', 'show ip protocols', function () {
+    var o = this.st.ospf, self = this; if (!o) { this.say(''); return; }
+    var L = ['*** IP Routing is NSF aware ***', '', 'Routing Protocol is "ospf ' + o.pid + '"', '  Outgoing update filter list for all interfaces is not set', '  Incoming update filter list for all interfaces is not set', '  Router ID ' + this.ospfRid(), '  Number of areas in this router is 1. 1 normal 0 stub 0 nssa', '  Maximum path: 4', '  Routing for Networks:'];
+    o.nets.forEach(function (x) { L.push('    ' + x.ip + ' ' + x.w + ' area ' + x.area); });
+    var pv = this.st.order.filter(function (n) { return self.ospfPassive(n) && self.st.ifs[n].ip; });
+    if (pv.length) { L.push('  Passive Interface(s):'); pv.forEach(function (n) { L.push('    ' + n); }); }
+    L.push('  Routing Information Sources:', '    Gateway         Distance      Last Update');
+    var seen = {}; this.ospfNbrs().forEach(function (nb) { if (!seen[nb.rid]) { seen[nb.rid] = 1; L.push('    ' + pad(nb.rid, 16) + pad('     110', 14) + '00:00:12'); } });
+    L.push('  Distance: (default is 110)'); this.say(L.join('\n'));
+  }, 'Routing protocol summary');
+  def('priv', 'show ip route ospf', function () { this.say(this.routeHead().concat(this.routeEnts().filter(function (e) { return e.code === 'O'; }).map(function (e) { return e.line; })).join('\n')); }, 'OSPF routes only');
+
+  /* DHCP */
+  def('config', 'ip dhcp excluded-address <ip>', gx(function (a) { return 'dx' + a[0]; }, function (a) { return 'ip dhcp excluded-address ' + a[0]; }), 'Addresses the DHCP server must not hand out');
+  def('config', 'ip dhcp excluded-address <ip> <ip>', gx(function (a) { return 'dx' + a[0]; }, function (a) { return 'ip dhcp excluded-address ' + a[0] + ' ' + a[1]; }), '');
+  def('config', 'ip dhcp pool <w>', function (a) { var st = this.st; st.pools = st.pools || {}; st.pools[a[0]] = st.pools[a[0]] || {}; this.mode = 'dhcp'; this.ctx = [a[0]]; }, 'Create or edit a DHCP pool');
+  def('config', 'no ip dhcp pool <w>', function (a) { if (this.st.pools) delete this.st.pools[a[0]]; }, '');
+  def('dhcp', 'network <ip> <ip>', function (a) { var len = maskLen(a[1]); if (n2ip(len ? (0xFFFFFFFF << (32 - len)) >>> 0 : 0) !== a[1]) { this.say('% Invalid mask'); return; } this.st.pools[this.ctx[0]].net = a[0] + ' ' + a[1]; }, 'Subnet this pool serves');
+  def('dhcp', 'default-router <ip>', function (a) { this.st.pools[this.ctx[0]].gw = a[0]; }, 'Gateway handed to clients');
+  def('dhcp', 'dns-server <rest>', function (a) { this.st.pools[this.ctx[0]].dns = a[0]; }, 'DNS servers handed to clients');
+  def('dhcp', 'domain-name <w>', function (a) { this.st.pools[this.ctx[0]].dom = a[0]; }, 'DNS domain for clients');
+  def('dhcp', 'lease <rest>', function (a) { this.st.pools[this.ctx[0]].lease = a[0]; }, 'Lease time: days [hours] [minutes]');
+  def(IFM, 'ip helper-address <ip>', ix('helper', function (a) { return 'ip helper-address ' + a[0]; }), 'Relay DHCP broadcasts to this server');
+  def(IFM, 'no ip helper-address <ip>', ix('helper', null), '');
+  def(IFM, 'ip address dhcp', function () { this.each(function (i) { i.dhcp = true; delete i.ip; delete i.mask; }); }, 'Get this interface address from DHCP');
+  Sim.prototype.leases = function () {
+    var st = this.st, out = [], cl = ((this.cfg.dhcp || {}).clients || []), self = this;
+    var ex = Object.keys(st.gx).filter(function (k) { return k.indexOf('dx') === 0; }).map(function (k) { var p = st.gx[k].split(' ').slice(3); return [ip2n(p[0]), ip2n(p[1] || p[0])]; });
+    Object.keys(st.pools || {}).forEach(function (pn) {
+      var P = st.pools[pn]; if (!P.net) return; var nw = P.net.split(' '), base = ip2n(nw[0]), len = maskLen(nw[1]), size = Math.pow(2, 32 - len), mine = st.order.some(function (n) { var i = st.ifs[n]; return i.ip && self.ifUp(n) && maskLen(i.mask) === len && ((ip2n(i.ip) >>> (32 - len)) === (base >>> (32 - len))); });
+      if (!mine) return; var ip = base + 1;
+      cl.forEach(function (c) { while (ip < base + size - 1 && ex.some(function (r) { return ip >= r[0] && ip <= r[1]; })) ip++; if (ip < base + size - 1) { out.push({ ip: n2ip(ip), mac: c, pool: pn }); ip++; } });
+    });
+    return out;
+  };
+  def('priv', 'show ip dhcp binding', function () {
+    var o = ['Bindings from all pools not associated with VRF:', 'IP address          Client-ID/              Lease expiration        Type', '                    Hardware address/', '                    User name'], exp = fmtDate(new Date(Date.now() + 864e5));
+    this.leases().forEach(function (l) { o.push(pad(l.ip, 20) + pad('01' + l.mac.replace(/\./g, '').replace(/(..)(?=.)/g, '$1.').slice(0, 14), 24) + pad(exp, 24) + 'Automatic'); });
+    this.say(o.join('\n'));
+  }, 'Leases this router has handed out');
+  def('priv', 'show ip dhcp pool', function () {
+    var st = this.st, L = this.leases(), o = [];
+    Object.keys(st.pools || {}).forEach(function (pn) { var P = st.pools[pn], n = L.filter(function (l) { return l.pool === pn; }).length; o.push('', 'Pool ' + pn + ' :', ' Utilization mark (high/low)    : 100 / 0', ' Subnet size (first/next)       : 0 / 0', ' Total addresses                : ' + (P.net ? Math.pow(2, 32 - maskLen(P.net.split(' ')[1])) - 2 : 0), ' Leased addresses               : ' + n, ' Pending event                  : none'); });
+    this.say(o.join('\n'));
+  }, 'DHCP pools and how full they are');
+
+  /* NAT */
+  function natOn(i) { return i.x && i.x.nat ? i.x.nat.split(' ')[2] : null; }
+  def(IFM, 'ip nat inside|outside', ix('nat', function (a) { return 'ip nat ' + a[0]; }), 'Mark the inside or outside of NAT');
+  def(IFM, 'no ip nat inside|outside', ix('nat', null), '');
+  def('config', 'ip nat inside source list <w> interface <if> overload', function (a) { this.st.natsrc = { list: a[0], oif: a[1], ovl: true }; }, 'PAT: share the outside interface address');
+  def('config', 'ip nat inside source list <w> pool <w>', function (a) { this.st.natsrc = { list: a[0], pool: a[1], ovl: false }; }, 'Dynamic NAT from a pool');
+  def('config', 'ip nat inside source list <w> pool <w> overload', function (a) { this.st.natsrc = { list: a[0], pool: a[1], ovl: true }; }, 'PAT over a pool');
+  def('config', 'no ip nat inside source list <rest>', function () { this.st.natsrc = null; }, '');
+  def('config', 'ip nat inside source static <ip> <ip>', function (a) { var st = this.st; st.natst = st.natst || {}; st.natst[a[0]] = a[1]; }, 'Static one to one NAT');
+  def('config', 'no ip nat inside source static <ip> <ip>', function (a) { if (this.st.natst) delete this.st.natst[a[0]]; }, '');
+  def('config', 'ip nat pool <w> <ip> <ip> netmask <ip>', function (a) { var st = this.st; st.natpool = st.natpool || {}; st.natpool[a[0]] = [a[1], a[2], a[3]]; }, 'Range of public addresses');
+  def('config', 'no ip nat pool <w>', function (a) { if (this.st.natpool) delete this.st.natpool[a[0]]; }, '');
+  def('priv', 'clear ip nat translation *', function () { this.st.natclr = true; }, 'Drop dynamic translations (breaks live sessions)');
+  Sim.prototype.natRows = function () {
+    var st = this.st, self = this, rows = [], ins = st.order.filter(function (n) { return natOn(st.ifs[n]) === 'inside'; }), outs = st.order.filter(function (n) { return natOn(st.ifs[n]) === 'outside'; });
+    Object.keys(st.natst || {}).forEach(function (k) { rows.push(['---', st.natst[k], k, '---', '---']); });
+    var s = st.natsrc, A = s && st.acls && st.acls[s.list];
+    if (s && A && ins.length && outs.length && !st.natclr) {
+      var permits = function (ip) { var hit = null; A.ents.forEach(function (e) { if (hit || /^remark/.test(e.txt)) return; var t = e.txt.split(' '), ad = aclAddr(t, 1) || { s: t[1] }; var src = t[1] === 'any' ? true : t[1] === 'host' ? t[2] === ip : (function () { var w = ip2n(t[2] || '0.0.0.0'); return ((ip2n(ip) & ~w) >>> 0) === ip2n(t[1]); })(); if (src) hit = t[0]; }); return hit === 'permit'; };
+      var pool = s.pool && st.natpool && st.natpool[s.pool], pAddr = [], used = {};
+      if (pool) for (var x = ip2n(pool[0]); x <= ip2n(pool[1]); x++) pAddr.push(n2ip(x));
+      var gip = s.oif ? (st.ifs[s.oif] || {}).ip : null;
+      ((this.cfg.nat || {}).flows || []).forEach(function (f) {
+        if (!permits(f.il)) return;
+        var g = gip; if (pool) { if (!s.ovl) { if (used[f.il] == null) { if (Object.keys(used).length >= pAddr.length) return; used[f.il] = pAddr[Object.keys(used).length]; } g = used[f.il]; } else g = pAddr[0]; }
+        if (!g) return;
+        rows.push([f.pro, g + ':' + f.ip, f.il + ':' + f.ip, f.og + ':' + f.op, f.og + ':' + f.op]);
+      });
+    }
+    return { rows: rows, ins: ins, outs: outs };
+  };
+  def('priv', 'show ip nat translations', function () {
+    var R = this.natRows(), o = ['Pro  Inside global         Inside local          Outside local         Outside global'];
+    R.rows.forEach(function (r) { o.push(pad(r[0], 5) + pad(r[1], 22) + pad(r[2], 22) + pad(r[3], 22) + r[4]); });
+    this.say(o.join('\n'));
+  }, 'Current NAT translations');
+  def('priv', 'show ip nat statistics', function () {
+    var R = this.natRows(), st = R.rows.filter(function (r) { return r[0] === '---'; }).length, dy = R.rows.length - st;
+    this.say(['Total active translations: ' + R.rows.length + ' (' + st + ' static, ' + dy + ' dynamic; ' + dy + ' extended)', 'Outside interfaces:', '  ' + (R.outs.join(', ') || 'none'), 'Inside interfaces:', '  ' + (R.ins.join(', ') || 'none'), 'Hits: ' + dy * 12 + '  Misses: ' + dy].join('\n'));
+  }, 'NAT counters and interfaces');
+
+  /* NTP, syslog, SNMP, backups */
+  var SEV = ['emergencies', 'alerts', 'critical', 'errors', 'warnings', 'notifications', 'informational', 'debugging'];
+  def('config', 'ntp server <ip>', gp('gp2', function (a) { return 'ntp' + a[0]; }, function (a) { return 'ntp server ' + a[0]; }), 'Get time from this NTP server');
+  def('config', 'no ntp server <ip>', gp('gp2', function (a) { return 'ntp' + a[0]; }, null), '');
+  def('config', 'service timestamps <rest>', gx(function (a) { return 'sts' + a[0].split(' ')[0]; }, function (a) { return 'service timestamps ' + a[0]; }), 'Timestamp format for log or debug messages');
+  def('config', 'logging host <ip>', gp('gp2', function (a) { return 'lgh' + a[0]; }, function (a) { return 'logging host ' + a[0]; }), 'Send logs to this syslog server');
+  def('config', 'logging <ip>', gp('gp2', function (a) { return 'lgh' + a[0]; }, function (a) { return 'logging host ' + a[0]; }), 'Send logs to this syslog server (older form)');
+  def('config', 'no logging host <ip>', gp('gp2', function (a) { return 'lgh' + a[0]; }, null), '');
+  def('config', 'logging trap <w>', function (a) { var v = a[0].toLowerCase(), k = /^\d$/.test(v) ? +v : SEV.indexOf(v); if (!(k >= 0 && k <= 7)) { this.say("% Invalid input detected at '^' marker."); return; } this.st.gp2 = this.st.gp2 || {}; this.st.gp2.lgt = 'logging trap ' + SEV[k]; this.st.trap = k; }, 'Most detailed severity sent to syslog (0 to 7)');
+  def('config', 'logging buffered <rest>', gx('lgb', function (a) { return 'logging buffered ' + a[0]; }), 'Keep logs in RAM');
+  def('config', 'snmp-server community <w> ro|rw', gp('gp2', function (a) { return 'snc' + a[0]; }, function (a) { return 'snmp-server community ' + a[0] + ' ' + a[1].toUpperCase(); }), 'SNMPv1/v2c community (cleartext)');
+  def('config', 'snmp-server community <w> ro|rw <w>', gp('gp2', function (a) { return 'snc' + a[0]; }, function (a) { return 'snmp-server community ' + a[0] + ' ' + a[1].toUpperCase() + ' ' + a[2]; }), '');
+  def('config', 'no snmp-server community <w>', gp('gp2', function (a) { return 'snc' + a[0]; }, null), '');
+  def('config', 'snmp-server location|contact <rest>', gp('gp2', function (a) { return 'sn' + a[0]; }, function (a) { return 'snmp-server ' + a[0] + ' ' + a[1]; }), 'SNMP system information');
+  def('config', 'snmp-server group|user|host <rest>', gp('gp2', function (a) { return 'sn' + a[0] + a[1].split(' ')[0]; }, function (a) { return 'snmp-server ' + a[0] + ' ' + a[1]; }), 'SNMPv3 groups and users, or trap receivers');
+  def('config', 'snmp-server enable traps', gp('gp2', 'snt', 'snmp-server enable traps'), 'Send SNMP traps');
+  def('priv', 'show ntp status', function () {
+    var st = this.st, srv = Object.keys(st.gp2 || {}).filter(function (k) { return k.indexOf('ntp') === 0; }).map(function (k) { return k.slice(3); })[0], ok = srv && (this.cfg.ntp || {}).ok === srv;
+    this.say(ok ? 'Clock is synchronized, stratum ' + ((this.cfg.ntp.st || 1) + 1) + ', reference is ' + srv + '\nnominal freq is 250.0000 Hz, actual freq is 250.0000 Hz, precision is 2**24\nreference time is (simulated)\nclock offset is 0.0000 msec, root delay is 0.00  msec' : 'Clock is unsynchronized, stratum 16, no reference clock\nnominal freq is 250.0000 Hz, actual freq is 250.0000 Hz, precision is 2**24');
+  }, 'NTP synchronisation state');
+  def('priv', 'show ntp associations', function () {
+    var st = this.st, o = ['', '  address         ref clock       st   when   poll reach  delay  offset   disp'], ok = (this.cfg.ntp || {}).ok;
+    Object.keys(st.gp2 || {}).filter(function (k) { return k.indexOf('ntp') === 0; }).forEach(function (k) { var ip = k.slice(3), y = ok === ip; o.push((y ? '*~' : ' ~') + pad(ip, 16) + pad(y ? '.LOCL.' : '.INIT.', 16) + pad(y ? ' 1' : '16', 5) + pad(y ? '   12' : '    -', 7) + pad('   64', 7) + pad(y ? '377' : '  0', 6) + ' 0.000   0.000  ' + (y ? '0.191' : '16000.')); });
+    o.push(' * sys.peer, # selected, + candidate, - outlyer, x falseticker, ~ configured'); this.say(o.join('\n'));
+  }, 'NTP servers and which one is used');
+  def('user priv', 'show clock', function () { var d = new Date(), ok = (this.cfg.ntp || {}).ok && Object.keys(this.st.gp2 || {}).some(function (k) { return k.indexOf('ntp') === 0; }); this.say((ok ? '' : '*') + d.toTimeString().slice(0, 8) + '.' + ('00' + d.getMilliseconds()).slice(-3) + ' IST ' + d.toDateString()); }, 'Current time');
+  def('user priv', 'show clock detail', function () { var d = new Date(), ok = (this.cfg.ntp || {}).ok && Object.keys(this.st.gp2 || {}).some(function (k) { return k.indexOf('ntp') === 0; }); this.say((ok ? '' : '*') + d.toTimeString().slice(0, 8) + '.' + ('00' + d.getMilliseconds()).slice(-3) + ' IST ' + d.toDateString() + '\n' + (ok ? 'Time source is NTP' : 'No time source')); }, 'Current time and its source');
+  def('priv', 'show logging', function () {
+    var st = this.st, hosts = Object.keys(st.gp2 || {}).filter(function (k) { return k.indexOf('lgh') === 0; }).map(function (k) { return k.slice(3); }), t = st.trap == null ? 6 : st.trap;
+    var o = ['Syslog logging: enabled (0 messages dropped, 0 flushes, 0 overruns)', '    Console logging: level debugging, 42 messages logged', '    Monitor logging: level debugging, 0 messages logged', '    Buffer logging:  ' + (st.gx.lgb ? 'level debugging, 42 messages logged' : 'disabled'), '    Trap logging: level ' + SEV[t] + ', 46 message lines logged'];
+    hosts.forEach(function (h) { o.push('        Logging to ' + h + '  (udp port 514, audit disabled,', '              link up),', '              12 message lines logged'); });
+    this.say(o.join('\n'));
+  }, 'Logging settings and syslog servers');
+  def('priv', 'copy running-config tftp:', function () {
+    this.ask('Address or name of remote host []? ', function (h) {
+      if (!ipOk(h)) { this.say('%Error parsing tftp://' + h); return; }
+      var fn = this.st.host.toLowerCase() + '-confg';
+      this.ask('Destination filename [' + fn + ']? ', function (f) { var len = this.running().length; this.say('Writing ' + (f || fn) + '...!!'); this.say('[OK - ' + len + ' bytes]'); this.say(''); this.say(len + ' bytes copied in 0.' + (len % 900 + 100) + ' secs'); this.st.tftp = h; });
+      this.pending.cmd = 'copy running-config tftp:';
+    });
+  }, 'Back up the configuration to a TFTP server');
+
+  /* Port security, DHCP snooping, DAI */
+  Sim.prototype.psMacs = function (n) { var sh = shortIf(n), st = this.st; return (this.cfg.macs || []).filter(function (r) { return r[2] === sh && !(st.psGone || {})[n + r[1]]; }); };
+  Sim.prototype.psEval = function () {
+    this.each(function (i, n) {
+      var p = i.ps; if (!p || !p.on || i.errd || i.shut) return;
+      var macs = this.psMacs(n), max = p.max || 1; if (macs.length <= max) return;
+      var bad = macs[max]; p.viol = (p.viol || 0) + macs.length - max;
+      if ((p.act || 'shutdown') === 'shutdown') {
+        this.say('%PM-4-ERR_DISABLE: psecure-violation error detected on ' + shortIf(n) + ', putting ' + shortIf(n) + ' in err-disable state');
+        this.say('%PORT_SECURITY-2-PSECURE_VIOLATION: Security violation occurred, caused by MAC address ' + bad[1] + ' on port ' + n + '.');
+        this.say('%LINEPROTO-5-UPDOWN: Line protocol on Interface ' + n + ', changed state to down'); this.say('%LINK-3-UPDOWN: Interface ' + n + ', changed state to down');
+        i.errd = true; this.st.psGone = this.st.psGone || {}; var st = this.st; macs.slice(max).forEach(function (m) { st.psGone[n + m[1]] = true; });
+      }
+    });
+  };
+  function psCmd(fn) { return spOnly(function (a) { var bad = null; this.each(function (i, n) { if (i.mode !== 'access' && !bad) bad = n; }); if (bad) { this.say('Command rejected: ' + bad + ' is a dynamic port.'); return; } fn.call(this, a); this.psEval(); }); }
+  def('if range', 'switchport port-security', psCmd(function () { ix('ps', 'switchport port-security').call(this); this.each(function (i) { i.ps = i.ps || {}; i.ps.on = true; }); }), 'Turn on port security (default: 1 MAC, violation shutdown)');
+  def('if range', 'switchport port-security maximum <n>', psCmd(function (a) { ix('psm', 'switchport port-security maximum ' + a[0]).call(this); this.each(function (i) { i.ps = i.ps || {}; i.ps.max = a[0]; }); }), 'How many MAC addresses this port may learn');
+  def('if range', 'switchport port-security mac-address sticky', psCmd(function () { ix('pss', 'switchport port-security mac-address sticky').call(this); this.each(function (i) { i.ps = i.ps || {}; i.ps.sticky = true; }); }), 'Save learned MACs into the running config');
+  def('if range', 'switchport port-security violation protect|restrict|shutdown', psCmd(function (a) { ix('psv', a[0] === 'shutdown' ? null : 'switchport port-security violation ' + a[0]).call(this); this.each(function (i) { i.ps = i.ps || {}; i.ps.act = a[0]; }); }), 'What happens on a violation');
+  def('priv', 'show port-security', function () {
+    var st = this.st, self = this, o = ['Secure Port  MaxSecureAddr  CurrentAddr  SecurityViolation  Security Action', '                (Count)       (Count)          (Count)', '---------------------------------------------------------------------------'];
+    st.order.forEach(function (n) { var i = st.ifs[n], p = i.ps; if (!p || !p.on) return; var cur = Math.min(self.psMacs(n).length, p.max || 1); if (i.errd) cur = 0; o.push(pad('      ' + shortIf(n), 19) + pad(String(p.max || 1), 13) + pad(String(cur), 19) + pad(String(p.viol || 0), 11) + ((p.act || 'shutdown').charAt(0).toUpperCase() + (p.act || 'shutdown').slice(1))); });
+    o.push('---------------------------------------------------------------------------', 'Total Addresses in System (excluding one mac per port)     : 0', 'Max Addresses limit in System (excluding one mac per port) : 4096');
+    this.say(o.join('\n'));
+  }, 'Port security summary');
+  def('priv', 'show port-security interface <if>', function (a) {
+    var n = a[0], i = this.st.ifs[n] || {}, p = i.ps || {}, macs = this.psMacs(n), cur = i.errd ? 0 : Math.min(macs.length, p.max || 1);
+    this.say(['Port Security              : ' + (p.on ? 'Enabled' : 'Disabled'), 'Port Status                : ' + (!p.on ? 'Secure-down' : i.errd ? 'Secure-shutdown' : this.ifUp(n) ? 'Secure-up' : 'Secure-down'), 'Violation Mode             : ' + ((p.act || 'shutdown').charAt(0).toUpperCase() + (p.act || 'shutdown').slice(1)), 'Aging Time                 : 0 mins', 'Aging Type                 : Absolute', 'SecureStatic Address Aging : Disabled', 'Maximum MAC Addresses      : ' + (p.max || 1), 'Total MAC Addresses        : ' + cur, 'Configured MAC Addresses   : 0', 'Sticky MAC Addresses       : ' + (p.sticky ? cur : 0), 'Last Source Address:Vlan   : ' + (macs[0] ? macs[macs.length - 1][1] + ':' + (i.av || 1) : '0000.0000.0000:0'), 'Security Violation Count   : ' + (p.viol || 0)].join('\n'));
+  }, 'Port security on one interface');
+  def('priv', 'show interfaces status err-disabled', function () {
+    var st = this.st, o = ['', 'Port      Name               Status       Reason               Err-disabled Vlans'];
+    st.order.forEach(function (n) { if (st.ifs[n].errd) o.push(pad(shortIf(n), 29) + pad('err-disabled', 13) + 'psecure-violation'); });
+    this.say(o.join('\n'));
+  }, 'Ports shut down by a protection feature');
+  def('config', 'ip dhcp snooping', gx('dsn', 'ip dhcp snooping'), 'Turn on DHCP snooping (also needs a VLAN)');
+  def('config', 'no ip dhcp snooping', gx('dsn', null), '');
+  def('config', 'ip dhcp snooping vlan <w>', gx('dsnv', function (a) { return 'ip dhcp snooping vlan ' + a[0]; }), 'VLANs where snooping runs');
+  def('config', 'no ip dhcp snooping information option', gx('dsno', 'no ip dhcp snooping information option'), 'Do not insert option 82');
+  def(IFM, 'ip dhcp snooping trust', ix('dst', 'ip dhcp snooping trust'), 'Allow DHCP server replies on this port');
+  def(IFM, 'no ip dhcp snooping trust', ix('dst', null), '');
+  def(IFM, 'ip dhcp snooping limit rate <n>', ix('dsr', function (a) { return 'ip dhcp snooping limit rate ' + a[0]; }), 'Max DHCP packets per second');
+  def('config', 'ip arp inspection vlan <w>', gx('dai', function (a) { return 'ip arp inspection vlan ' + a[0]; }), 'Dynamic ARP Inspection on these VLANs');
+  def(IFM, 'ip arp inspection trust', ix('dait', 'ip arp inspection trust'), 'Do not check ARP on this port');
+  Sim.prototype.snoopVlans = function () { var v = this.st.gx.dsnv; return v ? vlist(v.split(' ').pop()) : []; };
+  def('priv', 'show ip dhcp snooping', function () {
+    var st = this.st, on = !!st.gx.dsn, vl = this.snoopVlans(), o = ['Switch DHCP snooping is ' + (on ? 'enabled' : 'disabled'), 'Switch DHCP gleaning is disabled', 'DHCP snooping is configured on following VLANs:', vl.join(',') || 'none', 'DHCP snooping is operational on following VLANs:', on ? (vl.join(',') || 'none') : 'none', 'DHCP snooping is configured on the following L3 Interfaces:', '', 'Insertion of option 82 is ' + (st.gx.dsno ? 'disabled' : 'enabled'), 'Verification of hwaddr field is enabled', '', 'Interface                  Trusted    Allow option    Rate limit (pps)', '-----------------------    -------    ------------    ----------------'];
+    st.order.forEach(function (n) { var x = st.ifs[n].x || {}; if (x.dst || x.dsr) o.push(pad(n, 27) + pad(x.dst ? 'yes' : 'no', 11) + pad(x.dst ? 'yes' : 'no', 16) + (x.dsr ? x.dsr.split(' ').pop() : 'unlimited')); });
+    this.say(o.join('\n'));
+  }, 'DHCP snooping settings and trusted ports');
+  def('priv', 'show ip dhcp snooping binding', function () {
+    var st = this.st, c = this.cfg.snoop || {}, o = ['MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface', '------------------  ---------------  ----------  -------------  ----  --------------------'], n = 0, srv = c.server && st.ifs[c.server];
+    if (st.gx.dsn && srv && srv.x && srv.x.dst) (c.clients || []).forEach(function (b) { if (this.snoopVlans().indexOf(b[2]) < 0) return; n++; o.push(pad(b[0].replace(/\./g, '').replace(/(..)(?=.)/g, '$1:').toUpperCase(), 20) + pad(b[1], 17) + pad('86400', 12) + pad('dhcp-snooping', 15) + pad(String(b[2]), 6) + b[3]); }, this);
+    o.push('Total number of bindings: ' + n); this.say(o.join('\n'));
+  }, 'Who got which address, as seen by snooping');
+  def('priv', 'show ip arp inspection vlan <n>', function (a) {
+    var on = this.st.gx.dai && vlist(this.st.gx.dai.split(' ').pop()).indexOf(a[0]) > -1;
+    this.say(['', 'Source Mac Validation      : Disabled', 'Destination Mac Validation : Disabled', 'IP Address Validation      : Disabled', '', ' Vlan     Configuration    Operation   ACL Match          Static ACL', ' ----     -------------    ---------   ---------          ----------', pad('   ' + a[0], 10) + pad(on ? 'Enabled' : 'Disabled', 17) + pad(on && this.st.vlans[a[0]] ? 'Active' : 'Inactive', 12)].join('\n'));
+  }, 'DAI state for one VLAN');
+
+  /* AAA */
+  def('config', 'aaa new-model', gx('aaa', 'aaa new-model'), 'Turn on AAA');
+  def('config', 'aaa authentication login <w> <rest>', gx(function (a) { return 'aaal' + a[0]; }, function (a) { return 'aaa authentication login ' + a[0] + ' ' + a[1]; }), 'Login method list, tried in order');
+  def('config', 'tacacs-server host <ip> key <w>', gp('gp2', function (a) { return 'tac' + a[0]; }, function (a) { return 'tacacs-server host ' + a[0] + ' key ' + a[1]; }), 'TACACS+ server (TCP 49)');
+  def('config', 'radius-server host <ip> key <w>', gp('gp2', function (a) { return 'rad' + a[0]; }, function (a) { return 'radius-server host ' + a[0] + ' key ' + a[1]; }), 'RADIUS server (UDP 1812/1813)');
+  def('line', 'login authentication <w>', function (a) { var st = this.st; this.cur().forEach(function (k) { st.lines[k].la = a[0]; }); }, 'Use this AAA method list on these lines');
+  def('config', 'aaa authorization exec <w> <rest>', gx(function (a) { return 'aaae' + a[0]; }, function (a) { return 'aaa authorization exec ' + a[0] + ' ' + a[1]; }), 'Authorise EXEC sessions');
+  def('config', 'aaa accounting exec <w> <rest>', gx(function (a) { return 'aaac' + a[0]; }, function (a) { return 'aaa accounting exec ' + a[0] + ' ' + a[1]; }), 'Record EXEC sessions');
+
+  /* PoE */
+  def('priv', 'show power inline', function () {
+    var self = this, rows = (this.cfg.poe || []).filter(function (p) { return self.ifUp(p[0]); }), used = rows.reduce(function (s, p) { return s + p[1]; }, 0);
+    var o = ['Module   Available     Used     Remaining', '          (Watts)     (Watts)    (Watts)', '------   ---------   --------   ---------', '1           390.0' + pad('', 7) + used.toFixed(1) + pad('', 7) + (390 - used).toFixed(1), 'Interface Admin  Oper       Power   Device              Class Max', '                            (Watts)', '--------- ------ ---------- ------- ------------------- ----- ----'];
+    rows.forEach(function (p) { o.push(pad(shortIf(p[0]), 10) + pad('auto', 7) + pad('on', 11) + pad(p[1].toFixed(1), 8) + pad(p[2], 20) + pad('4', 6) + '30.0'); });
+    this.say(o.join('\n'));
+  }, 'Power over Ethernet per port');
+
+  /* running-config hooks */
+  Sim.prototype.runHook = function (k) {
+    var st = this.st, o = [], self = this;
+    if (k === 0) Object.keys(st.pools || {}).forEach(function (pn) { var P = st.pools[pn]; o.push('ip dhcp pool ' + pn); if (P.net) o.push(' network ' + P.net); if (P.gw) o.push(' default-router ' + P.gw); if (P.dns) o.push(' dns-server ' + P.dns); if (P.dom) o.push(' domain-name ' + P.dom); if (P.lease) o.push(' lease ' + P.lease); o.push('!'); });
+    if (k === 1) {
+      var os_ = st.ospf; if (os_) { o.push('router ospf ' + os_.pid); if (os_.rid) o.push(' router-id ' + os_.rid); if (os_.ref) o.push(' auto-cost reference-bandwidth ' + os_.ref); if (os_.pasDef) o.push(' passive-interface default'); st.order.forEach(function (n) { if (os_.pasDef ? os_.npas[n] : os_.pas[n]) o.push((os_.pasDef ? ' no' : '') + ' passive-interface ' + n); }); os_.nets.forEach(function (x) { o.push(' network ' + x.ip + ' ' + x.w + ' area ' + x.area); }); if (os_.dio) o.push(' default-information originate'); o.push('!'); }
+      Object.keys(st.natpool || {}).forEach(function (p) { var v = st.natpool[p]; o.push('ip nat pool ' + p + ' ' + v[0] + ' ' + v[1] + ' netmask ' + v[2]); });
+      if (st.natsrc) o.push('ip nat inside source list ' + st.natsrc.list + (st.natsrc.oif ? ' interface ' + st.natsrc.oif : ' pool ' + st.natsrc.pool) + (st.natsrc.ovl ? ' overload' : ''));
+      Object.keys(st.natst || {}).forEach(function (k2) { o.push('ip nat inside source static ' + k2 + ' ' + st.natst[k2]); });
+    }
+    if (k === 2) {
+      (st.aclOrder || []).forEach(function (nm) { var A = st.acls[nm]; if (A.named) { o.push('ip access-list ' + A.type + ' ' + nm); A.ents.forEach(function (e) { o.push(' ' + e.txt); }); } });
+      (st.aclOrder || []).forEach(function (nm) { var A = st.acls[nm]; if (!A.named) A.ents.forEach(function (e) { o.push('access-list ' + nm + ' ' + e.txt); }); });
+      var g = st.gp2 || {}; Object.keys(g).sort(function (a, b) { var r = function (x) { return /^lg/.test(x) ? 0 : /^sn/.test(x) ? 1 : /^(tac|rad)/.test(x) ? 2 : 3; }; return r(a) - r(b); }).forEach(function (k2) { o.push(g[k2]); });
+    }
+    if (o.length && o[o.length - 1] !== '!') o.push('!');
+    return o;
+  };
 
   function init() {
     Array.prototype.forEach.call(document.querySelectorAll('.lx-ios'), function (t) {
