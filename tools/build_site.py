@@ -22,7 +22,9 @@ OG_IMG = BASE + "assets/img/og-image.png"
 OG_ALT = "CyberWithMadhav: Cybersecurity in plain English and Hinglish."
 
 # Public pages in nav order. Pages that do not exist yet are skipped.
-PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html", "security-lab.html", "dns-security-checker.html", "email-header-analyzer.html", "url-forensics.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
+LEARN = ["learn.html", "learn-how-computers-work.html", "learn-operating-system-fundamentals.html", "learn-windows-for-security.html",
+         "learn-networking-basics.html", "learn-linux-fundamentals.html", "learn-linux-hands-on-lab.html"]  # written by build_learn.py
+PAGES = ["index.html", "learn.html", "explore.html", "commands.html", "scams.html", "game.html", "security-lab.html", "dns-security-checker.html", "email-header-analyzer.html", "url-forensics.html", "soc.html", "owasp.html", "terminal.html", "daily.html", "progress.html",
          "ctf.html", "prompts.html", "cyberlaw.html", "blog.html", "faq.html", "start-here.html", "uses.html", "collaborate.html",
          "cybersecurity-awareness-sessions.html",
          "cyber-security-workshop-for-colleges.html", "cyber-awareness-session-for-schools.html",
@@ -30,7 +32,7 @@ PAGES = ["index.html", "explore.html", "commands.html", "scams.html", "game.html
          "about.html", "terms.html", "privacy.html", "verify.html"]
 PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "cybersecurity-awareness-sessions.html": "0.9",
             "cyber-security-workshop-for-colleges.html": "0.8", "cyber-awareness-session-for-schools.html": "0.8",
-            "cyber-awareness-speaker-mumbai.html": "0.8", "now.html": "0.5", "verify.html": "0.4", "terms.html": "0.3", "privacy.html": "0.3"}
+            "cyber-awareness-speaker-mumbai.html": "0.8", "learn.html": "0.9", "now.html": "0.5", "verify.html": "0.4", "terms.html": "0.3", "privacy.html": "0.3"}
 SESSION_LANDINGS = {
     "cyber-security-workshop-for-colleges.html",
     "cyber-awareness-session-for-schools.html",
@@ -51,6 +53,9 @@ def blog_posts():
 
 def pages():
     out = [p for p in PAGES if (ROOT / p).exists()]
+    if "learn.html" in out:
+        i = out.index("learn.html") + 1
+        out[i:i] = [f for f in LEARN[1:] if (ROOT / f).exists()]
     if "blog.html" in out:
         i = out.index("blog.html") + 1
         out[i:i] = [b["file"] for b in blog_posts() if (ROOT / b["file"]).exists()]
@@ -97,6 +102,7 @@ def git_date(p):
 # ---------- 1 and 2: head tags, nav "More" menu and shared scripts ----------
 # The top nav is kept short: Home, Explore (the hub that lists every page), CTF, then search and theme.
 NAV = [("index.html", "Home", "nav-home", ""),
+       ("learn.html", "Learn", "nav-learn", ""),
        ("explore.html", "Explore", "nav-explore",
         '<svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg>'),
        ("blog.html", "Blog", "nav-blog", ""),
@@ -113,14 +119,15 @@ FOOT_LINKS = [("terms.html", "Terms and Conditions", "foot.terms"), ("privacy.ht
 
 def nav_links(p):
     post = p.startswith("blog-")  # blog posts live under Blog
+    lesson = p.startswith("learn-")  # lessons live under Learn
     nav_files = [item[0] for item in NAV]
-    hub = p not in nav_files and p != "404.html" and not post and p not in SESSION_LANDINGS  # every other page lives inside Explore
+    hub = p not in nav_files and p != "404.html" and not post and not lesson and p not in SESSION_LANDINGS  # every other page lives inside Explore
     out = []
     for item in NAV:
         f, label, cls, ico = item[:4]
         key = item[4] if len(item) > 4 else "nav." + label.lower()
         if not (ROOT / f).exists(): continue
-        on = f == p or (hub and f == "explore.html") or (post and f == "blog.html") or (p in SESSION_LANDINGS and f == "cybersecurity-awareness-sessions.html")
+        on = f == p or (hub and f == "explore.html") or (post and f == "blog.html") or (lesson and f == "learn.html") or (p in SESSION_LANDINGS and f == "cybersecurity-awareness-sessions.html")
         attrs = f' class="{cls}{" active" if on else ""}"'
         if f == p: attrs += ' aria-current="page"'
         if cls == "nav-sessions":

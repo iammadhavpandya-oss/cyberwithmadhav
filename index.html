@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=65cda5fed7"></script>
+  <script src="assets/js/i18n-dict.js?v=b001616f91"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -39,7 +39,7 @@
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
-  <link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
+  <link rel="stylesheet" href="assets/css/style.css?v=0726e86d33">
   <link rel="stylesheet" href="assets/css/explore.css?v=d50548b43a">
   <link rel="stylesheet" href="assets/css/blog.css?v=efe350f417">
   <link rel="alternate" type="application/rss+xml" title="CyberWithMadhav" href="feed.xml">
@@ -72,6 +72,7 @@
       </button>
       <nav id="nav-links" aria-label="Primary">
         <a href="index.html" class="nav-home active" aria-current="page"><span data-i18n="nav.home">Home</span></a>
+        <a href="learn.html" class="nav-learn"><span data-i18n="nav.learn">Learn</span></a>
         <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
         <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
         <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
@@ -203,6 +204,7 @@
           <h2 id="roadmap-title" data-i18n="home.roadmap.h">Cybersecurity roadmap for beginners in India</h2>
           <p class="muted" data-i18n="home.roadmap.p">Go in order. Each stage lists what to learn, free resources, and projects that prove you can do it. Timelines vary from person to person. Consistency beats speed.</p>
         </header>
+        <div class="rm-cta reveal"><p data-i18n="home.learn.p"><strong>New: Beginner topics now open full lessons.</strong> Theory, diagrams, quizzes and VM labs, right here on the site. No more Googling each topic.</p><a class="btn btn-primary" href="learn.html" data-i18n="home.learn.cta">Open the Learn path &rarr;</a></div><!-- /rm-cta -->
         <div class="stage-tabs reveal" role="tablist" aria-label="Roadmap stage"></div>
         <div id="roadmap-panels"></div>
       </div>
@@ -532,7 +534,7 @@
     <p class="pal-foot mono">↑↓ move · Enter open · Esc close</p>
   </dialog>
   <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
-  <script src="assets/js/main.js?v=80f5e8c554" defer></script>
+  <script src="assets/js/main.js?v=57e472ed92" defer></script>
   <script src="assets/js/declutter.js?v=73136d7904" defer></script>
   <script src="assets/js/explore.js?v=506d1c0aee" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>

@@ -351,3 +351,9 @@ Object.assign(window.CWM_I18N.hi, {
  "cat.everyday-safety": "Roz ki online safety"
 });
 /* blog:end */
+/* learn:start */
+Object.assign(window.CWM_I18N.hi, {
+ "home.learn.p": "<strong>Naya: Beginner topics ab poore lessons kholte hain.</strong> Theory, diagrams, quiz aur VM labs, isi site pe. Ab har topic Google karne ki zaroorat nahi.",
+ "home.learn.cta": "Learn path kholo &rarr;"
+});
+/* learn:end */

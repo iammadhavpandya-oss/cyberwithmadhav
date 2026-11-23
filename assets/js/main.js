@@ -96,6 +96,12 @@
   });
 
   /* ---------- roadmap ---------- */
+  // Topics are plain strings, or {t, learn: [{href, label}]} linking to Learn lessons, or {t, soon: true}.
+  function topic(t) {
+    if (typeof t === 'string') return `<li>${esc(t)}</li>`;
+    if (t.learn && t.learn.length) return `<li>${esc(t.t)} <span class="rm-learn">${t.learn.map(l => `<a href="${esc(l.href)}">${esc(l.label)} &rarr;</a>`).join('')}</span></li>`;
+    return `<li>${esc(t.t)}${t.soon ? ' <span class="rm-soon">lesson soon</span>' : ''}</li>`;
+  }
   function renderRoadmap(d) {
     const tabs = $('.stage-tabs'), panels = $('#roadmap-panels');
     tabs.innerHTML = d.stages.map((s, i) =>
@@ -104,7 +110,7 @@
       <div class="stage" role="tabpanel" id="panel-${esc(s.id)}" aria-labelledby="tab-${esc(s.id)}" ${i ? 'hidden' : ''}>
         <p class="goal">${esc(s.goal)}</p>
         <article class="card reveal"><h3><span class="tag p">learn</span> Topics</h3>
-          <ul class="dash">${s.topics.map(t => `<li>${esc(t)}</li>`).join('')}</ul></article>
+          <ul class="dash">${s.topics.map(topic).join('')}</ul></article>
         <article class="card reveal"><h3><span class="tag g">free</span> Resources</h3>
           <ul class="clean res">${s.resources.map(r => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)} ↗</a><small>${esc(r.note)}</small></li>`).join('')}</ul></article>
         <article class="card reveal"><h3><span class="tag">build</span> Project ideas</h3>

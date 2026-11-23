@@ -859,3 +859,11 @@ html[data-lang="hi"] [data-lang-only="en"]{display:none}
   #nav-links a.nav-sessions .nav-sessions-full{display:inline}
   #nav-links a.nav-sessions .nav-sessions-short{display:none}
 }
+
+/* Learn links on the home page roadmap (see tools/build_learn.py) */
+.rm-learn{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:6px;vertical-align:middle}
+.rm-learn a{font:500 .7rem var(--mono);padding:2px 9px;border-radius:999px;border:1px solid color-mix(in srgb,var(--green) 55%,transparent);background:color-mix(in srgb,var(--green) 10%,transparent);color:var(--text);text-decoration:none;white-space:nowrap}
+.rm-learn a:hover{border-color:var(--green)}
+.rm-soon{font:500 .68rem var(--mono);padding:2px 8px;border-radius:999px;border:1px dashed color-mix(in srgb,var(--amber) 60%,transparent);color:var(--amber);white-space:nowrap;margin-left:6px;vertical-align:middle}
+.rm-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 18px;padding:14px 18px;border-radius:14px;border:1px solid color-mix(in srgb,var(--green) 40%,var(--glass-border));background:linear-gradient(120deg,color-mix(in srgb,var(--green) 10%,transparent),transparent 70%),var(--glass)}
+.rm-cta p{margin:0;flex:1 1 300px}

@@ -15,6 +15,55 @@
       <description>Learn cybersecurity in plain English and Hinglish with Madhav Pandya. Free roadmap, CTF practice, cheat sheets, Indian cyber law and scam alerts.</description>
     </item>
     <item>
+      <title>Learn cybersecurity from zero: free lessons with labs</title>
+      <link>https://www.cyberwithmadhav.com/learn.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn.html</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free cybersecurity lessons from zero: how computers and operating systems work, Windows, networking, Linux with hands-on labs, then a CCNA track with Packet Tracer labs.</description>
+    </item>
+    <item>
+      <title>How a Computer Works | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-how-computers-work.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-how-computers-work.html</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free lesson: how the CPU, RAM, storage, binary, hex and the BIOS/UEFI boot process work, and how attackers abuse each one. With quiz, flashcards and a VM lab.</description>
+    </item>
+    <item>
+      <title>Operating System Fundamentals | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-operating-system-fundamentals.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-operating-system-fundamentals.html</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free lesson on how operating systems work: kernel and user mode, system calls, processes, virtual memory, ASLR, file systems, users and privilege escalation.</description>
+    </item>
+    <item>
+      <title>Windows Essentials for Security | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-windows-for-security.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-windows-for-security.html</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free Windows security lesson: normal processes, risky folders, registry Run keys, SIDs, tokens and UAC, services, Event IDs 4624 4625 4720 1102 7045, cmd and PowerShell.</description>
+    </item>
+    <item>
+      <title>Networking Basics: IP, Ports, DNS and HTTP | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-networking-basics.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-networking-basics.html</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free networking primer for security beginners: MAC vs IP, TCP/IP layers, subnets and private ranges, TCP and UDP ports, the 3 way handshake, DNS records, HTTP and HTTPS.</description>
+    </item>
+    <item>
+      <title>Linux Fundamentals: Theory | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-linux-fundamentals.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-linux-fundamentals.html</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free Linux theory lesson for security: distros, the file hierarchy, bash pipes and redirection, users, chmod and SUID, packages, systemd, cron and logs, with a browser sandbox.</description>
+    </item>
+    <item>
+      <title>Linux Hands-On Lab | Free lesson</title>
+      <link>https://www.cyberwithmadhav.com/learn-linux-hands-on-lab.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-linux-hands-on-lab.html</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free Linux lab: practise in a browser shell, build a VirtualBox Ubuntu VM, run 8 command drills, investigate an SSH brute force in auth.log and harden SSH and ufw.</description>
+    </item>
+    <item>
       <title>Mission Control: every CyberWithMadhav page in one place</title>
       <link>https://www.cyberwithmadhav.com/explore.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/explore.html</guid>

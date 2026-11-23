@@ -129,6 +129,7 @@ STORAGE = [
  ("cwm-lang", "Local storage", "Your language choice: English or Hinglish."),
  ("cwm-ctf-practice-v2, cwm-ctf-prefs, cwm-ctf-ui, cwm-ctf-quotes", "Local storage", "Your CTF practice progress and best scores, your CTF settings (such as sound and motion), and which quotes you have already seen."),
  ("cwm-ctf-session", "Local storage", "Only if a CTF leaderboard backend is connected and you create a nickname: your nickname and sign in token."),
+ ("cwm-learn", "Local storage", "Which lesson sections, quizzes and lab steps you finished on the Learn pages, so your progress shows when you come back."),
  ("cwm-prompt-favs", "Local storage", "The prompts you marked as favourites."),
  ("cwm-offline", "Cache storage", "Copies of the site's own pages, styles, scripts and data, kept by the service worker so pages load faster and work offline. Nothing you type is cached."),
  ("cwm-vars", "Local storage", "Lab values you type into the cheat sheets, such as a target IP for your own lab."),

@@ -31,7 +31,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=65cda5fed7"></script>
+  <script src="assets/js/i18n-dict.js?v=b001616f91"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -40,7 +40,7 @@
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css?v=05bd826fd1">
-<link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
+<link rel="stylesheet" href="assets/css/style.css?v=0726e86d33">
   <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
   <link rel="stylesheet" href="assets/css/features.css?v=e695d1ea11">
   <link rel="stylesheet" href="assets/css/lab.css?v=1feec98259">
@@ -66,6 +66,7 @@
       </button>
       <nav id="nav-links" aria-label="Primary">
         <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
+        <a href="learn.html" class="nav-learn"><span data-i18n="nav.learn">Learn</span></a>
         <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
         <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
         <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
