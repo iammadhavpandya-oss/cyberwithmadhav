@@ -54,7 +54,7 @@ CERT-In's 2026 advisory advises individuals to verify the authenticity of voice 
 5. **Never pay during the first call.** Real emergencies survive a five minute check.
 
 ## safe-word | Set a family safe word today
-Pick a word or short phrase that the whole family knows and that never appears online, for example the name of an old neighbour's dog. If anyone calls in an "emergency" asking for money, ask for the safe word. A cloned voice will not know it. Tell elders clearly: **"Safe word nahi bola, matlab call fake hai."**
+Pick a word or short phrase that the whole family knows and that never appears online, for example the name of an old neighbour's dog. If anyone calls in an "emergency" asking for money, ask for the safe word. A cloned voice will not know it. Tell elders clearly: **"If they do not say the safe word, the call is fake."**
 
 ## reduce | Reduce the raw material
 CERT-In's 2024 advisory recommends limiting personal data shared online, especially high resolution photos and videos, and using strong privacy settings. You do not need to stop posting, but:
@@ -146,7 +146,7 @@ None of these need fancy tools. They need discipline and understanding, which yo
 CERT-In's April 2026 advisory on frontier AI risks gives individuals simple advice: keep devices and apps updated, use strong unique passwords with MFA, be careful with unexpected links and attachments, and verify urgent calls and video messages. Those basics protect you from AI powered attacks just as they protect you from ordinary ones.
 
 ## takeaway | The real takeaway
-AI does not make security basics obsolete. It makes them urgent. A leaked key that might have sat unnoticed for months can now be found and used within hours. **"Basics strong, toh AI attacker bhi kamzor."** Read the full advisory on the CERT-In website, it is short and very practical.
+AI does not make security basics obsolete. It makes them urgent. A leaked key that might have sat unnoticed for months can now be found and used within hours. **"If the basics are strong, even an AI attacker is weaker."** Read the full advisory on the CERT-In website, it is short and very practical.
 
 === passkeys-2026-explained
 title: Passkeys in 2026: What They Are and Why Big Apps Are Switching
@@ -208,7 +208,7 @@ Start with your main email account, then shopping and social media apps that off
 For now, yes, for many sites. Many services still keep a password as a fallback. The Passkey Index says two thirds of participants plan to offer passwordless accounts in the next 12 months. Until then, keep using a password manager with unique passwords, and use passkeys wherever available. Read our [strong passwords guide](blog-strong-passwords-password-managers.html).
 
 ## india | Why this matters in India
-Indians face constant phishing by SMS and WhatsApp, and OTP theft is a common scam pattern. Passkeys remove both the password and the OTP from the login, which takes away much of what scammers try to steal. When your apps offer passkeys, turning them on is one of the easiest upgrades you can make. **"Password yaad rakhne ki tension khatam, phishing ka darr bhi kam."**
+Indians face constant phishing by SMS and WhatsApp, and OTP theft is a common scam pattern. Passkeys remove both the password and the OTP from the login, which takes away much of what scammers try to steal. When your apps offer passkeys, turning them on is one of the easiest upgrades you can make. **"The stress of remembering passwords goes away, and the fear of phishing drops too."**
 
 === ransomware-trends-2026
 title: Ransomware in 2026: What the Latest Data Shows and How to Stay Ready
@@ -488,4 +488,4 @@ Zero trust is a journey. Common first steps:
 Be careful with vendors who claim one product makes you "zero trust". It helps to ask: which part of the model does this cover?
 
 ## personal | Zero trust thinking for individuals
-You can apply the mindset at home too. Do not trust a message just because it comes from a friend's number, because the account may be hacked. Verify through another channel. Give apps only the permissions they need. Use MFA. Treat your home WiFi as possibly exposed and keep devices updated. **"Bharosa achha hai, verify karna aur achha."**
+You can apply the mindset at home too. Do not trust a message just because it comes from a friend's number, because the account may be hacked. Verify through another channel. Give apps only the permissions they need. Use MFA. Treat your home WiFi as possibly exposed and keep devices updated. **"Trust is good, verifying is even better."**

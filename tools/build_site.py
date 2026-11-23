@@ -464,7 +464,7 @@ def not_found():
         <p class="muted">no flag here either. try view source.</p>
       </div>
       <h1 id="nf-title">This page went missing.</h1>
-      <p class="lead muted">The link may be old or mistyped. Ye page exist nahi karta, but everything else is one click away.</p>
+      <p class="lead muted" data-i18n="nf.lead">The link may be old or mistyped, but everything else is one click away.</p>
       <div class="nf-actions">
         <a class="btn btn-primary" href="index.html">Go to home</a>
         <a class="btn" href="explore.html">Open mission control</a>

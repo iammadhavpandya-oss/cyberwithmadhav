@@ -57,7 +57,7 @@ Defence is usually described in layers, because no single control is perfect:
 Most beginners imagine cybersecurity as only "hacking". In reality, a large share of the jobs are on the defensive side, often called the **blue team**. Attack simulation roles, the **red team** and penetration testers, are exciting but they also need strong defensive knowledge.
 
 ## mindset | The beginner mindset that works
-Here is the honest truth, yaar: there is no shortcut and no magic tool. People who do well in this field usually share a few habits.
+Here is the honest truth: there is no shortcut and no magic tool. People who do well in this field usually share a few habits.
 
 - They are curious and ask "how does this actually work?"
 - They practise a little every day instead of binge watching tutorials once a month.
@@ -419,7 +419,7 @@ Interviews often ask "difference between OSI and TCP/IP". A good simple answer: 
 ## learn-it | How to really learn the layers
 Do not just memorise. Open Wireshark on your own computer, capture a few seconds of traffic while you load a website, and click one packet. You will see Ethernet or WiFi (layer 2), IP (layer 3), TCP (layer 4) and HTTP or TLS (upper layers) stacked like folders. Our [Wireshark basics guide](blog-wireshark-basics.html) shows exactly how.
 
-Make a one page table in your notes: layer, what it does, one attack, one defence. Revise it once a week. Ek baar samajh aa gaya, phir kabhi bhoologe nahi. Next, Part 7: building a safe home lab where you can practise all of this.
+Make a one page table in your notes: layer, what it does, one attack, one defence. Revise it once a week. Once you understand it, you will not forget it. Next, Part 7: building a safe home lab where you can practise all of this.
 
 === safe-home-lab-setup
 title: How to Set Up a Safe Cybersecurity Home Lab on Your Laptop

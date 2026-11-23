@@ -57,7 +57,7 @@ While you are thinking about WiFi, check your home router:
 - Create a separate guest network for visitors.
 
 ## summary | The one line summary
-Public WiFi for browsing, mobile data for money. **"Free WiFi pe reels dekho, banking nahi."** Simple, practical, and it protects you from most risks.
+Public WiFi for browsing, mobile data for money. **"Watch reels on free WiFi, do not do your banking on it."** Simple, practical, and it protects you from most risks.
 
 === first-hour-after-cyber-fraud
 title: Lost Money to Cyber Fraud? What to Do in the First Hour
@@ -126,7 +126,7 @@ Save copies in your email or a cloud drive so they are not lost if your phone ha
 ## second-scam | Watch out for the second scam
 After a fraud, victims often get calls from people claiming to be "cyber police", lawyers or "recovery agents" who can get the money back for a fee. Real police do not charge a fee to recover money. Treat any such call as another scam and report it.
 
-Most importantly, be kind to yourself. Scammers are skilled professionals. **"Galti aapki nahi, unki hai."** Reporting quickly is the strongest thing you can do.
+Most importantly, be kind to yourself. Scammers are skilled professionals. **"The mistake is not yours, it is theirs."** Reporting quickly is the strongest thing you can do.
 
 === kids-online-safety-india
 title: Kids Online Safety: A Practical Guide for Indian Parents
@@ -150,7 +150,7 @@ takeaways:
 - Teach kids about strangers, oversharing and in game payment scams.
 - Report abuse or exploitation at cybercrime.gov.in, which offers sensitive reporting options.
 ## talk | Start with conversation, not control
-The best protection is a child who comes to you when something feels wrong. If kids fear that telling you will mean losing their phone forever, they will hide problems. Tell them clearly: **"Kuch bhi ajeeb ho, mujhe batana. Daant nahi padegi."** Then keep that promise.
+The best protection is a child who comes to you when something feels wrong. If kids fear that telling you will mean losing their phone forever, they will hide problems. Tell them clearly: **"If anything feels strange, tell me. You will not get scolded."** Then keep that promise.
 
 Talk about online life the way you talk about school: which games, which friends, what videos they enjoyed. Curiosity, not interrogation.
 

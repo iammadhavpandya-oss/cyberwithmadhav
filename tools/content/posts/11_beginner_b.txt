@@ -462,7 +462,7 @@ takeaways:
 - 30 minutes: hands on practice (lab, wargame or CTF).
 - 10 minutes: write notes and one line in your progress log.
 
-On busy days, do just the 10 minute revision and 20 minutes of practice. Chain mat todna, streak chalu rakho.
+On busy days, do just the 10 minute revision and 20 minutes of practice. Do not break the chain, keep the streak going.
 
 ## after | After 90 days
-You will not be an expert, and that is fine. You will have a working lab, real notes, solved challenges, a small portfolio and a clear direction. That is exactly what interviewers for entry level roles want to see. Keep going with deeper topics in your chosen path, and come back to the [CyberWithMadhav blog](blog.html) for new guides. All the best, aap kar sakte ho.
+You will not be an expert, and that is fine. You will have a working lab, real notes, solved challenges, a small portfolio and a clear direction. That is exactly what interviewers for entry level roles want to see. Keep going with deeper topics in your chosen path, and come back to the [CyberWithMadhav blog](blog.html) for new guides. All the best, you can do this.

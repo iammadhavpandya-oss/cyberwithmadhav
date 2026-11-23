@@ -126,9 +126,9 @@ Some users and experts have raised concerns about convenience, multi device use 
 1. Is the SIM for your WhatsApp number active and inside the phone you use?
 2. Do you have two step verification turned on?
 3. Do you know which devices are linked to your account?
-4. Have you told elders that "app band ho gaya" messages asking them to click links or share codes are scams?
+4. Have you told elders that "the app has shut down" messages asking them to click links or share codes are scams?
 
-Rules help, habits protect. Dono zaroori hain.
+Rules help, habits protect. Both are necessary.
 
 === bank-in-domain-india
 title: Why Indian Bank Websites Now End in .bank.in, and How It Helps You Spot Fakes
@@ -181,7 +181,7 @@ The safest habit is still to **type your bank's address yourself or use the offi
 - **Fake customer care numbers** found through search. Use the Sanchar Saathi trusted contact details service or your bank's official app.
 
 ## family | Teach your family in one line
-**"Bank ki website ka address .bank.in pe khatam hona chahiye. Warna mat kholo."** Then show them the address bar of your bank's real site on their phone, so they know what it looks like. For other common SMS tricks, read our [phishing SMS guide](blog-spot-phishing-sms-india.html).
+**"A bank website address should end in .bank.in. If it does not, do not open it."** Then show them the address bar of your bank's real site on their phone, so they know what it looks like. For other common SMS tricks, read our [phishing SMS guide](blog-spot-phishing-sms-india.html).
 
 ## learners | For learners
 This is a neat real world example of DNS used as a security control, which connects to what you learned in [networking basics](blog-networking-basics-for-cybersecurity.html). Try looking up your bank's domain with `nslookup` and viewing its TLS certificate in the browser. Understanding how domains, certificates and phishing interact is useful in SOC and awareness roles alike.

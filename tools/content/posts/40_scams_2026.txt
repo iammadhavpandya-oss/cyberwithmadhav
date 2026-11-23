@@ -42,7 +42,7 @@ In November 2026, Hyderabad police registered a case after such SMS messages led
 - Or open the **NextGen mParivahan** app that you installed from the official Play Store or App Store. Check that the developer name is **National Informatics Centre**.
 - Never use a link or phone number from the message itself.
 
-Message se kuch install mat karo. Challan check karna hai, to khud official site kholo.
+Do not install anything from a message. If you need to check a challan, open the official site yourself.
 
 ## if-installed | What to do if it already happened
 1. Turn on **airplane mode** straight away, so the app cannot send more data.
@@ -53,7 +53,7 @@ Message se kuch install mat karo. Challan check karna hai, to khud official site
 6. Report the SMS or WhatsApp number on [Sanchar Saathi Chakshu](https://sancharsaathi.gov.in/sfc/), even if you did not lose money.
 
 ## family | Tell your family in one line
-"Challan ka SMS aaye to link mat kholo, app install mat karo. Mujhe dikhao, ya official site pe khud check karo." For a wider habit on app safety, read [how to check an app before you install it](blog-check-app-apk-before-install.html).
+"If a challan SMS arrives, do not open the link and do not install an app. Show it to me, or check on the official site yourself." For a wider habit on app safety, read [how to check an app before you install it](blog-check-app-apk-before-install.html).
 
 === hsrp-number-plate-scam
 title: HSRP Number Plate Booking Scams
@@ -95,7 +95,7 @@ According to the [Seqrite India Cyber Threat Report 2026](https://www.seqrite.co
 4. Before paying, read the address bar again. Pay only on the page you reached from the official site.
 5. Keep the receipt and booking slip.
 
-Ad pe click karke booking mat karo. Pehle state transport site, phir wahan diya hua link.
+Do not book by clicking an ad. First open the state transport site, then use the link given there.
 
 ## red-flags | Red flags
 - The site came from a sponsored search result or a forwarded message.
@@ -206,10 +206,10 @@ The [GSMA India Consumer Scam Report 2026](https://www.gsma.com/about-us/regions
 4. Check the address bar spelling. Look alike names are common.
 5. If the deal is far better than every known store, treat that as the warning.
 
-Itna sasta hai? To ruko aur check karo.
+Is it that cheap? Then pause and check.
 
 ## refunds | How real refunds work
-On known shopping apps, refunds go back to your original payment method, and you track them inside the app's order page. You do not need to share an OTP, enter a UPI PIN, scan a QR code or install AnyDesk type apps. PIN daala matlab paisa gaya, aaya nahi.
+On known shopping apps, refunds go back to your original payment method, and you track them inside the app's order page. You do not need to share an OTP, enter a UPI PIN, scan a QR code or install AnyDesk type apps. If you entered your PIN, money went out, it did not come in.
 
 ## already-paid | What to do if it already happened
 1. Call **[1930](tel:1930)** quickly and keep the acknowledgement number.
@@ -257,7 +257,7 @@ In the [GSMA India Consumer Scam Report 2026](https://www.gsma.com/about-us/regi
 - The number has a foreign code, or a normal mobile number pretends to be a company.
 - "Keep this secret" or "offer ends today".
 
-Lottery lagi hai? Pehle socho, ticket liya tha kya?
+Did you win a lottery? Pause first: did you even buy a ticket?
 
 ## do | What to do with such a message
 - Do not reply, click or call back.
@@ -470,7 +470,7 @@ Short clips of people's faces and voices are easy to find on social media. AI to
 3. **No secrets rule:** agree that nobody in the family will ever say "don't tell anyone" about money.
 4. **Lock your WhatsApp:** turn on two step verification, so it is harder to steal accounts.
 
-Sabse pehle call kaato, phir khud call karo. Asli emergency mein 2 minute ka check kuch nahi bigaadta.
+First cut the call, then call them back yourself. In a real emergency, a 2 minute check does no harm.
 
 ## already-paid | What to do if it already happened
 1. Call **[1930](tel:1930)** immediately and then your bank.
@@ -514,7 +514,7 @@ The [GSMA India Consumer Scam Report 2026](https://www.gsma.com/about-us/regions
 ## check | The 10 second check for customers
 1. Scan the QR.
 2. **Read the payee name** shown in your UPI app before typing the amount or PIN.
-3. Ask the cashier: "Ye naam sahi hai?" If it is the shop or the owner's name, go ahead.
+3. Ask the cashier: "Is this name correct?" If it is the shop or the owner's name, go ahead.
 4. Check the amount once more, then enter your PIN.
 5. Show the payment success screen to the cashier, and check that they got the alert.
 

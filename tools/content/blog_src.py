@@ -33,7 +33,7 @@ POSTS = [
  "quick": "Call <a href=\"tel:1930\">1930</a> as soon as you notice the fraud. You will get an acknowledgement number by SMS. Then log in at <a href=\"https://cybercrime.gov.in/\" target=\"_blank\" rel=\"noopener\">cybercrime.gov.in</a> and complete the full complaint with that number, and tell your bank through its official helpline. The faster you report, the better the chance that the money can be put on hold.",
  "sections": [
   ("first-hour", "What to do in the first hour", """
-<p>Panic is normal. Ghabrao mat, but move fast, because money in a fraud usually moves quickly from one account to another. Do these things in this order:</p>
+<p>Panic is normal. Do not freeze, but move fast, because money in a fraud usually moves quickly from one account to another. Do these things in this order:</p>
 <ol>
 <li><strong>Stop paying.</strong> Do not send any more money, even if the caller says it will "reverse" or "unlock" the first payment.</li>
 <li><strong>Call 1930.</strong> This is the National Cyber Crime Helpline. It is run by the police of your state or union territory.</li>
@@ -71,7 +71,7 @@ POSTS = [
 <li>call logs with dates and times</li>
 <li>any receipt, "certificate" or document they sent you</li>
 </ul>
-<p>Sab kuch ek folder mein rakho. Don't edit or crop away the date and time.</p>"""),
+<p>Keep everything in one folder. Don't edit or crop away the date and time.</p>"""),
   ("bank", "Tell your bank in writing too", """
 <p>Your bank needs its own complaint, separate from the police complaint. Use the bank's official helpline, app or website, and keep the complaint or reference number.</p>
 <p>The Reserve Bank of India has rules on how much of an unauthorised electronic banking loss a customer has to bear. Under the RBI's 2017 circular on limiting customer liability, how quickly you tell the bank affects your liability, and in some cases reporting within three working days can mean zero liability. If you shared your OTP or PIN yourself, the rules treat it differently. Check the RBI circular linked below, and ask your bank which rule it is applying to your case.</p>"""),
@@ -81,7 +81,7 @@ POSTS = [
 <p>For non financial cybercrimes such as a hacked account, a fake profile using your photos or online harassment, file on cybercrime.gov.in and also use the reporting tools of the app involved.</p>"""),
   ("recovery-scams", "Beware of fake recovery agents", """
 <p>After a fraud, many people search online for help and land on "recovery experts", fake helplines or fake lawyers who ask for a fee to get the money back. This is a second scam. The 1930 helpline and cybercrime.gov.in are free. Dial 1930 directly and type cybercrime.gov.in yourself.</p>
-<p>Ek baar jo dhokha hua, uske baad doosra mat hone do.</p>"""),
+<p>Once you have been cheated, do not let a second scam follow it.</p>"""),
  ],
  "sources": [S_1930, S_NCRP, S_I4C, S_RBI, S_CHAKSHU],
  "related": ["digital-arrest-scam-india", "upi-scams-india", "where-to-report-cyber-fraud-india"],
@@ -174,7 +174,7 @@ POSTS = [
 <li>Any request to move money to a "safe", "RBI" or "verification" account.</li>
 <li>Pressure, threats and a deadline measured in minutes.</li>
 </ul>
-<p>Asli police aise kaam nahi karti. Notice aata hai, proper process hota hai, video call pe arrest nahi hota.</p>"""),
+<p>Real police do not work like this. A notice arrives, there is a proper process, and nobody is arrested on a video call.</p>"""),
   ("ruko-socho", "Ruko, Socho, Action lo", """
 <p>In his Mann Ki Baat address on 27 October 2024, the Prime Minister spoke about this scam and gave a three step rule:</p>
 <ul>
@@ -192,9 +192,9 @@ POSTS = [
 </ol>"""),
   ("paid", "If you have already paid", """
 <p>Call <a href="tel:1930">1930</a> immediately, then complete the complaint on cybercrime.gov.in and inform your bank. Keep the call logs, numbers, video call IDs, screenshots and every transaction ID. Our step by step guide on <a href="blog-report-cyber-fraud-india.html">how to report cyber fraud in India</a> covers exactly what to keep and what to type.</p>
-<p>It is not your fault. These are organised criminal groups that use fear very skilfully. Sharam mat karo, report karo.</p>"""),
+<p>It is not your fault. These are organised criminal groups that use fear very skilfully. Do not feel ashamed, report it.</p>"""),
   ("family", "Talk to your parents and grandparents", """
-<p>Senior citizens are a common target. Tell them one simple line: "Koi bhi officer video call pe arrest nahi karta, aur case khatam karne ke liye paise nahi maangta." Save 1930 in their phone, and agree that they will call you before they send money to anyone who is threatening them.</p>"""),
+<p>Senior citizens are a common target. Tell them one simple line: "No officer arrests you on a video call, and nobody asks for money to close a case." Save 1930 in their phone, and agree that they will call you before they send money to anyone who is threatening them.</p>"""),
   ("law", "Which laws apply", """
 <p>Impersonating officials, threatening people and taking money this way can be offences under the Bharatiya Nyaya Sanhita, 2023, and cheating by personation using a computer resource is an offence under Section 66D of the Information Technology Act, 2000. The police decide which sections apply in a case. For the basics, see <a href="cyberlaw.html">Cyber Law India</a> on this site.</p>"""),
  ],
@@ -264,7 +264,7 @@ POSTS = [
  "sections": [
   ("pin-rule", "The one rule: PIN means money out", """
 <p>UPI has two directions. In a <em>push</em> payment you start it, by scanning a QR code or entering a UPI ID, and you confirm with your PIN. In a <em>pull</em> payment, also called a collect request, someone else asks for money and you approve it with your PIN.</p>
-<p>In both cases, your PIN moves money out of your account. Receiving money needs nothing from you. PIN daala matlab paisa gaya. Bas itna yaad rakho.</p>"""),
+<p>In both cases, your PIN moves money out of your account. Receiving money needs nothing from you. If you entered your PIN, the money went out. Just remember that.</p>"""),
   ("collect", "Collect request scams", """
 <p>In this trick, a "buyer", "customer care agent" or "lottery office" sends a request to your UPI app and tells you to approve it to receive a payment or a refund. Approving with your PIN actually pays them.</p>
 <p>The National Payments Corporation of India (NPCI), which runs UPI, told banks and UPI apps to stop person to person (P2P) collect requests from 1 October 2025 (circular NPCI/UPI/OC/220/2025-26 dated 29 July 2025). Collect requests from merchants, such as a shopping or ticket booking app, still exist. So if a payment request pops up that you did not start yourself, decline it.</p>"""),
@@ -275,7 +275,7 @@ POSTS = [
 <li>A sticker pasted over a shop's real QR code, so your payment goes to someone else. Before you enter the PIN, check that the name shown in your app is the shop's name.</li>
 <li>QR codes in emails, posters or messages that open a fake payment or login page.</li>
 </ul>
-<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p>
+<p>You never need to scan a code to receive money. Anyone who says "scan this and the money will come" is the scammer.</p>
 <p>For a closer look at stickers on shop counters, petrol pumps and parking machines, and a 10-second check before you pay, see our <a href="blog-fake-qr-code-shops-petrol-pumps.html">guide to fake QR codes at shops and petrol pumps</a>.</p>"""),
   ("refund", "Refund and \"sent by mistake\" tricks", """
 <ul>

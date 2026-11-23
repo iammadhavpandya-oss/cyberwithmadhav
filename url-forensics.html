@@ -31,7 +31,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n-dict.js?v=65cda5fed7"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="assets/css/style.css?v=04baad03a4">
   <link rel="stylesheet" href="assets/css/pages.css?v=d061242701">
   <link rel="stylesheet" href="assets/css/features.css?v=e695d1ea11">
-  <link rel="stylesheet" href="assets/css/lab.css?v=2">
+  <link rel="stylesheet" href="assets/css/lab.css?v=1feec98259">
   <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Phishing URL Forensics","url":"https://www.cyberwithmadhav.com/url-forensics.html","applicationCategory":"SecurityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en-IN","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Offline analysis of a URL's structure for phishing signs, including lookalike domains of Indian banks and government portals, without opening it.","author":{"@type":"Person","name":"Madhav Pandya","url":"https://www.cyberwithmadhav.com/about.html"},"publisher":{"@type":"Organization","name":"CyberWithMadhav","url":"https://www.cyberwithmadhav.com/"}}
   </script>
@@ -66,7 +66,7 @@
       </button>
       <nav id="nav-links" aria-label="Primary">
         <a href="index.html" class="nav-home"><span data-i18n="nav.home">Home</span></a>
-        <a href="explore.html" class="nav-explore"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
+        <a href="explore.html" class="nav-explore active"><svg class="nav-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/></svg><span data-i18n="nav.explore">Explore</span></a>
         <a href="blog.html" class="nav-blog"><span data-i18n="nav.blog">Blog</span></a>
         <a href="faq.html" class="nav-faq"><span data-i18n="nav.faq">FAQ</span></a>
         <a href="cybersecurity-awareness-sessions.html" class="nav-sessions"><span class="nav-sessions-full" data-i18n="nav.sessions">Book a session</span><span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span></a>
@@ -162,11 +162,11 @@
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
   <script src="assets/js/pages.js?v=55ab9425c7" defer></script>
-  <script src="assets/js/lab-core.js?v=2" defer></script>
-  <script src="assets/js/lab-url.js?v=2" defer></script>
+  <script src="assets/js/lab-core.js?v=ba172672eb" defer></script>
+  <script src="assets/js/lab-url.js?v=e9e054221e" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>
   <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
-  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <script src="assets/js/pwa.js?v=e94a53f8b7" defer></script>
   <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
   <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

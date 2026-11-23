@@ -189,13 +189,13 @@ if (has('game.html')) {
   await p.click(hard[0].scam ? '#g-btn-scam' : '#g-btn-safe'); await sleep(200);
   const a1 = await p.evaluate(() => ({ pts: document.getElementById('g-points').textContent, tot: document.getElementById('g-total').textContent, res: document.getElementById('g-result').textContent,
     focus: document.activeElement.id, dis: document.getElementById('g-btn-scam').disabled, tells: document.querySelectorAll('#g-result .g-tells li').length }));
-  ok('game: right answer scores 1/1 and reveals Sahi jawab, tells and the Hinglish explanation, focus moves to Next', a1.pts === '1' && a1.tot === '1' && /Sahi jawab/.test(a1.res) && a1.res.includes(hard[0].why) && a1.tells === hard[0].tells.length && a1.focus === 'g-next' && a1.dis, JSON.stringify(a1).slice(0, 200));
+  ok('game: right answer scores 1/1 and reveals Correct, tells and the English explanation, focus moves to Next', a1.pts === '1' && a1.tot === '1' && /Correct/.test(a1.res) && a1.res.includes(hard[0].why_en) && a1.tells === hard[0].tells_en.length && a1.focus === 'g-next' && a1.dis, JSON.stringify(a1).slice(0, 200));
   await p.keyboard.press('Enter'); await sleep(250);
   const a2 = await p.evaluate(() => ({ pos: document.getElementById('g-pos').textContent, focus: document.activeElement.id, res: document.getElementById('g-result').textContent }));
   ok('game: Enter goes to the next card and focus lands on the message card', a2.pos === '2' && a2.focus === 'g-card' && a2.res === '', JSON.stringify(a2));
   await p.keyboard.press(hard[1].scam ? 'ArrowRight' : 'ArrowLeft'); await sleep(200);
   const a3 = await p.evaluate(() => ({ pts: document.getElementById('g-points').textContent, tot: document.getElementById('g-total').textContent, res: document.getElementById('g-result').textContent }));
-  ok('game: arrow key answers (wrong on purpose shows Galat with the truth)', a3.pts === '1' && a3.tot === '2' && /Galat/.test(a3.res), JSON.stringify(a3).slice(0, 160));
+  ok('game: arrow key answers (wrong on purpose shows Wrong with the truth)', a3.pts === '1' && a3.tot === '2' && /Wrong/.test(a3.res), JSON.stringify(a3).slice(0, 160));
   await p.keyboard.press('Enter'); await sleep(200);
   // swipe on touch: left = Scam
   const sw = await p.evaluate(() => {
@@ -204,7 +204,7 @@ if (has('game.html')) {
     ev('pointerdown', 0); ev('pointermove', -60); ev('pointermove', -140); ev('pointerup', -140);
     return { tot: document.getElementById('g-total').textContent, res: document.getElementById('g-result').textContent };
   });
-  ok('game: swipe left on touch answers Scam', sw.tot === '3' && (hard[2].scam ? /Sahi jawab/ : /Galat/).test(sw.res), JSON.stringify(sw).slice(0, 120));
+  ok('game: swipe left on touch answers Scam', sw.tot === '3' && (hard[2].scam ? /Correct/ : /Wrong/).test(sw.res), JSON.stringify(sw).slice(0, 120));
   for (let i = 3; i < hard.length; i++) { await p.click('#g-next'); await sleep(80); await p.click(hard[i].scam ? '#g-btn-scam' : '#g-btn-safe'); await sleep(80); }
   const nx = await p.evaluate(() => document.getElementById('g-next').textContent);
   await p.click('#g-next'); await sleep(250);

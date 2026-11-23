@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n-dict.js?v=65cda5fed7"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -171,9 +171,9 @@
         <h2 id="rules-h" data-i18n="post.s.rules.h">Three rules to teach (and repeat)</h2>
         <div data-i18n="post.s.rules.b"><p>Keep it short and in their language:</p>
 <ol>
-<li><strong>"OTP aur PIN kisi ko nahi batana."</strong> Nobody genuine will ask for it.</li>
-<li><strong>"Paise lene ke liye PIN nahi lagta, scan nahi karna."</strong> Receiving money never needs a PIN.</li>
-<li><strong>"Darr lage ya jaldi bole, toh pehle mujhe call karo."</strong> Any message or call creating fear or urgency means pause and call family.</li>
+<li><strong>"Do not tell the OTP or PIN to anyone."</strong> Nobody genuine will ask for it.</li>
+<li><strong>"You do not need a PIN or a scan to receive money."</strong> Receiving money never needs a PIN.</li>
+<li><strong>"If you feel fear or they rush you, call me first."</strong> Any message or call creating fear or urgency means pause and call family.</li>
 </ol>
 <p>Write them on paper and keep it near their charging point. Then do a quick role play: you pretend to be a "bank officer" and see how they respond. Laugh about it together, but make it stick.</p></div>
       </section>
@@ -183,7 +183,7 @@
       </section>
       <section class="bp-sec" id="check-in" aria-labelledby="check-in-h">
         <h2 id="check-in-h" data-i18n="post.s.check-in.h">Monthly check in</h2>
-        <div data-i18n="post.s.check-in.b"><p>Once a month, spend five minutes: check for new apps, pending updates and unusual SMS. Ask, "Koi ajeeb call ya message aaya?" Keep it friendly, not like an exam. If something goes wrong, they should feel comfortable telling you immediately, not hide it out of embarrassment.</p></div>
+        <div data-i18n="post.s.check-in.b"><p>Once a month, spend five minutes: check for new apps, pending updates and unusual SMS. Ask, "Did any strange call or message arrive?" Keep it friendly, not like an exam. If something goes wrong, they should feel comfortable telling you immediately, not hide it out of embarrassment.</p></div>
       </section>
       <section class="bp-sec" id="faq" aria-labelledby="faq-h">
         <h2 id="faq-h" data-i18n="post.s.faq.h">Frequently asked questions</h2>
@@ -274,7 +274,7 @@
   <script src="assets/js/i18n/post-secure-parents-phone.js?v=c5be77ccea" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>
   <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
-  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <script src="assets/js/pwa.js?v=e94a53f8b7" defer></script>
   <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
   <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

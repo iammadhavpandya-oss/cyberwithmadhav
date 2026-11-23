@@ -60,7 +60,7 @@ Stay calm and act quickly:
 3. If money left your account, call **[1930](tel:1930)** immediately and then file a complaint at [cybercrime.gov.in](https://cybercrime.gov.in/). Our [first hour guide](blog-first-hour-after-cyber-fraud.html) has the full checklist.
 
 ## practise | Practise with your family
-Spotting scams is a skill, and skills need practice. Sit with your parents for 10 minutes and play [Scam ya Nahi?](game.html), our free spot the scam game in Hinglish. Show them two or three real scam messages from your own phone. Make a family rule: **"Koi bhi link ho, pehle mujhe forward karo."** It sounds simple, but it works.
+Spotting scams is a skill, and skills need practice. Sit with your parents for 10 minutes and play [Scam ya Nahi?](game.html), our free spot the scam game in Hinglish. Show them two or three real scam messages from your own phone. Make a family rule: **"Whatever the link is, forward it to me first."** It sounds simple, but it works.
 
 === safe-upi-habits
 title: Safe UPI Habits: 10 Simple Rules to Protect Your Money
@@ -182,7 +182,7 @@ Hacked accounts are used to send messages like "Urgent, in hospital, please send
 The Department of Telecommunications issued directions on 28 November 2025 requiring messaging apps that use Indian mobile numbers to keep accounts continuously linked to the active SIM in the device and to log out web sessions periodically. Reports in October 2026 said enforcement is planned from 1 January 2027. We explain what this means for you in our [SIM binding explainer](blog-sim-binding-whatsapp-india-2027.html). Rules help, but your two step PIN is still your strongest personal defence.
 
 ## habit | One habit to teach everyone
-**"Code kisi ko nahi dena. Kabhi nahi."** Not to a friend, not to support, not to a cousin. WhatsApp itself will never ask you for this code in a chat. Teach it to parents and kids in the same simple words.
+**"Do not give the code to anyone. Not ever."** Not to a friend, not to support, not to a cousin. WhatsApp itself will never ask you for this code in a chat. Teach it to parents and kids in the same simple words.
 
 === otp-scams-india
 title: OTP Scams in India: Why You Should Never Share an OTP
@@ -236,7 +236,7 @@ Remember that under the RBI's 2017 customer liability rules, losses caused by sh
 In a SIM swap, a criminal convinces or tricks a telecom outlet into issuing a new SIM for your number. Your phone loses signal, and all OTPs start going to them. Warning signs: sudden "no service" for a long time while others nearby have network, or messages about a SIM change you did not request. Act fast: call your operator from another phone and your bank. Use the Sanchar Saathi portal to check which mobile connections are registered in your name and report ones that are not yours.
 
 ## family-rule | The family rule
-Write it big: **"OTP sirf apne liye. Kisi ko bolna nahi, forward karna nahi."** Practise with parents using simple role play. Most OTP frauds work on people who were never told this clearly even once.
+Write it big: **"The OTP is only for you. Do not tell it to anyone, and do not forward it."** Practise with parents using simple role play. Most OTP frauds work on people who were never told this clearly even once.
 
 === fake-job-offer-scams
 title: Fake Job Offer Scams: Task Scams, Registration Fees and Fake Recruiters
@@ -298,4 +298,4 @@ Some fake jobs ask you to "receive payments" into your account and forward them,
 Do not trust anyone who later contacts you offering to "recover" your money for a fee. That is usually a second scam.
 
 ## mindset | The right mindset
-There is no shame in being targeted. These groups run like businesses and are very convincing. Talk about it openly with friends and family, especially younger cousins looking for their first job. **"Naukri ke liye paise maange, matlab fraud."** Simple rule, saves a lot of pain.
+There is no shame in being targeted. These groups run like businesses and are very convincing. Talk about it openly with friends and family, especially younger cousins looking for their first job. **"If they ask for money for a job, it is fraud."** Simple rule, saves a lot of pain.

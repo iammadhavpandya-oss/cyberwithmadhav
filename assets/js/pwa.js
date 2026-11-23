@@ -8,7 +8,7 @@
       navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () {});
     }
     var go = function () {
-      var s = document.createElement('script'); s.src = 'assets/js/eggs.js?v=b25a4018dc'; s.async = true; document.body.appendChild(s);
+      var s = document.createElement('script'); s.src = 'assets/js/eggs.js?v=b17c9b0c51'; s.async = true; document.body.appendChild(s);
     };
     if (window.requestIdleCallback) window.requestIdleCallback(go, { timeout: 3000 }); else setTimeout(go, 800);
   });

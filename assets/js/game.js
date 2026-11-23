@@ -7,7 +7,18 @@
   const PAGE = 'https://www.cyberwithmadhav.com/game.html';
   const BEST_KEY = 'cwm-scamgame-best';
   const LEVELS = ['all', 'easy', 'medium', 'hard'];
-  const SPEAKER = /(Caller|IVR|Agent|Aap|You):\s*/g;
+  const SPEAKER = /(Caller|IVR|Agent|Aap|You|Customer):\s*/g;
+
+  function isHi() { return window.CWMI18N && CWMI18N.lang === 'hi'; }
+  function tr(key, en) { return (window.CWMI18N && CWMI18N.t) ? CWMI18N.t(key, en) : en; }
+  function itemLang(item) {
+    if (!item || isHi()) return item;
+    return Object.assign({}, item, {
+      text: item.text_en || item.text,
+      tells: item.tells_en || item.tells,
+      why: item.why_en || item.why
+    });
+  }
 
   /* ---------- pure logic ---------- */
   const L = {
@@ -30,14 +41,15 @@
     better(old, s, t) { return !old || s > old.s || (s === old.s && t > old.t); },
     verdict(s, t) {
       const r = t ? s / t : 0;
-      if (r === 1) return 'Full marks! Scammers ka kaam aapke saamne nahi chalega. Ab family group mein bhi share karo.';
-      if (r >= 0.8) return 'Bahut badhiya. Bas ek do tricks aur seekh lo, phir koi aapko fasa nahi payega.';
-      if (r >= 0.5) return 'Theek thaak. Red flags dobara padho: urgency, link, OTP, paisa pehle. Practice se aur pakka hoga.';
-      return 'Abhi thoda risk hai. Scam Encyclopedia padho aur ek baar phir khelo. Shak ho to pehle official number se confirm karo.';
+      if (r === 1) return tr('game.verdict.full', 'Full marks! Scammers will not get past you. Share this with your family group too.');
+      if (r >= 0.8) return tr('game.verdict.good', 'Very good. Learn one or two more tricks and nobody will catch you out.');
+      if (r >= 0.5) return tr('game.verdict.ok', 'Not bad. Read the red flags again: urgency, a link, an OTP, money first. Practice will make it stronger.');
+      return tr('game.verdict.risk', 'There is still some risk. Read the Scam Encyclopedia and play once more. If you have a doubt, confirm first on the official number.');
     },
     shareText(s, t, level) {
       const lv = level === 'all' ? '' : ' (' + level + ' level)';
-      return 'Maine CyberWithMadhav ka "Scam ya Nahi?" game khela' + lv + ' aur ' + s + '/' + t + ' sahi pehchane. Aap kitne pakad paoge? ' + PAGE;
+      if (isHi()) return 'Maine CyberWithMadhav ka "Scam ya Nahi?" game khela' + lv + ' aur ' + s + '/' + t + ' sahi pehchane. Aap kitne pakad paoge? ' + PAGE;
+      return 'I played the CyberWithMadhav "Scam ya Nahi?" game' + lv + ' and got ' + s + '/' + t + ' right. How many can you catch? ' + PAGE;
     },
     shareUrl(s, t, level) { return 'https://wa.me/?text=' + encodeURIComponent(L.shareText(s, t, level)); }
   };
@@ -94,8 +106,8 @@
     showBest(); render(focus);
   }
 
-  function render(focus) {
-    const c = card(); const ph = $('#g-card');
+  function render(focus, keepAnswer) {
+    const c = itemLang(card()); const ph = $('#g-card');
     ph.classList.remove('right', 'wrong', 'out-l', 'out-r', 'dragging'); ph.style.transform = '';
     ph.dataset.channel = c.channel;
     $('#g-ico').replaceChildren(icon(CH_ICON[c.channel] || CH_ICON.sms));
@@ -103,30 +115,42 @@
     $('#g-sender').textContent = c.sender;
     $('#g-lvl').textContent = c.level;
     const isCall = c.channel === 'call_script';
-    $('#g-body').replaceChildren(...L.turns(c).map(t => el('div', { class: 'g-bubble' + (t.who === 'Aap' || t.who === 'You' ? ' me' : ''), lang: 'hi-Latn' }, [
+    const bubbleLang = isHi() ? 'hi-Latn' : 'en-IN';
+    $('#g-body').replaceChildren(...L.turns(c).map(t => el('div', { class: 'g-bubble' + (t.who === 'Aap' || t.who === 'You' ? ' me' : ''), lang: bubbleLang }, [
       t.who ? el('span', { class: 'g-speaker mono', text: t.who }) : null,
       el('p', { text: t.text })
-    ])).concat(isCall ? [el('p', { class: 'g-note small muted', text: 'Call transcript' })] : []));
-    $('#g-result').replaceChildren(); $('#g-next-row').hidden = true;
-    $('#g-btn-scam').disabled = false; $('#g-btn-safe').disabled = false;
-    st.answered = false; updateScore();
+    ])).concat(isCall ? [el('p', { class: 'g-note small muted', text: tr('game.transcript', 'Call transcript') })] : []));
+    if (!keepAnswer) {
+      $('#g-result').replaceChildren(); $('#g-next-row').hidden = true;
+      $('#g-btn-scam').disabled = false; $('#g-btn-safe').disabled = false;
+      st.answered = false;
+    }
+    updateScore();
     if (!reduce) { ph.classList.remove('enter'); void ph.offsetWidth; ph.classList.add('enter'); }
     if (focus) ph.focus({ preventScroll: false });
   }
 
-  function answer(saidScam) {
-    if (st.answered || !card()) return;
-    const c = card(), right = L.isRight(c, saidScam);
-    st.answered = true; if (right) st.points++; else st.missed.push(c);
+  let lastSaid = null;
+  function answer(saidScam, replay) {
+    if (!replay && (st.answered || !card())) return;
+    const raw = card(); if (!raw) return;
+    const c = itemLang(raw), right = L.isRight(raw, saidScam);
+    lastSaid = saidScam;
+    if (!replay) {
+      st.answered = true; if (right) st.points++; else st.missed.push(raw);
+    } else {
+      st.answered = true;
+    }
     $('#g-btn-scam').disabled = true; $('#g-btn-safe').disabled = true;
     const ph = $('#g-card'); ph.classList.remove('dragging'); ph.style.transform = '';
     ph.classList.add(right ? 'right' : 'wrong');
-    const truth = c.scam ? 'Ye scam tha.' : 'Ye safe tha.';
+    const truth = c.scam ? tr('game.was.scam', 'This was a scam.') : tr('game.was.safe', 'This was safe.');
+    const chose = right ? '' : ' ' + tr('game.you.chose', 'You chose') + ' ' + (saidScam ? 'Scam' : 'Safe') + '.';
     const kids = [
-      el('p', { class: 'g-verdict ' + (right ? 'ok' : 'no') }, [el('b', { text: right ? 'Sahi jawab! ' : 'Galat. ' }), el('span', { text: truth + (right ? '' : ' Aapne ' + (saidScam ? 'Scam' : 'Safe') + ' chuna.') })]),
-      el('p', { class: 'c-k mono', text: c.scam ? 'red flags' : 'why it looks safe' }),
-      el('ul', { class: 'g-tells', lang: 'hi-Latn' }, c.tells.map(t => el('li', { text: t }))),
-      el('p', { class: 'g-why', lang: 'hi-Latn', text: c.why })
+      el('p', { class: 'g-verdict ' + (right ? 'ok' : 'no') }, [el('b', { text: right ? tr('game.right', 'Correct!') + ' ' : tr('game.wrong', 'Wrong.') + ' ' }), el('span', { text: truth + chose })]),
+      el('p', { class: 'c-k mono', text: c.scam ? tr('game.flags', 'red flags') : tr('game.looks-safe', 'why it looks safe') }),
+      el('ul', { class: 'g-tells', lang: isHi() ? 'hi-Latn' : 'en-IN' }, c.tells.map(t => el('li', { text: t }))),
+      el('p', { class: 'g-why', lang: isHi() ? 'hi-Latn' : 'en-IN', text: c.why })
     ];
     if (c.report) kids.push(el('p', { class: 'g-report' }, [el('span', { class: 'c-k mono', text: 'report: ' }), el('a', { href: 'tel:1930', text: '1930' }), el('span', { text: ' / ' }), ext('https://cybercrime.gov.in', 'cybercrime.gov.in')]));
     if (c.link) kids.push(el('p', { class: 'g-link small' }, [el('span', { class: 'muted', text: 'Full scam card: ' }), el('a', { href: c.link.href, text: c.link.name })]));
@@ -152,7 +176,7 @@
     if (nb) { all[st.level] = { s, t, at: new Date().toISOString().slice(0, 10) }; save(BEST_KEY, all); }
     $('#g-play').hidden = true; const e = $('#g-end'); e.hidden = false;
     $('#g-end-points').textContent = String(s); $('#g-end-total').textContent = String(t);
-    $('#g-end-msg').textContent = L.verdict(s, t);
+    $('#g-end-msg').textContent = L.verdict(s, t); $('#g-end-msg').setAttribute('lang', isHi() ? 'hi-Latn' : 'en-IN');
     $('#g-end-best').textContent = nb ? (old ? 'New best score for this level! Old best was ' + old.s + ' / ' + old.t + '.' : 'First score saved as your best for this level.') : 'Your best for this level: ' + old.s + ' / ' + old.t + '.';
     $('#g-share').href = L.shareUrl(s, t, st.level);
     const m = st.missed;
@@ -214,6 +238,21 @@
     $('#g-next').addEventListener('click', next);
     swipe(); keys();
     newGame(false);
+    document.addEventListener('cwm:lang', function () {
+      if (!data) return;
+      const end = $('#g-end');
+      if (end && !end.hidden) {
+        const sc = st.points, tot = st.deck.length;
+        $('#g-end-msg').textContent = L.verdict(sc, tot);
+        $('#g-end-msg').setAttribute('lang', isHi() ? 'hi-Latn' : 'en-IN');
+        $('#g-share').href = L.shareUrl(sc, tot, st.level);
+        return;
+      }
+      if (!card()) return;
+      const answered = st.answered, said = lastSaid;
+      render(false, answered);
+      if (answered && said != null) answer(said, true);
+    });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

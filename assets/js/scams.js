@@ -13,7 +13,12 @@
 
   function card(c) {
     const url = BASE + '#s-' + c.id;
-    const share = 'https://wa.me/?text=' + encodeURIComponent(`${c.hinglish}: ${c.name}. Red flags and what to do now: ${url}`);
+    const shareFor = () => {
+      const hi = window.CWMI18N && CWMI18N.lang === 'hi';
+      const title = hi ? (c.hinglish + ': ' + c.name) : c.name;
+      return 'https://wa.me/?text=' + encodeURIComponent(title + '. Red flags and what to do now: ' + url);
+    };
+    const share = shareFor();
     const pid = 'sp-' + c.id;
     const more = el('button', { type: 'button', class: 'c-more', 'aria-expanded': 'false', 'aria-controls': pid }, [el('span', { text: 'What to do now' }), el('span', { class: 'chev', 'aria-hidden': 'true', text: '▾' })]);
     const panel = el('div', { class: 's-panel', id: pid, hidden: true }, [
@@ -24,7 +29,7 @@
     more.addEventListener('click', () => toggle(art, more.getAttribute('aria-expanded') !== 'true'));
     const art = el('article', { class: 's-card card', id: 's-' + c.id, 'data-verify': String(c.verify) }, [
       el('div', { class: 's-top' }, [
-        el('p', { class: 's-hing', lang: 'hi-Latn', text: c.hinglish }),
+        el('p', { class: 's-hing', lang: 'hi-Latn', 'data-lang-only': 'hi', text: c.hinglish }),
         c.verify ? el('span', { class: 'badge verify', title: 'Still being checked against the latest official guidance', text: 'being verified' }) : null
       ]),
       el('h3', { class: 's-name', text: c.name }),
@@ -40,6 +45,8 @@
     ]);
     art._hay = norm([c.name, c.hinglish, c.steps.join(' '), c.flags.join(' '), c.todo.join(' '), c.law.join(' ')].join(' '));
     art._more = more; art._panel = panel;
+    art._share = art.querySelector('a.s-wa');
+    art._shareFor = shareFor;
     return art;
   }
 
@@ -107,4 +114,7 @@
     openHash(null);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  document.addEventListener('cwm:lang', function () {
+    cards.forEach(function (a) { if (a._share && a._shareFor) a._share.href = a._shareFor(); });
+  });
 })();

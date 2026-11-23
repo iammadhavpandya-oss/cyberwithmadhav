@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n-dict.js?v=65cda5fed7"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -123,7 +123,7 @@
       <section class="bp-sec" id="pin-rule" aria-labelledby="pin-rule-h">
         <h2 id="pin-rule-h" data-i18n="post.s.pin-rule.h">The one rule: PIN means money out</h2>
         <div data-i18n="post.s.pin-rule.b"><p>UPI has two directions. In a <em>push</em> payment you start it, by scanning a QR code or entering a UPI ID, and you confirm with your PIN. In a <em>pull</em> payment, also called a collect request, someone else asks for money and you approve it with your PIN.</p>
-<p>In both cases, your PIN moves money out of your account. Receiving money needs nothing from you. PIN daala matlab paisa gaya. Bas itna yaad rakho.</p></div>
+<p>In both cases, your PIN moves money out of your account. Receiving money needs nothing from you. If you entered your PIN, the money went out. Just remember that.</p></div>
       </section>
       <section class="bp-sec" id="collect" aria-labelledby="collect-h">
         <h2 id="collect-h" data-i18n="post.s.collect.h">Collect request scams</h2>
@@ -138,7 +138,7 @@
 <li>A sticker pasted over a shop's real QR code, so your payment goes to someone else. Before you enter the PIN, check that the name shown in your app is the shop's name.</li>
 <li>QR codes in emails, posters or messages that open a fake payment or login page.</li>
 </ul>
-<p>Paise lene ke liye scan nahi karna padta. Jo bole "scan karo, paise aayenge", wahi scammer hai.</p>
+<p>You never need to scan a code to receive money. Anyone who says "scan this and the money will come" is the scammer.</p>
 <p>For a closer look at stickers on shop counters, petrol pumps and parking machines, and a 10-second check before you pay, see our <a href="blog-fake-qr-code-shops-petrol-pumps.html">guide to fake QR codes at shops and petrol pumps</a>.</p></div>
       </section>
       <section class="bp-sec" id="refund" aria-labelledby="refund-h">
@@ -210,7 +210,7 @@
           <p class="bp-meta small muted"><time datetime="2026-11-21">21 November 2026</time> · 3 <span data-i18n="blog.min">min read</span></p>
         </article>
         </div>
-        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#link-tool">Is this link suspicious? Free link checker</a> · <a href="scams.html">Scam Encyclopedia: UPI and 24 more scams</a> · <a href="game.html">Scam ya Nahi? Spot the scam game</a> · <a href="cybersecurity-awareness-sessions.html">Book a cyber security awareness session</a></p>
+        <p class="small bp-hubs"><span data-i18n="blog.more">More on this site:</span> <a href="index.html#link-tool">Is this link suspicious? Free link checker</a> · <a href="scams.html">Scam Encyclopedia: UPI and 24 more scams</a> · <a href="game.html">Scam ya Nahi? Spot the scam game</a></p>
       </section>
 
       <p class="small bp-faq-link"><a href="faq.html" data-i18n="blog.faq">Have a question? See the FAQ</a></p>
@@ -240,7 +240,7 @@
   <script src="assets/js/i18n/post-upi-scams-india.js?v=d08cbda4df" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>
   <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
-  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <script src="assets/js/pwa.js?v=e94a53f8b7" defer></script>
   <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
   <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

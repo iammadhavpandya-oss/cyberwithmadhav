@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n-dict.js?v=65cda5fed7"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -141,7 +141,7 @@
           <div>
             <p class="kicker mono"><span class="prompt">$</span> ls ~/missions</p>
             <h2 id="missions-title" data-i18n="home.missions.h">Choose your mission</h2>
-            <p class="muted" data-i18n="home.missions.p">Seekhna hai, khelna hai ya bachna hai? Ek card chuno aur launch karo.</p>
+            <p class="muted" data-i18n="home.missions.p">Want to learn, play or stay safe? Pick a card and launch.</p>
           </div>
           <div class="xp-home-btns">
             <a class="btn btn-primary" href="start-here.html" data-i18n="home.start.btn">New here? Start here</a>
@@ -152,28 +152,28 @@
           <article class="mc-card t-green">
             <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22V3.5M5 4h12.5l-2.2 4.2L17.5 12.5H5"/></svg></span>
             <h3 class="mc-title"><a href="ctf.html">CTF Arena</a></h3>
-            <p class="mc-tag">Flags dhoondo, levels todo, hints lo jab atak jao.</p>
+            <p class="mc-tag" data-i18n="mc.ctf">Find the flags, clear the levels, and take a hint when you get stuck.</p>
             <p class="mc-meta mono">7 tracks · 3 levels each</p>
             <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </article>
           <article class="mc-card t-violet">
             <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7 2 14a3.2 3.2 0 0 0 6 0L5 7zM19 7l-3 7a3.2 3.2 0 0 0 6 0l-3-7z"/></svg></span>
             <h3 class="mc-title"><a href="cyberlaw.html">Cyber Law</a></h3>
-            <p class="mc-tag">IT Act, BNS aur DPDP, simple English aur Hinglish mein.</p>
+            <p class="mc-tag" data-i18n="mc.law">IT Act, BNS and DPDP, in simple English and Hinglish.</p>
             <p class="mc-meta mono">15 FAQs · 40 terms · 12 cases</p>
             <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </article>
           <article class="mc-card t-amber">
             <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v5.8c0 4.8 3.2 8.9 7.5 10.2 4.3-1.3 7.5-5.4 7.5-10.2V5.5z"/><path d="M12 8v4.5M12 16h.01"/></svg></span>
             <h3 class="mc-title"><a href="scams.html">Scam Encyclopedia</a></h3>
-            <p class="mc-tag">Digital arrest se UPI collect tak, har scam ka pura postmortem.</p>
+            <p class="mc-tag" data-i18n="mc.scams">From digital arrest to UPI collect, a full postmortem of each scam.</p>
             <p class="mc-meta mono">25 Indian scams</p>
             <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </article>
           <article class="mc-card t-green">
             <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.5" width="20" height="11" rx="4"/><path d="M6.5 12h4M8.5 10v4M15.5 11h.01M18 13.2h.01"/></svg></span>
             <h3 class="mc-title"><a href="terminal.html">Terminal Wargame</a></h3>
-            <p class="mc-tag">Simulated shell mein Linux seekho, ek password se agla level.</p>
+            <p class="mc-tag" data-i18n="mc.term">Learn Linux in a simulated shell, one password to the next level.</p>
             <p class="mc-meta mono">20 levels</p>
             <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </article>
@@ -187,7 +187,7 @@
           <article class="mc-card t-violet">
             <span class="mc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="m7 10 3 2.5L7 15M12.5 15H17"/></svg></span>
             <h3 class="mc-title"><a href="commands.html">Command Reference</a></h3>
-            <p class="mc-tag">Defenders jo commands sach mein type karte hain, examples ke saath.</p>
+            <p class="mc-tag" data-i18n="mc.cmd">The commands defenders actually type, with examples.</p>
             <p class="mc-meta mono">60 commands · Linux, Windows, Cisco</p>
             <span class="mc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </article>
@@ -532,11 +532,11 @@
     <p class="pal-foot mono">↑↓ move · Enter open · Esc close</p>
   </dialog>
   <script src="assets/js/space.js?v=423ba9b2ab" defer></script>
-  <script src="assets/js/main.js?v=d56748b26d" defer></script>
+  <script src="assets/js/main.js?v=80f5e8c554" defer></script>
   <script src="assets/js/declutter.js?v=73136d7904" defer></script>
   <script src="assets/js/explore.js?v=506d1c0aee" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>
-  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <script src="assets/js/pwa.js?v=e94a53f8b7" defer></script>
   <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
   <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

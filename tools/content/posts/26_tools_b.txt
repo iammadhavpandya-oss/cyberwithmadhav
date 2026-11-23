@@ -56,7 +56,7 @@ CERT-In's April 2022 directions under Section 70B include requirements for VPN s
 4. Not clicking links in unexpected messages.
 5. Installing apps only from official stores.
 
-A VPN is a useful tool. It is not a shield. **"VPN laga liya matlab safe" galat soch hai.** Basics first, VPN when it fits the situation. For travel tips, see our [public WiFi guide](blog-public-wifi-safety.html).
+A VPN is a useful tool. It is not a shield. **"I turned on a VPN, so I am safe" is the wrong way to think.** Basics first, VPN when it fits the situation. For travel tips, see our [public WiFi guide](blog-public-wifi-safety.html).
 
 === linux-logs-for-beginners
 title: Linux Logs for Beginners: Find Failed Logins, Sudo Use and Suspicious Activity

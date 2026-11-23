@@ -114,9 +114,9 @@ Also install the **Sanchar Saathi** app or bookmark the portal. It lets you repo
 ## rules | Three rules to teach (and repeat)
 Keep it short and in their language:
 
-1. **"OTP aur PIN kisi ko nahi batana."** Nobody genuine will ask for it.
-2. **"Paise lene ke liye PIN nahi lagta, scan nahi karna."** Receiving money never needs a PIN.
-3. **"Darr lage ya jaldi bole, toh pehle mujhe call karo."** Any message or call creating fear or urgency means pause and call family.
+1. **"Do not tell the OTP or PIN to anyone."** Nobody genuine will ask for it.
+2. **"You do not need a PIN or a scan to receive money."** Receiving money never needs a PIN.
+3. **"If you feel fear or they rush you, call me first."** Any message or call creating fear or urgency means pause and call family.
 
 Write them on paper and keep it near their charging point. Then do a quick role play: you pretend to be a "bank officer" and see how they respond. Laugh about it together, but make it stick.
 
@@ -124,7 +124,7 @@ Write them on paper and keep it near their charging point. Then do a quick role 
 Scammers pretending to be police, CBI or customs officials keep elders on video call for hours, claiming they are under "digital arrest". Tell your parents clearly: **there is no such thing as digital arrest in Indian law**, and real police do not demand money on video calls. Read and share our [digital arrest scam guide](blog-digital-arrest-scam-india.html).
 
 ## check-in | Monthly check in
-Once a month, spend five minutes: check for new apps, pending updates and unusual SMS. Ask, "Koi ajeeb call ya message aaya?" Keep it friendly, not like an exam. If something goes wrong, they should feel comfortable telling you immediately, not hide it out of embarrassment.
+Once a month, spend five minutes: check for new apps, pending updates and unusual SMS. Ask, "Did any strange call or message arrive?" Keep it friendly, not like an exam. If something goes wrong, they should feel comfortable telling you immediately, not hide it out of embarrassment.
 
 === strong-passwords-password-managers
 title: Strong Passwords and Password Managers: A Simple Guide for Everyone
@@ -262,4 +262,4 @@ This is why backup matters. Before you need it:
 - If your phone is lost, block it through **Sanchar Saathi** and contact your operator to block the SIM.
 
 ## family | Set it up for your family
-Pick one evening and help parents or younger siblings set up 2FA on their email and WhatsApp. It takes about 10 minutes per person. Explain it simply: **"Password chori ho gaya to bhi, doosra taala aapke phone mein hai."**
+Pick one evening and help parents or younger siblings set up 2FA on their email and WhatsApp. It takes about 10 minutes per person. Explain it simply: **"Even if the password is stolen, a second lock is still on your phone."**

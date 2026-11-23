@@ -30,7 +30,7 @@
     /* v3: theme before first paint. Saved choice wins, else follow the system. */
     (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('cwm-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#F6F4FB':'#0D0B14';if(sessionStorage.getItem('cwm-banner')==='hidden')d.classList.add('no-banner');}catch(e){}})();
   </script>
-  <script src="assets/js/i18n-dict.js?v=23b37e0a6a"></script>
+  <script src="assets/js/i18n-dict.js?v=65cda5fed7"></script>
   <script src="assets/js/i18n.js?v=aabf18f9d3"></script>
   <script src="assets/js/consent.js?v=f3eebb3ef0"></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -162,7 +162,7 @@
       </section>
       <section class="bp-sec" id="safe-word" aria-labelledby="safe-word-h">
         <h2 id="safe-word-h" data-i18n="post.s.safe-word.h">Set a family safe word today</h2>
-        <div data-i18n="post.s.safe-word.b"><p>Pick a word or short phrase that the whole family knows and that never appears online, for example the name of an old neighbour's dog. If anyone calls in an "emergency" asking for money, ask for the safe word. A cloned voice will not know it. Tell elders clearly: <strong>"Safe word nahi bola, matlab call fake hai."</strong></p></div>
+        <div data-i18n="post.s.safe-word.b"><p>Pick a word or short phrase that the whole family knows and that never appears online, for example the name of an old neighbour's dog. If anyone calls in an "emergency" asking for money, ask for the safe word. A cloned voice will not know it. Tell elders clearly: <strong>"If they do not say the safe word, the call is fake."</strong></p></div>
       </section>
       <section class="bp-sec" id="reduce" aria-labelledby="reduce-h">
         <h2 id="reduce-h" data-i18n="post.s.reduce.h">Reduce the raw material</h2>
@@ -262,7 +262,7 @@
   <script src="assets/js/i18n/post-ai-voice-cloning-deepfake-scams-2026.js?v=6ccc20bf16" defer></script>
   <script src="assets/js/nav.js?v=a2320ad677" defer></script>
   <script src="assets/js/search.js?v=f4edf5cee5" defer></script>
-  <script src="assets/js/pwa.js?v=44064c1aa2" defer></script>
+  <script src="assets/js/pwa.js?v=e94a53f8b7" defer></script>
   <!-- CWM{v13w_s0urc3_l1k3_a_d3f3nd3r} You read the source. Nice. Real challenges: https://www.cyberwithmadhav.com/ctf.html -->
   <script data-goatcounter="https://cyberwithmadhav.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
