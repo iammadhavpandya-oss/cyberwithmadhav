@@ -15,8 +15,20 @@ RewriteRule ^ https://www.cyberwithmadhav.com%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^cyberwithmadhav\.com$ [NC]
 RewriteRule ^ https://www.cyberwithmadhav.com%{REQUEST_URI} [L,R=301]
 
-# Pretty URL for certificate verification. Keeps the query string (?id=CWM-2026-XXXX).
-RewriteRule ^verify/?$ /verify.html [L]
+# One canonical URL per page, matching sitemap.xml: / for home, /page.html for everything else.
+# /index.html is the same document as /, so send it home and keep any query string.
+RewriteRule ^index\.html/?$ / [L,R=301]
+
+# /learn.html/ and other trailing slashes on .html files are not used in the sitemap.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)\.html/$ /$1.html [L,R=301]
+
+# /learn or /verify?id=... (pretty paths) go to the real .html file when it exists.
+# Real files and folders are left alone, so CSS, JS and assets are not touched.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L,R=301]
 </IfModule>
 
 ErrorDocument 404 /404.html

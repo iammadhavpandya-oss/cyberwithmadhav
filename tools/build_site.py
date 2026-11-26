@@ -105,6 +105,33 @@ def git_date(p):
 
 
 # ---------- 1 and 2: head tags, nav "More" menu and shared scripts ----------
+
+def page_href(p):
+    """Public path for a page file. Home is / so it matches the sitemap and the canonical tag."""
+    return "/" if p == "index.html" else p
+
+
+def rewrite_home_hrefs(s):
+    """Point every home link at / (and keep any query or hash), never at index.html."""
+    s = re.sub(r'href="(?:/)?index\.html(#[^"]*|\?[^"]*)?"', lambda m: 'href="/' + (m.group(1) or "") + '"', s)
+    s = re.sub(r"https://www\.cyberwithmadhav\.com/index\.html", "https://www.cyberwithmadhav.com/", s)
+    return s
+
+
+def page_url(p):
+    return BASE if p == "index.html" else BASE + p
+
+
+def patch_canonical(s, p):
+    """Keep one self-referencing absolute canonical and matching og:url, in sitemap form."""
+    url = page_url(p)
+    if re.search(r'<link rel="canonical"', s):
+        s = re.sub(r'(<link rel="canonical" href=")[^"]*', r"\g<1>" + url, s, count=1)
+    if re.search(r'<meta property="og:url"', s):
+        s = re.sub(r'(<meta property="og:url" content=")[^"]*', r"\g<1>" + url, s, count=1)
+    return s
+
+
 # The top nav is kept short: Home, Explore (the hub that lists every page), CTF, then search and theme.
 NAV = [("index.html", "Home", "nav-home", ""),
        ("learn.html", "Learn", "nav-learn", ""),
@@ -119,7 +146,7 @@ LANG_BTN = ('<button class="lang-toggle" type="button" aria-pressed="false" aria
             '<span class="lt-ico" aria-hidden="true">Aa</span><span class="lt-label">English</span></button>')
 I18N_TAGS = '<script src="assets/js/i18n-dict.js"></script>\n  <script src="assets/js/i18n.js"></script>\n  '
 FOOT_LINKS = [("terms.html", "Terms and Conditions", "foot.terms"), ("privacy.html", "Privacy Policy", "foot.privacy"),
-              ("index.html", "Back to home", "foot.home"), ("#top", "Back to top ↑", "foot.top"), ("#top", "Back to top &#8593;", "foot.top")]
+              ("/", "Back to home", "foot.home"), ("#top", "Back to top ↑", "foot.top"), ("#top", "Back to top &#8593;", "foot.top")]
 
 
 def nav_links(p):
@@ -140,7 +167,7 @@ def nav_links(p):
                           f'<span class="nav-sessions-short" data-i18n="nav.sessions.short">Sessions</span>')
         else:
             label_html = f'<span data-i18n="{key}">{label}</span>'
-        out.append(f'\n        <a href="{f}"{attrs}>{ico}{label_html}</a>')
+        out.append(f'\n        <a href="{page_href(f)}"{attrs}>{ico}{label_html}</a>')
     return "".join(out)
 
 
@@ -179,6 +206,8 @@ def patch_page(p):
     s = patch_head(s)
     s = patch_nav(s, p)
     s = patch_footer(s)
+    s = rewrite_home_hrefs(s)
+    s = patch_canonical(s, p)
     # social image tags: drop old ones, then add one consistent block after og:locale (or og:url)
     s = re.sub(r'\n\s*<meta (?:property="og:image(?::[a-z]+)?"|name="twitter:image(?::alt)?") content="[^"]*">', "", s)
     title, desc = meta(s, "property", "og:title") or title_of(s), meta(s, "property", "og:description") or meta(s, "name", "description")
@@ -298,19 +327,19 @@ def search_index():
     for p in pages():
         s = read(p)
         name = "Home" if p == "index.html" else short_title(title_of(s))
-        add("Blog" if p.startswith("blog-") else "Page", title_of(s).split(" | ")[0] if p.startswith("blog-") else name, meta(s, "name", "description"), p)
+        add("Blog" if p.startswith("blog-") else "Page", title_of(s).split(" | ")[0] if p.startswith("blog-") else name, meta(s, "name", "description"), page_href(p))
         for m in re.finditer(r'<section[^>]*\bid="([a-z0-9-]+)"[^>]*>(.*?)</h2>', s, re.S):
             sid, body = m.group(1), m.group(2)
             h = re.search(r"<h2[^>]*>(.*)$", body, re.S)
             if not h or sid in ("hero", "top"): continue
-            add("Section", strip_tags(h.group(1)), name, f"{p}#{sid}")
+            add("Section", strip_tags(h.group(1)), name, f"{page_href(p)}#{sid}")
     cs = json.loads((DATA / "cheatsheets.json").read_text())
     for sh in cs["sheets"]:
-        add("Sheet", sh["title"], sh["category"] + " cheat sheet", f"index.html#sheet-{sh['id']}", sh.get("desc", ""))
+        add("Sheet", sh["title"], sh["category"] + " cheat sheet", f"/#sheet-{sh['id']}", sh.get("desc", ""))
         if sh.get("type") == "text": continue
         for it in sh["items"]:
             cmd = re.sub(r"\{\{(\w+)\}\}", lambda m: next((v["default"] for v in cs["variables"] if v["key"] == m.group(1)), m.group(0)), it["cmd"])
-            add("Command", cmd, it["what"], "index.html?q=" + _q(it["what"]) + "#cheatsheets", sh["title"])
+            add("Command", cmd, it["what"], "/?q=" + _q(it["what"]) + "#cheatsheets", sh["title"])
     ctf = json.loads((DATA / "ctf.json").read_text())
     for t in ctf["tracks"]:
         add("CTF", t["name"] + " track", t.get("blurb", ""), f"ctf.html#/track/{t['id']}")
@@ -398,7 +427,7 @@ def service_worker():
     for extra in ("assets/img/madhav.jpg", "assets/img/madhav-square.jpg", "assets/img/madhav.webp", "assets/img/madhav-square.webp"):
         if (ROOT / extra).exists():
             imgs.append(extra)
-    core = ["./"] + pre + assets + ["manifest.json", "favicon.svg"] + imgs + ["data/search.json"]
+    core = ["./"] + [p for p in pre if p != "index.html"] + assets + ["manifest.json", "favicon.svg"] + imgs + ["data/search.json"]
     h = hashlib.sha256()
     for f in sorted(set(ps + [a.split("?")[0] for a in assets] + ["manifest.json", "data/search.json"])):
         fp = ROOT / f
@@ -478,7 +507,7 @@ def not_found():
       <h1 id="nf-title">This page went missing.</h1>
       <p class="lead muted" data-i18n="nf.lead">The link may be old or mistyped, but everything else is one click away.</p>
       <div class="nf-actions">
-        <a class="btn btn-primary" href="index.html">Go to home</a>
+        <a class="btn btn-primary" href="/">Go to home</a>
         <a class="btn" href="explore.html">Open mission control</a>
         <button class="btn" type="button" id="nf-search">Search the site <span class="mono small" aria-hidden="true">Ctrl+K</span></button>
       </div>
@@ -488,7 +517,7 @@ def not_found():
         <li><a href="explore.html">Explore all pages</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="index.html#cheatsheets">Cheat sheets</a></li>
+        <li><a href="/#cheatsheets">Cheat sheets</a></li>
         <li><a href="ctf.html">CTF Arena</a></li>
         <li><a href="prompts.html">Prompts</a></li>
         <li><a href="cyberlaw.html">Cyber Law</a></li>

@@ -310,7 +310,7 @@ def hub():
 {chr(10).join(out)}
         </div>
         <p class="small muted mt-12"><span data-i18n="lh.note">Your progress is saved only in this browser (local storage). No account, no cookies.</span> <button type="button" class="lx-wbtn" id="lh-reset" data-i18n="lh.reset">Reset progress</button></p>
-        <p class="small muted">Prefer a one page overview? See the <a href="index.html#roadmap">roadmap</a>, practise in the <a href="terminal.html">terminal wargame</a> and the <a href="ctf.html">CTF arena</a>, and keep the <a href="commands.html">command library</a> open while you work.</p>
+        <p class="small muted">Prefer a one page overview? See the <a href="/#roadmap">roadmap</a>, practise in the <a href="terminal.html">terminal wargame</a> and the <a href="ctf.html">CTF arena</a>, and keep the <a href="commands.html">command library</a> open while you work.</p>
       </div>
     </section>
 '''
@@ -335,7 +335,7 @@ NAV_LINK = '<a href="learn.html" class="nav-learn"><span data-i18n="nav.learn">L
 def add_nav(h, active=False):
     h = re.sub(r'\s*<a href="learn\.html" class="nav-learn[^"]*"(?: aria-current="page")?><span data-i18n="nav\.learn">Learn</span></a>', "", h)
     link = NAV_LINK.replace('class="nav-learn"', 'class="nav-learn active" aria-current="page"') if active else NAV_LINK
-    m = re.search(r'(\n(\s*)<a href="index\.html" class="nav-home[^"]*"[^>]*>.*?</a>)', h)
+    m = re.search(r'(\n(\s*)<a href="(?:index\.html|/)" class="nav-home[^"]*"[^>]*>.*?</a>)', h)
     if not m: return h
     return h[:m.end()] + "\n" + m.group(2) + link + h[m.end():]
 

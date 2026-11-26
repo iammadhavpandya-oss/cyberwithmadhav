@@ -3,7 +3,7 @@
   "short_name": "CyberWithMadhav",
   "description": "Cybersecurity in plain English and Hinglish: roadmap, cheat sheets, CTF practice, prompts, cyber law and scam alerts for India.",
   "lang": "en-IN",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#0D0B14",

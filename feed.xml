@@ -6,363 +6,363 @@
     <atom:link href="https://www.cyberwithmadhav.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Cybersecurity in plain English and Hinglish: roadmap, cheat sheets, CTF practice, prompts, cyber law and scam alerts for India.</description>
     <language>en-in</language>
-    <lastBuildDate>Tue, 24 Nov 2026 00:00:02 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0530</lastBuildDate>
     <item>
       <title>CyberWithMadhav: Cybersecurity in Hinglish by Madhav Pandya</title>
       <link>https://www.cyberwithmadhav.com/</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Learn cybersecurity in plain English and Hinglish with Madhav Pandya. Free roadmap, CTF practice, cheat sheets, Indian cyber law and scam alerts.</description>
-    </item>
-    <item>
-      <title>Mission Control: every CyberWithMadhav page in one place</title>
-      <link>https://www.cyberwithmadhav.com/explore.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/explore.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>One hub for everything on CyberWithMadhav: cyber law, commands, roadmap, CTF, terminal wargame, browser tools, scams, AI prompts, terms and privacy.</description>
-    </item>
-    <item>
-      <title>Command Reference: 60 blue team commands with safety notes</title>
-      <link>https://www.cyberwithmadhav.com/commands.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/commands.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>60 defensive commands for Linux, Windows, Cisco IOS and cross platform triage, with examples, typical output, blue team use, safety notes and official docs.</description>
-    </item>
-    <item>
-      <title>Scam Encyclopedia India: 25 frauds decoded</title>
-      <link>https://www.cyberwithmadhav.com/scams.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/scams.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Digital arrest, UPI collect, KYC SMS, APK wedding cards and 21 more Indian scams: how each works, red flags, what to do and the law.</description>
-    </item>
-    <item>
-      <title>Scam ya Nahi? Spot the scam in 30 messages</title>
-      <link>https://www.cyberwithmadhav.com/game.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/game.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>30 made up SMS, WhatsApp, call and email examples from Indian scams and real alerts. Tap Scam or Safe, see the red flags in Hinglish, and when to call 1930.</description>
-    </item>
-    <item>
-      <title>Email and Link Security Lab: DNS posture, header forensics, URL forensics</title>
-      <link>https://www.cyberwithmadhav.com/security-lab.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/security-lab.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Free analyst tools that run in your browser: grade a domain&#x27;s SPF, DKIM, DMARC and DNSSEC, analyse email headers for spoofing, and dissect phishing links.</description>
-    </item>
-    <item>
-      <title>DNS and Email Security Checker: grade SPF, DKIM, DMARC and DNSSEC</title>
-      <link>https://www.cyberwithmadhav.com/dns-security-checker.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/dns-security-checker.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Free A to F grade for any domain&#x27;s email and DNS security: SPF lookups, DMARC policy, DKIM, DNSSEC, CAA, MTA-STS and TLS-RPT, with exact fixes.</description>
-    </item>
-    <item>
-      <title>Email Header Forensics: who really sent that email?</title>
-      <link>https://www.cyberwithmadhav.com/email-header-analyzer.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/email-header-analyzer.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Paste raw email headers to see SPF, DKIM and DMARC results, the hop by hop route, Reply-To tricks and Indian bank or government impersonation. Runs offline.</description>
-    </item>
-    <item>
-      <title>Phishing URL Forensics: dissect a link without opening it</title>
-      <link>https://www.cyberwithmadhav.com/url-forensics.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/url-forensics.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Dissect a suspicious link without opening it: punycode and lookalike domains, fake bank and gov.in names, redirect wrappers, @ tricks, IP hosts and APK files.</description>
-    </item>
-    <item>
-      <title>Terminal Wargame: Learn Linux by Hacking Your Way Up</title>
-      <link>https://www.cyberwithmadhav.com/terminal.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/terminal.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Learn Linux in your browser: 20 levels of ls, find, grep, chmod, pipes and base64 in a safe simulated shell. Find each password to unlock the next level.</description>
-    </item>
-    <item>
-      <title>CTF Arena: Capture the Flag, Learn the Concept</title>
-      <link>https://www.cyberwithmadhav.com/ctf.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/ctf.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Free browser CTF practice: 7 tracks from Networking and Linux to Cloud, Pentesting and Blue Team, 3 levels each, with flags, hints and quizzes.</description>
-    </item>
-    <item>
-      <title>CyberPrompts: Defensive AI Prompt Sheets for India</title>
-      <link>https://www.cyberwithmadhav.com/prompts.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/prompts.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>90 free defensive AI prompts in 19 categories, including Defensive Analysis, SOC, victim help, compliance and cyber law, plus 12 scenario cards. India focused.</description>
-    </item>
-    <item>
-      <title>Cyber Law India: FAQs, Glossary, Cases and Timeline</title>
-      <link>https://www.cyberwithmadhav.com/cyberlaw.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyberlaw.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Indian cyber law in plain English and Hinglish: 15 FAQs, 40 term glossary, 12 landmark cases and a timeline from the IT Act 2000. Not legal advice.</description>
-    </item>
-    <item>
-      <title>CyberWithMadhav Blog: scams, cyber law and cybersecurity in Hinglish</title>
-      <link>https://www.cyberwithmadhav.com/blog.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/blog.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Scam alerts, Indian cyber law explained and beginner cybersecurity guides in plain English and Hinglish, by Madhav Pandya.</description>
-    </item>
-    <item>
-      <title>FAQ: Scams, Safety and Cyber Careers in India</title>
-      <link>https://www.cyberwithmadhav.com/faq.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/faq.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Plain answers on UPI fraud, 1930, passwords, cybersecurity careers and Indian cyber law. Each answer links to a full guide on CyberWithMadhav.</description>
-    </item>
-    <item>
-      <title>Start here: pick your cybersecurity path</title>
-      <link>https://www.cyberwithmadhav.com/start-here.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/start-here.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>New to CyberWithMadhav? Three paths: stay safe from scams, learn cybersecurity from zero with the 15 part Beginner Journey, or understand cyber law in India.</description>
-    </item>
-    <item>
-      <title>Free cybersecurity toolkit for beginners</title>
-      <link>https://www.cyberwithmadhav.com/uses.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/uses.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Free tools to learn cybersecurity: VirtualBox, Linux, Nmap, Wireshark, Burp Suite, DevTools, password managers and Sanchar Saathi, each with a guide.</description>
-    </item>
-    <item>
-      <title>Collaborate with CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/collaborate.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/collaborate.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Invite Madhav Pandya for cyber awareness sessions, interviews or collaborations. Topics, a short bio, brand colours, photo and contact details.</description>
-    </item>
-    <item>
-      <title>Cyber Security Awareness Session Mumbai | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/cybersecurity-awareness-sessions.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cybersecurity-awareness-sessions.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Book a cyber security awareness session or workshop for colleges, schools, clubs and corporates. Online across India, offline in Mumbai. By Madhav Pandya.</description>
-    </item>
-    <item>
-      <title>Cyber Security Workshop for Colleges | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/cyber-security-workshop-for-colleges.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyber-security-workshop-for-colleges.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Book a cyber security workshop or guest lecture for college students. UPI fraud, fake jobs and campus Wi-Fi. Online across India, offline in Mumbai.</description>
-    </item>
-    <item>
-      <title>Cyber Safety Seminar for Schools | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/cyber-awareness-session-for-schools.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyber-awareness-session-for-schools.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Book a cyber safety seminar for school students in India. Age-appropriate sessions with a teacher present. Online across India, in person in Mumbai.</description>
-    </item>
-    <item>
-      <title>Cyber Awareness Speaker in Mumbai | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/cyber-awareness-speaker-mumbai.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyber-awareness-speaker-mumbai.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Invite Madhav Pandya, a cyber awareness speaker in Mumbai, for clubs, corporates and institutes. Offline in Mumbai, online across India.</description>
-    </item>
-    <item>
-      <title>Shop: two PDF guides for families and beginners</title>
-      <link>https://www.cyberwithmadhav.com/shop.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/shop.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Two PDF guides by Madhav Pandya: the Scam-Proof Family Kit and the Nmap Field Guide. Download a free preview, then buy by email for ₹99 each.</description>
-    </item>
-    <item>
-      <title>What I am doing now | Madhav Pandya</title>
-      <link>https://www.cyberwithmadhav.com/now.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/now.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>What Madhav Pandya is working on right now: studying law and cloud security, writing cybersecurity guides, a book coming soon, and free practice tools.</description>
-    </item>
-    <item>
-      <title>Madhav Pandya | Cybersecurity Educator, Mumbai, India</title>
-      <link>https://www.cyberwithmadhav.com/about.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/about.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Madhav Pandya is a cybersecurity educator in Mumbai and founder of CyberWithMadhav. Scams, cyber law and online safety in plain English and Hinglish.</description>
-    </item>
-    <item>
-      <title>Terms and Conditions | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/terms.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/terms.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>CyberWithMadhav terms: educational use only, authorised use under the IT Act and BNS, CTF fair play, AI prompt safety, PDF licences, liability and Indian law.</description>
-    </item>
-    <item>
-      <title>Privacy Policy | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/privacy.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/privacy.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Privacy Policy for CyberWithMadhav: no cookies, no ads, and a cookieless visitor counter. What the site keeps in your browser and which services it relies on.</description>
-    </item>
-    <item>
-      <title>Verify a Session Certificate | CyberWithMadhav</title>
-      <link>https://www.cyberwithmadhav.com/verify.html</link>
-      <guid isPermaLink="true">https://www.cyberwithmadhav.com/verify.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:02 +0530</pubDate>
-      <description>Check a CyberWithMadhav participation certificate ID. This page confirms whether an ID was issued for a cyber awareness session. It is not a professional licence.</description>
     </item>
     <item>
       <title>Learn cybersecurity from zero: free lessons with labs</title>
       <link>https://www.cyberwithmadhav.com/learn.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free cybersecurity lessons from zero: how computers and operating systems work, Windows, networking, Linux with hands-on labs, then a CCNA track with Packet Tracer labs.</description>
     </item>
     <item>
       <title>How a Computer Works | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-how-computers-work.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-how-computers-work.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free lesson: how the CPU, RAM, storage, binary, hex and the BIOS/UEFI boot process work, and how attackers abuse each one. With quiz, flashcards and a VM lab.</description>
     </item>
     <item>
       <title>Operating System Fundamentals | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-operating-system-fundamentals.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-operating-system-fundamentals.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free lesson on how operating systems work: kernel and user mode, system calls, processes, virtual memory, ASLR, file systems, users and privilege escalation.</description>
     </item>
     <item>
       <title>Windows Essentials for Security | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-windows-for-security.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-windows-for-security.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free Windows security lesson: normal processes, risky folders, registry Run keys, SIDs, tokens and UAC, services, Event IDs 4624 4625 4720 1102 7045, cmd and PowerShell.</description>
     </item>
     <item>
       <title>Networking Basics: IP, Ports, DNS and HTTP | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-networking-basics.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-networking-basics.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free networking primer for security beginners: MAC vs IP, TCP/IP layers, subnets and private ranges, TCP and UDP ports, the 3 way handshake, DNS records, HTTP and HTTPS.</description>
     </item>
     <item>
       <title>Linux Fundamentals: Theory | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-linux-fundamentals.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-linux-fundamentals.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free Linux theory lesson for security: distros, the file hierarchy, bash pipes and redirection, users, chmod and SUID, packages, systemd, cron and logs, with a browser sandbox.</description>
     </item>
     <item>
       <title>Linux Hands-On Lab | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-linux-hands-on-lab.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-linux-hands-on-lab.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free Linux lab: practise in a browser shell, build a VirtualBox Ubuntu VM, run 8 command drills, investigate an SSH brute force in auth.log and harden SSH and ufw.</description>
     </item>
     <item>
       <title>Bash Scripting for Security | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-bash-scripting-for-security.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-bash-scripting-for-security.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free bash scripting lesson for security: variables, quoting, exit codes, if, for, while read, functions, a failed login counter, backups with checksums, cron and auditing scripts.</description>
     </item>
     <item>
       <title>Linux Logging, Auditing and Hardening | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-linux-logging-auditing-hardening.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-linux-logging-auditing-hardening.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free lesson: read Linux logs with journalctl and auth.log, record file changes with auditd, hunt cron, systemd and SSH key persistence on a hacked server, then harden with CIS checks.</description>
     </item>
     <item>
       <title>Network Building Blocks: OSI, TCP/IP, Devices, Cabling, Interfaces | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-network-building-blocks.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-network-building-blocks.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA 200-301 lesson: OSI and TCP/IP layers, encapsulation, routers, switches, APs, WLCs and firewalls, copper and fibre, duplex, TCP vs UDP, ports, and show interfaces, with a Packet Tracer lab.</description>
     </item>
     <item>
       <title>IP Addressing: IPv4 Subnetting, VLSM, Private Ranges, IPv6 Basics | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-ip-addressing-subnetting.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-ip-addressing-subnetting.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson: IPv4 masks, prefixes and the block size subnetting method, VLSM design, RFC 1918 and special ranges, IPv6 shortening, types and EUI-64, with a subnet calculator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Switching Fundamentals and Secure Device Access | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-switching-secure-access.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-switching-secure-access.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson: how switches learn, forward and flood, management SVIs, Cisco password types (and why type 7 is not encryption), SSH version 2 only, CDP and LLDP, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>VLANs and Trunks: 802.1Q, Native VLAN, DTP, Voice VLAN | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-vlans-trunks.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-vlans-trunks.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson: create VLANs, access and voice ports, 802.1Q trunks with a safe native VLAN and allowed list, the DTP result table, and switch spoofing and double tagging defences, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Redundant Switch Links: STP, Rapid PVST+, PortFast, BPDU Guard, EtherChannel | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-stp-etherchannel.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-stp-etherchannel.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson: why loops melt networks, how STP elects a root and picks ports, Rapid PVST+, PortFast, BPDU Guard, Root Guard, Loop Guard and LACP EtherChannel, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Inter-VLAN Routing and First Hop Redundancy: Router on a Stick, SVIs, HSRP | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-inter-vlan-routing-hsrp.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-inter-vlan-routing-hsrp.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson: route between VLANs with router on a stick or Layer 3 switch SVIs, add routed ports, and keep the default gateway alive with HSRP (versions, priority, preempt, attacks), with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>The Routing Table and Static Routing (IPv4 and IPv6) | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-static-routing.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-static-routing.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson: read a routing table, see why longest prefix match beats administrative distance, and configure IPv4 and IPv6 network, default, host and floating static routes, with a route game, IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Single Area OSPFv2: Neighbours, DR/BDR, Cost and Troubleshooting | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-ospf.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-ospf.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson on single area OSPFv2: link state basics, neighbour states and must-match rules, router ID, DR and BDR election, point to point links, cost and reference bandwidth, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Access Control Lists: Standard, Extended, Named and VTY Protection | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-access-control-lists.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-access-control-lists.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson on IPv4 access control lists: first match and the implicit deny, wildcard masks, standard and extended syntax, placement, named ACL sequence numbers and VTY access-class, with an ACL rule tester, IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>DHCP, DNS and NAT/PAT: Addresses, Names and the Internet Edge | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-dhcp-dns-nat.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-dhcp-dns-nat.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson: how DHCP&#x27;s DORA exchange works, DHCP relay with ip helper-address, DNS records and ports, NAT address terms, static NAT, dynamic NAT and PAT overload, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Network Operations: NTP, Syslog, SNMP, QoS and Config Backups | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-network-operations.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-network-operations.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson on network operations: NTP and stratum, syslog severity levels, SNMP polling, traps and SNMPv3, QoS classification, queuing, policing and shaping, and TFTP, FTP and SCP backups, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Layer 2 Security and AAA: Port Security, DHCP Snooping, DAI, TACACS+ and RADIUS | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-layer2-security-aaa.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-layer2-security-aaa.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson on access layer security: threats and mitigations, port security violation modes, DHCP snooping, Dynamic ARP Inspection, AAA with TACACS+ and RADIUS, and IPsec VPN concepts, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Wireless LANs: RF Basics, WLC and Lightweight APs, WPA2 and WPA3 | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-wireless-lans.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-wireless-lans.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson on wireless LANs: 2.4, 5 and 6 GHz, non-overlapping channels, autonomous, lightweight and cloud APs, AP modes, CAPWAP, switch ports for APs and WLCs, building a WPA2 PSK WLAN in the WLC GUI, and WPA3, with an IOS simulator and Packet Tracer lab.</description>
     </item>
     <item>
       <title>Network Automation and Programmability: Controllers, REST, JSON, Ansible and AI | Free lesson</title>
       <link>https://www.cyberwithmadhav.com/learn-ccna-network-automation.html</link>
       <guid isPermaLink="true">https://www.cyberwithmadhav.com/learn-ccna-network-automation.html</guid>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0530</pubDate>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
       <description>Free CCNA lesson on automation and programmability: data, control and management planes, controller based networking and SDN, REST verbs, status codes and authentication, reading JSON, Ansible, Terraform and AI in network operations, with a JSON reader and Packet Tracer controller lab.</description>
+    </item>
+    <item>
+      <title>Mission Control: every CyberWithMadhav page in one place</title>
+      <link>https://www.cyberwithmadhav.com/explore.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/explore.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>One hub for everything on CyberWithMadhav: cyber law, commands, roadmap, CTF, terminal wargame, browser tools, scams, AI prompts, terms and privacy.</description>
+    </item>
+    <item>
+      <title>Command Reference: 60 blue team commands with safety notes</title>
+      <link>https://www.cyberwithmadhav.com/commands.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/commands.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>60 defensive commands for Linux, Windows, Cisco IOS and cross platform triage, with examples, typical output, blue team use, safety notes and official docs.</description>
+    </item>
+    <item>
+      <title>Scam Encyclopedia India: 25 frauds decoded</title>
+      <link>https://www.cyberwithmadhav.com/scams.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/scams.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Digital arrest, UPI collect, KYC SMS, APK wedding cards and 21 more Indian scams: how each works, red flags, what to do and the law.</description>
+    </item>
+    <item>
+      <title>Scam ya Nahi? Spot the scam in 30 messages</title>
+      <link>https://www.cyberwithmadhav.com/game.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/game.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>30 made up SMS, WhatsApp, call and email examples from Indian scams and real alerts. Tap Scam or Safe, see the red flags in Hinglish, and when to call 1930.</description>
+    </item>
+    <item>
+      <title>Email and Link Security Lab: DNS posture, header forensics, URL forensics</title>
+      <link>https://www.cyberwithmadhav.com/security-lab.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/security-lab.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free analyst tools that run in your browser: grade a domain&#x27;s SPF, DKIM, DMARC and DNSSEC, analyse email headers for spoofing, and dissect phishing links.</description>
+    </item>
+    <item>
+      <title>DNS and Email Security Checker: grade SPF, DKIM, DMARC and DNSSEC</title>
+      <link>https://www.cyberwithmadhav.com/dns-security-checker.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/dns-security-checker.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free A to F grade for any domain&#x27;s email and DNS security: SPF lookups, DMARC policy, DKIM, DNSSEC, CAA, MTA-STS and TLS-RPT, with exact fixes.</description>
+    </item>
+    <item>
+      <title>Email Header Forensics: who really sent that email?</title>
+      <link>https://www.cyberwithmadhav.com/email-header-analyzer.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/email-header-analyzer.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Paste raw email headers to see SPF, DKIM and DMARC results, the hop by hop route, Reply-To tricks and Indian bank or government impersonation. Runs offline.</description>
+    </item>
+    <item>
+      <title>Phishing URL Forensics: dissect a link without opening it</title>
+      <link>https://www.cyberwithmadhav.com/url-forensics.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/url-forensics.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Dissect a suspicious link without opening it: punycode and lookalike domains, fake bank and gov.in names, redirect wrappers, @ tricks, IP hosts and APK files.</description>
+    </item>
+    <item>
+      <title>Terminal Wargame: Learn Linux by Hacking Your Way Up</title>
+      <link>https://www.cyberwithmadhav.com/terminal.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/terminal.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Learn Linux in your browser: 20 levels of ls, find, grep, chmod, pipes and base64 in a safe simulated shell. Find each password to unlock the next level.</description>
+    </item>
+    <item>
+      <title>CTF Arena: Capture the Flag, Learn the Concept</title>
+      <link>https://www.cyberwithmadhav.com/ctf.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/ctf.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free browser CTF practice: 7 tracks from Networking and Linux to Cloud, Pentesting and Blue Team, 3 levels each, with flags, hints and quizzes.</description>
+    </item>
+    <item>
+      <title>CyberPrompts: Defensive AI Prompt Sheets for India</title>
+      <link>https://www.cyberwithmadhav.com/prompts.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/prompts.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>90 free defensive AI prompts in 19 categories, including Defensive Analysis, SOC, victim help, compliance and cyber law, plus 12 scenario cards. India focused.</description>
+    </item>
+    <item>
+      <title>Cyber Law India: FAQs, Glossary, Cases and Timeline</title>
+      <link>https://www.cyberwithmadhav.com/cyberlaw.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyberlaw.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Indian cyber law in plain English and Hinglish: 15 FAQs, 40 term glossary, 12 landmark cases and a timeline from the IT Act 2000. Not legal advice.</description>
+    </item>
+    <item>
+      <title>CyberWithMadhav Blog: scams, cyber law and cybersecurity in Hinglish</title>
+      <link>https://www.cyberwithmadhav.com/blog.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/blog.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Scam alerts, Indian cyber law explained and beginner cybersecurity guides in plain English and Hinglish, by Madhav Pandya.</description>
+    </item>
+    <item>
+      <title>FAQ: Scams, Safety and Cyber Careers in India</title>
+      <link>https://www.cyberwithmadhav.com/faq.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/faq.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Plain answers on UPI fraud, 1930, passwords, cybersecurity careers and Indian cyber law. Each answer links to a full guide on CyberWithMadhav.</description>
+    </item>
+    <item>
+      <title>Start here: pick your cybersecurity path</title>
+      <link>https://www.cyberwithmadhav.com/start-here.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/start-here.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>New to CyberWithMadhav? Three paths: stay safe from scams, learn cybersecurity from zero with the 15 part Beginner Journey, or understand cyber law in India.</description>
+    </item>
+    <item>
+      <title>Free cybersecurity toolkit for beginners</title>
+      <link>https://www.cyberwithmadhav.com/uses.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/uses.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Free tools to learn cybersecurity: VirtualBox, Linux, Nmap, Wireshark, Burp Suite, DevTools, password managers and Sanchar Saathi, each with a guide.</description>
+    </item>
+    <item>
+      <title>Collaborate with CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/collaborate.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/collaborate.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Invite Madhav Pandya for cyber awareness sessions, interviews or collaborations. Topics, a short bio, brand colours, photo and contact details.</description>
+    </item>
+    <item>
+      <title>Cyber Security Awareness Session Mumbai | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/cybersecurity-awareness-sessions.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cybersecurity-awareness-sessions.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Book a cyber security awareness session or workshop for colleges, schools, clubs and corporates. Online across India, offline in Mumbai. By Madhav Pandya.</description>
+    </item>
+    <item>
+      <title>Cyber Security Workshop for Colleges | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/cyber-security-workshop-for-colleges.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyber-security-workshop-for-colleges.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Book a cyber security workshop or guest lecture for college students. UPI fraud, fake jobs and campus Wi-Fi. Online across India, offline in Mumbai.</description>
+    </item>
+    <item>
+      <title>Cyber Safety Seminar for Schools | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/cyber-awareness-session-for-schools.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyber-awareness-session-for-schools.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Book a cyber safety seminar for school students in India. Age-appropriate sessions with a teacher present. Online across India, in person in Mumbai.</description>
+    </item>
+    <item>
+      <title>Cyber Awareness Speaker in Mumbai | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/cyber-awareness-speaker-mumbai.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/cyber-awareness-speaker-mumbai.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Invite Madhav Pandya, a cyber awareness speaker in Mumbai, for clubs, corporates and institutes. Offline in Mumbai, online across India.</description>
+    </item>
+    <item>
+      <title>Shop: two PDF guides for families and beginners</title>
+      <link>https://www.cyberwithmadhav.com/shop.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/shop.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Two PDF guides by Madhav Pandya: the Scam-Proof Family Kit and the Nmap Field Guide. Download a free preview, then buy by email for ₹99 each.</description>
+    </item>
+    <item>
+      <title>What I am doing now | Madhav Pandya</title>
+      <link>https://www.cyberwithmadhav.com/now.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/now.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>What Madhav Pandya is working on right now: studying law and cloud security, writing cybersecurity guides, a book coming soon, and free practice tools.</description>
+    </item>
+    <item>
+      <title>Madhav Pandya | Cybersecurity Educator, Mumbai, India</title>
+      <link>https://www.cyberwithmadhav.com/about.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/about.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Madhav Pandya is a cybersecurity educator in Mumbai and founder of CyberWithMadhav. Scams, cyber law and online safety in plain English and Hinglish.</description>
+    </item>
+    <item>
+      <title>Terms and Conditions | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/terms.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/terms.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>CyberWithMadhav terms: educational use only, authorised use under the IT Act and BNS, CTF fair play, AI prompt safety, PDF licences, liability and Indian law.</description>
+    </item>
+    <item>
+      <title>Privacy Policy | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/privacy.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/privacy.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Privacy Policy for CyberWithMadhav: no cookies, no ads, and a cookieless visitor counter. What the site keeps in your browser and which services it relies on.</description>
+    </item>
+    <item>
+      <title>Verify a Session Certificate | CyberWithMadhav</title>
+      <link>https://www.cyberwithmadhav.com/verify.html</link>
+      <guid isPermaLink="true">https://www.cyberwithmadhav.com/verify.html</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0530</pubDate>
+      <description>Check a CyberWithMadhav participation certificate ID. This page confirms whether an ID was issued for a cyber awareness session. It is not a professional licence.</description>
     </item>
     <item>
       <title>Fake QR Codes at Shops and Petrol Pumps</title>
