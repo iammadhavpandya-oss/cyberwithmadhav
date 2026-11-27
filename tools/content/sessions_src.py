@@ -551,9 +551,9 @@ def sessions_ld(desc):
 
 SPEC = {
     "file": FILE,
-    "title": "Cyber Security Awareness Session Mumbai | CyberWithMadhav",
-    "desc": "Book a cyber security awareness session or workshop for colleges, schools, clubs and corporates. Online across India, offline in Mumbai. By Madhav Pandya.",
-    "og": "Cyber Security Awareness Session Mumbai | CyberWithMadhav",
+    "title": "Cyber Security Awareness Session Mumbai | Madhav Pandya",
+    "desc": "Book a cyber security awareness session for colleges, schools, clubs and companies. Online across India, in person in Mumbai, with Madhav Pandya of CyberWithMadhav.",
+    "og": "Cyber Security Awareness Session Mumbai | Madhav Pandya",
     "ogdesc": "Book a cyber security awareness session or workshop for colleges, schools, clubs and corporates. Online across India, offline in Mumbai.",
     "keywords": "",
     "body": "xp-page sess-page",

@@ -398,3 +398,4 @@ html:has(.law-toc){scroll-padding-top:122px}
   .about-page .ab-book{gap:18px}
   .about-page .ab-links a{flex-direction:column;gap:2px}
 }
+.about-page .ab-role{font-size:.52em;font-weight:600;color:var(--green);line-height:1.3}

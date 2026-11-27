@@ -324,8 +324,8 @@ def hub():
        "hasPart": [{"@type": "LearningResource", "name": BY_SLUG[s]["title"], "url": BASE + s + ".html"} for s in ORDER]},
       {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": BASE}, {"@type": "ListItem", "position": 2, "name": "Learn", "item": url}]}]}
     write_dict("learn-hub.js", d, "learn.html")
-    shell("learn.html", "Learn Cybersecurity Free: Step by Step Path with Labs | CyberWithMadhav",
-          "Free cybersecurity lessons from zero: how computers and operating systems work, Windows, networking, Linux with hands-on labs, then a CCNA track with Packet Tracer labs.",
+    shell("learn.html", "Learn Cybersecurity Free with Madhav Pandya | CyberWithMadhav",
+          "Free cybersecurity lessons by Madhav Pandya, from zero: how computers work, Windows, networking, Linux with hands-on labs, then a CCNA track with Packet Tracer labs.",
           "Learn cybersecurity from zero: free lessons with labs", "Computer and OS fundamentals, Windows, networking, Linux with labs, and a CCNA track with Cisco Packet Tracer labs.",
           "learn cybersecurity free, cybersecurity course for beginners india, linux lab, ccna packet tracer labs, windows security basics, networking basics",
           schema, main, "", ["learn.js"], "learn-hub.js")

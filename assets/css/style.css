@@ -867,3 +867,5 @@ html[data-lang="hi"] [data-lang-only="en"]{display:none}
 .rm-soon{font:500 .68rem var(--mono);padding:2px 8px;border-radius:999px;border:1px dashed color-mix(in srgb,var(--amber) 60%,transparent);color:var(--amber);white-space:nowrap;margin-left:6px;vertical-align:middle}
 .rm-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 18px;padding:14px 18px;border-radius:14px;border:1px solid color-mix(in srgb,var(--green) 40%,var(--glass-border));background:linear-gradient(120deg,color-mix(in srgb,var(--green) 10%,transparent),transparent 70%),var(--glass)}
 .rm-cta p{margin:0;flex:1 1 300px}
+.foot-creator{margin:0 0 12px}
+.foot-creator a{color:inherit;text-decoration:underline;text-underline-offset:3px}

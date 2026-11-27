@@ -34,8 +34,8 @@ PAGES = ["index.html", "learn.html", "explore.html", "commands.html", "scams.htm
          "cybersecurity-awareness-sessions.html",
          "cyber-security-workshop-for-colleges.html", "cyber-awareness-session-for-schools.html",
          "cyber-awareness-speaker-mumbai.html", "shop.html", "now.html",
-         "about.html", "terms.html", "privacy.html", "verify.html"]
-PRIORITY = {"index.html": "1.0", "faq.html": "0.9", "start-here.html": "0.9", "cybersecurity-awareness-sessions.html": "0.9",
+         "about.html", "cybersecurity-content-creator-india.html", "terms.html", "privacy.html", "verify.html"]
+PRIORITY = {"index.html": "1.0", "about.html": "0.8", "cybersecurity-content-creator-india.html": "0.8", "faq.html": "0.9", "start-here.html": "0.9", "cybersecurity-awareness-sessions.html": "0.9",
             "cyber-security-workshop-for-colleges.html": "0.8", "cyber-awareness-session-for-schools.html": "0.8",
             "cyber-awareness-speaker-mumbai.html": "0.8", "learn.html": "0.9", "now.html": "0.5", "verify.html": "0.4", "terms.html": "0.3", "privacy.html": "0.3"}
 SESSION_LANDINGS = {
@@ -48,6 +48,7 @@ OG_ALT_BY_PAGE = {
     "cyber-security-workshop-for-colleges.html": "CyberWithMadhav: cyber security workshop and guest lecture for college students in India and Mumbai.",
     "cyber-awareness-session-for-schools.html": "CyberWithMadhav: cyber safety seminar for school students in India, online or in person in Mumbai.",
     "cyber-awareness-speaker-mumbai.html": "Madhav Pandya, cyber awareness speaker in Mumbai, for clubs, corporates and institutes.",
+    "cybersecurity-content-creator-india.html": "Madhav Pandya, cybersecurity content creator in India, based in Mumbai.",
 }
 
 
@@ -195,6 +196,79 @@ def patch_footer(s):
     return s[:m.start()] + f + s[m.end():]
 
 
+# ---------- identity: one Person and Organization graph on every page, creator byline and footer line ----------
+
+CREATOR_PAGE = "cybersecurity-content-creator-india.html"
+JOB_TITLE = "Cybersecurity Content Creator and Awareness Educator"
+PERSON_ID, ORG_ID = BASE + "#person", BASE + "#org"
+SAME_AS_PERSON = ["https://www.instagram.com/cyberwithmadhav/", "https://www.youtube.com/@cyberwithmadhav",
+                  "https://www.linkedin.com/in/pandyamadhav/", "https://github.com/iammadhavpandya-oss"]
+CREDS = [("Introduction to Cybersecurity", "certification", "Cisco"),
+         ("Cybersecurity and penetration testing professional certification", "certification", None),
+         ("Oracle Cloud Infrastructure AI Associate", "certification", "Oracle"),
+         ("Oracle Virtualization", "certification", None),
+         ("Agile Project Management", "certification", "HP LIFE"),
+         ("Prompt Engineering", "certification", "Infosys Springboard"),
+         ("Diploma in Cloud Computing", "diploma", None)]
+KNOWS_ABOUT = ["Cybersecurity", "Cybersecurity awareness", "Scam awareness", "Online safety", "Cyber law in India",
+               "Information Technology Act 2000", "Digital Personal Data Protection Act 2023", "CERT-In", "OSINT",
+               "Cloud computing", "Prompt engineering", "Home lab security", "CTF practice for beginners"]
+
+
+def identity_graph(p):
+    person = {"@type": "Person", "@id": PERSON_ID, "name": "Madhav Pandya", "alternateName": "CyberWithMadhav",
+              "url": BASE + "about.html", "mainEntityOfPage": BASE + "about.html", "jobTitle": JOB_TITLE,
+              "description": "Madhav Pandya is a cybersecurity content creator in India, based in Mumbai, and the founder of CyberWithMadhav. He creates scam awareness, cyber law and online safety content in plain English and Hinglish on Instagram, YouTube and cyberwithmadhav.com, and runs cyber awareness sessions for colleges.",
+              "email": "mailto:contact@cyberwithmadhav.com",
+              "image": {"@type": "ImageObject", "url": BASE + "assets/img/madhav.jpg", "width": 600, "height": 800},
+              "address": {"@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN"},
+              "nationality": {"@type": "Country", "name": "India"},
+              "knowsLanguage": ["English", "Hindi"],
+              "affiliation": {"@type": "CollegeOrUniversity", "name": "KES Shri J.P. Law College"},
+              "knowsAbout": KNOWS_ABOUT, "sameAs": SAME_AS_PERSON,
+              "hasCredential": [dict({"@type": "EducationalOccupationalCredential", "name": n, "credentialCategory": c},
+                                     **({"recognizedBy": {"@type": "Organization", "name": r}} if r else {})) for n, c, r in CREDS]}
+    org = {"@type": "Organization", "@id": ORG_ID, "name": "CyberWithMadhav", "alternateName": "Cyber With Madhav", "url": BASE,
+           "description": "CyberWithMadhav is a cybersecurity awareness project by Madhav Pandya, a cybersecurity content creator in India: scam alerts, cyber law, free lessons and CTF practice in plain English and Hinglish.",
+           "logo": {"@type": "ImageObject", "url": BASE + "assets/img/apple-touch-icon.png"},
+           "founder": {"@id": PERSON_ID}, "email": "contact@cyberwithmadhav.com",
+           "address": {"@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN"},
+           "areaServed": {"@type": "Country", "name": "India"},
+           "sameAs": ["https://www.instagram.com/cyberwithmadhav/", "https://www.youtube.com/@cyberwithmadhav", "https://github.com/iammadhavpandya-oss"]}
+    graph = [person, org]
+    if p == "about.html":  # ProfilePage lives in the same block as the Person so parsers see the full entity
+        graph.insert(0, {"@type": "ProfilePage", "@id": BASE + "about.html#profilepage", "url": BASE + "about.html",
+                         "name": "Madhav Pandya | Cybersecurity Content Creator, Mumbai, India", "inLanguage": "en-IN",
+                         "description": "About Madhav Pandya, a cybersecurity content creator in India based in Mumbai, and founder of CyberWithMadhav.",
+                         "isPartOf": {"@id": BASE + "#website"}, "mainEntity": {"@id": PERSON_ID}})
+        person["mainEntityOfPage"] = {"@id": BASE + "about.html#profilepage"}
+    return {"@context": "https://schema.org", "@graph": graph}
+
+
+def patch_identity(s, p):
+    s = re.sub(r'\n[ \t]*<script type="application/ld\+json" id="cwm-identity">.*?</script>', "", s, flags=re.S)
+    s = s.replace(BASE + "about.html#person", PERSON_ID).replace("Cybersecurity Educator and Founder, CyberWithMadhav", JOB_TITLE)
+    block = '\n  <script type="application/ld+json" id="cwm-identity">\n  ' + json.dumps(identity_graph(p), ensure_ascii=False) + "\n  </script>"
+    return s.replace("\n</head>", block + "\n</head>", 1)
+
+
+BYLINE_OLD = '<span data-i18n="blog.by">By</span> <a href="about.html">Madhav Pandya</a>'
+BYLINE_NEW = ('<span data-i18n="blog.by">By</span> <a href="' + CREATOR_PAGE + '" data-i18n="blog.bycreator">'
+              'Madhav Pandya, cybersecurity content creator from Mumbai, India</a>')
+FOOT_CREATOR = ('<p class="small muted foot-creator" data-i18n="foot.creator">Madhav Pandya is a <a href="' + CREATOR_PAGE +
+                '">cybersecurity content creator in India</a>, based in Mumbai.</p>\n      ')
+
+
+def patch_creator_bits(s, p):
+    if p.startswith("blog-"):
+        s = s.replace(BYLINE_OLD, BYLINE_NEW)
+    m = re.search(r'<footer class="footer">.*?</footer>', s, re.S)
+    if m and "foot-creator" not in m.group(0) and '<div class="foot-row">' in m.group(0):
+        f = m.group(0).replace('<div class="foot-row">', FOOT_CREATOR + '<div class="foot-row">', 1)
+        s = s[:m.start()] + f + s[m.end():]
+    return s
+
+
 def patch_head(s):
     s = re.sub(r'<html lang="[^"]*"', '<html lang="en-IN"', s, count=1)
     s = re.sub(r'<script src="assets/js/i18n-dict\.js"></script>\s*<script src="assets/js/i18n\.js"></script>\s*', "", s)
@@ -208,12 +282,14 @@ def patch_page(p):
     s = patch_footer(s)
     s = rewrite_home_hrefs(s)
     s = patch_canonical(s, p)
+    s = patch_creator_bits(s, p)
+    s = patch_identity(s, p)
     # social image tags: drop old ones, then add one consistent block after og:locale (or og:url)
     s = re.sub(r'\n\s*<meta (?:property="og:image(?::[a-z]+)?"|name="twitter:image(?::alt)?") content="[^"]*">', "", s)
     title, desc = meta(s, "property", "og:title") or title_of(s), meta(s, "property", "og:description") or meta(s, "name", "description")
     post = next((b for b in blog_posts() if b["file"] == p), None)
     if p == "about.html":
-        og_img, og_w, og_h, og_alt = BASE + "assets/img/madhav-og.jpg", "1200", "630", "Madhav Pandya, cybersecurity educator from Mumbai"
+        og_img, og_w, og_h, og_alt = BASE + "assets/img/madhav-og.jpg", "1200", "630", "Madhav Pandya, cybersecurity content creator from Mumbai"
     elif post and (ROOT / f"assets/img/blog/{post['slug']}.jpg").exists():
         og_img, og_w, og_h, og_alt = BASE + f"assets/img/blog/{post['slug']}.jpg", "1200", "630", post["og_alt"]
     elif post and (ROOT / f"assets/img/blog/{post['slug']}.png").exists():
